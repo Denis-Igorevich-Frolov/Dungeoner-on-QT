@@ -17,6 +17,10 @@ public:
 
 private:
     Ui::PrimarySkillSignature *ui;
+
+protected:
+    virtual void mousePressEvent(QMouseEvent* event);
+    virtual void mouseReleaseEvent(QMouseEvent* event);
 };
 
 #endif // PRIMARYSKILLSIGNATURE_H

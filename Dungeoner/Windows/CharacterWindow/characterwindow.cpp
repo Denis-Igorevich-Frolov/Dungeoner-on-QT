@@ -6,6 +6,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     ui(new Ui::CharacterWindow)
 {
     ui->setupUi(this);
+    this->setWindowFlags(Qt::FramelessWindowHint);
 }
 
 CharacterWindow::~CharacterWindow()

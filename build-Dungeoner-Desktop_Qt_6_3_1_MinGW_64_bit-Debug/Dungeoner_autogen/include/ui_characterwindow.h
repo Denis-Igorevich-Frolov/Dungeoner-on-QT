@@ -32,7 +32,7 @@ public:
     {
         if (CharacterWindow->objectName().isEmpty())
             CharacterWindow->setObjectName(QString::fromUtf8("CharacterWindow"));
-        CharacterWindow->resize(1920, 1080);
+        CharacterWindow->resize(1037, 389);
         CharacterWindow->setStyleSheet(QString::fromUtf8("background-color: #130a0f;"));
         frame = new QFrame(CharacterWindow);
         frame->setObjectName(QString::fromUtf8("frame"));

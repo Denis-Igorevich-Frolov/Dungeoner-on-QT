@@ -12,7 +12,7 @@ Dungeoner::Dungeoner(QWidget *parent)
 
     this->close();
     characterWindow = new CharacterWindow();
-    characterWindow->showFullScreen();
+    characterWindow->show();
 
 //    int id = QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf");
 //    QString f = QFontDatabase::applicationFontFamilies(id).at(0);

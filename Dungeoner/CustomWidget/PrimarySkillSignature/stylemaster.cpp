@@ -74,8 +74,9 @@ QString StyleMaster::LeftTextureStyle()
 QString StyleMaster::TextFontStyle(int sizePX)
 {
     QString style =
-    "QLabel{"
+    "QPushButton{"
     "   background: none;"
+    "   border: none;"
     "   font: %1px 'Algerian';"
     "   color: #bdc440"
     "}";

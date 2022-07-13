@@ -25,7 +25,7 @@ public:
     QPushButton *ButtonTop;
     QPushButton *ButtonBottom;
     QLabel *labelCenter;
-    QLabel *labelText;
+    QPushButton *ButtonText;
 
     void setupUi(QWidget *PrimarySkillSignature)
     {
@@ -78,15 +78,13 @@ public:
         labelCenter->setSizePolicy(sizePolicy);
         labelCenter->setMinimumSize(QSize(75, 24));
         labelCenter->setMaximumSize(QSize(75, 24));
-        labelText = new QLabel(PrimarySkillSignature);
-        labelText->setObjectName(QString::fromUtf8("labelText"));
-        labelText->setGeometry(QRect(18, 17, 75, 24));
-        sizePolicy.setHeightForWidth(labelText->sizePolicy().hasHeightForWidth());
-        labelText->setSizePolicy(sizePolicy);
-        labelText->setMinimumSize(QSize(75, 24));
-        labelText->setMaximumSize(QSize(75, 24));
-        labelText->setStyleSheet(QString::fromUtf8(""));
-        labelText->setAlignment(Qt::AlignCenter);
+        ButtonText = new QPushButton(PrimarySkillSignature);
+        ButtonText->setObjectName(QString::fromUtf8("ButtonText"));
+        ButtonText->setGeometry(QRect(18, 17, 75, 24));
+        sizePolicy.setHeightForWidth(ButtonText->sizePolicy().hasHeightForWidth());
+        ButtonText->setSizePolicy(sizePolicy);
+        ButtonText->setMaximumSize(QSize(75, 24));
+        ButtonText->setCursor(QCursor(Qt::WhatsThisCursor));
 
         retranslateUi(PrimarySkillSignature);
 
@@ -101,7 +99,7 @@ public:
         ButtonTop->setText(QString());
         ButtonBottom->setText(QString());
         labelCenter->setText(QString());
-        labelText->setText(QCoreApplication::translate("PrimarySkillSignature", "NON", nullptr));
+        ButtonText->setText(QCoreApplication::translate("PrimarySkillSignature", "Non", nullptr));
     } // retranslateUi
 
 };
