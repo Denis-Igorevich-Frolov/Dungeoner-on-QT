@@ -30,11 +30,13 @@ public:
         if (Dungeoner->objectName().isEmpty())
             Dungeoner->setObjectName(QString::fromUtf8("Dungeoner"));
         Dungeoner->resize(800, 600);
+        Dungeoner->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(Dungeoner);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         Dungeoner->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Dungeoner);
         menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         Dungeoner->setMenuBar(menubar);
         statusbar = new QStatusBar(Dungeoner);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

@@ -2,6 +2,7 @@
 #define DUNGEONER_H
 
 #include <QMainWindow>
+#include <Windows/CharacterWindow/characterwindow.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Dungeoner; }
@@ -17,5 +18,6 @@ public:
 
 private:
     Ui::Dungeoner *ui;
+    CharacterWindow *characterWindow;
 };
 #endif // DUNGEONER_H

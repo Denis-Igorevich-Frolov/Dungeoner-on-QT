@@ -19,6 +19,16 @@ set(PROJECT_SOURCES
         dungeoner.cpp
         dungeoner.h
         dungeoner.ui
+        CustomWidget/PrimarySkillSignature/primaryskillsignature.h
+        CustomWidget/PrimarySkillSignature/primaryskillsignature.cpp
+        CustomWidget/PrimarySkillSignature/primaryskillsignature.ui
+        Resources/Textures.qrc
+        CustomWidget/PrimarySkillSignature/stylemaster.h
+        CustomWidget/PrimarySkillSignature/stylemaster.cpp
+        Resources/Fonts.qrc
+        Windows/CharacterWindow/characterwindow.h
+        Windows/CharacterWindow/characterwindow.cpp
+        Windows/CharacterWindow/characterwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
