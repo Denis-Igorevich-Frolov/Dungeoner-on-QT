@@ -1,6 +1,13 @@
 #ifndef PRIMARYSKILLSIGNATURE_H
 #define PRIMARYSKILLSIGNATURE_H
 
+/*
+ *Данный виджет - это подпись первичных навыков. Он имеет
+ *в себе LabelWithTooltip для вывода полной информации. В
+ *виджете есть 2 кнопки для повышения и понижения значения
+ *соответствующего навыка.
+ */
+
 #include <QWidget>
 
 namespace Ui {
@@ -17,10 +24,6 @@ public:
 
 private:
     Ui::PrimarySkillSignature *ui;
-
-protected:
-    virtual void mousePressEvent(QMouseEvent* event);
-    virtual void mouseReleaseEvent(QMouseEvent* event);
 };
 
 #endif // PRIMARYSKILLSIGNATURE_H

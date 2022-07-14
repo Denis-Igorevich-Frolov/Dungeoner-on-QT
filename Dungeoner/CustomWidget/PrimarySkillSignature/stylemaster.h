@@ -1,8 +1,12 @@
 #ifndef STYLEMASTER_H
 #define STYLEMASTER_H
 
-#include <QString>
+/*
+ *Мастер стилей для PrimarySkillSignature. Устанавливает
+ *QSS стили для всех эллементов.
+ */
 
+#include <QString>
 
 class StyleMaster
 {
@@ -12,7 +16,6 @@ public:
     static QString bottomTextureStyle();
     static QString RightTextureStyle();
     static QString LeftTextureStyle();
-    static QString TextFontStyle(int size);
 };
 
 #endif // STYLEMASTER_H

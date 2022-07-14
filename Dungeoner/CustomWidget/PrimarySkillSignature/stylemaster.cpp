@@ -1,3 +1,8 @@
+/*
+ *Мастер стилей для PrimarySkillSignature. Устанавливает
+ *QSS стили для всех эллементов.
+ */
+
 #include "stylemaster.h"
 
 QString StyleMaster::CenterTextureStyle()
@@ -69,17 +74,4 @@ QString StyleMaster::LeftTextureStyle()
     "   background: none;"
     "   background-image: url(:/Text-Block-1/Textures PNG/Text-Block-1-L.png);"
     "}";
-}
-
-QString StyleMaster::TextFontStyle(int sizePX)
-{
-    QString style =
-    "QPushButton{"
-    "   background: none;"
-    "   border: none;"
-    "   font: %1px 'Algerian';"
-    "   color: #bdc440"
-    "}";
-
-    return style.arg(sizePX);
 }

@@ -1,5 +1,9 @@
 Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CMakeLists.txt \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/labelwithtooltip.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/labelwithtooltip.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.cpp \
@@ -459,6 +463,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/labelwithtooltip.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.ui \

@@ -270,6 +270,18 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/labelwithtooltip.h",
+			"MU",
+			"BL2M7KRK5U/moc_labelwithtooltip.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/stylemaster.h",
+			"MU",
+			"BL2M7KRK5U/moc_stylemaster.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.h",
 			"MU",
 			"ZA4CYIRLOZ/moc_primaryskillsignature.cpp",
@@ -365,6 +377,16 @@
 	"SETTINGS_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/Dungeoner_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/labelwithtooltip.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/stylemaster.cpp",
+			"MU",
+			null
+		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.cpp",
 			"MU",

@@ -1,3 +1,7 @@
+/*
+ *Окно персонажа, содержащее всю информацию о нём
+ */
+
 #include "characterwindow.h"
 #include "ui_characterwindow.h"
 
@@ -6,6 +10,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     ui(new Ui::CharacterWindow)
 {
     ui->setupUi(this);
+    //Убирание рамки окна
     this->setWindowFlags(Qt::FramelessWindowHint);
 }
 

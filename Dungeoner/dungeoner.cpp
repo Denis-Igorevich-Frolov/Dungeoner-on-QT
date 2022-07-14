@@ -1,3 +1,5 @@
+//Главный класс приложения
+
 #include "dungeoner.h"
 #include "./ui_dungeoner.h"
 

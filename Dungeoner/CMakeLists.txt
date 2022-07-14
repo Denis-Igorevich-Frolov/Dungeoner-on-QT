@@ -29,6 +29,11 @@ set(PROJECT_SOURCES
         Windows/CharacterWindow/characterwindow.h
         Windows/CharacterWindow/characterwindow.cpp
         Windows/CharacterWindow/characterwindow.ui
+        CustomWidget/LabelWithTooltip/labelwithtooltip.h
+        CustomWidget/LabelWithTooltip/labelwithtooltip.cpp
+        CustomWidget/LabelWithTooltip/labelwithtooltip.ui
+        CustomWidget/LabelWithTooltip/stylemaster.h
+        CustomWidget/LabelWithTooltip/stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

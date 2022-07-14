@@ -1,6 +1,10 @@
 #ifndef CHARACTERWINDOW_H
 #define CHARACTERWINDOW_H
 
+/*
+ *Окно персонажа, содержащее всю информацию о нём
+ */
+
 #include <QWidget>
 
 namespace Ui {

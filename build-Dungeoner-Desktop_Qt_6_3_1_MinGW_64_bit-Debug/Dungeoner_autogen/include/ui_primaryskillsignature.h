@@ -9,6 +9,7 @@
 #ifndef UI_PRIMARYSKILLSIGNATURE_H
 #define UI_PRIMARYSKILLSIGNATURE_H
 
+#include <CustomWidget/LabelWithTooltip/labelwithtooltip.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
@@ -25,7 +26,7 @@ public:
     QPushButton *ButtonTop;
     QPushButton *ButtonBottom;
     QLabel *labelCenter;
-    QPushButton *ButtonText;
+    LabelWithTooltip *widget;
 
     void setupUi(QWidget *PrimarySkillSignature)
     {
@@ -78,13 +79,9 @@ public:
         labelCenter->setSizePolicy(sizePolicy);
         labelCenter->setMinimumSize(QSize(75, 24));
         labelCenter->setMaximumSize(QSize(75, 24));
-        ButtonText = new QPushButton(PrimarySkillSignature);
-        ButtonText->setObjectName(QString::fromUtf8("ButtonText"));
-        ButtonText->setGeometry(QRect(18, 17, 75, 24));
-        sizePolicy.setHeightForWidth(ButtonText->sizePolicy().hasHeightForWidth());
-        ButtonText->setSizePolicy(sizePolicy);
-        ButtonText->setMaximumSize(QSize(75, 24));
-        ButtonText->setCursor(QCursor(Qt::WhatsThisCursor));
+        widget = new LabelWithTooltip(PrimarySkillSignature);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(18, 17, 75, 24));
 
         retranslateUi(PrimarySkillSignature);
 
@@ -99,7 +96,6 @@ public:
         ButtonTop->setText(QString());
         ButtonBottom->setText(QString());
         labelCenter->setText(QString());
-        ButtonText->setText(QCoreApplication::translate("PrimarySkillSignature", "Non", nullptr));
     } // retranslateUi
 
 };
