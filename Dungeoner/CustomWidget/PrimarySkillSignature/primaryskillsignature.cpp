@@ -16,7 +16,7 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //Установка стилей для эллементов виджета
+    //Установка стилей для элементов виджета
     ui->labelCenter->setStyleSheet(StyleMaster::CenterTextureStyle());
     ui->ButtonTop->setStyleSheet(StyleMaster::topTextureStyle());
     ui->ButtonBottom->setStyleSheet(StyleMaster::bottomTextureStyle());

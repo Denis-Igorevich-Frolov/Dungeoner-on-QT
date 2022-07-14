@@ -2,8 +2,8 @@
 #define STYLEMASTER_H
 
 /*
- *Мастер стилей для LabelWithTooltip. Устанавливает
- *QSS стили для всех эллементов.
+ *Мастер стилей для LabelWithTooltip. Хранит Qss инструкции,
+ *которые затем будут применены к элементам виджета
  */
 
 #include <QString>
