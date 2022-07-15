@@ -21,6 +21,8 @@ public:
 
 private:
     Ui::CharacterWindow *ui;
+
+    void setTextPrimarySkillSignature ();
 };
 
 #endif // CHARACTERWINDOW_H

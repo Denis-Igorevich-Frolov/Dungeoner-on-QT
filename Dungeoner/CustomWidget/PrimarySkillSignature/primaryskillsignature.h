@@ -22,6 +22,8 @@ public:
     explicit PrimarySkillSignature(QWidget *parent = nullptr);
     ~PrimarySkillSignature();
 
+    void setText(QString text);
+
 private:
     Ui::PrimarySkillSignature *ui;
 };

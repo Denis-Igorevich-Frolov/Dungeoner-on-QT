@@ -26,8 +26,14 @@ LabelWithTooltip::~LabelWithTooltip()
     delete ui;
 }
 
+void LabelWithTooltip::setText(QString text)
+{
+    //Устанавливает текст для ButtonText
+    ui->ButtonText->setText(text);
+}
+
 /*Функция ивента нажатия клафиши мыши. Обрабатывает нажатие только
- * правой кнопки для вывода подсказки.
+ *правой кнопки для вывода подсказки.
  */
 void LabelWithTooltip::mousePressEvent(QMouseEvent *event)
 {

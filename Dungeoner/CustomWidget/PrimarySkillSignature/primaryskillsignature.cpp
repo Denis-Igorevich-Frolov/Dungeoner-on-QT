@@ -28,3 +28,9 @@ PrimarySkillSignature::~PrimarySkillSignature()
 {
     delete ui;
 }
+
+void PrimarySkillSignature::setText(QString text)
+{
+    //Устанавливает текст для LabelWithTooltip
+    ui->labelWithTooltip->setText(text);
+}

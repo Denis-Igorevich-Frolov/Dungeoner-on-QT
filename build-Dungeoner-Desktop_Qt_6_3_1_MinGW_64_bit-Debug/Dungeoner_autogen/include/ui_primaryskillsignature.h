@@ -26,7 +26,7 @@ public:
     QPushButton *ButtonTop;
     QPushButton *ButtonBottom;
     QLabel *labelCenter;
-    LabelWithTooltip *widget;
+    LabelWithTooltip *labelWithTooltip;
 
     void setupUi(QWidget *PrimarySkillSignature)
     {
@@ -79,9 +79,9 @@ public:
         labelCenter->setSizePolicy(sizePolicy);
         labelCenter->setMinimumSize(QSize(75, 24));
         labelCenter->setMaximumSize(QSize(75, 24));
-        widget = new LabelWithTooltip(PrimarySkillSignature);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(18, 17, 75, 24));
+        labelWithTooltip = new LabelWithTooltip(PrimarySkillSignature);
+        labelWithTooltip->setObjectName(QString::fromUtf8("labelWithTooltip"));
+        labelWithTooltip->setGeometry(QRect(18, 17, 75, 24));
 
         retranslateUi(PrimarySkillSignature);
 

@@ -20,76 +20,76 @@ QT_BEGIN_NAMESPACE
 class Ui_CharacterWindow
 {
 public:
-    QFrame *frame;
-    PrimarySkillSignature *widget;
-    PrimarySkillSignature *widget_2;
-    PrimarySkillSignature *widget_3;
-    PrimarySkillSignature *widget_4;
-    PrimarySkillSignature *widget_6;
-    PrimarySkillSignature *widget_5;
+    QFrame *PrimarySkillSignatures;
+    PrimarySkillSignature *StrengthPrimarySkillSignature;
+    PrimarySkillSignature *AgilityPrimarySkillSignature;
+    PrimarySkillSignature *IntelligencePrimarySkillSignature;
+    PrimarySkillSignature *MagicPrimarySkillSignature;
+    PrimarySkillSignature *BodyTypePrimarySkillSignature;
+    PrimarySkillSignature *WillPrimarySkillSignature;
 
     void setupUi(QWidget *CharacterWindow)
     {
         if (CharacterWindow->objectName().isEmpty())
             CharacterWindow->setObjectName(QString::fromUtf8("CharacterWindow"));
         CharacterWindow->resize(1037, 389);
-        CharacterWindow->setStyleSheet(QString::fromUtf8("background-color: #130a0f;"));
-        frame = new QFrame(CharacterWindow);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(100, 80, 611, 58));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        widget = new PrimarySkillSignature(frame);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 0, 111, 58));
+        CharacterWindow->setStyleSheet(QString::fromUtf8("background: #130a0f;"));
+        PrimarySkillSignatures = new QFrame(CharacterWindow);
+        PrimarySkillSignatures->setObjectName(QString::fromUtf8("PrimarySkillSignatures"));
+        PrimarySkillSignatures->setGeometry(QRect(100, 80, 611, 58));
+        PrimarySkillSignatures->setFrameShape(QFrame::StyledPanel);
+        PrimarySkillSignatures->setFrameShadow(QFrame::Raised);
+        StrengthPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
+        StrengthPrimarySkillSignature->setObjectName(QString::fromUtf8("StrengthPrimarySkillSignature"));
+        StrengthPrimarySkillSignature->setGeometry(QRect(0, 0, 111, 58));
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(widget->sizePolicy().hasHeightForWidth());
-        widget->setSizePolicy(sizePolicy);
-        widget->setMinimumSize(QSize(111, 58));
-        widget->setMaximumSize(QSize(111, 58));
-        widget->setStyleSheet(QString::fromUtf8("background: black;"));
-        widget_2 = new PrimarySkillSignature(frame);
-        widget_2->setObjectName(QString::fromUtf8("widget_2"));
-        widget_2->setGeometry(QRect(100, 0, 111, 58));
-        sizePolicy.setHeightForWidth(widget_2->sizePolicy().hasHeightForWidth());
-        widget_2->setSizePolicy(sizePolicy);
-        widget_2->setMinimumSize(QSize(111, 58));
-        widget_2->setMaximumSize(QSize(111, 58));
-        widget_2->setStyleSheet(QString::fromUtf8("background: black;"));
-        widget_3 = new PrimarySkillSignature(frame);
-        widget_3->setObjectName(QString::fromUtf8("widget_3"));
-        widget_3->setGeometry(QRect(200, 0, 111, 58));
-        sizePolicy.setHeightForWidth(widget_3->sizePolicy().hasHeightForWidth());
-        widget_3->setSizePolicy(sizePolicy);
-        widget_3->setMinimumSize(QSize(111, 58));
-        widget_3->setMaximumSize(QSize(111, 58));
-        widget_3->setStyleSheet(QString::fromUtf8("background: black;"));
-        widget_4 = new PrimarySkillSignature(frame);
-        widget_4->setObjectName(QString::fromUtf8("widget_4"));
-        widget_4->setGeometry(QRect(300, 0, 111, 58));
-        sizePolicy.setHeightForWidth(widget_4->sizePolicy().hasHeightForWidth());
-        widget_4->setSizePolicy(sizePolicy);
-        widget_4->setMinimumSize(QSize(111, 58));
-        widget_4->setMaximumSize(QSize(111, 58));
-        widget_4->setStyleSheet(QString::fromUtf8("background: black;"));
-        widget_6 = new PrimarySkillSignature(frame);
-        widget_6->setObjectName(QString::fromUtf8("widget_6"));
-        widget_6->setGeometry(QRect(400, 0, 111, 58));
-        sizePolicy.setHeightForWidth(widget_6->sizePolicy().hasHeightForWidth());
-        widget_6->setSizePolicy(sizePolicy);
-        widget_6->setMinimumSize(QSize(111, 58));
-        widget_6->setMaximumSize(QSize(111, 58));
-        widget_6->setStyleSheet(QString::fromUtf8("background: black;"));
-        widget_5 = new PrimarySkillSignature(frame);
-        widget_5->setObjectName(QString::fromUtf8("widget_5"));
-        widget_5->setGeometry(QRect(500, 0, 111, 58));
-        sizePolicy.setHeightForWidth(widget_5->sizePolicy().hasHeightForWidth());
-        widget_5->setSizePolicy(sizePolicy);
-        widget_5->setMinimumSize(QSize(111, 58));
-        widget_5->setMaximumSize(QSize(111, 58));
-        widget_5->setStyleSheet(QString::fromUtf8("background: black;"));
+        sizePolicy.setHeightForWidth(StrengthPrimarySkillSignature->sizePolicy().hasHeightForWidth());
+        StrengthPrimarySkillSignature->setSizePolicy(sizePolicy);
+        StrengthPrimarySkillSignature->setMinimumSize(QSize(111, 58));
+        StrengthPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        StrengthPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
+        AgilityPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
+        AgilityPrimarySkillSignature->setObjectName(QString::fromUtf8("AgilityPrimarySkillSignature"));
+        AgilityPrimarySkillSignature->setGeometry(QRect(100, 0, 111, 58));
+        sizePolicy.setHeightForWidth(AgilityPrimarySkillSignature->sizePolicy().hasHeightForWidth());
+        AgilityPrimarySkillSignature->setSizePolicy(sizePolicy);
+        AgilityPrimarySkillSignature->setMinimumSize(QSize(111, 58));
+        AgilityPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        AgilityPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
+        IntelligencePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
+        IntelligencePrimarySkillSignature->setObjectName(QString::fromUtf8("IntelligencePrimarySkillSignature"));
+        IntelligencePrimarySkillSignature->setGeometry(QRect(200, 0, 111, 58));
+        sizePolicy.setHeightForWidth(IntelligencePrimarySkillSignature->sizePolicy().hasHeightForWidth());
+        IntelligencePrimarySkillSignature->setSizePolicy(sizePolicy);
+        IntelligencePrimarySkillSignature->setMinimumSize(QSize(111, 58));
+        IntelligencePrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        IntelligencePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
+        MagicPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
+        MagicPrimarySkillSignature->setObjectName(QString::fromUtf8("MagicPrimarySkillSignature"));
+        MagicPrimarySkillSignature->setGeometry(QRect(300, 0, 111, 58));
+        sizePolicy.setHeightForWidth(MagicPrimarySkillSignature->sizePolicy().hasHeightForWidth());
+        MagicPrimarySkillSignature->setSizePolicy(sizePolicy);
+        MagicPrimarySkillSignature->setMinimumSize(QSize(111, 58));
+        MagicPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        MagicPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
+        BodyTypePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
+        BodyTypePrimarySkillSignature->setObjectName(QString::fromUtf8("BodyTypePrimarySkillSignature"));
+        BodyTypePrimarySkillSignature->setGeometry(QRect(400, 0, 111, 58));
+        sizePolicy.setHeightForWidth(BodyTypePrimarySkillSignature->sizePolicy().hasHeightForWidth());
+        BodyTypePrimarySkillSignature->setSizePolicy(sizePolicy);
+        BodyTypePrimarySkillSignature->setMinimumSize(QSize(111, 58));
+        BodyTypePrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        BodyTypePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
+        WillPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
+        WillPrimarySkillSignature->setObjectName(QString::fromUtf8("WillPrimarySkillSignature"));
+        WillPrimarySkillSignature->setGeometry(QRect(500, 0, 111, 58));
+        sizePolicy.setHeightForWidth(WillPrimarySkillSignature->sizePolicy().hasHeightForWidth());
+        WillPrimarySkillSignature->setSizePolicy(sizePolicy);
+        WillPrimarySkillSignature->setMinimumSize(QSize(111, 58));
+        WillPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        WillPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
 
         retranslateUi(CharacterWindow);
 
@@ -99,6 +99,12 @@ public:
     void retranslateUi(QWidget *CharacterWindow)
     {
         CharacterWindow->setWindowTitle(QCoreApplication::translate("CharacterWindow", "Form", nullptr));
+        StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "NON", nullptr)));
+        AgilityPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "NON", nullptr)));
+        IntelligencePrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "NON", nullptr)));
+        MagicPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "NON", nullptr)));
+        BodyTypePrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "NON", nullptr)));
+        WillPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "NON", nullptr)));
     } // retranslateUi
 
 };

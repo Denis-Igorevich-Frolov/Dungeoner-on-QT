@@ -50,7 +50,7 @@ public:
     void retranslateUi(QWidget *LabelWithTooltip)
     {
         LabelWithTooltip->setWindowTitle(QCoreApplication::translate("LabelWithTooltip", "Form", nullptr));
-        ButtonText->setText(QCoreApplication::translate("LabelWithTooltip", "Non", nullptr));
+        ButtonText->setText(QString());
     } // retranslateUi
 
 };

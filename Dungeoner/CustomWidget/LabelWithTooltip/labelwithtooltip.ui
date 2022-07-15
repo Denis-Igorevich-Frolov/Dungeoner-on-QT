@@ -59,7 +59,7 @@
     <cursorShape>WhatsThisCursor</cursorShape>
    </property>
    <property name="text">
-    <string>Non</string>
+    <string/>
    </property>
   </widget>
  </widget>
