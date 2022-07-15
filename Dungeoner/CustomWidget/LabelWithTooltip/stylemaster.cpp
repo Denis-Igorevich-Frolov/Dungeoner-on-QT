@@ -12,7 +12,7 @@ QString StyleMaster::TextFontStyle(int sizePX)
     "   background: none;"
     "   border: none;"
     "   font: %1px 'Algerian';"
-    "   color: #bdc440"
+    "   color: #bdc440;"
     "}";
 
     return style.arg(sizePX);

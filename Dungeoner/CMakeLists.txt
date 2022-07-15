@@ -34,6 +34,8 @@ set(PROJECT_SOURCES
         CustomWidget/LabelWithTooltip/labelwithtooltip.ui
         CustomWidget/LabelWithTooltip/stylemaster.h
         CustomWidget/LabelWithTooltip/stylemaster.cpp
+        Windows/CharacterWindow/stylemaster.h
+        Windows/CharacterWindow/stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

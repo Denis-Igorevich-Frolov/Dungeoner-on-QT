@@ -35,6 +35,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-De
   E:/Qt/6.3.1/mingw_64/include/QtCore/qiterator.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qline.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qlist.h \
+  E:/Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qlogging.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmap.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmargins.h \
@@ -52,6 +53,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-De
   E:/Qt/6.3.1/mingw_64/include/QtCore/qprocessordetection.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qrect.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qrefcount.h \
+  E:/Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qscopedpointer.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qscopeguard.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qset.h \
@@ -103,10 +105,14 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-De
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiexports.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiglobal.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtransform.h \
+  E:/Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

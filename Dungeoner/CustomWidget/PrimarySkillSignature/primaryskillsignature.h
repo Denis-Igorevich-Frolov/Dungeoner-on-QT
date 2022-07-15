@@ -9,6 +9,7 @@
  */
 
 #include <QWidget>
+#include <QSpinBox>
 
 namespace Ui {
 class PrimarySkillSignature;
@@ -22,10 +23,21 @@ public:
     explicit PrimarySkillSignature(QWidget *parent = nullptr);
     ~PrimarySkillSignature();
 
+    QSpinBox *SpinBoxValue;
+
     void setText(QString text);
+
+private slots:
+    void on_ButtonTop_released();
+    void on_ButtonBottom_released();
 
 private:
     Ui::PrimarySkillSignature *ui;
+
+    QVector<int> pressedKeys;
+
+    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void keyReleaseEvent(QKeyEvent *event);
 };
 
 #endif // PRIMARYSKILLSIGNATURE_H

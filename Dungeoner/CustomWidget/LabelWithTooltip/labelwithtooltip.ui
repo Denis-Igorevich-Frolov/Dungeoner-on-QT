@@ -32,7 +32,7 @@
    <string>Form</string>
   </property>
   <property name="fontSize" stdset="0">
-   <number>25</number>
+   <number>23</number>
   </property>
   <widget class="QPushButton" name="ButtonText">
    <property name="geometry">

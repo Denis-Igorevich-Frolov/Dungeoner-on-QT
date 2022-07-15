@@ -113,6 +113,14 @@ build CMakeFiles/Dungeoner.dir/CustomWidget/LabelWithTooltip/stylemaster.cpp.obj
   OBJECT_DIR = CMakeFiles\Dungeoner.dir
   OBJECT_FILE_DIR = CMakeFiles\Dungeoner.dir\CustomWidget\LabelWithTooltip
 
+build CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/stylemaster.cpp.obj: CXX_COMPILER__Dungeoner_Debug E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp || cmake_object_order_depends_target_Dungeoner
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\Dungeoner.dir\Windows\CharacterWindow\stylemaster.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I"E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug" -I"E:/Qt projects/Dungeoner-on-QT/Dungeoner" -I"E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include" -isystem E:/Qt/6.3.1/mingw_64/include/QtCore -isystem E:/Qt/6.3.1/mingw_64/include -isystem E:/Qt/6.3.1/mingw_64/mkspecs/win32-g++ -isystem E:/Qt/6.3.1/mingw_64/include/QtWidgets -isystem E:/Qt/6.3.1/mingw_64/include/QtGui
+  OBJECT_DIR = CMakeFiles\Dungeoner.dir
+  OBJECT_FILE_DIR = CMakeFiles\Dungeoner.dir\Windows\CharacterWindow
+
 build CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp.obj: CXX_COMPILER__Dungeoner_Debug E$:/Qt$ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp || cmake_object_order_depends_target_Dungeoner
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\Dungeoner.dir\Dungeoner_autogen\S5YYZ2ZCNV\qrc_Textures.cpp.obj.d
@@ -137,7 +145,7 @@ build CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp.obj: C
 #############################################
 # Link the executable Dungeoner.exe
 
-build Dungeoner.exe: CXX_EXECUTABLE_LINKER__Dungeoner_Debug CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj CMakeFiles/Dungeoner.dir/main.cpp.obj CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/PrimarySkillSignature/primaryskillsignature.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/PrimarySkillSignature/stylemaster.cpp.obj CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/LabelWithTooltip/labelwithtooltip.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/LabelWithTooltip/stylemaster.cpp.obj CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp.obj CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp.obj | E$:/Qt/6.3.1/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.3.1/mingw_64/lib/libQt6Gui.a E$:/Qt/6.3.1/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.1/mingw_64/lib/libQt6EntryPoint.a || Dungeoner_autogen Dungeoner_autogen_timestamp_deps
+build Dungeoner.exe: CXX_EXECUTABLE_LINKER__Dungeoner_Debug CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj CMakeFiles/Dungeoner.dir/main.cpp.obj CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/PrimarySkillSignature/primaryskillsignature.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/PrimarySkillSignature/stylemaster.cpp.obj CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/LabelWithTooltip/labelwithtooltip.cpp.obj CMakeFiles/Dungeoner.dir/CustomWidget/LabelWithTooltip/stylemaster.cpp.obj CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/stylemaster.cpp.obj CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp.obj CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp.obj | E$:/Qt/6.3.1/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.3.1/mingw_64/lib/libQt6Gui.a E$:/Qt/6.3.1/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.1/mingw_64/lib/libQt6EntryPoint.a || Dungeoner_autogen Dungeoner_autogen_timestamp_deps
   FLAGS = -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = E:/Qt/6.3.1/mingw_64/lib/libQt6Widgets.a  E:/Qt/6.3.1/mingw_64/lib/libQt6Gui.a  E:/Qt/6.3.1/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  E:/Qt/6.3.1/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -207,7 +215,7 @@ build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp | ${cmake_ninja_workdir}Dung
 #############################################
 # Custom command for Dungeoner_autogen\S5YYZ2ZCNV\qrc_Fonts.cpp
 
-build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp | ${cmake_ninja_workdir}Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp: CUSTOM_COMMAND E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts.qrc CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Fonts_S5YYZ2ZCNV_Info.json E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts/TextFont.ttf E$:/Qt/6.3.1/mingw_64/./bin/rcc.exe || Dungeoner_autogen Dungeoner_autogen_timestamp_deps
+build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp | ${cmake_ninja_workdir}Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp: CUSTOM_COMMAND E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts.qrc CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Fonts_S5YYZ2ZCNV_Info.json E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts/TextFont.ttf E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts/NumbersFont.ttf E$:/Qt/6.3.1/mingw_64/./bin/rcc.exe || Dungeoner_autogen Dungeoner_autogen_timestamp_deps
   COMMAND = cmd.exe /C "cd /D "E:\Qt projects\Dungeoner-on-QT\build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug" && E:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Fonts_S5YYZ2ZCNV_Info.json" Debug"
   DESC = Automatic RCC for Resources/Fonts.qrc
   restat = 1
@@ -216,7 +224,7 @@ build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp | ${cmake_ninja_workdir}Dungeon
 #############################################
 # Phony custom command for CMakeFiles\Dungeoner_autogen_timestamp_deps
 
-build CMakeFiles/Dungeoner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Dungeoner_autogen_timestamp_deps: phony E$:/Qt/6.3.1/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.1/mingw_64/./bin/moc.exe E$:/Qt/6.3.1/mingw_64/./bin/uic.exe E$:/Qt/6.3.1/mingw_64/lib/libQt6Widgets.a
+build CMakeFiles/Dungeoner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Dungeoner_autogen_timestamp_deps: phony E$:/Qt/6.3.1/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.1/mingw_64/./bin/uic.exe E$:/Qt/6.3.1/mingw_64/./bin/moc.exe E$:/Qt/6.3.1/mingw_64/lib/libQt6Widgets.a
 
 
 #############################################

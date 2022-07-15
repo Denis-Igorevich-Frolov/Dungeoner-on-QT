@@ -33,7 +33,7 @@ public:
         LabelWithTooltip->setSizePolicy(sizePolicy);
         LabelWithTooltip->setMinimumSize(QSize(75, 24));
         LabelWithTooltip->setMaximumSize(QSize(75, 24));
-        LabelWithTooltip->setProperty("fontSize", QVariant(25));
+        LabelWithTooltip->setProperty("fontSize", QVariant(23));
         ButtonText = new QPushButton(LabelWithTooltip);
         ButtonText->setObjectName(QString::fromUtf8("ButtonText"));
         ButtonText->setGeometry(QRect(0, 0, 75, 24));

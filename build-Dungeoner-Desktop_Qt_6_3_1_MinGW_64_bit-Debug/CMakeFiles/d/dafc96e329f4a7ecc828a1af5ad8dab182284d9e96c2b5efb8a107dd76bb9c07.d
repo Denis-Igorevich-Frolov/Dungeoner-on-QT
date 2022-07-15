@@ -12,6 +12,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Resources/Textures.qrc \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/main.cpp \
@@ -54,6 +56,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qiterator.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qline.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qlist.h \
+  E:/Qt/6.3.1/mingw_64/include/QtCore/qlocale.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qlogging.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmap.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmargins.h \
@@ -71,6 +74,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qprocessordetection.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qrect.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qrefcount.h \
+  E:/Qt/6.3.1/mingw_64/include/QtCore/qregularexpression.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qscopedpointer.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qscopeguard.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qset.h \
@@ -122,12 +126,16 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiexports.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiglobal.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtransform.h \
+  E:/Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs_win.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \

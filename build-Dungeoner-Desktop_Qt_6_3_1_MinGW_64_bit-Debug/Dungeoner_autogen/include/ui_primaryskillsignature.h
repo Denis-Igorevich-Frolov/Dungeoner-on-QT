@@ -81,7 +81,7 @@ public:
         labelCenter->setMaximumSize(QSize(75, 24));
         labelWithTooltip = new LabelWithTooltip(PrimarySkillSignature);
         labelWithTooltip->setObjectName(QString::fromUtf8("labelWithTooltip"));
-        labelWithTooltip->setGeometry(QRect(18, 17, 75, 24));
+        labelWithTooltip->setGeometry(QRect(18, 16, 75, 24));
 
         retranslateUi(PrimarySkillSignature);
 

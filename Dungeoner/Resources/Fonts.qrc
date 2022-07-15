@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>Fonts/TextFont.ttf</file>
+        <file>Fonts/NumbersFont.ttf</file>
     </qresource>
 </RCC>

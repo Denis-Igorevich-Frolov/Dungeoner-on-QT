@@ -300,6 +300,12 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.h",
+			"MU",
+			"OEOCRIOUE2/moc_stylemaster.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h",
 			"MU",
 			"EWIEGA46WW/moc_dungeoner.cpp",
@@ -399,6 +405,11 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp",
 			"MU",
 			null
 		],

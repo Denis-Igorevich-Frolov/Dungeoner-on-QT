@@ -6,235 +6,827 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1037</width>
-    <height>389</height>
+    <width>1110</width>
+    <height>430</height>
    </rect>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::StrongFocus</enum>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: #130a0f;</string>
+   <string notr="true">#CharacterWindow{
+	background: #130a0f;
+}</string>
   </property>
-  <widget class="QFrame" name="PrimarySkillSignatures">
+  <widget class="QWidget" name="verticalLayoutWidget">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>80</y>
-     <width>611</width>
-     <height>58</height>
+     <x>80</x>
+     <y>40</y>
+     <width>613</width>
+     <height>108</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="PrimarySkillSignature" name="StrengthPrimarySkillSignature" native="true">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>111</width>
-      <height>58</height>
-     </rect>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
     </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: black;</string>
-    </property>
-    <property name="Text" stdset="0">
-     <string>NON</string>
-    </property>
-   </widget>
-   <widget class="PrimarySkillSignature" name="AgilityPrimarySkillSignature" native="true">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>0</y>
-      <width>111</width>
-      <height>58</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: black;</string>
-    </property>
-    <property name="Text" stdset="0">
-     <string>NON</string>
-    </property>
-   </widget>
-   <widget class="PrimarySkillSignature" name="IntelligencePrimarySkillSignature" native="true">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>0</y>
-      <width>111</width>
-      <height>58</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: black;</string>
-    </property>
-    <property name="Text" stdset="0">
-     <string>NON</string>
-    </property>
-   </widget>
-   <widget class="PrimarySkillSignature" name="MagicPrimarySkillSignature" native="true">
-    <property name="geometry">
-     <rect>
-      <x>300</x>
-      <y>0</y>
-      <width>111</width>
-      <height>58</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: black;</string>
-    </property>
-    <property name="Text" stdset="0">
-     <string>NON</string>
-    </property>
-   </widget>
-   <widget class="PrimarySkillSignature" name="BodyTypePrimarySkillSignature" native="true">
-    <property name="geometry">
-     <rect>
-      <x>400</x>
-      <y>0</y>
-      <width>111</width>
-      <height>58</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: black;</string>
-    </property>
-    <property name="Text" stdset="0">
-     <string>NON</string>
-    </property>
-   </widget>
-   <widget class="PrimarySkillSignature" name="WillPrimarySkillSignature" native="true">
-    <property name="geometry">
-     <rect>
-      <x>500</x>
-      <y>0</y>
-      <width>111</width>
-      <height>58</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>111</width>
-      <height>58</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: black;</string>
-    </property>
-    <property name="Text" stdset="0">
-     <string>NON</string>
-    </property>
-   </widget>
+    <item>
+     <widget class="QFrame" name="PrimarySkillSignatures">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>611</width>
+        <height>58</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>611</width>
+        <height>58</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="PrimarySkillSignature" name="StrengthPrimarySkillSignature" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>111</width>
+         <height>58</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: black;</string>
+       </property>
+       <property name="Text" stdset="0">
+        <string>СИЛА</string>
+       </property>
+      </widget>
+      <widget class="PrimarySkillSignature" name="AgilityPrimarySkillSignature" native="true">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>0</y>
+         <width>111</width>
+         <height>58</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: black;</string>
+       </property>
+       <property name="Text" stdset="0">
+        <string>ЛОВК</string>
+       </property>
+      </widget>
+      <widget class="PrimarySkillSignature" name="IntelligencePrimarySkillSignature" native="true">
+       <property name="geometry">
+        <rect>
+         <x>200</x>
+         <y>0</y>
+         <width>111</width>
+         <height>58</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: black;</string>
+       </property>
+       <property name="Text" stdset="0">
+        <string>ИНТ</string>
+       </property>
+      </widget>
+      <widget class="PrimarySkillSignature" name="MagicPrimarySkillSignature" native="true">
+       <property name="geometry">
+        <rect>
+         <x>300</x>
+         <y>0</y>
+         <width>111</width>
+         <height>58</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: black;</string>
+       </property>
+       <property name="Text" stdset="0">
+        <string>МАГ</string>
+       </property>
+      </widget>
+      <widget class="PrimarySkillSignature" name="BodyTypePrimarySkillSignature" native="true">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>0</y>
+         <width>111</width>
+         <height>58</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: black;</string>
+       </property>
+       <property name="Text" stdset="0">
+        <string>ТЕЛ</string>
+       </property>
+      </widget>
+      <widget class="PrimarySkillSignature" name="WillPrimarySkillSignature" native="true">
+       <property name="geometry">
+        <rect>
+         <x>500</x>
+         <y>0</y>
+         <width>111</width>
+         <height>58</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>111</width>
+         <height>58</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: black;</string>
+       </property>
+       <property name="Text" stdset="0">
+        <string>ВОЛЯ</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>0</width>
+        <height>7</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QFrame" name="ValuesPanel">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>611</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>611</width>
+        <height>35</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QFrame" name="PrimarySkillValues">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>611</width>
+         <height>35</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QSpinBox" name="StrengthValue">
+        <property name="geometry">
+         <rect>
+          <x>11</x>
+          <y>0</y>
+          <width>89</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="maximum">
+         <number>999999</number>
+        </property>
+        <property name="fontSize" stdset="0">
+         <number>28</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="AgilityValue">
+        <property name="geometry">
+         <rect>
+          <x>111</x>
+          <y>0</y>
+          <width>89</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="maximum">
+         <number>999999</number>
+        </property>
+        <property name="fontSize" stdset="0">
+         <number>28</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="IntelligenceValue">
+        <property name="geometry">
+         <rect>
+          <x>211</x>
+          <y>0</y>
+          <width>89</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="maximum">
+         <number>999999</number>
+        </property>
+        <property name="fontSize" stdset="0">
+         <number>28</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="MagicValue">
+        <property name="geometry">
+         <rect>
+          <x>311</x>
+          <y>0</y>
+          <width>89</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="maximum">
+         <number>999999</number>
+        </property>
+        <property name="fontSize" stdset="0">
+         <number>28</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="BodyTypeValue">
+        <property name="geometry">
+         <rect>
+          <x>411</x>
+          <y>0</y>
+          <width>89</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="maximum">
+         <number>999999</number>
+        </property>
+        <property name="fontSize" stdset="0">
+         <number>28</number>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="WillValue">
+        <property name="geometry">
+         <rect>
+          <x>511</x>
+          <y>0</y>
+          <width>89</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>89</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="cursor">
+         <cursorShape>IBeamCursor</cursorShape>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="maximum">
+         <number>999999</number>
+        </property>
+        <property name="fontSize" stdset="0">
+         <number>28</number>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QFrame" name="Separators">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>611</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>611</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>611</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="Separator4">
+        <property name="geometry">
+         <rect>
+          <x>405</x>
+          <y>0</y>
+          <width>1</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:  #50541a;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="Separator1">
+        <property name="geometry">
+         <rect>
+          <x>105</x>
+          <y>0</y>
+          <width>1</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:  #50541a;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="Separator5">
+        <property name="geometry">
+         <rect>
+          <x>505</x>
+          <y>0</y>
+          <width>1</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:  #50541a;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="Separator2">
+        <property name="geometry">
+         <rect>
+          <x>205</x>
+          <y>0</y>
+          <width>1</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:  #50541a;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="Separator3">
+        <property name="geometry">
+         <rect>
+          <x>305</x>
+          <y>0</y>
+          <width>1</width>
+          <height>35</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background:  #50541a;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+      <zorder>Separators</zorder>
+      <zorder>PrimarySkillValues</zorder>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

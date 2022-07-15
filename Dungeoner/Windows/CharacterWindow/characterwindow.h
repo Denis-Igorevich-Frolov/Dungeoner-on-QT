@@ -23,6 +23,8 @@ private:
     Ui::CharacterWindow *ui;
 
     void setTextPrimarySkillSignature ();
+    void setStyles ();
+    void associatingLabelsWithValues();
 };
 
 #endif // CHARACTERWINDOW_H
