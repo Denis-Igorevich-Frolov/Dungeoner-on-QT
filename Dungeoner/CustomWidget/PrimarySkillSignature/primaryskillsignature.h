@@ -34,6 +34,7 @@ private slots:
 private:
     Ui::PrimarySkillSignature *ui;
 
+    //Массив нажатых клавиш, среди которых только Ctrl, Shift и Alt
     QVector<int> pressedKeys;
 
     virtual void keyPressEvent(QKeyEvent *event);
