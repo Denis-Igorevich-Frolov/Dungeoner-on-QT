@@ -31,16 +31,21 @@
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
-			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
-			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
 			"E:/Qt/Tools/CMake_64/share/cmake-3.23/Modules/CMakeFindDependencyMacro.cmake",
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessTargets.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaDependencies.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfig.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreTargets.cmake",
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake",
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateTargets.cmake",
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6EntryPointPrivate/Qt6EntryPointPrivateConfig.cmake",
 			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake",
-			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
-			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
+			"E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake"
 		],
 		"nodes" : 
 		[
@@ -50,7 +55,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 40,
+				"line" : 44,
 				"parent" : 0
 			},
 			{
@@ -74,7 +79,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 62,
+				"line" : 66,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 81,
 				"parent" : 0
 			},
 			{
@@ -85,45 +96,39 @@
 			},
 			{
 				"file" : 4,
-				"parent" : 6
+				"parent" : 7
 			},
 			{
 				"command" : 7,
 				"file" : 4,
 				"line" : 213,
-				"parent" : 7
+				"parent" : 8
 			},
 			{
 				"file" : 3,
-				"parent" : 8
+				"parent" : 9
 			},
 			{
 				"command" : 6,
 				"file" : 3,
 				"line" : 50,
-				"parent" : 9
+				"parent" : 10
 			},
 			{
 				"file" : 2,
-				"parent" : 10
+				"parent" : 11
 			},
 			{
 				"command" : 5,
 				"file" : 2,
 				"line" : 56,
-				"parent" : 11
-			},
-			{
-				"command" : 4,
-				"file" : 0,
-				"line" : 526,
-				"parent" : 2
+				"parent" : 12
 			},
 			{
 				"command" : 6,
 				"file" : 3,
 				"line" : 40,
-				"parent" : 9
+				"parent" : 10
 			},
 			{
 				"file" : 9,
@@ -168,58 +173,78 @@
 				"parent" : 21
 			},
 			{
+				"command" : 7,
+				"file" : 1,
+				"line" : 80,
+				"parent" : 0
+			},
+			{
+				"file" : 4,
+				"parent" : 23
+			},
+			{
+				"command" : 7,
+				"file" : 4,
+				"line" : 213,
+				"parent" : 24
+			},
+			{
+				"file" : 13,
+				"parent" : 25
+			},
+			{
 				"command" : 6,
-				"file" : 6,
+				"file" : 13,
 				"line" : 40,
-				"parent" : 19
+				"parent" : 26
 			},
 			{
 				"file" : 12,
-				"parent" : 23
+				"parent" : 27
 			},
 			{
 				"command" : 9,
 				"file" : 12,
 				"line" : 96,
-				"parent" : 24
+				"parent" : 28
 			},
 			{
 				"command" : 8,
 				"file" : 8,
 				"line" : 14,
-				"parent" : 25
+				"parent" : 29
 			},
 			{
 				"command" : 7,
 				"file" : 7,
 				"line" : 47,
-				"parent" : 26
+				"parent" : 30
 			},
 			{
 				"file" : 11,
-				"parent" : 27
+				"parent" : 31
 			},
 			{
 				"command" : 6,
 				"file" : 11,
-				"line" : 50,
-				"parent" : 28
+				"line" : 53,
+				"parent" : 32
 			},
 			{
 				"file" : 10,
-				"parent" : 29
+				"parent" : 33
 			},
 			{
 				"command" : 5,
 				"file" : 10,
 				"line" : 56,
-				"parent" : 30
+				"parent" : 34
 			},
 			{
-				"command" : 5,
-				"file" : 10,
-				"line" : 69,
-				"parent" : 30
+				"command" : 4,
+				"file" : 0,
+				"line" : 526,
+				"parent" : 2
 			},
 			{
 				"command" : 8,
@@ -231,27 +256,97 @@
 				"command" : 7,
 				"file" : 7,
 				"line" : 47,
-				"parent" : 33
+				"parent" : 37
 			},
 			{
-				"file" : 14,
-				"parent" : 34
+				"file" : 15,
+				"parent" : 38
 			},
 			{
 				"command" : 6,
-				"file" : 14,
+				"file" : 15,
 				"line" : 50,
-				"parent" : 35
+				"parent" : 39
 			},
 			{
-				"file" : 13,
-				"parent" : 36
+				"file" : 14,
+				"parent" : 40
 			},
 			{
 				"command" : 5,
-				"file" : 13,
+				"file" : 14,
 				"line" : 56,
-				"parent" : 37
+				"parent" : 41
+			},
+			{
+				"command" : 6,
+				"file" : 15,
+				"line" : 40,
+				"parent" : 39
+			},
+			{
+				"file" : 18,
+				"parent" : 43
+			},
+			{
+				"command" : 9,
+				"file" : 18,
+				"line" : 96,
+				"parent" : 44
+			},
+			{
+				"command" : 8,
+				"file" : 8,
+				"line" : 14,
+				"parent" : 45
+			},
+			{
+				"command" : 7,
+				"file" : 7,
+				"line" : 47,
+				"parent" : 46
+			},
+			{
+				"file" : 17,
+				"parent" : 47
+			},
+			{
+				"command" : 6,
+				"file" : 17,
+				"line" : 50,
+				"parent" : 48
+			},
+			{
+				"file" : 16,
+				"parent" : 49
+			},
+			{
+				"command" : 5,
+				"file" : 16,
+				"line" : 56,
+				"parent" : 50
+			},
+			{
+				"command" : 5,
+				"file" : 16,
+				"line" : 69,
+				"parent" : 50
+			},
+			{
+				"command" : 6,
+				"file" : 11,
+				"line" : 50,
+				"parent" : 32
+			},
+			{
+				"file" : 19,
+				"parent" : 53
+			},
+			{
+				"command" : 5,
+				"file" : 19,
+				"line" : 56,
+				"parent" : 54
 			}
 		]
 	},
@@ -270,11 +365,11 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "MINGW_HAS_SECURE_API=1"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "QT_CORE_LIB"
 				},
 				{
@@ -282,35 +377,43 @@
 					"define" : "QT_GUI_LIB"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 6,
+					"define" : "QT_MULTIMEDIA_LIB"
+				},
+				{
+					"backtrace" : 36,
 					"define" : "QT_NEEDS_QMAIN"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "QT_NETWORK_LIB"
 				},
 				{
 					"backtrace" : 5,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "UNICODE"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "WIN32"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "WIN64"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "_ENABLE_EXTENDED_ALIGNED_STORAGE"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "_UNICODE"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"define" : "_WIN64"
 				}
 			],
@@ -327,17 +430,17 @@
 					"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"isSystem" : true,
 					"path" : "E:/Qt/6.3.1/mingw_64/include/QtCore"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"isSystem" : true,
 					"path" : "E:/Qt/6.3.1/mingw_64/include"
 				},
 				{
-					"backtrace" : 13,
+					"backtrace" : 36,
 					"isSystem" : true,
 					"path" : "E:/Qt/6.3.1/mingw_64/mkspecs/win32-g++"
 				},
@@ -350,6 +453,16 @@
 					"backtrace" : 5,
 					"isSystem" : true,
 					"path" : "E:/Qt/6.3.1/mingw_64/include/QtGui"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "E:/Qt/6.3.1/mingw_64/include/QtMultimedia"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "E:/Qt/6.3.1/mingw_64/include/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -357,8 +470,8 @@
 			{
 				"backtraces" : 
 				[
-					13,
-					13
+					36,
+					36
 				],
 				"standard" : "17"
 			},
@@ -372,8 +485,11 @@
 				13,
 				16,
 				19,
-				25,
-				26
+				21,
+				24,
+				30,
+				31,
+				32
 			]
 		}
 	],
@@ -406,53 +522,68 @@
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 12,
-				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6Gui.a",
+				"backtrace" : 6,
+				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6Multimedia.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 13,
-				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6Core.a",
+				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6Gui.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 22,
-				"fragment" : "-lmpr",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 22,
-				"fragment" : "-luserenv",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 31,
-				"fragment" : "-lmingw32",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 31,
-				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6EntryPoint.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 32,
-				"fragment" : "-lshell32",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 38,
 				"fragment" : "-ld3d11",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 38,
+				"backtrace" : 22,
 				"fragment" : "-ldxgi",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 38,
+				"backtrace" : 22,
 				"fragment" : "-ldxguid",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 35,
+				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6Network.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 36,
+				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6Core.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 42,
+				"fragment" : "-lmpr",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 42,
+				"fragment" : "-luserenv",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 51,
+				"fragment" : "-lmingw32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 51,
+				"fragment" : "E:\\Qt\\6.3.1\\mingw_64\\lib\\libQt6EntryPoint.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 52,
+				"fragment" : "-lshell32",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 55,
+				"fragment" : "-lws2_32",
 				"role" : "libraries"
 			},
 			{
@@ -483,8 +614,11 @@
 				13,
 				16,
 				19,
-				25,
-				26
+				21,
+				24,
+				30,
+				31,
+				32
 			]
 		},
 		{
@@ -498,9 +632,11 @@
 				15,
 				18,
 				20,
-				21,
-				22,
-				23
+				23,
+				25,
+				26,
+				27,
+				28
 			]
 		},
 		{
@@ -513,16 +649,18 @@
 				11,
 				14,
 				17,
-				24
+				22,
+				29
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				27,
-				28,
-				29
+				33,
+				34,
+				35,
+				36
 			]
 		}
 	],
@@ -638,6 +776,33 @@
 			"sourceGroupIndex" : 0
 		},
 		{
+			"backtrace" : 4,
+			"path" : "Windows/CharacterWindow/stylemaster.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "Windows/CharacterWindow/stylemaster.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "Resources/Sounds.qrc",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "MediaPlayer/mediaplayer.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "MediaPlayer/mediaplayer.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/ui_dungeoner.h",
@@ -683,6 +848,13 @@
 		},
 		{
 			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
@@ -697,6 +869,12 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

@@ -10,5 +10,4 @@
         <file>Textures PNG/Text-Block-Pressed-1-B.png</file>
         <file>Textures PNG/Text-Block-Pressed-1-T.png</file>
     </qresource>
-    <qresource prefix="/"/>
 </RCC>

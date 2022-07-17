@@ -5,7 +5,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Dungeoner w;
-//    w.show();
+
+    Dungeoner dungeoner;
+//    dungeoner.show();
     return a.exec();
 }

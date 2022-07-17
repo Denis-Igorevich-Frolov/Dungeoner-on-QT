@@ -1,9 +1,7 @@
-/*
- *Данный виджет - это подпись первичных навыков. Он имеет
+/*Данный виджет - это подпись первичных навыков. Он имеет
  *в себе LabelWithTooltip для вывода полной информации. В
  *виджете есть 2 кнопки для повышения и понижения значения
- *соответствующего навыка.
- */
+ *соответствующего навыка.*/
 
 #include "primaryskillsignature.h"
 #include "ui_primaryskillsignature.h"
@@ -16,6 +14,8 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     ui(new Ui::PrimarySkillSignature)
 {
     ui->setupUi(this);
+
+//    mediaPlayer = Dungeoner::getBasicMediaPlayer();
 
     //Установка стилей для элементов виджета
     ui->labelCenter->setStyleSheet(StyleMaster::CenterTextureStyle());
@@ -39,10 +39,11 @@ void PrimarySkillSignature::setText(QString text)
 /*Метод реализации нажатия кнопки прибавки стата. Он обрабатывает нажатия с учётом модификаторов:
  *Ctrl: +10, Ctrl+Shift: +100, Ctrl+Shift+Alt: +1000. Обычное нажатие: +1. Во вложенных циклах
  *поиска прибавка написана как +90 и +900 из-за того, что если код дошёл до этой позиции,
- *то соответственно все вышестоящие прибавки уже были произведены.
- */
+ *то соответственно все вышестоящие прибавки уже были произведены.*/
 void PrimarySkillSignature::on_ButtonTop_released()
 {
+//    mediaPlayer->playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+
     QVector<int>::iterator iterator = std::find(pressedKeys.begin(), pressedKeys.end(), 16777249);
     if(iterator!=pressedKeys.end()){
         for(int key : pressedKeys){
@@ -73,8 +74,7 @@ void PrimarySkillSignature::on_ButtonTop_released()
 /*Метод реализации нажатия кнопки убавления стата. Он обрабатывает нажатия с учётом модификаторов:
  *Ctrl: -10, Ctrl+Shift: -100, Ctrl+Shift+Alt: -1000. Обычное нажатие: -1. Во вложенных циклах
  *поиска убавление написано как -90 и -900 из-за того, что если код дошёл до этой позиции, то
- *соответственно все вышестоящие вычеты уже были произведены.
- */
+ *соответственно все вышестоящие вычеты уже были произведены.*/
 void PrimarySkillSignature::on_ButtonBottom_released()
 {
     QVector<int>::iterator iterator = std::find(pressedKeys.begin(), pressedKeys.end(), 16777249);
@@ -105,8 +105,7 @@ void PrimarySkillSignature::on_ButtonBottom_released()
 }
 
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
- *Считаются только Ctrl,Shift и Alt
- */
+ *Считаются только Ctrl,Shift и Alt*/
 void PrimarySkillSignature::keyPressEvent(QKeyEvent *event)
 {
     int key=event->key();

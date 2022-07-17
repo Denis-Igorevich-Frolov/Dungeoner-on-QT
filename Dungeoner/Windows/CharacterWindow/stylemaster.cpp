@@ -1,3 +1,6 @@
+/*Мастер стилей для CharacterWindow. Хранит Qss инструкции,
+ *которые затем будут применены к элементам виджета*/
+
 #include "stylemaster.h"
 
 QString StyleMaster::SpinBoxStyle(int sizePX)

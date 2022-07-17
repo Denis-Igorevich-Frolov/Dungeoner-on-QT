@@ -12,9 +12,10 @@ Dungeoner::Dungeoner(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Dungeoner)
 {
-    ui->setupUi(this);
+//    ui->setupUi(this);
 
-    this->close();
+//    this->close();
+
     characterWindow = new CharacterWindow();
     characterWindow->show();
 
@@ -26,5 +27,5 @@ Dungeoner::Dungeoner(QWidget *parent)
 Dungeoner::~Dungeoner()
 {
     delete ui;
+    delete characterWindow;
 }
-

@@ -36,6 +36,8 @@ set(PROJECT_SOURCES
         CustomWidget/LabelWithTooltip/stylemaster.cpp
         Windows/CharacterWindow/stylemaster.h
         Windows/CharacterWindow/stylemaster.cpp
+        Resources/Sounds.qrc
+        MediaPlayer/mediaplayer.h MediaPlayer/mediaplayer.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -74,3 +76,6 @@ set_target_properties(Dungeoner PROPERTIES
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Dungeoner)
 endif()
+
+find_package(Qt6 REQUIRED COMPONENTS Multimedia)
+target_link_libraries(Dungeoner PRIVATE Qt${QT_VERSION_MAJOR}::Multimedia)

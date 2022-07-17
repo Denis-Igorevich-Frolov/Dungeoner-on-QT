@@ -1,6 +1,4 @@
-/*
- *Окно персонажа, содержащее всю информацию о нём
- */
+/*Окно персонажа, содержащее всю информацию о нём*/
 
 #include "characterwindow.h"
 #include "ui_characterwindow.h"
@@ -34,11 +32,9 @@ CharacterWindow::~CharacterWindow()
 }
 
 /*Установка текста для подписи первичного навыка в соответствии с его динамическим свойством
- *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures
- */
+ *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures*/
 void CharacterWindow::setTextPrimarySkillSignature()
 {
-
     for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
         if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
             PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
@@ -46,7 +42,7 @@ void CharacterWindow::setTextPrimarySkillSignature()
              *текст извлекается из динамического свойства виджета Text.*/
             pss->setText(pss->property("Text").toString());
         }else{
-            //Вывод логов ошибки в кончоль и файл
+            //Вывод логов ошибки в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
@@ -74,7 +70,9 @@ void CharacterWindow::setTextPrimarySkillSignature()
 //Установка стилей всех объектов
 void CharacterWindow::setStyles()
 {
-
+    /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно
+     *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
+     *проигнорирован и выведена ошибка.*/
     for(auto* autoSB : ui->PrimarySkillValues->children()){
         if(dynamic_cast <QSpinBox*> (autoSB)){
             QSpinBox* sb = qobject_cast <QSpinBox*> (autoSB);
@@ -82,7 +80,7 @@ void CharacterWindow::setStyles()
              *шрифта извлекается из динамического свойства виджета fontSize.*/
             sb->setStyleSheet(StyleMaster::SpinBoxStyle(sb->property("fontSize").toInt()));
         }else{
-            //Вывод логов ошибки в кончоль и файл
+            //Вывод логов ошибки в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
@@ -107,21 +105,24 @@ void CharacterWindow::setStyles()
     }
 }
 
-/*
- *В данном методе связываются подписи с их значениями в QSpinBox путём передачи
+/*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
  *указателя на QSpinBox в переменную SpinBoxValue класса PrimarySkillSignature.
- *Делается это для работы кнопок больше и меньше.
- */
+ *Делается это для работы кнопок больше и меньше.*/
 void CharacterWindow::associatingLabelsWithValues()
 {
     int i = 0;
+    /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
+     *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
+     *проигнорирован и выведена ошибка.*/
     for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
         if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
             PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
             if(dynamic_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i))){
+                /*SpinBoxValue - это указатель в классе PrimarySkillSignature. Здесь
+                 *происходит передача в него соответствующего указателя на QSpinBox*/
                 pss->SpinBoxValue = qobject_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i));
             }else{
-                //Вывод логов ошибки в кончоль и файл
+                //Вывод логов ошибки в консоль и файл
                 QDate cd = QDate::currentDate();
                 QTime ct = QTime::currentTime();
 
@@ -144,7 +145,7 @@ void CharacterWindow::associatingLabelsWithValues()
                 }
             }
         }else{
-            //Вывод логов ошибки в кончоль и файл
+            //Вывод логов ошибки в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 

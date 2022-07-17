@@ -10,8 +10,7 @@
  *Суть вынесения этой одной кнопки в отдельный класс в том, чтобы эвент
  *QMouseEvent обрабатывала только эта кнопка, а не весь родительский виджет,
  *а так как QMouseEvent - это эвент класса виджет, то самым простым и
- *понятным решением было просто вынести кнопку в отдельный виджет.
- */
+ *понятным решением было просто вынести кнопку в отдельный виджет.*/
 
 #include <QWidget>
 
@@ -27,13 +26,18 @@ public:
     explicit LabelWithTooltip(QWidget *parent = nullptr);
     ~LabelWithTooltip();
 
+    //Устанавливает текст для ButtonText
     void setText(QString text);
 
 private:
     Ui::LabelWithTooltip *ui;
 
 protected:
+    /*Функция ивента нажатия клафиши мыши. Обрабатывает нажатие только
+     *правой кнопки для вывода подсказки.*/
     virtual void mousePressEvent(QMouseEvent* event);
+    /*Функция ивента отжатия клафиши мыши. Обрабатывает отжатие только
+     * правой кнопки для сокрытия подсказки.*/
     virtual void mouseReleaseEvent(QMouseEvent* event);
 };
 

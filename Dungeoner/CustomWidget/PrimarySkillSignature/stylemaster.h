@@ -1,10 +1,8 @@
 #ifndef STYLEMASTER_H
 #define STYLEMASTER_H
 
-/*
- *Мастер стилей для PrimarySkillSignature. Хранит Qss инструкции,
- *которые затем будут применены к элементам виджета
- */
+/*Мастер стилей для PrimarySkillSignature. Хранит Qss инструкции,
+ *которые затем будут применены к элементам виджета*/
 
 #include <QString>
 

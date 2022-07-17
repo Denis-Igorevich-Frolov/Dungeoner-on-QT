@@ -41,8 +41,7 @@ void LabelWithTooltip::setText(QString text)
 }
 
 /*Функция ивента нажатия клафиши мыши. Обрабатывает нажатие только
- *правой кнопки для вывода подсказки.
- */
+ *правой кнопки для вывода подсказки.*/
 void LabelWithTooltip::mousePressEvent(QMouseEvent *event)
 {
     switch (event->button()) {

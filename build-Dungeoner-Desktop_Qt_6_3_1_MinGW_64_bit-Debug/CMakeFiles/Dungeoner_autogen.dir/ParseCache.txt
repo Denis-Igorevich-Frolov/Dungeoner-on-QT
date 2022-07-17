@@ -332,6 +332,9 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/prim
  mmc:Q_OBJECT
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.h
  mdp:E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qarraydata.h
@@ -373,6 +376,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/prim
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qmargins.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qmath.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qmetacontainer.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qmetaobject.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qmetatype.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qnamespace.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qnumeric.h
@@ -410,6 +414,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/prim
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qtextstream.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qtmetamacros.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qtypeinfo.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qurl.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qutf8stringview.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qvariant.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtCore/qvarlengtharray.h
@@ -440,11 +445,23 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/prim
  mdp:E:/Qt/6.3.1/mingw_64/include/QtGui/qvalidator.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/QAudioOutput
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/QMediaPlayer
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qaudio.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qaudiooutput.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qmediaenumdebug.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qmediaplayer.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtabwidget.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -991,6 +1008,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow
  mdp:E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.h
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h
  mmc:Q_OBJECT
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h
@@ -1331,8 +1349,9 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/prim
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.cpp
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.cpp
  uic:ui_characterwindow.h
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.cpp
  uic:./ui_dungeoner.h
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/main.cpp
-E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.h
-E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.cpp
