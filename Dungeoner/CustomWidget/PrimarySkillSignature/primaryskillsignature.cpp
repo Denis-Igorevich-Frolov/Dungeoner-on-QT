@@ -42,7 +42,7 @@ void PrimarySkillSignature::setText(QString text)
  *то соответственно все вышестоящие прибавки уже были произведены.*/
 void PrimarySkillSignature::on_ButtonTop_released()
 {
-//    mediaPlayer->playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click2.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
     QVector<int>::iterator iterator = std::find(pressedKeys.begin(), pressedKeys.end(), 16777249);
     if(iterator!=pressedKeys.end()){
@@ -77,6 +77,8 @@ void PrimarySkillSignature::on_ButtonTop_released()
  *соответственно все вышестоящие вычеты уже были произведены.*/
 void PrimarySkillSignature::on_ButtonBottom_released()
 {
+    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click2.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+
     QVector<int>::iterator iterator = std::find(pressedKeys.begin(), pressedKeys.end(), 16777249);
     if(iterator!=pressedKeys.end()){
         for(int key : pressedKeys){

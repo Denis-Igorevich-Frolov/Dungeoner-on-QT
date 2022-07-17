@@ -388,6 +388,12 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.h",
+			"MU",
+			"6X7T4VEVXB/moc_global.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h",
 			"MU",
 			"BW6V4BNQU4/moc_mediaplayer.cpp",
@@ -504,6 +510,11 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp",
 			"MU",
 			null
 		],

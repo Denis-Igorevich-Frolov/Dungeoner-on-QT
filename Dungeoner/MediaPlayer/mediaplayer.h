@@ -1,6 +1,8 @@
 #ifndef MEDIAPLAYER_H
 #define MEDIAPLAYER_H
 
+/*Данный класс является медиаплеером*/
+
 #include <QtMultimedia/QMediaPlayer>
 #include <QtMultimedia/QAudioOutput>
 
@@ -15,17 +17,18 @@ public:
         MUSICS
     };
 
+    /*Проигрывание медиафайла. В него передаётся ссылка на ресурс и энум
+     *группы медиафайла для контроля громкости разных груп.*/
     void playSound(QUrl url, enum SoundsGroup);
 
+    double getOverallVolume() const;
+    void setOverallVolume(double newOverallVolume);
 
-    int getOverallVolume() const;
-    void setOverallVolume(int newOverallVolume);
+    double getSoundsVolume() const;
+    void setSoundsVolume(double newSoundsVolume);
 
-    int getSoundsVolume() const;
-    void setSoundsVolume(int newSoundsVolume);
-
-    int getMusicsVolume() const;
-    void setMusicsVolume(int newMusicsVolume);
+    double getMusicsVolume() const;
+    void setMusicsVolume(double newMusicsVolume);
 
     QMediaPlayer *getPlayer() const;
     void setPlayer(QMediaPlayer *newPlayer);
@@ -37,9 +40,9 @@ private:
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
 
-    int overallVolume;
-    int soundsVolume;
-    int musicsVolume;
+    double overallVolume;
+    double soundsVolume;
+    double musicsVolume;
 
 };
 

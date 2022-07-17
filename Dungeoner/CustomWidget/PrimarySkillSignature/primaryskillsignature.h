@@ -6,8 +6,9 @@
  *виджете есть 2 кнопки для повышения и понижения значения
  *соответствующего навыка.*/
 
-#include "MediaPlayer/mediaplayer.h"
+//#include "MediaPlayer/mediaplayer.h"
 #include "dungeoner.h"
+#include "Global/global.h"
 
 #include <QWidget>
 #include <QSpinBox>
@@ -30,6 +31,8 @@ public:
 
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
+
+//    MediaPlayer mediaPlayer;
 
     //Устанавливает текст для LabelWithTooltip
     void setText(QString text);

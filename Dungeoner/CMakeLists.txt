@@ -37,7 +37,10 @@ set(PROJECT_SOURCES
         Windows/CharacterWindow/stylemaster.h
         Windows/CharacterWindow/stylemaster.cpp
         Resources/Sounds.qrc
-        MediaPlayer/mediaplayer.h MediaPlayer/mediaplayer.cpp
+        MediaPlayer/mediaplayer.h
+        MediaPlayer/mediaplayer.cpp
+        Global/global.h
+        Global/global.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

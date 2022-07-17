@@ -1,10 +1,13 @@
 #include "mediaplayer.h"
 
+/*Данный класс является медиаплеером*/
+
 MediaPlayer::MediaPlayer()
 {
+    //Значения по умолчанию
     overallVolume = 1;
-    soundsVolume = 50;
-    musicsVolume = 50;
+    soundsVolume = 1;
+    musicsVolume = 1;
 
 
     player = new QMediaPlayer;
@@ -18,9 +21,11 @@ MediaPlayer::~MediaPlayer()
     delete audioOutput;
 }
 
+/*Проигрывание медиафайла. В него передаётся ссылка на ресурс и энум
+ *группы медиафайла для контроля громкости разных груп.*/
 void MediaPlayer::playSound(QUrl url, enum SoundsGroup)
 {
-    int volume;
+    double volume;
     if(SoundsGroup::SOUNDS){
         volume = soundsVolume * overallVolume;
     } else if(SoundsGroup::MUSICS){
@@ -51,32 +56,32 @@ void MediaPlayer::setAudioOutput(QAudioOutput *newAudioOutput)
     audioOutput = newAudioOutput;
 }
 
-int MediaPlayer::getOverallVolume() const
+double MediaPlayer::getOverallVolume() const
 {
     return overallVolume;
 }
 
-void MediaPlayer::setOverallVolume(int newOverallVolume)
+void MediaPlayer::setOverallVolume(double newOverallVolume)
 {
     overallVolume = newOverallVolume;
 }
 
-int MediaPlayer::getSoundsVolume() const
+double MediaPlayer::getSoundsVolume() const
 {
     return soundsVolume;
 }
 
-void MediaPlayer::setSoundsVolume(int newSoundsVolume)
+void MediaPlayer::setSoundsVolume(double newSoundsVolume)
 {
     soundsVolume = newSoundsVolume;
 }
 
-int MediaPlayer::getMusicsVolume() const
+double MediaPlayer::getMusicsVolume() const
 {
     return musicsVolume;
 }
 
-void MediaPlayer::setMusicsVolume(int newMusicsVolume)
+void MediaPlayer::setMusicsVolume(double newMusicsVolume)
 {
     musicsVolume = newMusicsVolume;
 }
