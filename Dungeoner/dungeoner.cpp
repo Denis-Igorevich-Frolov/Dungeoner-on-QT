@@ -5,7 +5,6 @@
 #include "dungeoner.h"
 #include "./ui_dungeoner.h"
 
-//#include <QDebug>
 //#include <QFontDatabase>
 
 Dungeoner::Dungeoner(QWidget *parent)

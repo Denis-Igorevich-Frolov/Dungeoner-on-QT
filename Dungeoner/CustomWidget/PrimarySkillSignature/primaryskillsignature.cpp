@@ -37,73 +37,55 @@ void PrimarySkillSignature::setText(QString text)
 }
 
 /*Метод реализации нажатия кнопки прибавки стата. Он обрабатывает нажатия с учётом модификаторов:
- *Ctrl: +10, Ctrl+Shift: +100, Ctrl+Shift+Alt: +1000. Обычное нажатие: +1. Во вложенных циклах
- *поиска прибавка написана как +90 и +900 из-за того, что если код дошёл до этой позиции,
- *то соответственно все вышестоящие прибавки уже были произведены.*/
+ *Ctrl: +10, Shift: +100, Alt: +1000. Обычное нажатие: +1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonTop_released()
 {
     Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click2.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
-    QVector<int>::iterator iterator = std::find(pressedKeys.begin(), pressedKeys.end(), 16777249);
-    if(iterator!=pressedKeys.end()){
-        for(int key : pressedKeys){
-            //Ctrl
-            if(key == 16777249){
-                SpinBoxValue->setValue(SpinBoxValue->value() + 10);
-                for(int key : pressedKeys){
-                    //Ctrl+Shift
-                    if(key == 16777248){
-                        SpinBoxValue->setValue(SpinBoxValue->value() + 90);
-                        for(int key : pressedKeys){
-                            //Ctrl+Shift+Alt
-                            if(key == 16777251){
-                                SpinBoxValue->setValue(SpinBoxValue->value() + 900);
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
+    int plus = 1;
+
+    if(!pressedKeys.empty()){
+        //Ctrl
+        if(pressedKeys.last() == 16777249){
+            plus = 10;
         }
-    }else
-        SpinBoxValue->setValue(SpinBoxValue->value() + 1);
+        //Shift
+        if(pressedKeys.last() == 16777248){
+            plus = 100;
+        }
+        //Alt
+        if(pressedKeys.last() == 16777251){
+            plus = 1000;
+        }
+    }
+
+    SpinBoxValue->setValue(SpinBoxValue->value() + plus);
 }
 
-/*Метод реализации нажатия кнопки убавления стата. Он обрабатывает нажатия с учётом модификаторов:
- *Ctrl: -10, Ctrl+Shift: -100, Ctrl+Shift+Alt: -1000. Обычное нажатие: -1. Во вложенных циклах
- *поиска убавление написано как -90 и -900 из-за того, что если код дошёл до этой позиции, то
- *соответственно все вышестоящие вычеты уже были произведены.*/
+/*Метод реализации нажатия кнопки вычета стата. Он обрабатывает нажатия с учётом модификаторов:
+ *Ctrl: -10, Shift: -100, Alt: -1000. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonBottom_released()
 {
     Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click2.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
-    QVector<int>::iterator iterator = std::find(pressedKeys.begin(), pressedKeys.end(), 16777249);
-    if(iterator!=pressedKeys.end()){
-        for(int key : pressedKeys){
-            //Ctrl
-            if(key == 16777249){
-                SpinBoxValue->setValue(SpinBoxValue->value() - 10);
-                for(int key : pressedKeys){
-                    //Ctrl+Shift
-                    if(key == 16777248){
-                        SpinBoxValue->setValue(SpinBoxValue->value() - 90);
-                        for(int key : pressedKeys){
-                            //Ctrl+Shift+Alt
-                            if(key == 16777251){
-                                SpinBoxValue->setValue(SpinBoxValue->value() - 900);
-                                break;
-                            }
-                        }
-                        break;
-                    }
-                }
-                break;
-            }
+    int minus = 1;
+
+    if(!pressedKeys.empty()){
+        //Ctrl
+        if(pressedKeys.last() == 16777249){
+            minus = 10;
         }
-    }else
-        SpinBoxValue->setValue(SpinBoxValue->value() - 1);
+        //Shift
+        if(pressedKeys.last() == 16777248){
+            minus = 100;
+        }
+        //Alt
+        if(pressedKeys.last() == 16777251){
+            minus = 1000;
+        }
+    }
+
+    SpinBoxValue->setValue(SpinBoxValue->value() - minus);
 }
 
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
@@ -115,7 +97,12 @@ void PrimarySkillSignature::keyPressEvent(QKeyEvent *event)
         pressedKeys.append(key);
 }
 
-//Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys
+/*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
+ *Сделано это для того, чтобы обрабатывать случай, когда зажато несколько модификаторов
+ *одновременно. Они не будут последовательно обработаны, считаться будет только последний,
+ *но если просто сбрасывать int переменную, то может возникать случай, когда второй
+ *модификатор будет зажат до отжатия предыдущего, а затем первый будет отжат, и управление
+ *как бы "заест", модификатор придётся жать вновь. Для избежания этого и создан этот вектор.*/
 void PrimarySkillSignature::keyReleaseEvent(QKeyEvent *event)
 {
     int key=event->key();

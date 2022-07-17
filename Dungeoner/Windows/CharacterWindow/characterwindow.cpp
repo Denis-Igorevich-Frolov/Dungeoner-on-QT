@@ -6,7 +6,6 @@
 #include "stylemaster.h"
 
 #include <QGridLayout>
-#include <QDebug>
 #include <QFile>
 #include <QTextStream>
 #include <QDate>
