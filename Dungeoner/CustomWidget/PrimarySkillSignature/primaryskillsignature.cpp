@@ -17,8 +17,6 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
 {
     ui->setupUi(this);
 
-//    mediaPlayer = Dungeoner::getBasicMediaPlayer();
-
     //Установка стилей для элементов виджета
     ui->labelCenter->setStyleSheet(StyleMaster::CenterTextureStyle());
     ui->ButtonTop->setStyleSheet(StyleMaster::topTextureStyle());

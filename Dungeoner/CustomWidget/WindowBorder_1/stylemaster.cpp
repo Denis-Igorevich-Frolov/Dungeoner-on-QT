@@ -1,3 +1,6 @@
+/*Мастер стилей для WindowBorder_1. Хранит Qss инструкции,
+ *которые затем будут применены к элементам виджета*/
+
 #include "stylemaster.h"
 
 QString stylemaster::BottomLeftCornerStyle()
@@ -40,9 +43,9 @@ QString stylemaster::BottomBorderStyle()
 {
     return
     "QLabel{"
-    "   background-color: #280b02;"
-    "   border-bottom: 1px solid #864926;"
-    "   border-top: 1px solid #431c10;"
+    "   background-color: #271a12;"
+    "   border-bottom: 1px solid #6d4b31;"
+    "   border-top: 1px solid #483221;"
     "}";
 }
 
@@ -50,9 +53,9 @@ QString stylemaster::TopBorderStyle()
 {
     return
     "QLabel{"
-    "   background-color: #280b02;"
-    "   border-top: 1px solid #864926;"
-    "   border-bottom: 1px solid #431c10;"
+    "   background-color: #271a12;"
+    "   border-top: 1px solid #6d4b31;"
+    "   border-bottom: 1px solid #483221;"
     "}";
 }
 
@@ -60,9 +63,9 @@ QString stylemaster::LeftBorderStyle()
 {
     return
     "QLabel{"
-    "   background-color: #280b02;"
-    "   border-left: 1px solid #864926;"
-    "   border-right: 1px solid #431c10;"
+    "   background-color: #271a12;"
+    "   border-left: 1px solid #6d4b31;"
+    "   border-right: 1px solid #483221;"
     "}";
 }
 
@@ -70,8 +73,8 @@ QString stylemaster::RightBorderStyle()
 {
     return
     "QLabel{"
-    "   background-color: #280b02;"
-    "   border-right: 1px solid #864926;"
-    "   border-left: 1px solid #431c10;"
+    "   background-color: #271a12;"
+    "   border-right: 1px solid #6d4b31;"
+    "   border-left: 1px solid #483221;"
     "}";
 }

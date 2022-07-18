@@ -1,17 +1,17 @@
 <RCC>
     <qresource prefix="/Text-Block-1">
-        <file>Textures PNG/Text-Block-1-T.png</file>
-        <file>Textures PNG/Text-Block-1-B.png</file>
-        <file>Textures PNG/Text-Block-1-L.png</file>
-        <file>Textures PNG/Text-Block-1-R.png</file>
         <file>Textures PNG/Text-Block-1-BG.png</file>
-        <file>Textures PNG/Text-Block-Hovered-1-B.png</file>
-        <file>Textures PNG/Text-Block-Hovered-1-T.png</file>
-        <file>Textures PNG/Text-Block-Pressed-1-B.png</file>
-        <file>Textures PNG/Text-Block-Pressed-1-T.png</file>
         <file>Textures PNG/Angle-7-B-L.png</file>
         <file>Textures PNG/Angle-7-B-R.png</file>
         <file>Textures PNG/Angle-7-T-L.png</file>
         <file>Textures PNG/Angle-7-T-R.png</file>
+        <file>Textures PNG/Text-Block-1-B.png</file>
+        <file>Textures PNG/Text-Block-1-L.png</file>
+        <file>Textures PNG/Text-Block-1-R.png</file>
+        <file>Textures PNG/Text-Block-1-T.png</file>
+        <file>Textures PNG/Text-Block-Hovered-1-B.png</file>
+        <file>Textures PNG/Text-Block-Hovered-1-T.png</file>
+        <file>Textures PNG/Text-Block-Pressed-1-T.png</file>
+        <file>Textures PNG/Text-Block-Pressed-1-B.png</file>
     </qresource>
 </RCC>

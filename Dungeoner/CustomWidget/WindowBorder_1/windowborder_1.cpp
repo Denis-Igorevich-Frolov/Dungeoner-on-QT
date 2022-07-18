@@ -1,3 +1,5 @@
+/*Данный класс является виджетом рамки. Просто рамка*/
+
 #include "windowborder_1.h"
 #include "ui_windowborder_1.h"
 #include "stylemaster.h"
@@ -8,6 +10,7 @@ WindowBorder_1::WindowBorder_1(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Установка стилей для элементов виджета
     ui->BottomLeftCorner->setStyleSheet(stylemaster::BottomLeftCornerStyle());
     ui->BottomRightCorner->setStyleSheet(stylemaster::BottomRightCornerStyle());
     ui->TopLeftCorner->setStyleSheet(stylemaster::TopLeftCornerStyle());

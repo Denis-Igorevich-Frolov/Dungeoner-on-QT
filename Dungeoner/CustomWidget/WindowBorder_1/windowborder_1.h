@@ -1,6 +1,8 @@
 #ifndef WINDOWBORDER_1_H
 #define WINDOWBORDER_1_H
 
+/*Данный класс является виджетом рамки. Просто рамка*/
+
 #include <QWidget>
 
 namespace Ui {
