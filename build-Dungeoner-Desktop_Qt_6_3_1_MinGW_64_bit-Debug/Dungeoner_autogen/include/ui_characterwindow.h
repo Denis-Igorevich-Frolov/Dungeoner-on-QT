@@ -10,6 +10,7 @@
 #define UI_CHARACTERWINDOW_H
 
 #include <CustomWidget/PrimarySkillSignature/primaryskillsignature.h>
+#include <CustomWidget/WindowBorder_1/windowborder_1.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -48,6 +49,7 @@ public:
     QLabel *Separator5;
     QLabel *Separator2;
     QLabel *Separator3;
+    WindowBorder_1 *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -231,7 +233,7 @@ public:
         WillValue->setProperty("fontSize", QVariant(28));
         Separators = new QFrame(ValuesPanel);
         Separators->setObjectName(QString::fromUtf8("Separators"));
-        Separators->setGeometry(QRect(0, 0, 611, 41));
+        Separators->setGeometry(QRect(0, 0, 611, 35));
         sizePolicy.setHeightForWidth(Separators->sizePolicy().hasHeightForWidth());
         Separators->setSizePolicy(sizePolicy);
         Separators->setMinimumSize(QSize(611, 35));
@@ -283,6 +285,10 @@ public:
 
         verticalLayout->addWidget(ValuesPanel);
 
+        widget = new WindowBorder_1(CharacterWindow);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(110, 230, 241, 131));
+        widget->setStyleSheet(QString::fromUtf8("background: blaack;"));
 
         retranslateUi(CharacterWindow);
 

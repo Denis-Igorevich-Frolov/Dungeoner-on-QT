@@ -8,6 +8,10 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/windowborder_1.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/windowborder_1.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.cpp \
@@ -505,6 +509,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/labelwithtooltip.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/windowborder_1.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.ui \
 	E:/Qt/Tools/CMake_64/bin/cmake.exe

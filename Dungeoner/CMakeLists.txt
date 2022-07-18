@@ -41,6 +41,11 @@ set(PROJECT_SOURCES
         MediaPlayer/mediaplayer.cpp
         Global/global.h
         Global/global.cpp
+        CustomWidget/WindowBorder_1/windowborder_1.h
+        CustomWidget/WindowBorder_1/windowborder_1.cpp
+        CustomWidget/WindowBorder_1/windowborder_1.ui
+        CustomWidget/WindowBorder_1/stylemaster.h
+        CustomWidget/WindowBorder_1/stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

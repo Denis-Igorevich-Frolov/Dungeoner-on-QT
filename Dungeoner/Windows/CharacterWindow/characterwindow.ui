@@ -624,7 +624,7 @@
          <x>0</x>
          <y>0</y>
          <width>611</width>
-         <height>41</height>
+         <height>35</height>
         </rect>
        </property>
        <property name="sizePolicy">
@@ -828,12 +828,31 @@
     </item>
    </layout>
   </widget>
+  <widget class="WindowBorder_1" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>230</y>
+     <width>241</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: blaack;</string>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
    <class>PrimarySkillSignature</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidget/PrimarySkillSignature/primaryskillsignature.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WindowBorder_1</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidget/WindowBorder_1/windowborder_1.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

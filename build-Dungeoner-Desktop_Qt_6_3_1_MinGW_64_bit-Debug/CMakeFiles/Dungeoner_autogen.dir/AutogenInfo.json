@@ -388,6 +388,18 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/stylemaster.h",
+			"MU",
+			"LLSUCDYN5B/moc_stylemaster.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/windowborder_1.h",
+			"MU",
+			"LLSUCDYN5B/moc_windowborder_1.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.h",
 			"MU",
 			"6X7T4VEVXB/moc_global.cpp",
@@ -510,6 +522,16 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/windowborder_1.cpp",
 			"MU",
 			null
 		],
