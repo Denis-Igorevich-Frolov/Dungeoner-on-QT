@@ -9,6 +9,8 @@
 #include <QMouseEvent>
 #include <QMutableVectorIterator>
 
+QVector<int> PrimarySkillSignature::pressedKeys;
+
 PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::PrimarySkillSignature)
