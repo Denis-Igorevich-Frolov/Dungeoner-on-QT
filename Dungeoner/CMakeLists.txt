@@ -46,6 +46,11 @@ set(PROJECT_SOURCES
         CustomWidget/WindowBorder_1/windowborder_1.ui
         CustomWidget/WindowBorder_1/stylemaster.h
         CustomWidget/WindowBorder_1/stylemaster.cpp
+        CustomWidget/SecondarySkill/secondaryskill.h
+        CustomWidget/SecondarySkill/secondaryskill.cpp
+        CustomWidget/SecondarySkill/secondaryskill.ui
+        CustomWidget/SecondarySkill/stylemaster.h
+        CustomWidget/SecondarySkill/stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

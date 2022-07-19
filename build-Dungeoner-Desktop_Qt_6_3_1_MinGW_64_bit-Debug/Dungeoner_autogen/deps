@@ -8,6 +8,10 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/secondaryskill.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/secondaryskill.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/stylemaster.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/windowborder_1.cpp \
@@ -149,10 +153,12 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
 	E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
 	E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h \
@@ -509,6 +515,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/LabelWithTooltip/labelwithtooltip.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/primaryskillsignature.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/secondaryskill.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/windowborder_1.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.ui \

@@ -105,7 +105,9 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-De
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtransform.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgets-config.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgetsexports.h \

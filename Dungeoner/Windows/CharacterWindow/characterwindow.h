@@ -17,6 +17,9 @@ public:
     CharacterWindow(QWidget *parent = nullptr);
     ~CharacterWindow();
 
+private slots:
+    void cho(int value);
+
 private:
     Ui::CharacterWindow *ui;
 

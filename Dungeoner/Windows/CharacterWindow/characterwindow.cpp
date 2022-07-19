@@ -11,6 +11,8 @@
 #include <QDate>
 #include <QTime>
 #include <QSpinBox>
+#include <QGraphicsDropShadowEffect>
+#include <QScrollBar>
 
 CharacterWindow::CharacterWindow(QWidget *parent) :
     QWidget(parent),
@@ -102,6 +104,41 @@ void CharacterWindow::setStyles()
             }
         }
     }
+
+    QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
+    for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
+    {
+        for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
+        {
+            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                ss->setInscription(ss->property("Inscription").toString());
+                ss->setFontSize(ss->property("FontSize").toInt());
+            }else{
+                //Вывод логов ошибки в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: неверный тип данных\n"
+                        "CharacterWindow выдал исключение в методе setStyles.\n"
+                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+            }
+        }
+    }
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -168,5 +205,12 @@ void CharacterWindow::associatingLabelsWithValues()
         }
         ++i;
     }
-
+    connect(ui->scrollArea->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(cho(int)), Qt::QueuedConnection);
+//qDebug()<<scrollArea->verticalScrollBar()
 }
+
+void CharacterWindow::cho(int value)
+{
+    qDebug()<<value;
+}
+

@@ -10,8 +10,6 @@
 #include "ui_labelwithtooltip.h"
 #include "stylemaster.h"
 
-#include <QGraphicsDropShadowEffect>
-
 LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LabelWithTooltip)
@@ -23,14 +21,15 @@ LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
     ui->ButtonText->setStyleSheet(StyleMaster::TextFontStyle(this->property("fontSize").toInt()));
 
     //Добавление тени
-    QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect(this);
-    effect->setOffset(1, 1);
-    effect->setColor(QColor(32, 29, 16));
-    ui->ButtonText->setGraphicsEffect(effect);
+    shadow = new QGraphicsDropShadowEffect(this);
+    shadow->setOffset(1, 1);
+    shadow->setColor(QColor(32, 29, 16));
+    ui->ButtonText->setGraphicsEffect(shadow);
 }
 
 LabelWithTooltip::~LabelWithTooltip()
 {
+    delete shadow;
     delete ui;
 }
 

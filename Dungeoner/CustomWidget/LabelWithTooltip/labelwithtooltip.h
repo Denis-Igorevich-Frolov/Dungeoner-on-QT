@@ -12,6 +12,7 @@
  *а так как QMouseEvent - это эвент класса виджет, то самым простым и
  *понятным решением было просто вынести кнопку в отдельный виджет.*/
 
+#include <QGraphicsDropShadowEffect>
 #include <QWidget>
 
 namespace Ui {
@@ -30,6 +31,7 @@ public:
     void setText(QString text);
 
 private:
+    QGraphicsDropShadowEffect* shadow;
     Ui::LabelWithTooltip *ui;
 
 protected:

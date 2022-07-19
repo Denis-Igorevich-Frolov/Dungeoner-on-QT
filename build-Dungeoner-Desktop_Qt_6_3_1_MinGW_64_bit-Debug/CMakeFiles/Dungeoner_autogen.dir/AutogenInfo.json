@@ -388,6 +388,18 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/secondaryskill.h",
+			"MU",
+			"BYDF2I7745/moc_secondaryskill.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/stylemaster.h",
+			"MU",
+			"BYDF2I7745/moc_stylemaster.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/WindowBorder_1/stylemaster.h",
 			"MU",
 			"LLSUCDYN5B/moc_stylemaster.cpp",
@@ -522,6 +534,16 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/PrimarySkillSignature/stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/secondaryskill.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidget/SecondarySkill/stylemaster.cpp",
 			"MU",
 			null
 		],
