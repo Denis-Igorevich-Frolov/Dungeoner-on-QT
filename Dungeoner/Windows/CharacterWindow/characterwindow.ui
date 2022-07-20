@@ -1522,13 +1522,13 @@ border: none;</string>
   <customwidget>
    <class>PrimarySkillSignature</class>
    <extends>QWidget</extends>
-   <header location="global">CustomWidget/PrimarySkillSignature/primaryskillsignature.h</header>
+   <header location="global">CustomWidgets/PrimarySkillSignature/primaryskillsignature.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>SecondarySkill</class>
    <extends>QWidget</extends>
-   <header location="global">CustomWidget/SecondarySkill/secondaryskill.h</header>
+   <header location="global">CustomWidgets/SecondarySkill/secondaryskill.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

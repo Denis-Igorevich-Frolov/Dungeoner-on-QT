@@ -9,7 +9,7 @@
 #ifndef UI_SECONDARYSKILL_H
 #define UI_SECONDARYSKILL_H
 
-#include <CustomWidget/WindowBorder_1/windowborder_1.h>
+#include <CustomWidgets/WindowBorder_1/windowborder_1.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>

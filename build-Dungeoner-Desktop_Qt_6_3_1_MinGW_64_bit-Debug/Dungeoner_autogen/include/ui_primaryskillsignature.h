@@ -9,7 +9,7 @@
 #ifndef UI_PRIMARYSKILLSIGNATURE_H
 #define UI_PRIMARYSKILLSIGNATURE_H
 
-#include <CustomWidget/LabelWithTooltip/labelwithtooltip.h>
+#include <CustomWidgets/LabelWithTooltip/labelwithtooltip.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>

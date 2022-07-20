@@ -19,21 +19,21 @@ set(PROJECT_SOURCES
         dungeoner.cpp
         dungeoner.h
         dungeoner.ui
-        CustomWidget/PrimarySkillSignature/primaryskillsignature.h
-        CustomWidget/PrimarySkillSignature/primaryskillsignature.cpp
-        CustomWidget/PrimarySkillSignature/primaryskillsignature.ui
+        CustomWidgets/PrimarySkillSignature/primaryskillsignature.h
+        CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp
+        CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui
         Resources/Textures.qrc
-        CustomWidget/PrimarySkillSignature/stylemaster.h
-        CustomWidget/PrimarySkillSignature/stylemaster.cpp
+        CustomWidgets/PrimarySkillSignature/stylemaster.h
+        CustomWidgets/PrimarySkillSignature/stylemaster.cpp
         Resources/Fonts.qrc
         Windows/CharacterWindow/characterwindow.h
         Windows/CharacterWindow/characterwindow.cpp
         Windows/CharacterWindow/characterwindow.ui
-        CustomWidget/LabelWithTooltip/labelwithtooltip.h
-        CustomWidget/LabelWithTooltip/labelwithtooltip.cpp
-        CustomWidget/LabelWithTooltip/labelwithtooltip.ui
-        CustomWidget/LabelWithTooltip/stylemaster.h
-        CustomWidget/LabelWithTooltip/stylemaster.cpp
+        CustomWidgets/LabelWithTooltip/labelwithtooltip.h
+        CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp
+        CustomWidgets/LabelWithTooltip/labelwithtooltip.ui
+        CustomWidgets/LabelWithTooltip/stylemaster.h
+        CustomWidgets/LabelWithTooltip/stylemaster.cpp
         Windows/CharacterWindow/stylemaster.h
         Windows/CharacterWindow/stylemaster.cpp
         Resources/Sounds.qrc
@@ -41,16 +41,16 @@ set(PROJECT_SOURCES
         MediaPlayer/mediaplayer.cpp
         Global/global.h
         Global/global.cpp
-        CustomWidget/WindowBorder_1/windowborder_1.h
-        CustomWidget/WindowBorder_1/windowborder_1.cpp
-        CustomWidget/WindowBorder_1/windowborder_1.ui
-        CustomWidget/WindowBorder_1/stylemaster.h
-        CustomWidget/WindowBorder_1/stylemaster.cpp
-        CustomWidget/SecondarySkill/secondaryskill.h
-        CustomWidget/SecondarySkill/secondaryskill.cpp
-        CustomWidget/SecondarySkill/secondaryskill.ui
-        CustomWidget/SecondarySkill/stylemaster.h
-        CustomWidget/SecondarySkill/stylemaster.cpp
+        CustomWidgets/WindowBorder_1/windowborder_1.h
+        CustomWidgets/WindowBorder_1/windowborder_1.cpp
+        CustomWidgets/WindowBorder_1/windowborder_1.ui
+        CustomWidgets/WindowBorder_1/stylemaster.h
+        CustomWidgets/WindowBorder_1/stylemaster.cpp
+        CustomWidgets/SecondarySkill/secondaryskill.h
+        CustomWidgets/SecondarySkill/secondaryskill.cpp
+        CustomWidgets/SecondarySkill/secondaryskill.ui
+        CustomWidgets/SecondarySkill/stylemaster.h
+        CustomWidgets/SecondarySkill/stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

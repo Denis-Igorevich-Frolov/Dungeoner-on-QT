@@ -154,7 +154,7 @@
   <customwidget>
    <class>WindowBorder_1</class>
    <extends>QWidget</extends>
-   <header location="global">CustomWidget/WindowBorder_1/windowborder_1.h</header>
+   <header location="global">CustomWidgets/WindowBorder_1/windowborder_1.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

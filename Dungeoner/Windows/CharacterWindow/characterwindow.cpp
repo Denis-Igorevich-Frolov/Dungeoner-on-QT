@@ -2,7 +2,7 @@
 
 #include "characterwindow.h"
 #include "ui_characterwindow.h"
-#include ".\CustomWidget\PrimarySkillSignature\primaryskillsignature.h"
+#include ".\CustomWidgets\PrimarySkillSignature\primaryskillsignature.h"
 #include "stylemaster.h"
 
 #include <QGridLayout>

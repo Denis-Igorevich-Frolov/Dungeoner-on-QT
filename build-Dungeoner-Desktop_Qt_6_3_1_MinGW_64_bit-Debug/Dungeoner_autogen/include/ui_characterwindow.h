@@ -9,8 +9,8 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
-#include <CustomWidget/PrimarySkillSignature/primaryskillsignature.h>
-#include <CustomWidget/SecondarySkill/secondaryskill.h>
+#include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
+#include <CustomWidgets/SecondarySkill/secondaryskill.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>

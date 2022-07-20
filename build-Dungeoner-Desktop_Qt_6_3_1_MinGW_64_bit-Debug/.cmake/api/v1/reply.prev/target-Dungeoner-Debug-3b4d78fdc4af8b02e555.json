@@ -716,18 +716,18 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/PrimarySkillSignature/primaryskillsignature.h",
+			"path" : "CustomWidgets/PrimarySkillSignature/primaryskillsignature.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/PrimarySkillSignature/primaryskillsignature.cpp",
+			"path" : "CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/PrimarySkillSignature/primaryskillsignature.ui",
+			"path" : "CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
@@ -737,13 +737,13 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/PrimarySkillSignature/stylemaster.h",
+			"path" : "CustomWidgets/PrimarySkillSignature/stylemaster.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/PrimarySkillSignature/stylemaster.cpp",
+			"path" : "CustomWidgets/PrimarySkillSignature/stylemaster.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -769,29 +769,29 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/LabelWithTooltip/labelwithtooltip.h",
+			"path" : "CustomWidgets/LabelWithTooltip/labelwithtooltip.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/LabelWithTooltip/labelwithtooltip.cpp",
+			"path" : "CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/LabelWithTooltip/labelwithtooltip.ui",
+			"path" : "CustomWidgets/LabelWithTooltip/labelwithtooltip.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/LabelWithTooltip/stylemaster.h",
+			"path" : "CustomWidgets/LabelWithTooltip/stylemaster.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/LabelWithTooltip/stylemaster.cpp",
+			"path" : "CustomWidgets/LabelWithTooltip/stylemaster.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -834,56 +834,56 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/WindowBorder_1/windowborder_1.h",
+			"path" : "CustomWidgets/WindowBorder_1/windowborder_1.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/WindowBorder_1/windowborder_1.cpp",
+			"path" : "CustomWidgets/WindowBorder_1/windowborder_1.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/WindowBorder_1/windowborder_1.ui",
+			"path" : "CustomWidgets/WindowBorder_1/windowborder_1.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/WindowBorder_1/stylemaster.h",
+			"path" : "CustomWidgets/WindowBorder_1/stylemaster.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/WindowBorder_1/stylemaster.cpp",
+			"path" : "CustomWidgets/WindowBorder_1/stylemaster.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/SecondarySkill/secondaryskill.h",
+			"path" : "CustomWidgets/SecondarySkill/secondaryskill.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/SecondarySkill/secondaryskill.cpp",
+			"path" : "CustomWidgets/SecondarySkill/secondaryskill.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/SecondarySkill/secondaryskill.ui",
+			"path" : "CustomWidgets/SecondarySkill/secondaryskill.ui",
 			"sourceGroupIndex" : 2
 		},
 		{
 			"backtrace" : 4,
-			"path" : "CustomWidget/SecondarySkill/stylemaster.h",
+			"path" : "CustomWidgets/SecondarySkill/stylemaster.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "CustomWidget/SecondarySkill/stylemaster.cpp",
+			"path" : "CustomWidgets/SecondarySkill/stylemaster.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -895,7 +895,7 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidget/PrimarySkillSignature/ui_primaryskillsignature.h",
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/PrimarySkillSignature/ui_primaryskillsignature.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -907,19 +907,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidget/LabelWithTooltip/ui_labelwithtooltip.h",
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/LabelWithTooltip/ui_labelwithtooltip.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidget/WindowBorder_1/ui_windowborder_1.h",
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/WindowBorder_1/ui_windowborder_1.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidget/SecondarySkill/ui_secondaryskill.h",
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/SecondarySkill/ui_secondaryskill.h",
 			"sourceGroupIndex" : 1
 		},
 		{
