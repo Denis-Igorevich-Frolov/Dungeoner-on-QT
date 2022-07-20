@@ -2,8 +2,8 @@
 #define SECONDARYSKILL_H
 
 /*Данный класс представляет собой панельку вторичного навыка. Вынесен
- *в отдельный класс просто для удобства и гарантии того, что все
- *QGraphicsDropShadowEffect точно будут удалены в деструкторе.*/
+ *в отдельный класс просто для выведения подсказки и гарантии того,
+ *что все QGraphicsDropShadowEffect точно будут удалены в деструкторе.*/
 
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
@@ -38,6 +38,13 @@ private:
     QString SValue;
 
     Ui::SecondarySkill *ui;
+
+    /*Функция ивента нажатия клафиши мыши. Обрабатывает нажатие только
+     *правой кнопки для вывода подсказки.*/
+    virtual void mousePressEvent(QMouseEvent* event);
+    /*Функция ивента отжатия клафиши мыши. Обрабатывает отжатие только
+     * правой кнопки для сокрытия подсказки.*/
+    virtual void mouseReleaseEvent(QMouseEvent* event);
 };
 
 #endif // SECONDARYSKILL_H

@@ -405,7 +405,7 @@ public:
         MagicCastChance->setMinimumSize(QSize(303, 70));
         MagicCastChance->setMaximumSize(QSize(303, 70));
         MagicCastChance->setStyleSheet(QString::fromUtf8("background:black;"));
-        MagicCastChance->setProperty("FontSize", QVariant(22));
+        MagicCastChance->setProperty("FontSize", QVariant(16));
 
         SecondarySkills->addWidget(MagicCastChance, 8, 0, 1, 1);
 

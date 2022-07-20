@@ -1089,7 +1089,7 @@ border: none;</string>
            <string>Шанс сотворения магии</string>
           </property>
           <property name="FontSize" stdset="0">
-           <number>22</number>
+           <number>16</number>
           </property>
          </widget>
         </item>
