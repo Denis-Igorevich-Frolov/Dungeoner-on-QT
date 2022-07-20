@@ -25,6 +25,18 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     setTextPrimarySkillSignature();
     setStyles();
     associatingLabelsWithValues();
+
+    /*Связывание слота ScrollAreaSecondarySkillsScrolled с сигналом valueChanged у вертикального скроллбара в
+     *области прокрутки ScrollAreaSecondarySkills. Делается это для двух вещей. Во-первых, по задумке, у убласти
+     *прокрутки должны быть небольшие тени - сверху и снузу, но когда положение скроллбара доходит до того
+     *или иного конца, соответствующая тень пропадает. Следовательно мне нужен некий ивент изменения положения
+     *прокрутки. Внезапно вдруг такого не имеется. Но имеется сигнал valueChanged у скроллбара внутри области
+     *прокрутки, что собственно и есть то, что мне и нужно. Для этого я и связываю его сигнал с моим слотом. Также,
+     *во-вторых, по ряду причин, мне легче связать отдельный новый скроллбар с этой областью прокрутки, чем пытаться
+     *выдумать как-же мне так задать стиль уже встроенного скроллбара, чтобы это соответствовало макету. Значит
+     *мне нужно синхронизировать скроллбары, для чего также нужет ивент изменения положения прокрутки*/
+    connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), SIGNAL(valueChanged(int)),
+            this, SLOT(ScrollAreaSecondarySkillsScrolled(int)), Qt::QueuedConnection);
 }
 
 CharacterWindow::~CharacterWindow()
@@ -71,7 +83,7 @@ void CharacterWindow::setTextPrimarySkillSignature()
 //Установка стилей всех объектов
 void CharacterWindow::setStyles()
 {
-    /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно
+    /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно,
      *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
      *проигнорирован и выведена ошибка.*/
     for(auto* autoSB : ui->PrimarySkillValues->children()){
@@ -105,6 +117,10 @@ void CharacterWindow::setStyles()
         }
     }
 
+    /*Перебор всех дочерних эллементов контейнера SecondarySkills. Перебор
+     *производится при помощи QGridLayout, из-за того, что контейнер - сетка.
+     *Здесь важно, чтобы все эти эллементы были типа SecondarySkill. Если это
+     *не так, то эллемент будет проигнорирован и выведена ошибка.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
     {
@@ -112,6 +128,8 @@ void CharacterWindow::setStyles()
         {
             if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
                 SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                /*Установка надписи на вторичном навыке и указание размера его шрифта
+                 *при помощи динамических свойств.*/
                 ss->setInscription(ss->property("Inscription").toString());
                 ss->setFontSize(ss->property("FontSize").toInt());
             }else{
@@ -139,6 +157,12 @@ void CharacterWindow::setStyles()
             }
         }
     }
+
+    /*Изначально область прокрутки вторичных навыков находится в максимально верхней позиции.
+     *А, по задумке, когда прокрутка доходит до того или иного конца, то соответствующая
+     *тень пропадает. Соответственно, если область прокрутки сразу в максимально верхней
+     *позиции, то и верхняя тень со старта должна быть убрана.*/
+    ui->SecondarySkillsShadowTop->hide();
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -205,12 +229,27 @@ void CharacterWindow::associatingLabelsWithValues()
         }
         ++i;
     }
-    connect(ui->scrollArea->verticalScrollBar(), SIGNAL(valueChanged(int)), this, SLOT(cho(int)), Qt::QueuedConnection);
-//qDebug()<<scrollArea->verticalScrollBar()
 }
 
-void CharacterWindow::cho(int value)
+/*Слот изменения позиции скролла области прокрутки CharacterWindow.
+ *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
+ *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
+ *пикселей здесь как запас, равный вертикальному размеру тени. Этот запас создан для случаев, когда при
+ *скролле, пользователь вроде бы и добрался до конца, но не добрал всего пару пикселей до самого-самого края,
+ *и тень не пропала, хотя визуально ей бы уже пора было пропасть.*/
+void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
 {
+    if(value > 7)
+        ui->SecondarySkillsShadowTop->show();
+    else
+        ui->SecondarySkillsShadowTop->hide();
+
+    /*371 - это максимальный сдвиг области прокрутки относительно стартовой позии с
+     *учётом запаса в 7 пикселей.*/
+    if(value < 371)
+        ui->SecondarySkillsShadowBottom->show();
+    else
+        ui->SecondarySkillsShadowBottom->hide();
     qDebug()<<value;
 }
 

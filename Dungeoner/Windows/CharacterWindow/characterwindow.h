@@ -18,7 +18,7 @@ public:
     ~CharacterWindow();
 
 private slots:
-    void cho(int value);
+    void ScrollAreaSecondarySkillsScrolled(int value);
 
 private:
     Ui::CharacterWindow *ui;

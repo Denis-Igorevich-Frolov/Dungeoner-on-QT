@@ -1,3 +1,6 @@
+/*Мастер стилей для SecondarySkill. Хранит Qss инструкции,
+ *которые затем будут применены к элементам виджета*/
+
 #include "stylemaster.h"
 
 QString StyleMaster::SecondarySkillInscriptionStyle(int size)
@@ -14,6 +17,8 @@ QString StyleMaster::SecondarySkillInscriptionStyle(int size)
 
 QString StyleMaster::SecondarySkillValueStyle()
 {
+    /*Этот margin-bottom тут для компинсации размера при изменения межстрочного интервала.
+     *Подробнее в методе SecondarySkill::setValue*/
     return
     "QLabel{"
     "   background: none;"
