@@ -51,6 +51,8 @@ set(PROJECT_SOURCES
         CustomWidgets/SecondarySkill/secondaryskill.ui
         CustomWidgets/SecondarySkill/stylemaster.h
         CustomWidgets/SecondarySkill/stylemaster.cpp
+        System/TooltipDisplayEvents/tooltipdisplayevents.h
+        System/TooltipDisplayEvents/tooltipdisplayevents.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

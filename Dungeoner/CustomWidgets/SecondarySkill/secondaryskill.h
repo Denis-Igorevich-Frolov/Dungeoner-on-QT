@@ -5,6 +5,8 @@
  *в отдельный класс просто для выведения подсказки и гарантии того,
  *что все QGraphicsDropShadowEffect точно будут удалены в деструкторе.*/
 
+#include "System/TooltipDisplayEvents/tooltipdisplayevents.h"
+
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
 
@@ -55,17 +57,8 @@ private:
     void enterEvent(QEnterEvent *event);
     void leaveEvent(QEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
-    /*Это проверка, вызываемая при почти каждом выше переопределённом эвенте.
-     *Сиграл ShowTooltip будет вызван только при условии, что курсор наведён
-     *на виджет и правая кнопка мыши зажата, иначе будет попытка вызова RemoveTooltip*/
-    void CheckingDisplayOfTooltip();
 
-    bool rightMousePressed = false;
-    bool isHovered = false;
-
-    /*TooltipHasBeenCalled участвует в проверке того, что RemoveTooltip был вызван
-     *только один раз, только при условии, что ShowTooltip ранее уже был вызван*/
-    bool TooltipHasBeenCalled = false;
+    TooltipDisplayEvents tooltipDisplayEvents;
 };
 
 #endif // SECONDARYSKILL_H

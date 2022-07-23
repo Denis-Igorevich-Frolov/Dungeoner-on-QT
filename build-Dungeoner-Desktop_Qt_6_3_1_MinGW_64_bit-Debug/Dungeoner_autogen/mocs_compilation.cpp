@@ -3,5 +3,6 @@
 #include "PTAAC7U42L/moc_primaryskillsignature.cpp"
 #include "ZU6ZFHBSZC/moc_secondaryskill.cpp"
 #include "XCS7JX7T4V/moc_windowborder_1.cpp"
+#include "HOEPDZVIIP/moc_tooltipdisplayevents.cpp"
 #include "OEOCRIOUE2/moc_characterwindow.cpp"
 #include "EWIEGA46WW/moc_dungeoner.cpp"

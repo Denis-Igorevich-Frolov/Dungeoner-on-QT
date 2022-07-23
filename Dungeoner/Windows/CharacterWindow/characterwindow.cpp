@@ -31,18 +31,18 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
      *прокрутки ScrollAreaSecondarySkills. Делается это потому, что у убласти прокрутки мне нужен сигнал изменения
      *положения прокрутки. Внезапно вдруг такого не имеется. Но имеется сигнал valueChanged у скроллбара внутри
      *области прокрутки, что собственно и есть то, что мне и нужно. Для этого я и связываю его сигнал с моим слотом*/
-    connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), SIGNAL(valueChanged(int)),
-            this, SLOT(ScrollAreaSecondarySkillsScrolled(int)), Qt::QueuedConnection);
+    connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), &QAbstractSlider::valueChanged,
+            this, &CharacterWindow::ScrollAreaSecondarySkillsScrolled);
 
-    connect(ui->PhysicalDamage, SIGNAL(ShowTooltip()),
-            this, SLOT(ShowTooltip()), Qt::QueuedConnection);
-    connect(ui->PhysicalDamage, SIGNAL(RemoveTooltip()),
-            this, SLOT(RemoveTooltip()), Qt::QueuedConnection);
+    connect(ui->PhysicalDamage, &SecondarySkill::ShowTooltip,
+            this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
+    connect(ui->PhysicalDamage, &SecondarySkill::RemoveTooltip,
+            this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
 
-    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), SIGNAL(ShowTooltip()),
-            this, SLOT(ShowTooltip()), Qt::QueuedConnection);
-    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), SIGNAL(RemoveTooltip()),
-            this, SLOT(RemoveTooltip()), Qt::QueuedConnection);
+    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::ShowTooltip,
+            this, &CharacterWindow::ShowTooltip);
+    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
+            this, &CharacterWindow::RemoveTooltip);
 
 }
 

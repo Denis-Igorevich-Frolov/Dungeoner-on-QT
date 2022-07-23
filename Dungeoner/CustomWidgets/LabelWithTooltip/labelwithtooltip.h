@@ -12,6 +12,8 @@
  *а так как QMouseEvent - это эвент класса виджет, то самым простым и
  *понятным решением было просто вынести кнопку в отдельный виджет.*/
 
+#include "System/TooltipDisplayEvents/tooltipdisplayevents.h"
+
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
 
@@ -49,17 +51,8 @@ private:
     void enterEvent(QEnterEvent *event);
     void leaveEvent(QEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
-    /*Это проверка, вызываемая при почти каждом выше переопределённом эвенте.
-     *Сиграл ShowTooltip будет вызван только при условии, что курсор наведён
-     *на виджет и правая кнопка мыши зажата, иначе будет попытка вызова RemoveTooltip*/
-    void CheckingDisplayOfTooltip();
 
-    bool rightMousePressed = false;
-    bool isHovered = false;
-
-    /*TooltipHasBeenCalled участвует в проверке того, что RemoveTooltip был вызван
-     *только один раз, только при условии, что ShowTooltip ранее уже был вызван*/
-    bool TooltipHasBeenCalled = false;
+    TooltipDisplayEvents tooltipDisplayEvents;
 };
 
 #endif // LABELWITHTOOLTIP_H
