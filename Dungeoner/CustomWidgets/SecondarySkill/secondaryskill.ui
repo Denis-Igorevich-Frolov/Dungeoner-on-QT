@@ -6,9 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>303</width>
-    <height>70</height>
+    <width>304</width>
+    <height>71</height>
    </rect>
+  </property>
+  <property name="cursor">
+   <cursorShape>WhatsThisCursor</cursorShape>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -24,13 +27,16 @@
     <number>0</number>
    </property>
    <property name="rightMargin">
-    <number>0</number>
+    <number>1</number>
    </property>
    <property name="bottomMargin">
-    <number>0</number>
+    <number>1</number>
    </property>
    <item>
     <widget class="WindowBorder_1" name="Border" native="true">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>

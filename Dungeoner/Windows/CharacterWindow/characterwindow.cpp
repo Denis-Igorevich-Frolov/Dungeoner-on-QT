@@ -1,6 +1,7 @@
 /*Окно персонажа, содержащее всю информацию о нём*/
 
 #include "characterwindow.h"
+#include "qevent.h"
 #include "ui_characterwindow.h"
 #include ".\CustomWidgets\PrimarySkillSignature\primaryskillsignature.h"
 #include "stylemaster.h"
@@ -26,17 +27,23 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     setStyles();
     associatingLabelsWithValues();
 
-    /*Связывание слота ScrollAreaSecondarySkillsScrolled с сигналом valueChanged у вертикального скроллбара в
-     *области прокрутки ScrollAreaSecondarySkills. Делается это для двух вещей. Во-первых, по задумке, у убласти
-     *прокрутки должны быть небольшие тени - сверху и снузу, но когда положение скроллбара доходит до того
-     *или иного конца, соответствующая тень пропадает. Следовательно мне нужен некий ивент изменения положения
-     *прокрутки. Внезапно вдруг такого не имеется. Но имеется сигнал valueChanged у скроллбара внутри области
-     *прокрутки, что собственно и есть то, что мне и нужно. Для этого я и связываю его сигнал с моим слотом. Также,
-     *во-вторых, по ряду причин, мне легче связать отдельный новый скроллбар с этой областью прокрутки, чем пытаться
-     *выдумать как-же мне так задать стиль уже встроенного скроллбара, чтобы это соответствовало макету. Значит
-     *мне нужно синхронизировать скроллбары, для чего также нужет ивент изменения положения прокрутки*/
+    /*Связывание слота ScrollAreaSecondarySkillsScrolled с сигналом valueChanged у вертикального скроллбара в области
+     *прокрутки ScrollAreaSecondarySkills. Делается это потому, что у убласти прокрутки мне нужен сигнал изменения
+     *положения прокрутки. Внезапно вдруг такого не имеется. Но имеется сигнал valueChanged у скроллбара внутри
+     *области прокрутки, что собственно и есть то, что мне и нужно. Для этого я и связываю его сигнал с моим слотом*/
     connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), SIGNAL(valueChanged(int)),
             this, SLOT(ScrollAreaSecondarySkillsScrolled(int)), Qt::QueuedConnection);
+
+    connect(ui->PhysicalDamage, SIGNAL(ShowTooltip()),
+            this, SLOT(ShowTooltip()), Qt::QueuedConnection);
+    connect(ui->PhysicalDamage, SIGNAL(RemoveTooltip()),
+            this, SLOT(RemoveTooltip()), Qt::QueuedConnection);
+
+    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), SIGNAL(ShowTooltip()),
+            this, SLOT(ShowTooltip()), Qt::QueuedConnection);
+    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), SIGNAL(RemoveTooltip()),
+            this, SLOT(RemoveTooltip()), Qt::QueuedConnection);
+
 }
 
 CharacterWindow::~CharacterWindow()
@@ -235,7 +242,7 @@ void CharacterWindow::associatingLabelsWithValues()
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
  *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
  *пикселей здесь как запас, равный вертикальному размеру тени. Этот запас создан для случаев, когда при
- *скролле, пользователь вроде бы и добрался до конца, но не добрал всего пару пикселей до самого-самого края,
+ *скролле, пользователь вроде бы и докрутил до конца, но не добрал всего пару пикселей до самого-самого края,
  *и тень не пропала, хотя визуально ей бы уже пора было пропасть.*/
 void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
 {
@@ -253,3 +260,12 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
     qDebug()<<value;
 }
 
+void CharacterWindow::ShowTooltip()
+{
+    qDebug() <<QTime::currentTime()<< "show";
+}
+
+void CharacterWindow::RemoveTooltip()
+{
+    qDebug() <<QTime::currentTime()<< "leave";
+}

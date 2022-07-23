@@ -34,7 +34,10 @@
   <property name="fontSize" stdset="0">
    <number>23</number>
   </property>
-  <widget class="QPushButton" name="ButtonText">
+  <widget class="QLabel" name="ButtonText">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -43,23 +46,14 @@
      <height>24</height>
     </rect>
    </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>75</width>
-     <height>24</height>
-    </size>
-   </property>
-   <property name="cursor">
-    <cursorShape>WhatsThisCursor</cursorShape>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string/>
+    <string>NON</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>

@@ -6,9 +6,8 @@
 QString StyleMaster::TextFontStyle(int sizePX)
 {
     QString style =
-    "QPushButton{"
+    "QLabel{"
     "   background: none;"
-    "   border: none;"
     "   font: %1px 'Algerian';"
     "   color: #bdc440;"
     "}";

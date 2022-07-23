@@ -9,6 +9,7 @@
 //#include "MediaPlayer/mediaplayer.h"
 #include "dungeoner.h"
 #include "Global/global.h"
+#include "CustomWidgets/LabelWithTooltip/labelwithtooltip.h"
 
 #include <QWidget>
 #include <QSpinBox>
@@ -36,6 +37,8 @@ public:
 
     //Устанавливает текст для LabelWithTooltip
     void setText(QString text);
+
+    LabelWithTooltip* getlabelWithTooltip();
 
 private slots:
     /*Метод реализации нажатия кнопки прибавки стата. Он обрабатывает нажатия с учётом модификаторов:

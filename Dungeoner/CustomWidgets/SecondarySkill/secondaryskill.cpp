@@ -13,6 +13,9 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Без этого атрибута эвенты наведения мыши не будут вызываться
+    setAttribute(Qt::WA_Hover);
+
     shadow1 = new QGraphicsDropShadowEffect(this);
     shadow1->setOffset(1, 1);
     shadow1->setColor(QColor(32, 29, 16));
@@ -104,53 +107,76 @@ void SecondarySkill::setFontSize(int size)
     ui->Inscription->setStyleSheet(StyleMaster::SecondarySkillInscriptionStyle(size));
 }
 
-/*Функция ивента нажатия клафиши мыши. Обрабатывает нажатие только
- *правой кнопки для вывода подсказки.*/
-void SecondarySkill::mousePressEvent(QMouseEvent *event)
+void SecondarySkill::mousePressEvent(QMouseEvent* event)
 {
-    switch (event->button()) {
-        case Qt::LeftButton:
-        {
-            break;
-        }
-        case Qt::RightButton:
-        {
-            qDebug() << "Right Mouse button pressed";
-            break;
-        }
-        case Qt::MiddleButton:
-        {
-            break;
-        }
-        default:
-        {
-            break;
-        }
+    //Считываем нажатие только правой кнопки мыши
+    switch (event->buttons()){
+    case Qt::RightButton:
+    {
+        rightMousePressed = true;
+
+        break;
     }
+    }
+
+    CheckingDisplayOfTooltip();
 }
 
-/*Функция ивента отжатия клафиши мыши. Обрабатывает отжатие только
- * правой кнопки для сокрытия подсказки.
- */
 void SecondarySkill::mouseReleaseEvent(QMouseEvent *event)
 {
-    switch (event->button()) {
-        case Qt::LeftButton:
-        {
-            break;
-        }
-        case Qt::RightButton:
-        {
-            qDebug() << "Right Mouse button unpressed";
-            break;
-        }
-        case Qt::MiddleButton:
-        {
-            break;
-        }
-        default:
-        {
-            break;
+    rightMousePressed = false;
+
+    CheckingDisplayOfTooltip();
+}
+
+void SecondarySkill::enterEvent(QEnterEvent *event)
+{
+    isHovered = true;
+
+    /*Нет смысла проверять CheckingDisplayOfTooltip здесь, ведь
+     *эвенты наведения не вызовутся при зажатой кнопки мыши*/
+}
+
+void SecondarySkill::leaveEvent(QEvent *event)
+{
+    isHovered = false;
+
+    CheckingDisplayOfTooltip();
+}
+
+void SecondarySkill::mouseMoveEvent(QMouseEvent *event)
+{
+    /*Так как в Qt давольно посредственный обработчик эвентов, связанных с мышью,
+     *эвент leaveEvent, как и любой ивент связанный с наведением, никогда не будет
+     *вызван, если зажата хоть одна из кнопок мыши. По этому я обрабатываю выход
+     *за пределы виджета вручную.*/
+
+    if((event->position().x() < this->width()) && (event->position().y() < this->height()) &&
+       (event->position().x() > 0) && (event->position().y() > 0))
+    {
+        isHovered = true;
+    }else{
+        isHovered = false;
+    }
+
+    CheckingDisplayOfTooltip();
+}
+
+/*Это проверка, вызываемая при почти каждом выше переопределённом эвенте.
+ *Сиграл ShowTooltip будет вызван только при условии, что курсор наведён
+ *на виджет и правая кнопка мыши зажата, иначе будет попытка вызова RemoveTooltip*/
+void SecondarySkill::CheckingDisplayOfTooltip()
+{
+    if(isHovered&&rightMousePressed){
+        emit ShowTooltip();
+        TooltipHasBeenCalled = true;
+    }else{
+        /*TooltipHasBeenCalled проверяется для того, чтобы RemoveTooltip был вызван только
+         *один раз, только при условии, что ShowTooltip ранее уже был вызван, ведь очевидно,
+         *что чтобы удалить подсказку, она должна была быть вызвана*/
+        if(TooltipHasBeenCalled){
+            emit RemoveTooltip();
+            TooltipHasBeenCalled = false;
         }
     }
 }

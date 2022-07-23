@@ -88,6 +88,11 @@ void PrimarySkillSignature::on_ButtonBottom_released()
     SpinBoxValue->setValue(SpinBoxValue->value() - minus);
 }
 
+LabelWithTooltip* PrimarySkillSignature::getlabelWithTooltip()
+{
+    return ui->labelWithTooltip;
+}
+
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
  *Считаются только Ctrl,Shift и Alt*/
 void PrimarySkillSignature::keyPressEvent(QKeyEvent *event)

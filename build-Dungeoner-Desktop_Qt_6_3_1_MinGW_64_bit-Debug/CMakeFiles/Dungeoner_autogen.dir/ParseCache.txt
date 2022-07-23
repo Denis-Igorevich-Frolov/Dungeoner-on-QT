@@ -666,6 +666,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/pri
  mmc:Q_OBJECT
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.h
  mdp:E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.h
@@ -789,10 +790,12 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/pri
  mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h
+ mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgraphicseffect.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h
@@ -2026,3 +2029,5 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.cpp
  uic:./ui_dungeoner.h
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/main.cpp
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.cpp

@@ -20,6 +20,9 @@ public:
 private slots:
     void ScrollAreaSecondarySkillsScrolled(int value);
 
+    void ShowTooltip();
+    void RemoveTooltip();
+
 private:
     Ui::CharacterWindow *ui;
 
