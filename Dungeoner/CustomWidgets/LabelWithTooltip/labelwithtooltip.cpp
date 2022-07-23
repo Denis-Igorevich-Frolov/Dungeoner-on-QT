@@ -44,7 +44,6 @@ void LabelWithTooltip::setText(QString text)
 
 void LabelWithTooltip::mousePressEvent(QMouseEvent* event)
 {
-    qDebug()<<"D";
     //Считываем нажатие только правой кнопки мыши
     switch (event->buttons()){
     case Qt::RightButton:
@@ -83,9 +82,9 @@ void LabelWithTooltip::leaveEvent(QEvent *event)
 void LabelWithTooltip::mouseMoveEvent(QMouseEvent *event)
 {
     /*Так как в Qt давольно посредственный обработчик эвентов, связанных с мышью,
-     *эвент leaveEvent, как и любой ивент связанный с наведением, никогда не будет
-     *вызван, если зажата хоть одна из кнопок мыши. По этому я обрабатываю выход
-     *за пределы виджета вручную.*/
+     *эвент leaveEvent, как и любой ивент связанный с получением/потерей наведения,
+     *никогда не будетвызван, если зажата хоть одна из кнопок мыши. По этому я
+     *обрабатываю выход за пределы виджета вручную.*/
 
     if((event->position().x() < this->width()) && (event->position().y() < this->height()) &&
        (event->position().x() > 0) && (event->position().y() > 0))
