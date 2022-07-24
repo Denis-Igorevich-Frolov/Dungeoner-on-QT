@@ -30,7 +30,6 @@ public:
     void setFontSize(int size);
 
 signals:
-    //сигнал отображения подсказки будет сдвигать её, если она уже существует
     void ShowTooltip();
     void RemoveTooltip();
 
@@ -47,16 +46,12 @@ private:
     Ui::SecondarySkill *ui;
 
     /*Переопределения виртуальных функций QWidget для вызова сигнала вывода
-     *или удаления подсказки. Крайне важно помнить, что у любого фиджета,
-     *который хочет показывать подсказку, все дочерние элементы интерфейса
-     *обязательно должны быть disabled. Сделать это можно в редакторе форм
-     *сняв у них галочку enabled. Иначе некоторые эвенты будут "застревать"
-     *в дочерних элементах виджета и не передаться родительскому*/
-    void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
-    void enterEvent(QEnterEvent *event);
-    void leaveEvent(QEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
+     *или удаления подсказки. Вся логика происходит в классе TooltipDisplayEvents*/
+    void mousePressEvent(QMouseEvent* event) override;
+    void mouseReleaseEvent(QMouseEvent* event) override;
+    void enterEvent(QEnterEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
     TooltipDisplayEvents tooltipDisplayEvents;
 };

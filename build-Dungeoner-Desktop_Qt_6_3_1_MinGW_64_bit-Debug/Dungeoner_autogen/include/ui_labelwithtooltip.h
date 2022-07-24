@@ -33,6 +33,7 @@ public:
         LabelWithTooltip->setSizePolicy(sizePolicy);
         LabelWithTooltip->setMinimumSize(QSize(75, 24));
         LabelWithTooltip->setMaximumSize(QSize(75, 24));
+        LabelWithTooltip->setCursor(QCursor(Qt::WhatsThisCursor));
         LabelWithTooltip->setProperty("fontSize", QVariant(23));
         ButtonText = new QLabel(LabelWithTooltip);
         ButtonText->setObjectName(QString::fromUtf8("ButtonText"));

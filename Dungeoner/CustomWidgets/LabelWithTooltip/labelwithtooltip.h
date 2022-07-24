@@ -1,16 +1,11 @@
 #ifndef LABELWITHTOOLTIP_H
 #define LABELWITHTOOLTIP_H
 
-/*
- *Данный виджет - это поле с текстом (размер текст задаётся в динамическом
- *свойстве fontSize) с функционалом для вывода подсказки. Подсказка выводится
- *при нажатии правой кнопкой мыши. При наводке курсора на виджет, его значёк
- *меняется на курсор со знаком вопроса.
+/*Данный виджет - это поле с текстом (размер текст задаётся в динамическом
+ *свойстве fontSize) с функционалом для вывода подсказки.
  *
- *Суть вынесения этой одной кнопки в отдельный класс в том, чтобы эвент
- *QMouseEvent обрабатывала только эта кнопка, а не весь родительский виджет,
- *а так как QMouseEvent - это эвент класса виджет, то самым простым и
- *понятным решением было просто вынести кнопку в отдельный виджет.*/
+ *Суть вынесения этого одного лейбла в отдельный класс в том, чтобы подсказка
+ *выводилась только у этой части, а у всего родительского виджета*/
 
 #include "System/TooltipDisplayEvents/tooltipdisplayevents.h"
 
@@ -41,16 +36,12 @@ private:
     Ui::LabelWithTooltip *ui;
 
     /*Переопределения виртуальных функций QWidget для вызова сигнала вывода
-     *или удаления подсказки. Крайне важно помнить, что у любого фиджета,
-     *который хочет показывать подсказку, все дочерние элементы интерфейса
-     *обязательно должны быть disabled. Сделать это можно в редакторе форм
-     *сняв у них галочку enabled. Иначе некоторые эвенты будут "застревать"
-     *в дочерних элементах виджета и не передаться родительскому*/
-    void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
-    void enterEvent(QEnterEvent *event);
-    void leaveEvent(QEvent *event);
-    void mouseMoveEvent(QMouseEvent *event);
+     *или удаления подсказки. Вся логика происходит в классе TooltipDisplayEvents*/
+    void mousePressEvent(QMouseEvent* event) override;
+    void mouseReleaseEvent(QMouseEvent* event) override;
+    void enterEvent(QEnterEvent *event) override;
+    void leaveEvent(QEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
     TooltipDisplayEvents tooltipDisplayEvents;
 };

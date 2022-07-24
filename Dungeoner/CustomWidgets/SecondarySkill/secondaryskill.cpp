@@ -16,9 +16,11 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
     //Без этого атрибута эвенты наведения мыши не будут вызываться
     setAttribute(Qt::WA_Hover);
 
+    //Связывание сигналов из TooltipDisplayEvents на такие же из этого класса
     connect(&tooltipDisplayEvents,SIGNAL(ShowTooltip()),this, SIGNAL(ShowTooltip()));
     connect(&tooltipDisplayEvents,SIGNAL(RemoveTooltip()),this, SIGNAL(RemoveTooltip()));
 
+    //Установка теней текста
     shadow1 = new QGraphicsDropShadowEffect(this);
     shadow1->setOffset(1, 1);
     shadow1->setColor(QColor(32, 29, 16));
@@ -110,26 +112,24 @@ void SecondarySkill::setFontSize(int size)
     ui->Inscription->setStyleSheet(StyleMaster::SecondarySkillInscriptionStyle(size));
 }
 
+/*Переопределения виртуальных функций QWidget для вызова сигнала вывода
+ *или удаления подсказки. Вся логика происходит в классе TooltipDisplayEvents*/
 void SecondarySkill::mousePressEvent(QMouseEvent *event)
 {
     tooltipDisplayEvents.mousePressEvent(event);
 }
-
 void SecondarySkill::mouseReleaseEvent(QMouseEvent *event)
 {
     tooltipDisplayEvents.mouseReleaseEvent(event);
 }
-
 void SecondarySkill::enterEvent(QEnterEvent *event)
 {
     tooltipDisplayEvents.enterEvent(event);
 }
-
 void SecondarySkill::leaveEvent(QEvent *event)
 {
     tooltipDisplayEvents.leaveEvent(event);
 }
-
 void SecondarySkill::mouseMoveEvent(QMouseEvent *event)
 {
     tooltipDisplayEvents.mouseMoveEvent(event, this->width(), this->height());

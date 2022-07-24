@@ -1,10 +1,10 @@
 #include "tooltipdisplayevents.h"
 #include "qevent.h"
 
+//Наследование от QWidget для взаимодействия с его ивентами
 TooltipDisplayEvents::TooltipDisplayEvents(QWidget *parent) :
     QWidget(parent)
 {
-
 }
 
 void TooltipDisplayEvents::mousePressEvent(QMouseEvent* event)
@@ -44,6 +44,7 @@ void TooltipDisplayEvents::leaveEvent(QEvent *event)
     CheckingDisplayOfTooltip();
 }
 
+//Из имплементирующего класса следует передать width и height как: this->width и this->height соответственно.
 void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int height)
 {
     /*Так как в Qt давольно посредственный обработчик эвентов, связанных с мышью,
