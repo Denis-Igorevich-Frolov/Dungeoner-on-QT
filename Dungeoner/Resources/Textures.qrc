@@ -13,5 +13,15 @@
         <file>Textures PNG/Text-Block-Hovered-1-T.png</file>
         <file>Textures PNG/Text-Block-Pressed-1-T.png</file>
         <file>Textures PNG/Text-Block-Pressed-1-B.png</file>
+        <file>Textures PNG/Vertical-Slider-Body.png</file>
+        <file>Textures PNG/Vertical-Slider-Button.png</file>
+        <file>Textures PNG/Vertical-Slider-Button-Hovered.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-B.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-T.png</file>
+        <file>Textures PNG/Vertical-Slider-Button-Pressed.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-Hovered-B.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-Hovered-T.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-Pressed-T.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-Pressed-B.png</file>
     </qresource>
 </RCC>

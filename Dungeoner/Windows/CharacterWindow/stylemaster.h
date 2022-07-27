@@ -10,6 +10,8 @@ class StyleMaster
 {
 public:
     static QString SpinBoxStyle(int sizePX);
+
+    static QString VerticalScrollBarStyle();
 };
 
 #endif // STYLEMASTER_H

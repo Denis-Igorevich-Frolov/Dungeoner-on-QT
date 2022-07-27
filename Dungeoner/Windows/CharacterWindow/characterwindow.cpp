@@ -170,6 +170,11 @@ void CharacterWindow::setStyles()
      *тень пропадает. Соответственно, если область прокрутки сразу в максимально верхней
      *позиции, то и верхняя тень со старта должна быть убрана.*/
     ui->SecondarySkillsShadowTop->hide();
+
+    ui->verticalScrollBar->setStyleSheet(StyleMaster::VerticalScrollBarStyle());
+
+    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setPageStep(1);
+    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setMaximum(10);
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -251,9 +256,9 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
     else
         ui->SecondarySkillsShadowTop->hide();
 
-    /*371 - это максимальный сдвиг области прокрутки относительно стартовой позии с
+    /*377 - это максимальный сдвиг области прокрутки относительно стартовой позии с
      *учётом запаса в 7 пикселей.*/
-    if(value < 371)
+    if(value < 377)
         ui->SecondarySkillsShadowBottom->show();
     else
         ui->SecondarySkillsShadowBottom->hide();
