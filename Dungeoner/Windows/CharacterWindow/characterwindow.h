@@ -23,6 +23,10 @@ private slots:
     void ShowTooltip();
     void RemoveTooltip();
 
+    void on_verticalScrollBar_actionTriggered(int action);
+
+    void on_verticalScrollBar_valueChanged(int value);
+
 private:
     Ui::CharacterWindow *ui;
 

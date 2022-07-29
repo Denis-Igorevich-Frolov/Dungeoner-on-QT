@@ -1,6 +1,5 @@
 <RCC>
     <qresource prefix="/Sounds">
         <file>Sounds/Click1.wav</file>
-        <file>Sounds/Click2.wav</file>
     </qresource>
 </RCC>

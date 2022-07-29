@@ -23,6 +23,9 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     //Убирание рамки окна
     this->setWindowFlags(Qt::FramelessWindowHint);
 
+    //Без этого атрибута эвенты наведения мыши не будут вызываться
+    setAttribute(Qt::WA_Hover);
+
     setTextPrimarySkillSignature();
     setStyles();
     associatingLabelsWithValues();
@@ -43,7 +46,6 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
             this, &CharacterWindow::ShowTooltip);
     connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
             this, &CharacterWindow::RemoveTooltip);
-
 }
 
 CharacterWindow::~CharacterWindow()
@@ -172,9 +174,6 @@ void CharacterWindow::setStyles()
     ui->SecondarySkillsShadowTop->hide();
 
     ui->verticalScrollBar->setStyleSheet(StyleMaster::VerticalScrollBarStyle());
-
-    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setPageStep(1);
-    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setMaximum(10);
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -262,7 +261,8 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
         ui->SecondarySkillsShadowBottom->show();
     else
         ui->SecondarySkillsShadowBottom->hide();
-    qDebug()<<value;
+
+    ui->verticalScrollBar->setValue(value);
 }
 
 void CharacterWindow::ShowTooltip()
@@ -274,3 +274,16 @@ void CharacterWindow::RemoveTooltip()
 {
     qDebug() <<QTime::currentTime()<< "leave";
 }
+
+void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
+{
+    if(!ui->verticalScrollBar->isSliderDown())
+        Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+}
+
+
+void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
+{
+    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);
+}
+

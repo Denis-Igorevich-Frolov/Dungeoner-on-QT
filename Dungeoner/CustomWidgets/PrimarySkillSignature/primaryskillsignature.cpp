@@ -40,7 +40,7 @@ void PrimarySkillSignature::setText(QString text)
  *Ctrl: +10, Shift: +100, Alt: +1000. Обычное нажатие: +1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonTop_released()
 {
-    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click2.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
     int plus = 1;
 
@@ -66,7 +66,7 @@ void PrimarySkillSignature::on_ButtonTop_released()
  *Ctrl: -10, Shift: -100, Alt: -1000. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonBottom_released()
 {
-    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click2.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
     int minus = 1;
 

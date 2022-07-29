@@ -1622,14 +1622,20 @@ border: none;</string>
         <height>340</height>
        </size>
       </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
       <property name="styleSheet">
        <string notr="true"/>
       </property>
       <property name="maximum">
-       <number>10</number>
+       <number>377</number>
+      </property>
+      <property name="singleStep">
+       <number>76</number>
       </property>
       <property name="pageStep">
-       <number>1</number>
+       <number>76</number>
       </property>
       <property name="orientation">
        <enum>Qt::Vertical</enum>

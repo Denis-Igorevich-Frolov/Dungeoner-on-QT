@@ -603,9 +603,11 @@ public:
         verticalScrollBar = new QScrollBar(frame);
         verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
         verticalScrollBar->setMaximumSize(QSize(16777215, 340));
+        verticalScrollBar->setCursor(QCursor(Qt::PointingHandCursor));
         verticalScrollBar->setStyleSheet(QString::fromUtf8(""));
-        verticalScrollBar->setMaximum(10);
-        verticalScrollBar->setPageStep(1);
+        verticalScrollBar->setMaximum(377);
+        verticalScrollBar->setSingleStep(76);
+        verticalScrollBar->setPageStep(76);
         verticalScrollBar->setOrientation(Qt::Vertical);
 
         horizontalLayout->addWidget(verticalScrollBar);
