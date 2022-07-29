@@ -828,7 +828,7 @@
     </item>
    </layout>
   </widget>
-  <widget class="QFrame" name="frame">
+  <widget class="QFrame" name="SecondarySkillsWraper">
    <property name="geometry">
     <rect>
      <x>130</x>

@@ -53,7 +53,7 @@ public:
     QLabel *Separator5;
     QLabel *Separator2;
     QLabel *Separator3;
-    QFrame *frame;
+    QFrame *SecondarySkillsWraper;
     QHBoxLayout *horizontalLayout;
     QFrame *ScrollAreaWraper;
     QScrollArea *ScrollAreaSecondarySkills;
@@ -318,16 +318,16 @@ public:
 
         verticalLayout->addWidget(ValuesPanel);
 
-        frame = new QFrame(CharacterWindow);
-        frame->setObjectName(QString::fromUtf8("frame"));
-        frame->setGeometry(QRect(130, 220, 666, 395));
-        frame->setFrameShape(QFrame::StyledPanel);
-        frame->setFrameShadow(QFrame::Raised);
-        horizontalLayout = new QHBoxLayout(frame);
+        SecondarySkillsWraper = new QFrame(CharacterWindow);
+        SecondarySkillsWraper->setObjectName(QString::fromUtf8("SecondarySkillsWraper"));
+        SecondarySkillsWraper->setGeometry(QRect(130, 220, 666, 395));
+        SecondarySkillsWraper->setFrameShape(QFrame::StyledPanel);
+        SecondarySkillsWraper->setFrameShadow(QFrame::Raised);
+        horizontalLayout = new QHBoxLayout(SecondarySkillsWraper);
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        ScrollAreaWraper = new QFrame(frame);
+        ScrollAreaWraper = new QFrame(SecondarySkillsWraper);
         ScrollAreaWraper->setObjectName(QString::fromUtf8("ScrollAreaWraper"));
         ScrollAreaWraper->setMinimumSize(QSize(0, 395));
         ScrollAreaWraper->setFrameShape(QFrame::StyledPanel);
@@ -600,7 +600,7 @@ public:
 
         horizontalLayout->addWidget(ScrollAreaWraper);
 
-        verticalScrollBar = new QScrollBar(frame);
+        verticalScrollBar = new QScrollBar(SecondarySkillsWraper);
         verticalScrollBar->setObjectName(QString::fromUtf8("verticalScrollBar"));
         verticalScrollBar->setMaximumSize(QSize(16777215, 340));
         verticalScrollBar->setCursor(QCursor(Qt::PointingHandCursor));

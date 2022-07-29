@@ -24,7 +24,6 @@ private slots:
     void RemoveTooltip();
 
     void on_verticalScrollBar_actionTriggered(int action);
-
     void on_verticalScrollBar_valueChanged(int value);
 
 private:
@@ -35,6 +34,9 @@ private:
     void setTextPrimarySkillSignature ();
     //Установка стилей всех объектов. Подробности в комментариях cpp файла
     void setStyles ();
+    /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
+     *указателя на QSpinBox в переменную SpinBoxValue класса PrimarySkillSignature.
+     *Делается это для работы кнопок больше и меньше.*/
     void associatingLabelsWithValues();
 };
 

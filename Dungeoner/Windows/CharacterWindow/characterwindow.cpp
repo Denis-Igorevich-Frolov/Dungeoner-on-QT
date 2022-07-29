@@ -262,7 +262,28 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
     else
         ui->SecondarySkillsShadowBottom->hide();
 
+    /*Связывание области прокрутки со скроллбаром. Используется не встроенный в
+     *область прокрутки скроллбар, а отдельный, другой для удобства позиционирования
+     *и более простого и понятного доступа до его слотов.*/
     ui->verticalScrollBar->setValue(value);
+}
+
+void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
+{
+    /*Звук проигрывается при любом взаимодействии со скроллбаром, кроме
+     *тех случаев, когда на его ползунок нажимают. Соответственно звучать
+     *будут только нажатия на стрелки прибавки и убавки и на нажатия в
+     *тело скроллбара.*/
+    if(!ui->verticalScrollBar->isSliderDown())
+        Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+}
+
+/*Связывание области прокрутки со скроллбаром. Используется не встроенный в
+ *область прокрутки скроллбар, а отдельный, другой для удобства позиционирования
+ *и более простого и понятного доступа до его слотов.*/
+void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
+{
+    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);
 }
 
 void CharacterWindow::ShowTooltip()
@@ -274,16 +295,3 @@ void CharacterWindow::RemoveTooltip()
 {
     qDebug() <<QTime::currentTime()<< "leave";
 }
-
-void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
-{
-    if(!ui->verticalScrollBar->isSliderDown())
-        Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
-}
-
-
-void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
-{
-    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);
-}
-
