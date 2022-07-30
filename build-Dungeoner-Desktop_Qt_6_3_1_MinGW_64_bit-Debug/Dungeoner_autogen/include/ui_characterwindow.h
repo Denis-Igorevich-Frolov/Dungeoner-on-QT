@@ -10,6 +10,7 @@
 #define UI_CHARACTERWINDOW_H
 
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
+#include <CustomWidgets/ProgressBar_1/progressbar_1.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
@@ -83,12 +84,13 @@ public:
     QFrame *SecondarySkillsShadowBottom;
     QFrame *SecondarySkillsShadowTop;
     QScrollBar *verticalScrollBar;
+    ProgressBar_1 *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
         if (CharacterWindow->objectName().isEmpty())
             CharacterWindow->setObjectName(QString::fromUtf8("CharacterWindow"));
-        CharacterWindow->resize(1186, 646);
+        CharacterWindow->resize(1281, 646);
         CharacterWindow->setFocusPolicy(Qt::StrongFocus);
         CharacterWindow->setStyleSheet(QString::fromUtf8("#CharacterWindow{\n"
 "	background: #130a0f;\n"
@@ -612,6 +614,10 @@ public:
 
         horizontalLayout->addWidget(verticalScrollBar);
 
+        widget = new ProgressBar_1(CharacterWindow);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(740, 110, 471, 101));
+        widget->setStyleSheet(QString::fromUtf8(""));
 
         retranslateUi(CharacterWindow);
 

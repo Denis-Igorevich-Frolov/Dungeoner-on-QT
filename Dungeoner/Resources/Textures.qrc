@@ -23,5 +23,10 @@
         <file>Textures PNG/Vertical-Slider-Pike-Hovered-T.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-Pressed-T.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-Pressed-B.png</file>
+        <file>Textures PNG/Border-B-1.png</file>
+        <file>Textures PNG/Border-T-1.png</file>
+        <file>Textures PNG/ProgressBarTip-L-1.png</file>
+        <file>Textures PNG/ProgressBarTip-R-1.png</file>
+        <file>Textures PNG/ProgressBarBody-1.png</file>
     </qresource>
 </RCC>

@@ -174,6 +174,8 @@ void CharacterWindow::setStyles()
     ui->SecondarySkillsShadowTop->hide();
 
     ui->verticalScrollBar->setStyleSheet(StyleMaster::VerticalScrollBarStyle());
+
+//    ui->widget->Redraw();
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
