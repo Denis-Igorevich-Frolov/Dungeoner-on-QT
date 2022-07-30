@@ -9,6 +9,10 @@ ProgressBar_1::ProgressBar_1(QWidget *parent) :
     ui(new Ui::ProgressBar_1)
 {
     ui->setupUi(this);
+
+    ui->BordersWrapper->setStyleSheet(StyleMaster::BordersStyle());
+    ui->TipsWrapper->setStyleSheet(StyleMaster::TipsStyle());
+    ui->ShadowWrapper->setStyleSheet(StyleMaster::ShadowStyle());
 }
 
 ProgressBar_1::~ProgressBar_1()

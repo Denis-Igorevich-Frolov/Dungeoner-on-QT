@@ -37,28 +37,39 @@
   <property name="fontSize" stdset="0">
    <number>23</number>
   </property>
-  <widget class="QLabel" name="ButtonText">
-   <property name="enabled">
-    <bool>false</bool>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>0</number>
    </property>
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>75</width>
-     <height>24</height>
-    </rect>
+   <property name="leftMargin">
+    <number>0</number>
    </property>
-   <property name="layoutDirection">
-    <enum>Qt::RightToLeft</enum>
+   <property name="topMargin">
+    <number>0</number>
    </property>
-   <property name="text">
-    <string>NON</string>
+   <property name="rightMargin">
+    <number>0</number>
    </property>
-   <property name="alignment">
-    <set>Qt::AlignCenter</set>
+   <property name="bottomMargin">
+    <number>0</number>
    </property>
-  </widget>
+   <item>
+    <widget class="QLabel" name="ButtonText">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="text">
+      <string>NON</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <resources/>
  <connections/>

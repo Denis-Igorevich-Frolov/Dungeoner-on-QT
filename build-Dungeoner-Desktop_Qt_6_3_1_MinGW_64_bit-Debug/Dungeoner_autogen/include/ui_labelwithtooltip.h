@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
@@ -19,6 +20,7 @@ QT_BEGIN_NAMESPACE
 class Ui_LabelWithTooltip
 {
 public:
+    QHBoxLayout *horizontalLayout;
     QLabel *ButtonText;
 
     void setupUi(QWidget *LabelWithTooltip)
@@ -35,12 +37,18 @@ public:
         LabelWithTooltip->setMaximumSize(QSize(75, 24));
         LabelWithTooltip->setCursor(QCursor(Qt::WhatsThisCursor));
         LabelWithTooltip->setProperty("fontSize", QVariant(23));
+        horizontalLayout = new QHBoxLayout(LabelWithTooltip);
+        horizontalLayout->setSpacing(0);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
         ButtonText = new QLabel(LabelWithTooltip);
         ButtonText->setObjectName(QString::fromUtf8("ButtonText"));
         ButtonText->setEnabled(false);
-        ButtonText->setGeometry(QRect(0, 0, 75, 24));
         ButtonText->setLayoutDirection(Qt::RightToLeft);
         ButtonText->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout->addWidget(ButtonText);
+
 
         retranslateUi(LabelWithTooltip);
 

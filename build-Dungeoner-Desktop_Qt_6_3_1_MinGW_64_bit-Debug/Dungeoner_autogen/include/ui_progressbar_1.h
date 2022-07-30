@@ -46,12 +46,14 @@ public:
     {
         if (ProgressBar_1->objectName().isEmpty())
             ProgressBar_1->setObjectName(QString::fromUtf8("ProgressBar_1"));
-        ProgressBar_1->resize(307, 42);
+        ProgressBar_1->resize(262, 42);
         ProgressBar_1->setMinimumSize(QSize(0, 42));
         ProgressBar_1->setMaximumSize(QSize(16777215, 42));
+        ProgressBar_1->setStyleSheet(QString::fromUtf8(""));
         TipsWrapper = new QFrame(ProgressBar_1);
         TipsWrapper->setObjectName(QString::fromUtf8("TipsWrapper"));
         TipsWrapper->setGeometry(QRect(0, 0, 261, 42));
+        TipsWrapper->setStyleSheet(QString::fromUtf8(""));
         TipsWrapper->setFrameShape(QFrame::StyledPanel);
         TipsWrapper->setFrameShadow(QFrame::Raised);
         gridLayout_2 = new QGridLayout(TipsWrapper);
@@ -62,8 +64,7 @@ public:
         TipLeft->setObjectName(QString::fromUtf8("TipLeft"));
         TipLeft->setMinimumSize(QSize(51, 42));
         TipLeft->setMaximumSize(QSize(40, 42));
-        TipLeft->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/ProgressBarTip-L-1.png);\n"
-"background-repeat: no-repeat;"));
+        TipLeft->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout_2->addWidget(TipLeft, 0, 1, 1, 1);
 
@@ -71,8 +72,7 @@ public:
         TipRight->setObjectName(QString::fromUtf8("TipRight"));
         TipRight->setMinimumSize(QSize(51, 42));
         TipRight->setMaximumSize(QSize(51, 42));
-        TipRight->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/ProgressBarTip-R-1.png);\n"
-"background-repeat: no-repeat;"));
+        TipRight->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout_2->addWidget(TipRight, 0, 3, 1, 1);
 
@@ -99,7 +99,7 @@ public:
         ProgressBarChunk->setObjectName(QString::fromUtf8("ProgressBarChunk"));
         ProgressBarChunk->setMinimumSize(QSize(0, 27));
         ProgressBarChunk->setMaximumSize(QSize(16777215, 27));
-        ProgressBarChunk->setStyleSheet(QString::fromUtf8("background: white;"));
+        ProgressBarChunk->setStyleSheet(QString::fromUtf8(""));
         ProgressBarChunk->setLineWidth(0);
         ProgressBarChunk->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -112,6 +112,7 @@ public:
         BordersWrapper = new QFrame(ProgressBar_1);
         BordersWrapper->setObjectName(QString::fromUtf8("BordersWrapper"));
         BordersWrapper->setGeometry(QRect(0, 0, 261, 42));
+        BordersWrapper->setStyleSheet(QString::fromUtf8(""));
         BordersWrapper->setFrameShape(QFrame::StyledPanel);
         BordersWrapper->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(BordersWrapper);
@@ -122,7 +123,7 @@ public:
         BorderTop->setObjectName(QString::fromUtf8("BorderTop"));
         BorderTop->setMinimumSize(QSize(0, 5));
         BorderTop->setMaximumSize(QSize(16777215, 5));
-        BorderTop->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/Border-T-1.png);"));
+        BorderTop->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout->addWidget(BorderTop);
 
@@ -134,7 +135,7 @@ public:
         BorderBottom->setObjectName(QString::fromUtf8("BorderBottom"));
         BorderBottom->setMinimumSize(QSize(0, 5));
         BorderBottom->setMaximumSize(QSize(16777215, 5));
-        BorderBottom->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/Border-B-1.png);"));
+        BorderBottom->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout->addWidget(BorderBottom);
 
@@ -150,7 +151,7 @@ public:
         horizontalLayout_2->setContentsMargins(43, 8, 43, 9);
         Shadow = new QLabel(ShadowWrapper);
         Shadow->setObjectName(QString::fromUtf8("Shadow"));
-        Shadow->setStyleSheet(QString::fromUtf8("background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 100), stop:0.5 rgba(116, 116, 116, 0), stop:1 rgba(0, 0, 0, 100));"));
+        Shadow->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_2->addWidget(Shadow);
 
