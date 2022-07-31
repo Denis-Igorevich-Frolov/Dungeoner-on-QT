@@ -21,7 +21,7 @@ class Ui_LabelWithTooltip
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QLabel *ButtonText;
+    QLabel *LabelText;
 
     void setupUi(QWidget *LabelWithTooltip)
     {
@@ -34,20 +34,20 @@ public:
         sizePolicy.setHeightForWidth(LabelWithTooltip->sizePolicy().hasHeightForWidth());
         LabelWithTooltip->setSizePolicy(sizePolicy);
         LabelWithTooltip->setMinimumSize(QSize(75, 24));
-        LabelWithTooltip->setMaximumSize(QSize(75, 24));
+        LabelWithTooltip->setMaximumSize(QSize(16777215, 16777215));
         LabelWithTooltip->setCursor(QCursor(Qt::WhatsThisCursor));
         LabelWithTooltip->setProperty("fontSize", QVariant(23));
         horizontalLayout = new QHBoxLayout(LabelWithTooltip);
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        ButtonText = new QLabel(LabelWithTooltip);
-        ButtonText->setObjectName(QString::fromUtf8("ButtonText"));
-        ButtonText->setEnabled(false);
-        ButtonText->setLayoutDirection(Qt::RightToLeft);
-        ButtonText->setAlignment(Qt::AlignCenter);
+        LabelText = new QLabel(LabelWithTooltip);
+        LabelText->setObjectName(QString::fromUtf8("LabelText"));
+        LabelText->setEnabled(false);
+        LabelText->setLayoutDirection(Qt::RightToLeft);
+        LabelText->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(ButtonText);
+        horizontalLayout->addWidget(LabelText, 0, Qt::AlignHCenter|Qt::AlignVCenter);
 
 
         retranslateUi(LabelWithTooltip);
@@ -58,7 +58,7 @@ public:
     void retranslateUi(QWidget *LabelWithTooltip)
     {
         LabelWithTooltip->setWindowTitle(QCoreApplication::translate("LabelWithTooltip", "Form", nullptr));
-        ButtonText->setText(QCoreApplication::translate("LabelWithTooltip", "NON", nullptr));
+        LabelText->setText(QCoreApplication::translate("LabelWithTooltip", "NON", nullptr));
     } // retranslateUi
 
 };

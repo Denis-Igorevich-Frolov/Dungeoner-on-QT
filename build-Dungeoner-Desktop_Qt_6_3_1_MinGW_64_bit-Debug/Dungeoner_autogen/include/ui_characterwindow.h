@@ -616,7 +616,7 @@ public:
 
         widget = new ProgressBar_1(CharacterWindow);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(740, 110, 471, 101));
+        widget->setGeometry(QRect(730, 70, 471, 101));
         widget->setStyleSheet(QString::fromUtf8(""));
 
         retranslateUi(CharacterWindow);

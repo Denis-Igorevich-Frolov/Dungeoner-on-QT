@@ -9,7 +9,7 @@
 class StyleMaster
 {
 public:
-    static QString TextFontStyle(int size);
+    static QString TextFontStyle(int size, QString fontName);
 };
 
 #endif // STYLEMASTER_H

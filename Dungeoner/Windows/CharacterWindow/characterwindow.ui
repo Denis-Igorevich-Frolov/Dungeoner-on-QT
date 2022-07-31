@@ -1647,8 +1647,8 @@ border: none;</string>
   <widget class="ProgressBar_1" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>740</x>
-     <y>110</y>
+     <x>730</x>
+     <y>70</y>
      <width>471</width>
      <height>101</height>
     </rect>
@@ -1660,6 +1660,12 @@ border: none;</string>
  </widget>
  <customwidgets>
   <customwidget>
+   <class>ProgressBar_1</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/ProgressBar_1/progressbar_1.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
    <class>PrimarySkillSignature</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/PrimarySkillSignature/primaryskillsignature.h</header>
@@ -1669,12 +1675,6 @@ border: none;</string>
    <class>SecondarySkill</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/SecondarySkill/secondaryskill.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>ProgressBar_1</class>
-   <extends>QWidget</extends>
-   <header location="global">CustomWidgets/ProgressBar_1/progressbar_1.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

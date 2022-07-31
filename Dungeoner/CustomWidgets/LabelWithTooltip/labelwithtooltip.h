@@ -27,6 +27,16 @@ public:
     //Устанавливает текст для ButtonText
     void setText(QString text);
 
+    /*От этого энума будет зависить шрифт, сама же
+     *замена шрита происходит в сетере fontType*/
+    enum FontType{
+        TEXT,
+        NUMBERS
+    };
+
+    FontType getFontType() const;
+    void setFontType(FontType newFontType);
+
 signals:
     void ShowTooltip();
     void RemoveTooltip();
@@ -44,6 +54,9 @@ private:
     void mouseMoveEvent(QMouseEvent *event) override;
 
     TooltipDisplayEvents tooltipDisplayEvents;
+
+    //Автоматически инициализируем экземпляр энума значением по умолчанию
+    FontType fontType = FontType::TEXT;
 };
 
 #endif // LABELWITHTOOLTIP_H

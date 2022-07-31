@@ -1,6 +1,9 @@
 #ifndef STYLEMASTER_H
 #define STYLEMASTER_H
 
+/*Мастер стилей для ProgressBar_1. Хранит Qss инструкции,
+ *которые затем будут применены к элементам виджета*/
+
 #include <QString>
 
 class StyleMaster

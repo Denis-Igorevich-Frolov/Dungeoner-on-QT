@@ -9,6 +9,7 @@
 #ifndef UI_PROGRESSBAR_1_H
 #define UI_PROGRESSBAR_1_H
 
+#include <CustomWidgets/LabelWithTooltip/labelwithtooltip.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -41,6 +42,9 @@ public:
     QFrame *ShadowWrapper;
     QHBoxLayout *horizontalLayout_2;
     QLabel *Shadow;
+    QFrame *LabelWithTooltipWrapper;
+    QVBoxLayout *verticalLayout_3;
+    LabelWithTooltip *labelWithTooltip;
 
     void setupUi(QWidget *ProgressBar_1)
     {
@@ -155,10 +159,31 @@ public:
 
         horizontalLayout_2->addWidget(Shadow);
 
+        LabelWithTooltipWrapper = new QFrame(ProgressBar_1);
+        LabelWithTooltipWrapper->setObjectName(QString::fromUtf8("LabelWithTooltipWrapper"));
+        LabelWithTooltipWrapper->setGeometry(QRect(0, 0, 261, 42));
+        LabelWithTooltipWrapper->setFrameShape(QFrame::StyledPanel);
+        LabelWithTooltipWrapper->setFrameShadow(QFrame::Raised);
+        LabelWithTooltipWrapper->setLineWidth(0);
+        verticalLayout_3 = new QVBoxLayout(LabelWithTooltipWrapper);
+        verticalLayout_3->setSpacing(0);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setContentsMargins(12, 3, 12, 7);
+        labelWithTooltip = new LabelWithTooltip(LabelWithTooltipWrapper);
+        labelWithTooltip->setObjectName(QString::fromUtf8("labelWithTooltip"));
+        QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(labelWithTooltip->sizePolicy().hasHeightForWidth());
+        labelWithTooltip->setSizePolicy(sizePolicy1);
+
+        verticalLayout_3->addWidget(labelWithTooltip);
+
         ChunkWrapper->raise();
         BordersWrapper->raise();
         ShadowWrapper->raise();
         TipsWrapper->raise();
+        LabelWithTooltipWrapper->raise();
 
         retranslateUi(ProgressBar_1);
 

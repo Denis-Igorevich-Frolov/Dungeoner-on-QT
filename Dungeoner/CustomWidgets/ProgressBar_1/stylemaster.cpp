@@ -1,3 +1,6 @@
+/*Мастер стилей для ProgressBar_1. Хранит Qss инструкции,
+ *которые затем будут применены к элементам виджета*/
+
 #include "stylemaster.h"
 
 QString StyleMaster::BordersStyle()

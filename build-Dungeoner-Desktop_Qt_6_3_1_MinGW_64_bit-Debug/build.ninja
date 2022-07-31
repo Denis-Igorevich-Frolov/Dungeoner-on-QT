@@ -313,7 +313,7 @@ build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp | ${cmake_ninja_workdir}Dungeo
 #############################################
 # Phony custom command for CMakeFiles\Dungeoner_autogen_timestamp_deps
 
-build CMakeFiles/Dungeoner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Dungeoner_autogen_timestamp_deps: phony E$:/Qt/6.3.1/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.1/mingw_64/./bin/uic.exe E$:/Qt/6.3.1/mingw_64/./bin/moc.exe E$:/Qt/6.3.1/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.3.1/mingw_64/lib/libQt6Multimedia.a
+build CMakeFiles/Dungeoner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Dungeoner_autogen_timestamp_deps: phony E$:/Qt/6.3.1/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.1/mingw_64/./bin/moc.exe E$:/Qt/6.3.1/mingw_64/./bin/uic.exe E$:/Qt/6.3.1/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.3.1/mingw_64/lib/libQt6Multimedia.a
 
 
 #############################################

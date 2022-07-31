@@ -346,12 +346,66 @@
     </item>
    </layout>
   </widget>
+  <widget class="QFrame" name="LabelWithTooltipWrapper">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>261</width>
+     <height>42</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>12</number>
+    </property>
+    <property name="topMargin">
+     <number>3</number>
+    </property>
+    <property name="rightMargin">
+     <number>12</number>
+    </property>
+    <property name="bottomMargin">
+     <number>7</number>
+    </property>
+    <item>
+     <widget class="LabelWithTooltip" name="labelWithTooltip" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <zorder>ChunkWrapper</zorder>
-  <zorder>gridLayoutWidget</zorder>
   <zorder>BordersWrapper</zorder>
   <zorder>ShadowWrapper</zorder>
   <zorder>TipsWrapper</zorder>
+  <zorder>LabelWithTooltipWrapper</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LabelWithTooltip</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/LabelWithTooltip/labelwithtooltip.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
