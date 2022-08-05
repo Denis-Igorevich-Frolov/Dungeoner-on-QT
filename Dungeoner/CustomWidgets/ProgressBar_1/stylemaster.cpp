@@ -18,8 +18,8 @@ QString StyleMaster::ShadowStyle()
 {
     return
     "QLabel#Shadow{"
-    "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 100),"
-    "                stop:0.5 rgba(116, 116, 116, 0), stop:1 rgba(0, 0, 0, 100));"
+    "    background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 90),"
+    "                stop:0.5 rgba(116, 116, 116, 0), stop:1 rgba(0, 0, 0, 90));"
     "}";
 }
 
@@ -34,5 +34,14 @@ QString StyleMaster::TipsStyle()
     "QLabel#TipRight{"
     "    background-image: url(:/Text-Block-1/Textures PNG/ProgressBarTip-R-1.png);"
     "    background-repeat: no-repeat;"
+    "}";
+}
+
+QString StyleMaster::HighlightStyle()
+{
+    return
+    "QLabel{"
+    "   background: url(:/Text-Block-1/Textures PNG/ProgressBarHighlight-1.png);"
+    "   background-repeat: repeat-x;"
     "}";
 }

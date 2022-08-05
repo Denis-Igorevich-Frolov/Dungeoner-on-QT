@@ -3,8 +3,9 @@
 #include "characterwindow.h"
 #include "qevent.h"
 #include "ui_characterwindow.h"
-#include ".\CustomWidgets\PrimarySkillSignature\primaryskillsignature.h"
 #include "stylemaster.h"
+
+#include "CustomWidgets/ParagraphWithBorder/paragraphwithborder.h"
 
 #include <QGridLayout>
 #include <QFile>
@@ -46,6 +47,14 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
             this, &CharacterWindow::ShowTooltip);
     connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
             this, &CharacterWindow::RemoveTooltip);
+
+    ui->widget->setMaxValue(100);
+    ui->widget->setColor(QColor(255,0,0));
+
+    ui->widget_2->setText("chortnppff");
+    ui->widget_2->setText("fdfsfsfFFF/nNRSAfsfasFD/n");
+//    ui->widget_2->setAlignment(ParagraphWithBorder::VerticalAlignment::CENTER, LabelWithBorder::HorizontalAlignment::CENTER);
+    ui->widget_2->setLineSpacing(50);
 }
 
 CharacterWindow::~CharacterWindow()
@@ -174,8 +183,6 @@ void CharacterWindow::setStyles()
     ui->SecondarySkillsShadowTop->hide();
 
     ui->verticalScrollBar->setStyleSheet(StyleMaster::VerticalScrollBarStyle());
-
-//    ui->widget->Redraw();
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -297,3 +304,9 @@ void CharacterWindow::RemoveTooltip()
 {
     qDebug() <<QTime::currentTime()<< "leave";
 }
+
+void CharacterWindow::on_horizontalSlider_valueChanged(int value)
+{
+    ui->widget->setValue(value);
+}
+

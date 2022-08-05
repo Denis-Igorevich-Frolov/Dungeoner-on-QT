@@ -32,8 +32,6 @@ set(PROJECT_SOURCES
         CustomWidgets/LabelWithTooltip/labelwithtooltip.h
         CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp
         CustomWidgets/LabelWithTooltip/labelwithtooltip.ui
-        CustomWidgets/LabelWithTooltip/stylemaster.h
-        CustomWidgets/LabelWithTooltip/stylemaster.cpp
         Windows/CharacterWindow/stylemaster.h
         Windows/CharacterWindow/stylemaster.cpp
         Resources/Sounds.qrc
@@ -58,6 +56,14 @@ set(PROJECT_SOURCES
         CustomWidgets/ProgressBar_1/progressbar_1.ui
         CustomWidgets/ProgressBar_1/stylemaster.h
         CustomWidgets/ProgressBar_1/stylemaster.cpp
+        CustomWidgets/LabelWithBorder/labelwithborder.h
+        CustomWidgets/LabelWithBorder/labelwithborder.cpp
+        CustomWidgets/LabelWithBorder/labelwithborder.ui
+        CustomWidgets/LabelWithBorder/stylemaster.h
+        CustomWidgets/LabelWithBorder/stylemaster.cpp
+        CustomWidgets/ParagraphWithBorder/paragraphwithborder.h
+        CustomWidgets/ParagraphWithBorder/paragraphwithborder.cpp
+        CustomWidgets/ParagraphWithBorder/paragraphwithborder.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

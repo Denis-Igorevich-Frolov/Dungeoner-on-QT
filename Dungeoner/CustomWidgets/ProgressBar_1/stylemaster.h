@@ -12,6 +12,7 @@ public:
     static QString BordersStyle();
     static QString ShadowStyle();
     static QString TipsStyle();
+    static QString HighlightStyle();
 };
 
 #endif // STYLEMASTER_H

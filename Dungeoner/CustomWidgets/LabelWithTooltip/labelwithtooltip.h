@@ -8,6 +8,7 @@
  *выводилась только у этой части, а у всего родительского виджета*/
 
 #include "System/TooltipDisplayEvents/tooltipdisplayevents.h"
+#include "../LabelWithBorder/labelwithborder.h"
 
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
@@ -27,22 +28,14 @@ public:
     //Устанавливает текст для ButtonText
     void setText(QString text);
 
-    /*От этого энума будет зависить шрифт, сама же
-     *замена шрита происходит в сетере fontType*/
-    enum FontType{
-        TEXT,
-        NUMBERS
-    };
-
-    FontType getFontType() const;
-    void setFontType(FontType newFontType);
+    void setFontStyle(QColor textColor, QColor borderColor, int borderThickness, LabelWithBorder::FontType fontType);
 
 signals:
     void ShowTooltip();
     void RemoveTooltip();
 
 private:
-    QGraphicsDropShadowEffect* shadow;
+//    QGraphicsDropShadowEffect* shadow;
     Ui::LabelWithTooltip *ui;
 
     /*Переопределения виртуальных функций QWidget для вызова сигнала вывода
@@ -54,9 +47,6 @@ private:
     void mouseMoveEvent(QMouseEvent *event) override;
 
     TooltipDisplayEvents tooltipDisplayEvents;
-
-    //Автоматически инициализируем экземпляр энума значением по умолчанию
-    FontType fontType = FontType::TEXT;
 };
 
 #endif // LABELWITHTOOLTIP_H

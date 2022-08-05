@@ -6,6 +6,7 @@
 #include "primaryskillsignature.h"
 #include "ui_primaryskillsignature.h"
 #include "stylemaster.h"
+
 #include <QMouseEvent>
 #include <QMutableVectorIterator>
 
@@ -23,6 +24,8 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     ui->ButtonBottom->setStyleSheet(StyleMaster::bottomTextureStyle());
     ui->labelRight->setStyleSheet(StyleMaster::RightTextureStyle());
     ui->labelLeft->setStyleSheet(StyleMaster::LeftTextureStyle());
+
+    ui->labelWithTooltip->setFontStyle(QColor("#bdc440"), QColor("#0b0a05"), 2, LabelWithBorder::TEXT);
 }
 
 PrimarySkillSignature::~PrimarySkillSignature()

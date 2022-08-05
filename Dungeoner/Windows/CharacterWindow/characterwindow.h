@@ -26,6 +26,8 @@ private slots:
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
 
+    void on_horizontalSlider_valueChanged(int value);
+
 private:
     Ui::CharacterWindow *ui;
 

@@ -43,9 +43,9 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
 
 SecondarySkill::~SecondarySkill()
 {
-    delete ui;
     delete shadow1;
     delete shadow2;
+    delete ui;
 }
 
 long SecondarySkill::getValue() const

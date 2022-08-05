@@ -55,7 +55,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 64,
+				"line" : 70,
 				"parent" : 0
 			},
 			{
@@ -79,13 +79,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 86,
+				"line" : 92,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 101,
+				"line" : 107,
 				"parent" : 0
 			},
 			{
@@ -175,7 +175,7 @@
 			{
 				"command" : 7,
 				"file" : 1,
-				"line" : 100,
+				"line" : 106,
 				"parent" : 0
 			},
 			{
@@ -485,19 +485,21 @@
 				13,
 				16,
 				19,
-				21,
+				22,
 				24,
 				26,
-				28,
+				29,
 				31,
-				33,
+				34,
 				36,
 				38,
-				40,
+				41,
 				43,
-				52,
-				53,
-				54
+				46,
+				48,
+				60,
+				61,
+				62
 			]
 		}
 	],
@@ -622,19 +624,21 @@
 				13,
 				16,
 				19,
-				21,
+				22,
 				24,
 				26,
-				28,
+				29,
 				31,
-				33,
+				34,
 				36,
 				38,
-				40,
+				41,
 				43,
-				52,
-				53,
-				54
+				46,
+				48,
+				60,
+				61,
+				62
 			]
 		},
 		{
@@ -647,23 +651,27 @@
 				12,
 				15,
 				18,
-				20,
+				21,
 				23,
 				25,
-				27,
+				28,
 				30,
-				32,
+				33,
 				35,
 				37,
-				39,
+				40,
 				42,
-				44,
 				45,
-				46,
 				47,
-				48,
-				49,
-				50
+				50,
+				51,
+				52,
+				53,
+				54,
+				55,
+				56,
+				57,
+				58
 			]
 		},
 		{
@@ -676,21 +684,23 @@
 				11,
 				14,
 				17,
-				22,
-				29,
-				34,
-				41,
-				51
+				20,
+				27,
+				32,
+				39,
+				44,
+				49,
+				59
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				55,
-				56,
-				57,
-				58
+				63,
+				64,
+				65,
+				66
 			]
 		}
 	],
@@ -793,17 +803,6 @@
 			"backtrace" : 4,
 			"path" : "CustomWidgets/LabelWithTooltip/labelwithtooltip.ui",
 			"sourceGroupIndex" : 2
-		},
-		{
-			"backtrace" : 4,
-			"path" : "CustomWidgets/LabelWithTooltip/stylemaster.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 4,
-			"compileGroupIndex" : 0,
-			"path" : "CustomWidgets/LabelWithTooltip/stylemaster.cpp",
-			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 4,
@@ -936,6 +935,49 @@
 			"sourceGroupIndex" : 0
 		},
 		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/LabelWithBorder/labelwithborder.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/LabelWithBorder/labelwithborder.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/LabelWithBorder/labelwithborder.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/LabelWithBorder/stylemaster.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/LabelWithBorder/stylemaster.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/ParagraphWithBorder/paragraphwithborder.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/ParagraphWithBorder/paragraphwithborder.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/ParagraphWithBorder/paragraphwithborder.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/ui_dungeoner.h",
@@ -975,6 +1017,18 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/ProgressBar_1/ui_progressbar_1.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/LabelWithBorder/ui_labelwithborder.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/ParagraphWithBorder/ui_paragraphwithborder.h",
 			"sourceGroupIndex" : 1
 		},
 		{

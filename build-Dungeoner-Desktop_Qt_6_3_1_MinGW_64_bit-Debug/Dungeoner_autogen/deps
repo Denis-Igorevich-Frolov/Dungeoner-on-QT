@@ -1,9 +1,13 @@
 Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CMakeLists.txt \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/labelwithborder.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/labelwithborder.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.cpp \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ParagraphWithBorder/paragraphwithborder.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ParagraphWithBorder/paragraphwithborder.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/stylemaster.cpp \
@@ -160,11 +164,16 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
 	E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGridLayout \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qboxlayout.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgridlayout.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlayout.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlayoutitem.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h \
@@ -519,7 +528,9 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/labelwithborder.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ParagraphWithBorder/paragraphwithborder.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.ui \

@@ -364,15 +364,27 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/labelwithborder.h",
+			"MU",
+			"NOIS4L5MTH/moc_labelwithborder.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/stylemaster.h",
+			"MU",
+			"NOIS4L5MTH/moc_stylemaster.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h",
 			"MU",
 			"5JHTRKW4VV/moc_labelwithtooltip.cpp",
 			null
 		],
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.h",
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ParagraphWithBorder/paragraphwithborder.h",
 			"MU",
-			"5JHTRKW4VV/moc_stylemaster.cpp",
+			"SHGBYDWV2E/moc_paragraphwithborder.cpp",
 			null
 		],
 		[
@@ -536,12 +548,22 @@
 	"SOURCES" : 
 	[
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/labelwithborder.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp",
 			"MU",
 			null
 		],
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.cpp",
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ParagraphWithBorder/paragraphwithborder.cpp",
 			"MU",
 			null
 		],

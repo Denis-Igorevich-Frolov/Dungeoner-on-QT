@@ -28,5 +28,6 @@
         <file>Textures PNG/ProgressBarTip-L-1.png</file>
         <file>Textures PNG/ProgressBarTip-R-1.png</file>
         <file>Textures PNG/ProgressBarBody-1.png</file>
+        <file>Textures PNG/ProgressBarHighlight-1.png</file>
     </qresource>
 </RCC>

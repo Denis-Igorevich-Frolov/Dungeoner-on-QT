@@ -1,5 +1,6 @@
 E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/PTAAC7U42L/moc_primaryskillsignature.cpp: E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.h \
   E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithBorder/labelwithborder.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h \

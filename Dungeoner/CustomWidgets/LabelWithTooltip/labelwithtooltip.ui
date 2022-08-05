@@ -53,24 +53,19 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-    <widget class="QLabel" name="LabelText">
-     <property name="enabled">
-      <bool>false</bool>
-     </property>
-     <property name="layoutDirection">
-      <enum>Qt::RightToLeft</enum>
-     </property>
-     <property name="text">
-      <string>NON</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
+   <item>
+    <widget class="LabelWithBorder" name="LabelText" native="true"/>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>LabelWithBorder</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/LabelWithBorder/labelwithborder.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
