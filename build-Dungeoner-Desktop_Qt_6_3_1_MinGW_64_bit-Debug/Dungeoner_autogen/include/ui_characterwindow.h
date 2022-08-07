@@ -9,7 +9,6 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
-#include <CustomWidgets/ParagraphWithBorder/paragraphwithborder.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/ProgressBar_1/progressbar_1.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -21,7 +20,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
@@ -87,9 +85,6 @@ public:
     QFrame *SecondarySkillsShadowTop;
     QScrollBar *verticalScrollBar;
     ProgressBar_1 *widget;
-    QSlider *horizontalSlider;
-    ParagraphWithBorder *widget_2;
-    QLabel *label;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -623,30 +618,6 @@ public:
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(730, 70, 471, 101));
         widget->setStyleSheet(QString::fromUtf8(""));
-        horizontalSlider = new QSlider(CharacterWindow);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(870, 260, 291, 16));
-        horizontalSlider->setMaximum(100);
-        horizontalSlider->setOrientation(Qt::Horizontal);
-        widget_2 = new ParagraphWithBorder(CharacterWindow);
-        widget_2->setObjectName(QString::fromUtf8("widget_2"));
-        widget_2->setGeometry(QRect(810, 290, 421, 81));
-        QSizePolicy sizePolicy3(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(widget_2->sizePolicy().hasHeightForWidth());
-        widget_2->setSizePolicy(sizePolicy3);
-        widget_2->setStyleSheet(QString::fromUtf8(""));
-        label = new QLabel(CharacterWindow);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(810, 290, 421, 81));
-        label->setStyleSheet(QString::fromUtf8("background:white;"));
-        label->raise();
-        verticalLayoutWidget->raise();
-        SecondarySkillsWraper->raise();
-        widget->raise();
-        horizontalSlider->raise();
-        widget_2->raise();
 
         retranslateUi(CharacterWindow);
 
@@ -687,7 +658,6 @@ public:
         TravelRange->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
         StrengtheningPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
         MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
-        label->setText(QString());
     } // retranslateUi
 
 };

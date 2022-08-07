@@ -1657,63 +1657,6 @@ border: none;</string>
     <string notr="true"/>
    </property>
   </widget>
-  <widget class="QSlider" name="horizontalSlider">
-   <property name="geometry">
-    <rect>
-     <x>870</x>
-     <y>260</y>
-     <width>291</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="maximum">
-    <number>100</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
-  <widget class="ParagraphWithBorder" name="widget_2" native="true">
-   <property name="geometry">
-    <rect>
-     <x>810</x>
-     <y>290</y>
-     <width>421</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="sizePolicy">
-    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-     <horstretch>0</horstretch>
-     <verstretch>0</verstretch>
-    </sizepolicy>
-   </property>
-   <property name="styleSheet">
-    <string notr="true"/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>810</x>
-     <y>290</y>
-     <width>421</width>
-     <height>81</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background:white;</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <zorder>label</zorder>
-  <zorder>verticalLayoutWidget</zorder>
-  <zorder>SecondarySkillsWraper</zorder>
-  <zorder>widget</zorder>
-  <zorder>horizontalSlider</zorder>
-  <zorder>widget_2</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1732,12 +1675,6 @@ border: none;</string>
    <class>SecondarySkill</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/SecondarySkill/secondaryskill.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>ParagraphWithBorder</class>
-   <extends>QWidget</extends>
-   <header location="global">CustomWidgets/ParagraphWithBorder/paragraphwithborder.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

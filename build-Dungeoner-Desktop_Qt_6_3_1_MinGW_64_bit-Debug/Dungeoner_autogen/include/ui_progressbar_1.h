@@ -45,15 +45,12 @@ public:
     QFrame *LabelWithTooltipWrapper;
     QVBoxLayout *verticalLayout_3;
     LabelWithTooltip *labelWithTooltip;
-    QFrame *HighlightWrapper;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *Highlight;
 
     void setupUi(QWidget *ProgressBar_1)
     {
         if (ProgressBar_1->objectName().isEmpty())
             ProgressBar_1->setObjectName(QString::fromUtf8("ProgressBar_1"));
-        ProgressBar_1->resize(298, 42);
+        ProgressBar_1->resize(262, 42);
         ProgressBar_1->setMinimumSize(QSize(0, 42));
         ProgressBar_1->setMaximumSize(QSize(16777215, 42));
         ProgressBar_1->setStyleSheet(QString::fromUtf8(""));
@@ -182,26 +179,11 @@ public:
 
         verticalLayout_3->addWidget(labelWithTooltip);
 
-        HighlightWrapper = new QFrame(ProgressBar_1);
-        HighlightWrapper->setObjectName(QString::fromUtf8("HighlightWrapper"));
-        HighlightWrapper->setGeometry(QRect(0, 0, 261, 42));
-        HighlightWrapper->setFrameShape(QFrame::StyledPanel);
-        HighlightWrapper->setFrameShadow(QFrame::Raised);
-        horizontalLayout_3 = new QHBoxLayout(HighlightWrapper);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalLayout_3->setContentsMargins(43, 10, 43, -1);
-        Highlight = new QLabel(HighlightWrapper);
-        Highlight->setObjectName(QString::fromUtf8("Highlight"));
-        Highlight->setStyleSheet(QString::fromUtf8(""));
-
-        horizontalLayout_3->addWidget(Highlight);
-
         ChunkWrapper->raise();
         BordersWrapper->raise();
         ShadowWrapper->raise();
         TipsWrapper->raise();
         LabelWithTooltipWrapper->raise();
-        HighlightWrapper->raise();
 
         retranslateUi(ProgressBar_1);
 
@@ -217,7 +199,6 @@ public:
         BorderTop->setText(QString());
         BorderBottom->setText(QString());
         Shadow->setText(QString());
-        Highlight->setText(QString());
     } // retranslateUi
 
 };

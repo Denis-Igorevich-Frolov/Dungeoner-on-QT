@@ -9,10 +9,10 @@
 #ifndef UI_LABELWITHTOOLTIP_H
 #define UI_LABELWITHTOOLTIP_H
 
-#include <CustomWidgets/LabelWithBorder/labelwithborder.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,7 +21,7 @@ class Ui_LabelWithTooltip
 {
 public:
     QHBoxLayout *horizontalLayout;
-    LabelWithBorder *LabelText;
+    QLabel *LabelText;
 
     void setupUi(QWidget *LabelWithTooltip)
     {
@@ -41,10 +41,13 @@ public:
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        LabelText = new LabelWithBorder(LabelWithTooltip);
+        LabelText = new QLabel(LabelWithTooltip);
         LabelText->setObjectName(QString::fromUtf8("LabelText"));
+        LabelText->setEnabled(false);
+        LabelText->setLayoutDirection(Qt::RightToLeft);
+        LabelText->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout->addWidget(LabelText);
+        horizontalLayout->addWidget(LabelText, 0, Qt::AlignHCenter|Qt::AlignVCenter);
 
 
         retranslateUi(LabelWithTooltip);
@@ -55,6 +58,7 @@ public:
     void retranslateUi(QWidget *LabelWithTooltip)
     {
         LabelWithTooltip->setWindowTitle(QCoreApplication::translate("LabelWithTooltip", "Form", nullptr));
+        LabelText->setText(QCoreApplication::translate("LabelWithTooltip", "NON", nullptr));
     } // retranslateUi
 
 };

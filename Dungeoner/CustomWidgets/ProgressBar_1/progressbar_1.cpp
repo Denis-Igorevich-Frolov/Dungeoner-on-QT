@@ -23,9 +23,8 @@ ProgressBar_1::ProgressBar_1(QWidget *parent) :
     ui->BordersWrapper->setStyleSheet(StyleMaster::BordersStyle());
     ui->TipsWrapper->setStyleSheet(StyleMaster::TipsStyle());
     ui->ShadowWrapper->setStyleSheet(StyleMaster::ShadowStyle());
-    ui->Highlight->setStyleSheet(StyleMaster::HighlightStyle());
     //Задаётся стиль текста лейбла с подсказкой как "ЧИСЛА"
-//    ui->labelWithTooltip->setFontType(LabelWithTooltip::NUMBERS);
+    ui->labelWithTooltip->setFontType(LabelWithTooltip::NUMBERS);
 }
 
 ProgressBar_1::~ProgressBar_1()
@@ -61,8 +60,6 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
         maxValue = minValue;
     else
         maxValue = newMaxValue;
-
-    recalculationChunkWidth();
 }
 
 int ProgressBar_1::getValue() const
@@ -79,14 +76,11 @@ void ProgressBar_1::setValue(int newValue)
         value = minValue;
     else
         value = newValue;
-
-    recalculationChunkWidth();
 }
 
 void ProgressBar_1::setColor(const QColor &newColor)
 {
     color = newColor;
-    redrawChunk();
 }
 
 //Пересчёт размера заполненной области
@@ -147,7 +141,6 @@ void ProgressBar_1::resizeEvent(QResizeEvent *event)
     ui->BordersWrapper->setFixedWidth(this->width());
     ui->ShadowWrapper->setFixedWidth(this->width());
     ui->LabelWithTooltipWrapper->setFixedWidth(this->width());
-    ui->HighlightWrapper->setFixedWidth(this->width());
 
     //После изменения размера нужно перерисовать тело прогрессбара
     recalculationChunkWidth();
