@@ -1,7 +1,9 @@
+/**************************************
+ *Данный класс является медиаплеером
+ **************************************/
+
 #ifndef MEDIAPLAYER_H
 #define MEDIAPLAYER_H
-
-/*Данный класс является медиаплеером*/
 
 #include <QtMultimedia/QMediaPlayer>
 #include <QtMultimedia/QAudioOutput>

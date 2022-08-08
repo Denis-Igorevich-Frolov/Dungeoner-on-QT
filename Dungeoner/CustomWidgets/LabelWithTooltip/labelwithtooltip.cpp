@@ -1,8 +1,10 @@
-/*Данный виджет - это поле с текстом (размер текст задаётся в динамическом
+/******************************************************************************
+ *Данный виджет - это поле с текстом (размер текст задаётся в динамическом
  *свойстве fontSize) с функционалом для вывода подсказки.
  *
  *Суть вынесения этого одного лейбла в отдельный класс в том, чтобы подсказка
- *выводилась только у этой части, а у всего родительского виджета*/
+ *выводилась только у этой части, а у всего родительского виджета
+ ******************************************************************************/
 
 #include "labelwithtooltip.h"
 #include "qevent.h"
@@ -26,8 +28,9 @@ LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
     setFontType(fontType);
 
     border = new OutlineEffect();
+    border->setOutlineThickness(1);
     ui->LabelText->setGraphicsEffect(border);
-    ui->LabelText->setMargin(2);
+    ui->LabelText->setMargin(1);
 }
 
 LabelWithTooltip::~LabelWithTooltip()

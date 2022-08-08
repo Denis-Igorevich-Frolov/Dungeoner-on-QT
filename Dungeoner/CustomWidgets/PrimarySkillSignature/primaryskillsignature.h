@@ -1,12 +1,13 @@
 #ifndef PRIMARYSKILLSIGNATURE_H
 #define PRIMARYSKILLSIGNATURE_H
 
-/*Данный виджет - это подпись первичных навыков. Он имеет
+/***********************************************************
+ *Данный виджет - это подпись первичных навыков. Он имеет
  *в себе LabelWithTooltip для вывода полной информации. В
  *виджете есть 2 кнопки для повышения и понижения значения
- *соответствующего навыка.*/
+ *соответствующего навыка.
+ ***********************************************************/
 
-//#include "MediaPlayer/mediaplayer.h"
 #include "dungeoner.h"
 #include "Global/global.h"
 #include "CustomWidgets/LabelWithTooltip/labelwithtooltip.h"
@@ -32,8 +33,6 @@ public:
 
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
-
-//    MediaPlayer mediaPlayer;
 
     //Устанавливает текст для LabelWithTooltip
     void setText(QString text);
