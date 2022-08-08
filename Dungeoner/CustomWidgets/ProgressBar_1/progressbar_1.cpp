@@ -60,6 +60,8 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
         maxValue = minValue;
     else
         maxValue = newMaxValue;
+
+    recalculationChunkWidth();
 }
 
 int ProgressBar_1::getValue() const
@@ -76,6 +78,8 @@ void ProgressBar_1::setValue(int newValue)
         value = minValue;
     else
         value = newValue;
+
+    recalculationChunkWidth();
 }
 
 void ProgressBar_1::setColor(const QColor &newColor)

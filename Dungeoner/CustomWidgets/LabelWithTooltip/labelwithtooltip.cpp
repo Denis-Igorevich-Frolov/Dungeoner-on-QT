@@ -25,16 +25,14 @@ LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
     //Изначальная инициализация типа шрифта значением по умолчанию, то есть типом "ТЕКСТ"
     setFontType(fontType);
 
-    //Установка тени текста
-    shadow = new QGraphicsDropShadowEffect(this);
-    shadow->setOffset(1, 1);
-    shadow->setColor(QColor(32, 29, 16));
-    ui->LabelText->setGraphicsEffect(shadow);
+    border = new OutlineEffect();
+    ui->LabelText->setGraphicsEffect(border);
+    ui->LabelText->setMargin(2);
 }
 
 LabelWithTooltip::~LabelWithTooltip()
 {
-    delete shadow;
+    delete border;
     delete ui;
 }
 

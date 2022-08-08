@@ -46,6 +46,7 @@ public:
         LabelText->setEnabled(false);
         LabelText->setLayoutDirection(Qt::RightToLeft);
         LabelText->setAlignment(Qt::AlignCenter);
+        LabelText->setMargin(0);
 
         horizontalLayout->addWidget(LabelText, 0, Qt::AlignHCenter|Qt::AlignVCenter);
 

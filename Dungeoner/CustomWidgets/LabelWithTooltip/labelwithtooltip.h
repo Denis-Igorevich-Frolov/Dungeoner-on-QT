@@ -8,6 +8,7 @@
  *выводилась только у этой части, а у всего родительского виджета*/
 
 #include "System/TooltipDisplayEvents/tooltipdisplayevents.h"
+#include "System/OutlineEffect/outlineeffect.h"
 
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
@@ -42,7 +43,7 @@ signals:
     void RemoveTooltip();
 
 private:
-    QGraphicsDropShadowEffect* shadow;
+    OutlineEffect* border;
     Ui::LabelWithTooltip *ui;
 
     /*Переопределения виртуальных функций QWidget для вызова сигнала вывода

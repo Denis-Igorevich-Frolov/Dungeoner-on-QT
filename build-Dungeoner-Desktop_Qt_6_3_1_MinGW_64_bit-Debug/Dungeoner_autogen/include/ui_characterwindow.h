@@ -20,6 +20,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
+#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
@@ -85,12 +86,13 @@ public:
     QFrame *SecondarySkillsShadowTop;
     QScrollBar *verticalScrollBar;
     ProgressBar_1 *widget;
+    QSlider *horizontalSlider;
 
     void setupUi(QWidget *CharacterWindow)
     {
         if (CharacterWindow->objectName().isEmpty())
             CharacterWindow->setObjectName(QString::fromUtf8("CharacterWindow"));
-        CharacterWindow->resize(1281, 646);
+        CharacterWindow->resize(1490, 676);
         CharacterWindow->setFocusPolicy(Qt::StrongFocus);
         CharacterWindow->setStyleSheet(QString::fromUtf8("#CharacterWindow{\n"
 "	background: #130a0f;\n"
@@ -616,8 +618,13 @@ public:
 
         widget = new ProgressBar_1(CharacterWindow);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(730, 70, 471, 101));
+        widget->setGeometry(QRect(880, 80, 471, 101));
         widget->setStyleSheet(QString::fromUtf8(""));
+        horizontalSlider = new QSlider(CharacterWindow);
+        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
+        horizontalSlider->setGeometry(QRect(890, 290, 441, 16));
+        horizontalSlider->setMaximum(100);
+        horizontalSlider->setOrientation(Qt::Horizontal);
 
         retranslateUi(CharacterWindow);
 

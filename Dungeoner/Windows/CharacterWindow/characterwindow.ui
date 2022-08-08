@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1281</width>
-    <height>646</height>
+    <width>1490</width>
+    <height>676</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -1647,14 +1647,30 @@ border: none;</string>
   <widget class="ProgressBar_1" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>730</x>
-     <y>70</y>
+     <x>880</x>
+     <y>80</y>
      <width>471</width>
      <height>101</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QSlider" name="horizontalSlider">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>290</y>
+     <width>441</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
   </widget>
  </widget>

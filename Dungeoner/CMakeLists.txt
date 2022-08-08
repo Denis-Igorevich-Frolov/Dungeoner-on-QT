@@ -58,6 +58,8 @@ set(PROJECT_SOURCES
         CustomWidgets/ProgressBar_1/progressbar_1.ui
         CustomWidgets/ProgressBar_1/stylemaster.h
         CustomWidgets/ProgressBar_1/stylemaster.cpp
+        System/OutlineEffect/outlineeffect.h
+        System/OutlineEffect/outlineeffect.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -46,6 +46,9 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
             this, &CharacterWindow::ShowTooltip);
     connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
             this, &CharacterWindow::RemoveTooltip);
+
+    ui->widget->setMaxValue(100);
+    ui->widget->setColor(QColor(255,0,0));
 }
 
 CharacterWindow::~CharacterWindow()
@@ -297,3 +300,9 @@ void CharacterWindow::RemoveTooltip()
 {
     qDebug() <<QTime::currentTime()<< "leave";
 }
+
+void CharacterWindow::on_horizontalSlider_valueChanged(int value)
+{
+    ui->widget->setValue(value);
+}
+

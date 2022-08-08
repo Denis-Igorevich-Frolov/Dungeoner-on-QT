@@ -27,6 +27,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts.qrc \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds.qrc \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Resources/Textures.qrc \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.cpp \
@@ -160,6 +162,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
   E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsEffect \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \

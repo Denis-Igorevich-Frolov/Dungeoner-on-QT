@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CharacterWindow_t {
-    const uint offsetsAndSize[18];
-    char stringdata0[161];
+    const uint offsetsAndSize[20];
+    char stringdata0[194];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_CharacterWindow_t, stringdata0) + ofs), len 
@@ -37,13 +37,15 @@ QT_MOC_LITERAL(57, 11), // "ShowTooltip"
 QT_MOC_LITERAL(69, 13), // "RemoveTooltip"
 QT_MOC_LITERAL(83, 36), // "on_verticalScrollBar_actionTr..."
 QT_MOC_LITERAL(120, 6), // "action"
-QT_MOC_LITERAL(127, 33) // "on_verticalScrollBar_valueCha..."
+QT_MOC_LITERAL(127, 33), // "on_verticalScrollBar_valueCha..."
+QT_MOC_LITERAL(161, 32) // "on_horizontalSlider_valueChanged"
 
     },
     "CharacterWindow\0ScrollAreaSecondarySkillsScrolled\0"
     "\0value\0ShowTooltip\0RemoveTooltip\0"
     "on_verticalScrollBar_actionTriggered\0"
-    "action\0on_verticalScrollBar_valueChanged"
+    "action\0on_verticalScrollBar_valueChanged\0"
+    "on_horizontalSlider_valueChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +55,7 @@ static const uint qt_meta_data_CharacterWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       5,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -61,17 +63,19 @@ static const uint qt_meta_data_CharacterWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   44,    2, 0x08,    1 /* Private */,
-       4,    0,   47,    2, 0x08,    3 /* Private */,
-       5,    0,   48,    2, 0x08,    4 /* Private */,
-       6,    1,   49,    2, 0x08,    5 /* Private */,
-       8,    1,   52,    2, 0x08,    7 /* Private */,
+       1,    1,   50,    2, 0x08,    1 /* Private */,
+       4,    0,   53,    2, 0x08,    3 /* Private */,
+       5,    0,   54,    2, 0x08,    4 /* Private */,
+       6,    1,   55,    2, 0x08,    5 /* Private */,
+       8,    1,   58,    2, 0x08,    7 /* Private */,
+       9,    1,   61,    2, 0x08,    9 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void, QMetaType::Int,    3,
 
        0        // eod
@@ -88,6 +92,7 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 2: _t->RemoveTooltip(); break;
         case 3: _t->on_verticalScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 4: _t->on_verticalScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 5: _t->on_horizontalSlider_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
     }
@@ -101,7 +106,7 @@ const QMetaObject CharacterWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterWindow_t
 , QtPrivate::TypeAndForceComplete<CharacterWindow, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
 
 
 >,
@@ -128,13 +133,13 @@ int CharacterWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 5)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 5;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 5)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 5;
+        _id -= 6;
     }
     return _id;
 }
