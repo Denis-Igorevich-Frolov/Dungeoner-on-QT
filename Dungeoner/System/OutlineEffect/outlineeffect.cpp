@@ -8,11 +8,7 @@
  *************************************************************************************/
 
 #include "outlineeffect.h"
-#include "qbitmap.h"
 #include "qpainter.h"
-
-#include <QGraphicsPixmapItem>
-#include <QGraphicsScene>
 
 OutlineEffect::OutlineEffect(QGraphicsEffect *parent)
     : QGraphicsEffect{parent}
@@ -25,19 +21,20 @@ void OutlineEffect::draw(QPainter *painter)
 {
     //Так как работа идёт уже с QImage антиалайзинг должен быть обычным, а не TextAntialiasing
     painter->setRenderHint(QPainter::Antialiasing);
-    /*Создание QImage на основе sourcePixmap необходимо для перекраски полученного изображения
-     *в цвет обводки функцией setPixelColor. Тоже самое можно сделать и при помощи QPixmap с
-     *QBitmap маской, что скорее всего будет более выгодно по затрачиваемым ресурсам, но
-     *полученная обводка будет очень пиксельной. И так как это просто маска, антиалайзинг не
-     *будет её сглаживать.*/
-    QImage outline (sourcePixmap().toImage());
 
     //Если толщина обводки нулевая, то и смысла гонять эти цыклы нет
     if(outlineThickness > 0){
+        /*Создание QImage на основе sourcePixmap необходимо для перекраски полученного изображения
+         *в цвет обводки функцией setPixelColor. Тоже самое можно сделать и при помощи QPixmap с
+         *QBitmap маской, что скорее всего будет более выгодно по затрачиваемым ресурсам, но
+         *полученная обводка будет очень пиксельной. И так как это просто маска, антиалайзинг не
+         *будет её сглаживать.*/
+        QImage outline (sourcePixmap().toImage());
+
         //Перекраска всех пикселей QImage outline в цвет обводки
         for(int y = 0; y < outline.height(); y++)
             for(int x= 0; x < outline.width(); x++){
-                /*Для сохранения прозрачности изображения, цвету задаётся
+                /*Для сохранения прозрачности изображения цвету задаётся
                  *альфа перекрашиваемого пикселя*/
                 color.setAlpha(outline.pixelColor(x,y).alpha());
                 outline.setPixelColor(x, y, color);

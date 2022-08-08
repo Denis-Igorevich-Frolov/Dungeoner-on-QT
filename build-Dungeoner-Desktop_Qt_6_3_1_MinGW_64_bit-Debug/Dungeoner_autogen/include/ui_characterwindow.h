@@ -87,7 +87,6 @@ public:
     QScrollBar *verticalScrollBar;
     ProgressBar_1 *widget;
     QSlider *horizontalSlider;
-    QLabel *label;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -626,14 +625,6 @@ public:
         horizontalSlider->setGeometry(QRect(890, 290, 441, 16));
         horizontalSlider->setMaximum(100);
         horizontalSlider->setOrientation(Qt::Horizontal);
-        label = new QLabel(CharacterWindow);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(910, 420, 561, 221));
-        label->setStyleSheet(QString::fromUtf8("QLabel{\n"
-"       background: none;\n"
-"       font: 150px 'Algerian';\n"
-"      color: #bdc440;\n"
-"    }"));
 
         retranslateUi(CharacterWindow);
 
@@ -674,7 +665,6 @@ public:
         TravelRange->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
         StrengtheningPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
         MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
-        label->setText(QCoreApplication::translate("CharacterWindow", "\320\220\320\234\320\220\320\222\320\253", nullptr));
     } // retranslateUi
 
 };
