@@ -27,6 +27,7 @@ LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
     //Изначальная инициализация типа шрифта значением по умолчанию, то есть типом "ТЕКСТ"
     setFontType(fontType);
 
+    //Установка обводки текста
     border = new OutlineEffect();
     border->setOutlineThickness(1);
     ui->LabelText->setGraphicsEffect(border);

@@ -8,6 +8,7 @@
 #define SECONDARYSKILL_H
 
 #include "System/TooltipDisplayEvents/tooltipdisplayevents.h"
+#include "System/OutlineEffect/outlineeffect.h"
 
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
@@ -36,9 +37,8 @@ signals:
     void RemoveTooltip();
 
 private:
-    //Эффекты тени для текста
-    QGraphicsDropShadowEffect* shadow1;
-    QGraphicsDropShadowEffect* shadow2;
+    OutlineEffect* borderInscription;
+    OutlineEffect* borderValue;
 
     /*Значение стата имеет ограничение в 9999999, превышать которое не стоит
      *из-за возрастающего риска переполнения при взаимодействии с ним*/

@@ -22,20 +22,22 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
     connect(&tooltipDisplayEvents,SIGNAL(ShowTooltip()),this, SIGNAL(ShowTooltip()));
     connect(&tooltipDisplayEvents,SIGNAL(RemoveTooltip()),this, SIGNAL(RemoveTooltip()));
 
-    //Установка теней текста
-    shadow1 = new QGraphicsDropShadowEffect(this);
-    shadow1->setOffset(1, 1);
-    shadow1->setColor(QColor(32, 29, 16));
-
+    //Установка стилей
     ui->Inscription->setStyleSheet(StyleMaster::SecondarySkillInscriptionStyle(12));
-    ui->Inscription->setGraphicsEffect(shadow1);
-
-    shadow2 = new QGraphicsDropShadowEffect(this);
-    shadow2->setOffset(1, 1);
-    shadow2->setColor(QColor(32, 29, 16));
-
     ui->Value->setStyleSheet(StyleMaster::SecondarySkillValueStyle());
-    ui->Value->setGraphicsEffect(shadow2);
+
+    //Установка обводки текста
+    borderInscription = new OutlineEffect();
+    borderInscription->setOutlineThickness(1);
+
+    ui->Inscription->setGraphicsEffect(borderInscription);
+    ui->Inscription->setMargin(1);
+
+    borderValue = new OutlineEffect();
+    borderValue->setOutlineThickness(1);
+
+    ui->Value->setGraphicsEffect(borderValue);
+    ui->Value->setMargin(1);
 
     /*Установка значения по умолчанию необходима из-за изменения
      *межстрочного интервала в методе setValue. Если этого не сделать,
@@ -46,8 +48,8 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
 SecondarySkill::~SecondarySkill()
 {
     delete ui;
-    delete shadow1;
-    delete shadow2;
+    delete borderInscription;
+    delete borderValue;
 }
 
 long SecondarySkill::getValue() const
