@@ -142,7 +142,7 @@ public:
 
         SkillsWraper = new QFrame(CharacterWindow);
         SkillsWraper->setObjectName(QString::fromUtf8("SkillsWraper"));
-        SkillsWraper->setGeometry(QRect(46, 123, 666, 535));
+        SkillsWraper->setGeometry(QRect(46, 123, 666, 534));
         SkillsWraper->setFrameShape(QFrame::StyledPanel);
         SkillsWraper->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(SkillsWraper);
@@ -549,7 +549,7 @@ public:
         ChanceToUseCombat->setMinimumSize(QSize(303, 70));
         ChanceToUseCombat->setMaximumSize(QSize(303, 70));
         ChanceToUseCombat->setStyleSheet(QString::fromUtf8("background:black;"));
-        ChanceToUseCombat->setProperty("FontSize", QVariant(16));
+        ChanceToUseCombat->setProperty("FontSize", QVariant(15));
 
         SecondarySkills->addWidget(ChanceToUseCombat, 8, 1, 1, 1);
 

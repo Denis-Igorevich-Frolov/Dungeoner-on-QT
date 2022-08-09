@@ -39,22 +39,48 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), &QAbstractSlider::valueChanged,
             this, &CharacterWindow::ScrollAreaSecondarySkillsScrolled);
 
-    connect(ui->PhysicalDamage, &SecondarySkill::ShowTooltip,
-            this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
-    connect(ui->PhysicalDamage, &SecondarySkill::RemoveTooltip,
-            this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
-
-    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::ShowTooltip,
-            this, &CharacterWindow::ShowTooltip);
-    connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
-            this, &CharacterWindow::RemoveTooltip);
-
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
      *и ивенты мыши, чтобы они не перекравали непосредственно вторичные навыки*/
     ui->SecondarySkillsShadowTop->setFocusPolicy(Qt::NoFocus);
     ui->SecondarySkillsShadowTop->setAttribute(Qt::WA_TransparentForMouseEvents);
     ui->SecondarySkillsShadowBottom->setFocusPolicy(Qt::NoFocus);
     ui->SecondarySkillsShadowBottom->setAttribute(Qt::WA_TransparentForMouseEvents);
+
+    linkingTooltipSlots();
+
+    QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
+    for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
+    {
+        for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
+        {
+            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                ss->setScrollAreaHeight(ui->ScrollAreaSecondarySkills->height());
+            }else{
+                //Вывод логов ошибки в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: неверный тип данных\n"
+                        "CharacterWindow выдал исключение в методе CharacterWindow.\n"
+                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+            }
+        }
+    }
 
     ui->widget->setMaxValue(100);
     ui->widget->setColor(QColor(255,0,0));
@@ -186,8 +212,6 @@ void CharacterWindow::setStyles()
     ui->SecondarySkillsShadowTop->hide();
 
     ui->verticalScrollBar->setStyleSheet(StyleMaster::VerticalScrollBarStyle());
-
-//    ui->widget->Redraw();
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -214,7 +238,7 @@ void CharacterWindow::associatingLabelsWithValues()
                 QString error =
                 cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                 "\nОШИБКА: неверный тип данных\n"
-                "CharacterWindow выдал исключение в методе setStyles.\n"
+                "CharacterWindow выдал исключение в методе associatingLabelsWithValues.\n"
                 "Объект " + ui->PrimarySkillValues->children().at(i)->objectName() + " не является QSpinBox.\n\n";
                 qDebug()<<error;
 
@@ -237,7 +261,7 @@ void CharacterWindow::associatingLabelsWithValues()
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
             "\nОШИБКА: неверный тип данных\n"
-            "CharacterWindow выдал исключение в методе setTextPrimarySkillSignature.\n"
+            "CharacterWindow выдал исключение в методе associatingLabelsWithValues.\n"
             "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
             qDebug()<<error;
 
@@ -253,6 +277,78 @@ void CharacterWindow::associatingLabelsWithValues()
             }
         }
         ++i;
+    }
+}
+
+void CharacterWindow::linkingTooltipSlots()
+{
+    for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
+        if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
+            PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
+            connect(pss->getlabelWithTooltip(), &LabelWithTooltip::ShowTooltip,
+                    this, &CharacterWindow::ShowTooltip);
+            connect(pss->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
+                    this, &CharacterWindow::RemoveTooltip);
+        }else{
+            //Вывод логов ошибки в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: неверный тип данных\n"
+            "CharacterWindow выдал исключение в методе linkingTooltipSlots.\n"
+            "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
+
+    QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
+    for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
+    {
+        for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
+        {
+            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                connect(ss, &SecondarySkill::ShowTooltip,
+                        this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
+                connect(ss, &SecondarySkill::RemoveTooltip,
+                        this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
+            }else{
+                //Вывод логов ошибки в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: неверный тип данных\n"
+                        "CharacterWindow выдал исключение в методе linkingTooltipSlots.\n"
+                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+            }
+        }
     }
 }
 
@@ -298,6 +394,40 @@ void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
 void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
 {
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);
+
+    QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
+    for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
+    {
+        for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
+        {
+            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                ss->setScrollAreaOffset(value);
+            }else{
+                //Вывод логов ошибки в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: неверный тип данных\n"
+                        "CharacterWindow выдал исключение в методе on_verticalScrollBar_valueChanged.\n"
+                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+            }
+        }
+    }
 }
 
 void CharacterWindow::ShowTooltip()

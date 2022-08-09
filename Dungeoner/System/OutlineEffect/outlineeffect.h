@@ -17,9 +17,6 @@ class OutlineEffect : public QGraphicsEffect
 public:
     explicit OutlineEffect(QGraphicsEffect *parent = nullptr);
 
-    //Переопределение родительской виртуальной функции отрисовки
-    void draw(QPainter *painter)override;
-
     const QColor &getColor() const;
     void setColor(const QColor &newColor);
 
@@ -27,6 +24,9 @@ public:
     void setOutlineThickness(int newOutlineThickness);
 
 private:
+    //Переопределение родительской виртуальной функции отрисовки
+    void draw(QPainter *painter)override;
+
     QColor color = Qt::black;
     int outlineThickness = 0;
 };

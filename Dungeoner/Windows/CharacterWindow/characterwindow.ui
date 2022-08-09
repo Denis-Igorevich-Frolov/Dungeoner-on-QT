@@ -130,7 +130,7 @@
      <x>46</x>
      <y>123</y>
      <width>666</width>
-     <height>535</height>
+     <height>534</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1450,7 +1450,7 @@ border: none;</string>
                  <string>Шанс применения боевого приёма</string>
                 </property>
                 <property name="FontSize" stdset="0">
-                 <number>16</number>
+                 <number>15</number>
                 </property>
                </widget>
               </item>

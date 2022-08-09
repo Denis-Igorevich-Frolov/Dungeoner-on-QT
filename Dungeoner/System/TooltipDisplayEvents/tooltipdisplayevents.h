@@ -38,6 +38,9 @@ public:
      *из QWidget. Из имплементирующего класса следует передать width и height
      *как: this->width и this->height соответственно.*/
     void mouseMoveEvent(QMouseEvent *event, int width, int height);
+
+    void mouseMoveEvent(QMouseEvent *event, int width, int height, int YPosition, int ScrollAreaHeight, int ScrollAreaOffset);
+
     /*Это проверка, вызываемая при почти каждом выше переопределённом эвенте.
      *Сиграл ShowTooltip будет вызван только при условии, что курсор наведён
      *на виджет и правая кнопка мыши зажата, иначе будет попытка вызова RemoveTooltip*/

@@ -32,6 +32,12 @@ public:
     void setInscription(QString inscription);
     void setFontSize(int size);
 
+    int getScrollAreaHeight() const;
+    void setScrollAreaHeight(int newScrollAreaHeight);
+
+    int getScrollAreaOffset() const;
+    void setScrollAreaOffset(int newScrollAreaOffset);
+
 signals:
     void ShowTooltip();
     void RemoveTooltip();
@@ -56,6 +62,9 @@ private:
     void mouseMoveEvent(QMouseEvent *event) override;
 
     TooltipDisplayEvents tooltipDisplayEvents;
+
+    int ScrollAreaHeight = 0;
+    int ScrollAreaOffset = 0;
 };
 
 #endif // SECONDARYSKILL_H

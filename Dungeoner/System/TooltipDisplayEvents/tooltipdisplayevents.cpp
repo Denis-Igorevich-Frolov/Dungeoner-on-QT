@@ -82,6 +82,33 @@ void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int hei
     CheckingDisplayOfTooltip();
 }
 
+void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int height, int YPosition, int ScrollAreaHeight, int ScrollAreaOffset)
+{
+    if((event->position().x() < width) && (event->position().y() < height) &&
+       (event->position().x() > 0) && (event->position().y() > 0))
+    {
+        if(event->position().y()<(ScrollAreaOffset-YPosition)){
+            isHovered = false;
+
+            CheckingDisplayOfTooltip();
+            return;
+        }
+
+        if(event->position().y()>(-YPosition+ScrollAreaHeight+ScrollAreaOffset-3)){
+            isHovered = false;
+
+            CheckingDisplayOfTooltip();
+            return;
+        }
+
+        isHovered = true;
+    }else{
+        isHovered = false;
+    }
+
+    CheckingDisplayOfTooltip();
+}
+
 /*Это проверка, вызываемая при почти каждом выше переопределённом эвенте.
  *Сиграл ShowTooltip будет вызван только при условии, что курсор наведён
  *на виджет и правая кнопка мыши зажата, иначе будет попытка вызова RemoveTooltip*/

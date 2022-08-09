@@ -27,7 +27,6 @@ private slots:
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
-
     void on_horizontalSlider_valueChanged(int value);
 
 private:
@@ -42,6 +41,8 @@ private:
      *указателя на QSpinBox в переменную SpinBoxValue класса PrimarySkillSignature.
      *Делается это для работы кнопок больше и меньше.*/
     void associatingLabelsWithValues();
+
+    void linkingTooltipSlots();
 };
 
 #endif // CHARACTERWINDOW_H

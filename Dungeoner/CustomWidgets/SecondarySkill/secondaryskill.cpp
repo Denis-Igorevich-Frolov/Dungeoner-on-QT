@@ -136,5 +136,25 @@ void SecondarySkill::leaveEvent(QEvent *event)
 }
 void SecondarySkill::mouseMoveEvent(QMouseEvent *event)
 {
-    tooltipDisplayEvents.mouseMoveEvent(event, this->width(), this->height());
+    tooltipDisplayEvents.mouseMoveEvent(event, this->width(), this->height(), this->geometry().y(), ScrollAreaHeight, ScrollAreaOffset);
+}
+
+int SecondarySkill::getScrollAreaOffset() const
+{
+    return ScrollAreaOffset;
+}
+
+void SecondarySkill::setScrollAreaOffset(int newScrollAreaOffset)
+{
+    ScrollAreaOffset = newScrollAreaOffset;
+}
+
+int SecondarySkill::getScrollAreaHeight() const
+{
+    return ScrollAreaHeight;
+}
+
+void SecondarySkill::setScrollAreaHeight(int newScrollAreaHeight)
+{
+    ScrollAreaHeight = newScrollAreaHeight;
 }
