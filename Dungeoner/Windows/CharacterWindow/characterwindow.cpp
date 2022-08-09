@@ -49,6 +49,13 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(ui->StrengthPrimarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
             this, &CharacterWindow::RemoveTooltip);
 
+    /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
+     *и ивенты мыши, чтобы они не перекравали непосредственно вторичные навыки*/
+    ui->SecondarySkillsShadowTop->setFocusPolicy(Qt::NoFocus);
+    ui->SecondarySkillsShadowTop->setAttribute(Qt::WA_TransparentForMouseEvents);
+    ui->SecondarySkillsShadowBottom->setFocusPolicy(Qt::NoFocus);
+    ui->SecondarySkillsShadowBottom->setAttribute(Qt::WA_TransparentForMouseEvents);
+
     ui->widget->setMaxValue(100);
     ui->widget->setColor(QColor(255,0,0));
 }

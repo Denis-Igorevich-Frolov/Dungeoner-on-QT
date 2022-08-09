@@ -47,8 +47,15 @@ void ProgressBar_1::setMinValue(int newMinValue)
     else
         minValue = newMinValue;
 
+    /*Если после изменения значение оказывается меньше
+     *минимального, то оно усекается до минимального*/
+    if(value < minValue)
+        setValue(minValue);
+
     //После изменения диапазона нужно перерисовать тело прогрессбара
     recalculationChunkWidth();
+
+    ui->labelWithTooltip->setText(QString::number(value)+"/"+QString::number(maxValue));
 }
 
 int ProgressBar_1::getMaxValue() const
@@ -64,8 +71,15 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
     else
         maxValue = newMaxValue;
 
+    /*Если после изменения значение оказывается больше
+     *максимального, то оно усекается до максимального*/
+    if(value > maxValue)
+        setValue(maxValue);
+
     //После изменения диапазона нужно перерисовать тело прогрессбара
     recalculationChunkWidth();
+
+    ui->labelWithTooltip->setText(QString::number(value)+"/"+QString::number(maxValue));
 }
 
 int ProgressBar_1::getValue() const
@@ -85,6 +99,8 @@ void ProgressBar_1::setValue(int newValue)
 
     //После изменения значения нужно перерисовать тело прогрессбара
     recalculationChunkWidth();
+
+    ui->labelWithTooltip->setText(QString::number(value)+"/"+QString::number(maxValue));
 }
 
 void ProgressBar_1::setColor(const QColor &newColor)
@@ -132,7 +148,7 @@ void ProgressBar_1::redrawChunk()
             break;
         }
     }
-    //Стиль наложение цвета - умножение
+    //Стиль наложение цвета - умножение, чтобы окрашивать текстуру
     painter.setCompositionMode(QPainter::CompositionMode_Multiply);
     //Наложение цвета
     painter.fillRect(QRect(0, 0, this->width(), this->height()), color);
