@@ -380,11 +380,9 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
 
 void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
 {
-    /*Звук проигрывается при любом взаимодействии со скроллбаром, кроме
-     *тех случаев, когда на его ползунок нажимают. Соответственно звучать
-     *будут только нажатия на стрелки прибавки и убавки и на нажатия в
-     *тело скроллбара.*/
-    if(!ui->verticalScrollBar->isSliderDown())
+    /*Звук проигрывается только при нажатии на стрелки прибавки и убавки.
+     *Цифры в проверке - это id этих ивентов*/
+    if(action==1||action==2)
         Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 }
 

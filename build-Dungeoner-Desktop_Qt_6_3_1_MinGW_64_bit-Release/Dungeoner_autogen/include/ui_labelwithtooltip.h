@@ -11,7 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QPushButton>
+#include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,7 +20,8 @@ QT_BEGIN_NAMESPACE
 class Ui_LabelWithTooltip
 {
 public:
-    QPushButton *ButtonText;
+    QHBoxLayout *horizontalLayout;
+    QLabel *LabelText;
 
     void setupUi(QWidget *LabelWithTooltip)
     {
@@ -32,15 +34,22 @@ public:
         sizePolicy.setHeightForWidth(LabelWithTooltip->sizePolicy().hasHeightForWidth());
         LabelWithTooltip->setSizePolicy(sizePolicy);
         LabelWithTooltip->setMinimumSize(QSize(75, 24));
-        LabelWithTooltip->setMaximumSize(QSize(75, 24));
+        LabelWithTooltip->setMaximumSize(QSize(16777215, 16777215));
+        LabelWithTooltip->setCursor(QCursor(Qt::WhatsThisCursor));
         LabelWithTooltip->setProperty("fontSize", QVariant(23));
-        ButtonText = new QPushButton(LabelWithTooltip);
-        ButtonText->setObjectName(QString::fromUtf8("ButtonText"));
-        ButtonText->setGeometry(QRect(0, 0, 75, 24));
-        sizePolicy.setHeightForWidth(ButtonText->sizePolicy().hasHeightForWidth());
-        ButtonText->setSizePolicy(sizePolicy);
-        ButtonText->setMaximumSize(QSize(75, 24));
-        ButtonText->setCursor(QCursor(Qt::WhatsThisCursor));
+        horizontalLayout = new QHBoxLayout(LabelWithTooltip);
+        horizontalLayout->setSpacing(0);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        LabelText = new QLabel(LabelWithTooltip);
+        LabelText->setObjectName(QString::fromUtf8("LabelText"));
+        LabelText->setEnabled(false);
+        LabelText->setLayoutDirection(Qt::RightToLeft);
+        LabelText->setAlignment(Qt::AlignCenter);
+        LabelText->setMargin(0);
+
+        horizontalLayout->addWidget(LabelText, 0, Qt::AlignHCenter|Qt::AlignVCenter);
+
 
         retranslateUi(LabelWithTooltip);
 
@@ -50,7 +59,7 @@ public:
     void retranslateUi(QWidget *LabelWithTooltip)
     {
         LabelWithTooltip->setWindowTitle(QCoreApplication::translate("LabelWithTooltip", "Form", nullptr));
-        ButtonText->setText(QString());
+        LabelText->setText(QCoreApplication::translate("LabelWithTooltip", "NON", nullptr));
     } // retranslateUi
 
 };

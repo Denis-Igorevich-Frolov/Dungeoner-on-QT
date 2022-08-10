@@ -7,7 +7,6 @@
 	"INCLUDE_DIR" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/Dungeoner_autogen/include",
 	"INPUTS" : 
 	[
-		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Click2.wav",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Click1.wav"
 	],
 	"LOCK_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Sounds_S5YYZ2ZCNV_Lock.lock",

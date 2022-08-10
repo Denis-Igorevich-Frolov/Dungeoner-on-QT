@@ -30,13 +30,15 @@ public:
     {
         if (SecondarySkill->objectName().isEmpty())
             SecondarySkill->setObjectName(QString::fromUtf8("SecondarySkill"));
-        SecondarySkill->resize(303, 70);
+        SecondarySkill->resize(304, 71);
+        SecondarySkill->setCursor(QCursor(Qt::WhatsThisCursor));
         horizontalLayout = new QHBoxLayout(SecondarySkill);
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout->setContentsMargins(0, 0, 1, 1);
         Border = new WindowBorder_1(SecondarySkill);
         Border->setObjectName(QString::fromUtf8("Border"));
+        Border->setEnabled(false);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
