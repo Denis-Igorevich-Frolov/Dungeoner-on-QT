@@ -30,15 +30,18 @@ public:
 
     /*Функции, которые имплементирующий класс вызовет в соответствующих
      *перегруженных виртуальных функциях из QWidget.*/
-    void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
-    void enterEvent(QEnterEvent *event);
-    void leaveEvent(QEvent *event);
+    void mousePressEvent(QMouseEvent* event) override;
+    void mouseReleaseEvent(QMouseEvent* event)override;
+    void enterEvent(QEnterEvent *event)override;
+    void leaveEvent(QEvent *event)override;
     /*Единственный метод, чья сигнатура не совпадает с виртуальной функцией
      *из QWidget. Из имплементирующего класса следует передать width и height
      *как: this->width и this->height соответственно.*/
     void mouseMoveEvent(QMouseEvent *event, int width, int height);
 
+    /*Перегрузка функции движения мыши специально для вторичных навыков, которые
+     *помещены в вертикальный скроллбар. Учитывает усечение геометрии элемента
+     *при прокрутке скроллбара.*/
     void mouseMoveEvent(QMouseEvent *event, int width, int height, int YPosition, int ScrollAreaHeight, int ScrollAreaOffset);
 
     /*Это проверка, вызываемая при почти каждом выше переопределённом эвенте.

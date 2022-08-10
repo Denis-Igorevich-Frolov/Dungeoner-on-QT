@@ -63,7 +63,9 @@ private:
 
     TooltipDisplayEvents tooltipDisplayEvents;
 
+    //Высота скроллбара, в который помещён вторичный навык
     int ScrollAreaHeight = 0;
+    //Сдвиг скроллбара, в который помещён вторичный навык
     int ScrollAreaOffset = 0;
 };
 

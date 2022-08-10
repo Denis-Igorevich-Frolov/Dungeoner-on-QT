@@ -48,6 +48,15 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     linkingTooltipSlots();
 
+    /*Передача во все SecondarySkill высоты их ScrollArea для последующей обработки
+     *выведения подсказки при усечении SecondarySkill внутри ScrollArea. Само собой
+     *программа не подразумевает последующиее изменение размера SecondarySkills,
+     *если же такая потребность возникнет, то этот кусок кода надо переместить в
+     *метод resize.
+     *
+     *При переборе всех дочерних эллементов контейнера SecondarySkills важно, чтобы
+     *все эти эллементы были типа SecondarySkill. Если это не так, то эллемент будет
+     *проигнорирован и выведена ошибка.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
     {
@@ -92,7 +101,11 @@ CharacterWindow::~CharacterWindow()
 }
 
 /*Установка текста для подписи первичного навыка в соответствии с его динамическим свойством
- *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures*/
+ *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures.
+ *
+ *При переборе всех дочерних эллементов контейнера PrimarySkillSignatures важно, чтобы
+ *все эти эллементы были типа PrimarySkillSignature. Если это не так, то эллемент будет
+ *проигнорирован и выведена ошибка.*/
 void CharacterWindow::setTextPrimarySkillSignature()
 {
     for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
@@ -280,8 +293,13 @@ void CharacterWindow::associatingLabelsWithValues()
     }
 }
 
+/*Данный метод связывает все слоты показа и сокрытия подсказки у всех
+ *необходимых элементов со слотами показа и сокрытия подсказки окна*/
 void CharacterWindow::linkingTooltipSlots()
 {
+    /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
+     *чтобы все эти эллементы были типа PrimarySkillSignature. Если это не так, то
+     *эллемент будет проигнорирован и выведена ошибка.*/
     for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
         if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
             PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
@@ -314,6 +332,9 @@ void CharacterWindow::linkingTooltipSlots()
         }
     }
 
+    /*Перебор всех дочерних эллементов контейнера SecondarySkills. Здесь важно
+     *чтобы все эти эллементы были типа SecondarySkill. Если это не так, то
+     *эллемент будет проигнорирован и выведена ошибка.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
     {
@@ -393,6 +414,8 @@ void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
 {
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);
 
+    /*!!!Передача во все SecondarySkill размера смещения их ScrollArea для последующей обработки
+     *выведения подсказки при усечении SecondarySkill внутри ScrollArea.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
     {

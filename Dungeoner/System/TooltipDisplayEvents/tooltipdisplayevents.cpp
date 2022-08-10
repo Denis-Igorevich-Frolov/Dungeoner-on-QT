@@ -82,11 +82,18 @@ void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int hei
     CheckingDisplayOfTooltip();
 }
 
+/*Перегрузка функции движения мыши специально для вторичных навыков, которые
+ *помещены в вертикальный скроллбар. Учитывает усечение геометрии элемента
+ *при прокрутке скроллбара.*/
 void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int height, int YPosition, int ScrollAreaHeight, int ScrollAreaOffset)
 {
     if((event->position().x() < width) && (event->position().y() < height) &&
        (event->position().x() > 0) && (event->position().y() > 0))
     {
+        /*Если вертикальная позиция курсора меньше, чем разница сдвига родительского
+         *скроллбара и вертикальной позиции самого виджета внутри него, то это значит,
+         *что курсор вышел за пределы скроллбара, в который помещён виджет. Следовательно
+         *isHovered становится false и функция завершается.*/
         if(event->position().y()<(ScrollAreaOffset-YPosition)){
             isHovered = false;
 
@@ -94,7 +101,13 @@ void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int hei
             return;
         }
 
-        if(event->position().y()>(-YPosition+ScrollAreaHeight+ScrollAreaOffset-3)){
+        /*Если вертикальная позиция курсора больше, чем разница суммы сдвига с высотой
+         *родительского скроллбара и вертикальной позиции самого виджета внутри него,
+         *то это значит, что курсор вышел за пределы скроллбара, в который помещён
+         *виджет. Следовательно isHovered становится false и функция завершается.
+         *3 дополнительных пикселя здесь для подстраховки, без них ивент вызывался
+         *чуть-чуть позже необходимого, что могло выглядеть не очень кравиво.*/
+        if(event->position().y()>(ScrollAreaHeight+ScrollAreaOffset-YPosition-3)){
             isHovered = false;
 
             CheckingDisplayOfTooltip();
