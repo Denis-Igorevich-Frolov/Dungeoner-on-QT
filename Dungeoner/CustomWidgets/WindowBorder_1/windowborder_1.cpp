@@ -4,7 +4,7 @@
 
 #include "windowborder_1.h"
 #include "ui_windowborder_1.h"
-#include "stylemaster.h"
+#include "WB1_stylemaster.h"
 
 WindowBorder_1::WindowBorder_1(QWidget *parent) :
     QWidget(parent),
@@ -13,15 +13,15 @@ WindowBorder_1::WindowBorder_1(QWidget *parent) :
     ui->setupUi(this);
 
     //Установка стилей для элементов виджета
-    ui->BottomLeftCorner->setStyleSheet(stylemaster::BottomLeftCornerStyle());
-    ui->BottomRightCorner->setStyleSheet(stylemaster::BottomRightCornerStyle());
-    ui->TopLeftCorner->setStyleSheet(stylemaster::TopLeftCornerStyle());
-    ui->TopRightCorner->setStyleSheet(stylemaster::TopRightCornerStyle());
+    ui->BottomLeftCorner->setStyleSheet(WB1_Stylemaster::BottomLeftCornerStyle());
+    ui->BottomRightCorner->setStyleSheet(WB1_Stylemaster::BottomRightCornerStyle());
+    ui->TopLeftCorner->setStyleSheet(WB1_Stylemaster::TopLeftCornerStyle());
+    ui->TopRightCorner->setStyleSheet(WB1_Stylemaster::TopRightCornerStyle());
 
-    ui->BottomBorder->setStyleSheet(stylemaster::BottomBorderStyle());
-    ui->TopBorder->setStyleSheet(stylemaster::TopBorderStyle());
-    ui->LeftBorder->setStyleSheet(stylemaster::LeftBorderStyle());
-    ui->RightBorder->setStyleSheet(stylemaster::RightBorderStyle());
+    ui->BottomBorder->setStyleSheet(WB1_Stylemaster::BottomBorderStyle());
+    ui->TopBorder->setStyleSheet(WB1_Stylemaster::TopBorderStyle());
+    ui->LeftBorder->setStyleSheet(WB1_Stylemaster::LeftBorderStyle());
+    ui->RightBorder->setStyleSheet(WB1_Stylemaster::RightBorderStyle());
 }
 
 WindowBorder_1::~WindowBorder_1()

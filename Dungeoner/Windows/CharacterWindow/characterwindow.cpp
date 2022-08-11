@@ -5,8 +5,7 @@
 #include "characterwindow.h"
 #include "qevent.h"
 #include "ui_characterwindow.h"
-#include ".\CustomWidgets\PrimarySkillSignature\primaryskillsignature.h"
-#include "stylemaster.h"
+#include "CW_stylemaster.h"
 
 #include <QGridLayout>
 #include <QFile>
@@ -91,12 +90,17 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
         }
     }
 
-    ui->widget->setMaxValue(100);
-    ui->widget->setColor(QColor(255,0,0));
+    ui->Health->setMaxValue(100);
+    ui->Health->setValue(100);
+    ui->Health->setColor(QColor(255, 0, 0));
 }
 
 CharacterWindow::~CharacterWindow()
 {
+    for(OutlineEffect* ef : outlineEffects){
+        delete ef;
+    }
+
     delete ui;
 }
 
@@ -151,7 +155,7 @@ void CharacterWindow::setStyles()
             QSpinBox* sb = qobject_cast <QSpinBox*> (autoSB);
             /*Метод устанавливает стиль для SpinBox, при этом размер
              *шрифта извлекается из динамического свойства виджета fontSize.*/
-            sb->setStyleSheet(StyleMaster::SpinBoxStyle(sb->property("fontSize").toInt()));
+            sb->setStyleSheet(CW_StyleMaster::SpinBoxStyle(sb->property("fontSize").toInt()));
         }else{
             //Вывод логов ошибки в консоль и файл
             QDate cd = QDate::currentDate();
@@ -224,7 +228,48 @@ void CharacterWindow::setStyles()
      *позиции, то и верхняя тень со старта должна быть убрана.*/
     ui->SecondarySkillsShadowTop->hide();
 
-    ui->verticalScrollBar->setStyleSheet(StyleMaster::VerticalScrollBarStyle());
+    ui->verticalScrollBar->setStyleSheet(CW_StyleMaster::VerticalScrollBarStyle());
+
+    for(auto* autoFrame : ui->ProgressBars->children()){
+        if(dynamic_cast <QFrame*> (autoFrame)){
+            QFrame* Frame = qobject_cast <QFrame*> (autoFrame);
+            for(auto* autoFrame : Frame->children()){
+                if(dynamic_cast <QLabel*> (autoFrame)){
+                    QLabel* Name = qobject_cast <QLabel*> (autoFrame);
+//                    Name->setStyleSheet(StyleMaster::TextFontStyle(25, "Algerian"));
+
+                    OutlineEffect* outline = new OutlineEffect;
+                    outline->setOutlineThickness(1);
+                    outlineEffects.append(outline);
+
+                    Name->setGraphicsEffect(outline);
+                    Name->setMargin(1);
+                }
+            }
+        }else if(!dynamic_cast <QLayout*> (autoFrame)){
+            //Вывод логов ошибки в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: неверный тип данных\n"
+            "CharacterWindow выдал исключение в методе setStyles.\n"
+            "Объект " + autoFrame->objectName() + " не является QFrame.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
 }
 
 /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -463,6 +508,6 @@ void CharacterWindow::RemoveTooltip()
 
 void CharacterWindow::on_horizontalSlider_valueChanged(int value)
 {
-    ui->widget->setValue(value);
+    ui->Health->setValue(value);
 }
 

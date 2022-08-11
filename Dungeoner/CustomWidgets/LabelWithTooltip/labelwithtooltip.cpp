@@ -9,7 +9,7 @@
 #include "labelwithtooltip.h"
 #include "qevent.h"
 #include "ui_labelwithtooltip.h"
-#include "stylemaster.h"
+#include "LWT_stylemaster.h"
 
 LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
     QWidget(parent),
@@ -85,9 +85,9 @@ void LabelWithTooltip::setFontType(FontType newFontType)
      *Важно задать стиль текста до переопределения размера шрифта, так
      *как вызов этой функции снова задаст значение размера по умолчанию.*/
     if(fontType == FontType::TEXT)
-        ui->LabelText->setStyleSheet(StyleMaster::TextFontStyle(this->property("fontSize").toInt(), "Algerian"));
+        ui->LabelText->setStyleSheet(LWT_StyleMaster::TextFontStyle(this->property("fontSize").toInt(), "Algerian"));
     else if(fontType == FontType::NUMBERS){
-        ui->LabelText->setStyleSheet(StyleMaster::TextFontStyle(this->property("fontSize").toInt(), "Old English Text MT"));
+        ui->LabelText->setStyleSheet(LWT_StyleMaster::TextFontStyle(this->property("fontSize").toInt(), "Old English Text MT"));
         /*Так как теперь лейбл имеет стиль "ЧИСЛА" устанавливаем изначальный
          *текст "0". Этого не требовалось для текста, потому что ещё в форме
          *там задано значение по умолчанию "NON"*/

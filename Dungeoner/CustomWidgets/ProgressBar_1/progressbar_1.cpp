@@ -11,7 +11,7 @@
 
 #include "progressbar_1.h"
 #include "ui_progressbar_1.h"
-#include "stylemaster.h"
+#include "PB1_stylemaster.h"
 
 #include <QPainter>
 
@@ -22,9 +22,9 @@ ProgressBar_1::ProgressBar_1(QWidget *parent) :
     ui->setupUi(this);
 
     //Установка стилей для элементов виджета
-    ui->BordersWrapper->setStyleSheet(StyleMaster::BordersStyle());
-    ui->TipsWrapper->setStyleSheet(StyleMaster::TipsStyle());
-    ui->ShadowWrapper->setStyleSheet(StyleMaster::ShadowStyle());
+    ui->BordersWrapper->setStyleSheet(PB1_StyleMaster::BordersStyle());
+    ui->TipsWrapper->setStyleSheet(PB1_StyleMaster::TipsStyle());
+    ui->ShadowWrapper->setStyleSheet(PB1_StyleMaster::ShadowStyle());
     //Задаётся стиль текста лейбла с подсказкой как "ЧИСЛА"
     ui->labelWithTooltip->setFontType(LabelWithTooltip::NUMBERS);
 }

@@ -31,7 +31,6 @@ QT_BEGIN_NAMESPACE
 class Ui_CharacterWindow
 {
 public:
-    ProgressBar_1 *widget;
     QSlider *horizontalSlider;
     QFrame *TopMenuWrapper;
     QVBoxLayout *verticalLayout_3;
@@ -93,20 +92,22 @@ public:
     QFrame *SecondarySkillsShadowBottom;
     QFrame *SecondarySkillsShadowTop;
     QScrollBar *verticalScrollBar;
+    QFrame *ProgressBars;
+    QVBoxLayout *verticalLayout_5;
+    QFrame *HealthWrapper;
+    QVBoxLayout *verticalLayout_4;
+    QLabel *label;
+    ProgressBar_1 *Health;
 
     void setupUi(QWidget *CharacterWindow)
     {
         if (CharacterWindow->objectName().isEmpty())
             CharacterWindow->setObjectName(QString::fromUtf8("CharacterWindow"));
-        CharacterWindow->resize(1920, 707);
+        CharacterWindow->resize(1920, 983);
         CharacterWindow->setFocusPolicy(Qt::StrongFocus);
         CharacterWindow->setStyleSheet(QString::fromUtf8("#CharacterWindow{\n"
 "	background: #130a0f;\n"
 "}"));
-        widget = new ProgressBar_1(CharacterWindow);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(860, 140, 471, 101));
-        widget->setStyleSheet(QString::fromUtf8(""));
         horizontalSlider = new QSlider(CharacterWindow);
         horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
         horizontalSlider->setGeometry(QRect(890, 290, 441, 16));
@@ -677,6 +678,44 @@ public:
 
         verticalLayout->addWidget(SecondarySkillsWraper);
 
+        ProgressBars = new QFrame(CharacterWindow);
+        ProgressBars->setObjectName(QString::fromUtf8("ProgressBars"));
+        ProgressBars->setGeometry(QRect(880, 460, 736, 73));
+        ProgressBars->setFrameShape(QFrame::StyledPanel);
+        ProgressBars->setFrameShadow(QFrame::Raised);
+        verticalLayout_5 = new QVBoxLayout(ProgressBars);
+        verticalLayout_5->setSpacing(0);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        HealthWrapper = new QFrame(ProgressBars);
+        HealthWrapper->setObjectName(QString::fromUtf8("HealthWrapper"));
+        HealthWrapper->setFrameShape(QFrame::StyledPanel);
+        HealthWrapper->setFrameShadow(QFrame::Raised);
+        verticalLayout_4 = new QVBoxLayout(HealthWrapper);
+        verticalLayout_4->setSpacing(0);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        label = new QLabel(HealthWrapper);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setMinimumSize(QSize(0, 27));
+        label->setMaximumSize(QSize(16777215, 27));
+        QFont font;
+        font.setPointSize(20);
+        label->setFont(font);
+
+        verticalLayout_4->addWidget(label, 0, Qt::AlignHCenter|Qt::AlignBottom);
+
+        Health = new ProgressBar_1(HealthWrapper);
+        Health->setObjectName(QString::fromUtf8("Health"));
+        Health->setMinimumSize(QSize(732, 42));
+        Health->setMaximumSize(QSize(732, 42));
+        Health->setStyleSheet(QString::fromUtf8(""));
+
+        verticalLayout_4->addWidget(Health);
+
+
+        verticalLayout_5->addWidget(HealthWrapper);
+
 
         retranslateUi(CharacterWindow);
 
@@ -718,6 +757,8 @@ public:
         TravelRange->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
         StrengtheningPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
         MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
+        label->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\264\320\276\321\200\320\276\320\262\321\214\320\265", nullptr));
+        Health->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#ff0000", nullptr)));
     } // retranslateUi
 
 };

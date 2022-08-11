@@ -7,7 +7,7 @@
 #include "secondaryskill.h"
 #include "qevent.h"
 #include "ui_secondaryskill.h"
-#include "stylemaster.h"
+#include "SS_stylemaster.h"
 
 SecondarySkill::SecondarySkill(QWidget *parent) :
     QWidget(parent),
@@ -23,8 +23,8 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
     connect(&tooltipDisplayEvents,SIGNAL(RemoveTooltip()),this, SIGNAL(RemoveTooltip()));
 
     //Установка стилей
-    ui->Inscription->setStyleSheet(StyleMaster::SecondarySkillInscriptionStyle(12));
-    ui->Value->setStyleSheet(StyleMaster::SecondarySkillValueStyle());
+    ui->Inscription->setStyleSheet(SS_StyleMaster::SecondarySkillInscriptionStyle(12));
+    ui->Value->setStyleSheet(SS_StyleMaster::SecondarySkillValueStyle());
 
     //Установка обводки текста
     borderInscription = new OutlineEffect();
@@ -113,7 +113,7 @@ void SecondarySkill::setInscription(QString inscription)
 
 void SecondarySkill::setFontSize(int size)
 {
-    ui->Inscription->setStyleSheet(StyleMaster::SecondarySkillInscriptionStyle(size));
+    ui->Inscription->setStyleSheet(SS_StyleMaster::SecondarySkillInscriptionStyle(size));
 }
 
 /*Переопределения виртуальных функций QWidget для вызова сигнала вывода

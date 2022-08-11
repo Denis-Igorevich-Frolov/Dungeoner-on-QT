@@ -7,7 +7,7 @@
 
 #include "primaryskillsignature.h"
 #include "ui_primaryskillsignature.h"
-#include "stylemaster.h"
+#include "PSS_stylemaster.h"
 #include <QMouseEvent>
 #include <QMutableVectorIterator>
 
@@ -20,11 +20,11 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     ui->setupUi(this);
 
     //Установка стилей для элементов виджета
-    ui->labelCenter->setStyleSheet(StyleMaster::CenterTextureStyle());
-    ui->ButtonTop->setStyleSheet(StyleMaster::topTextureStyle());
-    ui->ButtonBottom->setStyleSheet(StyleMaster::bottomTextureStyle());
-    ui->labelRight->setStyleSheet(StyleMaster::RightTextureStyle());
-    ui->labelLeft->setStyleSheet(StyleMaster::LeftTextureStyle());
+    ui->labelCenter->setStyleSheet(PSS_StyleMaster::CenterTextureStyle());
+    ui->ButtonTop->setStyleSheet(PSS_StyleMaster::topTextureStyle());
+    ui->ButtonBottom->setStyleSheet(PSS_StyleMaster::bottomTextureStyle());
+    ui->labelRight->setStyleSheet(PSS_StyleMaster::RightTextureStyle());
+    ui->labelLeft->setStyleSheet(PSS_StyleMaster::LeftTextureStyle());
 }
 
 PrimarySkillSignature::~PrimarySkillSignature()

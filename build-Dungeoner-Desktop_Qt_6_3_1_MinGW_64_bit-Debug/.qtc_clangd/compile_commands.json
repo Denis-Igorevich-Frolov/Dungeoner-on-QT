@@ -9,7 +9,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -87,7 +87,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -165,7 +165,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -243,7 +243,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -306,10 +306,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\PrimarySkillSignature\\stylemaster.cpp"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\PrimarySkillSignature\\PSS_stylemaster.cpp"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/stylemaster.cpp"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.cpp"
 },
 {
     "arguments": [
@@ -321,7 +321,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -399,7 +399,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -477,7 +477,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -540,10 +540,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\LabelWithTooltip\\stylemaster.cpp"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\LabelWithTooltip\\LWT_stylemaster.cpp"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.cpp"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp"
 },
 {
     "arguments": [
@@ -555,7 +555,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -618,10 +618,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\Windows\\CharacterWindow\\stylemaster.cpp"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\Windows\\CharacterWindow\\CW_stylemaster.cpp"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/CW_stylemaster.cpp"
 },
 {
     "arguments": [
@@ -633,7 +633,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -711,7 +711,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -789,7 +789,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -867,7 +867,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -930,10 +930,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\WindowBorder_1\\stylemaster.cpp"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\WindowBorder_1\\WB1_stylemaster.cpp"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/stylemaster.cpp"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.cpp"
 },
 {
     "arguments": [
@@ -945,7 +945,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1023,7 +1023,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1086,10 +1086,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\SecondarySkill\\stylemaster.cpp"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\SecondarySkill\\SS_stylemaster.cpp"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/stylemaster.cpp"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylemaster.cpp"
 },
 {
     "arguments": [
@@ -1101,7 +1101,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1179,7 +1179,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1257,7 +1257,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1320,10 +1320,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\ProgressBar_1\\stylemaster.cpp"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\ProgressBar_1\\PB1_stylemaster.cpp"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/stylemaster.cpp"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/PB1_stylemaster.cpp"
 },
 {
     "arguments": [
@@ -1335,7 +1335,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1413,7 +1413,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1491,7 +1491,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1569,7 +1569,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1632,10 +1632,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\PrimarySkillSignature\\stylemaster.h"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\PrimarySkillSignature\\PSS_stylemaster.h"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/stylemaster.h"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.h"
 },
 {
     "arguments": [
@@ -1647,7 +1647,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1725,7 +1725,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1803,7 +1803,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1866,10 +1866,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\LabelWithTooltip\\stylemaster.h"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\LabelWithTooltip\\LWT_stylemaster.h"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.h"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.h"
 },
 {
     "arguments": [
@@ -1881,7 +1881,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -1944,10 +1944,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\Windows\\CharacterWindow\\stylemaster.h"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\Windows\\CharacterWindow\\CW_stylemaster.h"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.h"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/CW_stylemaster.h"
 },
 {
     "arguments": [
@@ -1959,7 +1959,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2037,7 +2037,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2115,7 +2115,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2193,7 +2193,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2256,10 +2256,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\WindowBorder_1\\stylemaster.h"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\WindowBorder_1\\WB1_stylemaster.h"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/stylemaster.h"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.h"
 },
 {
     "arguments": [
@@ -2271,7 +2271,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2349,7 +2349,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2412,10 +2412,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\SecondarySkill\\stylemaster.h"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\SecondarySkill\\SS_stylemaster.h"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/stylemaster.h"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylemaster.h"
 },
 {
     "arguments": [
@@ -2427,7 +2427,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2505,7 +2505,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2583,7 +2583,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",
@@ -2646,10 +2646,10 @@
         "-Wno-unknown-warning-option",
         "-Wno-documentation-unknown-command",
         "-fno-delayed-template-parsing",
-        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\ProgressBar_1\\stylemaster.h"
+        "E:\\Qt projects\\Dungeoner-on-QT\\Dungeoner\\CustomWidgets\\ProgressBar_1\\PB1_stylemaster.h"
     ],
     "directory": "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/stylemaster.h"
+    "file": "E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/PB1_stylemaster.h"
 },
 {
     "arguments": [
@@ -2661,7 +2661,7 @@
         "-I",
         "E:\\Qt\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
         "-I",
-        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-fxvjNs\\clang-uiheader-fdQxyf",
+        "C:\\Users\\Denis\\AppData\\Local\\Temp\\QtCreator-lbJMUA\\clang-uiheader-pLxyHG",
         "-nostdinc",
         "-nostdinc++",
         "-g",

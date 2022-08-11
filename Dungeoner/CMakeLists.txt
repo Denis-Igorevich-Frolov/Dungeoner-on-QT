@@ -23,8 +23,8 @@ set(PROJECT_SOURCES
         CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp
         CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui
         Resources/Textures.qrc
-        CustomWidgets/PrimarySkillSignature/stylemaster.h
-        CustomWidgets/PrimarySkillSignature/stylemaster.cpp
+        CustomWidgets/PrimarySkillSignature/PSS_stylemaster.h
+        CustomWidgets/PrimarySkillSignature/PSS_stylemaster.cpp
         Resources/Fonts.qrc
         Windows/CharacterWindow/characterwindow.h
         Windows/CharacterWindow/characterwindow.cpp
@@ -32,10 +32,10 @@ set(PROJECT_SOURCES
         CustomWidgets/LabelWithTooltip/labelwithtooltip.h
         CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp
         CustomWidgets/LabelWithTooltip/labelwithtooltip.ui
-        CustomWidgets/LabelWithTooltip/stylemaster.h
-        CustomWidgets/LabelWithTooltip/stylemaster.cpp
-        Windows/CharacterWindow/stylemaster.h
-        Windows/CharacterWindow/stylemaster.cpp
+        CustomWidgets/LabelWithTooltip/LWT_stylemaster.h
+        CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp
+        Windows/CharacterWindow/CW_stylemaster.h
+        Windows/CharacterWindow/CW_stylemaster.cpp
         Resources/Sounds.qrc
         MediaPlayer/mediaplayer.h
         MediaPlayer/mediaplayer.cpp
@@ -44,20 +44,20 @@ set(PROJECT_SOURCES
         CustomWidgets/WindowBorder_1/windowborder_1.h
         CustomWidgets/WindowBorder_1/windowborder_1.cpp
         CustomWidgets/WindowBorder_1/windowborder_1.ui
-        CustomWidgets/WindowBorder_1/stylemaster.h
-        CustomWidgets/WindowBorder_1/stylemaster.cpp
+        CustomWidgets/WindowBorder_1/WB1_stylemaster.h
+        CustomWidgets/WindowBorder_1/WB1_stylemaster.cpp
         CustomWidgets/SecondarySkill/secondaryskill.h
         CustomWidgets/SecondarySkill/secondaryskill.cpp
         CustomWidgets/SecondarySkill/secondaryskill.ui
-        CustomWidgets/SecondarySkill/stylemaster.h
-        CustomWidgets/SecondarySkill/stylemaster.cpp
+        CustomWidgets/SecondarySkill/SS_stylemaster.h
+        CustomWidgets/SecondarySkill/SS_stylemaster.cpp
         System/TooltipDisplayEvents/tooltipdisplayevents.h
         System/TooltipDisplayEvents/tooltipdisplayevents.cpp
         CustomWidgets/ProgressBar_1/progressbar_1.h
         CustomWidgets/ProgressBar_1/progressbar_1.cpp
         CustomWidgets/ProgressBar_1/progressbar_1.ui
-        CustomWidgets/ProgressBar_1/stylemaster.h
-        CustomWidgets/ProgressBar_1/stylemaster.cpp
+        CustomWidgets/ProgressBar_1/PB1_stylemaster.h
+        CustomWidgets/ProgressBar_1/PB1_stylemaster.cpp
         System/OutlineEffect/outlineeffect.h
         System/OutlineEffect/outlineeffect.cpp
 )
