@@ -55,7 +55,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 66,
+				"line" : 76,
 				"parent" : 0
 			},
 			{
@@ -79,13 +79,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 88,
+				"line" : 98,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 103,
+				"line" : 113,
 				"parent" : 0
 			},
 			{
@@ -175,7 +175,7 @@
 			{
 				"command" : 7,
 				"file" : 1,
-				"line" : 102,
+				"line" : 112,
 				"parent" : 0
 			},
 			{
@@ -496,20 +496,24 @@
 				40,
 				43,
 				45,
-				54,
+				47,
+				50,
+				52,
 				55,
-				56
+				66,
+				67,
+				68
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "Dungeoner_autogen::@6890427a1f51a3e7e1df"
+			"id" : "Dungeoner_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "Dungeoner_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "Dungeoner_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "Dungeoner::@6890427a1f51a3e7e1df",
@@ -634,9 +638,13 @@
 				40,
 				43,
 				45,
-				54,
+				47,
+				50,
+				52,
 				55,
-				56
+				66,
+				67,
+				68
 			]
 		},
 		{
@@ -661,12 +669,18 @@
 				42,
 				44,
 				46,
-				47,
-				48,
 				49,
-				50,
 				51,
-				52
+				54,
+				56,
+				57,
+				58,
+				59,
+				60,
+				61,
+				62,
+				63,
+				64
 			]
 		},
 		{
@@ -683,17 +697,19 @@
 				29,
 				34,
 				41,
-				53
+				48,
+				53,
+				65
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				57,
-				58,
-				59,
-				60
+				69,
+				70,
+				71,
+				72
 			]
 		}
 	],
@@ -810,13 +826,13 @@
 		},
 		{
 			"backtrace" : 4,
-			"path" : "Windows/CharacterWindow/stylemaster.h",
+			"path" : "Windows/CharacterWindow/CW_stylemaster.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
-			"path" : "Windows/CharacterWindow/stylemaster.cpp",
+			"path" : "Windows/CharacterWindow/CW_stylemaster.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -950,6 +966,60 @@
 			"sourceGroupIndex" : 0
 		},
 		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/ProgressBar_2/progressbar_2.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/ProgressBar_2/progressbar_2.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/ProgressBar_2/progressbar_2.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/ProgressBar_2/PB2_stylemaster.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/ui_dungeoner.h",
@@ -989,6 +1059,18 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/ProgressBar_1/ui_progressbar_1.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/SecondarySkillProgressBar/ui_secondaryskillprogressbar.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/ProgressBar_2/ui_progressbar_2.h",
 			"sourceGroupIndex" : 1
 		},
 		{

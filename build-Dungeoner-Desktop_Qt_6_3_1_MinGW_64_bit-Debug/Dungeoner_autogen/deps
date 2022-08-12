@@ -12,10 +12,18 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/PB1_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylemaster.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.cpp \
@@ -525,7 +533,9 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.ui \

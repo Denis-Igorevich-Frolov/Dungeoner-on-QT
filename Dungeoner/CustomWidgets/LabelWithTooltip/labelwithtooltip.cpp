@@ -29,9 +29,7 @@ LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
 
     //Установка обводки текста
     border = new OutlineEffect();
-    border->setOutlineThickness(1);
-    ui->LabelText->setGraphicsEffect(border);
-    ui->LabelText->setMargin(1);
+    setOutlineThickness(1);
 }
 
 LabelWithTooltip::~LabelWithTooltip()
@@ -93,4 +91,11 @@ void LabelWithTooltip::setFontType(FontType newFontType)
          *там задано значение по умолчанию "NON"*/
         ui->LabelText->setText("0");
     }
+}
+
+void LabelWithTooltip::setOutlineThickness(int thickness)
+{
+    border->setOutlineThickness(thickness);
+    ui->LabelText->setGraphicsEffect(border);
+    ui->LabelText->setMargin(thickness);
 }

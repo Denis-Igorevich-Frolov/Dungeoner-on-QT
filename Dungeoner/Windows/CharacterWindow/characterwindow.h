@@ -5,8 +5,6 @@
 #ifndef CHARACTERWINDOW_H
 #define CHARACTERWINDOW_H
 
-#include "System/OutlineEffect/outlineeffect.h"
-
 #include <QWidget>
 
 namespace Ui {
@@ -29,7 +27,6 @@ private slots:
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
-    void on_horizontalSlider_valueChanged(int value);
 
 private:
     Ui::CharacterWindow *ui;
@@ -47,8 +44,6 @@ private:
     /*Данный метод связывает все слоты показа и сокрытия подсказки у всех
      *необходимых элементов со слотами показа и сокрытия подсказки окна*/
     void linkingTooltipSlots();
-
-    QVector<OutlineEffect*> outlineEffects;
 };
 
 #endif // CHARACTERWINDOW_H

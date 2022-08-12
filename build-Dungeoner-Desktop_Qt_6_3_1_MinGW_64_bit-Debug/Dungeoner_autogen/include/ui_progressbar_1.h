@@ -50,7 +50,7 @@ public:
     {
         if (ProgressBar_1->objectName().isEmpty())
             ProgressBar_1->setObjectName(QString::fromUtf8("ProgressBar_1"));
-        ProgressBar_1->resize(262, 42);
+        ProgressBar_1->resize(261, 42);
         ProgressBar_1->setMinimumSize(QSize(0, 42));
         ProgressBar_1->setMaximumSize(QSize(16777215, 42));
         ProgressBar_1->setStyleSheet(QString::fromUtf8(""));
@@ -87,7 +87,7 @@ public:
         ChunkWrapper = new QFrame(ProgressBar_1);
         ChunkWrapper->setObjectName(QString::fromUtf8("ChunkWrapper"));
         ChunkWrapper->setGeometry(QRect(0, 0, 261, 42));
-        QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(ChunkWrapper->sizePolicy().hasHeightForWidth());
@@ -98,7 +98,7 @@ public:
         horizontalLayout = new QHBoxLayout(ChunkWrapper);
         horizontalLayout->setSpacing(0);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(43, 0, 43, 0);
+        horizontalLayout->setContentsMargins(42, 0, 42, 0);
         ProgressBarChunk = new QLabel(ChunkWrapper);
         ProgressBarChunk->setObjectName(QString::fromUtf8("ProgressBarChunk"));
         ProgressBarChunk->setMinimumSize(QSize(0, 27));
@@ -107,7 +107,7 @@ public:
         ProgressBarChunk->setLineWidth(0);
         ProgressBarChunk->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
-        horizontalLayout->addWidget(ProgressBarChunk);
+        horizontalLayout->addWidget(ProgressBarChunk, 0, Qt::AlignVCenter);
 
         ChunkShifter = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
 

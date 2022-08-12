@@ -27,6 +27,7 @@ ProgressBar_1::ProgressBar_1(QWidget *parent) :
     ui->ShadowWrapper->setStyleSheet(PB1_StyleMaster::ShadowStyle());
     //Задаётся стиль текста лейбла с подсказкой как "ЧИСЛА"
     ui->labelWithTooltip->setFontType(LabelWithTooltip::NUMBERS);
+    ui->labelWithTooltip->setOutlineThickness(2);
 }
 
 ProgressBar_1::~ProgressBar_1()
@@ -122,13 +123,13 @@ void ProgressBar_1::recalculationChunkWidth()
     else
         stepSize = 0.0;
 
-    ui->ProgressBarChunk->setFixedWidth(value*stepSize);
+    ui->ProgressBarChunk->setFixedWidth(ceil(value*stepSize));
 }
 
 //Перерисовка заполненной области при помощи тайлящейся окрашенной текстуры
 void ProgressBar_1::redrawChunk()
 {
-    QImage new_image(":/Text-Block-1/Textures PNG/ProgressBarBody-1.png");
+    QImage new_image(":/Text-Block-1/Textures PNG/ProgressBarBody-1.jpg");
     QPixmap pixmap(this->width(), ui->ProgressBarChunk->height());
     QPainter painter(&pixmap);
     //Тайлинг текстуры

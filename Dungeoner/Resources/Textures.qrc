@@ -27,6 +27,8 @@
         <file>Textures PNG/Border-T-1.png</file>
         <file>Textures PNG/ProgressBarTip-L-1.png</file>
         <file>Textures PNG/ProgressBarTip-R-1.png</file>
-        <file>Textures PNG/ProgressBarBody-1.png</file>
+        <file>Textures PNG/Tip-L-1.png</file>
+        <file>Textures PNG/Tip-R-1.png</file>
+        <file>Textures PNG/ProgressBarBody-1.jpg</file>
     </qresource>
 </RCC>

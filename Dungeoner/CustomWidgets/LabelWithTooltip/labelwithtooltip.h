@@ -39,6 +39,7 @@ public:
 
     FontType getFontType() const;
     void setFontType(FontType newFontType);
+    void setOutlineThickness(int thickness);
 
 signals:
     void ShowTooltip();

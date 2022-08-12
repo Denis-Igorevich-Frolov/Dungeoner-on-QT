@@ -10,8 +10,9 @@
 #define UI_CHARACTERWINDOW_H
 
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
-#include <CustomWidgets/ProgressBar_1/progressbar_1.h>
+#include <CustomWidgets/ProgressBar_2/progressbar_2.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
+#include <CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -20,7 +21,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
@@ -31,7 +31,6 @@ QT_BEGIN_NAMESPACE
 class Ui_CharacterWindow
 {
 public:
-    QSlider *horizontalSlider;
     QFrame *TopMenuWrapper;
     QVBoxLayout *verticalLayout_3;
     QFrame *TopMenu;
@@ -94,10 +93,10 @@ public:
     QScrollBar *verticalScrollBar;
     QFrame *ProgressBars;
     QVBoxLayout *verticalLayout_5;
-    QFrame *HealthWrapper;
-    QVBoxLayout *verticalLayout_4;
-    QLabel *label;
-    ProgressBar_1 *Health;
+    SecondarySkillProgressBar *Health;
+    SecondarySkillProgressBar *Endurance;
+    SecondarySkillProgressBar *Mana;
+    ProgressBar_2 *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -108,11 +107,6 @@ public:
         CharacterWindow->setStyleSheet(QString::fromUtf8("#CharacterWindow{\n"
 "	background: #130a0f;\n"
 "}"));
-        horizontalSlider = new QSlider(CharacterWindow);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(890, 290, 441, 16));
-        horizontalSlider->setMaximum(100);
-        horizontalSlider->setOrientation(Qt::Horizontal);
         TopMenuWrapper = new QFrame(CharacterWindow);
         TopMenuWrapper->setObjectName(QString::fromUtf8("TopMenuWrapper"));
         TopMenuWrapper->setGeometry(QRect(-1, -1, 1922, 89));
@@ -680,42 +674,37 @@ public:
 
         ProgressBars = new QFrame(CharacterWindow);
         ProgressBars->setObjectName(QString::fromUtf8("ProgressBars"));
-        ProgressBars->setGeometry(QRect(880, 460, 736, 73));
+        ProgressBars->setGeometry(QRect(880, 370, 734, 250));
         ProgressBars->setFrameShape(QFrame::StyledPanel);
         ProgressBars->setFrameShadow(QFrame::Raised);
         verticalLayout_5 = new QVBoxLayout(ProgressBars);
-        verticalLayout_5->setSpacing(0);
+        verticalLayout_5->setSpacing(1);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        HealthWrapper = new QFrame(ProgressBars);
-        HealthWrapper->setObjectName(QString::fromUtf8("HealthWrapper"));
-        HealthWrapper->setFrameShape(QFrame::StyledPanel);
-        HealthWrapper->setFrameShadow(QFrame::Raised);
-        verticalLayout_4 = new QVBoxLayout(HealthWrapper);
-        verticalLayout_4->setSpacing(0);
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(HealthWrapper);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setMinimumSize(QSize(0, 27));
-        label->setMaximumSize(QSize(16777215, 27));
-        QFont font;
-        font.setPointSize(20);
-        label->setFont(font);
-
-        verticalLayout_4->addWidget(label, 0, Qt::AlignHCenter|Qt::AlignBottom);
-
-        Health = new ProgressBar_1(HealthWrapper);
+        Health = new SecondarySkillProgressBar(ProgressBars);
         Health->setObjectName(QString::fromUtf8("Health"));
-        Health->setMinimumSize(QSize(732, 42));
-        Health->setMaximumSize(QSize(732, 42));
-        Health->setStyleSheet(QString::fromUtf8(""));
+        Health->setMinimumSize(QSize(734, 80));
+        Health->setMaximumSize(QSize(734, 80));
 
-        verticalLayout_4->addWidget(Health);
+        verticalLayout_5->addWidget(Health);
 
+        Endurance = new SecondarySkillProgressBar(ProgressBars);
+        Endurance->setObjectName(QString::fromUtf8("Endurance"));
+        Endurance->setMinimumSize(QSize(734, 80));
+        Endurance->setMaximumSize(QSize(734, 80));
 
-        verticalLayout_5->addWidget(HealthWrapper);
+        verticalLayout_5->addWidget(Endurance);
 
+        Mana = new SecondarySkillProgressBar(ProgressBars);
+        Mana->setObjectName(QString::fromUtf8("Mana"));
+        Mana->setMinimumSize(QSize(734, 80));
+        Mana->setMaximumSize(QSize(734, 80));
+
+        verticalLayout_5->addWidget(Mana);
+
+        widget = new ProgressBar_2(CharacterWindow);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(830, 130, 831, 121));
 
         retranslateUi(CharacterWindow);
 
@@ -757,8 +746,12 @@ public:
         TravelRange->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
         StrengtheningPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
         MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
-        label->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\264\320\276\321\200\320\276\320\262\321\214\320\265", nullptr));
-        Health->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#ff0000", nullptr)));
+        Health->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#dc0000", nullptr)));
+        Health->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\227\320\264\320\276\321\200\320\276\320\262\321\214\320\265", nullptr)));
+        Endurance->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#0fcd00", nullptr)));
+        Endurance->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\321\213\320\275\320\276\321\201\320\273\320\270\320\262\320\276\321\201\321\202\321\214", nullptr)));
+        Mana->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#1e55ff", nullptr)));
+        Mana->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\275\320\260", nullptr)));
     } // retranslateUi
 
 };

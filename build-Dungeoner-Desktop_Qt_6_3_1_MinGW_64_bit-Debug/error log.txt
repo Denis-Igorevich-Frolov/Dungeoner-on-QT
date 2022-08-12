@@ -53,3 +53,13 @@ CharacterWindow выдал исключение в методе setStyles.
 CharacterWindow выдал исключение в методе setStyles.
 Объект Health не является QLabel.
 
+11-August-2022  17:09:01
+ОШИБКА: неверный тип данных
+CharacterWindow выдал исключение в методе setStyles.
+Объект widget не является QFrame.
+
+11-August-2022  17:09:50
+ОШИБКА: неверный тип данных
+CharacterWindow выдал исключение в методе setStyles.
+Объект widget не является QFrame.
+

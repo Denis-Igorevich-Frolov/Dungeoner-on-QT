@@ -60,6 +60,16 @@ set(PROJECT_SOURCES
         CustomWidgets/ProgressBar_1/PB1_stylemaster.cpp
         System/OutlineEffect/outlineeffect.h
         System/OutlineEffect/outlineeffect.cpp
+        CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h
+        CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp
+        CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.ui
+        CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.h
+        CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.cpp
+        CustomWidgets/ProgressBar_2/progressbar_2.h
+        CustomWidgets/ProgressBar_2/progressbar_2.cpp
+        CustomWidgets/ProgressBar_2/progressbar_2.ui
+        CustomWidgets/ProgressBar_2/PB2_stylemaster.h
+        CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

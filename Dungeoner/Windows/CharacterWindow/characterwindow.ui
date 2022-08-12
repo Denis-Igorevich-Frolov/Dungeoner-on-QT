@@ -21,22 +21,6 @@
 	background: #130a0f;
 }</string>
   </property>
-  <widget class="QSlider" name="horizontalSlider">
-   <property name="geometry">
-    <rect>
-     <x>890</x>
-     <y>290</y>
-     <width>441</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="maximum">
-    <number>100</number>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Horizontal</enum>
-   </property>
-  </widget>
   <widget class="QFrame" name="TopMenuWrapper">
    <property name="geometry">
     <rect>
@@ -1777,9 +1761,9 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>880</x>
-     <y>460</y>
-     <width>736</width>
-     <height>73</height>
+     <y>370</y>
+     <width>734</width>
+     <height>250</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1790,7 +1774,7 @@ border: none;</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <property name="spacing">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="leftMargin">
      <number>0</number>
@@ -1805,88 +1789,85 @@ border: none;</string>
      <number>0</number>
     </property>
     <item>
-     <widget class="QFrame" name="HealthWrapper">
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+     <widget class="SecondarySkillProgressBar" name="Health" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+      <property name="maximumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_4">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
-       <item alignment="Qt::AlignHCenter|Qt::AlignBottom">
-        <widget class="QLabel" name="label">
-         <property name="minimumSize">
-          <size>
-           <width>0</width>
-           <height>27</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>27</height>
-          </size>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>20</pointsize>
-          </font>
-         </property>
-         <property name="text">
-          <string>Здоровье</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="ProgressBar_1" name="Health" native="true">
-         <property name="minimumSize">
-          <size>
-           <width>732</width>
-           <height>42</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>732</width>
-           <height>42</height>
-          </size>
-         </property>
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="Color" stdset="0">
-          <string>#ff0000</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
+      <property name="Color" stdset="0">
+       <string>#dc0000</string>
+      </property>
+      <property name="Name" stdset="0">
+       <string>Здоровье</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="SecondarySkillProgressBar" name="Endurance" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="Color" stdset="0">
+       <string>#0fcd00</string>
+      </property>
+      <property name="Name" stdset="0">
+       <string>Выносливость</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="SecondarySkillProgressBar" name="Mana" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="Color" stdset="0">
+       <string>#1e55ff</string>
+      </property>
+      <property name="Name" stdset="0">
+       <string>Мана</string>
+      </property>
      </widget>
     </item>
    </layout>
   </widget>
+  <widget class="ProgressBar_2" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>830</x>
+     <y>130</y>
+     <width>831</width>
+     <height>121</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>ProgressBar_1</class>
-   <extends>QWidget</extends>
-   <header location="global">CustomWidgets/ProgressBar_1/progressbar_1.h</header>
-   <container>1</container>
-  </customwidget>
   <customwidget>
    <class>PrimarySkillSignature</class>
    <extends>QWidget</extends>
@@ -1897,6 +1878,18 @@ border: none;</string>
    <class>SecondarySkill</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/SecondarySkill/secondaryskill.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SecondarySkillProgressBar</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ProgressBar_2</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/ProgressBar_2/progressbar_2.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

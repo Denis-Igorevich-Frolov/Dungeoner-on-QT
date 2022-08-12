@@ -90,17 +90,13 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
         }
     }
 
-    ui->Health->setMaxValue(100);
-    ui->Health->setValue(100);
-    ui->Health->setColor(QColor(255, 0, 0));
+    ui->widget->setMaxValue(100);
+    ui->widget->setValue(100);
+    ui->widget->setColor(QColor("#9e17cf"));
 }
 
 CharacterWindow::~CharacterWindow()
 {
-    for(OutlineEffect* ef : outlineEffects){
-        delete ef;
-    }
-
     delete ui;
 }
 
@@ -231,21 +227,13 @@ void CharacterWindow::setStyles()
     ui->verticalScrollBar->setStyleSheet(CW_StyleMaster::VerticalScrollBarStyle());
 
     for(auto* autoFrame : ui->ProgressBars->children()){
-        if(dynamic_cast <QFrame*> (autoFrame)){
-            QFrame* Frame = qobject_cast <QFrame*> (autoFrame);
-            for(auto* autoFrame : Frame->children()){
-                if(dynamic_cast <QLabel*> (autoFrame)){
-                    QLabel* Name = qobject_cast <QLabel*> (autoFrame);
-//                    Name->setStyleSheet(StyleMaster::TextFontStyle(25, "Algerian"));
+        if(dynamic_cast <SecondarySkillProgressBar*> (autoFrame)){
+            SecondarySkillProgressBar* secondarySkillProgressBar = qobject_cast <SecondarySkillProgressBar*> (autoFrame);
+            secondarySkillProgressBar->setColor(secondarySkillProgressBar->property("Color").toString());
+            secondarySkillProgressBar->setName(secondarySkillProgressBar->property("Name").toString());
 
-                    OutlineEffect* outline = new OutlineEffect;
-                    outline->setOutlineThickness(1);
-                    outlineEffects.append(outline);
-
-                    Name->setGraphicsEffect(outline);
-                    Name->setMargin(1);
-                }
-            }
+            secondarySkillProgressBar->setMaxValue(100);
+            secondarySkillProgressBar->setValue(100);
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
             //Вывод логов ошибки в консоль и файл
             QDate cd = QDate::currentDate();
@@ -504,10 +492,5 @@ void CharacterWindow::ShowTooltip()
 void CharacterWindow::RemoveTooltip()
 {
     qDebug() <<QTime::currentTime()<< "leave";
-}
-
-void CharacterWindow::on_horizontalSlider_valueChanged(int value)
-{
-    ui->Health->setValue(value);
 }
 
