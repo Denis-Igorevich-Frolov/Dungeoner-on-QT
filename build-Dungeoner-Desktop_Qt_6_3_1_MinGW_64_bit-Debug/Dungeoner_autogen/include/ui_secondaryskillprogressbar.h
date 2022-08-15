@@ -36,7 +36,7 @@ public:
     {
         if (SecondarySkillProgressBar->objectName().isEmpty())
             SecondarySkillProgressBar->setObjectName(QString::fromUtf8("SecondarySkillProgressBar"));
-        SecondarySkillProgressBar->resize(734, 80);
+        SecondarySkillProgressBar->resize(734, 87);
         verticalLayout = new QVBoxLayout(SecondarySkillProgressBar);
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -95,7 +95,7 @@ public:
         horizontalLayout->addWidget(TipRight, 0, Qt::AlignVCenter);
 
 
-        verticalLayout->addWidget(frame, 0, Qt::AlignHCenter);
+        verticalLayout->addWidget(frame, 0, Qt::AlignHCenter|Qt::AlignBottom);
 
 
         retranslateUi(SecondarySkillProgressBar);

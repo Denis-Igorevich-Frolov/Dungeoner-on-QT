@@ -39,3 +39,12 @@ QString PB2_StyleMaster::TipsStyle()
     "   background-repeat: no-repeat;"
     "}";
 }
+
+QString PB2_StyleMaster::SeparatorStyle()
+{
+    return
+    "QLabel{"
+    "   background: none;"
+    "   background-image: url(:/Text-Block-1/Textures PNG/ProgressBarSeparator.png);"
+    "}";
+}

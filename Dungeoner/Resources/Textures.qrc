@@ -30,5 +30,8 @@
         <file>Textures PNG/Tip-L-1.png</file>
         <file>Textures PNG/Tip-R-1.png</file>
         <file>Textures PNG/ProgressBarBody-1.jpg</file>
+        <file>Textures PNG/ProgressBarSeparator.png</file>
+        <file>Textures PNG/DecorativeElement-1-L.png</file>
+        <file>Textures PNG/DecorativeElement-1-R.png</file>
     </qresource>
 </RCC>

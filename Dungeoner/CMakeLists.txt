@@ -70,6 +70,13 @@ set(PROJECT_SOURCES
         CustomWidgets/ProgressBar_2/progressbar_2.ui
         CustomWidgets/ProgressBar_2/PB2_stylemaster.h
         CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp
+        CustomWidgets/ProgressBar_2/chunk.h
+        CustomWidgets/ProgressBar_2/chunk.cpp
+        CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h
+        CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp
+        CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.ui
+        CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.h
+        CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

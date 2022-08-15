@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1920</width>
-    <height>983</height>
+    <height>1080</height>
    </rect>
   </property>
   <property name="focusPolicy">
@@ -1053,8 +1053,8 @@ border: none;</string>
               <property name="spacing">
                <number>8</number>
               </property>
-              <item row="9" column="0">
-               <widget class="SecondarySkill" name="MagicTechniqueCastChance" native="true">
+              <item row="4" column="0">
+               <widget class="SecondarySkill" name="MeleeAccuracy" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -1077,100 +1077,7 @@ border: none;</string>
                  <string notr="true">background:black;</string>
                 </property>
                 <property name="Inscription" stdset="0">
-                 <string>Шанс сотворения маг. техники</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>16</number>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="SecondarySkill" name="Stealth" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Скрытность</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>20</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="SecondarySkill" name="ResistPhysicalEffects" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Сопротивление физ. эффектам</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>18</number>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="SecondarySkill" name="MagicAccuracy" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Точность магии</string>
+                 <string>Точность ближнего боя</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
@@ -1239,37 +1146,6 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
-               <widget class="SecondarySkill" name="ResistMagicEffects" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Сопротивление маг. эффектам</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>18</number>
-                </property>
-               </widget>
-              </item>
               <item row="7" column="0">
                <widget class="SecondarySkill" name="LoadCapacity" native="true">
                 <property name="sizePolicy">
@@ -1298,6 +1174,99 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>16</number>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="SecondarySkill" name="Attentiveness" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Внимательность</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>17</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="SecondarySkill" name="MagicDamage" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Магический урон</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="SecondarySkill" name="Initiative" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Инициатива</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
                 </property>
                </widget>
               </item>
@@ -1363,8 +1332,8 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="7" column="1">
-               <widget class="SecondarySkill" name="Initiative" native="true">
+              <item row="5" column="0">
+               <widget class="SecondarySkill" name="MagicAccuracy" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -1387,224 +1356,7 @@ border: none;</string>
                  <string notr="true">background:black;</string>
                 </property>
                 <property name="Inscription" stdset="0">
-                 <string>Инициатива</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="1">
-               <widget class="SecondarySkill" name="ChanceToUseCombat" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Шанс применения боевого приёма</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>15</number>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="SecondarySkill" name="Attentiveness" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Внимательность</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>17</number>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="0">
-               <widget class="SecondarySkill" name="PhysicalDamage" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Физический урон</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
-               <widget class="SecondarySkill" name="StrengtheningMagicalEffects" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Усиление маг. эффектов</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>18</number>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="SecondarySkill" name="RangedAccuracy" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Точность дальнего боя</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="SecondarySkill" name="MagicDamage" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Магический урон</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="1">
-               <widget class="SecondarySkill" name="TravelRange" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Дальность передвижения</string>
+                 <string>Точность магии</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
@@ -1642,8 +1394,8 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="0">
-               <widget class="SecondarySkill" name="MeleeAccuracy" native="true">
+              <item row="2" column="0">
+               <widget class="SecondarySkill" name="ResistPhysicalEffects" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -1666,7 +1418,224 @@ border: none;</string>
                  <string notr="true">background:black;</string>
                 </property>
                 <property name="Inscription" stdset="0">
-                 <string>Точность ближнего боя</string>
+                 <string>Сопротивление физ. эффектам</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>18</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="SecondarySkill" name="StrengtheningMagicalEffects" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Усиление маг. эффектов</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>18</number>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="1">
+               <widget class="SecondarySkill" name="MagicTechniqueCastChance" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Шанс сотворения маг. техники</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>16</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="SecondarySkill" name="ResistMagicEffects" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Сопротивление маг. эффектам</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>18</number>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="SecondarySkill" name="RangedAccuracy" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Точность дальнего боя</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="SecondarySkill" name="Stealth" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Скрытность</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>20</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="SecondarySkill" name="PhysicalDamage" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Физический урон</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="0">
+               <widget class="SecondarySkill" name="TravelRange" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Дальность передвижения</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
@@ -1760,10 +1729,10 @@ border: none;</string>
   <widget class="QFrame" name="ProgressBars">
    <property name="geometry">
     <rect>
-     <x>880</x>
-     <y>370</y>
-     <width>734</width>
-     <height>250</height>
+     <x>48</x>
+     <y>685</y>
+     <width>736</width>
+     <height>361</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -1774,7 +1743,7 @@ border: none;</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <property name="spacing">
-     <number>1</number>
+     <number>6</number>
     </property>
     <property name="leftMargin">
      <number>0</number>
@@ -1793,13 +1762,13 @@ border: none;</string>
       <property name="minimumSize">
        <size>
         <width>734</width>
-        <height>80</height>
+        <height>87</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>734</width>
-        <height>80</height>
+        <height>87</height>
        </size>
       </property>
       <property name="Color" stdset="0">
@@ -1815,13 +1784,13 @@ border: none;</string>
       <property name="minimumSize">
        <size>
         <width>734</width>
-        <height>80</height>
+        <height>87</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>734</width>
-        <height>80</height>
+        <height>87</height>
        </size>
       </property>
       <property name="Color" stdset="0">
@@ -1837,13 +1806,13 @@ border: none;</string>
       <property name="minimumSize">
        <size>
         <width>734</width>
-        <height>80</height>
+        <height>87</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>734</width>
-        <height>80</height>
+        <height>87</height>
        </size>
       </property>
       <property name="Color" stdset="0">
@@ -1854,18 +1823,197 @@ border: none;</string>
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="MagicDefenseProgressBar" name="MagicDefense" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>734</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="Color" stdset="0">
+       <string>#9e17cf</string>
+      </property>
+      <property name="Name" stdset="0">
+       <string>Магическая защита</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
-  <widget class="ProgressBar_2" name="widget" native="true">
+  <widget class="QFrame" name="BottomBoundWrapper">
    <property name="geometry">
     <rect>
-     <x>830</x>
-     <y>130</y>
-     <width>831</width>
-     <height>121</height>
+     <x>-1</x>
+     <y>1045</y>
+     <width>1922</width>
+     <height>37</height>
     </rect>
    </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_4">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="DecorativeElementWrapper">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>10</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>10</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>9</x>
+         <y>0</y>
+         <width>43</width>
+         <height>10</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>776</x>
+         <y>0</y>
+         <width>43</width>
+         <height>10</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>1868</x>
+         <y>0</y>
+         <width>43</width>
+         <height>10</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>1101</x>
+         <y>0</y>
+         <width>43</width>
+         <height>10</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="BottomBorder">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>3</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>3</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(174, 156, 82, 255), stop:0.337079 rgba(174, 156, 82, 255), stop:0.339799 rgba(190, 195, 64, 255), stop:0.657303 rgba(190, 195, 64, 255), stop:0.662469 rgba(131, 118, 63, 255), stop:1 rgba(131, 118, 63, 255))</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="BottomBound">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>23</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>23</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: black;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
+  <zorder>TopMenuWrapper</zorder>
+  <zorder>SkillsWraper</zorder>
+  <zorder>BottomBoundWrapper</zorder>
+  <zorder>ProgressBars</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -1887,9 +2035,9 @@ border: none;</string>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>ProgressBar_2</class>
+   <class>MagicDefenseProgressBar</class>
    <extends>QWidget</extends>
-   <header location="global">CustomWidgets/ProgressBar_2/progressbar_2.h</header>
+   <header location="global">CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

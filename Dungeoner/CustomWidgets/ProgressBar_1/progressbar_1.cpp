@@ -56,7 +56,7 @@ void ProgressBar_1::setMinValue(int newMinValue)
     //После изменения диапазона нужно перерисовать тело прогрессбара
     recalculationChunkWidth();
 
-    ui->labelWithTooltip->setText(QString::number(value)+"/"+QString::number(maxValue));
+    ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
 }
 
 int ProgressBar_1::getMaxValue() const
@@ -80,7 +80,7 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
     //После изменения диапазона нужно перерисовать тело прогрессбара
     recalculationChunkWidth();
 
-    ui->labelWithTooltip->setText(QString::number(value)+"/"+QString::number(maxValue));
+    ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
 }
 
 int ProgressBar_1::getValue() const
@@ -90,6 +90,9 @@ int ProgressBar_1::getValue() const
 
 void ProgressBar_1::setValue(int newValue)
 {
+    if(newValue>9999999)
+        newValue = 9999999;
+
     //Значение находится в диапазоне от минимального до максимального
     if(newValue>maxValue)
         value = maxValue;
@@ -101,12 +104,17 @@ void ProgressBar_1::setValue(int newValue)
     //После изменения значения нужно перерисовать тело прогрессбара
     recalculationChunkWidth();
 
-    ui->labelWithTooltip->setText(QString::number(value)+"/"+QString::number(maxValue));
+    ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
 }
 
 void ProgressBar_1::setColor(const QColor &newColor)
 {
     color = newColor;
+}
+
+LabelWithTooltip* ProgressBar_1::getLabelWithTooltip()
+{
+    return ui->labelWithTooltip;
 }
 
 //Пересчёт размера заполненной области

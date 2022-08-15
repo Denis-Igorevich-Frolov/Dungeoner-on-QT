@@ -14,6 +14,8 @@
 
 #include <QWidget>
 
+#include <CustomWidgets/LabelWithTooltip/labelwithtooltip.h>
+
 namespace Ui {
 class ProgressBar_1;
 }
@@ -36,6 +38,8 @@ public:
     void setValue(int newValue);
 
     void setColor(const QColor &newColor);
+
+    LabelWithTooltip* getLabelWithTooltip();
 
 private:
     //Цвет, в который будет окрашенна заполненная область прогрессбара

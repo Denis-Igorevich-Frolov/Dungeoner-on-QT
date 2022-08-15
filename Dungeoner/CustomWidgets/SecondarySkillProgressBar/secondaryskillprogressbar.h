@@ -5,6 +5,8 @@
 
 #include <QWidget>
 
+#include <CustomWidgets/ProgressBar_1/progressbar_1.h>
+
 namespace Ui {
 class SecondarySkillProgressBar;
 }
@@ -17,16 +19,7 @@ public:
     explicit SecondarySkillProgressBar(QWidget *parent = nullptr);
     ~SecondarySkillProgressBar();
 
-    int getMinValue() const;
-    void setMinValue(int newMinValue);
-
-    int getMaxValue() const;
-    void setMaxValue(int newMaxValue);
-
-    int getValue() const;
-    void setValue(int newValue);
-
-    void setColor(QColor color);
+    ProgressBar_1* getProgressBar();
     void setName(QString name);
 
 private:

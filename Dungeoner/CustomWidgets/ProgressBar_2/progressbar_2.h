@@ -1,11 +1,18 @@
 #ifndef PROGRESSBAR_2_H
 #define PROGRESSBAR_2_H
 
+#include "chunk.h"
+
+#include <QHBoxLayout>
 #include <QWidget>
+
+#include <CustomWidgets/LabelWithTooltip/labelwithtooltip.h>
 
 namespace Ui {
 class ProgressBar_2;
 }
+
+
 
 class ProgressBar_2 : public QWidget
 {
@@ -15,23 +22,28 @@ public:
     explicit ProgressBar_2(QWidget *parent = nullptr);
     ~ProgressBar_2();
 
-    int getMinValue() const;
-    void setMinValue(int newMinValue);
-
-    int getMaxValue() const;
-    void setMaxValue(int newMaxValue);
-
-    int getValue() const;
-    void setValue(int newValue);
-
     void setColor(const QColor &newColor);
+
+    const QVector<Chunk*> &getChunks() const;
+    void setChunks(const QVector<Chunk*> &newChunks);
+
+    LabelWithTooltip* getLabelWithTooltip();
+
+    int getCurrentChunkIndex();
+    void addValue(int value);
+    void subtractValue(int value);
+
+    void addChunk(Chunk* chank);
+    void addChunk(int maxValue);
+
+    void HealOneChunk();
+    void HealAllChunk();
 
 private:
     //Цвет, в который будет окрашенна заполненная область прогрессбара
     QColor color = QColor(0 , 0, 0, 0);
-    int minValue = 0;
-    int maxValue = 0;
-    int value = 0;
+    QVector<Chunk*> chunks;
+
     /*Размер в пикселях, которому эквивалентен сдвиг
      *заполняемой области при изменении значения на 1*/
     double stepSize = 0;

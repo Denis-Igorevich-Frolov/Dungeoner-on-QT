@@ -376,6 +376,18 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.h",
+			"MU",
+			"3ITW7LGL6C/moc_MDP_stylemaster.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h",
+			"MU",
+			"3ITW7LGL6C/moc_magicdefenseprogressbar.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.h",
 			"MU",
 			"PTAAC7U42L/moc_PSS_stylemaster.cpp",
@@ -403,6 +415,12 @@
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.h",
 			"MU",
 			"KQEOYOT425/moc_PB2_stylemaster.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.h",
+			"MU",
+			"KQEOYOT425/moc_chunk.cpp",
 			null
 		],
 		[
@@ -576,6 +594,16 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp",
+			"MU",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.cpp",
 			"MU",
 			null
@@ -597,6 +625,11 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.cpp",
 			"MU",
 			null
 		],

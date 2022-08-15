@@ -61,38 +61,35 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
-                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
-                ss->setScrollAreaHeight(ui->ScrollAreaSecondarySkills->height());
-            }else{
-                //Вывод логов ошибки в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                        "\nОШИБКА: неверный тип данных\n"
-                        "CharacterWindow выдал исключение в методе CharacterWindow.\n"
-                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+                if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                    SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                    ss->setScrollAreaHeight(ui->ScrollAreaSecondarySkills->height());
                 }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
+                    //Вывод логов ошибки в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nОШИБКА: неверный тип данных\n"
+                            "CharacterWindow выдал исключение в методе CharacterWindow.\n"
+                            "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
                 }
-            }
         }
     }
-
-    ui->widget->setMaxValue(100);
-    ui->widget->setValue(100);
-    ui->widget->setColor(QColor("#9e17cf"));
 }
 
 CharacterWindow::~CharacterWindow()
@@ -186,35 +183,36 @@ void CharacterWindow::setStyles()
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
-                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
-                /*Установка надписи на вторичном навыке и указание размера его шрифта
-                 *при помощи динамических свойств.*/
-                ss->setInscription(ss->property("Inscription").toString());
-                ss->setFontSize(ss->property("FontSize").toInt());
-            }else{
-                //Вывод логов ошибки в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                        "\nОШИБКА: неверный тип данных\n"
-                        "CharacterWindow выдал исключение в методе setStyles.\n"
-                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+                if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                    SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                    /*Установка надписи на вторичном навыке и указание размера его шрифта
+                     *при помощи динамических свойств.*/
+                    ss->setInscription(ss->property("Inscription").toString());
+                    ss->setFontSize(ss->property("FontSize").toInt());
                 }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
+                    //Вывод логов ошибки в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nОШИБКА: неверный тип данных\n"
+                            "CharacterWindow выдал исключение в методе setStyles.\n"
+                            "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
                 }
-            }
         }
     }
 
@@ -229,11 +227,22 @@ void CharacterWindow::setStyles()
     for(auto* autoFrame : ui->ProgressBars->children()){
         if(dynamic_cast <SecondarySkillProgressBar*> (autoFrame)){
             SecondarySkillProgressBar* secondarySkillProgressBar = qobject_cast <SecondarySkillProgressBar*> (autoFrame);
-            secondarySkillProgressBar->setColor(secondarySkillProgressBar->property("Color").toString());
+            secondarySkillProgressBar->getProgressBar()->setColor(secondarySkillProgressBar->property("Color").toString());
             secondarySkillProgressBar->setName(secondarySkillProgressBar->property("Name").toString());
 
-            secondarySkillProgressBar->setMaxValue(100);
-            secondarySkillProgressBar->setValue(100);
+            secondarySkillProgressBar->getProgressBar()->setMaxValue(100);
+            secondarySkillProgressBar->getProgressBar()->setValue(100);
+        }else if(dynamic_cast <MagicDefenseProgressBar*> (autoFrame)){
+            MagicDefenseProgressBar* magicDefenseProgressBar = qobject_cast <MagicDefenseProgressBar*> (autoFrame);
+            magicDefenseProgressBar->getProgressBar()->setColor(magicDefenseProgressBar->property("Color").toString());
+            magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
+
+            magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
+            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100), new Chunk(100,100)});
+//            magicDefenseProgressBar->getProgressBar()->addChunk(100);
+//            magicDefenseProgressBar->getProgressBar()->addChunk(100);
+//            magicDefenseProgressBar->getProgressBar()->addChunk(100);
+//            magicDefenseProgressBar->getProgressBar()->HealOneChunk();
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
             //Вывод логов ошибки в консоль и файл
             QDate cd = QDate::currentDate();
@@ -373,34 +382,75 @@ void CharacterWindow::linkingTooltipSlots()
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
-                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
-                connect(ss, &SecondarySkill::ShowTooltip,
-                        this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
-                connect(ss, &SecondarySkill::RemoveTooltip,
-                        this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
-            }else{
-                //Вывод логов ошибки в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                        "\nОШИБКА: неверный тип данных\n"
-                        "CharacterWindow выдал исключение в методе linkingTooltipSlots.\n"
-                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+                if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                    SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                    connect(ss, &SecondarySkill::ShowTooltip,
+                            this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
+                    connect(ss, &SecondarySkill::RemoveTooltip,
+                            this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
                 }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
+                    //Вывод логов ошибки в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nОШИБКА: неверный тип данных\n"
+                            "CharacterWindow выдал исключение в методе linkingTooltipSlots.\n"
+                            "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
                 }
+        }
+    }
+
+    for(auto* autoFrame : ui->ProgressBars->children()){
+        if(dynamic_cast <SecondarySkillProgressBar*> (autoFrame)){
+            SecondarySkillProgressBar* secondarySkillProgressBar = qobject_cast <SecondarySkillProgressBar*> (autoFrame);
+
+            connect(secondarySkillProgressBar->getProgressBar()->getLabelWithTooltip(), &LabelWithTooltip::ShowTooltip,
+                    this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
+            connect(secondarySkillProgressBar->getProgressBar()->getLabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
+                    this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
+        }else if(dynamic_cast <MagicDefenseProgressBar*> (autoFrame)){
+            MagicDefenseProgressBar* magicDefenseProgressBar = qobject_cast <MagicDefenseProgressBar*> (autoFrame);
+
+            connect(magicDefenseProgressBar->getProgressBar()->getLabelWithTooltip(), &LabelWithTooltip::ShowTooltip,
+                    this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
+            connect(magicDefenseProgressBar->getProgressBar()->getLabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
+                    this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
+        }else if(!dynamic_cast <QLayout*> (autoFrame)){
+            //Вывод логов ошибки в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: неверный тип данных\n"
+            "CharacterWindow выдал исключение в методе setStyles.\n"
+            "Объект " + autoFrame->objectName() + " не является QFrame.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
             }
         }
     }
@@ -454,32 +504,33 @@ void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
-                SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
-                ss->setScrollAreaOffset(value);
-            }else{
-                //Вывод логов ошибки в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                        "\nОШИБКА: неверный тип данных\n"
-                        "CharacterWindow выдал исключение в методе on_verticalScrollBar_valueChanged.\n"
-                        "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+                if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                    SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                    ss->setScrollAreaOffset(value);
                 }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
+                    //Вывод логов ошибки в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nОШИБКА: неверный тип данных\n"
+                            "CharacterWindow выдал исключение в методе on_verticalScrollBar_valueChanged.\n"
+                            "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
                 }
-            }
         }
     }
 }

@@ -25,39 +25,9 @@ SecondarySkillProgressBar::~SecondarySkillProgressBar()
     delete ui;
 }
 
-int SecondarySkillProgressBar::getMinValue() const
+ProgressBar_1* SecondarySkillProgressBar::getProgressBar()
 {
-    return ui->progressBar->getMinValue();
-}
-
-void SecondarySkillProgressBar::setMinValue(int newMinValue)
-{
-    ui->progressBar->setMinValue(newMinValue);
-}
-
-int SecondarySkillProgressBar::getMaxValue() const
-{
-    return ui->progressBar->getMaxValue();
-}
-
-void SecondarySkillProgressBar::setMaxValue(int newMaxValue)
-{
-    ui->progressBar->setMaxValue(newMaxValue);
-}
-
-int SecondarySkillProgressBar::getValue() const
-{
-    return ui->progressBar->getValue();
-}
-
-void SecondarySkillProgressBar::setValue(int newValue)
-{
-    ui->progressBar->setValue(newValue);
-}
-
-void SecondarySkillProgressBar::setColor(QColor color)
-{
-    ui->progressBar->setColor(color);
+    return ui->progressBar;
 }
 
 void SecondarySkillProgressBar::setName(QString name)
