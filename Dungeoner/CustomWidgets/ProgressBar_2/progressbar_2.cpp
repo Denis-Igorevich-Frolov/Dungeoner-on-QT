@@ -135,7 +135,7 @@ void ProgressBar_2::subtractValue(int value)
 
 void ProgressBar_2::addChunk(Chunk* chunk)
 {
-    if(chunks.size()<=50){
+    if(chunks.size()<50){
         chunk->setValue(0);
         chunks.append(chunk);
         recalculationChunkWidth();
@@ -145,7 +145,7 @@ void ProgressBar_2::addChunk(Chunk* chunk)
 
 void ProgressBar_2::addChunk(int maxValue)
 {
-    if(chunks.size()<=50){
+    if(chunks.size()<50){
         Chunk* chunk = new Chunk(maxValue, 0);
         chunks.append(chunk);
         recalculationChunkWidth();

@@ -17,8 +17,8 @@ int Chunk::getMaxValue() const
 
 void Chunk::setMaxValue(int newMaxValue)
 {
-    if(newMaxValue>200000)
-        newMaxValue = 200000;
+    if(newMaxValue>10000)
+        newMaxValue = 10000;
     maxValue = newMaxValue;
 }
 

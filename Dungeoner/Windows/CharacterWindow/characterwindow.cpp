@@ -238,11 +238,7 @@ void CharacterWindow::setStyles()
             magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
 
             magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
-            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100), new Chunk(100,100)});
-//            magicDefenseProgressBar->getProgressBar()->addChunk(100);
-//            magicDefenseProgressBar->getProgressBar()->addChunk(100);
-//            magicDefenseProgressBar->getProgressBar()->addChunk(100);
-//            magicDefenseProgressBar->getProgressBar()->HealOneChunk();
+            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
             //Вывод логов ошибки в консоль и файл
             QDate cd = QDate::currentDate();
