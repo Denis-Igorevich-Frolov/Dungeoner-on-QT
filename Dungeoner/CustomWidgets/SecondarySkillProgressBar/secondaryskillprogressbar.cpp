@@ -8,12 +8,15 @@ SecondarySkillProgressBar::SecondarySkillProgressBar(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Установка стиля лейблу имени
     ui->Name->setStyleSheet(SSPB_StyleMaster::TextFontStyle(25, "Algerian"));
 
+    //Установка эффекта обводки лейблу имени
     outlineEffect = new OutlineEffect;
     outlineEffect->setOutlineThickness(1);
     ui->Name->setGraphicsEffect(outlineEffect);
 
+    //Установка стиля разделителю между прогрессбарами
     ui->Border->setStyleSheet(SSPB_StyleMaster::BorderStyle());
     ui->TipLeft->setStyleSheet(SSPB_StyleMaster::TipLeftStyle());
     ui->TipRight->setStyleSheet(SSPB_StyleMaster::TipRightStyle());
@@ -30,6 +33,7 @@ ProgressBar_1* SecondarySkillProgressBar::getProgressBar()
     return ui->progressBar;
 }
 
+//Установка текста лейблу над прогрессбаром
 void SecondarySkillProgressBar::setName(QString name)
 {
     ui->Name->setText(name);

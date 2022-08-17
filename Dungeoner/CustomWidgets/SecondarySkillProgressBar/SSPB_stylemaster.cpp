@@ -1,6 +1,9 @@
+/****************************************************************
+ *Мастер стилей для SecondarySkillProgressBar. Хранит Qss,
+ *инструкции которые затем будут применены к элементам виджета
+ ****************************************************************/
+
 #include "SSPB_stylemaster.h"
-
-
 
 QString SSPB_StyleMaster::TextFontStyle(int sizePX, QString fontName)
 {

@@ -55,7 +55,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
      *
      *При переборе всех дочерних эллементов контейнера SecondarySkills важно, чтобы
      *все эти эллементы были типа SecondarySkill. Если это не так, то эллемент будет
-     *проигнорирован и выведена ошибка.*/
+     *проигнорирован и выведено предупреждение.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
     {
@@ -103,7 +103,7 @@ CharacterWindow::~CharacterWindow()
  *
  *При переборе всех дочерних эллементов контейнера PrimarySkillSignatures важно, чтобы
  *все эти эллементы были типа PrimarySkillSignature. Если это не так, то эллемент будет
- *проигнорирован и выведена ошибка.*/
+ *проигнорирован и выведено предупреждение.*/
 void CharacterWindow::setTextPrimarySkillSignature()
 {
     for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
@@ -143,7 +143,7 @@ void CharacterWindow::setStyles()
 {
     /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно,
      *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
-     *проигнорирован и выведена ошибка.*/
+     *проигнорирован и выведено предупреждение.*/
     for(auto* autoSB : ui->PrimarySkillValues->children()){
         if(dynamic_cast <QSpinBox*> (autoSB)){
             QSpinBox* sb = qobject_cast <QSpinBox*> (autoSB);
@@ -178,7 +178,7 @@ void CharacterWindow::setStyles()
     /*Перебор всех дочерних эллементов контейнера SecondarySkills. Перебор
      *производится при помощи QGridLayout, из-за того, что контейнер - сетка.
      *Здесь важно, чтобы все эти эллементы были типа SecondarySkill. Если это
-     *не так, то эллемент будет проигнорирован и выведена ошибка.*/
+     *не так, то эллемент будет проигнорирован и выведено предупреждение.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
     {
@@ -226,17 +226,24 @@ void CharacterWindow::setStyles()
 
     ui->verticalScrollBar->setStyleSheet(CW_StyleMaster::VerticalScrollBarStyle());
 
+    /*Перебор всех дочерних эллементов контейнера ProgressBars. Здесь важно, чтобы все эти
+     *эллементы были либо типа SecondarySkillProgressBar, либо MagicDefenseProgressBar.
+     *Если это не так, то эллемент будет проигнорирован и выведено предупреждение.*/
     for(auto* autoFrame : ui->ProgressBars->children()){
         if(dynamic_cast <SecondarySkillProgressBar*> (autoFrame)){
             SecondarySkillProgressBar* secondarySkillProgressBar = qobject_cast <SecondarySkillProgressBar*> (autoFrame);
+            //Установка цвета прогрессбара при помощи динамического свойства Color
             secondarySkillProgressBar->getProgressBar()->setColor(secondarySkillProgressBar->property("Color").toString());
+            //Установка имени прогрессбара при помощи динамического свойства Name
             secondarySkillProgressBar->setName(secondarySkillProgressBar->property("Name").toString());
 
             secondarySkillProgressBar->getProgressBar()->setMaxValue(100);
             secondarySkillProgressBar->getProgressBar()->setValue(100);
         }else if(dynamic_cast <MagicDefenseProgressBar*> (autoFrame)){
             MagicDefenseProgressBar* magicDefenseProgressBar = qobject_cast <MagicDefenseProgressBar*> (autoFrame);
+            //Установка цвета прогрессбара при помощи динамического свойства Color
             magicDefenseProgressBar->getProgressBar()->setColor(magicDefenseProgressBar->property("Color").toString());
+            //Установка имени прогрессбара при помощи динамического свойства Name
             magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
 
             magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
@@ -275,7 +282,7 @@ void CharacterWindow::associatingLabelsWithValues()
     int i = 0;
     /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
      *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
-     *проигнорирован и выведена ошибка.*/
+     *проигнорирован и выведено предупреждение.*/
     for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
         if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
             PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
@@ -339,7 +346,7 @@ void CharacterWindow::linkingTooltipSlots()
 {
     /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
      *чтобы все эти эллементы были типа PrimarySkillSignature. Если это не так, то
-     *эллемент будет проигнорирован и выведена ошибка.*/
+     *эллемент будет проигнорирован и выведено предупреждение.*/
     for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
         if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
             PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
@@ -374,7 +381,7 @@ void CharacterWindow::linkingTooltipSlots()
 
     /*Перебор всех дочерних эллементов контейнера SecondarySkills. Здесь важно
      *чтобы все эти эллементы были типа SecondarySkill. Если это не так, то
-     *эллемент будет проигнорирован и выведена ошибка.*/
+     *эллемент будет проигнорирован и выведено предупреждение.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
     {
@@ -414,6 +421,9 @@ void CharacterWindow::linkingTooltipSlots()
         }
     }
 
+    /*Перебор всех дочерних эллементов контейнера ProgressBars. Здесь важно, чтобы все эти
+     *эллементы были либо типа SecondarySkillProgressBar, либо MagicDefenseProgressBar.
+     *Если это не так, то эллемент будет проигнорирован и выведено предупреждение.*/
     for(auto* autoFrame : ui->ProgressBars->children()){
         if(dynamic_cast <SecondarySkillProgressBar*> (autoFrame)){
             SecondarySkillProgressBar* secondarySkillProgressBar = qobject_cast <SecondarySkillProgressBar*> (autoFrame);

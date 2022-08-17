@@ -8,8 +8,10 @@ MagicDefenseProgressBar::MagicDefenseProgressBar(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Установка стиля лейблу имени
     ui->Name->setStyleSheet(MDP_StyleMaster::TextFontStyle(25, "Algerian"));
 
+    //Установка эффекта обводки лейблу имени
     outlineEffect = new OutlineEffect;
     outlineEffect->setOutlineThickness(1);
     ui->Name->setGraphicsEffect(outlineEffect);
@@ -26,6 +28,7 @@ ProgressBar_2* MagicDefenseProgressBar::getProgressBar()
     return ui->progressBar;
 }
 
+//Установка текста лейблу над прогрессбаром
 void MagicDefenseProgressBar::setName(QString name)
 {
     ui->Name->setText(name);

@@ -1,3 +1,8 @@
+/****************************************************************
+ *Мастер стилей для MagicDefenseProgressBar. Хранит Qss,
+ *инструкции которые затем будут применены к элементам виджета
+ ****************************************************************/
+
 #include "MDP_stylemaster.h"
 
 QString MDP_StyleMaster::TextFontStyle(int sizePX, QString fontName)
