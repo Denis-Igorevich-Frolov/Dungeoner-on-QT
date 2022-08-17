@@ -166,7 +166,7 @@ void ProgressBar_2::addValue(int value)
         //Вычисляется разница максимального и текущего значения у текущего чанка
         int difference = chunk->getMaxValue() - chunk->getValue();
 
-        /*Если эта разница меньше прибавляемого значения, то чанк полностью заполняется, а из
+        /*Если прибавляемое значение больше, чем эта разница, то чанк полностью заполняется, а из
          *прибавляемого значения вычитается разница. То есть итоговое значение прибавки после
          *этого равняется остатку от максимального заполнения одного чанка переданным значением.*/
         if(value>difference){
@@ -185,36 +185,52 @@ void ProgressBar_2::addValue(int value)
     recalculationChunkWidth();
 }
 
+/*Метод вычитает значение из текущего чанка. Если значение чанка меньше переданного вычитаемого
+ *значения, то текущий чанк обнуляется, а остаток вычитается из предыдущего чанка, и так пока либо
+ *не кончится значение, либо не кончатся чанки.*/
 void ProgressBar_2::subtractValue(int value)
 {
+    //Предотвращение попадания в метод отрицательных значений
     if(value<0)
         value = 0;
 
     int currentChunk = getCurrentChunkIndex();
     Chunk* chunk;
 
+    //Цикл идёт либо пока не кончится всё вычитаемое значение, либо пока не кончатся сами чанки
     while(value>0){
+        //Если цикл дошёл до начала вектора чанков, то вычитание сразу прекращается
         if(currentChunk == -1)
             break;
 
         chunk = chunks.at(currentChunk);
-
+        /*Значение текущего чанка может быть равно нулю только в ситуации, когда этот чанк
+         *первый и он пуст, соответственно нет надобности в дальнейших вычислениях*/
         if(chunk->getValue()==0)
             break;
-
+        /*Если вычитаемое значение больше значения текущего чанка, то от вычитаемого значения
+         *отнимается значение чанка, и чанк обнуляется. То есть итоговое вычитаемое значение
+         *после этого равняется остатку от обнуления одного чанка переданным значением.*/
         if(value>chunk->getValue()){
             value-=chunk->getValue();
             chunk->setValue(0);
         }else{
+            /*Если же значение чанка больше вычитаемого значения, то это значение просто
+             *вычитается из текущего значения чанка и обнуляется завершая цикл.*/
             chunk->setValue(chunk->getValue()-value);
             value = 0;
         }
         currentChunk--;
     }
 
+    //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
     recalculationChunkWidth();
 }
 
+/*Добавление чанка в вектор бонусных чанков. В метод передаётся указатель на новый чанк, затем его
+ *текущее значение обнуляется и указатель добавляется в конец вектора бонусных чанков. Новый чанк
+ *будет иметь текущее значение 0, так как все бонусы дают прибавку только к максимальному значению,
+ *а не к текущему.*/
 void ProgressBar_2::addBonusChunk(Chunk* chunk)
 {
     chunk->setValue(0);
@@ -222,6 +238,8 @@ void ProgressBar_2::addBonusChunk(Chunk* chunk)
     recalculationChunkWidth();
 }
 
+/*Перегрузка идентичная по функционалу вышестоящему методу, только
+ *эта функция добавляет переданный вектор к вектору бонусных чанков*/
 void ProgressBar_2::addBonusChunk(QVector<Chunk *> chunks)
 {
     for(Chunk* chunk : chunks)
@@ -230,6 +248,11 @@ void ProgressBar_2::addBonusChunk(QVector<Chunk *> chunks)
     recalculationChunkWidth();
 }
 
+/*Удаление бонусного чанка, первая перегрузка.
+ *
+ *В ней передаётся указатель на чанк, затем итератор ищет первый с конца
+ *чанк из вектора бонусных чанков, максимальное значение которого совпадёт
+ *с переданным чанком и удаляет указатель на него.*/
 bool ProgressBar_2::removeBonusChunk(Chunk *chunk)
 {
     QMutableVectorIterator<Chunk*> iterator(bonusChunks);
@@ -240,6 +263,7 @@ bool ProgressBar_2::removeBonusChunk(Chunk *chunk)
         if(c->getMaxValue()==chunk->getMaxValue()){
             delete c;
             iterator.remove();
+            //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
             recalculationChunkWidth();
             return true;
         }
@@ -271,6 +295,12 @@ bool ProgressBar_2::removeBonusChunk(Chunk *chunk)
     return false;
 }
 
+/*Удаление бонусного чанка, вторая перегрузка.
+ *
+ *В ней просто передаётся число, являющееся максимальным значением
+ *вектора, которое итератор будет искать среди максимальных значений
+ *вектора бонусных чанков и удалять соответствующий указатель. Обход
+ *так же идёт с конца.*/
 bool ProgressBar_2::removeBonusChunk(int maxValue)
 {
     QMutableVectorIterator<Chunk*> iterator(bonusChunks);
@@ -281,6 +311,7 @@ bool ProgressBar_2::removeBonusChunk(int maxValue)
         if(c->getMaxValue()==maxValue){
             delete c;
             iterator.remove();
+            //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
             recalculationChunkWidth();
             return true;
         }
@@ -312,6 +343,9 @@ bool ProgressBar_2::removeBonusChunk(int maxValue)
     return false;
 }
 
+/*Удаление бонусного чанка, третяя перегрузка.
+ *
+ *Идентична первой, только ищуются все значения из переданного вектора*/
 bool ProgressBar_2::removeBonusChunk(QVector<Chunk *> chunks)
 {
     int successfulFinds = 0;
@@ -330,8 +364,10 @@ bool ProgressBar_2::removeBonusChunk(QVector<Chunk *> chunks)
         }
     }
 
+    //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
     recalculationChunkWidth();
 
+    //Если количество удачных нахождений соответствует количеству переданных элементов, то поиск прошёл удачно
     if(successfulFinds==chunks.size())
         return true;
     else
@@ -364,6 +400,9 @@ bool ProgressBar_2::removeBonusChunk(QVector<Chunk *> chunks)
     }
 }
 
+/*Удаление бонусного чанка, четвёртая перегрузка.
+ *
+ *Идентична второй, только ищуются все значения из переданного вектора*/
 bool ProgressBar_2::removeBonusChunk(QVector<int> maxValues)
 {
     int successfulFinds = 0;
@@ -382,8 +421,10 @@ bool ProgressBar_2::removeBonusChunk(QVector<int> maxValues)
         }
     }
 
+    //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
     recalculationChunkWidth();
 
+    //Если количество удачных нахождений соответствует количеству переданных элементов, то поиск прошёл удачно
     if(successfulFinds==maxValues.size())
         return true;
     else
@@ -416,12 +457,19 @@ bool ProgressBar_2::removeBonusChunk(QVector<int> maxValues)
     }
 }
 
+/*Обнуляет текущий активный чанк. Если обнуление было произведено, то водвращает true, если
+ *нет то это означает, что весь прогрессбар уже полностью обнулён и возвращается false*/
 bool ProgressBar_2::spendLastChunk()
 {
+    //Проверка не пуст ли вектор чанков
     if(chunks.size()>0){
         int chunkIndex = getCurrentChunkIndex();
+        /*Значение текущего чанка может быть равно нулю только в ситуации,
+         *когда этот чанк первый и он пуст, соответственно обнулять нечего*/
         if(chunks.at(chunkIndex)->getValue()!=0){
             chunks.at(chunkIndex)->setValue(0);
+            //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
+            recalculationChunkWidth();
             return true;
         }else
             return false;
@@ -429,6 +477,7 @@ bool ProgressBar_2::spendLastChunk()
         return false;
 }
 
+//Приравнивает значение текущего активного чанка к его максимальному значению
 void ProgressBar_2::HealOneChunk()
 {
     for(Chunk* chunk : chunks)
@@ -436,16 +485,20 @@ void ProgressBar_2::HealOneChunk()
             chunk->setValue(chunk->getMaxValue());
             break;
         }
+    //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
     recalculationChunkWidth();
 }
 
+//Приравнивает значение всех чанков к их максимальному значению
 void ProgressBar_2::HealAllChunk()
 {
     for(Chunk* chunk : chunks)
         chunk->setValue(chunk->getMaxValue());
+    //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
     recalculationChunkWidth();
 }
 
+//Перерасчёт общего вектора всех чанков, который включает в себя и родные и бонусные чанки
 void ProgressBar_2::recalculationChunks()
 {
     /*Если суммарное количество родных и бонусных чанков превышает 60,
@@ -453,6 +506,8 @@ void ProgressBar_2::recalculationChunks()
      *родных и бонусных чанков никогда не превышает 60.*/
     if(nativeChunks.size()+bonusChunks.size() > 60){
         finalBonusChunks.clear();
+        /*Добавление бонусных чанков в общий вектор продолжается пока его
+         *размер не достигнет 60, оставшиеся чанки считаются вытеснеными*/
         for(int i = 0; i<60-nativeChunks.size(); i++){
             finalBonusChunks.append(bonusChunks.at(i));
         }
@@ -461,39 +516,72 @@ void ProgressBar_2::recalculationChunks()
 
     chunks.clear();
 
+    //Добавляются сначала рордные, а затем бонусные чанки
     chunks.append(nativeChunks);
     chunks.append(finalBonusChunks);
 }
 
-//Пересчёт размера заполненной области
+//Пересчёт размера заполненной области и позиций разделителей
 void ProgressBar_2::recalculationChunkWidth()
 {
+    //Вызов перерасчёта общего вектора всех чанков
     recalculationChunks();
 
     if(chunks.size()!=0){
-        //Вычисляется общее количество значений
-        int totalValues = 0;
+        //Вычисляется общее максимальное значение всех чанков
+        int totalValue = 0;
         for(Chunk* chunk : chunks)
-            totalValues+=chunk->getMaxValue();
+            totalValue+=chunk->getMaxValue();
         //Если не проверить, то может получиться деление на 0
-        if(totalValues!=0)
+        if(totalValue!=0)
             /*86 - это суммарные горизонтальные отступы тела прогрессбара от краёв виджета.
-         *Деля размер тела прогрессбара на общее количество значений узнаём размер
-         *изменения заполненной области при изменении значения на 1.*/
-            stepSize = (this->width()-86.0)/totalValues;
+             *Деля размер тела прогрессбара на общее количество значений узнаём размер
+             *изменения заполненной области при изменении значения на 1.*/
+            stepSize = (this->width()-86.0)/totalValue;
         else
             stepSize = 0.0;
 
+        //Очистка врапера разделителей
         qDeleteAll(ui->SeparatorWrapper->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
 
+        //Общее текущее значение всех чанков
         int value = 0;
+        /*Переменная с помощью которой вычисляется величина отступа
+         *от левого края на который должен быть смещён разделитель*/
         int offset = 0;
+        //Установка разделителей и подсчёт общего текущего значения
         for(int i = 0; i<chunks.size(); i++){
             value+=chunks.at(i)->getValue();
+            /*Смещение возрастает на максимальное значение текущего чанка,
+             *затем при умножении на stepSize узнаётся фактическое смещение*/
             offset+=chunks.at(i)->getMaxValue();
+            /*Разделитель устанавливается по левую сторону чанка, и соответственно
+             *последнему чанку нет смысла устанавливать разделитель*/
             if(i<chunks.size()-1){
+                /*Лейбл-разделитель создаётся просто как потомок SeparatorWrapper
+                 *и помещается в него без какого-либо лейаута*/
                 QLabel* separator = new QLabel(ui->SeparatorWrapper);
+                /*Решение не использовать лейауты было принято по причине того, что
+                 *stepSize - дробный множитель, а координаты всегда целочисленные.
+                 *Соответственно если бы отсчёт вёлся не от края виджета, а от конца
+                 *предедущего разделителя, то координаты бы прилось округлять столько
+                 *раз, сколько разделителей в виджете. Погрешность бы накапливалась, и
+                 *скоро разделители бы уже перестали попадать в нужные места. А с
+                 *отсчётом с края виджета округление происходит только 1 раз, при этом
+                 *точно также, как и у заполненной области, что гарантирует, что
+                 *заполненная область при полном значении любого чанка будет идеально
+                 *попадать на середину разделителя.
+                 *
+                 *Также по причине накопления погрешности при множественных округлениях
+                 *заполненная область и не была чётко разделена на чанки, а просто
+                 *синхронизирована с ними.
+                 *
+                 *43 - это отступ от края виджета, до него место занимает декоративный
+                 *элемент. В конце вычитается 5 - большая половина от разделителя для
+                 *того, чтобы он попадал на необходимое значение центром, а не краем.
+                 *Нечётная ширина разделителя не с проста - это декоративная задумка.*/
                 separator->setGeometry(43+ceil(offset*stepSize)-5, 0, 9, 43);
+                //Установка текстуры разделителя
                 separator->setStyleSheet(PB2_StyleMaster::SeparatorStyle());
             }
         }
@@ -552,7 +640,7 @@ void ProgressBar_2::resizeEvent(QResizeEvent *event)
     ui->LabelWithTooltipWrapper->setFixedWidth(this->width());
     ui->SeparatorWrapper->setFixedWidth(this->width());
 
-    //После изменения размера нужно перерисовать тело прогрессбара
+    //После изменения размера нужно перерисовать тело прогрессбара и разделители
     recalculationChunkWidth();
     redrawChunk();
 }

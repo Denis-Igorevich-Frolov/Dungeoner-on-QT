@@ -55,8 +55,6 @@ void ProgressBar_1::setMinValue(int newMinValue)
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
-
-    ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
 }
 
 int ProgressBar_1::getMaxValue() const
@@ -83,8 +81,6 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
-
-    ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
 }
 
 int ProgressBar_1::getValue() const
@@ -104,8 +100,6 @@ void ProgressBar_1::setValue(int newValue)
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
-
-    ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
 }
 
 void ProgressBar_1::setColor(const QColor &newColor)
@@ -136,6 +130,8 @@ void ProgressBar_1::recalculationChunkWidth()
         stepSize = 0.0;
 
     ui->ProgressBarChunk->setFixedWidth(ceil(value*stepSize));
+
+    ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
 }
 
 //Перерисовка заполненной области при помощи тайлящейся окрашенной текстуры
