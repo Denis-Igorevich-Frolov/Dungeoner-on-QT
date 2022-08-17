@@ -417,8 +417,8 @@
   <zorder>ChunkWrapper</zorder>
   <zorder>BordersWrapper</zorder>
   <zorder>ShadowWrapper</zorder>
-  <zorder>TipsWrapper</zorder>
   <zorder>SeparatorWrapper</zorder>
+  <zorder>TipsWrapper</zorder>
   <zorder>LabelWithTooltipWrapper</zorder>
  </widget>
  <customwidgets>

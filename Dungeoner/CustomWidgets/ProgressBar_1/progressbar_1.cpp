@@ -53,7 +53,7 @@ void ProgressBar_1::setMinValue(int newMinValue)
     if(value < minValue)
         setValue(minValue);
 
-    //После изменения диапазона нужно перерисовать тело прогрессбара
+    //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
 
     ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
@@ -66,6 +66,10 @@ int ProgressBar_1::getMaxValue() const
 
 void ProgressBar_1::setMaxValue(int newMaxValue)
 {
+    //Ограничение стата для уменьшения шанса возможных переполнений
+    if(newMaxValue>9999999)
+        newMaxValue = 9999999;
+
     //Максимальное значение не может быть меньше минимального
     if(newMaxValue<minValue)
         maxValue = minValue;
@@ -77,7 +81,7 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
     if(value > maxValue)
         setValue(maxValue);
 
-    //После изменения диапазона нужно перерисовать тело прогрессбара
+    //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
 
     ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
@@ -90,9 +94,6 @@ int ProgressBar_1::getValue() const
 
 void ProgressBar_1::setValue(int newValue)
 {
-    if(newValue>9999999)
-        newValue = 9999999;
-
     //Значение находится в диапазоне от минимального до максимального
     if(newValue>maxValue)
         value = maxValue;
@@ -101,7 +102,7 @@ void ProgressBar_1::setValue(int newValue)
     else
         value = newValue;
 
-    //После изменения значения нужно перерисовать тело прогрессбара
+    //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
 
     ui->labelWithTooltip->setText(QString::number(value)+" / "+QString::number(maxValue));
@@ -110,6 +111,9 @@ void ProgressBar_1::setValue(int newValue)
 void ProgressBar_1::setColor(const QColor &newColor)
 {
     color = newColor;
+
+    //После изменения цвета нужно перерисовать заполненную область
+    redrawChunk();
 }
 
 LabelWithTooltip* ProgressBar_1::getLabelWithTooltip()
@@ -176,7 +180,7 @@ void ProgressBar_1::resizeEvent(QResizeEvent *event)
     ui->ShadowWrapper->setFixedWidth(this->width());
     ui->LabelWithTooltipWrapper->setFixedWidth(this->width());
 
-    //После изменения размера нужно перерисовать тело прогрессбара
+    //После изменения размера нужно перерисовать и пересчитать размер заполненной области
     recalculationChunkWidth();
     redrawChunk();
 }

@@ -61,19 +61,19 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0){
                 if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
                     SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
                     ss->setScrollAreaHeight(ui->ScrollAreaSecondarySkills->height());
                 }else{
-                    //Вывод логов ошибки в консоль и файл
+                    //Вывод предупреждения в консоль и файл
                     QDate cd = QDate::currentDate();
                     QTime ct = QTime::currentTime();
 
                     QString error =
                             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                            "\nОШИБКА: неверный тип данных\n"
-                            "CharacterWindow выдал исключение в методе CharacterWindow.\n"
+                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                            "CharacterWindow выдал предупреждение в методе CharacterWindow.\n"
                             "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
                     qDebug()<<error;
 
@@ -88,6 +88,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
                         errorFile.close();
                     }
                 }
+            }
         }
     }
 }
@@ -112,14 +113,14 @@ void CharacterWindow::setTextPrimarySkillSignature()
              *текст извлекается из динамического свойства виджета Text.*/
             pss->setText(pss->property("Text").toString());
         }else{
-            //Вывод логов ошибки в консоль и файл
+            //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: неверный тип данных\n"
-            "CharacterWindow выдал исключение в методе setTextPrimarySkillSignature.\n"
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе setTextPrimarySkillSignature.\n"
             "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
             qDebug()<<error;
 
@@ -150,14 +151,14 @@ void CharacterWindow::setStyles()
              *шрифта извлекается из динамического свойства виджета fontSize.*/
             sb->setStyleSheet(CW_StyleMaster::SpinBoxStyle(sb->property("fontSize").toInt()));
         }else{
-            //Вывод логов ошибки в консоль и файл
+            //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: неверный тип данных\n"
-            "CharacterWindow выдал исключение в методе setStyles.\n"
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе setStyles.\n"
             "Объект " + autoSB->objectName() + " не является QSpinBox.\n\n";
             qDebug()<<error;
 
@@ -183,7 +184,7 @@ void CharacterWindow::setStyles()
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0){
                 if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
                     SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
                     /*Установка надписи на вторичном навыке и указание размера его шрифта
@@ -191,14 +192,14 @@ void CharacterWindow::setStyles()
                     ss->setInscription(ss->property("Inscription").toString());
                     ss->setFontSize(ss->property("FontSize").toInt());
                 }else{
-                    //Вывод логов ошибки в консоль и файл
+                    //Вывод предупреждения в консоль и файл
                     QDate cd = QDate::currentDate();
                     QTime ct = QTime::currentTime();
 
                     QString error =
                             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                            "\nОШИБКА: неверный тип данных\n"
-                            "CharacterWindow выдал исключение в методе setStyles.\n"
+                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                            "CharacterWindow выдал предупреждение в методе setStyles.\n"
                             "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
                     qDebug()<<error;
 
@@ -213,6 +214,7 @@ void CharacterWindow::setStyles()
                         errorFile.close();
                     }
                 }
+            }
         }
     }
 
@@ -238,16 +240,22 @@ void CharacterWindow::setStyles()
             magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
 
             magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
-            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
+            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),
+            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
+            magicDefenseProgressBar->getProgressBar()->addBonusChunk(QVector<Chunk*>{new Chunk(30,0), new Chunk(30,0), new Chunk(30,0), new Chunk(10,0)});
+            magicDefenseProgressBar->getProgressBar()->HealAllChunk();
+            magicDefenseProgressBar->getProgressBar()->subtractValue(50);
+            magicDefenseProgressBar->getProgressBar()->addValue(41);
+
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
-            //Вывод логов ошибки в консоль и файл
+            //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: неверный тип данных\n"
-            "CharacterWindow выдал исключение в методе setStyles.\n"
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе setStyles.\n"
             "Объект " + autoFrame->objectName() + " не является QFrame.\n\n";
             qDebug()<<error;
 
@@ -282,14 +290,14 @@ void CharacterWindow::associatingLabelsWithValues()
                  *происходит передача в него соответствующего указателя на QSpinBox*/
                 pss->SpinBoxValue = qobject_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i));
             }else{
-                //Вывод логов ошибки в консоль и файл
+                //Вывод предупреждения в консоль и файл
                 QDate cd = QDate::currentDate();
                 QTime ct = QTime::currentTime();
 
                 QString error =
                 cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                "\nОШИБКА: неверный тип данных\n"
-                "CharacterWindow выдал исключение в методе associatingLabelsWithValues.\n"
+                "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
                 "Объект " + ui->PrimarySkillValues->children().at(i)->objectName() + " не является QSpinBox.\n\n";
                 qDebug()<<error;
 
@@ -305,14 +313,14 @@ void CharacterWindow::associatingLabelsWithValues()
                 }
             }
         }else{
-            //Вывод логов ошибки в консоль и файл
+            //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: неверный тип данных\n"
-            "CharacterWindow выдал исключение в методе associatingLabelsWithValues.\n"
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
             "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
             qDebug()<<error;
 
@@ -346,14 +354,14 @@ void CharacterWindow::linkingTooltipSlots()
             connect(pss->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
                     this, &CharacterWindow::RemoveTooltip);
         }else{
-            //Вывод логов ошибки в консоль и файл
+            //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: неверный тип данных\n"
-            "CharacterWindow выдал исключение в методе linkingTooltipSlots.\n"
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе linkingTooltipSlots.\n"
             "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
             qDebug()<<error;
 
@@ -378,7 +386,7 @@ void CharacterWindow::linkingTooltipSlots()
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0){
                 if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
                     SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
                     connect(ss, &SecondarySkill::ShowTooltip,
@@ -386,14 +394,14 @@ void CharacterWindow::linkingTooltipSlots()
                     connect(ss, &SecondarySkill::RemoveTooltip,
                             this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
                 }else{
-                    //Вывод логов ошибки в консоль и файл
+                    //Вывод предупреждения в консоль и файл
                     QDate cd = QDate::currentDate();
                     QTime ct = QTime::currentTime();
 
                     QString error =
                             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                            "\nОШИБКА: неверный тип данных\n"
-                            "CharacterWindow выдал исключение в методе linkingTooltipSlots.\n"
+                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                            "CharacterWindow выдал предупреждение в методе linkingTooltipSlots.\n"
                             "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
                     qDebug()<<error;
 
@@ -408,6 +416,7 @@ void CharacterWindow::linkingTooltipSlots()
                         errorFile.close();
                     }
                 }
+            }
         }
     }
 
@@ -427,14 +436,14 @@ void CharacterWindow::linkingTooltipSlots()
             connect(magicDefenseProgressBar->getProgressBar()->getLabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
                     this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
-            //Вывод логов ошибки в консоль и файл
+            //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
 
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: неверный тип данных\n"
-            "CharacterWindow выдал исключение в методе setStyles.\n"
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе setStyles.\n"
             "Объект " + autoFrame->objectName() + " не является QFrame.\n\n";
             qDebug()<<error;
 
@@ -500,19 +509,19 @@ void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
     {
         for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
         {
-            if(secondarySkillsGrid->itemAtPosition(row, column)!=0)
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0){
                 if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
                     SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
                     ss->setScrollAreaOffset(value);
                 }else{
-                    //Вывод логов ошибки в консоль и файл
+                    //Вывод предупреждения в консоль и файл
                     QDate cd = QDate::currentDate();
                     QTime ct = QTime::currentTime();
 
                     QString error =
                             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                            "\nОШИБКА: неверный тип данных\n"
-                            "CharacterWindow выдал исключение в методе on_verticalScrollBar_valueChanged.\n"
+                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                            "CharacterWindow выдал предупреждение в методе on_verticalScrollBar_valueChanged.\n"
                             "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
                     qDebug()<<error;
 
@@ -527,6 +536,7 @@ void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
                         errorFile.close();
                     }
                 }
+            }
         }
     }
 }

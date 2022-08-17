@@ -193,8 +193,8 @@ public:
         ChunkWrapper->raise();
         BordersWrapper->raise();
         ShadowWrapper->raise();
-        TipsWrapper->raise();
         SeparatorWrapper->raise();
+        TipsWrapper->raise();
         LabelWithTooltipWrapper->raise();
 
         retranslateUi(ProgressBar_2);
