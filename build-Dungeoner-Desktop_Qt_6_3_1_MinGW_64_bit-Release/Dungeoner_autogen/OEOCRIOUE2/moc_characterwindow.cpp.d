@@ -1,5 +1,7 @@
 E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/Dungeoner_autogen/OEOCRIOUE2/moc_characterwindow.cpp: E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.h \
   E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/Dungeoner_autogen/moc_predefs.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qanystringview.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qarraydata.h \
@@ -40,6 +42,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmargins.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmath.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmetacontainer.h \
+  E:/Qt/6.3.1/mingw_64/include/QtCore/qmetaobject.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qmetatype.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qnamespace.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qnumeric.h \
@@ -76,10 +79,12 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.3.1/mingw_64/include/QtCore/qtextstream.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qtmetamacros.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qtypeinfo.h \
+  E:/Qt/6.3.1/mingw_64/include/QtCore/qurl.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qutf8stringview.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qvariant.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qvarlengtharray.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qversiontagging.h \
+  E:/Qt/6.3.1/mingw_64/include/QtGui/QFont \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qaction.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qbitmap.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qbrush.h \
@@ -105,6 +110,15 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtransform.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qwindowdefs_win.h \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/QAudioOutput \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/QMediaPlayer \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qaudio.h \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qaudiooutput.h \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qmediaenumdebug.h \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qmediaplayer.h \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+  E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qtwidgets-config.h \

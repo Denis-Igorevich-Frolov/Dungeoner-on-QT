@@ -9,18 +9,19 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
+#include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
-#include <CustomWidgets/ProgressBar_1/progressbar_1.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
+#include <CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
-#include <QtWidgets/QSlider>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
@@ -31,11 +32,13 @@ QT_BEGIN_NAMESPACE
 class Ui_CharacterWindow
 {
 public:
-    ProgressBar_1 *widget;
-    QSlider *horizontalSlider;
     QFrame *TopMenuWrapper;
     QVBoxLayout *verticalLayout_3;
     QFrame *TopMenu;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
+    QPushButton *pushButton_4;
     QLabel *TopMenuBorder;
     QFrame *SkillsWraper;
     QVBoxLayout *verticalLayout;
@@ -70,48 +73,53 @@ public:
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_2;
     QGridLayout *SecondarySkills;
-    SecondarySkill *MagicTechniqueCastChance;
-    SecondarySkill *Stealth;
-    SecondarySkill *ResistPhysicalEffects;
-    SecondarySkill *MagicAccuracy;
+    SecondarySkill *MeleeAccuracy;
     SecondarySkill *ResistMagicDamage;
     SecondarySkill *MagicCastChance;
-    SecondarySkill *ResistMagicEffects;
     SecondarySkill *LoadCapacity;
+    SecondarySkill *Attentiveness;
+    SecondarySkill *MagicDamage;
+    SecondarySkill *Initiative;
     SecondarySkill *ResistPhysicalDamage;
     SecondarySkill *Evasion;
-    SecondarySkill *Initiative;
-    SecondarySkill *ChanceToUseCombat;
-    SecondarySkill *Attentiveness;
-    SecondarySkill *PhysicalDamage;
-    SecondarySkill *StrengtheningMagicalEffects;
-    SecondarySkill *RangedAccuracy;
-    SecondarySkill *MagicDamage;
-    SecondarySkill *TravelRange;
+    SecondarySkill *MagicAccuracy;
     SecondarySkill *StrengtheningPhysicalEffects;
-    SecondarySkill *MeleeAccuracy;
+    SecondarySkill *ResistPhysicalEffects;
+    SecondarySkill *StrengtheningMagicalEffects;
+    SecondarySkill *ChanceOfUsingCombatTechnique;
+    SecondarySkill *ResistMagicEffects;
+    SecondarySkill *RangedAccuracy;
+    SecondarySkill *Stealth;
+    SecondarySkill *PhysicalDamage;
+    SecondarySkill *MoveRange;
     QFrame *SecondarySkillsShadowBottom;
     QFrame *SecondarySkillsShadowTop;
     QScrollBar *verticalScrollBar;
+    QFrame *ProgressBars;
+    QVBoxLayout *verticalLayout_5;
+    SecondarySkillProgressBar *Health;
+    SecondarySkillProgressBar *Endurance;
+    SecondarySkillProgressBar *Mana;
+    MagicDefenseProgressBar *MagicDefense;
+    QFrame *BottomBoundWrapper;
+    QVBoxLayout *verticalLayout_4;
+    QFrame *DecorativeElementWrapper;
+    QLabel *label;
+    QLabel *label_2;
+    QLabel *label_3;
+    QLabel *label_4;
+    QLabel *BottomBorder;
+    QLabel *BottomBound;
 
     void setupUi(QWidget *CharacterWindow)
     {
         if (CharacterWindow->objectName().isEmpty())
             CharacterWindow->setObjectName(QString::fromUtf8("CharacterWindow"));
-        CharacterWindow->resize(1920, 707);
+        CharacterWindow->resize(1920, 1080);
         CharacterWindow->setFocusPolicy(Qt::StrongFocus);
         CharacterWindow->setStyleSheet(QString::fromUtf8("#CharacterWindow{\n"
 "	background: #130a0f;\n"
 "}"));
-        widget = new ProgressBar_1(CharacterWindow);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(860, 140, 471, 101));
-        widget->setStyleSheet(QString::fromUtf8(""));
-        horizontalSlider = new QSlider(CharacterWindow);
-        horizontalSlider->setObjectName(QString::fromUtf8("horizontalSlider"));
-        horizontalSlider->setGeometry(QRect(890, 290, 441, 16));
-        horizontalSlider->setMaximum(100);
-        horizontalSlider->setOrientation(Qt::Horizontal);
         TopMenuWrapper = new QFrame(CharacterWindow);
         TopMenuWrapper->setObjectName(QString::fromUtf8("TopMenuWrapper"));
         TopMenuWrapper->setGeometry(QRect(-1, -1, 1922, 89));
@@ -129,6 +137,22 @@ public:
         TopMenu->setFrameShape(QFrame::StyledPanel);
         TopMenu->setFrameShadow(QFrame::Raised);
         TopMenu->setLineWidth(0);
+        pushButton = new QPushButton(TopMenu);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(340, 20, 80, 24));
+        pushButton->setStyleSheet(QString::fromUtf8("background: white;"));
+        pushButton_2 = new QPushButton(TopMenu);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(430, 20, 80, 24));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background: white;"));
+        pushButton_3 = new QPushButton(TopMenu);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(520, 20, 80, 24));
+        pushButton_3->setStyleSheet(QString::fromUtf8("background: white;"));
+        pushButton_4 = new QPushButton(TopMenu);
+        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_4->setGeometry(QRect(660, 10, 161, 41));
+        pushButton_4->setStyleSheet(QString::fromUtf8("background:white;"));
 
         verticalLayout_3->addWidget(TopMenu);
 
@@ -178,6 +202,7 @@ public:
         StrengthPrimarySkillSignature->setSizePolicy(sizePolicy1);
         StrengthPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         StrengthPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        StrengthPrimarySkillSignature->setMouseTracking(false);
         StrengthPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         AgilityPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         AgilityPrimarySkillSignature->setObjectName(QString::fromUtf8("AgilityPrimarySkillSignature"));
@@ -186,6 +211,7 @@ public:
         AgilityPrimarySkillSignature->setSizePolicy(sizePolicy1);
         AgilityPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         AgilityPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        AgilityPrimarySkillSignature->setMouseTracking(false);
         AgilityPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         IntelligencePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         IntelligencePrimarySkillSignature->setObjectName(QString::fromUtf8("IntelligencePrimarySkillSignature"));
@@ -194,6 +220,7 @@ public:
         IntelligencePrimarySkillSignature->setSizePolicy(sizePolicy1);
         IntelligencePrimarySkillSignature->setMinimumSize(QSize(111, 58));
         IntelligencePrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        IntelligencePrimarySkillSignature->setMouseTracking(false);
         IntelligencePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         MagicPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         MagicPrimarySkillSignature->setObjectName(QString::fromUtf8("MagicPrimarySkillSignature"));
@@ -202,6 +229,7 @@ public:
         MagicPrimarySkillSignature->setSizePolicy(sizePolicy1);
         MagicPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         MagicPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        MagicPrimarySkillSignature->setMouseTracking(false);
         MagicPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         BodyTypePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         BodyTypePrimarySkillSignature->setObjectName(QString::fromUtf8("BodyTypePrimarySkillSignature"));
@@ -210,6 +238,7 @@ public:
         BodyTypePrimarySkillSignature->setSizePolicy(sizePolicy1);
         BodyTypePrimarySkillSignature->setMinimumSize(QSize(111, 58));
         BodyTypePrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        BodyTypePrimarySkillSignature->setMouseTracking(false);
         BodyTypePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         WillPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         WillPrimarySkillSignature->setObjectName(QString::fromUtf8("WillPrimarySkillSignature"));
@@ -218,6 +247,7 @@ public:
         WillPrimarySkillSignature->setSizePolicy(sizePolicy1);
         WillPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         WillPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        WillPrimarySkillSignature->setMouseTracking(false);
         WillPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
 
         PrimarySkillWrapperL->addWidget(PrimarySkillSignatures);
@@ -418,52 +448,19 @@ public:
         SecondarySkills->setSpacing(8);
         SecondarySkills->setObjectName(QString::fromUtf8("SecondarySkills"));
         SecondarySkills->setSizeConstraint(QLayout::SetDefaultConstraint);
-        MagicTechniqueCastChance = new SecondarySkill(scrollAreaWidgetContents);
-        MagicTechniqueCastChance->setObjectName(QString::fromUtf8("MagicTechniqueCastChance"));
+        MeleeAccuracy = new SecondarySkill(scrollAreaWidgetContents);
+        MeleeAccuracy->setObjectName(QString::fromUtf8("MeleeAccuracy"));
         QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Preferred);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(MagicTechniqueCastChance->sizePolicy().hasHeightForWidth());
-        MagicTechniqueCastChance->setSizePolicy(sizePolicy3);
-        MagicTechniqueCastChance->setMinimumSize(QSize(303, 70));
-        MagicTechniqueCastChance->setMaximumSize(QSize(303, 70));
-        MagicTechniqueCastChance->setStyleSheet(QString::fromUtf8("background:black;"));
-        MagicTechniqueCastChance->setProperty("FontSize", QVariant(16));
+        sizePolicy3.setHeightForWidth(MeleeAccuracy->sizePolicy().hasHeightForWidth());
+        MeleeAccuracy->setSizePolicy(sizePolicy3);
+        MeleeAccuracy->setMinimumSize(QSize(303, 70));
+        MeleeAccuracy->setMaximumSize(QSize(303, 70));
+        MeleeAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
+        MeleeAccuracy->setProperty("FontSize", QVariant(19));
 
-        SecondarySkills->addWidget(MagicTechniqueCastChance, 9, 0, 1, 1);
-
-        Stealth = new SecondarySkill(scrollAreaWidgetContents);
-        Stealth->setObjectName(QString::fromUtf8("Stealth"));
-        sizePolicy3.setHeightForWidth(Stealth->sizePolicy().hasHeightForWidth());
-        Stealth->setSizePolicy(sizePolicy3);
-        Stealth->setMinimumSize(QSize(303, 70));
-        Stealth->setMaximumSize(QSize(303, 70));
-        Stealth->setStyleSheet(QString::fromUtf8("background:black;"));
-        Stealth->setProperty("FontSize", QVariant(20));
-
-        SecondarySkills->addWidget(Stealth, 6, 0, 1, 1);
-
-        ResistPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
-        ResistPhysicalEffects->setObjectName(QString::fromUtf8("ResistPhysicalEffects"));
-        sizePolicy3.setHeightForWidth(ResistPhysicalEffects->sizePolicy().hasHeightForWidth());
-        ResistPhysicalEffects->setSizePolicy(sizePolicy3);
-        ResistPhysicalEffects->setMinimumSize(QSize(303, 70));
-        ResistPhysicalEffects->setMaximumSize(QSize(303, 70));
-        ResistPhysicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
-        ResistPhysicalEffects->setProperty("FontSize", QVariant(18));
-
-        SecondarySkills->addWidget(ResistPhysicalEffects, 2, 0, 1, 1);
-
-        MagicAccuracy = new SecondarySkill(scrollAreaWidgetContents);
-        MagicAccuracy->setObjectName(QString::fromUtf8("MagicAccuracy"));
-        sizePolicy3.setHeightForWidth(MagicAccuracy->sizePolicy().hasHeightForWidth());
-        MagicAccuracy->setSizePolicy(sizePolicy3);
-        MagicAccuracy->setMinimumSize(QSize(303, 70));
-        MagicAccuracy->setMaximumSize(QSize(303, 70));
-        MagicAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
-        MagicAccuracy->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(MagicAccuracy, 5, 0, 1, 1);
+        SecondarySkills->addWidget(MeleeAccuracy, 4, 0, 1, 1);
 
         ResistMagicDamage = new SecondarySkill(scrollAreaWidgetContents);
         ResistMagicDamage->setObjectName(QString::fromUtf8("ResistMagicDamage"));
@@ -487,17 +484,6 @@ public:
 
         SecondarySkills->addWidget(MagicCastChance, 8, 0, 1, 1);
 
-        ResistMagicEffects = new SecondarySkill(scrollAreaWidgetContents);
-        ResistMagicEffects->setObjectName(QString::fromUtf8("ResistMagicEffects"));
-        sizePolicy3.setHeightForWidth(ResistMagicEffects->sizePolicy().hasHeightForWidth());
-        ResistMagicEffects->setSizePolicy(sizePolicy3);
-        ResistMagicEffects->setMinimumSize(QSize(303, 70));
-        ResistMagicEffects->setMaximumSize(QSize(303, 70));
-        ResistMagicEffects->setStyleSheet(QString::fromUtf8("background:black;"));
-        ResistMagicEffects->setProperty("FontSize", QVariant(18));
-
-        SecondarySkills->addWidget(ResistMagicEffects, 2, 1, 1, 1);
-
         LoadCapacity = new SecondarySkill(scrollAreaWidgetContents);
         LoadCapacity->setObjectName(QString::fromUtf8("LoadCapacity"));
         sizePolicy3.setHeightForWidth(LoadCapacity->sizePolicy().hasHeightForWidth());
@@ -508,6 +494,39 @@ public:
         LoadCapacity->setProperty("FontSize", QVariant(16));
 
         SecondarySkills->addWidget(LoadCapacity, 7, 0, 1, 1);
+
+        Attentiveness = new SecondarySkill(scrollAreaWidgetContents);
+        Attentiveness->setObjectName(QString::fromUtf8("Attentiveness"));
+        sizePolicy3.setHeightForWidth(Attentiveness->sizePolicy().hasHeightForWidth());
+        Attentiveness->setSizePolicy(sizePolicy3);
+        Attentiveness->setMinimumSize(QSize(303, 70));
+        Attentiveness->setMaximumSize(QSize(303, 70));
+        Attentiveness->setStyleSheet(QString::fromUtf8("background:black;"));
+        Attentiveness->setProperty("FontSize", QVariant(17));
+
+        SecondarySkills->addWidget(Attentiveness, 6, 1, 1, 1);
+
+        MagicDamage = new SecondarySkill(scrollAreaWidgetContents);
+        MagicDamage->setObjectName(QString::fromUtf8("MagicDamage"));
+        sizePolicy3.setHeightForWidth(MagicDamage->sizePolicy().hasHeightForWidth());
+        MagicDamage->setSizePolicy(sizePolicy3);
+        MagicDamage->setMinimumSize(QSize(303, 70));
+        MagicDamage->setMaximumSize(QSize(303, 70));
+        MagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
+        MagicDamage->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(MagicDamage, 0, 1, 1, 1);
+
+        Initiative = new SecondarySkill(scrollAreaWidgetContents);
+        Initiative->setObjectName(QString::fromUtf8("Initiative"));
+        sizePolicy3.setHeightForWidth(Initiative->sizePolicy().hasHeightForWidth());
+        Initiative->setSizePolicy(sizePolicy3);
+        Initiative->setMinimumSize(QSize(303, 70));
+        Initiative->setMaximumSize(QSize(303, 70));
+        Initiative->setStyleSheet(QString::fromUtf8("background:black;"));
+        Initiative->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(Initiative, 7, 1, 1, 1);
 
         ResistPhysicalDamage = new SecondarySkill(scrollAreaWidgetContents);
         ResistPhysicalDamage->setObjectName(QString::fromUtf8("ResistPhysicalDamage"));
@@ -531,93 +550,16 @@ public:
 
         SecondarySkills->addWidget(Evasion, 5, 1, 1, 1);
 
-        Initiative = new SecondarySkill(scrollAreaWidgetContents);
-        Initiative->setObjectName(QString::fromUtf8("Initiative"));
-        sizePolicy3.setHeightForWidth(Initiative->sizePolicy().hasHeightForWidth());
-        Initiative->setSizePolicy(sizePolicy3);
-        Initiative->setMinimumSize(QSize(303, 70));
-        Initiative->setMaximumSize(QSize(303, 70));
-        Initiative->setStyleSheet(QString::fromUtf8("background:black;"));
-        Initiative->setProperty("FontSize", QVariant(19));
+        MagicAccuracy = new SecondarySkill(scrollAreaWidgetContents);
+        MagicAccuracy->setObjectName(QString::fromUtf8("MagicAccuracy"));
+        sizePolicy3.setHeightForWidth(MagicAccuracy->sizePolicy().hasHeightForWidth());
+        MagicAccuracy->setSizePolicy(sizePolicy3);
+        MagicAccuracy->setMinimumSize(QSize(303, 70));
+        MagicAccuracy->setMaximumSize(QSize(303, 70));
+        MagicAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
+        MagicAccuracy->setProperty("FontSize", QVariant(19));
 
-        SecondarySkills->addWidget(Initiative, 7, 1, 1, 1);
-
-        ChanceToUseCombat = new SecondarySkill(scrollAreaWidgetContents);
-        ChanceToUseCombat->setObjectName(QString::fromUtf8("ChanceToUseCombat"));
-        sizePolicy3.setHeightForWidth(ChanceToUseCombat->sizePolicy().hasHeightForWidth());
-        ChanceToUseCombat->setSizePolicy(sizePolicy3);
-        ChanceToUseCombat->setMinimumSize(QSize(303, 70));
-        ChanceToUseCombat->setMaximumSize(QSize(303, 70));
-        ChanceToUseCombat->setStyleSheet(QString::fromUtf8("background:black;"));
-        ChanceToUseCombat->setProperty("FontSize", QVariant(16));
-
-        SecondarySkills->addWidget(ChanceToUseCombat, 8, 1, 1, 1);
-
-        Attentiveness = new SecondarySkill(scrollAreaWidgetContents);
-        Attentiveness->setObjectName(QString::fromUtf8("Attentiveness"));
-        sizePolicy3.setHeightForWidth(Attentiveness->sizePolicy().hasHeightForWidth());
-        Attentiveness->setSizePolicy(sizePolicy3);
-        Attentiveness->setMinimumSize(QSize(303, 70));
-        Attentiveness->setMaximumSize(QSize(303, 70));
-        Attentiveness->setStyleSheet(QString::fromUtf8("background:black;"));
-        Attentiveness->setProperty("FontSize", QVariant(17));
-
-        SecondarySkills->addWidget(Attentiveness, 6, 1, 1, 1);
-
-        PhysicalDamage = new SecondarySkill(scrollAreaWidgetContents);
-        PhysicalDamage->setObjectName(QString::fromUtf8("PhysicalDamage"));
-        sizePolicy3.setHeightForWidth(PhysicalDamage->sizePolicy().hasHeightForWidth());
-        PhysicalDamage->setSizePolicy(sizePolicy3);
-        PhysicalDamage->setMinimumSize(QSize(303, 70));
-        PhysicalDamage->setMaximumSize(QSize(303, 70));
-        PhysicalDamage->setStyleSheet(QString::fromUtf8("background:black;"));
-        PhysicalDamage->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(PhysicalDamage, 0, 0, 1, 1);
-
-        StrengtheningMagicalEffects = new SecondarySkill(scrollAreaWidgetContents);
-        StrengtheningMagicalEffects->setObjectName(QString::fromUtf8("StrengtheningMagicalEffects"));
-        sizePolicy3.setHeightForWidth(StrengtheningMagicalEffects->sizePolicy().hasHeightForWidth());
-        StrengtheningMagicalEffects->setSizePolicy(sizePolicy3);
-        StrengtheningMagicalEffects->setMinimumSize(QSize(303, 70));
-        StrengtheningMagicalEffects->setMaximumSize(QSize(303, 70));
-        StrengtheningMagicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
-        StrengtheningMagicalEffects->setProperty("FontSize", QVariant(18));
-
-        SecondarySkills->addWidget(StrengtheningMagicalEffects, 3, 1, 1, 1);
-
-        RangedAccuracy = new SecondarySkill(scrollAreaWidgetContents);
-        RangedAccuracy->setObjectName(QString::fromUtf8("RangedAccuracy"));
-        sizePolicy3.setHeightForWidth(RangedAccuracy->sizePolicy().hasHeightForWidth());
-        RangedAccuracy->setSizePolicy(sizePolicy3);
-        RangedAccuracy->setMinimumSize(QSize(303, 70));
-        RangedAccuracy->setMaximumSize(QSize(303, 70));
-        RangedAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
-        RangedAccuracy->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(RangedAccuracy, 4, 1, 1, 1);
-
-        MagicDamage = new SecondarySkill(scrollAreaWidgetContents);
-        MagicDamage->setObjectName(QString::fromUtf8("MagicDamage"));
-        sizePolicy3.setHeightForWidth(MagicDamage->sizePolicy().hasHeightForWidth());
-        MagicDamage->setSizePolicy(sizePolicy3);
-        MagicDamage->setMinimumSize(QSize(303, 70));
-        MagicDamage->setMaximumSize(QSize(303, 70));
-        MagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
-        MagicDamage->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(MagicDamage, 0, 1, 1, 1);
-
-        TravelRange = new SecondarySkill(scrollAreaWidgetContents);
-        TravelRange->setObjectName(QString::fromUtf8("TravelRange"));
-        sizePolicy3.setHeightForWidth(TravelRange->sizePolicy().hasHeightForWidth());
-        TravelRange->setSizePolicy(sizePolicy3);
-        TravelRange->setMinimumSize(QSize(303, 70));
-        TravelRange->setMaximumSize(QSize(303, 70));
-        TravelRange->setStyleSheet(QString::fromUtf8("background:black;"));
-        TravelRange->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(TravelRange, 9, 1, 1, 1);
+        SecondarySkills->addWidget(MagicAccuracy, 5, 0, 1, 1);
 
         StrengtheningPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
         StrengtheningPhysicalEffects->setObjectName(QString::fromUtf8("StrengtheningPhysicalEffects"));
@@ -630,16 +572,93 @@ public:
 
         SecondarySkills->addWidget(StrengtheningPhysicalEffects, 3, 0, 1, 1);
 
-        MeleeAccuracy = new SecondarySkill(scrollAreaWidgetContents);
-        MeleeAccuracy->setObjectName(QString::fromUtf8("MeleeAccuracy"));
-        sizePolicy3.setHeightForWidth(MeleeAccuracy->sizePolicy().hasHeightForWidth());
-        MeleeAccuracy->setSizePolicy(sizePolicy3);
-        MeleeAccuracy->setMinimumSize(QSize(303, 70));
-        MeleeAccuracy->setMaximumSize(QSize(303, 70));
-        MeleeAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
-        MeleeAccuracy->setProperty("FontSize", QVariant(19));
+        ResistPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
+        ResistPhysicalEffects->setObjectName(QString::fromUtf8("ResistPhysicalEffects"));
+        sizePolicy3.setHeightForWidth(ResistPhysicalEffects->sizePolicy().hasHeightForWidth());
+        ResistPhysicalEffects->setSizePolicy(sizePolicy3);
+        ResistPhysicalEffects->setMinimumSize(QSize(303, 70));
+        ResistPhysicalEffects->setMaximumSize(QSize(303, 70));
+        ResistPhysicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
+        ResistPhysicalEffects->setProperty("FontSize", QVariant(18));
 
-        SecondarySkills->addWidget(MeleeAccuracy, 4, 0, 1, 1);
+        SecondarySkills->addWidget(ResistPhysicalEffects, 2, 0, 1, 1);
+
+        StrengtheningMagicalEffects = new SecondarySkill(scrollAreaWidgetContents);
+        StrengtheningMagicalEffects->setObjectName(QString::fromUtf8("StrengtheningMagicalEffects"));
+        sizePolicy3.setHeightForWidth(StrengtheningMagicalEffects->sizePolicy().hasHeightForWidth());
+        StrengtheningMagicalEffects->setSizePolicy(sizePolicy3);
+        StrengtheningMagicalEffects->setMinimumSize(QSize(303, 70));
+        StrengtheningMagicalEffects->setMaximumSize(QSize(303, 70));
+        StrengtheningMagicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
+        StrengtheningMagicalEffects->setProperty("FontSize", QVariant(18));
+
+        SecondarySkills->addWidget(StrengtheningMagicalEffects, 3, 1, 1, 1);
+
+        ChanceOfUsingCombatTechnique = new SecondarySkill(scrollAreaWidgetContents);
+        ChanceOfUsingCombatTechnique->setObjectName(QString::fromUtf8("ChanceOfUsingCombatTechnique"));
+        sizePolicy3.setHeightForWidth(ChanceOfUsingCombatTechnique->sizePolicy().hasHeightForWidth());
+        ChanceOfUsingCombatTechnique->setSizePolicy(sizePolicy3);
+        ChanceOfUsingCombatTechnique->setMinimumSize(QSize(303, 70));
+        ChanceOfUsingCombatTechnique->setMaximumSize(QSize(303, 70));
+        ChanceOfUsingCombatTechnique->setStyleSheet(QString::fromUtf8("background:black;"));
+        ChanceOfUsingCombatTechnique->setProperty("FontSize", QVariant(18));
+
+        SecondarySkills->addWidget(ChanceOfUsingCombatTechnique, 8, 1, 1, 1);
+
+        ResistMagicEffects = new SecondarySkill(scrollAreaWidgetContents);
+        ResistMagicEffects->setObjectName(QString::fromUtf8("ResistMagicEffects"));
+        sizePolicy3.setHeightForWidth(ResistMagicEffects->sizePolicy().hasHeightForWidth());
+        ResistMagicEffects->setSizePolicy(sizePolicy3);
+        ResistMagicEffects->setMinimumSize(QSize(303, 70));
+        ResistMagicEffects->setMaximumSize(QSize(303, 70));
+        ResistMagicEffects->setStyleSheet(QString::fromUtf8("background:black;"));
+        ResistMagicEffects->setProperty("FontSize", QVariant(18));
+
+        SecondarySkills->addWidget(ResistMagicEffects, 2, 1, 1, 1);
+
+        RangedAccuracy = new SecondarySkill(scrollAreaWidgetContents);
+        RangedAccuracy->setObjectName(QString::fromUtf8("RangedAccuracy"));
+        sizePolicy3.setHeightForWidth(RangedAccuracy->sizePolicy().hasHeightForWidth());
+        RangedAccuracy->setSizePolicy(sizePolicy3);
+        RangedAccuracy->setMinimumSize(QSize(303, 70));
+        RangedAccuracy->setMaximumSize(QSize(303, 70));
+        RangedAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
+        RangedAccuracy->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(RangedAccuracy, 4, 1, 1, 1);
+
+        Stealth = new SecondarySkill(scrollAreaWidgetContents);
+        Stealth->setObjectName(QString::fromUtf8("Stealth"));
+        sizePolicy3.setHeightForWidth(Stealth->sizePolicy().hasHeightForWidth());
+        Stealth->setSizePolicy(sizePolicy3);
+        Stealth->setMinimumSize(QSize(303, 70));
+        Stealth->setMaximumSize(QSize(303, 70));
+        Stealth->setStyleSheet(QString::fromUtf8("background:black;"));
+        Stealth->setProperty("FontSize", QVariant(20));
+
+        SecondarySkills->addWidget(Stealth, 6, 0, 1, 1);
+
+        PhysicalDamage = new SecondarySkill(scrollAreaWidgetContents);
+        PhysicalDamage->setObjectName(QString::fromUtf8("PhysicalDamage"));
+        sizePolicy3.setHeightForWidth(PhysicalDamage->sizePolicy().hasHeightForWidth());
+        PhysicalDamage->setSizePolicy(sizePolicy3);
+        PhysicalDamage->setMinimumSize(QSize(303, 70));
+        PhysicalDamage->setMaximumSize(QSize(303, 70));
+        PhysicalDamage->setStyleSheet(QString::fromUtf8("background:black;"));
+        PhysicalDamage->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(PhysicalDamage, 0, 0, 1, 1);
+
+        MoveRange = new SecondarySkill(scrollAreaWidgetContents);
+        MoveRange->setObjectName(QString::fromUtf8("MoveRange"));
+        sizePolicy3.setHeightForWidth(MoveRange->sizePolicy().hasHeightForWidth());
+        MoveRange->setSizePolicy(sizePolicy3);
+        MoveRange->setMinimumSize(QSize(303, 70));
+        MoveRange->setMaximumSize(QSize(303, 70));
+        MoveRange->setStyleSheet(QString::fromUtf8("background:black;"));
+        MoveRange->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(MoveRange, 9, 0, 1, 1, Qt::AlignLeft);
 
 
         verticalLayout_2->addLayout(SecondarySkills);
@@ -648,14 +667,14 @@ public:
         SecondarySkillsShadowBottom = new QFrame(ScrollAreaWraper);
         SecondarySkillsShadowBottom->setObjectName(QString::fromUtf8("SecondarySkillsShadowBottom"));
         SecondarySkillsShadowBottom->setEnabled(false);
-        SecondarySkillsShadowBottom->setGeometry(QRect(0, 387, 614, 7));
+        SecondarySkillsShadowBottom->setGeometry(QRect(0, 387, 616, 7));
         SecondarySkillsShadowBottom->setStyleSheet(QString::fromUtf8("background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(0, 0, 0, 165))"));
         SecondarySkillsShadowBottom->setFrameShape(QFrame::StyledPanel);
         SecondarySkillsShadowBottom->setFrameShadow(QFrame::Raised);
         SecondarySkillsShadowTop = new QFrame(ScrollAreaWraper);
         SecondarySkillsShadowTop->setObjectName(QString::fromUtf8("SecondarySkillsShadowTop"));
         SecondarySkillsShadowTop->setEnabled(false);
-        SecondarySkillsShadowTop->setGeometry(QRect(0, 0, 614, 7));
+        SecondarySkillsShadowTop->setGeometry(QRect(0, 0, 616, 7));
         SecondarySkillsShadowTop->setStyleSheet(QString::fromUtf8("background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 162), stop:1 rgba(255, 255, 255, 0))"));
         SecondarySkillsShadowTop->setFrameShape(QFrame::StyledPanel);
         SecondarySkillsShadowTop->setFrameShadow(QFrame::Raised);
@@ -669,7 +688,7 @@ public:
         verticalScrollBar->setStyleSheet(QString::fromUtf8(""));
         verticalScrollBar->setMaximum(377);
         verticalScrollBar->setSingleStep(76);
-        verticalScrollBar->setPageStep(76);
+        verticalScrollBar->setPageStep(18);
         verticalScrollBar->setOrientation(Qt::Vertical);
 
         horizontalLayout->addWidget(verticalScrollBar);
@@ -677,6 +696,97 @@ public:
 
         verticalLayout->addWidget(SecondarySkillsWraper);
 
+        ProgressBars = new QFrame(CharacterWindow);
+        ProgressBars->setObjectName(QString::fromUtf8("ProgressBars"));
+        ProgressBars->setGeometry(QRect(48, 685, 736, 361));
+        ProgressBars->setFrameShape(QFrame::StyledPanel);
+        ProgressBars->setFrameShadow(QFrame::Raised);
+        verticalLayout_5 = new QVBoxLayout(ProgressBars);
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
+        Health = new SecondarySkillProgressBar(ProgressBars);
+        Health->setObjectName(QString::fromUtf8("Health"));
+        Health->setMinimumSize(QSize(734, 87));
+        Health->setMaximumSize(QSize(734, 87));
+
+        verticalLayout_5->addWidget(Health);
+
+        Endurance = new SecondarySkillProgressBar(ProgressBars);
+        Endurance->setObjectName(QString::fromUtf8("Endurance"));
+        Endurance->setMinimumSize(QSize(734, 87));
+        Endurance->setMaximumSize(QSize(734, 87));
+
+        verticalLayout_5->addWidget(Endurance);
+
+        Mana = new SecondarySkillProgressBar(ProgressBars);
+        Mana->setObjectName(QString::fromUtf8("Mana"));
+        Mana->setMinimumSize(QSize(734, 87));
+        Mana->setMaximumSize(QSize(734, 87));
+
+        verticalLayout_5->addWidget(Mana);
+
+        MagicDefense = new MagicDefenseProgressBar(ProgressBars);
+        MagicDefense->setObjectName(QString::fromUtf8("MagicDefense"));
+        MagicDefense->setMinimumSize(QSize(734, 80));
+        MagicDefense->setMaximumSize(QSize(734, 80));
+
+        verticalLayout_5->addWidget(MagicDefense);
+
+        BottomBoundWrapper = new QFrame(CharacterWindow);
+        BottomBoundWrapper->setObjectName(QString::fromUtf8("BottomBoundWrapper"));
+        BottomBoundWrapper->setGeometry(QRect(-1, 1045, 1922, 37));
+        BottomBoundWrapper->setFrameShape(QFrame::StyledPanel);
+        BottomBoundWrapper->setFrameShadow(QFrame::Raised);
+        verticalLayout_4 = new QVBoxLayout(BottomBoundWrapper);
+        verticalLayout_4->setSpacing(0);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(0, 0, 0, 0);
+        DecorativeElementWrapper = new QFrame(BottomBoundWrapper);
+        DecorativeElementWrapper->setObjectName(QString::fromUtf8("DecorativeElementWrapper"));
+        DecorativeElementWrapper->setMinimumSize(QSize(0, 10));
+        DecorativeElementWrapper->setMaximumSize(QSize(16777215, 10));
+        DecorativeElementWrapper->setFrameShape(QFrame::StyledPanel);
+        DecorativeElementWrapper->setFrameShadow(QFrame::Raised);
+        label = new QLabel(DecorativeElementWrapper);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(9, 0, 43, 10));
+        label->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);"));
+        label_2 = new QLabel(DecorativeElementWrapper);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(776, 0, 43, 10));
+        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);"));
+        label_3 = new QLabel(DecorativeElementWrapper);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(1868, 0, 43, 10));
+        label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);"));
+        label_4 = new QLabel(DecorativeElementWrapper);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(1101, 0, 43, 10));
+        label_4->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);"));
+
+        verticalLayout_4->addWidget(DecorativeElementWrapper);
+
+        BottomBorder = new QLabel(BottomBoundWrapper);
+        BottomBorder->setObjectName(QString::fromUtf8("BottomBorder"));
+        BottomBorder->setMinimumSize(QSize(0, 3));
+        BottomBorder->setMaximumSize(QSize(16777215, 3));
+        BottomBorder->setStyleSheet(QString::fromUtf8("background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(174, 156, 82, 255), stop:0.337079 rgba(174, 156, 82, 255), stop:0.339799 rgba(190, 195, 64, 255), stop:0.657303 rgba(190, 195, 64, 255), stop:0.662469 rgba(131, 118, 63, 255), stop:1 rgba(131, 118, 63, 255))"));
+
+        verticalLayout_4->addWidget(BottomBorder);
+
+        BottomBound = new QLabel(BottomBoundWrapper);
+        BottomBound->setObjectName(QString::fromUtf8("BottomBound"));
+        BottomBound->setMinimumSize(QSize(0, 23));
+        BottomBound->setMaximumSize(QSize(16777215, 23));
+        BottomBound->setStyleSheet(QString::fromUtf8("background: black;"));
+
+        verticalLayout_4->addWidget(BottomBound);
+
+        TopMenuWrapper->raise();
+        SkillsWraper->raise();
+        BottomBoundWrapper->raise();
+        ProgressBars->raise();
 
         retranslateUi(CharacterWindow);
 
@@ -686,6 +796,10 @@ public:
     void retranslateUi(QWidget *CharacterWindow)
     {
         CharacterWindow->setWindowTitle(QCoreApplication::translate("CharacterWindow", "Form", nullptr));
+        pushButton->setText(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("CharacterWindow", "\320\233\320\276\320\262\320\272\320\276\321\201\321\202\321\214", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\217", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\321\205\320\270\320\273\321\217\321\202\321\214 \320\277\321\200\320\276\320\263\321\200\320\265\321\201\321\201\320\261\320\260\321\200\321\213", nullptr));
         TopMenuBorder->setText(QString());
         StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
         AgilityPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\233\320\236\320\222\320\232", nullptr)));
@@ -698,26 +812,39 @@ public:
         Separator5->setText(QString());
         Separator2->setText(QString());
         Separator3->setText(QString());
-        MagicTechniqueCastChance->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \321\201\320\276\321\202\320\262\320\276\321\200\320\265\320\275\320\270\321\217 \320\274\320\260\320\263. \321\202\320\265\321\205\320\275\320\270\320\272\320\270", nullptr)));
-        Stealth->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\272\321\200\321\213\321\202\320\275\320\276\321\201\321\202\321\214", nullptr)));
-        ResistPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
-        MagicAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\274\320\260\320\263\320\270\320\270", nullptr)));
+        MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
         ResistMagicDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\203\321\200\320\276\320\275\321\203", nullptr)));
         MagicCastChance->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \321\201\320\276\321\202\320\262\320\276\321\200\320\265\320\275\320\270\321\217 \320\274\320\260\320\263\320\270\320\270", nullptr)));
-        ResistMagicEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
         LoadCapacity->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\223\321\200\321\203\320\267\320\276\320\277\320\276\320\264\321\212\321\221\320\274\320\275\320\276\321\201\321\202\321\214", nullptr)));
+        Attentiveness->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\275\320\270\320\274\320\260\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr)));
+        MagicDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
+        Initiative->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\320\270\321\206\320\270\320\260\321\202\320\270\320\262\320\260", nullptr)));
         ResistPhysicalDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\203\321\200\320\276\320\275\321\203", nullptr)));
         Evasion->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\320\272\320\273\320\276\320\275\320\265\320\275\320\270\320\265", nullptr)));
-        Initiative->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\320\270\321\206\320\270\320\260\321\202\320\270\320\262\320\260", nullptr)));
-        ChanceToUseCombat->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \320\277\321\200\320\270\320\274\320\265\320\275\320\265\320\275\320\270\321\217 \320\261\320\276\320\265\320\262\320\276\320\263\320\276 \320\277\321\200\320\270\321\221\320\274\320\260", nullptr)));
-        Attentiveness->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\275\320\270\320\274\320\260\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr)));
-        PhysicalDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\244\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
-        StrengtheningMagicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
-        RangedAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\264\320\260\320\273\321\214\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
-        MagicDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
-        TravelRange->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
+        MagicAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\274\320\260\320\263\320\270\320\270", nullptr)));
         StrengtheningPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
-        MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
+        ResistPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
+        StrengtheningMagicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
+        ChanceOfUsingCombatTechnique->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \320\261\320\276\320\265\320\262\320\276\320\263\320\276  \320\277\321\200\320\270\321\221\320\274\320\260", nullptr)));
+        ResistMagicEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
+        RangedAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\264\320\260\320\273\321\214\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
+        Stealth->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\272\321\200\321\213\321\202\320\275\320\276\321\201\321\202\321\214", nullptr)));
+        PhysicalDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\244\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
+        MoveRange->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
+        Health->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#dc0000", nullptr)));
+        Health->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\227\320\264\320\276\321\200\320\276\320\262\321\214\320\265", nullptr)));
+        Endurance->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#0fcd00", nullptr)));
+        Endurance->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\321\213\320\275\320\276\321\201\320\273\320\270\320\262\320\276\321\201\321\202\321\214", nullptr)));
+        Mana->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#1e55ff", nullptr)));
+        Mana->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\275\320\260", nullptr)));
+        MagicDefense->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#9e17cf", nullptr)));
+        MagicDefense->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\260\321\217 \320\267\320\260\321\211\320\270\321\202\320\260", nullptr)));
+        label->setText(QString());
+        label_2->setText(QString());
+        label_3->setText(QString());
+        label_4->setText(QString());
+        BottomBorder->setText(QString());
+        BottomBound->setText(QString());
     } // retranslateUi
 
 };

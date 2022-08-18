@@ -60,6 +60,8 @@ private slots:
 
     void on_WillValue_valueChanged(int arg1);
 
+    void on_pushButton_4_clicked();
+
 private:
     Ui::CharacterWindow *ui;
 
@@ -92,8 +94,6 @@ private:
 
     //Эти переменные пока отладочные, их следует в последствии перенести в класс персонажа
     Global::PhysicalDamageScaling physicalDamageScaling = Global::STRENGTH;
-    int weaponDamage = 0;
-    int spellDamage = 0;
 };
 
 #endif // CHARACTERWINDOW_H

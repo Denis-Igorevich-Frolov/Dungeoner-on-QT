@@ -11,7 +11,7 @@
 class SSPB_StyleMaster
 {
 public:
-    static QString TextFontStyle(int sizePX, QString fontName);
+    static QString TextFontStyle(int sizePX);
     static QString TipLeftStyle();
     static QString TipRightStyle();
     static QString BorderStyle();

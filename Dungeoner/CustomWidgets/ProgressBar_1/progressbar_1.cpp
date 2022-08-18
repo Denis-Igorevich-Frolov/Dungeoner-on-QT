@@ -35,12 +35,12 @@ ProgressBar_1::~ProgressBar_1()
     delete ui;
 }
 
-int ProgressBar_1::getMinValue() const
+long ProgressBar_1::getMinValue() const
 {
     return minValue;
 }
 
-void ProgressBar_1::setMinValue(int newMinValue)
+void ProgressBar_1::setMinValue(long newMinValue)
 {
     //Минимальное значение не может быть больше максимального
     if(newMinValue>maxValue)
@@ -57,12 +57,12 @@ void ProgressBar_1::setMinValue(int newMinValue)
     recalculationChunkWidth();
 }
 
-int ProgressBar_1::getMaxValue() const
+long ProgressBar_1::getMaxValue() const
 {
     return maxValue;
 }
 
-void ProgressBar_1::setMaxValue(int newMaxValue)
+void ProgressBar_1::setMaxValue(long newMaxValue)
 {
     //Ограничение стата для уменьшения шанса возможных переполнений
     if(newMaxValue>9999999)
@@ -83,12 +83,12 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
     recalculationChunkWidth();
 }
 
-int ProgressBar_1::getValue() const
+long ProgressBar_1::getValue() const
 {
     return value;
 }
 
-void ProgressBar_1::setValue(int newValue)
+void ProgressBar_1::setValue(long newValue)
 {
     //Значение находится в диапазоне от минимального до максимального
     if(newValue>maxValue)
@@ -119,7 +119,7 @@ LabelWithTooltip* ProgressBar_1::getLabelWithTooltip()
 void ProgressBar_1::recalculationChunkWidth()
 {
     //Вычисляется общее количество значений
-    int totalValues = maxValue - minValue;
+    long totalValues = maxValue - minValue;
     //Если не проверить, то может получиться деление на 0
     if(totalValues!=0)
         /*86 - это суммарные горизонтальные отступы тела прогрессбара от краёв виджета.

@@ -241,9 +241,6 @@ void CharacterWindow::setStyles()
             secondarySkillProgressBar->getProgressBar()->setColor(secondarySkillProgressBar->property("Color").toString());
             //Установка имени прогрессбара при помощи динамического свойства Name
             secondarySkillProgressBar->setName(secondarySkillProgressBar->property("Name").toString());
-
-            secondarySkillProgressBar->getProgressBar()->setMaxValue(100);
-            secondarySkillProgressBar->getProgressBar()->setValue(100);
         }else if(dynamic_cast <MagicDefenseProgressBar*> (autoFrame)){
             MagicDefenseProgressBar* magicDefenseProgressBar = qobject_cast <MagicDefenseProgressBar*> (autoFrame);
             //Установка цвета прогрессбара при помощи динамического свойства Color
@@ -474,19 +471,76 @@ void CharacterWindow::recalculateStats()
 {
     long physicalDamage = 0;
     if(physicalDamageScaling == Global::STRENGTH)
-        physicalDamage = weaponDamage + floor(2.5 * ui->StrengthValue->value()) + ui->AgilityValue->value();
+        physicalDamage = floor(2.5 * ui->StrengthValue->value()) + ui->AgilityValue->value();
     else if (physicalDamageScaling == Global::AGILITY)
-        physicalDamage = weaponDamage + floor(2.5 * ui->AgilityValue->value()) + ui->StrengthValue->value();
+        physicalDamage = floor(2.5 * ui->AgilityValue->value()) + ui->StrengthValue->value();
     else if (physicalDamageScaling == Global::MAGIC)
-        physicalDamage = weaponDamage + floor(1.5 * ui->MagicValue->value()) + ui->IntelligenceValue->value() + ui->AgilityValue->value();
+        physicalDamage = floor(1.5 * ui->MagicValue->value()) + ui->IntelligenceValue->value() + ui->AgilityValue->value();
     ui->PhysicalDamage->setValue(physicalDamage);
 
     long magicDamage =
-    spellDamage + floor(1.5 * ui->MagicValue->value()) + floor(1.5 * ui->IntelligenceValue->value()) + floor(0.5 * ui->WillValue->value());
+    floor(1.5 * ui->MagicValue->value()) + floor(1.5 * ui->IntelligenceValue->value()) + floor(0.5 * ui->WillValue->value());
     ui->MagicDamage->setValue(magicDamage);
 
     long resistPhysicalDamage = floor(1.5 * ui->WillValue->value()) + floor(0.5 * ui->MagicValue->value()) + ui->BodyTypeValue->value();
     ui->ResistPhysicalDamage->setValue(resistPhysicalDamage);
+
+    long resistMagicDamage = floor(1.5 * ui->WillValue->value()) + floor(0.5 * ui->BodyTypeValue->value()) + ui->MagicValue->value();
+    ui->ResistMagicDamage->setValue(resistMagicDamage);
+
+    long resistPhysicalEffects = floor(0.1 * ui->WillValue->value()) + 10;
+    ui->ResistPhysicalEffects->setValue(resistPhysicalEffects);
+
+    long resistMagicEffects = floor(0.1 * ui->WillValue->value()) + floor(0.1 * ui->MagicValue->value()) + 5;
+    ui->ResistMagicEffects->setValue(resistMagicEffects);
+
+    long strengtheningPhysicalEffects = floor(0.1 * ui->StrengthValue->value());
+    ui->StrengtheningPhysicalEffects->setValue(strengtheningPhysicalEffects);
+
+    long strengtheningMagicalEffects = floor(0.1 * ui->IntelligenceValue->value());
+    ui->StrengtheningMagicalEffects->setValue(strengtheningMagicalEffects);
+
+    long meleeAccuracy = floor(0.1 * ui->AgilityValue->value()) + 20;
+    ui->MeleeAccuracy->setValue(meleeAccuracy);
+
+    long rangedAccuracy = floor(0.1 * ui->AgilityValue->value()) + 15;
+    ui->RangedAccuracy->setValue(rangedAccuracy);
+
+    long magicAccuracy = floor(0.1 * ui->IntelligenceValue->value()) + 15;
+    ui->MagicAccuracy->setValue(magicAccuracy);
+
+    long evasion = floor(0.5 * ui->AgilityValue->value()) + floor(0.1 * ui->BodyTypeValue->value());
+    ui->Evasion->setValue(evasion);
+
+    long stealth = ui->IntelligenceValue->value() + ui->AgilityValue->value();
+    ui->Stealth->setValue(stealth);
+
+    long attentiveness = ui->IntelligenceValue->value() + ui->AgilityValue->value() + ui->WillValue->value();
+    ui->Attentiveness->setValue(attentiveness);
+
+    long loadCapacity = floor(0.5 * ui->StrengthValue->value()) + floor(0.5 * ui->BodyTypeValue->value());
+    ui->LoadCapacity->setValue(loadCapacity);
+
+    long initiative = floor(0.5 * ui->AgilityValue->value()) + ui->IntelligenceValue->value() + ui->WillValue->value();
+    ui->Initiative->setValue(initiative);
+
+    long magicCastChance = floor(0.3 * ui->IntelligenceValue->value()) + floor(0.2 * ui->MagicValue->value());
+    ui->MagicCastChance->setValue(magicCastChance);
+
+    long chanceOfUsingCombatTechnique = floor(0.2 * ui->AgilityValue->value()) + 20;
+    ui->ChanceOfUsingCombatTechnique->setValue(chanceOfUsingCombatTechnique);
+
+    long moveRange = floor(0.75 * ui->AgilityValue->value()) + floor(0.5 * ui->StrengthValue->value()) + ui->BodyTypeValue->value();
+    ui->MoveRange->setValue(moveRange);
+
+    long health = ui->StrengthValue->value() * 2 + ui->BodyTypeValue->value() * 10 + ui->WillValue->value() * 5 + ui->MagicValue->value();
+    ui->Health->getProgressBar()->setMaxValue(health);
+
+    long endurance = ui->AgilityValue->value() * 10 + ui->BodyTypeValue->value();
+    ui->Endurance->getProgressBar()->setMaxValue(endurance);
+
+    long mana = ui->MagicValue->value() * 10 + ui->IntelligenceValue->value() * 2 + ui->WillValue->value();
+    ui->Mana->getProgressBar()->setMaxValue(mana);
 }
 
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
@@ -671,5 +725,13 @@ void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
 void CharacterWindow::on_WillValue_valueChanged(int arg1)
 {
     recalculateStats();
+}
+
+
+void CharacterWindow::on_pushButton_4_clicked()
+{
+    ui->Health->getProgressBar()->setValue(ui->Health->getProgressBar()->getMaxValue());
+    ui->Endurance->getProgressBar()->setValue(ui->Endurance->getProgressBar()->getMaxValue());
+    ui->Mana->getProgressBar()->setValue(ui->Mana->getProgressBar()->getMaxValue());
 }
 

@@ -529,7 +529,7 @@ void ProgressBar_2::recalculationChunkWidth()
 
     if(chunks.size()!=0){
         //Вычисляется общее максимальное значение всех чанков
-        int totalValue = 0;
+        long totalValue = 0;
         for(Chunk* chunk : chunks)
             totalValue+=chunk->getMaxValue();
         //Если не проверить, то может получиться деление на 0
@@ -545,10 +545,10 @@ void ProgressBar_2::recalculationChunkWidth()
         qDeleteAll(ui->SeparatorWrapper->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
 
         //Общее текущее значение всех чанков
-        int value = 0;
+        long value = 0;
         /*Переменная с помощью которой вычисляется величина отступа
          *от левого края на который должен быть смещён разделитель*/
-        int offset = 0;
+        long offset = 0;
         //Установка разделителей и подсчёт общего текущего значения
         for(int i = 0; i<chunks.size(); i++){
             value+=chunks.at(i)->getValue();

@@ -7,6 +7,8 @@
 
 #include "MediaPlayer/mediaplayer.h"
 
+#include <QFont>
+
 class Global
 {
 public:

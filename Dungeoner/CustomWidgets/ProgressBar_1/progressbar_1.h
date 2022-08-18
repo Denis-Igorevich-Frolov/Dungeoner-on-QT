@@ -28,14 +28,14 @@ public:
     explicit ProgressBar_1(QWidget *parent = nullptr);
     ~ProgressBar_1();
 
-    int getMinValue() const;
-    void setMinValue(int newMinValue);
+    long getMinValue() const;
+    void setMinValue(long newMinValue);
 
-    int getMaxValue() const;
-    void setMaxValue(int newMaxValue);
+    long getMaxValue() const;
+    void setMaxValue(long newMaxValue);
 
-    int getValue() const;
-    void setValue(int newValue);
+    long getValue() const;
+    void setValue(long newValue);
 
     void setColor(const QColor &newColor);
 
@@ -44,9 +44,9 @@ public:
 private:
     //Цвет, в который будет окрашенна заполненная область прогрессбара
     QColor color = QColor(0 , 0, 0, 0);
-    int minValue = 0;
-    int maxValue = 0;
-    int value = 0;
+    long minValue = 0;
+    long maxValue = 0;
+    long value = 0;
     /*Размер в пикселях, которому эквивалентен сдвиг
      *заполняемой области при изменении значения на 1*/
     double stepSize = 0;

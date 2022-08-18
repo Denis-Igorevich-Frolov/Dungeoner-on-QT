@@ -18,6 +18,7 @@ Dungeoner::Dungeoner(QWidget *parent)
     characterWindow = new CharacterWindow();
     characterWindow->show();
 
+
 //    int id = QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf");
 //    QString f = QFontDatabase::applicationFontFamilies(id).at(0);
 //    qDebug()<<f;

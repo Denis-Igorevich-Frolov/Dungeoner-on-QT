@@ -91,6 +91,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.3.1/mingw_64/include/QtCore/qvariant.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qvarlengtharray.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qversiontagging.h \
+  E:/Qt/6.3.1/mingw_64/include/QtGui/QFont \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qaction.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qbitmap.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qbrush.h \

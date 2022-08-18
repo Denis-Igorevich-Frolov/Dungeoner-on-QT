@@ -1,23 +1,39 @@
 Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CMakeLists.txt \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.cpp \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.h \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/stylemaster.cpp \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/PB1_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/PB1_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.h \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/stylemaster.cpp \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.h \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/stylemaster.cpp \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/stylemaster.h \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/stylemaster.cpp \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp \
@@ -31,10 +47,10 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/CW_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/CW_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.h \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.cpp \
-	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/main.cpp \
@@ -126,6 +142,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qvariant.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qvarlengtharray.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qversiontagging.h \
+	E:/Qt/6.3.1/mingw_64/include/QtGui/QFont \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qaction.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qbitmap.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qbrush.h \
@@ -163,11 +180,16 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsEffect \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QHBoxLayout \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qboxlayout.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgridlayout.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlayout.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlayoutitem.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h \
@@ -523,9 +545,13 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.ui \

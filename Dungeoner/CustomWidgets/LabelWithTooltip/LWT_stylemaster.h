@@ -11,7 +11,7 @@
 class LWT_StyleMaster
 {
 public:
-    static QString TextFontStyle(int size, QString fontName);
+    static QString TextFontStyle(int size);
 };
 
 #endif // LWT_STYLEMASTER_H

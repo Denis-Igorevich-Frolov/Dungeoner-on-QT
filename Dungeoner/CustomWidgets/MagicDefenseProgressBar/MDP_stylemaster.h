@@ -11,7 +11,7 @@
 class MDP_StyleMaster
 {
 public:
-    static QString TextFontStyle(int sizePX, QString fontName);
+    static QString TextFontStyle(int sizePX);
 };
 
 #endif // MDP_STYLEMASTER_H

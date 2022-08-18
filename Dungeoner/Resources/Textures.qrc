@@ -33,5 +33,9 @@
         <file>Textures PNG/ProgressBarSeparator.png</file>
         <file>Textures PNG/DecorativeElement-1-L.png</file>
         <file>Textures PNG/DecorativeElement-1-R.png</file>
+        <file>Textures PNG/Angle-1-B-L.png</file>
+        <file>Textures PNG/Angle-1-B-R.png</file>
+        <file>Textures PNG/Angle-1-T-L.png</file>
+        <file>Textures PNG/Angle-1-T-R.png</file>
     </qresource>
 </RCC>

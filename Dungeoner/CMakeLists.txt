@@ -77,6 +77,9 @@ set(PROJECT_SOURCES
         CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.ui
         CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.h
         CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.cpp
+        CustomWidgets/Tooltip/tooltip.h
+        CustomWidgets/Tooltip/tooltip.cpp
+        CustomWidgets/Tooltip/tooltip.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
