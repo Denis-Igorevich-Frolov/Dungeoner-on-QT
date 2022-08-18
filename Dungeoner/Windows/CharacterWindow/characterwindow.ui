@@ -72,6 +72,54 @@
       <property name="lineWidth">
        <number>0</number>
       </property>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>340</x>
+         <y>20</y>
+         <width>80</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <property name="text">
+        <string>Сила</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>20</y>
+         <width>80</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <property name="text">
+        <string>Ловкость</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>20</y>
+         <width>80</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: white;</string>
+       </property>
+       <property name="text">
+        <string>Магия</string>
+       </property>
+      </widget>
      </widget>
     </item>
     <item>
@@ -203,6 +251,9 @@
             <height>58</height>
            </size>
           </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
           </property>
@@ -236,6 +287,9 @@
             <width>111</width>
             <height>58</height>
            </size>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -271,6 +325,9 @@
             <height>58</height>
            </size>
           </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
           </property>
@@ -304,6 +361,9 @@
             <width>111</width>
             <height>58</height>
            </size>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -339,6 +399,9 @@
             <height>58</height>
            </size>
           </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
+          </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
           </property>
@@ -372,6 +435,9 @@
             <width>111</width>
             <height>58</height>
            </size>
+          </property>
+          <property name="mouseTracking">
+           <bool>false</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>

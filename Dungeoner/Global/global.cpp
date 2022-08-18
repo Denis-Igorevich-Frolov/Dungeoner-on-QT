@@ -4,7 +4,7 @@
 
 #include "global.h"
 
-MediaPlayer Global::mediaplaer;
+MediaPlayer Global::mediaplayer;
 
 Global::Global()
 {

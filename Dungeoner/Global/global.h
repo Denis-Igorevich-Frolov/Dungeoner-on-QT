@@ -10,7 +10,13 @@
 class Global
 {
 public:
-    static MediaPlayer mediaplaer;
+    static MediaPlayer mediaplayer;
+
+    enum PhysicalDamageScaling{
+        STRENGTH,
+        AGILITY,
+        MAGIC
+    };
 
     Global();
 };

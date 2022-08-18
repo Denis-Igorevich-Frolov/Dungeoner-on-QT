@@ -62,6 +62,8 @@ public:
         ButtonTop->setMinimumSize(QSize(71, 17));
         ButtonTop->setMaximumSize(QSize(71, 17));
         ButtonTop->setCursor(QCursor(Qt::PointingHandCursor));
+        ButtonTop->setMouseTracking(true);
+        ButtonTop->setFocusPolicy(Qt::StrongFocus);
         ButtonTop->setStyleSheet(QString::fromUtf8(""));
         ButtonBottom = new QPushButton(PrimarySkillSignature);
         ButtonBottom->setObjectName(QString::fromUtf8("ButtonBottom"));
@@ -71,6 +73,7 @@ public:
         ButtonBottom->setMinimumSize(QSize(71, 17));
         ButtonBottom->setMaximumSize(QSize(71, 17));
         ButtonBottom->setCursor(QCursor(Qt::PointingHandCursor));
+        ButtonBottom->setMouseTracking(true);
         ButtonBottom->setStyleSheet(QString::fromUtf8(""));
         labelCenter = new QLabel(PrimarySkillSignature);
         labelCenter->setObjectName(QString::fromUtf8("labelCenter"));

@@ -13,8 +13,10 @@
 #include <QDate>
 #include <QTime>
 #include <QSpinBox>
-#include <QGraphicsDropShadowEffect>
 #include <QScrollBar>
+#include <QMutableVectorIterator>
+
+QVector<int> CharacterWindow::pressedKeys;
 
 CharacterWindow::CharacterWindow(QWidget *parent) :
     QWidget(parent),
@@ -91,6 +93,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
             }
         }
     }
+
+    recalculateStats();
 }
 
 CharacterWindow::~CharacterWindow()
@@ -465,6 +469,62 @@ void CharacterWindow::linkingTooltipSlots()
     }
 }
 
+void CharacterWindow::recalculateStats()
+{
+    long physicalDamage = 0;
+    if(physicalDamageScaling == Global::STRENGTH)
+        physicalDamage = weaponDamage + floor(2.5 * ui->StrengthValue->value()) + ui->AgilityValue->value();
+    else if (physicalDamageScaling == Global::AGILITY)
+        physicalDamage = weaponDamage + floor(2.5 * ui->AgilityValue->value()) + ui->StrengthValue->value();
+    else if (physicalDamageScaling == Global::MAGIC)
+        physicalDamage = weaponDamage + floor(1.5 * ui->MagicValue->value()) + ui->IntelligenceValue->value() + ui->AgilityValue->value();
+    ui->PhysicalDamage->setValue(physicalDamage);
+
+    long magicDamage =
+    spellDamage + floor(1.5 * ui->MagicValue->value()) + floor(1.5 * ui->IntelligenceValue->value()) + floor(0.5 * ui->WillValue->value());
+    ui->MagicDamage->setValue(magicDamage);
+
+    long resistPhysicalDamage = floor(1.5 * ui->WillValue->value()) + floor(0.5 * ui->MagicValue->value()) + ui->BodyTypeValue->value();
+    ui->ResistPhysicalDamage->setValue(resistPhysicalDamage);
+}
+
+/*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
+ *Считаются только Ctrl,Shift и Alt*/
+void CharacterWindow::keyPressEvent(QKeyEvent *event)
+{
+    int key=event->key();
+    if(key==16777249||key==16777248||key==16777251)
+        pressedKeys.append(key);
+}
+
+/*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
+ *Сделано это для того, чтобы обрабатывать случай, когда зажато несколько модификаторов
+ *одновременно. Они не будут последовательно обработаны, считаться будет только последний,
+ *но если просто сбрасывать int переменную, то может возникать случай, когда второй
+ *модификатор будет зажат до отжатия предыдущего, а затем первый будет отжат, и управление
+ *как бы "заест", модификатор придётся жать вновь. Для избежания этого и создан этот вектор.*/
+void CharacterWindow::keyReleaseEvent(QKeyEvent *event)
+{
+    int key=event->key();
+    QMutableVectorIterator<int> keyIterator(pressedKeys);
+
+    /*Так как вектор pressedKeys доступен многим виджетам одновременно, гипотетически
+     *возможна ситуация когда фокус получат одновременно несколько виджетов, и они
+     *начнут отправлять в вектор дубликаты ключей зажатых клавиш. Для просчёта
+     *модификаторов это никакой проблемы не создаст, но возможна ситуация когда до
+     *отжатия клавиши один или несколько таких виджетов, передавших ключи клавиш,
+     *потеряют фокус, соответственно ключи переданные ими не удалятся из вектора.
+     *И для избежания такой ситуации итератор проходит по всему вектору, удаляя из
+     *него все вхождения переданного ключа, а не первое. Подразумевается что этот
+     *метод будет вызван хотя бы 1 раз из любого виджета в фокусе.*/
+    while(keyIterator.hasNext()) {
+      int currentValue=keyIterator.next();
+
+      if(currentValue==key)
+        keyIterator.remove();
+    }
+}
+
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
  *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
@@ -496,7 +556,7 @@ void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
     /*Звук проигрывается только при нажатии на стрелки прибавки и убавки.
      *Цифры в проверке - это id этих ивентов*/
     if(action==1||action==2)
-        Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+        Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 }
 
 /*Связывание области прокрутки со скроллбаром. Используется не встроенный в
@@ -553,5 +613,62 @@ void CharacterWindow::ShowTooltip()
 void CharacterWindow::RemoveTooltip()
 {
     qDebug() <<QTime::currentTime()<< "leave";
+}
+
+
+void CharacterWindow::on_pushButton_clicked()
+{
+    physicalDamageScaling = Global::STRENGTH;
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_pushButton_2_clicked()
+{
+    physicalDamageScaling = Global::AGILITY;
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_pushButton_3_clicked()
+{
+    physicalDamageScaling = Global::MAGIC;
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
+{
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_AgilityValue_valueChanged(int arg1)
+{
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_IntelligenceValue_valueChanged(int arg1)
+{
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_MagicValue_valueChanged(int arg1)
+{
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
+{
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_WillValue_valueChanged(int arg1)
+{
+    recalculateStats();
 }
 

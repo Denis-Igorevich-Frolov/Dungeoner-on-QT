@@ -8,10 +8,10 @@
 #include "primaryskillsignature.h"
 #include "ui_primaryskillsignature.h"
 #include "PSS_stylemaster.h"
+#include "Windows/CharacterWindow/characterwindow.h"
+
 #include <QMouseEvent>
 #include <QMutableVectorIterator>
-
-QVector<int> PrimarySkillSignature::pressedKeys;
 
 PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     QWidget(parent),
@@ -42,21 +42,21 @@ void PrimarySkillSignature::setText(QString text)
  *Ctrl: +10, Shift: +100, Alt: +1000. Обычное нажатие: +1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonTop_released()
 {
-    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+    Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
     int plus = 1;
 
-    if(!pressedKeys.empty()){
+    if(!CharacterWindow::pressedKeys.empty()){
         //Ctrl
-        if(pressedKeys.last() == 16777249){
+        if(CharacterWindow::pressedKeys.last() == 16777249){
             plus = 10;
         }
         //Shift
-        if(pressedKeys.last() == 16777248){
+        if(CharacterWindow::pressedKeys.last() == 16777248){
             plus = 100;
         }
         //Alt
-        if(pressedKeys.last() == 16777251){
+        if(CharacterWindow::pressedKeys.last() == 16777251){
             plus = 1000;
         }
     }
@@ -68,21 +68,21 @@ void PrimarySkillSignature::on_ButtonTop_released()
  *Ctrl: -10, Shift: -100, Alt: -1000. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonBottom_released()
 {
-    Global::mediaplaer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+    Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
     int minus = 1;
 
-    if(!pressedKeys.empty()){
+    if(!CharacterWindow::pressedKeys.empty()){
         //Ctrl
-        if(pressedKeys.last() == 16777249){
+        if(CharacterWindow::pressedKeys.last() == 16777249){
             minus = 10;
         }
         //Shift
-        if(pressedKeys.last() == 16777248){
+        if(CharacterWindow::pressedKeys.last() == 16777248){
             minus = 100;
         }
         //Alt
-        if(pressedKeys.last() == 16777251){
+        if(CharacterWindow::pressedKeys.last() == 16777251){
             minus = 1000;
         }
     }
@@ -101,7 +101,7 @@ void PrimarySkillSignature::keyPressEvent(QKeyEvent *event)
 {
     int key=event->key();
     if(key==16777249||key==16777248||key==16777251)
-        pressedKeys.append(key);
+        CharacterWindow::pressedKeys.append(key);
 }
 
 /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
@@ -113,8 +113,17 @@ void PrimarySkillSignature::keyPressEvent(QKeyEvent *event)
 void PrimarySkillSignature::keyReleaseEvent(QKeyEvent *event)
 {
     int key=event->key();
-    QMutableVectorIterator<int> keyIterator(pressedKeys);
+    QMutableVectorIterator<int> keyIterator(CharacterWindow::pressedKeys);
 
+    /*Так как вектор pressedKeys доступен многим виджетам одновременно, гипотетически
+     *возможна ситуация когда фокус получат одновременно несколько виджетов, и они
+     *начнут отправлять в вектор дубликаты ключей зажатых клавиш. Для просчёта
+     *модификаторов это никакой проблемы не создаст, но возможна ситуация когда до
+     *отжатия клавиши один или несколько таких виджетов, передавших ключи клавиш,
+     *потеряют фокус, соответственно ключи переданные ими не удалятся из вектора.
+     *И для избежания такой ситуации итератор проходит по всему вектору, удаляя из
+     *него все вхождения переданного ключа, а не первое. Подразумевается что этот
+     *метод будет вызван хотя бы 1 раз из любого виджета в фокусе.*/
     while(keyIterator.hasNext()) {
       int currentValue=keyIterator.next();
 

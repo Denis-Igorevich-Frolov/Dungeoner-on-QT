@@ -50,12 +50,6 @@ private slots:
 private:
     Ui::PrimarySkillSignature *ui;
 
-    /*Массив нажатых клавиш, среди которых только Ctrl, Shift и Alt. Вектор статический для
-     *того, чтобы он сохранял своё значение при наведении на другие кнопки подписей, иначе
-     *модификаторы пришлося бы каждый раз прожимать заново.*/
-    static QVector<int> pressedKeys;
-
-
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/
     virtual void keyPressEvent(QKeyEvent *event);

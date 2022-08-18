@@ -19,6 +19,7 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
 #include <QtWidgets/QSpacerItem>
@@ -34,6 +35,9 @@ public:
     QFrame *TopMenuWrapper;
     QVBoxLayout *verticalLayout_3;
     QFrame *TopMenu;
+    QPushButton *pushButton;
+    QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
     QLabel *TopMenuBorder;
     QFrame *SkillsWraper;
     QVBoxLayout *verticalLayout;
@@ -132,6 +136,18 @@ public:
         TopMenu->setFrameShape(QFrame::StyledPanel);
         TopMenu->setFrameShadow(QFrame::Raised);
         TopMenu->setLineWidth(0);
+        pushButton = new QPushButton(TopMenu);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(340, 20, 80, 24));
+        pushButton->setStyleSheet(QString::fromUtf8("background: white;"));
+        pushButton_2 = new QPushButton(TopMenu);
+        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_2->setGeometry(QRect(430, 20, 80, 24));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background: white;"));
+        pushButton_3 = new QPushButton(TopMenu);
+        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_3->setGeometry(QRect(520, 20, 80, 24));
+        pushButton_3->setStyleSheet(QString::fromUtf8("background: white;"));
 
         verticalLayout_3->addWidget(TopMenu);
 
@@ -181,6 +197,7 @@ public:
         StrengthPrimarySkillSignature->setSizePolicy(sizePolicy1);
         StrengthPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         StrengthPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        StrengthPrimarySkillSignature->setMouseTracking(false);
         StrengthPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         AgilityPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         AgilityPrimarySkillSignature->setObjectName(QString::fromUtf8("AgilityPrimarySkillSignature"));
@@ -189,6 +206,7 @@ public:
         AgilityPrimarySkillSignature->setSizePolicy(sizePolicy1);
         AgilityPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         AgilityPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        AgilityPrimarySkillSignature->setMouseTracking(false);
         AgilityPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         IntelligencePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         IntelligencePrimarySkillSignature->setObjectName(QString::fromUtf8("IntelligencePrimarySkillSignature"));
@@ -197,6 +215,7 @@ public:
         IntelligencePrimarySkillSignature->setSizePolicy(sizePolicy1);
         IntelligencePrimarySkillSignature->setMinimumSize(QSize(111, 58));
         IntelligencePrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        IntelligencePrimarySkillSignature->setMouseTracking(false);
         IntelligencePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         MagicPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         MagicPrimarySkillSignature->setObjectName(QString::fromUtf8("MagicPrimarySkillSignature"));
@@ -205,6 +224,7 @@ public:
         MagicPrimarySkillSignature->setSizePolicy(sizePolicy1);
         MagicPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         MagicPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        MagicPrimarySkillSignature->setMouseTracking(false);
         MagicPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         BodyTypePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         BodyTypePrimarySkillSignature->setObjectName(QString::fromUtf8("BodyTypePrimarySkillSignature"));
@@ -213,6 +233,7 @@ public:
         BodyTypePrimarySkillSignature->setSizePolicy(sizePolicy1);
         BodyTypePrimarySkillSignature->setMinimumSize(QSize(111, 58));
         BodyTypePrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        BodyTypePrimarySkillSignature->setMouseTracking(false);
         BodyTypePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         WillPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         WillPrimarySkillSignature->setObjectName(QString::fromUtf8("WillPrimarySkillSignature"));
@@ -221,6 +242,7 @@ public:
         WillPrimarySkillSignature->setSizePolicy(sizePolicy1);
         WillPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         WillPrimarySkillSignature->setMaximumSize(QSize(111, 58));
+        WillPrimarySkillSignature->setMouseTracking(false);
         WillPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
 
         PrimarySkillWrapperL->addWidget(PrimarySkillSignatures);
@@ -769,6 +791,9 @@ public:
     void retranslateUi(QWidget *CharacterWindow)
     {
         CharacterWindow->setWindowTitle(QCoreApplication::translate("CharacterWindow", "Form", nullptr));
+        pushButton->setText(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("CharacterWindow", "\320\233\320\276\320\262\320\272\320\276\321\201\321\202\321\214", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\217", nullptr));
         TopMenuBorder->setText(QString());
         StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
         AgilityPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\233\320\236\320\222\320\232", nullptr)));
