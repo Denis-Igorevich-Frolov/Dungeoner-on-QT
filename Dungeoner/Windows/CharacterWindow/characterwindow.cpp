@@ -145,6 +145,7 @@ void CharacterWindow::setTextPrimarySkillSignature()
 //Установка стилей всех объектов
 void CharacterWindow::setStyles()
 {
+    ui->ScrollAreaSecondarySkills->verticalScrollBar()->setSingleStep(6);
     /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно,
      *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
      *проигнорирован и выведено предупреждение.*/

@@ -1677,7 +1677,7 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="9" column="0">
+              <item row="9" column="0" alignment="Qt::AlignLeft">
                <widget class="SecondarySkill" name="TravelRange" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -1721,7 +1721,7 @@ border: none;</string>
            <rect>
             <x>0</x>
             <y>387</y>
-            <width>614</width>
+            <width>616</width>
             <height>7</height>
            </rect>
           </property>
@@ -1743,7 +1743,7 @@ border: none;</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>614</width>
+            <width>616</width>
             <height>7</height>
            </rect>
           </property>
@@ -1780,7 +1780,7 @@ border: none;</string>
           <number>76</number>
          </property>
          <property name="pageStep">
-          <number>76</number>
+          <number>18</number>
          </property>
          <property name="orientation">
           <enum>Qt::Vertical</enum>

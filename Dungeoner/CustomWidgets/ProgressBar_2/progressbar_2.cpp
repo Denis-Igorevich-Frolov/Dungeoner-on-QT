@@ -580,7 +580,7 @@ void ProgressBar_2::recalculationChunkWidth()
                  *элемент. В конце вычитается 5 - большая половина от разделителя для
                  *того, чтобы он попадал на необходимое значение центром, а не краем.
                  *Нечётная ширина разделителя не с проста - это декоративная задумка.*/
-                separator->setGeometry(43+ceil(offset*stepSize)-5, 0, 9, 43);
+                separator->setGeometry(43+ceil(offset*stepSize)-5, 1, 9, 43);
                 //Установка текстуры разделителя
                 separator->setStyleSheet(PB2_StyleMaster::SeparatorStyle());
             }

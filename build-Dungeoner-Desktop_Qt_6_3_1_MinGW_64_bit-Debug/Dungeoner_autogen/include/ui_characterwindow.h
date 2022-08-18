@@ -653,7 +653,7 @@ public:
         TravelRange->setStyleSheet(QString::fromUtf8("background:black;"));
         TravelRange->setProperty("FontSize", QVariant(19));
 
-        SecondarySkills->addWidget(TravelRange, 9, 0, 1, 1);
+        SecondarySkills->addWidget(TravelRange, 9, 0, 1, 1, Qt::AlignLeft);
 
 
         verticalLayout_2->addLayout(SecondarySkills);
@@ -662,14 +662,14 @@ public:
         SecondarySkillsShadowBottom = new QFrame(ScrollAreaWraper);
         SecondarySkillsShadowBottom->setObjectName(QString::fromUtf8("SecondarySkillsShadowBottom"));
         SecondarySkillsShadowBottom->setEnabled(false);
-        SecondarySkillsShadowBottom->setGeometry(QRect(0, 387, 614, 7));
+        SecondarySkillsShadowBottom->setGeometry(QRect(0, 387, 616, 7));
         SecondarySkillsShadowBottom->setStyleSheet(QString::fromUtf8("background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(0, 0, 0, 165))"));
         SecondarySkillsShadowBottom->setFrameShape(QFrame::StyledPanel);
         SecondarySkillsShadowBottom->setFrameShadow(QFrame::Raised);
         SecondarySkillsShadowTop = new QFrame(ScrollAreaWraper);
         SecondarySkillsShadowTop->setObjectName(QString::fromUtf8("SecondarySkillsShadowTop"));
         SecondarySkillsShadowTop->setEnabled(false);
-        SecondarySkillsShadowTop->setGeometry(QRect(0, 0, 614, 7));
+        SecondarySkillsShadowTop->setGeometry(QRect(0, 0, 616, 7));
         SecondarySkillsShadowTop->setStyleSheet(QString::fromUtf8("background: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(0, 0, 0, 162), stop:1 rgba(255, 255, 255, 0))"));
         SecondarySkillsShadowTop->setFrameShape(QFrame::StyledPanel);
         SecondarySkillsShadowTop->setFrameShadow(QFrame::Raised);
@@ -683,7 +683,7 @@ public:
         verticalScrollBar->setStyleSheet(QString::fromUtf8(""));
         verticalScrollBar->setMaximum(377);
         verticalScrollBar->setSingleStep(76);
-        verticalScrollBar->setPageStep(76);
+        verticalScrollBar->setPageStep(18);
         verticalScrollBar->setOrientation(Qt::Vertical);
 
         horizontalLayout->addWidget(verticalScrollBar);
