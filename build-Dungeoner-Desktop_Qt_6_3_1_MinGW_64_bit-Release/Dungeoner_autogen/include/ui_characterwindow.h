@@ -13,6 +13,7 @@
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
 #include <CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h>
+#include <CustomWidgets/Tooltip/tooltip.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
@@ -110,12 +111,14 @@ public:
     QLabel *label_4;
     QLabel *BottomBorder;
     QLabel *BottomBound;
+    Tooltip *tooltip;
 
     void setupUi(QWidget *CharacterWindow)
     {
         if (CharacterWindow->objectName().isEmpty())
             CharacterWindow->setObjectName(QString::fromUtf8("CharacterWindow"));
         CharacterWindow->resize(1920, 1080);
+        CharacterWindow->setMouseTracking(true);
         CharacterWindow->setFocusPolicy(Qt::StrongFocus);
         CharacterWindow->setStyleSheet(QString::fromUtf8("#CharacterWindow{\n"
 "	background: #130a0f;\n"
@@ -202,7 +205,7 @@ public:
         StrengthPrimarySkillSignature->setSizePolicy(sizePolicy1);
         StrengthPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         StrengthPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        StrengthPrimarySkillSignature->setMouseTracking(false);
+        StrengthPrimarySkillSignature->setMouseTracking(true);
         StrengthPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         AgilityPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         AgilityPrimarySkillSignature->setObjectName(QString::fromUtf8("AgilityPrimarySkillSignature"));
@@ -211,7 +214,7 @@ public:
         AgilityPrimarySkillSignature->setSizePolicy(sizePolicy1);
         AgilityPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         AgilityPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        AgilityPrimarySkillSignature->setMouseTracking(false);
+        AgilityPrimarySkillSignature->setMouseTracking(true);
         AgilityPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         IntelligencePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         IntelligencePrimarySkillSignature->setObjectName(QString::fromUtf8("IntelligencePrimarySkillSignature"));
@@ -220,7 +223,7 @@ public:
         IntelligencePrimarySkillSignature->setSizePolicy(sizePolicy1);
         IntelligencePrimarySkillSignature->setMinimumSize(QSize(111, 58));
         IntelligencePrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        IntelligencePrimarySkillSignature->setMouseTracking(false);
+        IntelligencePrimarySkillSignature->setMouseTracking(true);
         IntelligencePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         MagicPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         MagicPrimarySkillSignature->setObjectName(QString::fromUtf8("MagicPrimarySkillSignature"));
@@ -229,7 +232,7 @@ public:
         MagicPrimarySkillSignature->setSizePolicy(sizePolicy1);
         MagicPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         MagicPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        MagicPrimarySkillSignature->setMouseTracking(false);
+        MagicPrimarySkillSignature->setMouseTracking(true);
         MagicPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         BodyTypePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         BodyTypePrimarySkillSignature->setObjectName(QString::fromUtf8("BodyTypePrimarySkillSignature"));
@@ -238,7 +241,7 @@ public:
         BodyTypePrimarySkillSignature->setSizePolicy(sizePolicy1);
         BodyTypePrimarySkillSignature->setMinimumSize(QSize(111, 58));
         BodyTypePrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        BodyTypePrimarySkillSignature->setMouseTracking(false);
+        BodyTypePrimarySkillSignature->setMouseTracking(true);
         BodyTypePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
         WillPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
         WillPrimarySkillSignature->setObjectName(QString::fromUtf8("WillPrimarySkillSignature"));
@@ -247,7 +250,7 @@ public:
         WillPrimarySkillSignature->setSizePolicy(sizePolicy1);
         WillPrimarySkillSignature->setMinimumSize(QSize(111, 58));
         WillPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        WillPrimarySkillSignature->setMouseTracking(false);
+        WillPrimarySkillSignature->setMouseTracking(true);
         WillPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
 
         PrimarySkillWrapperL->addWidget(PrimarySkillSignatures);
@@ -783,10 +786,14 @@ public:
 
         verticalLayout_4->addWidget(BottomBound);
 
+        tooltip = new Tooltip(CharacterWindow);
+        tooltip->setObjectName(QString::fromUtf8("tooltip"));
+        tooltip->setGeometry(QRect(540, 240, 291, 221));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
+        tooltip->raise();
 
         retranslateUi(CharacterWindow);
 

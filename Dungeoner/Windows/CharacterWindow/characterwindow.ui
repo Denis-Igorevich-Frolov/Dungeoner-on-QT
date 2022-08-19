@@ -10,6 +10,9 @@
     <height>1080</height>
    </rect>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
   <property name="focusPolicy">
    <enum>Qt::StrongFocus</enum>
   </property>
@@ -268,7 +271,7 @@
            </size>
           </property>
           <property name="mouseTracking">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -305,7 +308,7 @@
            </size>
           </property>
           <property name="mouseTracking">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -342,7 +345,7 @@
            </size>
           </property>
           <property name="mouseTracking">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -379,7 +382,7 @@
            </size>
           </property>
           <property name="mouseTracking">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -416,7 +419,7 @@
            </size>
           </property>
           <property name="mouseTracking">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -453,7 +456,7 @@
            </size>
           </property>
           <property name="mouseTracking">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <property name="styleSheet">
            <string notr="true">background: black;</string>
@@ -2092,10 +2095,21 @@ border: none;</string>
     </item>
    </layout>
   </widget>
+  <widget class="Tooltip" name="tooltip" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>0</width>
+     <height>0</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>TopMenuWrapper</zorder>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
   <zorder>ProgressBars</zorder>
+  <zorder>tooltip</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -2120,6 +2134,12 @@ border: none;</string>
    <class>MagicDefenseProgressBar</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>Tooltip</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/Tooltip/tooltip.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

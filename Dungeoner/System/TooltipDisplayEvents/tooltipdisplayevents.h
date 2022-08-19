@@ -20,6 +20,7 @@
 #ifndef TOOLTIPDISPLAYEVENTS_H
 #define TOOLTIPDISPLAYEVENTS_H
 
+#include <QLabel>
 #include <QWidget>
 
 class TooltipDisplayEvents : public QWidget
@@ -51,7 +52,7 @@ public:
 
 signals:
     //Сигнал отображения подсказки будет сдвигать её, если она уже существует
-    void ShowTooltip();
+    void ShowTooltip(QVector<QLabel*> TooltipContent);
     /*Сигнал сокрытия подсказки будет вызываться только, если подсказка
      *была выведена, и не более 1 раза за вызов подсказки*/
     void RemoveTooltip();
@@ -59,6 +60,7 @@ signals:
 private:
     bool rightMousePressed = false;
     bool isHovered = false;
+    QVector<QLabel*> TooltipContent;
 
     /*TooltipHasBeenCalled участвует в проверке того, что RemoveTooltip был вызван
      *только один раз, только при условии, что ShowTooltip ранее уже был вызван*/

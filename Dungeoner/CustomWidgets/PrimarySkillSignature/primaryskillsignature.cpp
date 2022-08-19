@@ -10,6 +10,7 @@
 #include "PSS_stylemaster.h"
 #include "Windows/CharacterWindow/characterwindow.h"
 
+#include <QFontDatabase>
 #include <QMouseEvent>
 #include <QMutableVectorIterator>
 
@@ -25,10 +26,21 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     ui->ButtonBottom->setStyleSheet(PSS_StyleMaster::bottomTextureStyle());
     ui->labelRight->setStyleSheet(PSS_StyleMaster::RightTextureStyle());
     ui->labelLeft->setStyleSheet(PSS_StyleMaster::LeftTextureStyle());
+
+    ui->ButtonTop->installEventFilter(this);
+    ui->ButtonBottom->installEventFilter(this);
+
+    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
+
+    tooltipContentLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    tooltipContentLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(20));
+    tooltipContentLabel->setText("fsdf");
+    TooltipContent.append(tooltipContentLabel);
 }
 
 PrimarySkillSignature::~PrimarySkillSignature()
 {
+    delete tooltipContentLabel;
     delete ui;
 }
 
@@ -90,6 +102,13 @@ void PrimarySkillSignature::on_ButtonBottom_released()
     SpinBoxValue->setValue(SpinBoxValue->value() - minus);
 }
 
+void PrimarySkillSignature::slotTimerAlarm()
+{
+    isShowTooltip = true;
+    timer->stop();
+    emit ShowTooltip(TooltipContent);
+}
+
 LabelWithTooltip* PrimarySkillSignature::getlabelWithTooltip()
 {
     return ui->labelWithTooltip;
@@ -130,5 +149,25 @@ void PrimarySkillSignature::keyReleaseEvent(QKeyEvent *event)
       if(currentValue==key)
         keyIterator.remove();
     }
+}
+
+int i = 0;
+bool PrimarySkillSignature::eventFilter(QObject *object, QEvent *event)
+{
+    if(event->type() == QEvent::HoverMove){
+        if(isShowTooltip)
+            emit ShowTooltip(TooltipContent);
+    }else if(object == ui->ButtonTop && event->type() == QEvent::HoverEnter){
+        timer->start(2300);
+    }else if(object == ui->ButtonBottom && event->type() == QEvent::HoverEnter){
+        timer->start(2300);
+    }else if(event->type() == QEvent::HoverLeave||event->type() == QEvent::MouseButtonPress){
+        timer->stop();
+        if(isShowTooltip)
+            emit RemoveTooltip();
+        isShowTooltip = false;
+    }
+
+    return false;
 }
 

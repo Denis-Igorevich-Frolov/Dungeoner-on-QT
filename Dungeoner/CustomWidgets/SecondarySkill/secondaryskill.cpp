@@ -19,7 +19,7 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
     setAttribute(Qt::WA_Hover);
 
     //Связывание сигналов из TooltipDisplayEvents на такие же из этого класса
-    connect(&tooltipDisplayEvents,SIGNAL(ShowTooltip()),this, SIGNAL(ShowTooltip()));
+    connect(&tooltipDisplayEvents,SIGNAL(ShowTooltip(QVector<QLabel*>)),this, SIGNAL(ShowTooltip(QVector<QLabel*>)));
     connect(&tooltipDisplayEvents,SIGNAL(RemoveTooltip()),this, SIGNAL(RemoveTooltip()));
 
     //Установка стилей

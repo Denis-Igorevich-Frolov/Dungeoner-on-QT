@@ -30,12 +30,18 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/T_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/T_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/WB2_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/WB2_stylemaster.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.cpp \
@@ -58,6 +64,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/CMakeFiles/3.23.2/CMakeRCCompiler.cmake \
 	E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/CMakeFiles/3.23.2/CMakeSystem.cmake \
 	E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/Dungeoner_autogen/moc_predefs.h \
+	E:/Qt/6.3.1/mingw_64/include/QtCore/QTimer \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qalgorithms.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qanystringview.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qarraydata.h \
@@ -66,6 +73,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qatomic.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qatomic_cxx11.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qbasicatomic.h \
+	E:/Qt/6.3.1/mingw_64/include/QtCore/qbasictimer.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qbindingstorage.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qbytearray.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -88,6 +96,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qglobalstatic.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qhash.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qhashfunctions.h \
+	E:/Qt/6.3.1/mingw_64/include/QtCore/qiodevice.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qiodevicebase.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qiterable.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qiterator.h \
@@ -135,6 +144,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qtcore-config.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qtcoreexports.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qtextstream.h \
+	E:/Qt/6.3.1/mingw_64/include/QtCore/qtimer.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qtmetamacros.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qtypeinfo.h \
 	E:/Qt/6.3.1/mingw_64/include/QtCore/qurl.h \
@@ -156,12 +166,14 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qkeysequence.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qpaintdevice.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qpalette.h \
+	E:/Qt/6.3.1/mingw_64/include/QtGui/qpicture.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qpixelformat.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qpixmap.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qpolygon.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qregion.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qrgb.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qrgba64.h \
+	E:/Qt/6.3.1/mingw_64/include/QtGui/qtextdocument.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qtgui-config.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiexports.h \
 	E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiglobal.h \
@@ -186,8 +198,10 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qboxlayout.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgridlayout.h \
+	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlabel.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlayout.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlayoutitem.h \
 	E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -553,6 +567,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.ui \
 	E:/Qt/Tools/CMake_64/bin/cmake.exe

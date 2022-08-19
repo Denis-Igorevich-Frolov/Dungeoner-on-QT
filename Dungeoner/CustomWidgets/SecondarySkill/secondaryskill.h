@@ -39,7 +39,7 @@ public:
     void setScrollAreaOffset(int newScrollAreaOffset);
 
 signals:
-    void ShowTooltip();
+    void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
 
 private:
@@ -67,6 +67,8 @@ private:
     int ScrollAreaHeight = 0;
     //Сдвиг скроллбара, в который помещён вторичный навык
     int ScrollAreaOffset = 0;
+
+    QVector<QLabel*> TooltipContent;
 };
 
 #endif // SECONDARYSKILL_H

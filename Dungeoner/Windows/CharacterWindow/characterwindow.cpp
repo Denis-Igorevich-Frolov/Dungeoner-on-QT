@@ -47,6 +47,10 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     ui->SecondarySkillsShadowBottom->setFocusPolicy(Qt::NoFocus);
     ui->SecondarySkillsShadowBottom->setAttribute(Qt::WA_TransparentForMouseEvents);
 
+    ui->tooltip->setFocusPolicy(Qt::NoFocus);
+    ui->tooltip->setAttribute(Qt::WA_TransparentForMouseEvents);
+    ui->tooltip->setVisible(false);
+
     linkingTooltipSlots();
 
     /*Передача во все SecondarySkill высоты их ScrollArea для последующей обработки
@@ -356,6 +360,11 @@ void CharacterWindow::linkingTooltipSlots()
                     this, &CharacterWindow::ShowTooltip);
             connect(pss->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
                     this, &CharacterWindow::RemoveTooltip);
+
+            connect(pss, &PrimarySkillSignature::ShowTooltip,
+                    this, &CharacterWindow::ShowTooltip);
+            connect(pss, &PrimarySkillSignature::RemoveTooltip,
+                    this, &CharacterWindow::RemoveTooltip);
         }else{
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -660,14 +669,19 @@ void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
     }
 }
 
-void CharacterWindow::ShowTooltip()
+void CharacterWindow::ShowTooltip(QVector<QLabel*> TooltipContent)
 {
     qDebug() <<QTime::currentTime()<< "show";
+    if(!ui->tooltip->isVisible())
+        ui->tooltip->setContent(TooltipContent);
+    ui->tooltip->setVisible(true);
+    ui->tooltip->move(this->cursor().pos()-QPoint(15, 15));
 }
 
 void CharacterWindow::RemoveTooltip()
 {
     qDebug() <<QTime::currentTime()<< "leave";
+    ui->tooltip->setVisible(false);
 }
 
 

@@ -75,3 +75,16 @@ QString PSS_StyleMaster::LeftTextureStyle()
     "   background-image: url(:/Text-Block-1/Textures PNG/Text-Block-1-L.png);"
     "}";
 }
+
+QString PSS_StyleMaster::TooltipTextStyle(int sizePX)
+{
+    //Вместо %1 будет вставлен размер шрифта
+    QString style =
+    "QLabel{"
+    "   background: none;"
+    "   font: %1px;"
+    "   color: #bdc440;"
+    "}";
+
+    return style.arg(sizePX);
+}

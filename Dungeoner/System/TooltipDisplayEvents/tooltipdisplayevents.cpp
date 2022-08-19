@@ -128,7 +128,7 @@ void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int hei
 void TooltipDisplayEvents::CheckingDisplayOfTooltip()
 {
     if(isHovered&&rightMousePressed){
-        emit ShowTooltip();
+        emit ShowTooltip(TooltipContent);
         TooltipHasBeenCalled = true;
     }else{
         /*TooltipHasBeenCalled проверяется для того, чтобы RemoveTooltip был вызван только

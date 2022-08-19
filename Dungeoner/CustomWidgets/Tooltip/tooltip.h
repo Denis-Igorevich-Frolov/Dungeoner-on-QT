@@ -1,6 +1,9 @@
 #ifndef TOOLTIP_H
 #define TOOLTIP_H
 
+#include "qboxlayout.h"
+#include "qlabel.h"
+
 #include <QWidget>
 
 namespace Ui {
@@ -15,8 +18,15 @@ public:
     explicit Tooltip(QWidget *parent = nullptr);
     ~Tooltip();
 
+    void setContent(QVector<QLabel*> content);
+
 private:
     Ui::Tooltip *ui;
+
+    /*Переопределённая виртуальная функция класса QWidget. /////*/
+    void resizeEvent(QResizeEvent* event) override;
+
+    QVBoxLayout* layout = new QVBoxLayout;
 };
 
 #endif // TOOLTIP_H

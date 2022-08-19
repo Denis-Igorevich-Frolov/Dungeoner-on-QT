@@ -13,6 +13,7 @@
 #include "System/OutlineEffect/outlineeffect.h"
 
 #include <QGraphicsDropShadowEffect>
+#include <QLabel>
 #include <QWidget>
 
 namespace Ui {
@@ -42,12 +43,15 @@ public:
     void setOutlineThickness(int thickness);
 
 signals:
-    void ShowTooltip();
+    void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
 
 private:
-    OutlineEffect* border;
     Ui::LabelWithTooltip *ui;
+
+    OutlineEffect* border;
+    TooltipDisplayEvents tooltipDisplayEvents;
+    QVector<QLabel*> TooltipContent;
 
     /*Переопределения виртуальных функций QWidget для вызова сигнала вывода
      *или удаления подсказки. Вся логика происходит в классе TooltipDisplayEvents*/
@@ -56,8 +60,6 @@ private:
     void enterEvent(QEnterEvent *event) override;
     void leaveEvent(QEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
-
-    TooltipDisplayEvents tooltipDisplayEvents;
 
     //Автоматически инициализируем экземпляр энума значением по умолчанию
     FontType fontType = FontType::TEXT;

@@ -80,6 +80,13 @@ set(PROJECT_SOURCES
         CustomWidgets/Tooltip/tooltip.h
         CustomWidgets/Tooltip/tooltip.cpp
         CustomWidgets/Tooltip/tooltip.ui
+        CustomWidgets/Tooltip/T_stylemaster.h
+        CustomWidgets/Tooltip/T_stylemaster.cpp
+        CustomWidgets/WindowBorder_2/windowborder_2.h
+        CustomWidgets/WindowBorder_2/windowborder_2.cpp
+        CustomWidgets/WindowBorder_2/windowborder_2.ui
+        CustomWidgets/WindowBorder_2/WB2_stylemaster.h
+        CustomWidgets/WindowBorder_2/WB2_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

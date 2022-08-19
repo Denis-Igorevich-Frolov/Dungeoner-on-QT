@@ -5,6 +5,7 @@
 #ifndef CHARACTERWINDOW_H
 #define CHARACTERWINDOW_H
 
+#include <QLabel>
 #include <QWidget>
 #include "Global/global.h"
 
@@ -36,7 +37,7 @@ public:
 private slots:
     void ScrollAreaSecondarySkillsScrolled(int value);
 
-    void ShowTooltip();
+    void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
 
     void on_verticalScrollBar_actionTriggered(int action);
@@ -67,7 +68,7 @@ private:
 
     /*Установка текста для подписи первичного навыка в соответствии с его динамическим свойством
      *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures*/
-    void setTextPrimarySkillSignature ();
+    void setTextPrimarySkillSignature();
     //Установка стилей всех объектов. Подробности в комментариях cpp файла
     void setStyles ();
     /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
@@ -83,14 +84,14 @@ private:
 
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/
-    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event) override;
     /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
      *Сделано это для того, чтобы обрабатывать случай, когда зажато несколько модификаторов
      *одновременно. Они не будут последовательно обработаны, считаться будет только последний,
      *но если просто сбрасывать int переменную, то может возникать случай, когда второй
      *модификатор будет зажат до отжатия предыдущего, а затем первый будет отжат, и управление
      *как бы "заест", модификатор придётся жать вновь. Для избежания этого и создан этот вектор.*/
-    virtual void keyReleaseEvent(QKeyEvent *event);
+    virtual void keyReleaseEvent(QKeyEvent *event) override;
 
     //Эти переменные пока отладочные, их следует в последствии перенести в класс персонажа
     Global::PhysicalDamageScaling physicalDamageScaling = Global::STRENGTH;
