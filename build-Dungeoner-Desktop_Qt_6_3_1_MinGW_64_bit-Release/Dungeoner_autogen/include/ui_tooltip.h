@@ -32,14 +32,14 @@ public:
         Tooltip->resize(271, 271);
         Border = new WindowBorder_2(Tooltip);
         Border->setObjectName(QString::fromUtf8("Border"));
-        Border->setGeometry(QRect(0, 0, 271, 271));
+        Border->setGeometry(QRect(15, 15, 241, 241));
         Background = new QLabel(Tooltip);
         Background->setObjectName(QString::fromUtf8("Background"));
-        Background->setGeometry(QRect(0, 0, 271, 271));
+        Background->setGeometry(QRect(15, 15, 241, 241));
         Background->setStyleSheet(QString::fromUtf8(""));
         Content = new QFrame(Tooltip);
         Content->setObjectName(QString::fromUtf8("Content"));
-        Content->setGeometry(QRect(0, 0, 271, 271));
+        Content->setGeometry(QRect(15, 15, 241, 241));
         Content->setFrameShape(QFrame::StyledPanel);
         Content->setFrameShadow(QFrame::Raised);
         Background->raise();

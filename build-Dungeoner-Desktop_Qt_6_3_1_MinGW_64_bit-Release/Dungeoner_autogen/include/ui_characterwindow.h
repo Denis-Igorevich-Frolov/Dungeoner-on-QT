@@ -788,7 +788,7 @@ public:
 
         tooltip = new Tooltip(CharacterWindow);
         tooltip->setObjectName(QString::fromUtf8("tooltip"));
-        tooltip->setGeometry(QRect(540, 240, 291, 221));
+        tooltip->setGeometry(QRect(0, 0, 0, 0));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();

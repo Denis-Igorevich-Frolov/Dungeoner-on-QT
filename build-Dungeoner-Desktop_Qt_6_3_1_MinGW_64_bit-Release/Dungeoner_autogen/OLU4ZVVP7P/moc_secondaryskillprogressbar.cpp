@@ -8,6 +8,7 @@
 
 #include <memory>
 #include "../../../Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)

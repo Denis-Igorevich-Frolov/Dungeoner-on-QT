@@ -675,7 +675,7 @@ void CharacterWindow::ShowTooltip(QVector<QLabel*> TooltipContent)
     if(!ui->tooltip->isVisible())
         ui->tooltip->setContent(TooltipContent);
     ui->tooltip->setVisible(true);
-    ui->tooltip->move(this->cursor().pos()-QPoint(15, 15));
+    ui->tooltip->move(QWidget::mapFromGlobal(QCursor::pos()-QPoint(15, 15)));
 }
 
 void CharacterWindow::RemoveTooltip()

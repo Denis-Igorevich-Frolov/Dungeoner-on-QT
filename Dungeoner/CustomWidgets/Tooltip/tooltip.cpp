@@ -25,7 +25,7 @@ void Tooltip::setContent(QVector<QLabel *> content)
 {
     delete layout;
     layout = new QVBoxLayout;
-    layout->setContentsMargins(17, 17, 17, 17);
+    layout->setContentsMargins(17, 12, 17, 12);
     layout->setSpacing(5);
     ui->Content->setLayout(layout);
 
@@ -40,6 +40,8 @@ void Tooltip::setContent(QVector<QLabel *> content)
 void Tooltip::resizeEvent(QResizeEvent *event)
 {
     ui->Content->setFixedSize(ui->Content->sizeHint());
-    ui->Background->setFixedSize(this->size()-QSize(30, 30));
-    ui->Border->setFixedSize(this->size()-QSize(30, 30));
+    if(this->size().rwidth()>0&&this->size().rheight()>0){
+        ui->Background->setFixedSize(this->size()-QSize(30, 30));
+        ui->Border->setFixedSize(this->size()-QSize(30, 30));
+    }
 }

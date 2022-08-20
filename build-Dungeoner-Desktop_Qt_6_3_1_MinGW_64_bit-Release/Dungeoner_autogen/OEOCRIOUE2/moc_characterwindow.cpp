@@ -8,8 +8,10 @@
 
 #include <memory>
 #include "../../../Dungeoner/Windows/CharacterWindow/characterwindow.h"
+#include <QtGui/qtextcursor.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'characterwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
@@ -22,8 +24,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CharacterWindow_t {
-    const uint offsetsAndSize[40];
-    char stringdata0[436];
+    const uint offsetsAndSize[44];
+    char stringdata0[466];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(offsetof(qt_meta_stringdata_CharacterWindow_t, stringdata0) + ofs), len 
@@ -34,25 +36,28 @@ QT_MOC_LITERAL(16, 33), // "ScrollAreaSecondarySkillsScro..."
 QT_MOC_LITERAL(50, 0), // ""
 QT_MOC_LITERAL(51, 5), // "value"
 QT_MOC_LITERAL(57, 11), // "ShowTooltip"
-QT_MOC_LITERAL(69, 13), // "RemoveTooltip"
-QT_MOC_LITERAL(83, 36), // "on_verticalScrollBar_actionTr..."
-QT_MOC_LITERAL(120, 6), // "action"
-QT_MOC_LITERAL(127, 33), // "on_verticalScrollBar_valueCha..."
-QT_MOC_LITERAL(161, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(183, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(207, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(231, 29), // "on_StrengthValue_valueChanged"
-QT_MOC_LITERAL(261, 4), // "arg1"
-QT_MOC_LITERAL(266, 28), // "on_AgilityValue_valueChanged"
-QT_MOC_LITERAL(295, 33), // "on_IntelligenceValue_valueCha..."
-QT_MOC_LITERAL(329, 26), // "on_MagicValue_valueChanged"
-QT_MOC_LITERAL(356, 29), // "on_BodyTypeValue_valueChanged"
-QT_MOC_LITERAL(386, 25), // "on_WillValue_valueChanged"
-QT_MOC_LITERAL(412, 23) // "on_pushButton_4_clicked"
+QT_MOC_LITERAL(69, 14), // "QList<QLabel*>"
+QT_MOC_LITERAL(84, 14), // "TooltipContent"
+QT_MOC_LITERAL(99, 13), // "RemoveTooltip"
+QT_MOC_LITERAL(113, 36), // "on_verticalScrollBar_actionTr..."
+QT_MOC_LITERAL(150, 6), // "action"
+QT_MOC_LITERAL(157, 33), // "on_verticalScrollBar_valueCha..."
+QT_MOC_LITERAL(191, 21), // "on_pushButton_clicked"
+QT_MOC_LITERAL(213, 23), // "on_pushButton_2_clicked"
+QT_MOC_LITERAL(237, 23), // "on_pushButton_3_clicked"
+QT_MOC_LITERAL(261, 29), // "on_StrengthValue_valueChanged"
+QT_MOC_LITERAL(291, 4), // "arg1"
+QT_MOC_LITERAL(296, 28), // "on_AgilityValue_valueChanged"
+QT_MOC_LITERAL(325, 33), // "on_IntelligenceValue_valueCha..."
+QT_MOC_LITERAL(359, 26), // "on_MagicValue_valueChanged"
+QT_MOC_LITERAL(386, 29), // "on_BodyTypeValue_valueChanged"
+QT_MOC_LITERAL(416, 25), // "on_WillValue_valueChanged"
+QT_MOC_LITERAL(442, 23) // "on_pushButton_4_clicked"
 
     },
     "CharacterWindow\0ScrollAreaSecondarySkillsScrolled\0"
-    "\0value\0ShowTooltip\0RemoveTooltip\0"
+    "\0value\0ShowTooltip\0QList<QLabel*>\0"
+    "TooltipContent\0RemoveTooltip\0"
     "on_verticalScrollBar_actionTriggered\0"
     "action\0on_verticalScrollBar_valueChanged\0"
     "on_pushButton_clicked\0on_pushButton_2_clicked\0"
@@ -82,36 +87,36 @@ static const uint qt_meta_data_CharacterWindow[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        1,    1,  104,    2, 0x08,    1 /* Private */,
-       4,    0,  107,    2, 0x08,    3 /* Private */,
-       5,    0,  108,    2, 0x08,    4 /* Private */,
-       6,    1,  109,    2, 0x08,    5 /* Private */,
-       8,    1,  112,    2, 0x08,    7 /* Private */,
-       9,    0,  115,    2, 0x08,    9 /* Private */,
-      10,    0,  116,    2, 0x08,   10 /* Private */,
-      11,    0,  117,    2, 0x08,   11 /* Private */,
-      12,    1,  118,    2, 0x08,   12 /* Private */,
-      14,    1,  121,    2, 0x08,   14 /* Private */,
-      15,    1,  124,    2, 0x08,   16 /* Private */,
-      16,    1,  127,    2, 0x08,   18 /* Private */,
-      17,    1,  130,    2, 0x08,   20 /* Private */,
-      18,    1,  133,    2, 0x08,   22 /* Private */,
-      19,    0,  136,    2, 0x08,   24 /* Private */,
+       4,    1,  107,    2, 0x08,    3 /* Private */,
+       7,    0,  110,    2, 0x08,    5 /* Private */,
+       8,    1,  111,    2, 0x08,    6 /* Private */,
+      10,    1,  114,    2, 0x08,    8 /* Private */,
+      11,    0,  117,    2, 0x08,   10 /* Private */,
+      12,    0,  118,    2, 0x08,   11 /* Private */,
+      13,    0,  119,    2, 0x08,   12 /* Private */,
+      14,    1,  120,    2, 0x08,   13 /* Private */,
+      16,    1,  123,    2, 0x08,   15 /* Private */,
+      17,    1,  126,    2, 0x08,   17 /* Private */,
+      18,    1,  129,    2, 0x08,   19 /* Private */,
+      19,    1,  132,    2, 0x08,   21 /* Private */,
+      20,    1,  135,    2, 0x08,   23 /* Private */,
+      21,    0,  138,    2, 0x08,   25 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void, 0x80000000 | 5,    6,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, QMetaType::Int,    9,
     QMetaType::Void, QMetaType::Int,    3,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   13,
-    QMetaType::Void, QMetaType::Int,   13,
-    QMetaType::Void, QMetaType::Int,   13,
-    QMetaType::Void, QMetaType::Int,   13,
-    QMetaType::Void, QMetaType::Int,   13,
-    QMetaType::Void, QMetaType::Int,   13,
+    QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void, QMetaType::Int,   15,
     QMetaType::Void,
 
        0        // eod
@@ -124,7 +129,7 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         (void)_t;
         switch (_id) {
         case 0: _t->ScrollAreaSecondarySkillsScrolled((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 1: _t->ShowTooltip(); break;
+        case 1: _t->ShowTooltip((*reinterpret_cast< std::add_pointer_t<QList<QLabel*>>>(_a[1]))); break;
         case 2: _t->RemoveTooltip(); break;
         case 3: _t->on_verticalScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 4: _t->on_verticalScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
@@ -140,6 +145,17 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 14: _t->on_pushButton_4_clicked(); break;
         default: ;
         }
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        switch (_id) {
+        default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+        case 1:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QList<QLabel*> >(); break;
+            }
+            break;
+        }
     }
 }
 
@@ -151,7 +167,7 @@ const QMetaObject CharacterWindow::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterWindow_t
 , QtPrivate::TypeAndForceComplete<CharacterWindow, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -183,7 +199,7 @@ int CharacterWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 15)
-            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+            qt_static_metacall(this, _c, _id, _a);
         _id -= 15;
     }
     return _id;

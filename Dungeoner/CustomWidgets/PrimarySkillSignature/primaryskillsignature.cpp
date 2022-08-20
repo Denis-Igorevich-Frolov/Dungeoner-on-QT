@@ -34,7 +34,6 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
 
     tooltipContentLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
     tooltipContentLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(20));
-    tooltipContentLabel->setText("fsdf");
     TooltipContent.append(tooltipContentLabel);
 }
 
@@ -159,8 +158,10 @@ bool PrimarySkillSignature::eventFilter(QObject *object, QEvent *event)
             emit ShowTooltip(TooltipContent);
     }else if(object == ui->ButtonTop && event->type() == QEvent::HoverEnter){
         timer->start(2300);
+        tooltipContentLabel->setText("Ctrl: +10\nShift: +100\nAlt: +1000");
     }else if(object == ui->ButtonBottom && event->type() == QEvent::HoverEnter){
         timer->start(2300);
+        tooltipContentLabel->setText("Ctrl: -10\nShift: -100\nAlt: -1000");
     }else if(event->type() == QEvent::HoverLeave||event->type() == QEvent::MouseButtonPress){
         timer->stop();
         if(isShowTooltip)

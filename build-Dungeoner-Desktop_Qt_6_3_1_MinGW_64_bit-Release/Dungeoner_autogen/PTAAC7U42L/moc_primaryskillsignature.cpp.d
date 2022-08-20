@@ -39,6 +39,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.3.1/mingw_64/include/QtCore/qglobalstatic.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qhash.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qhashfunctions.h \
+  E:/Qt/6.3.1/mingw_64/include/QtCore/qiodevice.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qiodevicebase.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qiterable.h \
   E:/Qt/6.3.1/mingw_64/include/QtCore/qiterator.h \
@@ -108,12 +109,14 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.3.1/mingw_64/include/QtGui/qkeysequence.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qpaintdevice.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qpalette.h \
+  E:/Qt/6.3.1/mingw_64/include/QtGui/qpicture.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qpixelformat.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qpixmap.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qpolygon.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qregion.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qrgb.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qrgba64.h \
+  E:/Qt/6.3.1/mingw_64/include/QtGui/qtextdocument.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtgui-config.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiexports.h \
   E:/Qt/6.3.1/mingw_64/include/QtGui/qtguiglobal.h \
@@ -132,11 +135,14 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.3.1/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QGraphicsEffect \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/QLabel \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QMainWindow \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QSpinBox \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/QWidget \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/qframe.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qgraphicseffect.h \
+  E:/Qt/6.3.1/mingw_64/include/QtWidgets/qlabel.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qmainwindow.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.1/mingw_64/include/QtWidgets/qspinbox.h \
