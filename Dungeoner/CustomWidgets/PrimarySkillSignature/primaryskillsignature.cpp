@@ -33,12 +33,14 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
 
     tooltipContentLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
-    tooltipContentLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(20));
-    TooltipContent.append(tooltipContentLabel);
+    tooltipContentLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(20, "bdc440"));
+    buttonTooltipContent.append(tooltipContentLabel);
 }
 
 PrimarySkillSignature::~PrimarySkillSignature()
 {
+    for(QLabel* label : tooltipContent)
+        delete label;
     delete tooltipContentLabel;
     delete ui;
 }
@@ -105,7 +107,24 @@ void PrimarySkillSignature::slotTimerAlarm()
 {
     isShowTooltip = true;
     timer->stop();
-    emit ShowTooltip(TooltipContent);
+    emit ShowTooltip(buttonTooltipContent);
+}
+
+void PrimarySkillSignature::setTooltipContent(QString fullName, QString description)
+{
+    QLabel* fullNameLabel = new QLabel;
+    fullNameLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    fullNameLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(27, "bdc440"));
+    fullNameLabel->setText(fullName);
+    fullNameLabel->setMaximumWidth(400);
+    tooltipContent.append(fullNameLabel);
+
+    QLabel* separator = new QLabel;
+    separator->setFixedSize(400, 1);
+    separator->setStyleSheet("background: #bdc440;");
+    tooltipContent.append(separator);
+
+    ui->labelWithTooltip->setTooltipContent(tooltipContent);
 }
 
 LabelWithTooltip* PrimarySkillSignature::getlabelWithTooltip()
@@ -155,7 +174,7 @@ bool PrimarySkillSignature::eventFilter(QObject *object, QEvent *event)
 {
     if(event->type() == QEvent::HoverMove){
         if(isShowTooltip)
-            emit ShowTooltip(TooltipContent);
+            emit ShowTooltip(buttonTooltipContent);
     }else if(object == ui->ButtonTop && event->type() == QEvent::HoverEnter){
         timer->start(2300);
         tooltipContentLabel->setText("Ctrl: +10\nShift: +100\nAlt: +1000");

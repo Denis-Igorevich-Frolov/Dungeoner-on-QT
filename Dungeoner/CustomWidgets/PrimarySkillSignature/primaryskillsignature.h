@@ -40,6 +40,8 @@ public:
 
     LabelWithTooltip* getlabelWithTooltip();
 
+    void setTooltipContent(QString fullName, QString Description);
+
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
@@ -58,7 +60,8 @@ private:
 
     QTimer* timer = new QTimer;
     bool isShowTooltip = false;
-    QVector<QLabel*> TooltipContent;
+    QVector<QLabel*> buttonTooltipContent;
+    QVector<QLabel*> tooltipContent;
     QLabel* tooltipContentLabel = new QLabel;
 
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.

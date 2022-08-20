@@ -42,6 +42,8 @@ public:
     void setFontType(FontType newFontType);
     void setOutlineThickness(int thickness);
 
+    void setTooltipContent(QVector<QLabel*> &newTooltipContent);
+
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
@@ -51,7 +53,7 @@ private:
 
     OutlineEffect* border;
     TooltipDisplayEvents tooltipDisplayEvents;
-    QVector<QLabel*> TooltipContent;
+    QVector<QLabel*> tooltipContent;
 
     /*Переопределения виртуальных функций QWidget для вызова сигнала вывода
      *или удаления подсказки. Вся логика происходит в классе TooltipDisplayEvents*/

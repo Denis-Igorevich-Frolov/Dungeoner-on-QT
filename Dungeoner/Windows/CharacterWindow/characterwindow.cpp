@@ -296,6 +296,7 @@ void CharacterWindow::associatingLabelsWithValues()
                 /*SpinBoxValue - это указатель в классе PrimarySkillSignature. Здесь
                  *происходит передача в него соответствующего указателя на QSpinBox*/
                 pss->SpinBoxValue = qobject_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i));
+                pss->setTooltipContent(pss->property("FullName").toString(), pss->property("Description").toString());
             }else{
                 //Вывод предупреждения в консоль и файл
                 QDate cd = QDate::currentDate();

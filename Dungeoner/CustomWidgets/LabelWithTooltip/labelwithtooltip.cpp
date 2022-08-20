@@ -103,3 +103,9 @@ void LabelWithTooltip::setOutlineThickness(int thickness)
     ui->LabelText->setGraphicsEffect(border);
     ui->LabelText->setMargin(thickness);
 }
+
+void LabelWithTooltip::setTooltipContent(QVector<QLabel*> &newTooltipContent)
+{
+    tooltipContent = newTooltipContent;
+    tooltipDisplayEvents.setTooltipContent(tooltipContent);
+}

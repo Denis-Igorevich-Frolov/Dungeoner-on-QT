@@ -76,15 +76,15 @@ QString PSS_StyleMaster::LeftTextureStyle()
     "}";
 }
 
-QString PSS_StyleMaster::TooltipTextStyle(int sizePX)
+QString PSS_StyleMaster::TooltipTextStyle(int sizePX, QString color)
 {
-    //Вместо %1 будет вставлен размер шрифта
+    //Вместо %1 будет вставлен размер шрифта, а вместо %2 - его цвет
     QString style =
     "QLabel{"
     "   background: none;"
     "   font: %1px;"
-    "   color: #bdc440;"
+    "   color: #%2;"
     "}";
 
-    return style.arg(sizePX);
+    return style.arg(sizePX).arg(color);
 }

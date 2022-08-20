@@ -140,3 +140,8 @@ void TooltipDisplayEvents::CheckingDisplayOfTooltip()
         }
     }
 }
+
+void TooltipDisplayEvents::setTooltipContent(QVector<QLabel *> &newTooltipContent)
+{
+    TooltipContent = newTooltipContent;
+}

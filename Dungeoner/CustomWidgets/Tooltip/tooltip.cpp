@@ -9,8 +9,6 @@ Tooltip::Tooltip(QWidget *parent) :
     ui->setupUi(this);
 
     ui->Background->setStyleSheet(T_StyleMaster::BackgroundStyle());
-    layout->setContentsMargins(17, 17, 17, 17);
-    layout->setSpacing(5);
     ui->Content->setLayout(layout);
 }
 
@@ -23,15 +21,22 @@ Tooltip::~Tooltip()
 
 void Tooltip::setContent(QVector<QLabel *> content)
 {
-    delete layout;
-    layout = new QVBoxLayout;
+    delete ui->Content;
+    ui->Content = new QFrame(this);
+    ui->Content->move(15, 15);
+
+    layout = new QVBoxLayout(ui->Content);
     layout->setContentsMargins(17, 12, 17, 12);
     layout->setSpacing(5);
-    ui->Content->setLayout(layout);
 
     for(QLabel* label : content){
-        label->setAlignment(Qt::AlignCenter);
-        layout->addWidget(label);
+        QLabel* newLabel = new QLabel;
+        newLabel->setAlignment(Qt::AlignCenter);
+        newLabel->setText(label->text());
+        newLabel->setStyleSheet(label->styleSheet());
+        newLabel->setFixedSize(label->maximumSize());
+        newLabel->setFont(label->font());
+        layout->addWidget(newLabel);
     }
 
     setFixedSize(ui->Content->sizeHint()+QSize(30, 30));

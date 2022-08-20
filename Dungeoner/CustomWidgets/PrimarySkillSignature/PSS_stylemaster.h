@@ -16,7 +16,7 @@ public:
     static QString bottomTextureStyle();
     static QString RightTextureStyle();
     static QString LeftTextureStyle();
-    static QString TooltipTextStyle(int sizePX);
+    static QString TooltipTextStyle(int sizePX, QString color);
 };
 
 #endif // PSS_STYLEMASTER_H

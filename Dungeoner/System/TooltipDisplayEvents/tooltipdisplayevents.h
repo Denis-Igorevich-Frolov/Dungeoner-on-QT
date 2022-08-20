@@ -50,6 +50,8 @@ public:
      *на виджет и правая кнопка мыши зажата, иначе будет попытка вызова RemoveTooltip*/
     void CheckingDisplayOfTooltip();
 
+    void setTooltipContent(QVector<QLabel *> &newTooltipContent);
+
 signals:
     //Сигнал отображения подсказки будет сдвигать её, если она уже существует
     void ShowTooltip(QVector<QLabel*> TooltipContent);

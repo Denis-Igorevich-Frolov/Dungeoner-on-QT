@@ -279,6 +279,12 @@
           <property name="Text" stdset="0">
            <string>СИЛА</string>
           </property>
+          <property name="FullName" stdset="0">
+           <string>Сила</string>
+          </property>
+          <property name="Description" stdset="0">
+           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+          </property>
          </widget>
          <widget class="PrimarySkillSignature" name="AgilityPrimarySkillSignature" native="true">
           <property name="geometry">
@@ -315,6 +321,12 @@
           </property>
           <property name="Text" stdset="0">
            <string>ЛОВК</string>
+          </property>
+          <property name="FullName" stdset="0">
+           <string>Ловкость</string>
+          </property>
+          <property name="Description" stdset="0">
+           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
           </property>
          </widget>
          <widget class="PrimarySkillSignature" name="IntelligencePrimarySkillSignature" native="true">
@@ -353,6 +365,12 @@
           <property name="Text" stdset="0">
            <string>ИНТ</string>
           </property>
+          <property name="FullName" stdset="0">
+           <string>Интеллект</string>
+          </property>
+          <property name="Description" stdset="0">
+           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+          </property>
          </widget>
          <widget class="PrimarySkillSignature" name="MagicPrimarySkillSignature" native="true">
           <property name="geometry">
@@ -389,6 +407,12 @@
           </property>
           <property name="Text" stdset="0">
            <string>МАГ</string>
+          </property>
+          <property name="FullName" stdset="0">
+           <string>Магия</string>
+          </property>
+          <property name="Description" stdset="0">
+           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
           </property>
          </widget>
          <widget class="PrimarySkillSignature" name="BodyTypePrimarySkillSignature" native="true">
@@ -427,6 +451,12 @@
           <property name="Text" stdset="0">
            <string>ТЕЛ</string>
           </property>
+          <property name="FullName" stdset="0">
+           <string>Телосложение</string>
+          </property>
+          <property name="Description" stdset="0">
+           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+          </property>
          </widget>
          <widget class="PrimarySkillSignature" name="WillPrimarySkillSignature" native="true">
           <property name="geometry">
@@ -463,6 +493,12 @@
           </property>
           <property name="Text" stdset="0">
            <string>ВОЛЯ</string>
+          </property>
+          <property name="FullName" stdset="0">
+           <string>Воля</string>
+          </property>
+          <property name="Description" stdset="0">
+           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
           </property>
          </widget>
         </widget>
