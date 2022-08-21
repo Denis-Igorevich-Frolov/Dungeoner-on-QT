@@ -93,6 +93,8 @@ private:
      *как бы "заест", модификатор придётся жать вновь. Для избежания этого и создан этот вектор.*/
     virtual void keyReleaseEvent(QKeyEvent *event) override;
 
+    virtual void leaveEvent(QEvent *event)override;
+
     //Эти переменные пока отладочные, их следует в последствии перенести в класс персонажа
     Global::PhysicalDamageScaling physicalDamageScaling = Global::STRENGTH;
 };

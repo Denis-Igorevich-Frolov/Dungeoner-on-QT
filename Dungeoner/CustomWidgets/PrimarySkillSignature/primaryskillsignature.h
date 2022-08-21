@@ -28,9 +28,6 @@ public:
     explicit PrimarySkillSignature(QWidget *parent = nullptr);
     ~PrimarySkillSignature();
 
-    /*Указатель на QSpinBox относящийся к этой подписи. Само связывание
-     * PrimarySkillSignature и QSpinBox производится непосредственно в классе окна.*/
-    QSpinBox *SpinBoxValue;
 
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
@@ -41,6 +38,9 @@ public:
     LabelWithTooltip* getlabelWithTooltip();
 
     void setTooltipContent(QString fullName, QString Description);
+
+    QSpinBox *getSpinBoxValue() const;
+    void setSpinBoxValue(QSpinBox *newSpinBoxValue);
 
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
@@ -54,15 +54,20 @@ private slots:
      *Ctrl: -10, Shift: -100, Alt: -1000. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
     void on_ButtonBottom_released();
     void slotTimerAlarm();
+    void valueChanged(int value);
 
 private:
     Ui::PrimarySkillSignature *ui;
 
+    /*Указатель на QSpinBox относящийся к этой подписи. Само связывание
+     * PrimarySkillSignature и QSpinBox производится непосредственно в классе окна.*/
+    QSpinBox *SpinBoxValue;
     QTimer* timer = new QTimer;
     bool isShowTooltip = false;
     QVector<QLabel*> buttonTooltipContent;
     QVector<QLabel*> tooltipContent;
     QLabel* tooltipContentLabel = new QLabel;
+    QLabel* valueLabel;
 
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/

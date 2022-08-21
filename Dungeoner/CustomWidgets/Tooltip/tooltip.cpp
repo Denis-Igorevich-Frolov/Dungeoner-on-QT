@@ -21,22 +21,28 @@ Tooltip::~Tooltip()
 
 void Tooltip::setContent(QVector<QLabel *> content)
 {
-    delete ui->Content;
-    ui->Content = new QFrame(this);
-    ui->Content->move(15, 15);
+    for(auto item : ui->Content->children())
+        delete item;
 
     layout = new QVBoxLayout(ui->Content);
     layout->setContentsMargins(17, 12, 17, 12);
-    layout->setSpacing(5);
+    layout->setSpacing(8);
 
+    int i = 0;
     for(QLabel* label : content){
         QLabel* newLabel = new QLabel;
-        newLabel->setAlignment(Qt::AlignCenter);
+        newLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
         newLabel->setText(label->text());
+        newLabel->setAlignment(Qt::AlignCenter);
         newLabel->setStyleSheet(label->styleSheet());
-        newLabel->setFixedSize(label->maximumSize());
+        newLabel->setMinimumSize(label->minimumSize());
+        newLabel->setMaximumSize(label->maximumSize());
         newLabel->setFont(label->font());
+        newLabel->setWordWrap(true);
         layout->addWidget(newLabel);
+        layout->setAlignment(newLabel, Qt::AlignHCenter);
+
+        i++;
     }
 
     setFixedSize(ui->Content->sizeHint()+QSize(30, 30));

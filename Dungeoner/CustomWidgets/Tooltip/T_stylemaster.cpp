@@ -5,6 +5,6 @@ QString T_StyleMaster::BackgroundStyle()
 {
     return
     "QLabel{"
-    "   background: rgba(19, 10, 15, 220);"
+    "   background: rgba(19, 10, 15, 240);"
     "}";
 }

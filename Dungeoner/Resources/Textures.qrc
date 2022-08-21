@@ -37,5 +37,6 @@
         <file>Textures PNG/Angle-1-B-R.png</file>
         <file>Textures PNG/Angle-1-T-L.png</file>
         <file>Textures PNG/Angle-1-T-R.png</file>
+        <file>Textures PNG/Separator-1.png</file>
     </qresource>
 </RCC>

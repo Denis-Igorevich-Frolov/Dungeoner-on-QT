@@ -295,7 +295,7 @@ void CharacterWindow::associatingLabelsWithValues()
             if(dynamic_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i))){
                 /*SpinBoxValue - это указатель в классе PrimarySkillSignature. Здесь
                  *происходит передача в него соответствующего указателя на QSpinBox*/
-                pss->SpinBoxValue = qobject_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i));
+                pss->setSpinBoxValue(qobject_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i)));
                 pss->setTooltipContent(pss->property("FullName").toString(), pss->property("Description").toString());
             }else{
                 //Вывод предупреждения в консоль и файл
@@ -590,6 +590,11 @@ void CharacterWindow::keyReleaseEvent(QKeyEvent *event)
     }
 }
 
+void CharacterWindow::leaveEvent(QEvent *event)
+{
+    pressedKeys.clear();
+}
+
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
  *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
@@ -672,7 +677,6 @@ void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
 
 void CharacterWindow::ShowTooltip(QVector<QLabel*> TooltipContent)
 {
-    qDebug() <<QTime::currentTime()<< "show";
     if(!ui->tooltip->isVisible())
         ui->tooltip->setContent(TooltipContent);
     ui->tooltip->setVisible(true);
@@ -681,7 +685,6 @@ void CharacterWindow::ShowTooltip(QVector<QLabel*> TooltipContent)
 
 void CharacterWindow::RemoveTooltip()
 {
-    qDebug() <<QTime::currentTime()<< "leave";
     ui->tooltip->setVisible(false);
 }
 

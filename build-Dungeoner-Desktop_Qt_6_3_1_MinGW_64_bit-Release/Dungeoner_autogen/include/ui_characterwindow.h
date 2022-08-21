@@ -169,7 +169,7 @@ public:
 
         SkillsWraper = new QFrame(CharacterWindow);
         SkillsWraper->setObjectName(QString::fromUtf8("SkillsWraper"));
-        SkillsWraper->setGeometry(QRect(46, 123, 666, 534));
+        SkillsWraper->setGeometry(QRect(46, 110, 666, 534));
         SkillsWraper->setFrameShape(QFrame::StyledPanel);
         SkillsWraper->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(SkillsWraper);
@@ -701,7 +701,7 @@ public:
 
         ProgressBars = new QFrame(CharacterWindow);
         ProgressBars->setObjectName(QString::fromUtf8("ProgressBars"));
-        ProgressBars->setGeometry(QRect(48, 685, 736, 361));
+        ProgressBars->setGeometry(QRect(48, 676, 736, 361));
         ProgressBars->setFrameShape(QFrame::StyledPanel);
         ProgressBars->setFrameShadow(QFrame::Raised);
         verticalLayout_5 = new QVBoxLayout(ProgressBars);

@@ -110,19 +110,54 @@ void PrimarySkillSignature::slotTimerAlarm()
     emit ShowTooltip(buttonTooltipContent);
 }
 
+void PrimarySkillSignature::valueChanged(int value)
+{
+    valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
+}
+
+QSpinBox *PrimarySkillSignature::getSpinBoxValue() const
+{
+    return SpinBoxValue;
+}
+
+void PrimarySkillSignature::setSpinBoxValue(QSpinBox *newSpinBoxValue)
+{
+    SpinBoxValue = newSpinBoxValue;
+    connect(SpinBoxValue, &QSpinBox::valueChanged, this, &PrimarySkillSignature::valueChanged);
+}
+
 void PrimarySkillSignature::setTooltipContent(QString fullName, QString description)
 {
     QLabel* fullNameLabel = new QLabel;
     fullNameLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
     fullNameLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(27, "bdc440"));
     fullNameLabel->setText(fullName);
-    fullNameLabel->setMaximumWidth(400);
+    fullNameLabel->setMaximumWidth(450);
     tooltipContent.append(fullNameLabel);
 
     QLabel* separator = new QLabel;
-    separator->setFixedSize(400, 1);
+    separator->setFixedSize(450, 1);
     separator->setStyleSheet("background: #bdc440;");
     tooltipContent.append(separator);
+
+    valueLabel = new QLabel;
+    valueLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/NumbersFont.ttf")).at(0));
+    valueLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(27, "cad160"));
+    valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
+    valueLabel->setMaximumWidth(450);
+    tooltipContent.append(valueLabel);
+
+    QLabel* separator2 = new QLabel;
+    separator2->setFixedSize(83, 13);
+    separator2->setStyleSheet("background: url(:/Text-Block-1/Textures PNG/Separator-1.png);");
+    tooltipContent.append(separator2);
+
+    QLabel* descriptionLabel = new QLabel;
+    descriptionLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    descriptionLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(18, "cad160"));
+    descriptionLabel->setText(description);
+    descriptionLabel->setMaximumWidth(450);
+    tooltipContent.append(descriptionLabel);
 
     ui->labelWithTooltip->setTooltipContent(tooltipContent);
 }
