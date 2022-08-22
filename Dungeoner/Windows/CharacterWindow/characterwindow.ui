@@ -1247,7 +1247,7 @@ border: none;</string>
                  <string>Сопротивление магическому урону</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string>1.5•Воля + Маг + 0.5•Тел</string>
+                 <string>1.5×Воля + Маг + 0.5×Тел</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1487,7 +1487,7 @@ border: none;</string>
                  <string>Сопротивление физическому урону</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string/>
+                 <string>1.5×Воля + Тел + 0.5×Магия</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1607,7 +1607,7 @@ border: none;</string>
                  <string>Усиление физических эффектов</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string/>
+                 <string>0.1×Сила</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1647,7 +1647,7 @@ border: none;</string>
                  <string>Сопротивление физизическим эффектам</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string/>
+                 <string>0.1×Воля + 10</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1687,7 +1687,7 @@ border: none;</string>
                  <string>Усиление магических эффектов</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string/>
+                 <string>0.1×Инт</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1767,7 +1767,7 @@ border: none;</string>
                  <string>Сопротивление магическим эффектам</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string/>
+                 <string>0.1×Воля + 0.1×Маг + 5</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1807,7 +1807,7 @@ border: none;</string>
                  <string>Точность дальнего боя</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string>0.1•Ловк + 15</string>
+                 <string>0.1×Ловк + 15</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1847,7 +1847,7 @@ border: none;</string>
                  <string>Скрытность</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string/>
+                 <string>Инт + Ловк</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>

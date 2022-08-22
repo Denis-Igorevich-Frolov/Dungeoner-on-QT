@@ -56,14 +56,17 @@ void OutlineEffect::draw(QPainter *painter)
         for(int i = 0; i<outlineThickness; i++){
             for(int j = 0; j<=outlineThickness; j++){
                 painter->drawImage(i, j, outline);
-                painter->drawImage(-i, j, outline);
-                painter->drawImage(i, -j, outline);
-                painter->drawImage(-i, -j, outline);
 
-                painter->drawImage(j, i, outline);
-                painter->drawImage(-j, i, outline);
-                painter->drawImage(j, -i, outline);
-                painter->drawImage(-j, -i, outline);
+                if(i!=0&&j!=0){
+                    painter->drawImage(-i, j, outline);
+                    painter->drawImage(i, -j, outline);
+                    painter->drawImage(-i, -j, outline);
+
+                    painter->drawImage(j, i, outline);
+                    painter->drawImage(-j, i, outline);
+                    painter->drawImage(j, -i, outline);
+                    painter->drawImage(-j, -i, outline);
+                }
 
                 if(i!=0){
                     painter->drawImage(i, i, outline);

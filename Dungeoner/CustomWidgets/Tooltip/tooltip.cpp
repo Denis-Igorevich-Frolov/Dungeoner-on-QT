@@ -1,4 +1,5 @@
 #include "tooltip.h"
+#include "System/OutlineEffect/outlineeffect.h"
 #include "ui_tooltip.h"
 #include "T_stylemaster.h"
 
@@ -41,6 +42,12 @@ void Tooltip::setContent(QVector<QLabel *> content)
         layout->addWidget(newLabel);
         if(newLabel->text().isEmpty())
             layout->setAlignment(newLabel, Qt::AlignHCenter);
+        else{
+            OutlineEffect* border = new OutlineEffect;
+            border->setOutlineThickness(2);
+            newLabel->setGraphicsEffect(border);
+            newLabel->setMargin(2);
+        }
 
         i++;
     }

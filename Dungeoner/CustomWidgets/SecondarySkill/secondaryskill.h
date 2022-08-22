@@ -54,7 +54,7 @@ private:
     QString SValue;
 
     QVector<QLabel*> tooltipContent;
-    QLabel* valueLabel;
+    QLabel* valueLabel = new QLabel;
 
     Ui::SecondarySkill *ui;
 

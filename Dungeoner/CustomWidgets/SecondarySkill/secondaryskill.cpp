@@ -107,6 +107,8 @@ void SecondarySkill::setValue(int newValue)
     }
     SValue = SValue.arg(70).arg(finalValue);
     ui->Value->setText(SValue);
+
+    valueLabel->setText(SValue);
 }
 
 void SecondarySkill::setInscription(QString inscription)
