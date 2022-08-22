@@ -37,7 +37,7 @@ public:
 
     LabelWithTooltip* getlabelWithTooltip();
 
-    void setTooltipContent(QString fullName, QString Description);
+    void setTooltipContent(QString fullName, QString description);
 
     QSpinBox *getSpinBoxValue() const;
     void setSpinBoxValue(QSpinBox *newSpinBoxValue);

@@ -25,10 +25,10 @@ public:
     explicit SecondarySkill(QWidget *parent = nullptr);
     ~SecondarySkill();
 
-    long getValue() const;
+    int getValue() const;
     /*Сеттер на переменную Value. Также устанавливает число в
      *лейбл Value и меняет его межстрочный интервал*/
-    void setValue(long newValue);
+    void setValue(int newValue);
     void setInscription(QString inscription);
     void setFontSize(int size);
 
@@ -37,6 +37,8 @@ public:
 
     int getScrollAreaOffset() const;
     void setScrollAreaOffset(int newScrollAreaOffset);
+
+    void setTooltipContent(QString fullName, QString formula, QString description);
 
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
@@ -48,8 +50,11 @@ private:
 
     /*Значение стата имеет ограничение в 9999999, превышать которое не стоит
      *из-за возрастающего риска переполнения при взаимодействии с ним*/
-    long value = 0;
+    int value = 0;
     QString SValue;
+
+    QVector<QLabel*> tooltipContent;
+    QLabel* valueLabel;
 
     Ui::SecondarySkill *ui;
 
@@ -67,8 +72,6 @@ private:
     int ScrollAreaHeight = 0;
     //Сдвиг скроллбара, в который помещён вторичный навык
     int ScrollAreaOffset = 0;
-
-    QVector<QLabel*> TooltipContent;
 };
 
 #endif // SECONDARYSKILL_H

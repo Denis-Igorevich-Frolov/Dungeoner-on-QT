@@ -82,6 +82,8 @@ private:
 
     void recalculateStats();
 
+    void tooltipInitialization();
+
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/
     virtual void keyPressEvent(QKeyEvent *event) override;

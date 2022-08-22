@@ -99,6 +99,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     }
 
     recalculateStats();
+
+    tooltipInitialization();
 }
 
 CharacterWindow::~CharacterWindow()
@@ -296,7 +298,6 @@ void CharacterWindow::associatingLabelsWithValues()
                 /*SpinBoxValue - это указатель в классе PrimarySkillSignature. Здесь
                  *происходит передача в него соответствующего указателя на QSpinBox*/
                 pss->setSpinBoxValue(qobject_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i)));
-                pss->setTooltipContent(pss->property("FullName").toString(), pss->property("Description").toString());
             }else{
                 //Вывод предупреждения в консоль и файл
                 QDate cd = QDate::currentDate();
@@ -531,7 +532,7 @@ void CharacterWindow::recalculateStats()
     long loadCapacity = floor(0.5 * ui->StrengthValue->value()) + floor(0.5 * ui->BodyTypeValue->value());
     ui->LoadCapacity->setValue(loadCapacity);
 
-    long initiative = floor(0.5 * ui->AgilityValue->value()) + ui->IntelligenceValue->value() + ui->WillValue->value();
+    long initiative = floor(5 * ui->AgilityValue->value()) + ui->IntelligenceValue->value() + ui->WillValue->value();
     ui->Initiative->setValue(initiative);
 
     long magicCastChance = floor(0.3 * ui->IntelligenceValue->value()) + floor(0.2 * ui->MagicValue->value());
@@ -551,6 +552,107 @@ void CharacterWindow::recalculateStats()
 
     long mana = ui->MagicValue->value() * 10 + ui->IntelligenceValue->value() * 2 + ui->WillValue->value();
     ui->Mana->getProgressBar()->setMaxValue(mana);
+}
+
+void CharacterWindow::tooltipInitialization()
+{
+    int i = 0;
+    /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
+     *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
+     *проигнорирован и выведено предупреждение.*/
+    for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
+        if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
+            PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
+            if(dynamic_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i))){
+                pss->setTooltipContent(pss->property("FullName").toString(), pss->property("Description").toString());
+            }else{
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
+                "Объект " + ui->PrimarySkillValues->children().at(i)->objectName() + " не является QSpinBox.\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+            }
+        }else{
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
+            "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+        ++i;
+    }
+
+    /*Перебор всех дочерних эллементов контейнера SecondarySkills. Перебор
+     *производится при помощи QGridLayout, из-за того, что контейнер - сетка.
+     *Здесь важно, чтобы все эти эллементы были типа SecondarySkill. Если это
+     *не так, то эллемент будет проигнорирован и выведено предупреждение.*/
+    QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
+    for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
+    {
+        for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
+        {
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0){
+                if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                    SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                    ss->setTooltipContent(ss->property("FullName").toString(), ss->property("Formula").toString(), ss->property("Description").toString());
+                }else{
+                    //Вывод предупреждения в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                            "CharacterWindow выдал предупреждение в методе setStyles.\n"
+                            "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
+                }
+            }
+        }
+    }
 }
 
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.

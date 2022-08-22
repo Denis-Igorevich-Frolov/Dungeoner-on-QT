@@ -5,6 +5,8 @@
 #include "dungeoner.h"
 #include "./ui_dungeoner.h"
 
+#include <QFontDatabase>
+
 //#include <QFontDatabase>
 
 Dungeoner::Dungeoner(QWidget *parent)
@@ -14,6 +16,9 @@ Dungeoner::Dungeoner(QWidget *parent)
 //    ui->setupUi(this);
 
 //    this->close();
+
+    QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf");
+    QFontDatabase::addApplicationFont(":/Fonts/NumbersFont.ttf");
 
     characterWindow = new CharacterWindow();
     characterWindow->show();

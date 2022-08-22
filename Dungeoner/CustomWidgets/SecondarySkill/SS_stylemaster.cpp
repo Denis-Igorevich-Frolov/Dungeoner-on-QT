@@ -10,7 +10,6 @@ QString SS_StyleMaster::SecondarySkillInscriptionStyle(int size)
     QString style =
     "QLabel{"
     "   background: none;"
-    "   font-family: 'Algerian';"
     "   font-size: %1px;"
     "   color: #bdc440;"
     "}";
@@ -24,8 +23,21 @@ QString SS_StyleMaster::SecondarySkillValueStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   font-family: 'Old English Text MT';"
+    "   font-size: 28px;"
     "   color: #bdc440;"
     "   margin-bottom: 10px;"
     "}";
+}
+
+QString SS_StyleMaster::TooltipTextStyle(int sizePX, QString color)
+{
+    //Вместо %1 будет вставлен размер шрифта, а вместо %2 - его цвет
+    QString style =
+    "QLabel{"
+    "   background: none;"
+    "   font: %1px;"
+    "   color: #%2;"
+    "}";
+
+    return style.arg(sizePX).arg(color);
 }

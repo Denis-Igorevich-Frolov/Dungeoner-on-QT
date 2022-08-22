@@ -1203,6 +1203,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Точность ближнего боя</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.1×Ловк + 20</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="1" column="1">
@@ -1233,6 +1242,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Сопротивление магическому урону</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>1.5•Воля + Маг + 0.5•Тел</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1265,6 +1283,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>16</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Шанс сотворения магии</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.3×Инт + 0.2×Маг</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="7" column="0">
@@ -1295,6 +1322,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>16</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Грузоподъёмность</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.5×Сила + 0.5×Тел</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1327,6 +1363,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>17</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Внимательность</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>Инт + Ловк + Воля</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="0" column="1">
@@ -1357,6 +1402,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Магический урон</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>1.5×Маг + 1.5×Инт + 0.5×Воля</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1389,6 +1443,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Инициатива</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>5×Ловк + Инт + Воля</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="1" column="0">
@@ -1419,6 +1482,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Сопротивление физическому урону</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string/>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1451,6 +1523,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Уклонение</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.5×Ловк + 0.1×Тел</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="5" column="0">
@@ -1481,6 +1562,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Точность магии</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.1×Инт + 15</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1513,6 +1603,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Усиление физических эффектов</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string/>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="2" column="0">
@@ -1543,6 +1642,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Сопротивление физизическим эффектам</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string/>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1575,6 +1683,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Усиление магических эффектов</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string/>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="8" column="1">
@@ -1605,6 +1722,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Шанс применения боевого  приёма</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.2×Ловк + 20</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1637,6 +1763,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Сопротивление магическим эффектам</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string/>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="4" column="1">
@@ -1667,6 +1802,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Точность дальнего боя</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.1•Ловк + 15</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
@@ -1699,6 +1843,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>20</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Скрытность</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string/>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="0" column="0">
@@ -1730,6 +1883,15 @@ border: none;</string>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
                 </property>
+                <property name="FullName" stdset="0">
+                 <string>Физический урон</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string/>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
                </widget>
               </item>
               <item row="9" column="0" alignment="Qt::AlignLeft">
@@ -1760,6 +1922,15 @@ border: none;</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Дальность передвижения</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>Тел + 0.75×Ловк + 0.5×Сила</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>

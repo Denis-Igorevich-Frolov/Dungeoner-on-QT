@@ -22,9 +22,12 @@ SecondarySkill::SecondarySkill(QWidget *parent) :
     connect(&tooltipDisplayEvents,SIGNAL(ShowTooltip(QVector<QLabel*>)),this, SIGNAL(ShowTooltip(QVector<QLabel*>)));
     connect(&tooltipDisplayEvents,SIGNAL(RemoveTooltip()),this, SIGNAL(RemoveTooltip()));
 
+
     //Установка стилей
     ui->Inscription->setStyleSheet(SS_StyleMaster::SecondarySkillInscriptionStyle(12));
     ui->Value->setStyleSheet(SS_StyleMaster::SecondarySkillValueStyle());
+    ui->Value->setFont(QFont("NumbersFont"));
+    ui->Inscription->setFont(QFont("TextFont"));
 
     //Установка обводки текста
     borderInscription = new OutlineEffect();
@@ -52,14 +55,14 @@ SecondarySkill::~SecondarySkill()
     delete borderValue;
 }
 
-long SecondarySkill::getValue() const
+int SecondarySkill::getValue() const
 {
     return value;
 }
 
 /*Сеттер на переменную Value. Также устанавливает число в
  *лейбл Value и меняет его межстрочный интервал*/
-void SecondarySkill::setValue(long newValue)
+void SecondarySkill::setValue(int newValue)
 {
     /*Просто так в Qt межстрочный интервал не задать, приходится прибегать к
      *цыганским фокусам. Тут в QString переменную передаётся не просто значение,
@@ -147,6 +150,49 @@ int SecondarySkill::getScrollAreaOffset() const
 void SecondarySkill::setScrollAreaOffset(int newScrollAreaOffset)
 {
     ScrollAreaOffset = newScrollAreaOffset;
+}
+
+void SecondarySkill::setTooltipContent(QString fullName, QString formula, QString description)
+{
+    QLabel* fullNameLabel = new QLabel;
+    fullNameLabel->setFont(QFont("TextFont"));
+    fullNameLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(27, "bdc440"));
+    fullNameLabel->setText(fullName);
+    fullNameLabel->setMaximumWidth(450);
+    tooltipContent.append(fullNameLabel);
+
+    QLabel* separator = new QLabel;
+    separator->setFixedSize(450, 1);
+    separator->setStyleSheet("background: #bdc440;");
+    tooltipContent.append(separator);
+
+    valueLabel = new QLabel;
+    valueLabel->setFont(QFont("NumbersFont"));
+    valueLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(27, "cad160"));
+    valueLabel->setText(QVariant(value).toString());
+    valueLabel->setMaximumWidth(450);
+    tooltipContent.append(valueLabel);
+
+    QLabel* formulaLabel = new QLabel;
+    formulaLabel->setFont(QFont("TextFont"));
+    formulaLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(23, "bdc440"));
+    formulaLabel->setText(formula);
+    formulaLabel->setMaximumWidth(450);
+    tooltipContent.append(formulaLabel);
+
+    QLabel* separator2 = new QLabel;
+    separator2->setFixedSize(83, 13);
+    separator2->setStyleSheet("background: url(:/Text-Block-1/Textures PNG/Separator-1.png);");
+    tooltipContent.append(separator2);
+
+    QLabel* descriptionLabel = new QLabel;
+    descriptionLabel->setFont(QFont("TextFont"));
+    descriptionLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(18, "cad160"));
+    descriptionLabel->setText(description);
+    descriptionLabel->setMaximumWidth(450);
+    tooltipContent.append(descriptionLabel);
+
+    tooltipDisplayEvents.setTooltipContent(tooltipContent);
 }
 
 int SecondarySkill::getScrollAreaHeight() const

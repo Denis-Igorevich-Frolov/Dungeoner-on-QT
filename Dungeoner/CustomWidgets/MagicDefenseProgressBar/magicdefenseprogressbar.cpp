@@ -1,5 +1,3 @@
-#include <QFontDatabase>
-
 #include "magicdefenseprogressbar.h"
 #include "ui_magicdefenseprogressbar.h"
 #include "MDP_stylemaster.h"
@@ -11,7 +9,7 @@ MagicDefenseProgressBar::MagicDefenseProgressBar(QWidget *parent) :
     ui->setupUi(this);
 
     //Установка стиля лейблу имени
-    ui->Name->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    ui->Name->setFont(QFont("TextFont"));
     ui->Name->setStyleSheet(MDP_StyleMaster::TextFontStyle(25));
 
     //Установка эффекта обводки лейблу имени

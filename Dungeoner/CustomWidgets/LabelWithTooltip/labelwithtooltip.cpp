@@ -6,8 +6,6 @@
  *выводилась только у этой части, а у всего родительского виджета
  ******************************************************************************/
 
-#include <QFontDatabase>
-
 #include "labelwithtooltip.h"
 #include "qevent.h"
 #include "ui_labelwithtooltip.h"
@@ -84,11 +82,11 @@ void LabelWithTooltip::setFontType(FontType newFontType)
      *Важно задать стиль текста до переопределения размера шрифта, так
      *как вызов этой функции снова задаст значение размера по умолчанию.*/
     if(fontType == FontType::TEXT){
-        ui->LabelText->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+        ui->LabelText->setFont(QFont("TextFont"));
         ui->LabelText->setStyleSheet(LWT_StyleMaster::TextFontStyle(this->property("fontSize").toInt()));
     }
     else if(fontType == FontType::NUMBERS){
-        ui->LabelText->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/NumbersFont.ttf")).at(0));
+        ui->LabelText->setFont(QFont("NumbersFont"));
         ui->LabelText->setStyleSheet(LWT_StyleMaster::TextFontStyle(this->property("fontSize").toInt()));
         /*Так как теперь лейбл имеет стиль "ЧИСЛА" устанавливаем изначальный
          *текст "0". Этого не требовалось для текста, потому что ещё в форме

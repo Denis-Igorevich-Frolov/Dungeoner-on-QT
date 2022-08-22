@@ -31,16 +31,16 @@ void Tooltip::setContent(QVector<QLabel *> content)
     int i = 0;
     for(QLabel* label : content){
         QLabel* newLabel = new QLabel;
-        newLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        newLabel->setWordWrap(true);
         newLabel->setText(label->text());
         newLabel->setAlignment(Qt::AlignCenter);
         newLabel->setStyleSheet(label->styleSheet());
         newLabel->setMinimumSize(label->minimumSize());
         newLabel->setMaximumSize(label->maximumSize());
         newLabel->setFont(label->font());
-        newLabel->setWordWrap(true);
         layout->addWidget(newLabel);
-        layout->setAlignment(newLabel, Qt::AlignHCenter);
+        if(newLabel->text().isEmpty())
+            layout->setAlignment(newLabel, Qt::AlignHCenter);
 
         i++;
     }

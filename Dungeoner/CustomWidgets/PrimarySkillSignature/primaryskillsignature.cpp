@@ -10,7 +10,6 @@
 #include "PSS_stylemaster.h"
 #include "Windows/CharacterWindow/characterwindow.h"
 
-#include <QFontDatabase>
 #include <QMouseEvent>
 #include <QMutableVectorIterator>
 
@@ -32,7 +31,7 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
 
     connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
 
-    tooltipContentLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    tooltipContentLabel->setFont(QFont("TextFont"));
     tooltipContentLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(20, "bdc440"));
     buttonTooltipContent.append(tooltipContentLabel);
 }
@@ -60,17 +59,17 @@ void PrimarySkillSignature::on_ButtonTop_released()
     int plus = 1;
 
     if(!CharacterWindow::pressedKeys.empty()){
+        //Alt
+        if(CharacterWindow::pressedKeys.last() == 16777251){
+            plus = 5;
+        }else
         //Ctrl
         if(CharacterWindow::pressedKeys.last() == 16777249){
             plus = 10;
-        }
+        }else
         //Shift
         if(CharacterWindow::pressedKeys.last() == 16777248){
             plus = 100;
-        }
-        //Alt
-        if(CharacterWindow::pressedKeys.last() == 16777251){
-            plus = 1000;
         }
     }
 
@@ -86,17 +85,17 @@ void PrimarySkillSignature::on_ButtonBottom_released()
     int minus = 1;
 
     if(!CharacterWindow::pressedKeys.empty()){
+        //Alt
+        if(CharacterWindow::pressedKeys.last() == 16777251){
+            minus = 5;
+        }else
         //Ctrl
         if(CharacterWindow::pressedKeys.last() == 16777249){
             minus = 10;
-        }
+        }else
         //Shift
         if(CharacterWindow::pressedKeys.last() == 16777248){
             minus = 100;
-        }
-        //Alt
-        if(CharacterWindow::pressedKeys.last() == 16777251){
-            minus = 1000;
         }
     }
 
@@ -129,7 +128,7 @@ void PrimarySkillSignature::setSpinBoxValue(QSpinBox *newSpinBoxValue)
 void PrimarySkillSignature::setTooltipContent(QString fullName, QString description)
 {
     QLabel* fullNameLabel = new QLabel;
-    fullNameLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    fullNameLabel->setFont(QFont("TextFont"));
     fullNameLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(27, "bdc440"));
     fullNameLabel->setText(fullName);
     fullNameLabel->setMaximumWidth(450);
@@ -141,7 +140,7 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     tooltipContent.append(separator);
 
     valueLabel = new QLabel;
-    valueLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/NumbersFont.ttf")).at(0));
+    valueLabel->setFont(QFont("NumbersFont"));
     valueLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(27, "cad160"));
     valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
     valueLabel->setMaximumWidth(450);
@@ -153,7 +152,7 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     tooltipContent.append(separator2);
 
     QLabel* descriptionLabel = new QLabel;
-    descriptionLabel->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    descriptionLabel->setFont(QFont("TextFont"));
     descriptionLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(18, "cad160"));
     descriptionLabel->setText(description);
     descriptionLabel->setMaximumWidth(450);
@@ -212,10 +211,10 @@ bool PrimarySkillSignature::eventFilter(QObject *object, QEvent *event)
             emit ShowTooltip(buttonTooltipContent);
     }else if(object == ui->ButtonTop && event->type() == QEvent::HoverEnter){
         timer->start(2300);
-        tooltipContentLabel->setText("Ctrl: +10\nShift: +100\nAlt: +1000");
+        tooltipContentLabel->setText("Alt: +5\nCtrl: +10\nShift: +100");
     }else if(object == ui->ButtonBottom && event->type() == QEvent::HoverEnter){
         timer->start(2300);
-        tooltipContentLabel->setText("Ctrl: -10\nShift: -100\nAlt: -1000");
+        tooltipContentLabel->setText("Alt: -5\nCtrl: -10\nShift: -100");
     }else if(event->type() == QEvent::HoverLeave||event->type() == QEvent::MouseButtonPress){
         timer->stop();
         if(isShowTooltip)

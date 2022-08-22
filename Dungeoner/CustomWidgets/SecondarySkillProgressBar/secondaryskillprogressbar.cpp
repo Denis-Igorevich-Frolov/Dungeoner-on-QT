@@ -1,5 +1,3 @@
-#include <QFontDatabase>
-
 #include "secondaryskillprogressbar.h"
 #include "ui_secondaryskillprogressbar.h"
 #include "SSPB_stylemaster.h"
@@ -11,7 +9,7 @@ SecondarySkillProgressBar::SecondarySkillProgressBar(QWidget *parent) :
     ui->setupUi(this);
 
     //Установка стиля лейблу имени
-    ui->Name->setFont(QFontDatabase::applicationFontFamilies(QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf")).at(0));
+    ui->Name->setFont(QFont("TextFont"));
     ui->Name->setStyleSheet(SSPB_StyleMaster::TextFontStyle(25));
 
     //Установка эффекта обводки лейблу имени
