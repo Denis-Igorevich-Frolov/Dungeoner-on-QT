@@ -62,10 +62,12 @@ void OutlineEffect::draw(QPainter *painter)
                     painter->drawImage(i, -j, outline);
                     painter->drawImage(-i, -j, outline);
 
-                    painter->drawImage(j, i, outline);
-                    painter->drawImage(-j, i, outline);
-                    painter->drawImage(j, -i, outline);
-                    painter->drawImage(-j, -i, outline);
+                    if(j!=i){
+                        painter->drawImage(j, i, outline);
+                        painter->drawImage(-j, i, outline);
+                        painter->drawImage(j, -i, outline);
+                        painter->drawImage(-j, -i, outline);
+                    }
                 }
 
                 if(i!=0){
@@ -74,7 +76,7 @@ void OutlineEffect::draw(QPainter *painter)
                     painter->drawImage(i, -i, outline);
                 }
 
-                if(i!=0){
+                if(j!=0&&j!=i){
                     painter->drawImage(j, j, outline);
                     painter->drawImage(-j, j, outline);
                     painter->drawImage(j, -j, outline);

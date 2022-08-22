@@ -177,7 +177,7 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
 
     QLabel* formulaLabel = new QLabel;
     formulaLabel->setFont(QFont("TextFont"));
-    formulaLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(23, "bdc440"));
+    formulaLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(24, "bdc440"));
     formulaLabel->setText(formula);
     formulaLabel->setMaximumWidth(450);
     tooltipContent.append(formulaLabel);
