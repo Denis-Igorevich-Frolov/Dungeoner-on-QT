@@ -183,8 +183,8 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     tooltipContent.append(formulaLabel);
 
     QLabel* separator2 = new QLabel;
-    separator2->setFixedSize(83, 13);
-    separator2->setStyleSheet("background: url(:/Text-Block-1/Textures PNG/Separator-1.png);");
+    formulaLabel->setMaximumWidth(450);
+    separator2->setStyleSheet(SS_StyleMaster::SeparatorStyle());
     tooltipContent.append(separator2);
 
     QLabel* descriptionLabel = new QLabel;

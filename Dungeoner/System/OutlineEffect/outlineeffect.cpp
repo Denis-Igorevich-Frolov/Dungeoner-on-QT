@@ -22,7 +22,7 @@ void OutlineEffect::draw(QPainter *painter)
     //Так как работа идёт уже с QImage антиалайзинг должен быть обычным, а не TextAntialiasing
     painter->setRenderHint(QPainter::Antialiasing);
 
-    //Если толщина обводки нулевая, то и смысла гонять эти цыклы нет
+    //Если толщина обводки нулевая, то и смысла гонять эти циклы нет
     if(outlineThickness > 0){
         /*Создание QImage на основе sourcePixmap необходимо для перекраски полученного изображения
          *в цвет обводки функцией setPixelColor. Тоже самое можно сделать и при помощи QPixmap с
@@ -53,34 +53,17 @@ void OutlineEffect::draw(QPainter *painter)
          *перезаписывает предыдущий, сделать множество теней простыми методами не получится. Так
          *что окрашенный дубликат sourcePixmap() здесь выступает в роли такой "тени". Его следует
          *отрисовать в каждой позиции заданного смещения.*/
-        for(int i = 0; i<outlineThickness; i++){
+        for(int i = 0; i<=outlineThickness; i++){
             for(int j = 0; j<=outlineThickness; j++){
                 painter->drawImage(i, j, outline);
+                painter->drawImage(-i, j, outline);
+                painter->drawImage(i, -j, outline);
+                painter->drawImage(-i, -j, outline);
 
-                if(i!=0&&j!=0){
-                    painter->drawImage(-i, j, outline);
-                    painter->drawImage(i, -j, outline);
-                    painter->drawImage(-i, -j, outline);
-
-                    if(j!=i){
-                        painter->drawImage(j, i, outline);
-                        painter->drawImage(-j, i, outline);
-                        painter->drawImage(j, -i, outline);
-                        painter->drawImage(-j, -i, outline);
-                    }
-                }
-
-                if(i!=0){
-                    painter->drawImage(i, i, outline);
-                    painter->drawImage(-i, i, outline);
-                    painter->drawImage(i, -i, outline);
-                }
-
-                if(j!=0&&j!=i){
-                    painter->drawImage(j, j, outline);
-                    painter->drawImage(-j, j, outline);
-                    painter->drawImage(j, -j, outline);
-                }
+                painter->drawImage(j, i, outline);
+                painter->drawImage(-j, i, outline);
+                painter->drawImage(j, -i, outline);
+                painter->drawImage(-j, -i, outline);
             }
         }
     }

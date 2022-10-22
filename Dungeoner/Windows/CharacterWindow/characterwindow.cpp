@@ -16,8 +16,6 @@
 #include <QScrollBar>
 #include <QMutableVectorIterator>
 
-QVector<int> CharacterWindow::pressedKeys;
-
 CharacterWindow::CharacterWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CharacterWindow)
@@ -41,14 +39,17 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
             this, &CharacterWindow::ScrollAreaSecondarySkillsScrolled);
 
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
-     *и ивенты мыши, чтобы они не перекравали непосредственно вторичные навыки*/
+     *и ивенты мыши, чтобы они не перекрывали непосредственно вторичные навыки*/
     ui->SecondarySkillsShadowTop->setFocusPolicy(Qt::NoFocus);
     ui->SecondarySkillsShadowTop->setAttribute(Qt::WA_TransparentForMouseEvents);
     ui->SecondarySkillsShadowBottom->setFocusPolicy(Qt::NoFocus);
     ui->SecondarySkillsShadowBottom->setAttribute(Qt::WA_TransparentForMouseEvents);
 
+    /*Подсказка не должна принимать фокус и ивенты мыши, чтобы не перехватывать
+     *их с виджетов с которых она сама и вызывается.*/
     ui->tooltip->setFocusPolicy(Qt::NoFocus);
     ui->tooltip->setAttribute(Qt::WA_TransparentForMouseEvents);
+    //Подсказка по умолчанию скрыта
     ui->tooltip->setVisible(false);
 
     linkingTooltipSlots();
@@ -161,6 +162,7 @@ void CharacterWindow::setStyles()
             /*Метод устанавливает стиль для SpinBox, при этом размер
              *шрифта извлекается из динамического свойства виджета fontSize.*/
             sb->setStyleSheet(CW_StyleMaster::SpinBoxStyle(sb->property("fontSize").toInt()));
+            sb->setFont(QFont("NumbersFont"));
         }else{
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -254,6 +256,7 @@ void CharacterWindow::setStyles()
             //Установка имени прогрессбара при помощи динамического свойства Name
             magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
 
+            //Временная заглушка для прогрессбара магической защиты
             magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
             new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
@@ -478,6 +481,7 @@ void CharacterWindow::linkingTooltipSlots()
     }
 }
 
+//В методе происходит полный перерасчёт всех вторичных навыков
 void CharacterWindow::recalculateStats()
 {
     long physicalDamage = 0;
@@ -554,6 +558,8 @@ void CharacterWindow::recalculateStats()
     ui->Mana->getProgressBar()->setMaxValue(mana);
 }
 
+
+//Заполнение контентом подсказок элементов на основе их динамических свойств
 void CharacterWindow::tooltipInitialization()
 {
     int i = 0;
@@ -661,7 +667,7 @@ void CharacterWindow::keyPressEvent(QKeyEvent *event)
 {
     int key=event->key();
     if(key==16777249||key==16777248||key==16777251)
-        pressedKeys.append(key);
+        Global::pressedKeys.append(key);
 }
 
 /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
@@ -673,7 +679,7 @@ void CharacterWindow::keyPressEvent(QKeyEvent *event)
 void CharacterWindow::keyReleaseEvent(QKeyEvent *event)
 {
     int key=event->key();
-    QMutableVectorIterator<int> keyIterator(pressedKeys);
+    QMutableVectorIterator<int> keyIterator(Global::pressedKeys);
 
     /*Так как вектор pressedKeys доступен многим виджетам одновременно, гипотетически
      *возможна ситуация когда фокус получат одновременно несколько виджетов, и они
@@ -694,7 +700,7 @@ void CharacterWindow::keyReleaseEvent(QKeyEvent *event)
 
 void CharacterWindow::leaveEvent(QEvent *event)
 {
-    pressedKeys.clear();
+    Global::pressedKeys.clear();
 }
 
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
@@ -738,7 +744,7 @@ void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
 {
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);
 
-    /*!!!Передача во все SecondarySkill размера смещения их ScrollArea для последующей обработки
+    /*Передача во все SecondarySkill размера смещения их ScrollArea для последующей обработки
      *выведения подсказки при усечении SecondarySkill внутри ScrollArea.*/
     QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
     for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
@@ -782,7 +788,7 @@ void CharacterWindow::ShowTooltip(QVector<QLabel*> TooltipContent)
     if(!ui->tooltip->isVisible())
         ui->tooltip->setContent(TooltipContent);
     ui->tooltip->setVisible(true);
-    ui->tooltip->move(QWidget::mapFromGlobal(QCursor::pos()-QPoint(15, 15)));
+    ui->tooltip->move(QWidget::mapFromGlobal(QCursor::pos()-QPoint(ui->tooltip->invisibleFrame.width()/2, ui->tooltip->invisibleFrame.height()/2)));
 }
 
 void CharacterWindow::RemoveTooltip()

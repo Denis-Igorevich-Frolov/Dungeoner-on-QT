@@ -142,18 +142,11 @@ void ProgressBar_1::redrawChunk()
     QPainter painter(&pixmap);
     //Тайлинг текстуры
     int drawedWidth = 0;
-    int drawedHeight = 0;
+    drawedWidth = 0;
     while (true) {
-        drawedWidth = 0;
-        while (true) {
-            painter.drawImage(drawedWidth, drawedHeight, new_image);
-            drawedWidth += new_image.width();
-            if (drawedWidth >= pixmap.width()) {
-                break;
-            }
-        }
-        drawedHeight += new_image.height();
-        if (drawedHeight >= pixmap.height()) {
+        painter.drawImage(drawedWidth, 0, new_image);
+        drawedWidth += new_image.width();
+        if (drawedWidth >= pixmap.width()) {
             break;
         }
     }

@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'characterwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.3.1)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -9,70 +9,103 @@
 #include <memory>
 #include "../../../Dungeoner/Windows/CharacterWindow/characterwindow.h"
 #include <QtGui/qtextcursor.h>
-#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'characterwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.3.1. It"
+#error "This file was generated using the moc from 6.4.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
+#endif
+
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
+namespace {
 struct qt_meta_stringdata_CharacterWindow_t {
-    const uint offsetsAndSize[44];
-    char stringdata0[466];
+    uint offsetsAndSizes[44];
+    char stringdata0[16];
+    char stringdata1[34];
+    char stringdata2[1];
+    char stringdata3[6];
+    char stringdata4[12];
+    char stringdata5[15];
+    char stringdata6[15];
+    char stringdata7[14];
+    char stringdata8[37];
+    char stringdata9[7];
+    char stringdata10[34];
+    char stringdata11[22];
+    char stringdata12[24];
+    char stringdata13[24];
+    char stringdata14[30];
+    char stringdata15[5];
+    char stringdata16[29];
+    char stringdata17[34];
+    char stringdata18[27];
+    char stringdata19[30];
+    char stringdata20[26];
+    char stringdata21[24];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(offsetof(qt_meta_stringdata_CharacterWindow_t, stringdata0) + ofs), len 
-static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata_CharacterWindow = {
+    uint(sizeof(qt_meta_stringdata_CharacterWindow_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata_CharacterWindow = {
     {
-QT_MOC_LITERAL(0, 15), // "CharacterWindow"
-QT_MOC_LITERAL(16, 33), // "ScrollAreaSecondarySkillsScro..."
-QT_MOC_LITERAL(50, 0), // ""
-QT_MOC_LITERAL(51, 5), // "value"
-QT_MOC_LITERAL(57, 11), // "ShowTooltip"
-QT_MOC_LITERAL(69, 14), // "QList<QLabel*>"
-QT_MOC_LITERAL(84, 14), // "TooltipContent"
-QT_MOC_LITERAL(99, 13), // "RemoveTooltip"
-QT_MOC_LITERAL(113, 36), // "on_verticalScrollBar_actionTr..."
-QT_MOC_LITERAL(150, 6), // "action"
-QT_MOC_LITERAL(157, 33), // "on_verticalScrollBar_valueCha..."
-QT_MOC_LITERAL(191, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(213, 23), // "on_pushButton_2_clicked"
-QT_MOC_LITERAL(237, 23), // "on_pushButton_3_clicked"
-QT_MOC_LITERAL(261, 29), // "on_StrengthValue_valueChanged"
-QT_MOC_LITERAL(291, 4), // "arg1"
-QT_MOC_LITERAL(296, 28), // "on_AgilityValue_valueChanged"
-QT_MOC_LITERAL(325, 33), // "on_IntelligenceValue_valueCha..."
-QT_MOC_LITERAL(359, 26), // "on_MagicValue_valueChanged"
-QT_MOC_LITERAL(386, 29), // "on_BodyTypeValue_valueChanged"
-QT_MOC_LITERAL(416, 25), // "on_WillValue_valueChanged"
-QT_MOC_LITERAL(442, 23) // "on_pushButton_4_clicked"
-
+        QT_MOC_LITERAL(0, 15),  // "CharacterWindow"
+        QT_MOC_LITERAL(16, 33),  // "ScrollAreaSecondarySkillsScro..."
+        QT_MOC_LITERAL(50, 0),  // ""
+        QT_MOC_LITERAL(51, 5),  // "value"
+        QT_MOC_LITERAL(57, 11),  // "ShowTooltip"
+        QT_MOC_LITERAL(69, 14),  // "QList<QLabel*>"
+        QT_MOC_LITERAL(84, 14),  // "TooltipContent"
+        QT_MOC_LITERAL(99, 13),  // "RemoveTooltip"
+        QT_MOC_LITERAL(113, 36),  // "on_verticalScrollBar_actionTr..."
+        QT_MOC_LITERAL(150, 6),  // "action"
+        QT_MOC_LITERAL(157, 33),  // "on_verticalScrollBar_valueCha..."
+        QT_MOC_LITERAL(191, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(213, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(237, 23),  // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(261, 29),  // "on_StrengthValue_valueChanged"
+        QT_MOC_LITERAL(291, 4),  // "arg1"
+        QT_MOC_LITERAL(296, 28),  // "on_AgilityValue_valueChanged"
+        QT_MOC_LITERAL(325, 33),  // "on_IntelligenceValue_valueCha..."
+        QT_MOC_LITERAL(359, 26),  // "on_MagicValue_valueChanged"
+        QT_MOC_LITERAL(386, 29),  // "on_BodyTypeValue_valueChanged"
+        QT_MOC_LITERAL(416, 25),  // "on_WillValue_valueChanged"
+        QT_MOC_LITERAL(442, 23)   // "on_pushButton_4_clicked"
     },
-    "CharacterWindow\0ScrollAreaSecondarySkillsScrolled\0"
-    "\0value\0ShowTooltip\0QList<QLabel*>\0"
-    "TooltipContent\0RemoveTooltip\0"
-    "on_verticalScrollBar_actionTriggered\0"
-    "action\0on_verticalScrollBar_valueChanged\0"
-    "on_pushButton_clicked\0on_pushButton_2_clicked\0"
-    "on_pushButton_3_clicked\0"
-    "on_StrengthValue_valueChanged\0arg1\0"
-    "on_AgilityValue_valueChanged\0"
-    "on_IntelligenceValue_valueChanged\0"
-    "on_MagicValue_valueChanged\0"
-    "on_BodyTypeValue_valueChanged\0"
-    "on_WillValue_valueChanged\0"
+    "CharacterWindow",
+    "ScrollAreaSecondarySkillsScrolled",
+    "",
+    "value",
+    "ShowTooltip",
+    "QList<QLabel*>",
+    "TooltipContent",
+    "RemoveTooltip",
+    "on_verticalScrollBar_actionTriggered",
+    "action",
+    "on_verticalScrollBar_valueChanged",
+    "on_pushButton_clicked",
+    "on_pushButton_2_clicked",
+    "on_pushButton_3_clicked",
+    "on_StrengthValue_valueChanged",
+    "arg1",
+    "on_AgilityValue_valueChanged",
+    "on_IntelligenceValue_valueChanged",
+    "on_MagicValue_valueChanged",
+    "on_BodyTypeValue_valueChanged",
+    "on_WillValue_valueChanged",
     "on_pushButton_4_clicked"
 };
 #undef QT_MOC_LITERAL
+} // unnamed namespace
 
-static const uint qt_meta_data_CharacterWindow[] = {
+Q_CONSTINIT static const uint qt_meta_data_CharacterWindow[] = {
 
  // content:
       10,       // revision
@@ -122,6 +155,59 @@ static const uint qt_meta_data_CharacterWindow[] = {
        0        // eod
 };
 
+Q_CONSTINIT const QMetaObject CharacterWindow::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_CharacterWindow.offsetsAndSizes,
+    qt_meta_data_CharacterWindow,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterWindow_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<CharacterWindow, std::true_type>,
+        // method 'ScrollAreaSecondarySkillsScrolled'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'ShowTooltip'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>,
+        // method 'RemoveTooltip'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_verticalScrollBar_actionTriggered'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_verticalScrollBar_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_pushButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_2_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_3_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_StrengthValue_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_AgilityValue_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_IntelligenceValue_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_MagicValue_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_BodyTypeValue_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_WillValue_valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'on_pushButton_4_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
+    >,
+    nullptr
+} };
+
 void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -158,22 +244,6 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         }
     }
 }
-
-const QMetaObject CharacterWindow::staticMetaObject = { {
-    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_CharacterWindow.offsetsAndSize,
-    qt_meta_data_CharacterWindow,
-    qt_static_metacall,
-    nullptr,
-qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterWindow_t
-, QtPrivate::TypeAndForceComplete<CharacterWindow, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-
-
->,
-    nullptr
-} };
-
 
 const QMetaObject *CharacterWindow::metaObject() const
 {

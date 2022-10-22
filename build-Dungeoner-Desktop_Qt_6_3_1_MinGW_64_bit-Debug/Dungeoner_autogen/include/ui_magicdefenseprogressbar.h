@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'magicdefenseprogressbar.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -28,14 +28,14 @@ public:
     void setupUi(QWidget *MagicDefenseProgressBar)
     {
         if (MagicDefenseProgressBar->objectName().isEmpty())
-            MagicDefenseProgressBar->setObjectName(QString::fromUtf8("MagicDefenseProgressBar"));
+            MagicDefenseProgressBar->setObjectName("MagicDefenseProgressBar");
         MagicDefenseProgressBar->resize(734, 80);
         verticalLayout = new QVBoxLayout(MagicDefenseProgressBar);
         verticalLayout->setSpacing(0);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         Name = new QLabel(MagicDefenseProgressBar);
-        Name->setObjectName(QString::fromUtf8("Name"));
+        Name->setObjectName("Name");
         Name->setMinimumSize(QSize(0, 25));
         Name->setMaximumSize(QSize(16777215, 25));
         QFont font;
@@ -45,7 +45,7 @@ public:
         verticalLayout->addWidget(Name, 0, Qt::AlignHCenter);
 
         progressBar = new ProgressBar_2(MagicDefenseProgressBar);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setObjectName("progressBar");
         progressBar->setMinimumSize(QSize(734, 50));
         progressBar->setMaximumSize(QSize(734, 50));
         progressBar->setStyleSheet(QString::fromUtf8(""));

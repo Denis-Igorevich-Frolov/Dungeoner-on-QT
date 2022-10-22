@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'secondaryskillprogressbar.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -35,14 +35,14 @@ public:
     void setupUi(QWidget *SecondarySkillProgressBar)
     {
         if (SecondarySkillProgressBar->objectName().isEmpty())
-            SecondarySkillProgressBar->setObjectName(QString::fromUtf8("SecondarySkillProgressBar"));
+            SecondarySkillProgressBar->setObjectName("SecondarySkillProgressBar");
         SecondarySkillProgressBar->resize(734, 87);
         verticalLayout = new QVBoxLayout(SecondarySkillProgressBar);
         verticalLayout->setSpacing(0);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         Name = new QLabel(SecondarySkillProgressBar);
-        Name->setObjectName(QString::fromUtf8("Name"));
+        Name->setObjectName("Name");
         Name->setMinimumSize(QSize(0, 25));
         Name->setMaximumSize(QSize(16777215, 25));
         QFont font;
@@ -52,7 +52,7 @@ public:
         verticalLayout->addWidget(Name, 0, Qt::AlignHCenter);
 
         progressBar = new ProgressBar_1(SecondarySkillProgressBar);
-        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setObjectName("progressBar");
         progressBar->setMinimumSize(QSize(734, 42));
         progressBar->setMaximumSize(QSize(734, 42));
         progressBar->setStyleSheet(QString::fromUtf8(""));
@@ -60,7 +60,7 @@ public:
         verticalLayout->addWidget(progressBar);
 
         frame = new QFrame(SecondarySkillProgressBar);
-        frame->setObjectName(QString::fromUtf8("frame"));
+        frame->setObjectName("frame");
         frame->setMinimumSize(QSize(474, 13));
         frame->setMaximumSize(QSize(474, 13));
         frame->setStyleSheet(QString::fromUtf8(""));
@@ -68,10 +68,10 @@ public:
         frame->setFrameShadow(QFrame::Raised);
         horizontalLayout = new QHBoxLayout(frame);
         horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         TipLeft = new QLabel(frame);
-        TipLeft->setObjectName(QString::fromUtf8("TipLeft"));
+        TipLeft->setObjectName("TipLeft");
         TipLeft->setMinimumSize(QSize(19, 11));
         TipLeft->setMaximumSize(QSize(19, 11));
         TipLeft->setStyleSheet(QString::fromUtf8("background: black;"));
@@ -79,7 +79,7 @@ public:
         horizontalLayout->addWidget(TipLeft, 0, Qt::AlignVCenter);
 
         Border = new QLabel(frame);
-        Border->setObjectName(QString::fromUtf8("Border"));
+        Border->setObjectName("Border");
         Border->setMinimumSize(QSize(0, 1));
         Border->setMaximumSize(QSize(16777215, 1));
         Border->setStyleSheet(QString::fromUtf8("background: black;"));
@@ -87,7 +87,7 @@ public:
         horizontalLayout->addWidget(Border, 0, Qt::AlignVCenter);
 
         TipRight = new QLabel(frame);
-        TipRight->setObjectName(QString::fromUtf8("TipRight"));
+        TipRight->setObjectName("TipRight");
         TipRight->setMinimumSize(QSize(19, 11));
         TipRight->setMaximumSize(QSize(19, 11));
         TipRight->setStyleSheet(QString::fromUtf8("background: black;"));

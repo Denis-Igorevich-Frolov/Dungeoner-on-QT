@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'primaryskillsignature.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -31,7 +31,7 @@ public:
     void setupUi(QWidget *PrimarySkillSignature)
     {
         if (PrimarySkillSignature->objectName().isEmpty())
-            PrimarySkillSignature->setObjectName(QString::fromUtf8("PrimarySkillSignature"));
+            PrimarySkillSignature->setObjectName("PrimarySkillSignature");
         PrimarySkillSignature->resize(111, 58);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -41,21 +41,21 @@ public:
         PrimarySkillSignature->setMinimumSize(QSize(111, 58));
         PrimarySkillSignature->setMaximumSize(QSize(111, 58));
         labelLeft = new QLabel(PrimarySkillSignature);
-        labelLeft->setObjectName(QString::fromUtf8("labelLeft"));
+        labelLeft->setObjectName("labelLeft");
         labelLeft->setGeometry(QRect(0, 13, 26, 32));
         sizePolicy.setHeightForWidth(labelLeft->sizePolicy().hasHeightForWidth());
         labelLeft->setSizePolicy(sizePolicy);
         labelLeft->setMinimumSize(QSize(26, 32));
         labelLeft->setMaximumSize(QSize(26, 32));
         labelRight = new QLabel(PrimarySkillSignature);
-        labelRight->setObjectName(QString::fromUtf8("labelRight"));
+        labelRight->setObjectName("labelRight");
         labelRight->setGeometry(QRect(85, 13, 26, 32));
         sizePolicy.setHeightForWidth(labelRight->sizePolicy().hasHeightForWidth());
         labelRight->setSizePolicy(sizePolicy);
         labelRight->setMinimumSize(QSize(26, 32));
         labelRight->setMaximumSize(QSize(26, 32));
         ButtonTop = new QPushButton(PrimarySkillSignature);
-        ButtonTop->setObjectName(QString::fromUtf8("ButtonTop"));
+        ButtonTop->setObjectName("ButtonTop");
         ButtonTop->setGeometry(QRect(21, 0, 71, 17));
         sizePolicy.setHeightForWidth(ButtonTop->sizePolicy().hasHeightForWidth());
         ButtonTop->setSizePolicy(sizePolicy);
@@ -66,7 +66,7 @@ public:
         ButtonTop->setFocusPolicy(Qt::StrongFocus);
         ButtonTop->setStyleSheet(QString::fromUtf8(""));
         ButtonBottom = new QPushButton(PrimarySkillSignature);
-        ButtonBottom->setObjectName(QString::fromUtf8("ButtonBottom"));
+        ButtonBottom->setObjectName("ButtonBottom");
         ButtonBottom->setGeometry(QRect(21, 41, 71, 17));
         sizePolicy.setHeightForWidth(ButtonBottom->sizePolicy().hasHeightForWidth());
         ButtonBottom->setSizePolicy(sizePolicy);
@@ -76,14 +76,14 @@ public:
         ButtonBottom->setMouseTracking(true);
         ButtonBottom->setStyleSheet(QString::fromUtf8(""));
         labelCenter = new QLabel(PrimarySkillSignature);
-        labelCenter->setObjectName(QString::fromUtf8("labelCenter"));
+        labelCenter->setObjectName("labelCenter");
         labelCenter->setGeometry(QRect(18, 17, 75, 24));
         sizePolicy.setHeightForWidth(labelCenter->sizePolicy().hasHeightForWidth());
         labelCenter->setSizePolicy(sizePolicy);
         labelCenter->setMinimumSize(QSize(75, 24));
         labelCenter->setMaximumSize(QSize(75, 24));
         labelWithTooltip = new LabelWithTooltip(PrimarySkillSignature);
-        labelWithTooltip->setObjectName(QString::fromUtf8("labelWithTooltip"));
+        labelWithTooltip->setObjectName("labelWithTooltip");
         labelWithTooltip->setGeometry(QRect(18, 16, 75, 24));
 
         retranslateUi(PrimarySkillSignature);

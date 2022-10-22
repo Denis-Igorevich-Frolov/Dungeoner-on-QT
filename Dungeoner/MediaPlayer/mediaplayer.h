@@ -14,13 +14,14 @@ public:
     MediaPlayer();
     ~MediaPlayer();
 
+    //Группы медиаконтента для индивидуальной регулировки громкости
     enum SoundsGroup{
         SOUNDS,
         MUSICS
     };
 
     /*Проигрывание медиафайла. В него передаётся ссылка на ресурс и энум
-     *группы медиафайла для контроля громкости разных груп.*/
+     *группы медиафайла для регулировки громкости разных групп.*/
     void playSound(QUrl url, enum SoundsGroup);
 
     double getOverallVolume() const;
@@ -42,7 +43,10 @@ private:
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
 
+    //Общая громкость
     double overallVolume;
+
+    //Громкость разных групп
     double soundsVolume;
     double musicsVolume;
 

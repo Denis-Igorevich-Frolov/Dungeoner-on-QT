@@ -21,7 +21,7 @@ QString CW_StyleMaster::SpinBoxStyle(int sizePX)
     "QSpinBox{"
     "   border: none;"
     "   background: #130a0f;"
-    "   font: %1px 'Old English Text MT';"
+    "   font-size: %1px;"
     "   color: #bdc440;"
     "}";
     return style.arg(sizePX);

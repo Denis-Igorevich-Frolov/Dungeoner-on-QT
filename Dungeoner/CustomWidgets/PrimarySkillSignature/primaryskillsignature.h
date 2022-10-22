@@ -8,7 +8,6 @@
  *соответствующего навыка.
  ***********************************************************/
 
-#include "dungeoner.h"
 #include "Global/global.h"
 #include "CustomWidgets/LabelWithTooltip/labelwithtooltip.h"
 
@@ -37,9 +36,12 @@ public:
 
     LabelWithTooltip* getlabelWithTooltip();
 
+    //Установка контента подсказки по нажатию на правую нопку мыши по подписи
     void setTooltipContent(QString fullName, QString description);
 
     QSpinBox *getSpinBoxValue() const;
+    /*Метод связвания QSpinBox (значение стата) с PrimarySkillSignature (подпись).
+     *Само связываниепроизводится непосредственно в классе окна.*/
     void setSpinBoxValue(QSpinBox *newSpinBoxValue);
 
 signals:
@@ -48,25 +50,28 @@ signals:
 
 private slots:
     /*Метод реализации нажатия кнопки прибавки стата. Он обрабатывает нажатия с учётом модификаторов:
-     *Ctrl: +10, Shift: +100, Alt: +1000. Обычное нажатие: +1. Модификатором считается последняя нажатая клавиша.*/
+     *Alt: +5, Ctrl: +10, Shift: +100. Обычное нажатие: +1. Модификатором считается последняя нажатая клавиша.*/
     void on_ButtonTop_released();
     /*Метод реализации нажатия кнопки вычета стата. Он обрабатывает нажатия с учётом модификаторов:
-     *Ctrl: -10, Shift: -100, Alt: -1000. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
+     *Alt: -5, Ctrl: -10, Shift: -100. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
     void on_ButtonBottom_released();
-    void slotTimerAlarm();
+    void clickModifierTooltipTimerAlarm();
     void valueChanged(int value);
 
 private:
     Ui::PrimarySkillSignature *ui;
 
-    /*Указатель на QSpinBox относящийся к этой подписи. Само связывание
-     * PrimarySkillSignature и QSpinBox производится непосредственно в классе окна.*/
+    /*Указатель на QSpinBox со значением стата, относящимся к этой подписи. Само связывание
+     *PrimarySkillSignature и QSpinBox производится непосредственно в классе окна.*/
     QSpinBox *SpinBoxValue;
-    QTimer* timer = new QTimer;
+    //Таймер до вывода подсказки по модификаторам нажатия при наведении курсора на кнопку прибавки или убавки стата
+    QTimer* clickModifierTooltipTimer = new QTimer;
     bool isShowTooltip = false;
+    //Подсказка при наведении на кнопку прибавки или убавки
     QVector<QLabel*> buttonTooltipContent;
+    //Подсказка при нажатии правой кнопки по подписи стата
     QVector<QLabel*> tooltipContent;
-    QLabel* tooltipContentLabel = new QLabel;
+    QLabel* buttonTooltipContentLabel = new QLabel;
     QLabel* valueLabel;
 
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.

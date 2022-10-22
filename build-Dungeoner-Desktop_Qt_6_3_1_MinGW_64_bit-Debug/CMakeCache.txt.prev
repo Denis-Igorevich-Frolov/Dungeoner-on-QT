@@ -169,7 +169,7 @@ CMAKE_OBJCOPY:FILEPATH=E:/Qt/Tools/mingw1120_64/bin/objcopy.exe
 CMAKE_OBJDUMP:FILEPATH=E:/Qt/Tools/mingw1120_64/bin/objdump.exe
 
 //No help, variable specified on the command line.
-CMAKE_PREFIX_PATH:PATH=E:/Qt/6.3.1/mingw_64
+CMAKE_PREFIX_PATH:PATH=E:/Qt/6.4.0/mingw_64;E:/Qt/6.3.1/mingw_64
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
@@ -298,43 +298,43 @@ QT_ADDITIONAL_PACKAGES_PREFIX_PATH:STRING=
 QT_CREATOR_SKIP_PACKAGE_MANAGER_SETUP:BOOL=OFF
 
 //The directory containing a CMake configuration file for QT.
-QT_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6
+QT_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6
 
 //No help, variable specified on the command line.
-QT_QMAKE_EXECUTABLE:FILEPATH=E:/Qt/6.3.1/mingw_64/bin/qmake.exe
+QT_QMAKE_EXECUTABLE:FILEPATH=E:/Qt/6.4.0/mingw_64/bin/qmake.exe
 
 //The directory containing a CMake configuration file for Qt6CoreTools.
-Qt6CoreTools_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6CoreTools
+Qt6CoreTools_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6CoreTools
 
 //The directory containing a CMake configuration file for Qt6Core.
-Qt6Core_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Core
+Qt6Core_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Core
 
 //The directory containing a CMake configuration file for Qt6EntryPointPrivate.
-Qt6EntryPointPrivate_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6EntryPointPrivate
+Qt6EntryPointPrivate_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6EntryPointPrivate
 
 //The directory containing a CMake configuration file for Qt6GuiTools.
-Qt6GuiTools_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6GuiTools
+Qt6GuiTools_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6GuiTools
 
 //The directory containing a CMake configuration file for Qt6Gui.
-Qt6Gui_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Gui
+Qt6Gui_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Gui
 
 //The directory containing a CMake configuration file for Qt6Multimedia.
-Qt6Multimedia_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Multimedia
+Qt6Multimedia_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Multimedia
 
 //The directory containing a CMake configuration file for Qt6Network.
-Qt6Network_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Network
+Qt6Network_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Network
 
 //The directory containing a CMake configuration file for Qt6WidgetsTools.
-Qt6WidgetsTools_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6WidgetsTools
+Qt6WidgetsTools_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6WidgetsTools
 
 //The directory containing a CMake configuration file for Qt6Widgets.
-Qt6Widgets_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6Widgets
+Qt6Widgets_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Widgets
 
 //The directory containing a CMake configuration file for Qt6ZlibPrivate.
-Qt6ZlibPrivate_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6ZlibPrivate
+Qt6ZlibPrivate_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6ZlibPrivate
 
 //The directory containing a CMake configuration file for Qt6.
-Qt6_DIR:PATH=E:/Qt/6.3.1/mingw_64/lib/cmake/Qt6
+Qt6_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6
 
 //Path to a program.
 Vulkan_GLSLANG_VALIDATOR_EXECUTABLE:FILEPATH=Vulkan_GLSLANG_VALIDATOR_EXECUTABLE-NOTFOUND
@@ -565,27 +565,29 @@ QT_FEATURE_arm_crypto:INTERNAL=OFF
 //Qt feature: avfoundation (from target Qt6::Multimedia)
 QT_FEATURE_avfoundation:INTERNAL=OFF
 //Qt feature: avx (from target Qt6::Core)
-QT_FEATURE_avx:INTERNAL=OFF
+QT_FEATURE_avx:INTERNAL=ON
 //Qt feature: avx2 (from target Qt6::Core)
-QT_FEATURE_avx2:INTERNAL=OFF
+QT_FEATURE_avx2:INTERNAL=ON
 //Qt feature: avx512bw (from target Qt6::Core)
-QT_FEATURE_avx512bw:INTERNAL=OFF
+QT_FEATURE_avx512bw:INTERNAL=ON
 //Qt feature: avx512cd (from target Qt6::Core)
-QT_FEATURE_avx512cd:INTERNAL=OFF
+QT_FEATURE_avx512cd:INTERNAL=ON
 //Qt feature: avx512dq (from target Qt6::Core)
-QT_FEATURE_avx512dq:INTERNAL=OFF
+QT_FEATURE_avx512dq:INTERNAL=ON
 //Qt feature: avx512er (from target Qt6::Core)
-QT_FEATURE_avx512er:INTERNAL=OFF
+QT_FEATURE_avx512er:INTERNAL=ON
 //Qt feature: avx512f (from target Qt6::Core)
-QT_FEATURE_avx512f:INTERNAL=OFF
+QT_FEATURE_avx512f:INTERNAL=ON
 //Qt feature: avx512ifma (from target Qt6::Core)
-QT_FEATURE_avx512ifma:INTERNAL=OFF
+QT_FEATURE_avx512ifma:INTERNAL=ON
 //Qt feature: avx512pf (from target Qt6::Core)
-QT_FEATURE_avx512pf:INTERNAL=OFF
+QT_FEATURE_avx512pf:INTERNAL=ON
 //Qt feature: avx512vbmi (from target Qt6::Core)
-QT_FEATURE_avx512vbmi:INTERNAL=OFF
+QT_FEATURE_avx512vbmi:INTERNAL=ON
+//Qt feature: avx512vbmi2 (from target Qt6::Core)
+QT_FEATURE_avx512vbmi2:INTERNAL=ON
 //Qt feature: avx512vl (from target Qt6::Core)
-QT_FEATURE_avx512vl:INTERNAL=OFF
+QT_FEATURE_avx512vl:INTERNAL=ON
 //Qt feature: backtrace (from target Qt6::Core)
 QT_FEATURE_backtrace:INTERNAL=OFF
 //Qt feature: brotli (from target Qt6::Network)
@@ -630,6 +632,8 @@ QT_FEATURE_concatenatetablesproxymodel:INTERNAL=ON
 QT_FEATURE_concurrent:INTERNAL=ON
 //Qt feature: contextmenu (from target Qt6::Widgets)
 QT_FEATURE_contextmenu:INTERNAL=ON
+//Qt feature: coreaudio (from target Qt6::Multimedia)
+QT_FEATURE_coreaudio:INTERNAL=OFF
 //Qt feature: cpp_winrt (from target Qt6::Core)
 QT_FEATURE_cpp_winrt:INTERNAL=OFF
 //Qt feature: cross_compile (from target Qt6::Core)
@@ -692,6 +696,8 @@ QT_FEATURE_directfb:INTERNAL=OFF
 QT_FEATURE_directwrite:INTERNAL=ON
 //Qt feature: directwrite3 (from target Qt6::Gui)
 QT_FEATURE_directwrite3:INTERNAL=ON
+//Qt feature: dladdr (from target Qt6::Core)
+QT_FEATURE_dladdr:INTERNAL=OFF
 //Qt feature: dlopen (from target Qt6::Core)
 QT_FEATURE_dlopen:INTERNAL=OFF
 //Qt feature: dnslookup (from target Qt6::Network)
@@ -749,7 +755,9 @@ QT_FEATURE_eventfd:INTERNAL=OFF
 //Qt feature: evr (from target Qt6::Multimedia)
 QT_FEATURE_evr:INTERNAL=ON
 //Qt feature: f16c (from target Qt6::Core)
-QT_FEATURE_f16c:INTERNAL=OFF
+QT_FEATURE_f16c:INTERNAL=ON
+//Qt feature: ffmpeg (from target Qt6::Multimedia)
+QT_FEATURE_ffmpeg:INTERNAL=OFF
 //Qt feature: filedialog (from target Qt6::Widgets)
 QT_FEATURE_filedialog:INTERNAL=ON
 //Qt feature: filesystemiterator (from target Qt6::Core)
@@ -966,6 +974,8 @@ QT_FEATURE_networkinterface:INTERNAL=ON
 QT_FEATURE_networklistmanager:INTERNAL=OFF
 //Qt feature: networkproxy (from target Qt6::Network)
 QT_FEATURE_networkproxy:INTERNAL=ON
+//Qt feature: no_direct_extern_access (from target Qt6::Core)
+QT_FEATURE_no_direct_extern_access:INTERNAL=OFF
 //Qt feature: no_pkg_config (from target Qt6::Core)
 QT_FEATURE_no_pkg_config:INTERNAL=ON
 //Qt feature: no_prefix (from target Qt6::Core)
@@ -982,6 +992,8 @@ QT_FEATURE_opengles3:INTERNAL=OFF
 QT_FEATURE_opengles31:INTERNAL=OFF
 //Qt feature: opengles32 (from target Qt6::Gui)
 QT_FEATURE_opengles32:INTERNAL=OFF
+//Qt feature: opensles (from target Qt6::Multimedia)
+QT_FEATURE_opensles:INTERNAL=OFF
 //Qt feature: openssl (from target Qt6::Network)
 QT_FEATURE_openssl:INTERNAL=ON
 //Qt feature: openssl_linked (from target Qt6::Network)
@@ -1030,6 +1042,10 @@ QT_FEATURE_progressdialog:INTERNAL=ON
 QT_FEATURE_properties:INTERNAL=ON
 //Qt feature: proxymodel (from target Qt6::Core)
 QT_FEATURE_proxymodel:INTERNAL=ON
+//Qt feature: publicsuffix_qt (from target Qt6::Network)
+QT_FEATURE_publicsuffix_qt:INTERNAL=ON
+//Qt feature: publicsuffix_system (from target Qt6::Network)
+QT_FEATURE_publicsuffix_system:INTERNAL=OFF
 //Qt feature: pulseaudio (from target Qt6::Multimedia)
 QT_FEATURE_pulseaudio:INTERNAL=OFF
 //Qt feature: pushbutton (from target Qt6::Widgets)
@@ -1108,6 +1124,10 @@ QT_FEATURE_slog2:INTERNAL=OFF
 QT_FEATURE_socks5:INTERNAL=ON
 //Qt feature: sortfilterproxymodel (from target Qt6::Core)
 QT_FEATURE_sortfilterproxymodel:INTERNAL=ON
+//Qt feature: spatialaudio (from target Qt6::Multimedia)
+QT_FEATURE_spatialaudio:INTERNAL=ON
+//Qt feature: spatialaudio_quick3d (from target Qt6::Multimedia)
+QT_FEATURE_spatialaudio_quick3d:INTERNAL=OFF
 //Qt feature: spinbox (from target Qt6::Widgets)
 QT_FEATURE_spinbox:INTERNAL=ON
 //Qt feature: splashscreen (from target Qt6::Widgets)
@@ -1264,8 +1284,14 @@ QT_FEATURE_use_gold_linker:INTERNAL=OFF
 QT_FEATURE_use_lld_linker:INTERNAL=OFF
 //Qt feature: use_mold_linker (from target Qt6::Core)
 QT_FEATURE_use_mold_linker:INTERNAL=OFF
+//Qt feature: vaapi (from target Qt6::Multimedia)
+QT_FEATURE_vaapi:INTERNAL=OFF
+//Qt feature: vaes (from target Qt6::Core)
+QT_FEATURE_vaes:INTERNAL=ON
 //Qt feature: validator (from target Qt6::Gui)
 QT_FEATURE_validator:INTERNAL=ON
+//Qt feature: videotoolbox (from target Qt6::Multimedia)
+QT_FEATURE_videotoolbox:INTERNAL=OFF
 //Qt feature: vkgen (from target Qt6::Gui)
 QT_FEATURE_vkgen:INTERNAL=ON
 //Qt feature: vkkhrdisplay (from target Qt6::Gui)
@@ -1276,6 +1302,8 @@ QT_FEATURE_vnc:INTERNAL=OFF
 QT_FEATURE_vsp2:INTERNAL=OFF
 //Qt feature: vulkan (from target Qt6::Gui)
 QT_FEATURE_vulkan:INTERNAL=ON
+//Qt feature: wasm (from target Qt6::Multimedia)
+QT_FEATURE_wasm:INTERNAL=OFF
 //Qt feature: whatsthis (from target Qt6::Gui)
 QT_FEATURE_whatsthis:INTERNAL=ON
 //Qt feature: wheelevent (from target Qt6::Gui)

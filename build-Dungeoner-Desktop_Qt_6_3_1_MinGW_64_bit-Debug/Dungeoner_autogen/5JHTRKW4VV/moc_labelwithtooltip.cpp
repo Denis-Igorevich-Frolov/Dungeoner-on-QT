@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'labelwithtooltip.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.3.1)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -9,43 +9,55 @@
 #include <memory>
 #include "../../../Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h"
 #include <QtGui/qtextcursor.h>
-#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'labelwithtooltip.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.3.1. It"
+#error "This file was generated using the moc from 6.4.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
+#endif
+
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
+namespace {
 struct qt_meta_stringdata_LabelWithTooltip_t {
-    const uint offsetsAndSize[12];
-    char stringdata0[74];
+    uint offsetsAndSizes[12];
+    char stringdata0[17];
+    char stringdata1[12];
+    char stringdata2[1];
+    char stringdata3[15];
+    char stringdata4[15];
+    char stringdata5[14];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(offsetof(qt_meta_stringdata_LabelWithTooltip_t, stringdata0) + ofs), len 
-static const qt_meta_stringdata_LabelWithTooltip_t qt_meta_stringdata_LabelWithTooltip = {
+    uint(sizeof(qt_meta_stringdata_LabelWithTooltip_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_LabelWithTooltip_t qt_meta_stringdata_LabelWithTooltip = {
     {
-QT_MOC_LITERAL(0, 16), // "LabelWithTooltip"
-QT_MOC_LITERAL(17, 11), // "ShowTooltip"
-QT_MOC_LITERAL(29, 0), // ""
-QT_MOC_LITERAL(30, 14), // "QList<QLabel*>"
-QT_MOC_LITERAL(45, 14), // "TooltipContent"
-QT_MOC_LITERAL(60, 13) // "RemoveTooltip"
-
+        QT_MOC_LITERAL(0, 16),  // "LabelWithTooltip"
+        QT_MOC_LITERAL(17, 11),  // "ShowTooltip"
+        QT_MOC_LITERAL(29, 0),  // ""
+        QT_MOC_LITERAL(30, 14),  // "QList<QLabel*>"
+        QT_MOC_LITERAL(45, 14),  // "TooltipContent"
+        QT_MOC_LITERAL(60, 13)   // "RemoveTooltip"
     },
-    "LabelWithTooltip\0ShowTooltip\0\0"
-    "QList<QLabel*>\0TooltipContent\0"
+    "LabelWithTooltip",
+    "ShowTooltip",
+    "",
+    "QList<QLabel*>",
+    "TooltipContent",
     "RemoveTooltip"
 };
 #undef QT_MOC_LITERAL
+} // unnamed namespace
 
-static const uint qt_meta_data_LabelWithTooltip[] = {
+Q_CONSTINIT static const uint qt_meta_data_LabelWithTooltip[] = {
 
  // content:
       10,       // revision
@@ -68,6 +80,24 @@ static const uint qt_meta_data_LabelWithTooltip[] = {
 
        0        // eod
 };
+
+Q_CONSTINIT const QMetaObject LabelWithTooltip::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_LabelWithTooltip.offsetsAndSizes,
+    qt_meta_data_LabelWithTooltip,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_LabelWithTooltip_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<LabelWithTooltip, std::true_type>,
+        // method 'ShowTooltip'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>,
+        // method 'RemoveTooltip'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
+    >,
+    nullptr
+} };
 
 void LabelWithTooltip::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
@@ -94,36 +124,20 @@ void LabelWithTooltip::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (LabelWithTooltip::*)(QVector<QLabel*> );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&LabelWithTooltip::ShowTooltip)) {
+            if (_t _q_method = &LabelWithTooltip::ShowTooltip; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (LabelWithTooltip::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&LabelWithTooltip::RemoveTooltip)) {
+            if (_t _q_method = &LabelWithTooltip::RemoveTooltip; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
         }
     }
 }
-
-const QMetaObject LabelWithTooltip::staticMetaObject = { {
-    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_LabelWithTooltip.offsetsAndSize,
-    qt_meta_data_LabelWithTooltip,
-    qt_static_metacall,
-    nullptr,
-qt_incomplete_metaTypeArray<qt_meta_stringdata_LabelWithTooltip_t
-, QtPrivate::TypeAndForceComplete<LabelWithTooltip, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-
-
-
->,
-    nullptr
-} };
-
 
 const QMetaObject *LabelWithTooltip::metaObject() const
 {

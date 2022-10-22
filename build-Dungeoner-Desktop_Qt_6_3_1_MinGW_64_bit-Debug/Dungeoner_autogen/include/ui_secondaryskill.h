@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'secondaryskill.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -29,15 +29,15 @@ public:
     void setupUi(QWidget *SecondarySkill)
     {
         if (SecondarySkill->objectName().isEmpty())
-            SecondarySkill->setObjectName(QString::fromUtf8("SecondarySkill"));
+            SecondarySkill->setObjectName("SecondarySkill");
         SecondarySkill->resize(304, 71);
         SecondarySkill->setCursor(QCursor(Qt::WhatsThisCursor));
         horizontalLayout = new QHBoxLayout(SecondarySkill);
         horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 1, 1);
         Border = new WindowBorder_1(SecondarySkill);
-        Border->setObjectName(QString::fromUtf8("Border"));
+        Border->setObjectName("Border");
         Border->setEnabled(false);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -48,7 +48,7 @@ public:
         Border->setMaximumSize(QSize(303, 70));
         Border->setStyleSheet(QString::fromUtf8(""));
         Value = new QLabel(Border);
-        Value->setObjectName(QString::fromUtf8("Value"));
+        Value->setObjectName("Value");
         Value->setGeometry(QRect(194, 0, 80, 70));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Preferred);
         sizePolicy1.setHorizontalStretch(0);
@@ -68,7 +68,7 @@ public:
         Value->setIndent(0);
         Value->setOpenExternalLinks(false);
         Inscription = new QLabel(Border);
-        Inscription->setObjectName(QString::fromUtf8("Inscription"));
+        Inscription->setObjectName("Inscription");
         Inscription->setGeometry(QRect(32, 13, 162, 45));
         sizePolicy.setHeightForWidth(Inscription->sizePolicy().hasHeightForWidth());
         Inscription->setSizePolicy(sizePolicy);

@@ -14,6 +14,7 @@ public:
     static QString SecondarySkillInscriptionStyle(int size);
     static QString SecondarySkillValueStyle();
     static QString TooltipTextStyle(int sizePX, QString color);
+    static QString SeparatorStyle();
 };
 
 #endif // SS_STYLEMASTER_H

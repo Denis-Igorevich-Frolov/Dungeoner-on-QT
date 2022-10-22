@@ -29,18 +29,18 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     ui->ButtonTop->installEventFilter(this);
     ui->ButtonBottom->installEventFilter(this);
 
-    connect(timer, SIGNAL(timeout()), this, SLOT(slotTimerAlarm()));
+    connect(clickModifierTooltipTimer, SIGNAL(timeout()), this, SLOT(clickModifierTooltipTimerAlarm()));
 
-    tooltipContentLabel->setFont(QFont("TextFont"));
-    tooltipContentLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(20, "bdc440"));
-    buttonTooltipContent.append(tooltipContentLabel);
+    buttonTooltipContentLabel->setFont(QFont("TextFont"));
+    buttonTooltipContentLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(20, "bdc440"));
+    buttonTooltipContent.append(buttonTooltipContentLabel);
 }
 
 PrimarySkillSignature::~PrimarySkillSignature()
 {
     for(QLabel* label : tooltipContent)
         delete label;
-    delete tooltipContentLabel;
+    delete buttonTooltipContentLabel;
     delete ui;
 }
 
@@ -51,24 +51,24 @@ void PrimarySkillSignature::setText(QString text)
 }
 
 /*Метод реализации нажатия кнопки прибавки стата. Он обрабатывает нажатия с учётом модификаторов:
- *Ctrl: +10, Shift: +100, Alt: +1000. Обычное нажатие: +1. Модификатором считается последняя нажатая клавиша.*/
+ *Alt: +5, Ctrl: +10, Shift: +100. Обычное нажатие: +1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonTop_released()
 {
     Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
     int plus = 1;
 
-    if(!CharacterWindow::pressedKeys.empty()){
+    if(!Global::pressedKeys.empty()){
         //Alt
-        if(CharacterWindow::pressedKeys.last() == 16777251){
+        if(Global::pressedKeys.last() == 16777251){
             plus = 5;
         }else
         //Ctrl
-        if(CharacterWindow::pressedKeys.last() == 16777249){
+        if(Global::pressedKeys.last() == 16777249){
             plus = 10;
         }else
         //Shift
-        if(CharacterWindow::pressedKeys.last() == 16777248){
+        if(Global::pressedKeys.last() == 16777248){
             plus = 100;
         }
     }
@@ -77,24 +77,24 @@ void PrimarySkillSignature::on_ButtonTop_released()
 }
 
 /*Метод реализации нажатия кнопки вычета стата. Он обрабатывает нажатия с учётом модификаторов:
- *Ctrl: -10, Shift: -100, Alt: -1000. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
+ *Alt: -5, Ctrl: -10, Shift: -100. Обычное нажатие: -1. Модификатором считается последняя нажатая клавиша.*/
 void PrimarySkillSignature::on_ButtonBottom_released()
 {
     Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 
     int minus = 1;
 
-    if(!CharacterWindow::pressedKeys.empty()){
+    if(!Global::pressedKeys.empty()){
         //Alt
-        if(CharacterWindow::pressedKeys.last() == 16777251){
+        if(Global::pressedKeys.last() == 16777251){
             minus = 5;
         }else
         //Ctrl
-        if(CharacterWindow::pressedKeys.last() == 16777249){
+        if(Global::pressedKeys.last() == 16777249){
             minus = 10;
         }else
         //Shift
-        if(CharacterWindow::pressedKeys.last() == 16777248){
+        if(Global::pressedKeys.last() == 16777248){
             minus = 100;
         }
     }
@@ -102,10 +102,10 @@ void PrimarySkillSignature::on_ButtonBottom_released()
     SpinBoxValue->setValue(SpinBoxValue->value() - minus);
 }
 
-void PrimarySkillSignature::slotTimerAlarm()
+void PrimarySkillSignature::clickModifierTooltipTimerAlarm()
 {
     isShowTooltip = true;
-    timer->stop();
+    clickModifierTooltipTimer->stop();
     emit ShowTooltip(buttonTooltipContent);
 }
 
@@ -119,12 +119,17 @@ QSpinBox *PrimarySkillSignature::getSpinBoxValue() const
     return SpinBoxValue;
 }
 
+/*Метод связвания QSpinBox (значение стата) с PrimarySkillSignature (подпись).
+ *Само связываниепроизводится непосредственно в классе окна.*/
 void PrimarySkillSignature::setSpinBoxValue(QSpinBox *newSpinBoxValue)
 {
     SpinBoxValue = newSpinBoxValue;
+    /*Связывание сигналов изменения значения стата для синхронизации отображения
+     *характеристики в подсказке PrimarySkillSignature и в теле QSpinBox.*/
     connect(SpinBoxValue, &QSpinBox::valueChanged, this, &PrimarySkillSignature::valueChanged);
 }
 
+//Установка контента подсказки по нажатию на правую нопку мыши по подписи
 void PrimarySkillSignature::setTooltipContent(QString fullName, QString description)
 {
     QLabel* fullNameLabel = new QLabel;
@@ -147,8 +152,8 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     tooltipContent.append(valueLabel);
 
     QLabel* separator2 = new QLabel;
-    separator2->setFixedSize(83, 13);
-    separator2->setStyleSheet("background: url(:/Text-Block-1/Textures PNG/Separator-1.png);");
+    valueLabel->setMaximumWidth(450);
+    separator2->setStyleSheet(PSS_StyleMaster::SeparatorStyle());
     tooltipContent.append(separator2);
 
     QLabel* descriptionLabel = new QLabel;
@@ -172,7 +177,7 @@ void PrimarySkillSignature::keyPressEvent(QKeyEvent *event)
 {
     int key=event->key();
     if(key==16777249||key==16777248||key==16777251)
-        CharacterWindow::pressedKeys.append(key);
+        Global::pressedKeys.append(key);
 }
 
 /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
@@ -184,7 +189,7 @@ void PrimarySkillSignature::keyPressEvent(QKeyEvent *event)
 void PrimarySkillSignature::keyReleaseEvent(QKeyEvent *event)
 {
     int key=event->key();
-    QMutableVectorIterator<int> keyIterator(CharacterWindow::pressedKeys);
+    QMutableVectorIterator<int> keyIterator(Global::pressedKeys);
 
     /*Так как вектор pressedKeys доступен многим виджетам одновременно, гипотетически
      *возможна ситуация когда фокус получат одновременно несколько виджетов, и они
@@ -210,13 +215,13 @@ bool PrimarySkillSignature::eventFilter(QObject *object, QEvent *event)
         if(isShowTooltip)
             emit ShowTooltip(buttonTooltipContent);
     }else if(object == ui->ButtonTop && event->type() == QEvent::HoverEnter){
-        timer->start(2300);
-        tooltipContentLabel->setText("Alt: +5\nCtrl: +10\nShift: +100");
+        clickModifierTooltipTimer->start(2300);
+        buttonTooltipContentLabel->setText("Alt: +5\nCtrl: +10\nShift: +100");
     }else if(object == ui->ButtonBottom && event->type() == QEvent::HoverEnter){
-        timer->start(2300);
-        tooltipContentLabel->setText("Alt: -5\nCtrl: -10\nShift: -100");
+        clickModifierTooltipTimer->start(2300);
+        buttonTooltipContentLabel->setText("Alt: -5\nCtrl: -10\nShift: -100");
     }else if(event->type() == QEvent::HoverLeave||event->type() == QEvent::MouseButtonPress){
-        timer->stop();
+        clickModifierTooltipTimer->stop();
         if(isShowTooltip)
             emit RemoveTooltip();
         isShowTooltip = false;

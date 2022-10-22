@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'labelwithtooltip.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -26,7 +26,7 @@ public:
     void setupUi(QWidget *LabelWithTooltip)
     {
         if (LabelWithTooltip->objectName().isEmpty())
-            LabelWithTooltip->setObjectName(QString::fromUtf8("LabelWithTooltip"));
+            LabelWithTooltip->setObjectName("LabelWithTooltip");
         LabelWithTooltip->resize(75, 24);
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
@@ -39,10 +39,10 @@ public:
         LabelWithTooltip->setProperty("fontSize", QVariant(23));
         horizontalLayout = new QHBoxLayout(LabelWithTooltip);
         horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         LabelText = new QLabel(LabelWithTooltip);
-        LabelText->setObjectName(QString::fromUtf8("LabelText"));
+        LabelText->setObjectName("LabelText");
         LabelText->setEnabled(false);
         LabelText->setLayoutDirection(Qt::RightToLeft);
         LabelText->setAlignment(Qt::AlignCenter);
