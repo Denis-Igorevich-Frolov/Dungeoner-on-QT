@@ -35,12 +35,12 @@ ProgressBar_1::~ProgressBar_1()
     delete ui;
 }
 
-long ProgressBar_1::getMinValue() const
+int ProgressBar_1::getMinValue() const
 {
     return minValue;
 }
 
-void ProgressBar_1::setMinValue(long newMinValue)
+void ProgressBar_1::setMinValue(int newMinValue)
 {
     //Минимальное значение не может быть больше максимального
     if(newMinValue>maxValue)
@@ -53,16 +53,18 @@ void ProgressBar_1::setMinValue(long newMinValue)
     if(value < minValue)
         setValue(minValue);
 
+    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
 }
 
-long ProgressBar_1::getMaxValue() const
+int ProgressBar_1::getMaxValue() const
 {
     return maxValue;
 }
 
-void ProgressBar_1::setMaxValue(long newMaxValue)
+void ProgressBar_1::setMaxValue(int newMaxValue)
 {
     //Ограничение стата для уменьшения шанса возможных переполнений
     if(newMaxValue>9999999)
@@ -79,16 +81,18 @@ void ProgressBar_1::setMaxValue(long newMaxValue)
     if(value > maxValue)
         setValue(maxValue);
 
+    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
 }
 
-long ProgressBar_1::getValue() const
+int ProgressBar_1::getValue() const
 {
     return value;
 }
 
-void ProgressBar_1::setValue(long newValue)
+void ProgressBar_1::setValue(int newValue)
 {
     //Значение находится в диапазоне от минимального до максимального
     if(newValue>maxValue)
@@ -97,6 +101,8 @@ void ProgressBar_1::setValue(long newValue)
         value = minValue;
     else
         value = newValue;
+
+    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
@@ -113,6 +119,49 @@ void ProgressBar_1::setColor(const QColor &newColor)
 LabelWithTooltip* ProgressBar_1::getLabelWithTooltip()
 {
     return ui->labelWithTooltip;
+}
+
+void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int formulaFontSize, QString description)
+{
+    QLabel* fullNameLabel = new QLabel;
+    fullNameLabel->setFont(QFont("TextFont"));
+    fullNameLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(27, "bdc440"));
+    fullNameLabel->setText(fullName);
+    fullNameLabel->setMaximumWidth(450);
+    tooltipContent.append(fullNameLabel);
+
+    QLabel* separator = new QLabel;
+    separator->setFixedSize(450, 1);
+    separator->setStyleSheet("background: #bdc440;");
+    tooltipContent.append(separator);
+
+    valueLabel = new QLabel;
+    valueLabel->setFont(QFont("NumbersFont"));
+    valueLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(27, "cad160"));
+    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+    valueLabel->setMaximumWidth(450);
+    tooltipContent.append(valueLabel);
+
+    QLabel* formulaLabel = new QLabel;
+    formulaLabel->setFont(QFont("TextFont"));
+    formulaLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(formulaFontSize, "bdc440"));
+    formulaLabel->setText(formula);
+    formulaLabel->setMaximumWidth(450);
+    tooltipContent.append(formulaLabel);
+
+    QLabel* separator2 = new QLabel;
+    formulaLabel->setMaximumWidth(450);
+    separator2->setStyleSheet(PB1_StyleMaster::SeparatorStyle());
+    tooltipContent.append(separator2);
+
+    QLabel* descriptionLabel = new QLabel;
+    descriptionLabel->setFont(QFont("TextFont"));
+    descriptionLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(18, "cad160"));
+    descriptionLabel->setText(description);
+    descriptionLabel->setMaximumWidth(450);
+    tooltipContent.append(descriptionLabel);
+
+    ui->labelWithTooltip->setTooltipContent(tooltipContent);
 }
 
 //Пересчёт размера заполненной области
@@ -142,7 +191,6 @@ void ProgressBar_1::redrawChunk()
     QPainter painter(&pixmap);
     //Тайлинг текстуры
     int drawedWidth = 0;
-    drawedWidth = 0;
     while (true) {
         painter.drawImage(drawedWidth, 0, new_image);
         drawedWidth += new_image.width();

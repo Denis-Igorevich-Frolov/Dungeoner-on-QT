@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'primaryskillsignature.h'
 **
-** Created by: The Qt Meta Object Compiler version 68 (Qt 6.3.1)
+** Created by: The Qt Meta Object Compiler version 68 (Qt 6.4.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -9,50 +9,70 @@
 #include <memory>
 #include "../../../Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.h"
 #include <QtGui/qtextcursor.h>
-#include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'primaryskillsignature.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
-#error "This file was generated using the moc from 6.3.1. It"
+#error "This file was generated using the moc from 6.4.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
+#endif
+
+#ifndef Q_CONSTINIT
+#define Q_CONSTINIT
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
+namespace {
 struct qt_meta_stringdata_PrimarySkillSignature_t {
-    const uint offsetsAndSize[22];
-    char stringdata0[160];
+    uint offsetsAndSizes[22];
+    char stringdata0[22];
+    char stringdata1[12];
+    char stringdata2[1];
+    char stringdata3[15];
+    char stringdata4[15];
+    char stringdata5[14];
+    char stringdata6[22];
+    char stringdata7[25];
+    char stringdata8[31];
+    char stringdata9[13];
+    char stringdata10[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
-    uint(offsetof(qt_meta_stringdata_PrimarySkillSignature_t, stringdata0) + ofs), len 
-static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stringdata_PrimarySkillSignature = {
+    uint(sizeof(qt_meta_stringdata_PrimarySkillSignature_t::offsetsAndSizes) + ofs), len 
+Q_CONSTINIT static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stringdata_PrimarySkillSignature = {
     {
-QT_MOC_LITERAL(0, 21), // "PrimarySkillSignature"
-QT_MOC_LITERAL(22, 11), // "ShowTooltip"
-QT_MOC_LITERAL(34, 0), // ""
-QT_MOC_LITERAL(35, 14), // "QList<QLabel*>"
-QT_MOC_LITERAL(50, 14), // "TooltipContent"
-QT_MOC_LITERAL(65, 13), // "RemoveTooltip"
-QT_MOC_LITERAL(79, 21), // "on_ButtonTop_released"
-QT_MOC_LITERAL(101, 24), // "on_ButtonBottom_released"
-QT_MOC_LITERAL(126, 14), // "slotTimerAlarm"
-QT_MOC_LITERAL(141, 12), // "valueChanged"
-QT_MOC_LITERAL(154, 5) // "value"
-
+        QT_MOC_LITERAL(0, 21),  // "PrimarySkillSignature"
+        QT_MOC_LITERAL(22, 11),  // "ShowTooltip"
+        QT_MOC_LITERAL(34, 0),  // ""
+        QT_MOC_LITERAL(35, 14),  // "QList<QLabel*>"
+        QT_MOC_LITERAL(50, 14),  // "TooltipContent"
+        QT_MOC_LITERAL(65, 13),  // "RemoveTooltip"
+        QT_MOC_LITERAL(79, 21),  // "on_ButtonTop_released"
+        QT_MOC_LITERAL(101, 24),  // "on_ButtonBottom_released"
+        QT_MOC_LITERAL(126, 30),  // "clickModifierTooltipTimerAlarm"
+        QT_MOC_LITERAL(157, 12),  // "valueChanged"
+        QT_MOC_LITERAL(170, 5)   // "value"
     },
-    "PrimarySkillSignature\0ShowTooltip\0\0"
-    "QList<QLabel*>\0TooltipContent\0"
-    "RemoveTooltip\0on_ButtonTop_released\0"
-    "on_ButtonBottom_released\0slotTimerAlarm\0"
-    "valueChanged\0value"
+    "PrimarySkillSignature",
+    "ShowTooltip",
+    "",
+    "QList<QLabel*>",
+    "TooltipContent",
+    "RemoveTooltip",
+    "on_ButtonTop_released",
+    "on_ButtonBottom_released",
+    "clickModifierTooltipTimerAlarm",
+    "valueChanged",
+    "value"
 };
 #undef QT_MOC_LITERAL
+} // unnamed namespace
 
-static const uint qt_meta_data_PrimarySkillSignature[] = {
+Q_CONSTINIT static const uint qt_meta_data_PrimarySkillSignature[] = {
 
  // content:
       10,       // revision
@@ -88,6 +108,33 @@ static const uint qt_meta_data_PrimarySkillSignature[] = {
        0        // eod
 };
 
+Q_CONSTINIT const QMetaObject PrimarySkillSignature::staticMetaObject = { {
+    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
+    qt_meta_stringdata_PrimarySkillSignature.offsetsAndSizes,
+    qt_meta_data_PrimarySkillSignature,
+    qt_static_metacall,
+    nullptr,
+    qt_incomplete_metaTypeArray<qt_meta_stringdata_PrimarySkillSignature_t,
+        // Q_OBJECT / Q_GADGET
+        QtPrivate::TypeAndForceComplete<PrimarySkillSignature, std::true_type>,
+        // method 'ShowTooltip'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>,
+        // method 'RemoveTooltip'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_ButtonTop_released'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_ButtonBottom_released'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'clickModifierTooltipTimerAlarm'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'valueChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<int, std::false_type>
+    >,
+    nullptr
+} };
+
 void PrimarySkillSignature::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
@@ -98,7 +145,7 @@ void PrimarySkillSignature::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 1: _t->RemoveTooltip(); break;
         case 2: _t->on_ButtonTop_released(); break;
         case 3: _t->on_ButtonBottom_released(); break;
-        case 4: _t->slotTimerAlarm(); break;
+        case 4: _t->clickModifierTooltipTimerAlarm(); break;
         case 5: _t->valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         default: ;
         }
@@ -117,36 +164,20 @@ void PrimarySkillSignature::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (PrimarySkillSignature::*)(QVector<QLabel*> );
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&PrimarySkillSignature::ShowTooltip)) {
+            if (_t _q_method = &PrimarySkillSignature::ShowTooltip; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
         }
         {
             using _t = void (PrimarySkillSignature::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&PrimarySkillSignature::RemoveTooltip)) {
+            if (_t _q_method = &PrimarySkillSignature::RemoveTooltip; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
         }
     }
 }
-
-const QMetaObject PrimarySkillSignature::staticMetaObject = { {
-    QMetaObject::SuperData::link<QWidget::staticMetaObject>(),
-    qt_meta_stringdata_PrimarySkillSignature.offsetsAndSize,
-    qt_meta_data_PrimarySkillSignature,
-    qt_static_metacall,
-    nullptr,
-qt_incomplete_metaTypeArray<qt_meta_stringdata_PrimarySkillSignature_t
-, QtPrivate::TypeAndForceComplete<PrimarySkillSignature, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
-
-
->,
-    nullptr
-} };
-
 
 const QMetaObject *PrimarySkillSignature::metaObject() const
 {

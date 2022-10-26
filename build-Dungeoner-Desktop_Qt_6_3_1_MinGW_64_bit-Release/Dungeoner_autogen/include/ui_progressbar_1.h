@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'progressbar_1.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -49,23 +49,23 @@ public:
     void setupUi(QWidget *ProgressBar_1)
     {
         if (ProgressBar_1->objectName().isEmpty())
-            ProgressBar_1->setObjectName(QString::fromUtf8("ProgressBar_1"));
+            ProgressBar_1->setObjectName("ProgressBar_1");
         ProgressBar_1->resize(261, 46);
         ProgressBar_1->setMinimumSize(QSize(0, 46));
         ProgressBar_1->setMaximumSize(QSize(16777215, 46));
         ProgressBar_1->setStyleSheet(QString::fromUtf8(""));
         TipsWrapper = new QFrame(ProgressBar_1);
-        TipsWrapper->setObjectName(QString::fromUtf8("TipsWrapper"));
+        TipsWrapper->setObjectName("TipsWrapper");
         TipsWrapper->setGeometry(QRect(0, 2, 261, 42));
         TipsWrapper->setStyleSheet(QString::fromUtf8(""));
         TipsWrapper->setFrameShape(QFrame::StyledPanel);
         TipsWrapper->setFrameShadow(QFrame::Raised);
         gridLayout_2 = new QGridLayout(TipsWrapper);
         gridLayout_2->setSpacing(0);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setObjectName("gridLayout_2");
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
         TipLeft = new QLabel(TipsWrapper);
-        TipLeft->setObjectName(QString::fromUtf8("TipLeft"));
+        TipLeft->setObjectName("TipLeft");
         TipLeft->setMinimumSize(QSize(51, 42));
         TipLeft->setMaximumSize(QSize(40, 42));
         TipLeft->setStyleSheet(QString::fromUtf8(""));
@@ -73,7 +73,7 @@ public:
         gridLayout_2->addWidget(TipLeft, 0, 1, 1, 1);
 
         TipRight = new QLabel(TipsWrapper);
-        TipRight->setObjectName(QString::fromUtf8("TipRight"));
+        TipRight->setObjectName("TipRight");
         TipRight->setMinimumSize(QSize(51, 42));
         TipRight->setMaximumSize(QSize(51, 42));
         TipRight->setStyleSheet(QString::fromUtf8(""));
@@ -85,7 +85,7 @@ public:
         gridLayout_2->addItem(horizontalSpacer_2, 0, 2, 1, 1);
 
         ChunkWrapper = new QFrame(ProgressBar_1);
-        ChunkWrapper->setObjectName(QString::fromUtf8("ChunkWrapper"));
+        ChunkWrapper->setObjectName("ChunkWrapper");
         ChunkWrapper->setGeometry(QRect(0, 2, 261, 42));
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
@@ -97,10 +97,10 @@ public:
         ChunkWrapper->setFrameShadow(QFrame::Raised);
         horizontalLayout = new QHBoxLayout(ChunkWrapper);
         horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(42, 0, 42, 0);
         ProgressBarChunk = new QLabel(ChunkWrapper);
-        ProgressBarChunk->setObjectName(QString::fromUtf8("ProgressBarChunk"));
+        ProgressBarChunk->setObjectName("ProgressBarChunk");
         ProgressBarChunk->setMinimumSize(QSize(0, 27));
         ProgressBarChunk->setMaximumSize(QSize(16777215, 27));
         ProgressBarChunk->setStyleSheet(QString::fromUtf8(""));
@@ -114,17 +114,17 @@ public:
         horizontalLayout->addItem(ChunkShifter);
 
         BordersWrapper = new QFrame(ProgressBar_1);
-        BordersWrapper->setObjectName(QString::fromUtf8("BordersWrapper"));
+        BordersWrapper->setObjectName("BordersWrapper");
         BordersWrapper->setGeometry(QRect(0, 0, 261, 46));
         BordersWrapper->setStyleSheet(QString::fromUtf8(""));
         BordersWrapper->setFrameShape(QFrame::StyledPanel);
         BordersWrapper->setFrameShadow(QFrame::Raised);
         verticalLayout = new QVBoxLayout(BordersWrapper);
         verticalLayout->setSpacing(0);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(45, 6, 45, 7);
         BorderTop = new QLabel(BordersWrapper);
-        BorderTop->setObjectName(QString::fromUtf8("BorderTop"));
+        BorderTop->setObjectName("BorderTop");
         BorderTop->setMinimumSize(QSize(0, 5));
         BorderTop->setMaximumSize(QSize(16777215, 5));
         BorderTop->setStyleSheet(QString::fromUtf8(""));
@@ -136,7 +136,7 @@ public:
         verticalLayout->addItem(verticalSpacer);
 
         BorderBottom = new QLabel(BordersWrapper);
-        BorderBottom->setObjectName(QString::fromUtf8("BorderBottom"));
+        BorderBottom->setObjectName("BorderBottom");
         BorderBottom->setMinimumSize(QSize(0, 5));
         BorderBottom->setMaximumSize(QSize(16777215, 5));
         BorderBottom->setStyleSheet(QString::fromUtf8(""));
@@ -144,33 +144,33 @@ public:
         verticalLayout->addWidget(BorderBottom);
 
         ShadowWrapper = new QFrame(ProgressBar_1);
-        ShadowWrapper->setObjectName(QString::fromUtf8("ShadowWrapper"));
+        ShadowWrapper->setObjectName("ShadowWrapper");
         ShadowWrapper->setGeometry(QRect(0, 0, 261, 46));
         ShadowWrapper->setStyleSheet(QString::fromUtf8(""));
         ShadowWrapper->setFrameShape(QFrame::StyledPanel);
         ShadowWrapper->setFrameShadow(QFrame::Raised);
         horizontalLayout_2 = new QHBoxLayout(ShadowWrapper);
         horizontalLayout_2->setSpacing(0);
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(43, 8, 43, 9);
         Shadow = new QLabel(ShadowWrapper);
-        Shadow->setObjectName(QString::fromUtf8("Shadow"));
+        Shadow->setObjectName("Shadow");
         Shadow->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_2->addWidget(Shadow);
 
         LabelWithTooltipWrapper = new QFrame(ProgressBar_1);
-        LabelWithTooltipWrapper->setObjectName(QString::fromUtf8("LabelWithTooltipWrapper"));
+        LabelWithTooltipWrapper->setObjectName("LabelWithTooltipWrapper");
         LabelWithTooltipWrapper->setGeometry(QRect(0, 0, 261, 46));
         LabelWithTooltipWrapper->setFrameShape(QFrame::StyledPanel);
         LabelWithTooltipWrapper->setFrameShadow(QFrame::Raised);
         LabelWithTooltipWrapper->setLineWidth(0);
         verticalLayout_3 = new QVBoxLayout(LabelWithTooltipWrapper);
         verticalLayout_3->setSpacing(0);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_3->setObjectName("verticalLayout_3");
         verticalLayout_3->setContentsMargins(12, 3, 12, 7);
         labelWithTooltip = new LabelWithTooltip(LabelWithTooltipWrapper);
-        labelWithTooltip->setObjectName(QString::fromUtf8("labelWithTooltip"));
+        labelWithTooltip->setObjectName("labelWithTooltip");
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);

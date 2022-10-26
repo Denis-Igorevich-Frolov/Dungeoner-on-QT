@@ -31,6 +31,8 @@ public:
     //Устанавливает текст для ButtonText
     void setText(QString text);
 
+    QString getText();
+
     /*От этого энума будет зависить шрифт, сама же
      *замена шрита происходит в сетере fontType*/
     enum FontType{

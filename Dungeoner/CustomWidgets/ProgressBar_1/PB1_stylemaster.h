@@ -14,6 +14,8 @@ public:
     static QString BordersStyle();
     static QString ShadowStyle();
     static QString TipsStyle();
+    static QString TooltipTextStyle(int sizePX, QString color);
+    static QString SeparatorStyle();
 };
 
 #endif // PB1_STYLEMASTER_H

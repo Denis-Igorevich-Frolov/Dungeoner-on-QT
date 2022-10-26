@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'tooltip.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -28,17 +28,17 @@ public:
     void setupUi(QWidget *Tooltip)
     {
         if (Tooltip->objectName().isEmpty())
-            Tooltip->setObjectName(QString::fromUtf8("Tooltip"));
+            Tooltip->setObjectName("Tooltip");
         Tooltip->resize(271, 271);
         Border = new WindowBorder_2(Tooltip);
-        Border->setObjectName(QString::fromUtf8("Border"));
+        Border->setObjectName("Border");
         Border->setGeometry(QRect(15, 15, 241, 241));
         Background = new QLabel(Tooltip);
-        Background->setObjectName(QString::fromUtf8("Background"));
+        Background->setObjectName("Background");
         Background->setGeometry(QRect(15, 15, 241, 241));
         Background->setStyleSheet(QString::fromUtf8(""));
         Content = new QFrame(Tooltip);
-        Content->setObjectName(QString::fromUtf8("Content"));
+        Content->setObjectName("Content");
         Content->setGeometry(QRect(15, 15, 241, 241));
         Content->setFrameShape(QFrame::StyledPanel);
         Content->setFrameShadow(QFrame::Raised);

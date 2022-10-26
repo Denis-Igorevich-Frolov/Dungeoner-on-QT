@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'dungeoner.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -28,18 +28,18 @@ public:
     void setupUi(QMainWindow *Dungeoner)
     {
         if (Dungeoner->objectName().isEmpty())
-            Dungeoner->setObjectName(QString::fromUtf8("Dungeoner"));
+            Dungeoner->setObjectName("Dungeoner");
         Dungeoner->resize(800, 600);
         Dungeoner->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(Dungeoner);
-        centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        centralwidget->setObjectName("centralwidget");
         Dungeoner->setCentralWidget(centralwidget);
         menubar = new QMenuBar(Dungeoner);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 800, 21));
         Dungeoner->setMenuBar(menubar);
         statusbar = new QStatusBar(Dungeoner);
-        statusbar->setObjectName(QString::fromUtf8("statusbar"));
+        statusbar->setObjectName("statusbar");
         Dungeoner->setStatusBar(statusbar);
 
         retranslateUi(Dungeoner);

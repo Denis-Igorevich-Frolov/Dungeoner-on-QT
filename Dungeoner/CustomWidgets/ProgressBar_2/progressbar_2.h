@@ -54,6 +54,8 @@ public:
 
     LabelWithTooltip* getLabelWithTooltip();
 
+    void setTooltipContent(QString fullName, QString numberOfChunksFormula, QString chunkValueFormula, QString description);
+
     /*Метод возвращает индекс текущего активного чанка. Текущим чанком
      *считается последний чанк, имеющий ненулевое значение.*/
     int getCurrentChunkIndex();
@@ -74,6 +76,13 @@ public:
     /*Перегрузка идентичная по функционалу вышестоящему методу, только
      *эта функция добавляет переданный вектор к вектору бонусных чанков*/
     void addBonusChunk(QVector<Chunk*> chunks);
+
+    void addChunk(Chunk* chunk);
+
+    void setValue(int value);
+
+    //!!!Не перещитывает размеры элементов прогрессбара сам!!!
+    void clearNativeChunks();
 
     /*Удаление бонусного чанка. Метод имеет 4 перегрузки:
      *
@@ -118,6 +127,10 @@ public:
     //Приравнивает значение всех чанков к их максимальному значению
     void HealAllChunk();
 
+    int totalValue;
+    int value;
+    int willUntilNextChunk;
+
 private:
     //Цвет, в который будет окрашенна заполненная область прогрессбара
     QColor color = QColor(0 , 0, 0, 0);
@@ -143,9 +156,17 @@ private:
     //Перерисовка заполненной области при помощи тайлящейся окрашенной текстуры
     void redrawChunk();
 
+    void calculateValue();
+
     /*Переопределённая виртуальная функция класса QWidget. Во время этого эвента
      *происходит подгонка всех обёрток(wrapper) под размер виджета.*/
     void resizeEvent(QResizeEvent* event) override;
+
+    QVector<QLabel*> tooltipContent;
+    QLabel* valueLabel = new QLabel;
+    QLabel* generalValueLabel = new QLabel;
+    QLabel* chunkNumber = new QLabel;
+    QLabel* newChunkRequirementsLabel = new QLabel;
 
     Ui::ProgressBar_2 *ui;
 };

@@ -2069,6 +2069,15 @@ border: none;</string>
       <property name="Name" stdset="0">
        <string>Здоровье</string>
       </property>
+      <property name="Formula" stdset="0">
+       <string>10×Тел + 5×Воля + 2×Сила + Маг</string>
+      </property>
+      <property name="Description" stdset="0">
+       <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+      </property>
+      <property name="FormulaFontSize" stdset="0">
+       <number>23</number>
+      </property>
      </widget>
     </item>
     <item>
@@ -2090,6 +2099,15 @@ border: none;</string>
       </property>
       <property name="Name" stdset="0">
        <string>Выносливость</string>
+      </property>
+      <property name="Formula" stdset="0">
+       <string>10×Ловк + Тел</string>
+      </property>
+      <property name="Description" stdset="0">
+       <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+      </property>
+      <property name="FormulaFontSize" stdset="0">
+       <number>24</number>
       </property>
      </widget>
     </item>
@@ -2113,6 +2131,15 @@ border: none;</string>
       <property name="Name" stdset="0">
        <string>Мана</string>
       </property>
+      <property name="Formula" stdset="0">
+       <string>10×Маг + 2×Инт + Воля</string>
+      </property>
+      <property name="Description" stdset="0">
+       <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+      </property>
+      <property name="FormulaFontSize" stdset="0">
+       <number>24</number>
+      </property>
      </widget>
     </item>
     <item>
@@ -2134,6 +2161,15 @@ border: none;</string>
       </property>
       <property name="Name" stdset="0">
        <string>Магическая защита</string>
+      </property>
+      <property name="Description" stdset="0">
+       <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+      </property>
+      <property name="NumberOfChunksFormula" stdset="0">
+       <string>Первый фрагмент защиты даётся при 5 воли, и для получения каждого последующего фрамента, воли требуется в 1.2 раза больше</string>
+      </property>
+      <property name="ChunkValueFormula" stdset="0">
+       <string>0.7×Маг + 0.3×Тел</string>
       </property>
      </widget>
     </item>

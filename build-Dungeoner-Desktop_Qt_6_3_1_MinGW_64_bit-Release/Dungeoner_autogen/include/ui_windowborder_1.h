@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowborder_1.ui'
 **
-** Created by: Qt User Interface Compiler version 6.3.1
+** Created by: Qt User Interface Compiler version 6.4.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -49,17 +49,17 @@ public:
     void setupUi(QWidget *WindowBorder_1)
     {
         if (WindowBorder_1->objectName().isEmpty())
-            WindowBorder_1->setObjectName(QString::fromUtf8("WindowBorder_1"));
+            WindowBorder_1->setObjectName("WindowBorder_1");
         WindowBorder_1->resize(870, 580);
         horizontalLayout = new QHBoxLayout(WindowBorder_1);
         horizontalLayout->setSpacing(0);
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         gridLayout_6 = new QGridLayout();
         gridLayout_6->setSpacing(0);
-        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
+        gridLayout_6->setObjectName("gridLayout_6");
         BottomLeftCorner = new QLabel(WindowBorder_1);
-        BottomLeftCorner->setObjectName(QString::fromUtf8("BottomLeftCorner"));
+        BottomLeftCorner->setObjectName("BottomLeftCorner");
         QSizePolicy sizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -75,14 +75,14 @@ public:
 
         LeftWraper = new QHBoxLayout();
         LeftWraper->setSpacing(0);
-        LeftWraper->setObjectName(QString::fromUtf8("LeftWraper"));
+        LeftWraper->setObjectName("LeftWraper");
         LeftWraper->setSizeConstraint(QLayout::SetDefaultConstraint);
         horizontalSpacer = new QSpacerItem(0, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         LeftWraper->addItem(horizontalSpacer);
 
         LeftBorder = new QLabel(WindowBorder_1);
-        LeftBorder->setObjectName(QString::fromUtf8("LeftBorder"));
+        LeftBorder->setObjectName("LeftBorder");
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Minimum);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
@@ -108,7 +108,7 @@ public:
         gridLayout_6->addLayout(LeftWraper, 1, 0, 2, 1);
 
         BottomRightCorner = new QLabel(WindowBorder_1);
-        BottomRightCorner->setObjectName(QString::fromUtf8("BottomRightCorner"));
+        BottomRightCorner->setObjectName("BottomRightCorner");
         sizePolicy.setHeightForWidth(BottomRightCorner->sizePolicy().hasHeightForWidth());
         BottomRightCorner->setSizePolicy(sizePolicy);
         BottomRightCorner->setMinimumSize(QSize(25, 25));
@@ -118,7 +118,7 @@ public:
         gridLayout_6->addWidget(BottomRightCorner, 3, 2, 1, 1);
 
         TopRightCorner = new QLabel(WindowBorder_1);
-        TopRightCorner->setObjectName(QString::fromUtf8("TopRightCorner"));
+        TopRightCorner->setObjectName("TopRightCorner");
         sizePolicy.setHeightForWidth(TopRightCorner->sizePolicy().hasHeightForWidth());
         TopRightCorner->setSizePolicy(sizePolicy);
         TopRightCorner->setMinimumSize(QSize(25, 25));
@@ -128,7 +128,7 @@ public:
         gridLayout_6->addWidget(TopRightCorner, 0, 2, 1, 1);
 
         TopLeftCorner = new QLabel(WindowBorder_1);
-        TopLeftCorner->setObjectName(QString::fromUtf8("TopLeftCorner"));
+        TopLeftCorner->setObjectName("TopLeftCorner");
         sizePolicy.setHeightForWidth(TopLeftCorner->sizePolicy().hasHeightForWidth());
         TopLeftCorner->setSizePolicy(sizePolicy);
         TopLeftCorner->setMinimumSize(QSize(25, 25));
@@ -141,13 +141,13 @@ public:
 
         RightWraper = new QHBoxLayout();
         RightWraper->setSpacing(0);
-        RightWraper->setObjectName(QString::fromUtf8("RightWraper"));
+        RightWraper->setObjectName("RightWraper");
         horizontalSpacer_4 = new QSpacerItem(15, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
         RightWraper->addItem(horizontalSpacer_4);
 
         RightBorder = new QLabel(WindowBorder_1);
-        RightBorder->setObjectName(QString::fromUtf8("RightBorder"));
+        RightBorder->setObjectName("RightBorder");
         QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy2.setHorizontalStretch(0);
         sizePolicy2.setVerticalStretch(0);
@@ -170,13 +170,13 @@ public:
 
         TopWraper = new QVBoxLayout();
         TopWraper->setSpacing(0);
-        TopWraper->setObjectName(QString::fromUtf8("TopWraper"));
+        TopWraper->setObjectName("TopWraper");
         verticalSpacer = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         TopWraper->addItem(verticalSpacer);
 
         TopBorder = new QLabel(WindowBorder_1);
-        TopBorder->setObjectName(QString::fromUtf8("TopBorder"));
+        TopBorder->setObjectName("TopBorder");
         QSizePolicy sizePolicy3(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
@@ -200,13 +200,13 @@ public:
 
         BottomWraper = new QVBoxLayout();
         BottomWraper->setSpacing(0);
-        BottomWraper->setObjectName(QString::fromUtf8("BottomWraper"));
+        BottomWraper->setObjectName("BottomWraper");
         verticalSpacer_4 = new QSpacerItem(20, 15, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
         BottomWraper->addItem(verticalSpacer_4);
 
         BottomBorder = new QLabel(WindowBorder_1);
-        BottomBorder->setObjectName(QString::fromUtf8("BottomBorder"));
+        BottomBorder->setObjectName("BottomBorder");
         sizePolicy3.setHeightForWidth(BottomBorder->sizePolicy().hasHeightForWidth());
         BottomBorder->setSizePolicy(sizePolicy3);
         BottomBorder->setMinimumSize(QSize(0, 4));

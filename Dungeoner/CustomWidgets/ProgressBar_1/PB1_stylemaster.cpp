@@ -44,3 +44,24 @@ QString PB1_StyleMaster::TipsStyle()
     "   background-repeat: no-repeat;"
     "}";
 }
+
+QString PB1_StyleMaster::TooltipTextStyle(int sizePX, QString color)
+{
+    //Вместо %1 будет вставлен размер шрифта, а вместо %2 - его цвет
+    QString style =
+    "QLabel{"
+    "   background: none;"
+    "   font: %1px;"
+    "   color: #%2;"
+    "}";
+
+    return style.arg(sizePX).arg(color);
+}
+
+QString PB1_StyleMaster::SeparatorStyle()
+{
+    return
+    "background: url(:/Text-Block-1/Textures PNG/Separator-1.png);"
+    "background-repeat: norepeat;"
+    "background-position: center;";
+}

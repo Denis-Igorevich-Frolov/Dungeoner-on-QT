@@ -257,8 +257,8 @@ void CharacterWindow::setStyles()
             magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
 
             //Временная заглушка для прогрессбара магической защиты
-            magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
-            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
+//            magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
+//            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -556,6 +556,40 @@ void CharacterWindow::recalculateStats()
 
     long mana = ui->MagicValue->value() * 10 + ui->IntelligenceValue->value() * 2 + ui->WillValue->value();
     ui->Mana->getProgressBar()->setMaxValue(mana);
+
+    int numberOfChunks = 0;
+    int requirementOfChunk = 5;
+    int will = ui->WillValue->value();
+    int amountOfRequirements = requirementOfChunk;
+
+    if(will>=requirementOfChunk){
+        will-=requirementOfChunk-1;
+        while(true){
+            numberOfChunks++;
+            requirementOfChunk*=1.2;
+            amountOfRequirements+=requirementOfChunk;
+            will-=requirementOfChunk;
+            if(will<=0){
+                break;
+            }
+        }
+    }
+
+    if(ui->WillValue->value()<5)
+        ui->MagicDefense->getProgressBar()->willUntilNextChunk = requirementOfChunk - ui->WillValue->value();
+    else
+        ui->MagicDefense->getProgressBar()->willUntilNextChunk = amountOfRequirements - ui->WillValue->value();
+
+    ui->MagicDefense->getProgressBar()->clearNativeChunks();
+    QVector<Chunk*> chinks;
+    for(int i = 0; i<numberOfChunks; i++){
+        int chunkValue = floor(ui->MagicValue->value() * 0.7 + ui->BodyTypeValue->value() * 0.3);
+        if(chunkValue<=0)
+            chunkValue = 1;
+        chinks.append(new Chunk(chunkValue, 0));
+    }
+
+    ui->MagicDefense->getProgressBar()->setChunks(chinks);
 }
 
 
@@ -659,15 +693,61 @@ void CharacterWindow::tooltipInitialization()
             }
         }
     }
+
+    /*Перебор всех дочерних эллементов контейнера ProgressBars. Здесь важно, чтобы все эти
+     *эллементы были либо типа SecondarySkillProgressBar, либо MagicDefenseProgressBar.
+     *Если это не так, то эллемент будет проигнорирован и выведено предупреждение.*/
+    for(auto* autoFrame : ui->ProgressBars->children()){
+        if(dynamic_cast <SecondarySkillProgressBar*> (autoFrame)){
+            SecondarySkillProgressBar* secondarySkillProgressBar = qobject_cast <SecondarySkillProgressBar*> (autoFrame);
+            ProgressBar_1* PB_1 = secondarySkillProgressBar->getProgressBar();
+            PB_1->setTooltipContent(secondarySkillProgressBar->property("Name").toString(),
+                                    secondarySkillProgressBar->property("Formula").toString(),
+                                    secondarySkillProgressBar->property("FormulaFontSize").toInt(),
+                                    secondarySkillProgressBar->property("Description").toString());
+        }else if(dynamic_cast <MagicDefenseProgressBar*> (autoFrame)){
+            MagicDefenseProgressBar* magicDefenseProgressBar = qobject_cast <MagicDefenseProgressBar*> (autoFrame);
+            ProgressBar_2* PB_2 = magicDefenseProgressBar->getProgressBar();
+            PB_2->setTooltipContent(magicDefenseProgressBar->property("Name").toString(),
+                                    magicDefenseProgressBar->property("NumberOfChunksFormula").toString(),
+                                    magicDefenseProgressBar->property("ChunkValueFormula").toString(),
+                                    magicDefenseProgressBar->property("Description").toString());
+        }else if(!dynamic_cast <QLayout*> (autoFrame)){
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе setStyles.\n"
+            "Объект " + autoFrame->objectName() + " не является QFrame.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
 }
 
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
  *Считаются только Ctrl,Shift и Alt*/
 void CharacterWindow::keyPressEvent(QKeyEvent *event)
 {
-    int key=event->key();
-    if(key==16777249||key==16777248||key==16777251)
-        Global::pressedKeys.append(key);
+    if(!ui->StrengthValue->hasFocus()&&!ui->AgilityValue->hasFocus()&&!ui->IntelligenceValue->hasFocus()&&
+            !ui->MagicValue->hasFocus()&&!ui->BodyTypeValue->hasFocus()&&!ui->WillValue->hasFocus()){
+        int key=event->key();
+        if(key==16777249||key==16777248||key==16777251)
+            Global::pressedKeys.append(key);
+    }
 }
 
 /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
@@ -788,7 +868,16 @@ void CharacterWindow::ShowTooltip(QVector<QLabel*> TooltipContent)
     if(!ui->tooltip->isVisible())
         ui->tooltip->setContent(TooltipContent);
     ui->tooltip->setVisible(true);
-    ui->tooltip->move(QWidget::mapFromGlobal(QCursor::pos()-QPoint(ui->tooltip->invisibleFrame.width()/2, ui->tooltip->invisibleFrame.height()/2)));
+
+    QPoint position = QCursor::pos()-QPoint(ui->tooltip->invisibleFrame.width()/2, ui->tooltip->invisibleFrame.height()/2);
+
+    if(position.x() + ui->tooltip->width() - ui->tooltip->invisibleFrame.width()/2 > this->width())
+        position.setX(this->width() - ui->tooltip->width() + ui->tooltip->invisibleFrame.width()/2);
+
+    if(position.y() + ui->tooltip->height() - ui->tooltip->invisibleFrame.height()/2 > this->height())
+        position.setY(this->height() - ui->tooltip->height() + ui->tooltip->invisibleFrame.height()/2);
+
+    ui->tooltip->move(QWidget::mapFromGlobal(position));
 }
 
 void CharacterWindow::RemoveTooltip()
@@ -859,5 +948,6 @@ void CharacterWindow::on_pushButton_4_clicked()
     ui->Health->getProgressBar()->setValue(ui->Health->getProgressBar()->getMaxValue());
     ui->Endurance->getProgressBar()->setValue(ui->Endurance->getProgressBar()->getMaxValue());
     ui->Mana->getProgressBar()->setValue(ui->Mana->getProgressBar()->getMaxValue());
+    ui->MagicDefense->getProgressBar()->HealAllChunk();
 }
 

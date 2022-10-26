@@ -14,6 +14,8 @@ public:
     static QString BordersStyle();
     static QString ShadowStyle();
     static QString TipsStyle();
+    static QString ProgressBarSeparatorStyle();
+    static QString TooltipTextStyle(int sizePX, QString color);
     static QString SeparatorStyle();
 };
 

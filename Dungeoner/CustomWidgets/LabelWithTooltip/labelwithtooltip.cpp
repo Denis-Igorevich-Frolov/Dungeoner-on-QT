@@ -44,6 +44,11 @@ void LabelWithTooltip::setText(QString text)
     ui->LabelText->setText(text);
 }
 
+QString LabelWithTooltip::getText()
+{
+    return ui->LabelText->text();
+}
+
 /*Переопределения виртуальных функций QWidget для вызова сигнала вывода
  *или удаления подсказки. Вся логика происходит в классе TooltipDisplayEvents*/
 void LabelWithTooltip::mousePressEvent(QMouseEvent *event)
