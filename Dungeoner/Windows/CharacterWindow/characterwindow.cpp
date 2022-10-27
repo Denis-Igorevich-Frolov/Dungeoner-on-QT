@@ -580,7 +580,6 @@ void CharacterWindow::recalculateStats()
     else
         ui->MagicDefense->getProgressBar()->willUntilNextChunk = amountOfRequirements - ui->WillValue->value();
 
-    ui->MagicDefense->getProgressBar()->clearNativeChunks();
     QVector<Chunk*> chinks;
     for(int i = 0; i<numberOfChunks; i++){
         int chunkValue = floor(ui->MagicValue->value() * 0.7 + ui->BodyTypeValue->value() * 0.3);

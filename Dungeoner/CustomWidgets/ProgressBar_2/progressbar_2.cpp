@@ -84,7 +84,7 @@ void ProgressBar_2::setChunks(const QVector<Chunk*> &newChunks)
             newNChunks.append(newChunks.at(i));
         nativeChunks = newNChunks;
 
-        /*Так как вектор родных чанков динамически генерируется каждый раз заного и неуместившиеся ячейки
+        /*Так как вектор родных чанков динамически генерируется каждый раз заного, и неуместившиеся ячейки
          *никогда не понадобятся, необходимо высвобождение памяти у остатка переданного вектора*/
         QVectorIterator<Chunk*> iterator(newChunks);
         iterator.toBack();
@@ -270,6 +270,7 @@ void ProgressBar_2::addValue(int value)
         currentChunk++;
     }
 
+    //После изменения значений нужно пересчетать общее заполненное значение всех векторов
     calculateValue();
 
     //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
@@ -314,6 +315,7 @@ void ProgressBar_2::subtractValue(int value)
         currentChunk--;
     }
 
+    //После изменения значений нужно пересчетать общее заполненное значение всех векторов
     calculateValue();
 
     //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
@@ -341,6 +343,7 @@ void ProgressBar_2::addBonusChunk(QVector<Chunk *> chunks)
     recalculationChunkWidth();
 }
 
+//Добавление одного чанка в вектор родных чанков
 void ProgressBar_2::addChunk(Chunk *chunk)
 {
     if(nativeChunks.size()<50){
@@ -352,8 +355,15 @@ void ProgressBar_2::addChunk(Chunk *chunk)
     recalculationChunkWidth();
 }
 
+/*Метод устанавливает общее значение всему прогрессбару, последовательно заполняя все чанки пока
+ *не кончится переданное значение. Используется для первичной инициализации и сохранения значения
+ *при перерасчёте векторов прогрессбара из переменной value, чтобы оно не сбрасывалось при любом
+ *изменении.*/
 void ProgressBar_2::setValue(int value)
 {
+    if(value<0)
+        value = 0;
+
     for(Chunk* chunk : chunks){
         int difference = chunk->getMaxValue()-chunk->getValue();
         if(difference<=value){
@@ -368,8 +378,14 @@ void ProgressBar_2::setValue(int value)
     }
 }
 
+/*Очистка вектора родных чанков. Нужно быть осторожным в вызове этого метода, ведь он сам
+ *не перерисовывает прогрессбар. После его вызова ОБЯЗАТЕЛЬНО должна быть переинициализация
+ *вектора родных чанков, даже пустым вектором, если то нужно. Безопасен только вызов из
+ *начала метода setChunks, потому что он сам и переинициализирует вектор родных чанков.*/
 void ProgressBar_2::clearNativeChunks()
 {
+    /*Так как вектор родных чанков динамически генерируется каждый раз заного, и его ячейки никогда
+     *повторно не понадобятся, необходимо высвобождение памяти у элементов этого вектора*/
     for(Chunk* chunk : nativeChunks)
         delete chunk;
 
@@ -596,16 +612,19 @@ bool ProgressBar_2::spendLastChunk()
          *когда этот чанк первый и он пуст, соответственно обнулять нечего*/
         if(chunks.at(chunkIndex)->getValue()!=0){
             chunks.at(chunkIndex)->setValue(0);
+            //После изменения значений нужно пересчетать общее заполненное значение всех векторов
             calculateValue();
 
             //После изменений векторов нужно пересчитать длинну заполненной области и позиции разделителей
             recalculationChunkWidth();
             return true;
         }else{
+            //После изменения значений нужно пересчетать общее заполненное значение всех векторов
             calculateValue();
             return false;
         }
     }else{
+        //После изменения значений нужно пересчетать общее заполненное значение всех векторов
         calculateValue();
         return false;
     }
@@ -657,6 +676,15 @@ void ProgressBar_2::recalculationChunks()
     //Добавляются сначала рордные, а затем бонусные чанки
     chunks.append(nativeChunks);
     chunks.append(finalBonusChunks);
+
+    //Вычисляется общее максимальное значение всех чанков
+    totalValue = 0;
+    for(Chunk* chunk : chunks)
+        totalValue+=chunk->getMaxValue();
+
+    //Если значение больше максимального, то оно усекается до максимального
+    if(value > totalValue)
+        value = totalValue;
 }
 
 //Пересчёт размера заполненной области и позиций разделителей
@@ -665,10 +693,6 @@ void ProgressBar_2::recalculationChunkWidth()
     //Вызов перерасчёта общего вектора всех чанков
     recalculationChunks();
 
-    //Вычисляется общее максимальное значение всех чанков
-    totalValue = 0;
-    for(Chunk* chunk : chunks)
-        totalValue+=chunk->getMaxValue();
     //Если не проверить, то может получиться деление на 0
     if(totalValue!=0)
         /*86 - это суммарные горизонтальные отступы тела прогрессбара от краёв виджета.
@@ -678,8 +702,7 @@ void ProgressBar_2::recalculationChunkWidth()
     else
         stepSize = 0.0;
 
-    if(chunks.isEmpty())
-        this->value = 0;
+    //После перерасчёта общего вектора всех чанков значение теряется, и его надо снова передать
     setValue(this->value);
 
     //Очистка врапера разделителей
@@ -730,6 +753,7 @@ void ProgressBar_2::recalculationChunkWidth()
 
     ui->ProgressBarChunk->setFixedWidth(ceil(value*stepSize));
 
+    //Заполнение лейбла подсказки контентом
     int currentChunk = getCurrentChunkIndex();
     if(chunks.size()!=0){
         ui->labelWithTooltip->setText(QString::number(currentChunk+1)+" / "+QString::number(chunks.size())+
@@ -741,7 +765,7 @@ void ProgressBar_2::recalculationChunkWidth()
         else
             ui->labelWithTooltip->setText("1 / "+QString::number(chunks.at(currentChunk)->getMaxValue()));
 
-    generalValueLabel->setText("Общее текущее значение:\n" + QVariant(this->value).toString());
+    generalValueLabel->setText("Общее текущее значение:\n" + QVariant(this->value).toString() + " / " + QVariant(totalValue).toString());
 
     if(nativeChunks.size()<50)
         if(willUntilNextChunk>1)
@@ -789,6 +813,7 @@ void ProgressBar_2::redrawChunk()
     ui->ProgressBarChunk->setPixmap(pixmap);
 }
 
+//Вычисление текущего общего заполненного значения всех чанков прогрессбара
 void ProgressBar_2::calculateValue()
 {
     value = 0;

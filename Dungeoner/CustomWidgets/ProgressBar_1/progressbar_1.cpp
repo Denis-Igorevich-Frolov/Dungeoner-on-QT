@@ -53,6 +53,7 @@ void ProgressBar_1::setMinValue(int newMinValue)
     if(value < minValue)
         setValue(minValue);
 
+    //После изменения диапазона нужно перезаписать текст подсказки
     valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
 
     //После изменения диапазона нужно пересчитать размер заполненной области
@@ -81,6 +82,7 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
     if(value > maxValue)
         setValue(maxValue);
 
+    //После изменения диапазона нужно перезаписать текст подсказки
     valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
 
     //После изменения диапазона нужно пересчитать размер заполненной области
@@ -102,6 +104,7 @@ void ProgressBar_1::setValue(int newValue)
     else
         value = newValue;
 
+    //После изменения диапазона нужно перезаписать текст подсказки
     valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
 
     //После изменения диапазона нужно пересчитать размер заполненной области
