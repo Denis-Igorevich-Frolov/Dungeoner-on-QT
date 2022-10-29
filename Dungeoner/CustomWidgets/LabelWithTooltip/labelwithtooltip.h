@@ -45,6 +45,9 @@ public:
     void setOutlineThickness(int thickness);
 
     void setTooltipContent(QVector<QLabel*> &newTooltipContent);
+
+    //Установка контента для подсказок вызываемых с зажатым модификатором
+
     void setAltTooltipContent(QVector<QLabel*> &newTooltipContent);
     void setCtrlTooltipContent(QVector<QLabel*> &newTooltipContent);
     void setShiftTooltipContent(QVector<QLabel*> &newTooltipContent);
@@ -58,7 +61,11 @@ private:
 
     OutlineEffect* border;
     TooltipDisplayEvents tooltipDisplayEvents;
+
     QVector<QLabel*> tooltipContent;
+
+    //Контент подсказок с зажатыми модификаторами
+
     QVector<QLabel*> AltTooltipContent;
     QVector<QLabel*> CtrlTooltipContent;
     QVector<QLabel*> ShiftTooltipContent;

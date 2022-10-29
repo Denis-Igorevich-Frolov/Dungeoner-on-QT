@@ -51,6 +51,9 @@ public:
     void CheckingDisplayOfTooltip();
 
     void setTooltipContent(QVector<QLabel *> &newTooltipContent);
+
+    //Установка контента для подсказок вызываемых с зажатым модификатором
+
     void setAltTooltipContent(QVector<QLabel*> &newTooltipContent);
     void setCtrlTooltipContent(QVector<QLabel*> &newTooltipContent);
     void setShiftTooltipContent(QVector<QLabel*> &newTooltipContent);
@@ -65,7 +68,11 @@ signals:
 private:
     bool rightMousePressed = false;
     bool isHovered = false;
+
     QVector<QLabel*> TooltipContent;
+
+    //Контент подсказок с зажатыми модификаторами
+
     QVector<QLabel*> AltTooltipContent;
     QVector<QLabel*> CtrlTooltipContent;
     QVector<QLabel*> ShiftTooltipContent;
@@ -74,6 +81,8 @@ private:
      *только один раз, только при условии, что ShowTooltip ранее уже был вызван*/
     bool TooltipHasBeenCalled = false;
 
+    /*Значения, отслеживающие используется ли в данной подсказке
+     *вызов дополнительных подсказок с модификатором нажатия*/
     bool AltModifierIsUsed = false;
     bool CtrlModifierIsUsed = false;
     bool ShiftModifierIsUsed = false;

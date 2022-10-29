@@ -226,6 +226,14 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
 
     ui->labelWithTooltip->setTooltipContent(tooltipContent);
 
+    /*Далее задаётся контент подсказки с зажатым альтом. Практически все её элементы -
+     *это дубликаты некоторых предыдущих лейблов. Те же лейблы не переиспользовать так
+     *как у обычной подсказки ширина статичная, а у альт-подсказки - динамичная, и
+     *получается что передавая те же лейблы, альт-подсказка постоянно меняла бы их
+     *ширину.
+     *Копирование производится просто передачей необходимых пораметров из старого лейбла
+     *новому. Я знаю и про глубокое копирование, и про патерн прототип, но использование
+     *этого для копирования четырёх односложных лейблов не выигрывает ничего.*/
 
     QLabel* AltFullNameLabel = new QLabel();
     AltFullNameLabel->setFont(fullNameLabel->font());
@@ -242,6 +250,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     detailedInformationLabel = new QLabel;
     detailedInformationLabel->setFont(QFont("TextFont"));
     detailedInformationLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "E8E23C"));
+    //В этом лейбле мы сами управляем переносом строк и автоперенос нам не нужен
     detailedInformationLabel->setWordWrap(false);
     AltTooltipContent.append(detailedInformationLabel);
 
@@ -862,14 +871,21 @@ void ProgressBar_2::recalculationChunkWidth()
                                 QString::number(chunks.at(currentChunk)->getMaxValue()));
     }
 
+    /*Подробная информация по чанкам задаётся при помощи HTML абзаца с CSS стилями. Здесь показатели по каждому
+     *чанку оборачиваются в span, которому, в заисимости от статуса, задаётся цвет: зелёный - для полностью
+     *заполненных, красный - для пустых и неизменным - жёлтым - отмечается текущий чанк. Каждые 5 чанков делается
+     *перенос строки для простоты подсчёта.*/
     QString detailedInformationLabelText;
     if(!chunks.isEmpty())
         for(int i = 0; i < chunks.size(); i++){
             detailedInformationLabelText.append("<span");
             if(chunks.at(i)->getValue() == 0)
+                //Красный
                 detailedInformationLabelText.append(" style=\"color: #FF7F4F;\"");
             else if(chunks.at(i)->getValue() == chunks.at(i)->getMaxValue())
+                //Цвет текущего чанка остаётся обычным жёлтым
                 if(i!=getCurrentChunkIndex())
+                    //Зелёный
                     detailedInformationLabelText.append(" style=\"color: #77DB46;\"");
             detailedInformationLabelText.append(">");
             detailedInformationLabelText.append("(" + QVariant(chunks.at(i)->getValue()).toString() + "/");
@@ -884,6 +900,9 @@ void ProgressBar_2::recalculationChunkWidth()
 
     detailedInformationLabel->setText("<p>" + detailedInformationLabelText + "</p>");
 
+    /*Ширина подсказки подробной информации высчитывается исходя из ширины лейбла detailedInformationLabel,
+     *но она не может быть меньше стандартного обычного размера подсказки в 450 пикселей, иначе описание и
+     *имя могут не влезть в блок.*/
     int detailedInformationWidth = detailedInformationLabel->sizeHint().width();
     if(detailedInformationWidth<450)
         detailedInformationWidth = 450;

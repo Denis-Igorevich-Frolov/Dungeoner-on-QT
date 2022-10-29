@@ -13,6 +13,8 @@ Chunk::Chunk()
 
 Chunk::Chunk(int maxValue, int value)
 {
+    if(maxValue<1)
+        maxValue = 1;
     setMaxValue(maxValue);
     setValue(value);
 }
@@ -29,10 +31,10 @@ void Chunk::setMaxValue(int newMaxValue)
      *в прогрессбаре магической защиты будет много.*/
     if(newMaxValue>10000)
         newMaxValue = 10000;
-    /*Максимальное значение фрагмента прогрессбара
-     *магической защиты не может быть меньше 0*/
-    else if(newMaxValue<0)
-        newMaxValue = 0;
+    /*Максимальное значение фрагмента прогрессбара магической защиты не может быть меньше 1 -
+     *фрагмент 0/0 - это фактическое отсутствие фрагмента, что не делает смысла*/
+    else if(newMaxValue<1)
+        newMaxValue = 1;
 
     maxValue = newMaxValue;
 }

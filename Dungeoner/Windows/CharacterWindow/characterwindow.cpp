@@ -557,33 +557,44 @@ void CharacterWindow::recalculateStats()
     ui->Mana->getProgressBar()->setMaxValue(mana);
 
     int numberOfChunks = 0;
+    //Требование для появления нового чанка магической защиты
     int requirementOfChunk = 5;
     int will = ui->WillValue->value();
+    /*Общая сумма требований воли до получения ещё одного чанка. Служит для передачи
+     *подсказке информации о том сколько ещё нужно воли до появления нового чанка*/
     int amountOfRequirements = requirementOfChunk;
 
+    //Если воли достаточно для получения хотябы одного чанка
     if(will>=requirementOfChunk){
+        /*Вычисляется сколько остаётся воли после заполнения первого чанка.
+         *Единица 1 раз вычитается из требований чтобы последующий цикл каждый
+         *раз толкался на одну дополнительную итерацию, заполняя количество
+         *чанков, и главное, заполняя требования для получения следующего чанка.*/
         will-=requirementOfChunk-1;
         while(true){
             numberOfChunks++;
+            //Требования экспоненциально растут
             requirementOfChunk*=1.2;
+            /*Вычисляется общая сумма требований, а из-за толкания на дополнительную
+             *итерацию эти требования всегда для уже последующего чанка, а не текущего*/
             amountOfRequirements+=requirementOfChunk;
+            //Вычисляется сколько остаётся воли после заполнения нового чанка
             will-=requirementOfChunk;
+            /*Меньше или равным нулю воля может оказаться только если
+             *требования на появления ещё одного чанка не соблюдены*/
             if(will<=0){
                 break;
             }
         }
     }
 
-    if(ui->WillValue->value()<5)
-        ui->MagicDefense->getProgressBar()->willUntilNextChunk = requirementOfChunk - ui->WillValue->value();
-    else
-        ui->MagicDefense->getProgressBar()->willUntilNextChunk = amountOfRequirements - ui->WillValue->value();
+    //Прогрессбару магической защиты передаётся значение недостающей воли до появления ещё одного чанка
+    ui->MagicDefense->getProgressBar()->willUntilNextChunk = amountOfRequirements - ui->WillValue->value();
 
+    //Генерируется новый вектор чанков исходя из новых статов
     QVector<Chunk*> chinks;
     for(int i = 0; i<numberOfChunks; i++){
         int chunkValue = floor(ui->MagicValue->value() * 0.7 + ui->BodyTypeValue->value() * 0.3);
-        if(chunkValue<=0)
-            chunkValue = 1;
         chinks.append(new Chunk(chunkValue, 0));
     }
 

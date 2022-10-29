@@ -130,6 +130,8 @@ void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int hei
 void TooltipDisplayEvents::CheckingDisplayOfTooltip()
 {
     if(isHovered&&rightMousePressed){
+        /*Если зажаты какие-либо модификаторы нажатия, находим какие и проверяем поддерживает
+         *ли эта подсказка дополнительные подсказки по модификатору нажатия*/
         if(!Global::pressedKeys.empty()){
             //Alt
             if(Global::pressedKeys.last() == 16777251 && AltModifierIsUsed){
@@ -143,6 +145,7 @@ void TooltipDisplayEvents::CheckingDisplayOfTooltip()
             if(Global::pressedKeys.last() == 16777248 && ShiftModifierIsUsed){
                 emit ShowTooltip(ShiftTooltipContent);
             }else
+                //Если модификаторы нажаты, но подсказка не имеет дополнений, вызывается обычная подсказка
                 emit ShowTooltip(TooltipContent);
         }else
             emit ShowTooltip(TooltipContent);
@@ -163,6 +166,8 @@ void TooltipDisplayEvents::setTooltipContent(QVector<QLabel *> &newTooltipConten
 {
     TooltipContent = newTooltipContent;
 }
+
+//Установка контента для подсказок вызываемых с зажатым модификатором
 
 void TooltipDisplayEvents::setAltTooltipContent(QVector<QLabel *> &newAltTooltipContent)
 {

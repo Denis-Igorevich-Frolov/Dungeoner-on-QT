@@ -21,7 +21,7 @@ public:
     void setValue(int newValue);
 
 private:
-    int maxValue = 0;
+    int maxValue = 1;
     int value = 0;
 };
 

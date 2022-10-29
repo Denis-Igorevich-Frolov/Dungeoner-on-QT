@@ -117,6 +117,8 @@ void LabelWithTooltip::setTooltipContent(QVector<QLabel*> &newTooltipContent)
     tooltipDisplayEvents.setTooltipContent(tooltipContent);
 }
 
+//Установка контента для подсказок вызываемых с зажатым модификатором
+
 void LabelWithTooltip::setAltTooltipContent(QVector<QLabel *> &newAltTooltipContent)
 {
     AltTooltipContent = newAltTooltipContent;
