@@ -132,6 +132,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     fullNameLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(27, "bdc440"));
     fullNameLabel->setText(fullName);
     fullNameLabel->setMaximumWidth(450);
+    fullNameLabel->setWordWrap(true);
     tooltipContent.append(fullNameLabel);
 
     QLabel* separator = new QLabel;
@@ -143,18 +144,21 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     chunkNumber->setFont(QFont("TextFont"));
     chunkNumber->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "cad160"));
     chunkNumber->setMaximumWidth(450);
+    chunkNumber->setWordWrap(true);
     tooltipContent.append(chunkNumber);
 
     generalValueLabel = new QLabel;
     generalValueLabel->setFont(QFont("TextFont"));
     generalValueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "cad160"));
     generalValueLabel->setMaximumWidth(450);
+    generalValueLabel->setWordWrap(true);
     tooltipContent.append(generalValueLabel);
 
     valueLabel = new QLabel;
     valueLabel->setFont(QFont("TextFont"));
     valueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "cad160"));
     valueLabel->setMaximumWidth(450);
+    valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
 
     QLabel* separator2 = new QLabel;
@@ -167,6 +171,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     numberOfChunksFormulalaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "bdc440"));
     numberOfChunksFormulalaLabel->setText(numberOfChunksFormula);
     numberOfChunksFormulalaLabel->setMaximumWidth(450);
+    numberOfChunksFormulalaLabel->setWordWrap(true);
     tooltipContent.append(numberOfChunksFormulalaLabel);
 
     newChunkRequirementsLabel = new QLabel;
@@ -174,7 +179,16 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     newChunkRequirementsLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(21, "cad160"));
     newChunkRequirementsLabel->setText("До следующего фрагмента " + QVariant(willUntilNextChunk).toString() + " Воли");
     newChunkRequirementsLabel->setMaximumWidth(450);
+    newChunkRequirementsLabel->setWordWrap(true);
     tooltipContent.append(newChunkRequirementsLabel);
+
+    QLabel* detailedInformationHint = new QLabel;
+    detailedInformationHint->setFont(QFont("TextFont"));
+    detailedInformationHint->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(14, "bdc440"));
+    detailedInformationHint->setText("Вывод подробной сводки фрагментов магической защиты: Alt + ПКМ");
+    detailedInformationHint->setMaximumWidth(450);
+    detailedInformationHint->setWordWrap(true);
+    tooltipContent.append(detailedInformationHint);
 
     QLabel* separator3 = new QLabel;
     separator3->setFixedSize(450, 1);
@@ -186,6 +200,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     FormulaSignatureLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(24, "bdc440"));
     FormulaSignatureLabel->setText("Размер фрагмента вычисляется по формуле:");
     FormulaSignatureLabel->setMaximumWidth(450);
+    FormulaSignatureLabel->setWordWrap(true);
     tooltipContent.append(FormulaSignatureLabel);
 
     QLabel* chunkValueFormulaLabel = new QLabel;
@@ -193,6 +208,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     chunkValueFormulaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(24, "bdc440"));
     chunkValueFormulaLabel->setText(chunkValueFormula);
     chunkValueFormulaLabel->setMaximumWidth(450);
+    chunkValueFormulaLabel->setWordWrap(true);
     tooltipContent.append(chunkValueFormulaLabel);
 
     QLabel* separator4 = new QLabel;
@@ -205,9 +221,42 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     descriptionLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(18, "cad160"));
     descriptionLabel->setText(description);
     descriptionLabel->setMaximumWidth(450);
+    descriptionLabel->setWordWrap(true);
     tooltipContent.append(descriptionLabel);
 
     ui->labelWithTooltip->setTooltipContent(tooltipContent);
+
+
+    QLabel* AltFullNameLabel = new QLabel();
+    AltFullNameLabel->setFont(fullNameLabel->font());
+    AltFullNameLabel->setText(fullNameLabel->text());
+    AltFullNameLabel->setStyleSheet(fullNameLabel->styleSheet());
+    AltFullNameLabel->setWordWrap(fullNameLabel->wordWrap());
+    AltTooltipContent.append(AltFullNameLabel);
+
+    QLabel* AltSeparator = new QLabel();
+    AltSeparator->setFixedHeight(1);
+    AltSeparator->setStyleSheet(separator->styleSheet());
+    AltTooltipContent.append(AltSeparator);
+
+    detailedInformationLabel = new QLabel;
+    detailedInformationLabel->setFont(QFont("TextFont"));
+    detailedInformationLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "E8E23C"));
+    detailedInformationLabel->setWordWrap(false);
+    AltTooltipContent.append(detailedInformationLabel);
+
+    QLabel* AltSeparator2 = new QLabel();
+    AltSeparator2->setStyleSheet(separator4->styleSheet());
+    AltTooltipContent.append(AltSeparator2);
+
+    QLabel* AltDescriptionLabel = new QLabel();
+    AltDescriptionLabel->setFont(descriptionLabel->font());
+    AltDescriptionLabel->setText(descriptionLabel->text());
+    AltDescriptionLabel->setStyleSheet(descriptionLabel->styleSheet());
+    AltDescriptionLabel->setWordWrap(descriptionLabel->wordWrap());
+    AltTooltipContent.append(AltDescriptionLabel);
+
+    ui->labelWithTooltip->setAltTooltipContent(AltTooltipContent);
 }
 
 /*Метод возвращает индекс текущего активного чанка. Текущим чанком
@@ -666,10 +715,28 @@ void ProgressBar_2::recalculationChunks()
         /*Добавление бонусных чанков в общий вектор продолжается пока его
          *размер не достигнет 60, оставшиеся чанки считаются вытеснеными*/
         for(int i = 0; i<60-nativeChunks.size(); i++){
+            /*Необходимо сбросить все значения, у родных чанков это происходит автоматически, а у
+             *бонусных здесь. Прогрессбар помнит своё общее значение в переменной value и позже
+             *заполнит им чанки в методе setValue. Делается это для ситуации когда бонусные чанки
+             *заполнены, а вектор родных расширяется пустыми новыми чанками. Получается разрыв в
+             *заполнении чанков, чего происходить не должно, а так заполнение как бы перетечёт в
+             *новые пустые чанки.*/
+            bonusChunks.at(i)->setValue(0);
+
             finalBonusChunks.append(bonusChunks.at(i));
         }
-    }else
+    }else{
+        /*Необходимо сбросить все значения, у родных чанков это происходит автоматически, а у
+         *бонусных здесь. Прогрессбар помнит своё общее значение в переменной value и позже
+         *заполнит им чанки в методе setValue. Делается это для ситуации когда бонусные чанки
+         *заполнены, а вектор родных расширяется пустыми новыми чанками. Получается разрыв в
+         *заполнении чанков, чего происходить не должно, а так заполнение как бы перетечёт в
+         *новые пустые чанки.*/
+        for(Chunk* chunk : bonusChunks)
+            chunk->setValue(0);
+
         finalBonusChunks = bonusChunks;
+    }
 
     chunks.clear();
 
@@ -773,7 +840,14 @@ void ProgressBar_2::recalculationChunkWidth()
         else
             newChunkRequirementsLabel->setText("До следующего фрагмента " + QVariant(willUntilNextChunk).toString() + " Воля");
     else
-        newChunkRequirementsLabel->setText("Достигнуто максимальное количество небонусных фрагментов защиты");
+        if(chunks.size()<60)
+            if(10-bonusChunks.size()!=1)
+                newChunkRequirementsLabel->setText("Достигнуто максимальное количество небонусных фрагментов защиты\n Можно получить ещё " +
+                                                   QVariant(10-bonusChunks.size()).toString() + " бонусных фрагментов");
+            else
+                newChunkRequirementsLabel->setText("Достигнуто максимальное количество небонусных фрагментов защиты\n Можно получить ещё 1 бонусный фрагмент");
+        else
+            newChunkRequirementsLabel->setText("Достигнуто максимальное количество фрагментов защиты");
 
     if (currentChunk != 0){
         chunkNumber->setText(QString::number(currentChunk+1)+" фрагмент из "+QString::number(chunks.size()));
@@ -787,6 +861,35 @@ void ProgressBar_2::recalculationChunkWidth()
             valueLabel->setText("В текущем фрагменте:\n" + QString::number(chunks.at(currentChunk)->getValue())+" / "+
                                 QString::number(chunks.at(currentChunk)->getMaxValue()));
     }
+
+    QString detailedInformationLabelText;
+    if(!chunks.isEmpty())
+        for(int i = 0; i < chunks.size(); i++){
+            detailedInformationLabelText.append("<span");
+            if(chunks.at(i)->getValue() == 0)
+                detailedInformationLabelText.append(" style=\"color: #FF7F4F;\"");
+            else if(chunks.at(i)->getValue() == chunks.at(i)->getMaxValue())
+                if(i!=getCurrentChunkIndex())
+                    detailedInformationLabelText.append(" style=\"color: #77DB46;\"");
+            detailedInformationLabelText.append(">");
+            detailedInformationLabelText.append("(" + QVariant(chunks.at(i)->getValue()).toString() + "/");
+            detailedInformationLabelText.append(QVariant(chunks.at(i)->getMaxValue()).toString() + ")</span>");
+            if(i!=chunks.size()-1)
+                detailedInformationLabelText.append(", ");
+            if(i!=0 && i!=chunks.size()-1 && ((i+1)%5)==0 && chunks.size()>5)
+                detailedInformationLabelText.append("<br>");
+        }
+    else
+        detailedInformationLabelText = "Магическая защита отсутствует";
+
+    detailedInformationLabel->setText("<p>" + detailedInformationLabelText + "</p>");
+
+    int detailedInformationWidth = detailedInformationLabel->sizeHint().width();
+    if(detailedInformationWidth<450)
+        detailedInformationWidth = 450;
+
+    for(QLabel* label : AltTooltipContent)
+        label->setMinimumWidth(detailedInformationWidth);
 }
 
 //Перерисовка заполненной области при помощи тайлящейся окрашенной текстуры

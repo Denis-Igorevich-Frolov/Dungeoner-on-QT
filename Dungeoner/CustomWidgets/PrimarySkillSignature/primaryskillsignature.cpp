@@ -137,6 +137,7 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     fullNameLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(27, "bdc440"));
     fullNameLabel->setText(fullName);
     fullNameLabel->setMaximumWidth(450);
+    fullNameLabel->setWordWrap(true);
     tooltipContent.append(fullNameLabel);
 
     QLabel* separator = new QLabel;
@@ -149,6 +150,7 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     valueLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(27, "cad160"));
     valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
     valueLabel->setMaximumWidth(450);
+    valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
 
     QLabel* separator2 = new QLabel;
@@ -161,6 +163,7 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     descriptionLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(18, "cad160"));
     descriptionLabel->setText(description);
     descriptionLabel->setMaximumWidth(450);
+    descriptionLabel->setWordWrap(true);
     tooltipContent.append(descriptionLabel);
 
     ui->labelWithTooltip->setTooltipContent(tooltipContent);

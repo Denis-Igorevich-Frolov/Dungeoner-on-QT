@@ -50,7 +50,7 @@ void Tooltip::setContent(QVector<QLabel *> content)
     int i = 0;
     for(QLabel* label : content){
         QLabel* newLabel = new QLabel;
-        newLabel->setWordWrap(true);
+        newLabel->setWordWrap(label->wordWrap());
         newLabel->setText(label->text());
         newLabel->setAlignment(Qt::AlignCenter);
         newLabel->setStyleSheet(label->styleSheet());

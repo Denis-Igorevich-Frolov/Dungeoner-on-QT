@@ -161,6 +161,7 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     fullNameLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(27, "bdc440"));
     fullNameLabel->setText(fullName);
     fullNameLabel->setMaximumWidth(450);
+    fullNameLabel->setWordWrap(true);
     tooltipContent.append(fullNameLabel);
 
     QLabel* separator = new QLabel;
@@ -173,6 +174,7 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     valueLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(27, "cad160"));
     valueLabel->setText(QVariant(value).toString());
     valueLabel->setMaximumWidth(450);
+    valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
 
     QLabel* formulaLabel = new QLabel;
@@ -180,6 +182,7 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     formulaLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(24, "bdc440"));
     formulaLabel->setText(formula);
     formulaLabel->setMaximumWidth(450);
+    formulaLabel->setWordWrap(true);
     tooltipContent.append(formulaLabel);
 
     QLabel* separator2 = new QLabel;
@@ -192,6 +195,7 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     descriptionLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(18, "cad160"));
     descriptionLabel->setText(description);
     descriptionLabel->setMaximumWidth(450);
+    descriptionLabel->setWordWrap(true);
     tooltipContent.append(descriptionLabel);
 
     tooltipDisplayEvents.setTooltipContent(tooltipContent);

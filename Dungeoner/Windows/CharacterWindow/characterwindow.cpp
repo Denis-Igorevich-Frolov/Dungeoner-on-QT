@@ -257,8 +257,7 @@ void CharacterWindow::setStyles()
             magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
 
             //Временная заглушка для прогрессбара магической защиты
-//            magicDefenseProgressBar->getProgressBar()->setChunks(QVector<Chunk*>{
-//            new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
+//            magicDefenseProgressBar->getProgressBar()->setBonusChunks(QVector<Chunk*>{new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();

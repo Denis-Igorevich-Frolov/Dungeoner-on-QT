@@ -175,10 +175,12 @@ private:
     void resizeEvent(QResizeEvent* event) override;
 
     QVector<QLabel*> tooltipContent;
+    QVector<QLabel*> AltTooltipContent;
     QLabel* valueLabel = new QLabel;
     QLabel* generalValueLabel = new QLabel;
     QLabel* chunkNumber = new QLabel;
     QLabel* newChunkRequirementsLabel = new QLabel;
+    QLabel* detailedInformationLabel = new QLabel;
 
     Ui::ProgressBar_2 *ui;
 };

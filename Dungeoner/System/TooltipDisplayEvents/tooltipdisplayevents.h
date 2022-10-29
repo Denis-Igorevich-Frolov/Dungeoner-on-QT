@@ -51,6 +51,9 @@ public:
     void CheckingDisplayOfTooltip();
 
     void setTooltipContent(QVector<QLabel *> &newTooltipContent);
+    void setAltTooltipContent(QVector<QLabel*> &newTooltipContent);
+    void setCtrlTooltipContent(QVector<QLabel*> &newTooltipContent);
+    void setShiftTooltipContent(QVector<QLabel*> &newTooltipContent);
 
 signals:
     //Сигнал отображения подсказки будет сдвигать её, если она уже существует
@@ -63,10 +66,17 @@ private:
     bool rightMousePressed = false;
     bool isHovered = false;
     QVector<QLabel*> TooltipContent;
+    QVector<QLabel*> AltTooltipContent;
+    QVector<QLabel*> CtrlTooltipContent;
+    QVector<QLabel*> ShiftTooltipContent;
 
     /*TooltipHasBeenCalled участвует в проверке того, что RemoveTooltip был вызван
      *только один раз, только при условии, что ShowTooltip ранее уже был вызван*/
     bool TooltipHasBeenCalled = false;
+
+    bool AltModifierIsUsed = false;
+    bool CtrlModifierIsUsed = false;
+    bool ShiftModifierIsUsed = false;
 };
 
 #endif // TOOLTIPDISPLAYEVENTS_H

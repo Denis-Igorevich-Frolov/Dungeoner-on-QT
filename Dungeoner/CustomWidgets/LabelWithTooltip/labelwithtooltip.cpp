@@ -11,6 +11,10 @@
 #include "ui_labelwithtooltip.h"
 #include "LWT_stylemaster.h"
 
+#include <Global/global.h>
+
+#include <QMutableVectorIterator>
+
 LabelWithTooltip::LabelWithTooltip(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LabelWithTooltip)
@@ -111,4 +115,59 @@ void LabelWithTooltip::setTooltipContent(QVector<QLabel*> &newTooltipContent)
 {
     tooltipContent = newTooltipContent;
     tooltipDisplayEvents.setTooltipContent(tooltipContent);
+}
+
+void LabelWithTooltip::setAltTooltipContent(QVector<QLabel *> &newAltTooltipContent)
+{
+    AltTooltipContent = newAltTooltipContent;
+    tooltipDisplayEvents.setAltTooltipContent(AltTooltipContent);
+}
+
+void LabelWithTooltip::setCtrlTooltipContent(QVector<QLabel *> &newCtrlTooltipContent)
+{
+    CtrlTooltipContent = newCtrlTooltipContent;
+    tooltipDisplayEvents.setCtrlTooltipContent(CtrlTooltipContent);
+}
+
+void LabelWithTooltip::setShiftTooltipContent(QVector<QLabel *> &newShiftTooltipContent)
+{
+    ShiftTooltipContent = newShiftTooltipContent;
+    tooltipDisplayEvents.setShiftTooltipContent(ShiftTooltipContent);
+}
+
+/*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
+ *Считаются только Ctrl,Shift и Alt*/
+void LabelWithTooltip::keyPressEvent(QKeyEvent *event)
+{
+    int key=event->key();
+    if(key==16777249||key==16777248||key==16777251)
+        Global::pressedKeys.append(key);
+}
+
+/*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
+ *Сделано это для того, чтобы обрабатывать случай, когда зажато несколько модификаторов
+ *одновременно. Они не будут последовательно обработаны, считаться будет только последний,
+ *но если просто сбрасывать int переменную, то может возникать случай, когда второй
+ *модификатор будет зажат до отжатия предыдущего, а затем первый будет отжат, и управление
+ *как бы "заест", модификатор придётся жать вновь. Для избежания этого и создан этот вектор.*/
+void LabelWithTooltip::keyReleaseEvent(QKeyEvent *event)
+{
+    int key=event->key();
+    QMutableVectorIterator<int> keyIterator(Global::pressedKeys);
+
+    /*Так как вектор pressedKeys доступен многим виджетам одновременно, гипотетически
+     *возможна ситуация когда фокус получат одновременно несколько виджетов, и они
+     *начнут отправлять в вектор дубликаты ключей зажатых клавиш. Для просчёта
+     *модификаторов это никакой проблемы не создаст, но возможна ситуация когда до
+     *отжатия клавиши один или несколько таких виджетов, передавших ключи клавиш,
+     *потеряют фокус, соответственно ключи переданные ими не удалятся из вектора.
+     *И для избежания такой ситуации итератор проходит по всему вектору, удаляя из
+     *него все вхождения переданного ключа, а не первое. Подразумевается что этот
+     *метод будет вызван хотя бы 1 раз из любого виджета в фокусе.*/
+    while(keyIterator.hasNext()) {
+      int currentValue=keyIterator.next();
+
+      if(currentValue==key)
+        keyIterator.remove();
+    }
 }

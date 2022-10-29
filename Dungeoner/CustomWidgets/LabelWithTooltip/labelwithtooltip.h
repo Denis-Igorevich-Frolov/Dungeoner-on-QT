@@ -45,6 +45,9 @@ public:
     void setOutlineThickness(int thickness);
 
     void setTooltipContent(QVector<QLabel*> &newTooltipContent);
+    void setAltTooltipContent(QVector<QLabel*> &newTooltipContent);
+    void setCtrlTooltipContent(QVector<QLabel*> &newTooltipContent);
+    void setShiftTooltipContent(QVector<QLabel*> &newTooltipContent);
 
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
@@ -56,6 +59,9 @@ private:
     OutlineEffect* border;
     TooltipDisplayEvents tooltipDisplayEvents;
     QVector<QLabel*> tooltipContent;
+    QVector<QLabel*> AltTooltipContent;
+    QVector<QLabel*> CtrlTooltipContent;
+    QVector<QLabel*> ShiftTooltipContent;
 
     /*Переопределения виртуальных функций QWidget для вызова сигнала вывода
      *или удаления подсказки. Вся логика происходит в классе TooltipDisplayEvents*/
@@ -64,6 +70,17 @@ private:
     void enterEvent(QEnterEvent *event) override;
     void leaveEvent(QEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
+
+    /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
+     *Считаются только Ctrl,Shift и Alt*/
+    virtual void keyPressEvent(QKeyEvent *event) override;
+    /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
+     *Сделано это для того, чтобы обрабатывать случай, когда зажато несколько модификаторов
+     *одновременно. Они не будут последовательно обработаны, считаться будет только последний,
+     *но если просто сбрасывать int переменную, то может возникать случай, когда второй
+     *модификатор будет зажат до отжатия предыдущего, а затем первый будет отжат, и управление
+     *как бы "заест", модификатор придётся жать вновь. Для избежания этого и создан этот вектор.*/
+    virtual void keyReleaseEvent(QKeyEvent *event) override;
 
     //Автоматически инициализируем экземпляр энума значением по умолчанию
     FontType fontType = FontType::TEXT;

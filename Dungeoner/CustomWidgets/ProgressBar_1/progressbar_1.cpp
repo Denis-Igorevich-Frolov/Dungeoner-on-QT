@@ -131,6 +131,7 @@ void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int for
     fullNameLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(27, "bdc440"));
     fullNameLabel->setText(fullName);
     fullNameLabel->setMaximumWidth(450);
+    fullNameLabel->setWordWrap(true);
     tooltipContent.append(fullNameLabel);
 
     QLabel* separator = new QLabel;
@@ -143,6 +144,7 @@ void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int for
     valueLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(27, "cad160"));
     valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
     valueLabel->setMaximumWidth(450);
+    valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
 
     QLabel* formulaLabel = new QLabel;
@@ -150,6 +152,7 @@ void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int for
     formulaLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(formulaFontSize, "bdc440"));
     formulaLabel->setText(formula);
     formulaLabel->setMaximumWidth(450);
+    formulaLabel->setWordWrap(true);
     tooltipContent.append(formulaLabel);
 
     QLabel* separator2 = new QLabel;
@@ -162,6 +165,7 @@ void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int for
     descriptionLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(18, "cad160"));
     descriptionLabel->setText(description);
     descriptionLabel->setMaximumWidth(450);
+    descriptionLabel->setWordWrap(true);
     tooltipContent.append(descriptionLabel);
 
     ui->labelWithTooltip->setTooltipContent(tooltipContent);

@@ -20,6 +20,8 @@
 #include "tooltipdisplayevents.h"
 #include "qevent.h"
 
+#include <Global/global.h>
+
 //Наследование от QWidget для взаимодействия с его ивентами
 TooltipDisplayEvents::TooltipDisplayEvents(QWidget *parent) :
     QWidget(parent)
@@ -128,7 +130,23 @@ void TooltipDisplayEvents::mouseMoveEvent(QMouseEvent *event, int width, int hei
 void TooltipDisplayEvents::CheckingDisplayOfTooltip()
 {
     if(isHovered&&rightMousePressed){
-        emit ShowTooltip(TooltipContent);
+        if(!Global::pressedKeys.empty()){
+            //Alt
+            if(Global::pressedKeys.last() == 16777251 && AltModifierIsUsed){
+                emit ShowTooltip(AltTooltipContent);
+            }else
+            //Ctrl
+            if(Global::pressedKeys.last() == 16777249 && CtrlModifierIsUsed){
+                emit ShowTooltip(CtrlTooltipContent);
+            }else
+            //Shift
+            if(Global::pressedKeys.last() == 16777248 && ShiftModifierIsUsed){
+                emit ShowTooltip(ShiftTooltipContent);
+            }else
+                emit ShowTooltip(TooltipContent);
+        }else
+            emit ShowTooltip(TooltipContent);
+
         TooltipHasBeenCalled = true;
     }else{
         /*TooltipHasBeenCalled проверяется для того, чтобы RemoveTooltip был вызван только
@@ -144,4 +162,22 @@ void TooltipDisplayEvents::CheckingDisplayOfTooltip()
 void TooltipDisplayEvents::setTooltipContent(QVector<QLabel *> &newTooltipContent)
 {
     TooltipContent = newTooltipContent;
+}
+
+void TooltipDisplayEvents::setAltTooltipContent(QVector<QLabel *> &newAltTooltipContent)
+{
+    AltModifierIsUsed = true;
+    AltTooltipContent = newAltTooltipContent;
+}
+
+void TooltipDisplayEvents::setCtrlTooltipContent(QVector<QLabel *> &newCtrlTooltipContent)
+{
+    CtrlModifierIsUsed = true;
+    CtrlTooltipContent = newCtrlTooltipContent;
+}
+
+void TooltipDisplayEvents::setShiftTooltipContent(QVector<QLabel *> &newShiftTooltipContent)
+{
+    ShiftModifierIsUsed = true;
+    ShiftTooltipContent = newShiftTooltipContent;
 }
