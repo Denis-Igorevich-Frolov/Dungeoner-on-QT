@@ -18,8 +18,6 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/PB2_stylemaster.h \
-  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.cpp \
-  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylemaster.cpp \
@@ -46,6 +44,18 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/chunk.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/chunk.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefense.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefense.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/person.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/person.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts.qrc \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds.qrc \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Resources/Textures.qrc \
@@ -65,6 +75,7 @@ Dungeoner_autogen/timestamp: \
   CMakeFiles/3.23.2/CMakeSystem.cmake \
   Dungeoner_autogen/moc_predefs.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/QTimer \
+  E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
@@ -154,6 +165,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qvariant.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h \
+  E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
   E:/Qt/6.4.0/mingw_64/include/QtGui/QFont \
   E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h \

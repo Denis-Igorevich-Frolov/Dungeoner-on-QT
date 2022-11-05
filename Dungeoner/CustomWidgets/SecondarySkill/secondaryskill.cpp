@@ -53,6 +53,9 @@ SecondarySkill::~SecondarySkill()
     delete ui;
     delete borderInscription;
     delete borderValue;
+
+    for(QLabel* label : tooltipContent)
+        delete label;
 }
 
 int SecondarySkill::getValue() const
@@ -177,7 +180,7 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
 
-    QLabel* formulaLabel = new QLabel;
+    formulaLabel = new QLabel;
     formulaLabel->setFont(QFont("TextFont"));
     formulaLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(24, "bdc440"));
     formulaLabel->setText(formula);
@@ -199,6 +202,12 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     tooltipContent.append(descriptionLabel);
 
     tooltipDisplayEvents.setTooltipContent(tooltipContent);
+}
+
+void SecondarySkill::setFormula(QString formula, int fontSize)
+{
+    formulaLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(fontSize, "bdc440"));
+    formulaLabel->setText(formula);
 }
 
 int SecondarySkill::getScrollAreaHeight() const

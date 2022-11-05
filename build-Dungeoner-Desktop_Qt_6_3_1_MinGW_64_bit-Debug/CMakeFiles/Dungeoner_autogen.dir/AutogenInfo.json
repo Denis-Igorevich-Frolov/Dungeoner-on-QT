@@ -411,12 +411,6 @@
 			null
 		],
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.h",
-			"MU",
-			"KQEOYOT425/moc_chunk.cpp",
-			null
-		],
-		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.h",
 			"MU",
 			"KQEOYOT425/moc_progressbar_2.cpp",
@@ -492,6 +486,42 @@
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h",
 			"MU",
 			"BW6V4BNQU4/moc_mediaplayer.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/chunk.h",
+			"MU",
+			"AHTKMYNKIN/moc_chunk.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefense.h",
+			"MU",
+			"AHTKMYNKIN/moc_magicdefense.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h",
+			"MU",
+			"AHTKMYNKIN/moc_magicdefensebonus.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h",
+			"MU",
+			"RTMTGG3MSQ/moc_bonus.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h",
+			"MU",
+			"RTMTGG3MSQ/moc_stat.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/person.h",
+			"MU",
+			"FTS7AO547W/moc_person.cpp",
 			null
 		],
 		[
@@ -646,11 +676,6 @@
 			null
 		],
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.cpp",
-			"MU",
-			null
-		],
-		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.cpp",
 			"MU",
 			null
@@ -712,6 +737,36 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/chunk.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefense.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/person.cpp",
 			"MU",
 			null
 		],

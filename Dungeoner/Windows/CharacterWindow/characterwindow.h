@@ -7,7 +7,7 @@
 
 #include <QLabel>
 #include <QWidget>
-#include "Global/global.h"
+#include "Person/person.h"
 
 namespace Ui {
 class CharacterWindow;
@@ -30,12 +30,6 @@ private slots:
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
 
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_3_clicked();
-
     void on_StrengthValue_valueChanged(int arg1);
 
     void on_AgilityValue_valueChanged(int arg1);
@@ -50,6 +44,12 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
 private:
     Ui::CharacterWindow *ui;
 
@@ -63,12 +63,22 @@ private:
      *Делается это для работы кнопок больше и меньше.*/
     void associatingLabelsWithValues();
 
+    void associatingLabelsWithStat();
+
     /*Данный метод связывает все слоты показа и сокрытия подсказки у всех
      *необходимых элементов со слотами показа и сокрытия подсказки окна*/
     void linkingTooltipSlots();
 
     //В методе происходит полный перерасчёт всех вторичных навыков
     void recalculateStats();
+
+    void initPrimaryStatsWidgets();
+
+    void initSecondaryStatsWidgets();
+
+    void healthSetValue(int value);
+    void enduranceSetValue(int value);
+    void manaSetValue(int value);
 
     //Заполнение контентом подсказок элементов на основе их динамических свойств
     void tooltipInitialization();
@@ -86,8 +96,10 @@ private:
 
     virtual void leaveEvent(QEvent *event)override;
 
-    //Эти переменные пока отладочные, их следует в последствии перенести в класс персонажа
-    Global::PhysicalDamageScaling physicalDamageScaling = Global::STRENGTH;
+    virtual bool eventFilter(QObject* object, QEvent* event) override;
+
+    Person person;
+    bool isManualStatReplacement = false;
 };
 
 #endif // CHARACTERWINDOW_H

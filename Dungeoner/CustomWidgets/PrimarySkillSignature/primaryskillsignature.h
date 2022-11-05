@@ -10,6 +10,7 @@
 
 #include "Global/global.h"
 #include "CustomWidgets/LabelWithTooltip/labelwithtooltip.h"
+#include "Person/Stat/stat.h"
 
 #include <QWidget>
 #include <QSpinBox>
@@ -27,7 +28,6 @@ public:
     explicit PrimarySkillSignature(QWidget *parent = nullptr);
     ~PrimarySkillSignature();
 
-
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
 
@@ -43,6 +43,9 @@ public:
     /*Метод связвания QSpinBox (значение стата) с PrimarySkillSignature (подпись).
      *Само связываниепроизводится непосредственно в классе окна.*/
     void setSpinBoxValue(QSpinBox *newSpinBoxValue);
+
+    Stat *getStat() const;
+    void setStat(Stat *newStat);
 
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
@@ -64,6 +67,8 @@ private:
     /*Указатель на QSpinBox со значением стата, относящимся к этой подписи. Само связывание
      *PrimarySkillSignature и QSpinBox производится непосредственно в классе окна.*/
     QSpinBox *SpinBoxValue;
+    Stat* stat;
+
     //Таймер до вывода подсказки по модификаторам нажатия при наведении курсора на кнопку прибавки или убавки стата
     QTimer* clickModifierTooltipTimer = new QTimer;
     bool isShowTooltip = false;

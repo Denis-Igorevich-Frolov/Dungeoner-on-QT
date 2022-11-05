@@ -75,54 +75,6 @@
       <property name="lineWidth">
        <number>0</number>
       </property>
-      <widget class="QPushButton" name="pushButton">
-       <property name="geometry">
-        <rect>
-         <x>340</x>
-         <y>20</y>
-         <width>80</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: white;</string>
-       </property>
-       <property name="text">
-        <string>Сила</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="geometry">
-        <rect>
-         <x>430</x>
-         <y>20</y>
-         <width>80</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: white;</string>
-       </property>
-       <property name="text">
-        <string>Ловкость</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>520</x>
-         <y>20</y>
-         <width>80</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background: white;</string>
-       </property>
-       <property name="text">
-        <string>Магия</string>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pushButton_4">
        <property name="geometry">
         <rect>
@@ -137,6 +89,54 @@
        </property>
        <property name="text">
         <string>Захилять прогрессбары</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>10</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>10</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>2</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>380</x>
+         <y>10</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>3</string>
        </property>
       </widget>
      </widget>
@@ -1144,7 +1144,7 @@ border: none;</string>
              <x>0</x>
              <y>0</y>
              <width>616</width>
-             <height>774</height>
+             <height>696</height>
             </rect>
            </property>
            <property name="styleSheet">
@@ -1174,8 +1174,8 @@ border: none;</string>
               <property name="spacing">
                <number>8</number>
               </property>
-              <item row="4" column="0">
-               <widget class="SecondarySkill" name="MeleeAccuracy" native="true">
+              <item row="2" column="0">
+               <widget class="SecondarySkill" name="ResistPhysicalEffects" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -1198,376 +1198,16 @@ border: none;</string>
                  <string notr="true">background:black;</string>
                 </property>
                 <property name="Inscription" stdset="0">
-                 <string>Точность ближнего боя</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Точность ближнего боя</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>0.1×Ловк + 20</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="SecondarySkill" name="ResistMagicDamage" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Сопротивление маг. урону</string>
+                 <string>Сопротивление физ. эффектам</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
                 </property>
                 <property name="FullName" stdset="0">
-                 <string>Сопротивление магическому урону</string>
+                 <string>Сопротивление физизическим эффектам</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string>1.5×Воля + Маг + 0.5×Тел</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="0">
-               <widget class="SecondarySkill" name="MagicCastChance" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Шанс сотворения магии</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>16</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Шанс сотворения магии</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>0.3×Инт + 0.2×Маг</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
-               <widget class="SecondarySkill" name="LoadCapacity" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Грузоподъёмность</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>16</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Грузоподъёмность</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>0.5×Сила + 0.5×Тел</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="SecondarySkill" name="Attentiveness" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Внимательность</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>17</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Внимательность</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>Инт + Ловк + Воля</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="SecondarySkill" name="MagicDamage" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Магический урон</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Магический урон</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>1.5×Маг + 1.5×Инт + 0.5×Воля</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="1">
-               <widget class="SecondarySkill" name="Initiative" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Инициатива</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Инициатива</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>5×Ловк + Инт + Воля</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="SecondarySkill" name="ResistPhysicalDamage" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Сопротивление физ. урону</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>18</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Сопротивление физическому урону</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>1.5×Воля + Тел + 0.5×Магия</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="SecondarySkill" name="Evasion" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Уклонение</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Уклонение</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>0.5×Ловк + 0.1×Тел</string>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="SecondarySkill" name="MagicAccuracy" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Точность магии</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Точность магии</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string>0.1×Инт + 15</string>
+                 <string>0.1×Воля + 10</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1614,8 +1254,8 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0">
-               <widget class="SecondarySkill" name="ResistPhysicalEffects" native="true">
+              <item row="2" column="1">
+               <widget class="SecondarySkill" name="ResistMagicEffects" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -1638,16 +1278,56 @@ border: none;</string>
                  <string notr="true">background:black;</string>
                 </property>
                 <property name="Inscription" stdset="0">
-                 <string>Сопротивление физ. эффектам</string>
+                 <string>Сопротивление маг. эффектам</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
                 </property>
                 <property name="FullName" stdset="0">
-                 <string>Сопротивление физизическим эффектам</string>
+                 <string>Сопротивление магическим эффектам</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string>0.1×Воля + 10</string>
+                 <string>0.1×Воля + 0.1×Маг + 5</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0">
+               <widget class="SecondarySkill" name="MeleeAccuracy" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Точность ближнего боя</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Точность ближнего боя</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.1×Ловк + 20</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1694,8 +1374,8 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="8" column="1">
-               <widget class="SecondarySkill" name="ChanceOfUsingCombatTechnique" native="true">
+              <item row="1" column="0">
+               <widget class="SecondarySkill" name="ResistPhysicalDamage" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -1718,24 +1398,24 @@ border: none;</string>
                  <string notr="true">background:black;</string>
                 </property>
                 <property name="Inscription" stdset="0">
-                 <string>Шанс боевого  приёма</string>
+                 <string>Сопротивление физ. урону</string>
                 </property>
                 <property name="FontSize" stdset="0">
                  <number>18</number>
                 </property>
                 <property name="FullName" stdset="0">
-                 <string>Шанс применения боевого  приёма</string>
+                 <string>Сопротивление физическому урону</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string>0.2×Ловк + 20</string>
+                 <string>1.5×Воля + Тел + 0.5×Магия</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
-               <widget class="SecondarySkill" name="ResistMagicEffects" native="true">
+              <item row="0" column="0">
+               <widget class="SecondarySkill" name="MagicDamage" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
                   <horstretch>0</horstretch>
@@ -1758,16 +1438,96 @@ border: none;</string>
                  <string notr="true">background:black;</string>
                 </property>
                 <property name="Inscription" stdset="0">
-                 <string>Сопротивление маг. эффектам</string>
+                 <string>Магический урон</string>
                 </property>
                 <property name="FontSize" stdset="0">
-                 <number>18</number>
+                 <number>19</number>
                 </property>
                 <property name="FullName" stdset="0">
-                 <string>Сопротивление магическим эффектам</string>
+                 <string>Магический урон</string>
                 </property>
                 <property name="Formula" stdset="0">
-                 <string>0.1×Воля + 0.1×Маг + 5</string>
+                 <string>1.5×Маг + 1.5×Инт + 0.5×Воля</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="SecondarySkill" name="MagicAccuracy" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Точность магии</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Точность магии</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.1×Инт + 15</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="SecondarySkill" name="LoadCapacity" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Грузоподъёмность</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>16</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Грузоподъёмность</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.5×Сила + 0.5×Тел</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -1814,7 +1574,87 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="6" column="0">
+              <item row="1" column="1">
+               <widget class="SecondarySkill" name="ResistMagicDamage" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Сопротивление маг. урону</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>18</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Сопротивление магическому урону</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>1.5×Воля + Маг + 0.5×Тел</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="SecondarySkill" name="Evasion" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Уклонение</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Уклонение</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.5×Ловк + 0.1×Тел</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
                <widget class="SecondarySkill" name="Stealth" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -1854,47 +1694,7 @@ border: none;</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="0">
-               <widget class="SecondarySkill" name="PhysicalDamage" native="true">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>303</width>
-                  <height>70</height>
-                 </size>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">background:black;</string>
-                </property>
-                <property name="Inscription" stdset="0">
-                 <string>Физический урон</string>
-                </property>
-                <property name="FontSize" stdset="0">
-                 <number>19</number>
-                </property>
-                <property name="FullName" stdset="0">
-                 <string>Физический урон</string>
-                </property>
-                <property name="Formula" stdset="0">
-                 <string/>
-                </property>
-                <property name="Description" stdset="0">
-                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0" alignment="Qt::AlignLeft">
+              <item row="8" column="1">
                <widget class="SecondarySkill" name="MoveRange" native="true">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
@@ -1928,6 +1728,166 @@ border: none;</string>
                 </property>
                 <property name="Formula" stdset="0">
                  <string>Тел + 0.75×Ловк + 0.5×Сила</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="SecondarySkill" name="MagicCastChance" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Шанс сотворения магии</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>16</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Шанс сотворения магии</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.3×Инт + 0.2×Маг</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="SecondarySkill" name="ChanceOfUsingCombatTechnique" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Шанс боевого  приёма</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>18</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Шанс применения боевого  приёма</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>0.2×Ловк + 20</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="SecondarySkill" name="Initiative" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Инициатива</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>19</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Инициатива</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>5×Ловк + Инт + Воля</string>
+                </property>
+                <property name="Description" stdset="0">
+                 <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="SecondarySkill" name="Attentiveness" native="true">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>303</width>
+                  <height>70</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">background:black;</string>
+                </property>
+                <property name="Inscription" stdset="0">
+                 <string>Внимательность</string>
+                </property>
+                <property name="FontSize" stdset="0">
+                 <number>17</number>
+                </property>
+                <property name="FullName" stdset="0">
+                 <string>Внимательность</string>
+                </property>
+                <property name="Formula" stdset="0">
+                 <string>Инт + Ловк + Воля</string>
                 </property>
                 <property name="Description" stdset="0">
                  <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
@@ -2000,7 +1960,7 @@ border: none;</string>
           <string notr="true"/>
          </property>
          <property name="maximum">
-          <number>377</number>
+          <number>299</number>
          </property>
          <property name="singleStep">
           <number>76</number>

@@ -27,9 +27,23 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     //Без этого атрибута эвенты наведения мыши не будут вызываться
     setAttribute(Qt::WA_Hover);
 
+    ui->StrengthValue->installEventFilter(this);
+    ui->AgilityValue->installEventFilter(this);
+    ui->IntelligenceValue->installEventFilter(this);
+    ui->MagicValue->installEventFilter(this);
+    ui->BodyTypeValue->installEventFilter(this);
+    ui->WillValue->installEventFilter(this);
+
+    //!!!
+//    person.getMagicDefense().addBonus(new MagicDefenseBonus(MagicDefenseBonus::FIRST, 10, false));
+
     setTextPrimarySkillSignature();
     setStyles();
+
+    initPrimaryStatsWidgets();
+
     associatingLabelsWithValues();
+    associatingLabelsWithStat();
 
     /*Связывание слота ScrollAreaSecondarySkillsScrolled с сигналом valueChanged у вертикального скроллбара в области
      *прокрутки ScrollAreaSecondarySkills. Делается это потому, что у убласти прокрутки мне нужен сигнал изменения
@@ -99,9 +113,9 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
         }
     }
 
-    recalculateStats();
-
     tooltipInitialization();
+
+    recalculateStats();
 }
 
 CharacterWindow::~CharacterWindow()
@@ -350,6 +364,16 @@ void CharacterWindow::associatingLabelsWithValues()
     }
 }
 
+void CharacterWindow::associatingLabelsWithStat()
+{
+    ui->StrengthPrimarySkillSignature->setStat(person.getStrength());
+    ui->AgilityPrimarySkillSignature->setStat(person.getAgility());
+    ui->IntelligencePrimarySkillSignature->setStat(person.getIntelligence());
+    ui->MagicPrimarySkillSignature->setStat(person.getMagic());
+    ui->BodyTypePrimarySkillSignature->setStat(person.getBodyType());
+    ui->WillPrimarySkillSignature->setStat(person.getWill());
+}
+
 /*Данный метод связывает все слоты показа и сокрытия подсказки у всех
  *необходимых элементов со слотами показа и сокрытия подсказки окна*/
 void CharacterWindow::linkingTooltipSlots()
@@ -483,83 +507,74 @@ void CharacterWindow::linkingTooltipSlots()
 //В методе происходит полный перерасчёт всех вторичных навыков
 void CharacterWindow::recalculateStats()
 {
-    long physicalDamage = 0;
-    if(physicalDamageScaling == Global::STRENGTH)
-        physicalDamage = floor(2.5 * ui->StrengthValue->value()) + ui->AgilityValue->value();
-    else if (physicalDamageScaling == Global::AGILITY)
-        physicalDamage = floor(2.5 * ui->AgilityValue->value()) + ui->StrengthValue->value();
-    else if (physicalDamageScaling == Global::MAGIC)
-        physicalDamage = floor(1.5 * ui->MagicValue->value()) + ui->IntelligenceValue->value() + ui->AgilityValue->value();
-    ui->PhysicalDamage->setValue(physicalDamage);
+    int magicDamage =
+    floor(1.5 * person.getMagic()->getFinalValue()) + floor(1.5 * person.getIntelligence()->getFinalValue()) + floor(0.5 * person.getWill()->getFinalValue());
+    person.getMagicDamage()->setValue(magicDamage);
 
-    long magicDamage =
-    floor(1.5 * ui->MagicValue->value()) + floor(1.5 * ui->IntelligenceValue->value()) + floor(0.5 * ui->WillValue->value());
-    ui->MagicDamage->setValue(magicDamage);
+    int resistPhysicalDamage = floor(1.5 * person.getWill()->getFinalValue()) + floor(0.5 * person.getMagic()->getFinalValue()) + person.getBodyType()->getFinalValue();
+    person.getResistPhysicalDamage()->setValue(resistPhysicalDamage);
 
-    long resistPhysicalDamage = floor(1.5 * ui->WillValue->value()) + floor(0.5 * ui->MagicValue->value()) + ui->BodyTypeValue->value();
-    ui->ResistPhysicalDamage->setValue(resistPhysicalDamage);
+    int resistMagicDamage = floor(1.5 * person.getWill()->getFinalValue()) + floor(0.5 * person.getBodyType()->getFinalValue()) + person.getMagic()->getFinalValue();
+    person.getResistMagicDamage()->setValue(resistMagicDamage);
 
-    long resistMagicDamage = floor(1.5 * ui->WillValue->value()) + floor(0.5 * ui->BodyTypeValue->value()) + ui->MagicValue->value();
-    ui->ResistMagicDamage->setValue(resistMagicDamage);
+    int resistPhysicalEffects = floor(0.1 * person.getWill()->getFinalValue()) + 10;
+    person.getResistPhysicalEffects()->setValue(resistPhysicalEffects);
 
-    long resistPhysicalEffects = floor(0.1 * ui->WillValue->value()) + 10;
-    ui->ResistPhysicalEffects->setValue(resistPhysicalEffects);
+    int resistMagicEffects = floor(0.1 * person.getWill()->getFinalValue()) + floor(0.1 * person.getMagic()->getFinalValue()) + 5;
+    person.getResistMagicEffects()->setValue(resistMagicEffects);
 
-    long resistMagicEffects = floor(0.1 * ui->WillValue->value()) + floor(0.1 * ui->MagicValue->value()) + 5;
-    ui->ResistMagicEffects->setValue(resistMagicEffects);
+    int strengtheningPhysicalEffects = floor(0.1 * person.getStrength()->getFinalValue());
+    person.getStrengtheningPhysicalEffects()->setValue(strengtheningPhysicalEffects);
 
-    long strengtheningPhysicalEffects = floor(0.1 * ui->StrengthValue->value());
-    ui->StrengtheningPhysicalEffects->setValue(strengtheningPhysicalEffects);
+    int strengtheningMagicalEffects = floor(0.1 * person.getIntelligence()->getFinalValue());
+    person.getStrengtheningMagicalEffects()->setValue(strengtheningMagicalEffects);
 
-    long strengtheningMagicalEffects = floor(0.1 * ui->IntelligenceValue->value());
-    ui->StrengtheningMagicalEffects->setValue(strengtheningMagicalEffects);
+    int meleeAccuracy = floor(0.1 * person.getAgility()->getFinalValue()) + 20;
+    person.getMeleeAccuracy()->setValue(meleeAccuracy);
 
-    long meleeAccuracy = floor(0.1 * ui->AgilityValue->value()) + 20;
-    ui->MeleeAccuracy->setValue(meleeAccuracy);
+    int rangedAccuracy = floor(0.1 * person.getAgility()->getFinalValue()) + 15;
+    person.getRangedAccuracy()->setValue(rangedAccuracy);
 
-    long rangedAccuracy = floor(0.1 * ui->AgilityValue->value()) + 15;
-    ui->RangedAccuracy->setValue(rangedAccuracy);
+    int magicAccuracy = floor(0.1 * person.getIntelligence()->getFinalValue()) + 15;
+    person.getMagicAccuracy()->setValue(magicAccuracy);
 
-    long magicAccuracy = floor(0.1 * ui->IntelligenceValue->value()) + 15;
-    ui->MagicAccuracy->setValue(magicAccuracy);
+    int evasion = floor(0.5 * person.getAgility()->getFinalValue()) + floor(0.1 * person.getBodyType()->getFinalValue());
+    person.getEvasion()->setValue(evasion);
 
-    long evasion = floor(0.5 * ui->AgilityValue->value()) + floor(0.1 * ui->BodyTypeValue->value());
-    ui->Evasion->setValue(evasion);
+    int stealth = person.getIntelligence()->getFinalValue() + person.getAgility()->getFinalValue();
+    person.getStealth()->setValue(stealth);
 
-    long stealth = ui->IntelligenceValue->value() + ui->AgilityValue->value();
-    ui->Stealth->setValue(stealth);
+    int attentiveness = person.getIntelligence()->getFinalValue() + person.getAgility()->getFinalValue() + person.getWill()->getFinalValue();
+    person.getAttentiveness()->setValue(attentiveness);
 
-    long attentiveness = ui->IntelligenceValue->value() + ui->AgilityValue->value() + ui->WillValue->value();
-    ui->Attentiveness->setValue(attentiveness);
+    int loadCapacity = floor(0.5 * person.getStrength()->getFinalValue()) + floor(0.5 * person.getBodyType()->getFinalValue());
+    person.getLoadCapacity()->setValue(loadCapacity);
 
-    long loadCapacity = floor(0.5 * ui->StrengthValue->value()) + floor(0.5 * ui->BodyTypeValue->value());
-    ui->LoadCapacity->setValue(loadCapacity);
+    int initiative = floor(5 * person.getAgility()->getFinalValue()) + person.getIntelligence()->getFinalValue() + person.getWill()->getFinalValue();
+    person.getInitiative()->setValue(initiative);
 
-    long initiative = floor(5 * ui->AgilityValue->value()) + ui->IntelligenceValue->value() + ui->WillValue->value();
-    ui->Initiative->setValue(initiative);
+    int magicCastChance = floor(0.3 * person.getIntelligence()->getFinalValue()) + floor(0.2 * person.getMagic()->getFinalValue());
+    person.getMagicCastChance()->setValue(magicCastChance);
 
-    long magicCastChance = floor(0.3 * ui->IntelligenceValue->value()) + floor(0.2 * ui->MagicValue->value());
-    ui->MagicCastChance->setValue(magicCastChance);
+    int chanceOfUsingCombatTechnique = floor(0.2 * person.getAgility()->getFinalValue()) + 20;
+    person.getChanceOfUsingCombatTechnique()->setValue(chanceOfUsingCombatTechnique);
 
-    long chanceOfUsingCombatTechnique = floor(0.2 * ui->AgilityValue->value()) + 20;
-    ui->ChanceOfUsingCombatTechnique->setValue(chanceOfUsingCombatTechnique);
+    int moveRange = floor(0.75 * person.getAgility()->getFinalValue()) + floor(0.5 * person.getStrength()->getFinalValue()) + person.getBodyType()->getFinalValue();
+    person.getMoveRange()->setValue(moveRange);
 
-    long moveRange = floor(0.75 * ui->AgilityValue->value()) + floor(0.5 * ui->StrengthValue->value()) + ui->BodyTypeValue->value();
-    ui->MoveRange->setValue(moveRange);
+    int health = person.getStrength()->getFinalValue() * 2 + person.getBodyType()->getFinalValue() * 10 + person.getWill()->getFinalValue() * 5 + person.getMagic()->getFinalValue();
+    person.getHealth()->setValue(health);
 
-    long health = ui->StrengthValue->value() * 2 + ui->BodyTypeValue->value() * 10 + ui->WillValue->value() * 5 + ui->MagicValue->value();
-    ui->Health->getProgressBar()->setMaxValue(health);
+    int endurance = person.getAgility()->getFinalValue() * 10 + person.getBodyType()->getFinalValue();
+    person.getEndurance()->setValue(endurance);
 
-    long endurance = ui->AgilityValue->value() * 10 + ui->BodyTypeValue->value();
-    ui->Endurance->getProgressBar()->setMaxValue(endurance);
-
-    long mana = ui->MagicValue->value() * 10 + ui->IntelligenceValue->value() * 2 + ui->WillValue->value();
-    ui->Mana->getProgressBar()->setMaxValue(mana);
+    int mana = person.getMagic()->getFinalValue() * 10 + person.getIntelligence()->getFinalValue() * 2 + person.getWill()->getFinalValue();
+    person.getMana()->setValue(mana);
 
     int numberOfChunks = 0;
     //Требование для появления нового чанка магической защиты
     int requirementOfChunk = 5;
-    int will = ui->WillValue->value();
+    int will = person.getWill()->getFinalValue();
     /*Общая сумма требований воли до получения ещё одного чанка. Служит для передачи
      *подсказке информации о том сколько ещё нужно воли до появления нового чанка*/
     int amountOfRequirements = requirementOfChunk;
@@ -589,16 +604,84 @@ void CharacterWindow::recalculateStats()
     }
 
     //Прогрессбару магической защиты передаётся значение недостающей воли до появления ещё одного чанка
-    ui->MagicDefense->getProgressBar()->willUntilNextChunk = amountOfRequirements - ui->WillValue->value();
+    ui->MagicDefense->getProgressBar()->willUntilNextChunk = amountOfRequirements - person.getWill()->getFinalValue();
 
     //Генерируется новый вектор чанков исходя из новых статов
     QVector<Chunk*> chinks;
     for(int i = 0; i<numberOfChunks; i++){
-        int chunkValue = floor(ui->MagicValue->value() * 0.7 + ui->BodyTypeValue->value() * 0.3);
+        int chunkValue = floor(person.getMagic()->getFinalValue() * 0.7 + person.getBodyType()->getFinalValue() * 0.3);
         chinks.append(new Chunk(chunkValue, 0));
     }
 
-    ui->MagicDefense->getProgressBar()->setChunks(chinks);
+    person.getMagicDefense()->setNativeChunks(chinks);
+
+    initSecondaryStatsWidgets();
+}
+
+void CharacterWindow::initPrimaryStatsWidgets()
+{
+    ui->StrengthValue->setValue(person.getStrength()->getFinalValue());
+
+    ui->AgilityValue->setValue(person.getAgility()->getFinalValue());
+
+    ui->IntelligenceValue->setValue(person.getIntelligence()->getFinalValue());
+
+    ui->MagicValue->setValue(person.getMagic()->getFinalValue());
+
+    ui->BodyTypeValue->setValue(person.getBodyType()->getFinalValue());
+
+    ui->WillValue->setValue(person.getWill()->getFinalValue());
+}
+
+void CharacterWindow::initSecondaryStatsWidgets()
+{
+    ui->MagicDamage->setValue(person.getMagicDamage()->getFinalValue());
+    ui->ResistPhysicalDamage->setValue(person.getResistPhysicalDamage()->getFinalValue());
+    ui->ResistMagicDamage->setValue(person.getResistMagicDamage()->getFinalValue());
+    ui->ResistPhysicalEffects->setValue(person.getResistPhysicalEffects()->getFinalValue());
+    ui->ResistMagicEffects->setValue(person.getResistMagicEffects()->getFinalValue());
+    ui->StrengtheningPhysicalEffects->setValue(person.getStrengtheningPhysicalEffects()->getFinalValue());
+    ui->StrengtheningMagicalEffects->setValue(person.getStrengtheningMagicalEffects()->getFinalValue());
+    ui->MeleeAccuracy->setValue(person.getMeleeAccuracy()->getFinalValue());
+    ui->RangedAccuracy->setValue(person.getRangedAccuracy()->getFinalValue());
+    ui->MagicAccuracy->setValue(person.getMagicAccuracy()->getFinalValue());
+    ui->Evasion->setValue(person.getEvasion()->getFinalValue());
+    ui->Stealth->setValue(person.getStealth()->getFinalValue());
+    ui->Attentiveness->setValue(person.getAttentiveness()->getFinalValue());
+    ui->LoadCapacity->setValue(person.getLoadCapacity()->getFinalValue());
+    ui->Initiative->setValue(person.getInitiative()->getFinalValue());
+    ui->MagicCastChance->setValue(person.getMagicCastChance()->getFinalValue());
+    ui->ChanceOfUsingCombatTechnique->setValue(person.getChanceOfUsingCombatTechnique()->getFinalValue());
+    ui->MoveRange->setValue(person.getMoveRange()->getFinalValue());
+
+    ui->Health->getProgressBar()->setMaxValue(person.getHealth()->getFinalValue());
+    healthSetValue(person.getHealth()->getProgressBarCurrentValue());
+    ui->Endurance->getProgressBar()->setMaxValue(person.getEndurance()->getFinalValue());
+    enduranceSetValue(person.getEndurance()->getProgressBarCurrentValue());
+    ui->Mana->getProgressBar()->setMaxValue(person.getMana()->getFinalValue());
+    manaSetValue(person.getMana()->getProgressBarCurrentValue());
+
+    MagicDefense* magicDefense = person.getMagicDefense();
+    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
+                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+}
+
+void CharacterWindow::healthSetValue(int value)
+{
+    person.getHealth()->setProgressBarCurrentValue(value);
+    ui->Health->getProgressBar()->setValue(value);
+}
+
+void CharacterWindow::enduranceSetValue(int value)
+{
+    person.getEndurance()->setProgressBarCurrentValue(value);
+    ui->Endurance->getProgressBar()->setValue(value);
+}
+
+void CharacterWindow::manaSetValue(int value)
+{
+    person.getMana()->setProgressBarCurrentValue(value);
+    ui->Mana->getProgressBar()->setValue(value);
 }
 
 
@@ -792,6 +875,77 @@ void CharacterWindow::leaveEvent(QEvent *event)
     Global::pressedKeys.clear();
 }
 
+bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
+{
+    if(object == ui->StrengthValue){
+        if(event->type() == QEvent::FocusIn){
+            isManualStatReplacement = true;
+            ui->StrengthValue->setValue(person.getStrength()->getValue());
+        }
+        if(event->type() == QEvent::FocusOut){
+            isManualStatReplacement = false;
+            ui->StrengthValue->setValue(person.getStrength()->getFinalValue());
+        }
+    }
+
+    if(object == ui->AgilityValue){
+        if(event->type() == QEvent::FocusIn){
+            isManualStatReplacement = true;
+            ui->AgilityValue->setValue(person.getAgility()->getValue());
+        }
+        if(event->type() == QEvent::FocusOut){
+            isManualStatReplacement = false;
+            ui->AgilityValue->setValue(person.getAgility()->getFinalValue());
+        }
+    }
+
+    if(object == ui->IntelligenceValue){
+        if(event->type() == QEvent::FocusIn){
+            isManualStatReplacement = true;
+            ui->IntelligenceValue->setValue(person.getIntelligence()->getValue());
+        }
+        if(event->type() == QEvent::FocusOut){
+            isManualStatReplacement = false;
+            ui->IntelligenceValue->setValue(person.getIntelligence()->getFinalValue());
+        }
+    }
+
+    if(object == ui->MagicValue){
+        if(event->type() == QEvent::FocusIn){
+            isManualStatReplacement = true;
+            ui->MagicValue->setValue(person.getMagic()->getValue());
+        }
+        if(event->type() == QEvent::FocusOut){
+            isManualStatReplacement = false;
+            ui->MagicValue->setValue(person.getMagic()->getFinalValue());
+        }
+    }
+
+    if(object == ui->BodyTypeValue){
+        if(event->type() == QEvent::FocusIn){
+            isManualStatReplacement = true;
+            ui->BodyTypeValue->setValue(person.getBodyType()->getValue());
+        }
+        if(event->type() == QEvent::FocusOut){
+            isManualStatReplacement = false;
+            ui->BodyTypeValue->setValue(person.getBodyType()->getFinalValue());
+        }
+    }
+
+    if(object == ui->WillValue){
+        if(event->type() == QEvent::FocusIn){
+            isManualStatReplacement = true;
+            ui->WillValue->setValue(person.getWill()->getValue());
+        }
+        if(event->type() == QEvent::FocusOut){
+            isManualStatReplacement = false;
+            ui->WillValue->setValue(person.getWill()->getFinalValue());
+        }
+    }
+
+    return false;
+}
+
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
  *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
@@ -805,9 +959,9 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
     else
         ui->SecondarySkillsShadowTop->hide();
 
-    /*377 - это максимальный сдвиг области прокрутки относительно стартовой позии с
-     *учётом запаса в 7 пикселей.*/
-    if(value < 377)
+    /*296 - это максимальный сдвиг области прокрутки относительно стартовой позии с
+     *учётом запаса в 3 пикселей.*/
+    if(value < 296)
         ui->SecondarySkillsShadowBottom->show();
     else
         ui->SecondarySkillsShadowBottom->hide();
@@ -831,6 +985,9 @@ void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
  *и более простого и понятного доступа до его слотов.*/
 void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
 {
+    //!!!
+    RemoveTooltip();
+
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);
 
     /*Передача во все SecondarySkill размера смещения их ScrollArea для последующей обработки
@@ -894,69 +1051,94 @@ void CharacterWindow::RemoveTooltip()
     ui->tooltip->setVisible(false);
 }
 
-
-void CharacterWindow::on_pushButton_clicked()
-{
-    physicalDamageScaling = Global::STRENGTH;
-    recalculateStats();
-}
-
-
-void CharacterWindow::on_pushButton_2_clicked()
-{
-    physicalDamageScaling = Global::AGILITY;
-    recalculateStats();
-}
-
-
-void CharacterWindow::on_pushButton_3_clicked()
-{
-    physicalDamageScaling = Global::MAGIC;
-    recalculateStats();
-}
-
-
 void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
 {
+    if(isManualStatReplacement){
+        person.getStrength()->setValue(arg1);
+    }
     recalculateStats();
 }
 
 
 void CharacterWindow::on_AgilityValue_valueChanged(int arg1)
 {
+    if(isManualStatReplacement){
+        person.getAgility()->setValue(arg1);
+    }
     recalculateStats();
 }
 
 
 void CharacterWindow::on_IntelligenceValue_valueChanged(int arg1)
 {
+    if(isManualStatReplacement){
+        person.getIntelligence()->setValue(arg1);
+    }
     recalculateStats();
 }
 
 
 void CharacterWindow::on_MagicValue_valueChanged(int arg1)
 {
+    if(isManualStatReplacement){
+        person.getMagic()->setValue(arg1);
+    }
     recalculateStats();
 }
 
 
 void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
 {
+    if(isManualStatReplacement){
+        person.getBodyType()->setValue(arg1);
+    }
     recalculateStats();
 }
 
 
 void CharacterWindow::on_WillValue_valueChanged(int arg1)
 {
+    if(isManualStatReplacement){
+        person.getWill()->setValue(arg1);
+    }
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_4_clicked()
 {
-    ui->Health->getProgressBar()->setValue(ui->Health->getProgressBar()->getMaxValue());
-    ui->Endurance->getProgressBar()->setValue(ui->Endurance->getProgressBar()->getMaxValue());
-    ui->Mana->getProgressBar()->setValue(ui->Mana->getProgressBar()->getMaxValue());
-    ui->MagicDefense->getProgressBar()->HealAllChunk();
+    healthSetValue(person.getHealth()->getFinalValue());
+    enduranceSetValue(person.getEndurance()->getFinalValue());
+    manaSetValue(person.getMana()->getFinalValue());
+
+    person.getMagicDefense()->HealAllChunk();
+    ui->MagicDefense->getProgressBar()->setValue(person.getMagicDefense()->getValue());
+}
+
+
+void CharacterWindow::on_pushButton_clicked()
+{
+    person.getMagicDefense()->addBonus(new MagicDefenseBonus(QVector<int>{10,9}));
+    MagicDefense* magicDefense = person.getMagicDefense();
+    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
+                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+}
+
+
+void CharacterWindow::on_pushButton_2_clicked()
+{
+    person.getMagicDefense()->addBonus(new MagicDefenseBonus(MagicDefenseBonus::LAST, 100, false));
+    MagicDefense* magicDefense = person.getMagicDefense();
+    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
+                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+}
+
+
+void CharacterWindow::on_pushButton_3_clicked()
+{
+    person.getMagicDefense()->addBonus(new MagicDefenseBonus(MagicDefenseBonus::CENTER, 100, false));
+    MagicDefense* magicDefense = person.getMagicDefense();
+    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
+                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
 }
 

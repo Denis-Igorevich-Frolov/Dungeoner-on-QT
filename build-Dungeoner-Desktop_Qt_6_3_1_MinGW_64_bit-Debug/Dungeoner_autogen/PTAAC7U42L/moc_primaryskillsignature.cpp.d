@@ -3,9 +3,12 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-De
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/QTimer \
+  E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
@@ -95,6 +98,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-De
   E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qvariant.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h \
+  E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
   E:/Qt/6.4.0/mingw_64/include/QtGui/QFont \
   E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h \

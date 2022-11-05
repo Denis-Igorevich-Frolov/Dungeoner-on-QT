@@ -8,8 +8,9 @@
 #include "primaryskillsignature.h"
 #include "ui_primaryskillsignature.h"
 #include "PSS_stylemaster.h"
-#include "Windows/CharacterWindow/characterwindow.h"
 
+#include <QDate>
+#include <QFile>
 #include <QMouseEvent>
 #include <QMutableVectorIterator>
 
@@ -40,7 +41,11 @@ PrimarySkillSignature::~PrimarySkillSignature()
 {
     for(QLabel* label : tooltipContent)
         delete label;
-    delete buttonTooltipContentLabel;
+    for(QLabel* label : buttonTooltipContent)
+        delete label;
+    delete SpinBoxValue;
+    delete clickModifierTooltipTimer;
+
     delete ui;
 }
 
@@ -72,8 +77,9 @@ void PrimarySkillSignature::on_ButtonTop_released()
             plus = 100;
         }
     }
+    stat->setValue(stat->getValue() + plus);
 
-    SpinBoxValue->setValue(SpinBoxValue->value() + plus);
+    SpinBoxValue->setValue(stat->getFinalValue());
 }
 
 /*Метод реализации нажатия кнопки вычета стата. Он обрабатывает нажатия с учётом модификаторов:
@@ -98,8 +104,9 @@ void PrimarySkillSignature::on_ButtonBottom_released()
             minus = 100;
         }
     }
+    stat->setValue(stat->getValue() - minus);
 
-    SpinBoxValue->setValue(SpinBoxValue->value() - minus);
+    SpinBoxValue->setValue(stat->getFinalValue());
 }
 
 void PrimarySkillSignature::clickModifierTooltipTimerAlarm()
@@ -112,6 +119,16 @@ void PrimarySkillSignature::clickModifierTooltipTimerAlarm()
 void PrimarySkillSignature::valueChanged(int value)
 {
     valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
+}
+
+Stat *PrimarySkillSignature::getStat() const
+{
+    return stat;
+}
+
+void PrimarySkillSignature::setStat(Stat *newStat)
+{
+    stat = newStat;
 }
 
 QSpinBox *PrimarySkillSignature::getSpinBoxValue() const

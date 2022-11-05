@@ -70,8 +70,8 @@ set(PROJECT_SOURCES
         CustomWidgets/ProgressBar_2/progressbar_2.ui
         CustomWidgets/ProgressBar_2/PB2_stylemaster.h
         CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp
-        CustomWidgets/ProgressBar_2/chunk.h
-        CustomWidgets/ProgressBar_2/chunk.cpp
+        Person/MagicDefense/chunk.h
+        Person/MagicDefense/chunk.cpp
         CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h
         CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp
         CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.ui
@@ -87,6 +87,16 @@ set(PROJECT_SOURCES
         CustomWidgets/WindowBorder_2/windowborder_2.ui
         CustomWidgets/WindowBorder_2/WB2_stylemaster.h
         CustomWidgets/WindowBorder_2/WB2_stylemaster.cpp
+        Person/Stat/bonus.h
+        Person/Stat/bonus.cpp
+        Person/Stat/stat.h
+        Person/Stat/stat.cpp
+        Person/person.h
+        Person/person.cpp
+        Person/MagicDefense/magicdefense.h
+        Person/MagicDefense/magicdefense.cpp
+        Person/MagicDefense/magicdefensebonus.h
+        Person/MagicDefense/magicdefensebonus.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

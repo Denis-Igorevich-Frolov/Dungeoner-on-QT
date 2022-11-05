@@ -39,6 +39,7 @@ public:
     void setScrollAreaOffset(int newScrollAreaOffset);
 
     void setTooltipContent(QString fullName, QString formula, QString description);
+    void setFormula(QString formula, int fontSize);
 
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
@@ -53,6 +54,7 @@ private:
     int value = 0;
     QString SValue;
 
+    QLabel* formulaLabel = new QLabel;
     QVector<QLabel*> tooltipContent;
     QLabel* valueLabel = new QLabel;
 

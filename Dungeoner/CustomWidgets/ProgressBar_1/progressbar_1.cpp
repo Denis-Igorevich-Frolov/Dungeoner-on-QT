@@ -32,6 +32,9 @@ ProgressBar_1::ProgressBar_1(QWidget *parent) :
 
 ProgressBar_1::~ProgressBar_1()
 {
+    for(QLabel* label : tooltipContent)
+        delete label;
+
     delete ui;
 }
 
