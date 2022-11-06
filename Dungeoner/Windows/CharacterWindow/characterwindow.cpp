@@ -1118,7 +1118,7 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.getMagicDefense()->addBonus(new MagicDefenseBonus(QVector<int>{10,9}));
+    person.getMagicDefense()->addBonus(new MagicDefenseBonus(MagicDefenseBonus::ALL, 100, false));
     MagicDefense* magicDefense = person.getMagicDefense();
     ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
                                                   magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
@@ -1127,18 +1127,14 @@ void CharacterWindow::on_pushButton_clicked()
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.getMagicDefense()->addBonus(new MagicDefenseBonus(MagicDefenseBonus::LAST, 100, false));
-    MagicDefense* magicDefense = person.getMagicDefense();
-    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
-                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+    person.getHealth()->addBonus(new Bonus(10, false));
+    initSecondaryStatsWidgets();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.getMagicDefense()->addBonus(new MagicDefenseBonus(MagicDefenseBonus::CENTER, 100, false));
-    MagicDefense* magicDefense = person.getMagicDefense();
-    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
-                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+    person.getHealth()->removeBonus(new Bonus(10, false));
+    initSecondaryStatsWidgets();
 }
 

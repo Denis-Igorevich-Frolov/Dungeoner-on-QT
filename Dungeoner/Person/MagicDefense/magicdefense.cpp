@@ -57,7 +57,7 @@ bool MagicDefense::removeBonus(MagicDefenseBonus *bonus)
     MagicDefenseBonus* MD;
     while(iterator.hasPrevious()){
         MD = iterator.previous();
-        if(MD==bonus){
+        if(*MD==*bonus){
             delete MD;
             iterator.remove();
 
@@ -121,8 +121,8 @@ void MagicDefense::updateBonuses()
                     for(Chunk* chunk : nativeChunks)
                         chunk->addBonus(bonus);
                 }
-            }else if(bonus->staticPosition < nativeChunks.size())
-                nativeChunks.at(bonus->staticPosition)->addBonus(bonus);
+            }else if(bonus->staticPosition < nativeChunks.size() && bonus->staticPosition>0)
+                nativeChunks.at(bonus->staticPosition-1)->addBonus(bonus);
         }
     }
 }

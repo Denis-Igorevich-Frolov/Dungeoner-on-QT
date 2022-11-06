@@ -31,6 +31,9 @@ public:
     QVector<int> getBonusChunksMaxVales() const;
     void setBonusChunksMaxVales(const QVector<int> &newBonusChunksMaxVales);
 
+    friend bool operator == (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonus2);
+    friend bool operator != (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonus2);
+
 private:
     int value = 0;
     QVector<int> bonusChunksMaxVales;

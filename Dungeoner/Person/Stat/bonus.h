@@ -11,8 +11,8 @@ public:
 
     bool isPercentage = false;
 
-    bool operator == (Bonus* bonus2);
-    bool operator != (Bonus* bonus2);
+    friend bool operator == (const Bonus& bonus1, const Bonus& bonus2);
+    friend bool operator != (const Bonus& bonus1, const Bonus& bonus2);
 
 private:
     int value = 0;

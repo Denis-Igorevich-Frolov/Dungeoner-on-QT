@@ -27,12 +27,12 @@ void Bonus::setValue(int newValue)
         value = -9999999;
 }
 
-bool Bonus::operator ==(Bonus *bonus2)
+bool operator ==(const Bonus& bonus1, const Bonus& bonus2)
 {
-    return (this->value==bonus2->value)&&(this->isPercentage==bonus2->isPercentage);
+    return (bonus1.value==bonus2.value)&&(bonus1.isPercentage==bonus2.isPercentage);
 }
 
-bool Bonus::operator !=(Bonus *bonus2)
+bool operator !=(const Bonus& bonus1, const Bonus& bonus2)
 {
-    return !((this->value==bonus2->value)&&(this->isPercentage==bonus2->isPercentage));
+    return !((bonus1.value==bonus2.value)&&(bonus1.isPercentage==bonus2.isPercentage));
 }

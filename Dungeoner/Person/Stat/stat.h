@@ -14,6 +14,7 @@ public:
     int getValue() const;
     void setValue(int newValue);
     void addBonus(Bonus* bonus);
+    bool removeBonus(Bonus* bonus);
 
     int getFinalValue() const;
 

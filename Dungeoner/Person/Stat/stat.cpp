@@ -1,5 +1,8 @@
 #include "stat.h"
 
+#include <QDate>
+#include <qfile.h>
+
 int Stat::getValue() const
 {
     return value;
@@ -21,6 +24,48 @@ void Stat::addBonus(Bonus *bonus)
 {
     bonuses.append(bonus);
     calculateFinalValue();
+}
+
+bool Stat::removeBonus(Bonus *bonus)
+{
+    QMutableVectorIterator<Bonus*> iterator(bonuses);
+    iterator.toBack();
+    Bonus* MD;
+    while(iterator.hasPrevious()){
+        MD = iterator.previous();
+        if(*MD==*bonus){
+            delete MD;
+            iterator.remove();
+
+            calculateFinalValue();
+            return true;
+        }
+    }
+    /*Если ничего найдено небыло, то выводится предупреждение. Вызывающему классу следует
+     *запросить полный пересчёт всех векторов чанков и провести их полную переинициализацию.*/
+
+    //Вывод предупреждения в консоль и файл
+    QDate cd = QDate::currentDate();
+    QTime ct = QTime::currentTime();
+
+    QString error =
+    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+    "\nПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus\n"
+    "MagicDefense выдал предупреждение в методе removeBonus.\n"
+    "При попытке удалить MagicDefenseBonus, он не был обнаружен.\n\n";
+    qDebug()<<error;
+
+    QFile errorFile("error log.txt");
+    if (!errorFile.open(QIODevice::Append))
+    {
+        qDebug() << "Ошибка при открытии файла логов";
+    }else{
+        errorFile.open(QIODevice::Append  | QIODevice::Text);
+        QTextStream writeStream(&errorFile);
+        writeStream<<error;
+        errorFile.close();
+    }
+    return false;
 }
 
 int Stat::getFinalValue() const
