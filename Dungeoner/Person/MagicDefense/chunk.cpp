@@ -6,7 +6,6 @@
  *************************************************************************************/
 
 #include "chunk.h"
-#include "qdebug.h"
 
 Chunk::Chunk(int maxValue, int value)
 {
@@ -36,6 +35,7 @@ void Chunk::setMaxValue(int newMaxValue)
         newMaxValue = 1;
 
     maxValue = newMaxValue;
+    //После изменения чанка требуется пересчёт его финального максимального значения
     calculateFinalMaxValue();
 }
 
@@ -59,6 +59,7 @@ void Chunk::setValue(int newValue)
 void Chunk::addBonus(MagicDefenseBonus *bonus)
 {
     bonuses.append(bonus);
+    //После изменения чанка требуется пересчёт его финального максимального значения
     calculateFinalMaxValue();
 }
 
@@ -72,12 +73,15 @@ QVector<MagicDefenseBonus *> Chunk::getBonuses() const
     return bonuses;
 }
 
+//Очистка чанка от всех бонусов. Используется для переинициализации магической защиты
 void Chunk::clearBonuses()
 {
     bonuses.clear();
+    //После изменения чанка требуется пересчёт его финального максимального значения
     calculateFinalMaxValue();
 }
 
+//Вычисление финального максимального значения чанка с учётом всех бонусов
 void Chunk::calculateFinalMaxValue()
 {
     finalMaxValue = maxValue;

@@ -27,6 +27,13 @@ private slots:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
 
+    void onStrengthBonusesChanged();
+    void onAgilityBonusesChanged();
+    void onIntelligenceBonusesChanged();
+    void onMagicBonusesChanged();
+    void onBodyTypeBonusesChanged();
+    void onWillBonusesChanged();
+
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
 

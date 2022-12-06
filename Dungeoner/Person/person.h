@@ -7,9 +7,20 @@
 
 #include <Person/MagicDefense/magicdefense.h>
 
-class Person
+#include <qspinbox.h>
+
+class Person : public QObject
 {
+    Q_OBJECT
 public:
+    void addBonusToStat(Bonus* bonus);
+    //Добавление бонуса на магическую защиту
+    void addBonusToStat(MagicDefenseBonus* bonus);
+
+    bool removeBonusFromStat(Bonus* bonus);
+    //Удаление бонуса с магической защиты
+    bool removeBonusFromStat(MagicDefenseBonus* bonus);
+
     Stat* getStrength();
     void setStrength(Stat &newStrength);
     Stat* getAgility();
@@ -67,8 +78,47 @@ public:
     void setMana(Stat &newMana);
     MagicDefense* getMagicDefense();
     void setMagicDefense(MagicDefense &newMagicDefense);
-
+signals:
+    void StrengthBonusesChanged();
+    void AgilityBonusesChanged();
+    void IntelligenceBonusesChanged();
+    void MagicBonusesChanged();
+    void BodyTypeBonusesChanged();
+    void WillBonusesChanged();
 private:
+    /*Метод непосредственно удаляющий бонусы, в отличии от
+     *removeBonusFromStat, который лишь направляет данные сюда*/
+    bool bonusRemoval(QVector<Bonus *> &bonuses, Bonus* bonus);
+
+    QVector<Bonus*> StrengthBonuses;
+    QVector<Bonus*> AgilityBonuses;
+    QVector<Bonus*> IntelligenceBonuses;
+    QVector<Bonus*> MagicBonuses;
+    QVector<Bonus*> BodyTypeBonuses;
+    QVector<Bonus*> WillBonuses;
+    QVector<Bonus*> MagicDamageBonuses;
+    QVector<Bonus*> ResistPhysicalDamageBonuses;
+    QVector<Bonus*> ResistMagicDamageBonuses;
+    QVector<Bonus*> ResistPhysicalEffectsBonuses;
+    QVector<Bonus*> ResistMagicEffectsBonuses;
+    QVector<Bonus*> StrengtheningPhysicalEffectsBonuses;
+    QVector<Bonus*> StrengtheningMagicalEffectsBonuses;
+    QVector<Bonus*> MeleeAccuracyBonuses;
+    QVector<Bonus*> RangedAccuracyBonuses;
+    QVector<Bonus*> MagicAccuracyBonuses;
+    QVector<Bonus*> EvasionBonuses;
+    QVector<Bonus*> StealthBonuses;
+    QVector<Bonus*> AttentivenessBonuses;
+    QVector<Bonus*> LoadCapacityBonuses;
+    QVector<Bonus*> InitiativeBonuses;
+    QVector<Bonus*> MagicCastChanceBonuses;
+    QVector<Bonus*> ChanceOfUsingCombatTechniqueBonuses;
+    QVector<Bonus*> MoveRangeBonuses;
+    QVector<Bonus*> HealthBonuses;
+    QVector<Bonus*> EnduranceBonuses;
+    QVector<Bonus*> ManaBonuses;
+    QVector<MagicDefenseBonus*> magicDefenseBonuses;
+
     Stat Strength = Stat(999999);
     Stat Agility = Stat(999999);
     Stat Intelligence = Stat(999999);

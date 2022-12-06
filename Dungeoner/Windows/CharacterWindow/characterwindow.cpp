@@ -34,9 +34,6 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     ui->BodyTypeValue->installEventFilter(this);
     ui->WillValue->installEventFilter(this);
 
-    //!!!
-//    person.getMagicDefense().addBonus(new MagicDefenseBonus(MagicDefenseBonus::FIRST, 10, false));
-
     setTextPrimarySkillSignature();
     setStyles();
 
@@ -44,6 +41,14 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     associatingLabelsWithValues();
     associatingLabelsWithStat();
+
+    //Связывание слотов изменения первичных навыков бонусами с сигналами сигнализирующими об этом
+    connect(&person, &Person::StrengthBonusesChanged, this, &CharacterWindow::onStrengthBonusesChanged);
+    connect(&person, &Person::AgilityBonusesChanged, this, &CharacterWindow::onAgilityBonusesChanged);
+    connect(&person, &Person::IntelligenceBonusesChanged, this, &CharacterWindow::onIntelligenceBonusesChanged);
+    connect(&person, &Person::MagicBonusesChanged, this, &CharacterWindow::onMagicBonusesChanged);
+    connect(&person, &Person::BodyTypeBonusesChanged, this, &CharacterWindow::onBodyTypeBonusesChanged);
+    connect(&person, &Person::WillBonusesChanged, this, &CharacterWindow::onWillBonusesChanged);
 
     /*Связывание слота ScrollAreaSecondarySkillsScrolled с сигналом valueChanged у вертикального скроллбара в области
      *прокрутки ScrollAreaSecondarySkills. Делается это потому, что у убласти прокрутки мне нужен сигнал изменения
@@ -1051,6 +1056,48 @@ void CharacterWindow::RemoveTooltip()
     ui->tooltip->setVisible(false);
 }
 
+void CharacterWindow::onStrengthBonusesChanged()
+{
+    if(!isManualStatReplacement){
+        ui->StrengthValue->setValue(person.getStrength()->getFinalValue());
+    }
+}
+
+void CharacterWindow::onAgilityBonusesChanged()
+{
+    if(!isManualStatReplacement){
+        ui->AgilityValue->setValue(person.getAgility()->getFinalValue());
+    }
+}
+
+void CharacterWindow::onIntelligenceBonusesChanged()
+{
+    if(!isManualStatReplacement){
+        ui->IntelligenceValue->setValue(person.getIntelligence()->getFinalValue());
+    }
+}
+
+void CharacterWindow::onMagicBonusesChanged()
+{
+    if(!isManualStatReplacement){
+        ui->MagicValue->setValue(person.getMagic()->getFinalValue());
+    }
+}
+
+void CharacterWindow::onBodyTypeBonusesChanged()
+{
+    if(!isManualStatReplacement){
+        ui->BodyTypeValue->setValue(person.getBodyType()->getFinalValue());
+    }
+}
+
+void CharacterWindow::onWillBonusesChanged()
+{
+    if(!isManualStatReplacement){
+        ui->WillValue->setValue(person.getWill()->getFinalValue());
+    }
+}
+
 void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
@@ -1118,23 +1165,19 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.getMagicDefense()->addBonus(new MagicDefenseBonus(MagicDefenseBonus::ALL, 100, false));
-    MagicDefense* magicDefense = person.getMagicDefense();
-    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
-                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 10, true));
+    recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.getHealth()->addBonus(new Bonus(10, false));
-    initSecondaryStatsWidgets();
+    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, 10, true));
+    recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.getHealth()->removeBonus(new Bonus(10, false));
-    initSecondaryStatsWidgets();
 }
 

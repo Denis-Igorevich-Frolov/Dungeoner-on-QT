@@ -23,19 +23,25 @@ public:
 
     int getValue() const;
     void setValue(int newValue);
+
     void addBonus(MagicDefenseBonus* bonus);
     QVector<MagicDefenseBonus *> getBonuses() const;
+
+    //Очистка чанка от всех бонусов. Используется для переинициализации магической защиты
     void clearBonuses();
 
     int getFinalMaxValue() const;
 
 private:
     int maxValue = 1;
+    //Максимальное значение с учётом всех бонусов
     int finalMaxValue = 1;
+    //Текущее значение
     int value = 0;
 
     QVector<MagicDefenseBonus*> bonuses;
 
+    //Вычисление финального максимального значения чанка с учётом всех бонусов
     void calculateFinalMaxValue();
 };
 

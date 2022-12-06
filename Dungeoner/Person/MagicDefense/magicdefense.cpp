@@ -1,3 +1,8 @@
+/**************************************************************************
+ *Данный класс является статом магической защиты. Вся необходимая логика
+ *по вычислению векторов чанков магической защиты происходит здесь.
+ **************************************************************************/
+
 #include "magicdefense.h"
 
 #include <QDate>
@@ -20,8 +25,14 @@ int MagicDefense::getValue() const
     return value;
 }
 
+/*Метод устанавливает общее значение всему прогрессбару, последовательно заполняя все чанки пока
+ *не кончится переданное значение. Используется для первичной инициализации и сохранения значения
+ *при перерасчёте векторов прогрессбара из переменной value, чтобы оно не сбрасывалось при любом
+ *изменении.*/
 void MagicDefense::setValue(int newValue)
 {
+    /*Исходя из максимального значения чанка в 10000 и максимального их количества
+     *в 60, значение никогда не превысит 600000, а значение ниже 0 бессмысленно*/
     if(newValue>600000)
         newValue = 600000;
     else if(newValue<0)
@@ -30,14 +41,20 @@ void MagicDefense::setValue(int newValue)
     value = newValue;
 
     for(Chunk* chunk : chunks){
+        //Вычисляется недостающая разница текущего значения до заполнения до максимального
         int difference = chunk->getFinalMaxValue()-chunk->getValue();
+        /*Если эта разница меньше или равна передаваемому значению, то текущий чанк заполняется до
+         *максимума, а из переданного значения вычитается затраченное на заполнение чанка значение*/
         if(difference<=value){
             chunk->setValue(chunk->getFinalMaxValue());
             value-=difference;
+        /*Если же значение меньше разницы, то оно просто прибавляется к текущему значению чанка, заполняя
+         *его на сколько хватает. И цикл останавливается так как всё переданное значение потрачено*/
         }else{
             chunk->setValue(chunk->getValue()+value);
             break;
         }
+        //Если всё переданное значение потрачено, то цикл останавливается
         if(value<=0)
             break;
     }
@@ -47,57 +64,80 @@ void MagicDefense::addBonus(MagicDefenseBonus *bonus)
 {
     bonuses.append(bonus);
 
+    //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
     recalculationChunks();
 }
 
-bool MagicDefense::removeBonus(MagicDefenseBonus *bonus)
+/*!!!УСТАРЕЛОЕ, НО РАБОЧЕЕ, ПРОСТО БОЛЕЕ НИГДЕ НЕ ИСПОЛЬЗУЕТСЯ, ХОТЬ И МОЖЕТ В ПОСЛЕДСТВИИ ПОНАДОБИТСЯ!!!
+ *!!!ТЕПЕРЬ УДАЛЕНИЕ БОНУСА ПРОИЗВОДИТСЯ В КЛАССЕ Person, А ЗАТЕМ ЗДЕСЬ ПЕРЕИНИЦИАЛИЗИРУЕТСЯ В reinitializationOfBonuses!!!
+ *
+ *Удаление бонуса. В метод передаётся указатель на бонус, который должен быть удалён. При этом
+ *удаляется первый подошедший с конца бонус, а не конкретно тот, который инициировал удаление.
+ *Если метод не смог обнаружить переданный на удаление бонус, он выводит предупреждение и
+ *возвращает false, после чего следует запросить полный перерасчёт бонусов.*/
+//bool MagicDefense::removeBonus(MagicDefenseBonus *bonus)
+//{
+//    QMutableVectorIterator<MagicDefenseBonus*> iterator(bonuses);
+//    iterator.toBack();
+//    MagicDefenseBonus* MD;
+//    //Итератор идёт с конца, чтобы найти ближайшее к краю совпадение
+//    while(iterator.hasPrevious()){
+//        MD = iterator.previous();
+//        if(*MD==*bonus){
+//            delete MD;
+//            iterator.remove();
+
+//            //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
+//            recalculationChunks();
+//            return true;
+//        }
+//    }
+//    /*Если ничего найдено небыло, то выводится предупреждение. Вызывающему классу следует
+//     *запросить полный пересчёт всех векторов чанков и провести их полную переинициализацию.*/
+
+//    //Вывод предупреждения в консоль и файл
+//    QDate cd = QDate::currentDate();
+//    QTime ct = QTime::currentTime();
+
+//    QString error =
+//    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+//    "\nПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus\n"
+//    "MagicDefense выдал предупреждение в методе removeBonus.\n"
+//    "При попытке удалить MagicDefenseBonus, он не был обнаружен.\n\n";
+//    qDebug()<<error;
+
+//    QFile errorFile("error log.txt");
+//    if (!errorFile.open(QIODevice::Append))
+//    {
+//        qDebug() << "Ошибка при открытии файла логов";
+//    }else{
+//        errorFile.open(QIODevice::Append  | QIODevice::Text);
+//        QTextStream writeStream(&errorFile);
+//        writeStream<<error;
+//        errorFile.close();
+//    }
+//    return false;
+//}
+
+/*Пререинициализация бонусов магической защиты. Так как удаление бонусов производится в
+ *классе Person, здесь требуется просто переинициализация вектором бонусов, хранящемся там.*/
+void MagicDefense::reinitializationOfBonuses(QVector<MagicDefenseBonus *> magicDefenseBonuses)
 {
-    QMutableVectorIterator<MagicDefenseBonus*> iterator(bonuses);
-    iterator.toBack();
-    MagicDefenseBonus* MD;
-    while(iterator.hasPrevious()){
-        MD = iterator.previous();
-        if(*MD==*bonus){
-            delete MD;
-            iterator.remove();
+    bonuses = magicDefenseBonuses;
 
-            recalculationChunks();
-            return true;
-        }
-    }
-    /*Если ничего найдено небыло, то выводится предупреждение. Вызывающему классу следует
-     *запросить полный пересчёт всех векторов чанков и провести их полную переинициализацию.*/
-
-    //Вывод предупреждения в консоль и файл
-    QDate cd = QDate::currentDate();
-    QTime ct = QTime::currentTime();
-
-    QString error =
-    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-    "\nПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus\n"
-    "MagicDefense выдал предупреждение в методе removeBonus.\n"
-    "При попытке удалить MagicDefenseBonus, он не был обнаружен.\n\n";
-    qDebug()<<error;
-
-    QFile errorFile("error log.txt");
-    if (!errorFile.open(QIODevice::Append))
-    {
-        qDebug() << "Ошибка при открытии файла логов";
-    }else{
-        errorFile.open(QIODevice::Append  | QIODevice::Text);
-        QTextStream writeStream(&errorFile);
-        writeStream<<error;
-        errorFile.close();
-    }
-    return false;
+    //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
+    recalculationChunks();
 }
 
+//Перерасчёт всех бонусов магической защиты
 void MagicDefense::updateBonuses()
 {
+    //Так как идёт переинициализация сначала удаляются все старые бонусы со всех чанков
     for(Chunk* chunk : nativeChunks){
         chunk->clearBonuses();
     }
 
+    //Также удаляются и все бонусные чанки
     for(Chunk* chunk : bonusChunks)
         delete chunk;
     bonusChunks.clear();
@@ -109,7 +149,7 @@ void MagicDefense::updateBonuses()
         }
         else
         {
-            if(bonus->isDynamic){
+            if(bonus->isDynamic && !nativeChunks.isEmpty()){
                 if(bonus->dynamicPosition == MagicDefenseBonus::FIRST){
                     nativeChunks.first()->addBonus(bonus);
                 }else if(bonus->dynamicPosition == MagicDefenseBonus::LAST){
@@ -121,12 +161,16 @@ void MagicDefense::updateBonuses()
                     for(Chunk* chunk : nativeChunks)
                         chunk->addBonus(bonus);
                 }
-            }else if(bonus->staticPosition < nativeChunks.size() && bonus->staticPosition>0)
+            }else if(bonus->staticPosition <= nativeChunks.size() && bonus->staticPosition>0)
                 nativeChunks.at(bonus->staticPosition-1)->addBonus(bonus);
         }
     }
 }
 
+/*Удаление бонусного чанка. В метод передаётся указатель на чанк, который должен быть удалён из
+ *вектора бонусных чанков. При этом удаляется первый подошедший с конца чанк, а не конкретно тот,
+ *который инициировал удаление. Это поднимает шансы на то, что так удалится тот чанк, который имеет
+ *большие шансы оказаться незаполненным, так как он просто ближе к концу.*/
 bool MagicDefense::removeBonusChunk(Chunk *chunk)
 {
     QMutableVectorIterator<Chunk*> iterator(bonusChunks);
@@ -169,6 +213,8 @@ bool MagicDefense::removeBonusChunk(Chunk *chunk)
     return false;
 }
 
+/*Обнуляет текущий активный чанк. Если обнуление было произведено, то водвращает true, если
+ *нет - то это означает, что весь прогрессбар уже полностью обнулён и возвращается false*/
 bool MagicDefense::spendLastChunk()
 {
     //Проверка не пуст ли вектор чанков
@@ -196,6 +242,7 @@ bool MagicDefense::spendLastChunk()
     }
 }
 
+//Приравнивает значение текущего активного чанка к его максимальному значению
 void MagicDefense::HealOneChunk()
 {
     for(Chunk* chunk : chunks)
@@ -206,6 +253,7 @@ void MagicDefense::HealOneChunk()
     calculateValue();
 }
 
+//Приравнивает значение всех чанков к их максимальному значению
 void MagicDefense::HealAllChunk()
 {
     for(Chunk* chunk : chunks)
@@ -260,6 +308,10 @@ void MagicDefense::setBonusChunks(const QVector<Chunk *> &newChunks)
     recalculationChunks();
 }
 
+/*Добавление чанка в вектор бонусных чанков. В метод передаётся указатель на новый чанк, затем его
+ *текущее значение обнуляется и указатель добавляется в конец вектора бонусных чанков. Новый чанк
+ *будет иметь текущее значение 0, так как все бонусы дают прибавку только к максимальному значению,
+ *а не к текущему.*/
 void MagicDefense::addBonusChunk(Chunk *chunk)
 {
     chunk->setValue(0);
@@ -267,6 +319,7 @@ void MagicDefense::addBonusChunk(Chunk *chunk)
     recalculationChunks();
 }
 
+//Добавление одного чанка в вектор родных чанков
 void MagicDefense::addChunk(Chunk *chunk)
 {
     if(nativeChunks.size()<50){
@@ -278,6 +331,7 @@ void MagicDefense::addChunk(Chunk *chunk)
     recalculationChunks();
 }
 
+//Вычисление текущего общего заполненного значения всех чанков прогрессбара
 void MagicDefense::calculateValue()
 {
     value = 0;
@@ -287,6 +341,7 @@ void MagicDefense::calculateValue()
     }
 }
 
+//Перерасчёт общего вектора всех чанков, который включает в себя и родные и бонусные чанки
 void MagicDefense::recalculationChunks()
 {
     updateBonuses();
@@ -340,6 +395,8 @@ void MagicDefense::recalculationChunks()
     amountOfBonusChunks = bonusChunks.size();
 }
 
+/*Метод возвращает индекс текущего активного чанка. Текущим чанком
+ *считается последний чанк, имеющий ненулевое значение.*/
 int MagicDefense::getCurrentChunkIndex()
 {
     int currentChunk = 0;
@@ -361,6 +418,9 @@ int MagicDefense::getCurrentChunkIndex()
     return currentChunk-1;
 }
 
+/*Метод добавляет значение к текущему чанку. Если максимальное значение чанка не позволяет
+ *переданному значению уместиться в нём полностью, то остаток переходит на следующий чанк,
+ *и так пока либо не кончится значение, либо не кончатся чанки.*/
 void MagicDefense::addValue(int value)
 {
     //Предотвращение попадания в метод отрицательных значений
@@ -399,6 +459,9 @@ void MagicDefense::addValue(int value)
     calculateValue();
 }
 
+/*Метод вычитает значение из текущего чанка. Если значение чанка меньше переданного вычитаемого
+ *значения, то текущий чанк обнуляется, а остаток вычитается из предыдущего чанка, и так пока
+ *либо не кончится значение, либо не кончатся чанки.*/
 void MagicDefense::subtractValue(int value)
 {
     //Предотвращение попадания в метод отрицательных значений
@@ -456,6 +519,10 @@ int MagicDefense::getAmountOfBonusChunks() const
     return amountOfBonusChunks;
 }
 
+/*Очистка вектора родных чанков. Нужно быть осторожным в вызове этого метода, ведь он сам
+ *не перерисовывает прогрессбар. После его вызова ОБЯЗАТЕЛЬНО должна быть переинициализация
+ *вектора родных чанков, даже пустым вектором, если то нужно. Безопасен только вызов из
+ *начала метода setChunks, потому что он сам и переинициализирует вектор родных чанков.*/
 void MagicDefense::clearNativeChunks()
 {
     /*Так как вектор родных чанков динамически генерируется каждый раз заного, и его ячейки никогда
