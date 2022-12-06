@@ -294,6 +294,10 @@ bool Person::bonusRemoval(QVector<Bonus*>& bonuses, Bonus *bonus)
         writeStream<<error;
         errorFile.close();
     }
+
+    //Полная переинициализация всех статов из-за вызваной ошибки
+    fullReinitialization();
+
     return false;
 }
 
@@ -339,7 +343,123 @@ bool Person::removeBonusFromStat(MagicDefenseBonus *bonus)
         writeStream<<error;
         errorFile.close();
     }
+
+    //Полная переинициализация всех статов из-за вызваной ошибки
+    fullReinitialization();
+
     return false;
+}
+
+//Перерасчёт вторичных навыков
+void Person::recalculateStats()
+{
+    int magicDamage =
+    floor(1.5 * Magic.getFinalValue()) + floor(1.5 * Intelligence.getFinalValue()) + floor(0.5 * Will.getFinalValue());
+    MagicDamage.setValue(magicDamage);
+
+    int resistPhysicalDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * Magic.getFinalValue()) + BodyType.getFinalValue();
+    ResistPhysicalDamage.setValue(resistPhysicalDamage);
+
+    int resistMagicDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * BodyType.getFinalValue()) + Magic.getFinalValue();
+    ResistMagicDamage.setValue(resistMagicDamage);
+
+    int resistPhysicalEffects = floor(0.1 * Will.getFinalValue()) + 10;
+    ResistPhysicalEffects.setValue(resistPhysicalEffects);
+
+    int resistMagicEffects = floor(0.1 * Will.getFinalValue()) + floor(0.1 * Magic.getFinalValue()) + 5;
+    ResistMagicEffects.setValue(resistMagicEffects);
+
+    int strengtheningPhysicalEffects = floor(0.1 * Strength.getFinalValue());
+    StrengtheningPhysicalEffects.setValue(strengtheningPhysicalEffects);
+
+    int strengtheningMagicalEffects = floor(0.1 * Intelligence.getFinalValue());
+    StrengtheningMagicalEffects.setValue(strengtheningMagicalEffects);
+
+    int meleeAccuracy = floor(0.1 * Agility.getFinalValue()) + 20;
+    MeleeAccuracy.setValue(meleeAccuracy);
+
+    int rangedAccuracy = floor(0.1 * Agility.getFinalValue()) + 15;
+    RangedAccuracy.setValue(rangedAccuracy);
+
+    int magicAccuracy = floor(0.1 * Intelligence.getFinalValue()) + 15;
+    MagicAccuracy.setValue(magicAccuracy);
+
+    int evasion = floor(0.5 * Agility.getFinalValue()) + floor(0.1 * BodyType.getFinalValue());
+    Evasion.setValue(evasion);
+
+    int stealth = Intelligence.getFinalValue() + Agility.getFinalValue();
+    Stealth.setValue(stealth);
+
+    int attentiveness = Intelligence.getFinalValue() + Agility.getFinalValue() + Will.getFinalValue();
+    Attentiveness.setValue(attentiveness);
+
+    int loadCapacity = floor(0.5 * Strength.getFinalValue()) + floor(0.5 * BodyType.getFinalValue());
+    LoadCapacity.setValue(loadCapacity);
+
+    int initiative = floor(5 * Agility.getFinalValue()) + Intelligence.getFinalValue() + Will.getFinalValue();
+    Initiative.setValue(initiative);
+
+    int magicCastChance = floor(0.3 * Intelligence.getFinalValue()) + floor(0.2 * Magic.getFinalValue());
+    MagicCastChance.setValue(magicCastChance);
+
+    int chanceOfUsingCombatTechnique = floor(0.2 * Agility.getFinalValue()) + 20;
+    ChanceOfUsingCombatTechnique.setValue(chanceOfUsingCombatTechnique);
+
+    int moveRange = floor(0.75 * Agility.getFinalValue()) + floor(0.5 * Strength.getFinalValue()) + BodyType.getFinalValue();
+    MoveRange.setValue(moveRange);
+
+    int health = Strength.getFinalValue() * 2 + BodyType.getFinalValue() * 10 + Will.getFinalValue() * 5 + Magic.getFinalValue();
+    Health.setValue(health);
+
+    int endurance = Agility.getFinalValue() * 10 + BodyType.getFinalValue();
+    Endurance.setValue(endurance);
+
+    int mana = Magic.getFinalValue() * 10 + Intelligence.getFinalValue() * 2 + Will.getFinalValue();
+    Mana.setValue(mana);
+
+    int numberOfChunks = 0;
+    //Требование для появления нового чанка магической защиты
+    int requirementOfChunk = 5;
+    int will = Will.getFinalValue();
+    /*Общая сумма требований воли до получения ещё одного чанка. Служит для передачи
+     *подсказке информации о том сколько ещё нужно воли до появления нового чанка*/
+    int amountOfRequirements = requirementOfChunk;
+
+    //Если воли достаточно для получения хотябы одного чанка
+    if(will>=requirementOfChunk){
+        /*Вычисляется сколько остаётся воли после заполнения первого чанка.
+         *Единица 1 раз вычитается из требований чтобы последующий цикл каждый
+         *раз толкался на одну дополнительную итерацию, заполняя количество
+         *чанков, и главное, заполняя требования для получения следующего чанка.*/
+        will-=requirementOfChunk-1;
+        while(true){
+            numberOfChunks++;
+            //Требования экспоненциально растут
+            requirementOfChunk*=1.2;
+            /*Вычисляется общая сумма требований, а из-за толкания на дополнительную
+             *итерацию эти требования всегда для уже последующего чанка, а не текущего*/
+            amountOfRequirements+=requirementOfChunk;
+            //Вычисляется сколько остаётся воли после заполнения нового чанка
+            will-=requirementOfChunk;
+            /*Меньше или равным нулю воля может оказаться только если
+             *требования на появления ещё одного чанка не соблюдены*/
+            if(will<=0){
+                break;
+            }
+        }
+    }
+
+    //Прогрессбару магической защиты передаётся значение недостающей воли до появления ещё одного чанка
+    willUntilNextChunk = amountOfRequirements - Will.getFinalValue();
+
+    //Генерируется новый вектор чанков исходя из новых статов
+    QVector<Chunk*> chinks;
+    for(int i = 0; i<numberOfChunks; i++){
+        int chunkValue = floor(Magic.getFinalValue() * 0.7 + BodyType.getFinalValue() * 0.3);
+        chinks.append(new Chunk(chunkValue, 0));
+    }
+
+    magicDefense.setNativeChunks(chinks);
 }
 
 Stat* Person::getStrength()
@@ -620,4 +740,49 @@ MagicDefense* Person::getMagicDefense()
 void Person::setMagicDefense(MagicDefense &newMagicDefense)
 {
     magicDefense = newMagicDefense;
+}
+
+/*Слот полной переинициализации. Каждый раз когда операции с бонусами проваливаются
+ *запрашивается их полная переинциализация для избежания последующих проблем.*/
+void Person::fullReinitialization()
+{
+    qDebug()<<"!!!Полная переинициализация всех бонусов!!!";
+
+    Strength.reinitializationOfBonuses(StrengthBonuses);
+    emit StrengthBonusesChanged();
+    Agility.reinitializationOfBonuses(AgilityBonuses);
+    emit AgilityBonusesChanged();
+    Intelligence.reinitializationOfBonuses(IntelligenceBonuses);
+    emit IntelligenceBonusesChanged();
+    Magic.reinitializationOfBonuses(MagicBonuses);
+    emit MagicBonusesChanged();
+    BodyType.reinitializationOfBonuses(BodyTypeBonuses);
+    emit BodyTypeBonusesChanged();
+    Will.reinitializationOfBonuses(WillBonuses);
+    emit WillBonusesChanged();
+
+    MagicDamage.reinitializationOfBonuses(MagicDamageBonuses);
+    ResistPhysicalDamage.reinitializationOfBonuses(ResistPhysicalDamageBonuses);
+    ResistMagicDamage.reinitializationOfBonuses(ResistMagicDamageBonuses);
+    ResistPhysicalEffects.reinitializationOfBonuses(ResistPhysicalEffectsBonuses);
+    ResistMagicEffects.reinitializationOfBonuses(ResistMagicEffectsBonuses);
+    StrengtheningPhysicalEffects.reinitializationOfBonuses(StrengtheningPhysicalEffectsBonuses);
+    StrengtheningMagicalEffects.reinitializationOfBonuses(StrengtheningMagicalEffectsBonuses);
+    MeleeAccuracy.reinitializationOfBonuses(MeleeAccuracyBonuses);
+    RangedAccuracy.reinitializationOfBonuses(RangedAccuracyBonuses);
+    MagicAccuracy.reinitializationOfBonuses(MagicAccuracyBonuses);
+    Evasion.reinitializationOfBonuses(EvasionBonuses);
+    Stealth.reinitializationOfBonuses(StealthBonuses);
+    Attentiveness.reinitializationOfBonuses(AttentivenessBonuses);
+    LoadCapacity.reinitializationOfBonuses(LoadCapacityBonuses);
+    Initiative.reinitializationOfBonuses(InitiativeBonuses);
+    MagicCastChance.reinitializationOfBonuses(MagicCastChanceBonuses);
+    ChanceOfUsingCombatTechnique.reinitializationOfBonuses(ChanceOfUsingCombatTechniqueBonuses);
+    MoveRange.reinitializationOfBonuses(MoveRangeBonuses);
+    Health.reinitializationOfBonuses(HealthBonuses);
+    Endurance.reinitializationOfBonuses(EnduranceBonuses);
+    Mana.reinitializationOfBonuses(ManaBonuses);
+    magicDefense.reinitializationOfBonuses(magicDefenseBonuses);
+
+    emit FullReinitializationRequest();
 }

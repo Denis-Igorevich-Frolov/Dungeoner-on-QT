@@ -34,6 +34,9 @@ private slots:
     void onBodyTypeBonusesChanged();
     void onWillBonusesChanged();
 
+    //В методе происходит полный перерасчёт всех вторичных навыков
+    void recalculateStats();
+
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
 
@@ -76,11 +79,9 @@ private:
      *необходимых элементов со слотами показа и сокрытия подсказки окна*/
     void linkingTooltipSlots();
 
-    //В методе происходит полный перерасчёт всех вторичных навыков
-    void recalculateStats();
-
     void initPrimaryStatsWidgets();
 
+    //Инициализация элементов интерфеса связанных со статами значениями из Person
     void initSecondaryStatsWidgets();
 
     void healthSetValue(int value);

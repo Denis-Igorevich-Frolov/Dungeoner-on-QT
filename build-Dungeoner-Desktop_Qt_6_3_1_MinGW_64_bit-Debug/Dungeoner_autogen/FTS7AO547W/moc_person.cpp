@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Person_t {
-    uint offsetsAndSizes[16];
+    uint offsetsAndSizes[20];
     char stringdata0[7];
     char stringdata1[23];
     char stringdata2[1];
@@ -35,6 +35,8 @@ struct qt_meta_stringdata_Person_t {
     char stringdata5[20];
     char stringdata6[23];
     char stringdata7[19];
+    char stringdata8[28];
+    char stringdata9[21];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Person_t::offsetsAndSizes) + ofs), len 
@@ -47,7 +49,9 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
         QT_MOC_LITERAL(53, 26),  // "IntelligenceBonusesChanged"
         QT_MOC_LITERAL(80, 19),  // "MagicBonusesChanged"
         QT_MOC_LITERAL(100, 22),  // "BodyTypeBonusesChanged"
-        QT_MOC_LITERAL(123, 18)   // "WillBonusesChanged"
+        QT_MOC_LITERAL(123, 18),  // "WillBonusesChanged"
+        QT_MOC_LITERAL(142, 27),  // "FullReinitializationRequest"
+        QT_MOC_LITERAL(170, 20)   // "fullReinitialization"
     },
     "Person",
     "StrengthBonusesChanged",
@@ -56,7 +60,9 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
     "IntelligenceBonusesChanged",
     "MagicBonusesChanged",
     "BodyTypeBonusesChanged",
-    "WillBonusesChanged"
+    "WillBonusesChanged",
+    "FullReinitializationRequest",
+    "fullReinitialization"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -67,20 +73,24 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       6,       // signalCount
+       7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x06,    1 /* Public */,
-       3,    0,   51,    2, 0x06,    2 /* Public */,
-       4,    0,   52,    2, 0x06,    3 /* Public */,
-       5,    0,   53,    2, 0x06,    4 /* Public */,
-       6,    0,   54,    2, 0x06,    5 /* Public */,
-       7,    0,   55,    2, 0x06,    6 /* Public */,
+       1,    0,   62,    2, 0x06,    1 /* Public */,
+       3,    0,   63,    2, 0x06,    2 /* Public */,
+       4,    0,   64,    2, 0x06,    3 /* Public */,
+       5,    0,   65,    2, 0x06,    4 /* Public */,
+       6,    0,   66,    2, 0x06,    5 /* Public */,
+       7,    0,   67,    2, 0x06,    6 /* Public */,
+       8,    0,   68,    2, 0x06,    7 /* Public */,
+
+ // slots: name, argc, parameters, tag, flags, initial metatype offsets
+       9,    0,   69,    2, 0x0a,    8 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -88,6 +98,10 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+
+ // slots: parameters
     QMetaType::Void,
 
        0        // eod
@@ -113,6 +127,10 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         // method 'BodyTypeBonusesChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'WillBonusesChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'FullReinitializationRequest'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'fullReinitialization'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -130,6 +148,8 @@ void Person::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->MagicBonusesChanged(); break;
         case 4: _t->BodyTypeBonusesChanged(); break;
         case 5: _t->WillBonusesChanged(); break;
+        case 6: _t->FullReinitializationRequest(); break;
+        case 7: _t->fullReinitialization(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -176,6 +196,13 @@ void Person::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
                 return;
             }
         }
+        {
+            using _t = void (Person::*)();
+            if (_t _q_method = &Person::FullReinitializationRequest; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 6;
+                return;
+            }
+        }
     }
     (void)_a;
 }
@@ -199,13 +226,13 @@ int Person::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 8;
     }
     return _id;
 }
@@ -244,6 +271,12 @@ void Person::BodyTypeBonusesChanged()
 void Person::WillBonusesChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 5, nullptr);
+}
+
+// SIGNAL 6
+void Person::FullReinitializationRequest()
+{
+    QMetaObject::activate(this, &staticMetaObject, 6, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

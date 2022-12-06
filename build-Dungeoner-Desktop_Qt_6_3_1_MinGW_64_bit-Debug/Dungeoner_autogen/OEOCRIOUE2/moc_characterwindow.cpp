@@ -28,7 +28,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_CharacterWindow_t {
-    uint offsetsAndSizes[56];
+    uint offsetsAndSizes[58];
     char stringdata0[16];
     char stringdata1[34];
     char stringdata2[1];
@@ -43,20 +43,21 @@ struct qt_meta_stringdata_CharacterWindow_t {
     char stringdata11[22];
     char stringdata12[25];
     char stringdata13[21];
-    char stringdata14[37];
-    char stringdata15[7];
-    char stringdata16[34];
-    char stringdata17[30];
-    char stringdata18[5];
-    char stringdata19[29];
-    char stringdata20[34];
-    char stringdata21[27];
-    char stringdata22[30];
-    char stringdata23[26];
-    char stringdata24[24];
-    char stringdata25[22];
-    char stringdata26[24];
+    char stringdata14[17];
+    char stringdata15[37];
+    char stringdata16[7];
+    char stringdata17[34];
+    char stringdata18[30];
+    char stringdata19[5];
+    char stringdata20[29];
+    char stringdata21[34];
+    char stringdata22[27];
+    char stringdata23[30];
+    char stringdata24[26];
+    char stringdata25[24];
+    char stringdata26[22];
     char stringdata27[24];
+    char stringdata28[24];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CharacterWindow_t::offsetsAndSizes) + ofs), len 
@@ -76,20 +77,21 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
         QT_MOC_LITERAL(191, 21),  // "onMagicBonusesChanged"
         QT_MOC_LITERAL(213, 24),  // "onBodyTypeBonusesChanged"
         QT_MOC_LITERAL(238, 20),  // "onWillBonusesChanged"
-        QT_MOC_LITERAL(259, 36),  // "on_verticalScrollBar_actionTr..."
-        QT_MOC_LITERAL(296, 6),  // "action"
-        QT_MOC_LITERAL(303, 33),  // "on_verticalScrollBar_valueCha..."
-        QT_MOC_LITERAL(337, 29),  // "on_StrengthValue_valueChanged"
-        QT_MOC_LITERAL(367, 4),  // "arg1"
-        QT_MOC_LITERAL(372, 28),  // "on_AgilityValue_valueChanged"
-        QT_MOC_LITERAL(401, 33),  // "on_IntelligenceValue_valueCha..."
-        QT_MOC_LITERAL(435, 26),  // "on_MagicValue_valueChanged"
-        QT_MOC_LITERAL(462, 29),  // "on_BodyTypeValue_valueChanged"
-        QT_MOC_LITERAL(492, 25),  // "on_WillValue_valueChanged"
-        QT_MOC_LITERAL(518, 23),  // "on_pushButton_4_clicked"
-        QT_MOC_LITERAL(542, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(564, 23),  // "on_pushButton_2_clicked"
-        QT_MOC_LITERAL(588, 23)   // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(259, 16),  // "recalculateStats"
+        QT_MOC_LITERAL(276, 36),  // "on_verticalScrollBar_actionTr..."
+        QT_MOC_LITERAL(313, 6),  // "action"
+        QT_MOC_LITERAL(320, 33),  // "on_verticalScrollBar_valueCha..."
+        QT_MOC_LITERAL(354, 29),  // "on_StrengthValue_valueChanged"
+        QT_MOC_LITERAL(384, 4),  // "arg1"
+        QT_MOC_LITERAL(389, 28),  // "on_AgilityValue_valueChanged"
+        QT_MOC_LITERAL(418, 33),  // "on_IntelligenceValue_valueCha..."
+        QT_MOC_LITERAL(452, 26),  // "on_MagicValue_valueChanged"
+        QT_MOC_LITERAL(479, 29),  // "on_BodyTypeValue_valueChanged"
+        QT_MOC_LITERAL(509, 25),  // "on_WillValue_valueChanged"
+        QT_MOC_LITERAL(535, 23),  // "on_pushButton_4_clicked"
+        QT_MOC_LITERAL(559, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(581, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(605, 23)   // "on_pushButton_3_clicked"
     },
     "CharacterWindow",
     "ScrollAreaSecondarySkillsScrolled",
@@ -105,6 +107,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
     "onMagicBonusesChanged",
     "onBodyTypeBonusesChanged",
     "onWillBonusesChanged",
+    "recalculateStats",
     "on_verticalScrollBar_actionTriggered",
     "action",
     "on_verticalScrollBar_valueChanged",
@@ -129,7 +132,7 @@ Q_CONSTINIT static const uint qt_meta_data_CharacterWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -137,27 +140,28 @@ Q_CONSTINIT static const uint qt_meta_data_CharacterWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  140,    2, 0x08,    1 /* Private */,
-       4,    1,  143,    2, 0x08,    3 /* Private */,
-       7,    0,  146,    2, 0x08,    5 /* Private */,
-       8,    0,  147,    2, 0x08,    6 /* Private */,
-       9,    0,  148,    2, 0x08,    7 /* Private */,
-      10,    0,  149,    2, 0x08,    8 /* Private */,
-      11,    0,  150,    2, 0x08,    9 /* Private */,
-      12,    0,  151,    2, 0x08,   10 /* Private */,
-      13,    0,  152,    2, 0x08,   11 /* Private */,
-      14,    1,  153,    2, 0x08,   12 /* Private */,
-      16,    1,  156,    2, 0x08,   14 /* Private */,
-      17,    1,  159,    2, 0x08,   16 /* Private */,
-      19,    1,  162,    2, 0x08,   18 /* Private */,
-      20,    1,  165,    2, 0x08,   20 /* Private */,
-      21,    1,  168,    2, 0x08,   22 /* Private */,
-      22,    1,  171,    2, 0x08,   24 /* Private */,
-      23,    1,  174,    2, 0x08,   26 /* Private */,
-      24,    0,  177,    2, 0x08,   28 /* Private */,
-      25,    0,  178,    2, 0x08,   29 /* Private */,
-      26,    0,  179,    2, 0x08,   30 /* Private */,
-      27,    0,  180,    2, 0x08,   31 /* Private */,
+       1,    1,  146,    2, 0x08,    1 /* Private */,
+       4,    1,  149,    2, 0x08,    3 /* Private */,
+       7,    0,  152,    2, 0x08,    5 /* Private */,
+       8,    0,  153,    2, 0x08,    6 /* Private */,
+       9,    0,  154,    2, 0x08,    7 /* Private */,
+      10,    0,  155,    2, 0x08,    8 /* Private */,
+      11,    0,  156,    2, 0x08,    9 /* Private */,
+      12,    0,  157,    2, 0x08,   10 /* Private */,
+      13,    0,  158,    2, 0x08,   11 /* Private */,
+      14,    0,  159,    2, 0x08,   12 /* Private */,
+      15,    1,  160,    2, 0x08,   13 /* Private */,
+      17,    1,  163,    2, 0x08,   15 /* Private */,
+      18,    1,  166,    2, 0x08,   17 /* Private */,
+      20,    1,  169,    2, 0x08,   19 /* Private */,
+      21,    1,  172,    2, 0x08,   21 /* Private */,
+      22,    1,  175,    2, 0x08,   23 /* Private */,
+      23,    1,  178,    2, 0x08,   25 /* Private */,
+      24,    1,  181,    2, 0x08,   27 /* Private */,
+      25,    0,  184,    2, 0x08,   29 /* Private */,
+      26,    0,  185,    2, 0x08,   30 /* Private */,
+      27,    0,  186,    2, 0x08,   31 /* Private */,
+      28,    0,  187,    2, 0x08,   32 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -169,14 +173,15 @@ Q_CONSTINIT static const uint qt_meta_data_CharacterWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   15,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   16,
     QMetaType::Void, QMetaType::Int,    3,
-    QMetaType::Void, QMetaType::Int,   18,
-    QMetaType::Void, QMetaType::Int,   18,
-    QMetaType::Void, QMetaType::Int,   18,
-    QMetaType::Void, QMetaType::Int,   18,
-    QMetaType::Void, QMetaType::Int,   18,
-    QMetaType::Void, QMetaType::Int,   18,
+    QMetaType::Void, QMetaType::Int,   19,
+    QMetaType::Void, QMetaType::Int,   19,
+    QMetaType::Void, QMetaType::Int,   19,
+    QMetaType::Void, QMetaType::Int,   19,
+    QMetaType::Void, QMetaType::Int,   19,
+    QMetaType::Void, QMetaType::Int,   19,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -213,6 +218,8 @@ Q_CONSTINIT const QMetaObject CharacterWindow::staticMetaObject = { {
         // method 'onBodyTypeBonusesChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onWillBonusesChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'recalculateStats'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_verticalScrollBar_actionTriggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -265,18 +272,19 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 6: _t->onMagicBonusesChanged(); break;
         case 7: _t->onBodyTypeBonusesChanged(); break;
         case 8: _t->onWillBonusesChanged(); break;
-        case 9: _t->on_verticalScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 10: _t->on_verticalScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 11: _t->on_StrengthValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 12: _t->on_AgilityValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 13: _t->on_IntelligenceValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 14: _t->on_MagicValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 15: _t->on_BodyTypeValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 16: _t->on_WillValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 17: _t->on_pushButton_4_clicked(); break;
-        case 18: _t->on_pushButton_clicked(); break;
-        case 19: _t->on_pushButton_2_clicked(); break;
-        case 20: _t->on_pushButton_3_clicked(); break;
+        case 9: _t->recalculateStats(); break;
+        case 10: _t->on_verticalScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 11: _t->on_verticalScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 12: _t->on_StrengthValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->on_AgilityValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 14: _t->on_IntelligenceValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 15: _t->on_MagicValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 16: _t->on_BodyTypeValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 17: _t->on_WillValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 18: _t->on_pushButton_4_clicked(); break;
+        case 19: _t->on_pushButton_clicked(); break;
+        case 20: _t->on_pushButton_2_clicked(); break;
+        case 21: _t->on_pushButton_3_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -312,13 +320,13 @@ int CharacterWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 22;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 22;
     }
     return _id;
 }

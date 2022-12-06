@@ -40,6 +40,7 @@ public:
     int getFinalValue() const;
 
     int getProgressBarCurrentValue() const;
+    //Задание текущего значения прогрессбара, при этом просто value, в таком случае, является максимальным значением
     void setProgressBarCurrentValue(int newProgressBarCurrentValue);
 
 private:

@@ -22,6 +22,10 @@ void Stat::setValue(int newValue)
     else if(value<0)
         value = 0;
 
+    //Если текущее значение прогрессбара превышает максимальное значение, то оно усекается
+    if(progressBarCurrentValue>value)
+        progressBarCurrentValue = value;
+
     calculateFinalValue();
 }
 
@@ -98,6 +102,7 @@ int Stat::getProgressBarCurrentValue() const
     return progressBarCurrentValue;
 }
 
+//Задание текущего значения прогрессбара, при этом просто value, в таком случае, является максимальным значением
 void Stat::setProgressBarCurrentValue(int newProgressBarCurrentValue)
 {
     progressBarCurrentValue = newProgressBarCurrentValue;

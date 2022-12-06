@@ -50,6 +50,9 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(&person, &Person::BodyTypeBonusesChanged, this, &CharacterWindow::onBodyTypeBonusesChanged);
     connect(&person, &Person::WillBonusesChanged, this, &CharacterWindow::onWillBonusesChanged);
 
+    //Связывание слота полной переинициализации из класса person с пересчётом вторичных статов
+    connect(&person, &Person::FullReinitializationRequest, this, &CharacterWindow::recalculateStats);
+
     /*Связывание слота ScrollAreaSecondarySkillsScrolled с сигналом valueChanged у вертикального скроллбара в области
      *прокрутки ScrollAreaSecondarySkills. Делается это потому, что у убласти прокрутки мне нужен сигнал изменения
      *положения прокрутки. Внезапно вдруг такого не имеется. Но имеется сигнал valueChanged у скроллбара внутри
@@ -512,114 +515,12 @@ void CharacterWindow::linkingTooltipSlots()
 //В методе происходит полный перерасчёт всех вторичных навыков
 void CharacterWindow::recalculateStats()
 {
-    int magicDamage =
-    floor(1.5 * person.getMagic()->getFinalValue()) + floor(1.5 * person.getIntelligence()->getFinalValue()) + floor(0.5 * person.getWill()->getFinalValue());
-    person.getMagicDamage()->setValue(magicDamage);
-
-    int resistPhysicalDamage = floor(1.5 * person.getWill()->getFinalValue()) + floor(0.5 * person.getMagic()->getFinalValue()) + person.getBodyType()->getFinalValue();
-    person.getResistPhysicalDamage()->setValue(resistPhysicalDamage);
-
-    int resistMagicDamage = floor(1.5 * person.getWill()->getFinalValue()) + floor(0.5 * person.getBodyType()->getFinalValue()) + person.getMagic()->getFinalValue();
-    person.getResistMagicDamage()->setValue(resistMagicDamage);
-
-    int resistPhysicalEffects = floor(0.1 * person.getWill()->getFinalValue()) + 10;
-    person.getResistPhysicalEffects()->setValue(resistPhysicalEffects);
-
-    int resistMagicEffects = floor(0.1 * person.getWill()->getFinalValue()) + floor(0.1 * person.getMagic()->getFinalValue()) + 5;
-    person.getResistMagicEffects()->setValue(resistMagicEffects);
-
-    int strengtheningPhysicalEffects = floor(0.1 * person.getStrength()->getFinalValue());
-    person.getStrengtheningPhysicalEffects()->setValue(strengtheningPhysicalEffects);
-
-    int strengtheningMagicalEffects = floor(0.1 * person.getIntelligence()->getFinalValue());
-    person.getStrengtheningMagicalEffects()->setValue(strengtheningMagicalEffects);
-
-    int meleeAccuracy = floor(0.1 * person.getAgility()->getFinalValue()) + 20;
-    person.getMeleeAccuracy()->setValue(meleeAccuracy);
-
-    int rangedAccuracy = floor(0.1 * person.getAgility()->getFinalValue()) + 15;
-    person.getRangedAccuracy()->setValue(rangedAccuracy);
-
-    int magicAccuracy = floor(0.1 * person.getIntelligence()->getFinalValue()) + 15;
-    person.getMagicAccuracy()->setValue(magicAccuracy);
-
-    int evasion = floor(0.5 * person.getAgility()->getFinalValue()) + floor(0.1 * person.getBodyType()->getFinalValue());
-    person.getEvasion()->setValue(evasion);
-
-    int stealth = person.getIntelligence()->getFinalValue() + person.getAgility()->getFinalValue();
-    person.getStealth()->setValue(stealth);
-
-    int attentiveness = person.getIntelligence()->getFinalValue() + person.getAgility()->getFinalValue() + person.getWill()->getFinalValue();
-    person.getAttentiveness()->setValue(attentiveness);
-
-    int loadCapacity = floor(0.5 * person.getStrength()->getFinalValue()) + floor(0.5 * person.getBodyType()->getFinalValue());
-    person.getLoadCapacity()->setValue(loadCapacity);
-
-    int initiative = floor(5 * person.getAgility()->getFinalValue()) + person.getIntelligence()->getFinalValue() + person.getWill()->getFinalValue();
-    person.getInitiative()->setValue(initiative);
-
-    int magicCastChance = floor(0.3 * person.getIntelligence()->getFinalValue()) + floor(0.2 * person.getMagic()->getFinalValue());
-    person.getMagicCastChance()->setValue(magicCastChance);
-
-    int chanceOfUsingCombatTechnique = floor(0.2 * person.getAgility()->getFinalValue()) + 20;
-    person.getChanceOfUsingCombatTechnique()->setValue(chanceOfUsingCombatTechnique);
-
-    int moveRange = floor(0.75 * person.getAgility()->getFinalValue()) + floor(0.5 * person.getStrength()->getFinalValue()) + person.getBodyType()->getFinalValue();
-    person.getMoveRange()->setValue(moveRange);
-
-    int health = person.getStrength()->getFinalValue() * 2 + person.getBodyType()->getFinalValue() * 10 + person.getWill()->getFinalValue() * 5 + person.getMagic()->getFinalValue();
-    person.getHealth()->setValue(health);
-
-    int endurance = person.getAgility()->getFinalValue() * 10 + person.getBodyType()->getFinalValue();
-    person.getEndurance()->setValue(endurance);
-
-    int mana = person.getMagic()->getFinalValue() * 10 + person.getIntelligence()->getFinalValue() * 2 + person.getWill()->getFinalValue();
-    person.getMana()->setValue(mana);
-
-    int numberOfChunks = 0;
-    //Требование для появления нового чанка магической защиты
-    int requirementOfChunk = 5;
-    int will = person.getWill()->getFinalValue();
-    /*Общая сумма требований воли до получения ещё одного чанка. Служит для передачи
-     *подсказке информации о том сколько ещё нужно воли до появления нового чанка*/
-    int amountOfRequirements = requirementOfChunk;
-
-    //Если воли достаточно для получения хотябы одного чанка
-    if(will>=requirementOfChunk){
-        /*Вычисляется сколько остаётся воли после заполнения первого чанка.
-         *Единица 1 раз вычитается из требований чтобы последующий цикл каждый
-         *раз толкался на одну дополнительную итерацию, заполняя количество
-         *чанков, и главное, заполняя требования для получения следующего чанка.*/
-        will-=requirementOfChunk-1;
-        while(true){
-            numberOfChunks++;
-            //Требования экспоненциально растут
-            requirementOfChunk*=1.2;
-            /*Вычисляется общая сумма требований, а из-за толкания на дополнительную
-             *итерацию эти требования всегда для уже последующего чанка, а не текущего*/
-            amountOfRequirements+=requirementOfChunk;
-            //Вычисляется сколько остаётся воли после заполнения нового чанка
-            will-=requirementOfChunk;
-            /*Меньше или равным нулю воля может оказаться только если
-             *требования на появления ещё одного чанка не соблюдены*/
-            if(will<=0){
-                break;
-            }
-        }
-    }
-
-    //Прогрессбару магической защиты передаётся значение недостающей воли до появления ещё одного чанка
-    ui->MagicDefense->getProgressBar()->willUntilNextChunk = amountOfRequirements - person.getWill()->getFinalValue();
-
-    //Генерируется новый вектор чанков исходя из новых статов
-    QVector<Chunk*> chinks;
-    for(int i = 0; i<numberOfChunks; i++){
-        int chunkValue = floor(person.getMagic()->getFinalValue() * 0.7 + person.getBodyType()->getFinalValue() * 0.3);
-        chinks.append(new Chunk(chunkValue, 0));
-    }
-
-    person.getMagicDefense()->setNativeChunks(chinks);
-
+    qDebug()<<'f';
+    //Непосредственно перерасчёт делается в классе Person
+    person.recalculateStats();
+    //Задание значения воли, для подсказки, требуемой до получения нового чанка магической защиты
+    ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.willUntilNextChunk;
+    //Инициализация получеными значениями
     initSecondaryStatsWidgets();
 }
 
@@ -638,6 +539,7 @@ void CharacterWindow::initPrimaryStatsWidgets()
     ui->WillValue->setValue(person.getWill()->getFinalValue());
 }
 
+//Инициализация элементов интерфеса связанных со статами значениями из Person
 void CharacterWindow::initSecondaryStatsWidgets()
 {
     ui->MagicDamage->setValue(person.getMagicDamage()->getFinalValue());
@@ -990,7 +892,7 @@ void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
  *и более простого и понятного доступа до его слотов.*/
 void CharacterWindow::on_verticalScrollBar_valueChanged(int value)
 {
-    //!!!
+    //При скролле скроллбара подсказка пропадает так как всё-равно окошко стата уезжает
     RemoveTooltip();
 
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setValue(value);

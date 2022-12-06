@@ -21,6 +21,9 @@ public:
     //Удаление бонуса с магической защиты
     bool removeBonusFromStat(MagicDefenseBonus* bonus);
 
+    //Перерасчёт вторичных навыков
+    void recalculateStats();
+
     Stat* getStrength();
     void setStrength(Stat &newStrength);
     Stat* getAgility();
@@ -78,6 +81,9 @@ public:
     void setMana(Stat &newMana);
     MagicDefense* getMagicDefense();
     void setMagicDefense(MagicDefense &newMagicDefense);
+
+    //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки
+    int willUntilNextChunk = 0;
 signals:
     void StrengthBonusesChanged();
     void AgilityBonusesChanged();
@@ -85,6 +91,12 @@ signals:
     void MagicBonusesChanged();
     void BodyTypeBonusesChanged();
     void WillBonusesChanged();
+
+    void FullReinitializationRequest();
+public slots:
+    /*Слот полной переинициализации. Каждый раз когда операции с бонусами проваливаются
+     *запрашивается их полная переинциализация для избежания последующих проблем.*/
+    void fullReinitialization();
 private:
     /*Метод непосредственно удаляющий бонусы, в отличии от
      *removeBonusFromStat, который лишь направляет данные сюда*/
