@@ -50,8 +50,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(&person, &Person::BodyTypeBonusesChanged, this, &CharacterWindow::onBodyTypeBonusesChanged);
     connect(&person, &Person::WillBonusesChanged, this, &CharacterWindow::onWillBonusesChanged);
 
-    //Связывание слота полной переинициализации из класса person с пересчётом вторичных статов
-    connect(&person, &Person::FullReinitializationRequest, this, &CharacterWindow::recalculateStats);
+    //Связывание слота полной переинициализации из класса person с обновлением отображения статов
+    connect(&person, &Person::FullReinitializationRequest, this, &CharacterWindow::refreshDisplayStats);
 
     /*Связывание слота ScrollAreaSecondarySkillsScrolled с сигналом valueChanged у вертикального скроллбара в области
      *прокрутки ScrollAreaSecondarySkills. Делается это потому, что у убласти прокрутки мне нужен сигнал изменения
@@ -515,13 +515,10 @@ void CharacterWindow::linkingTooltipSlots()
 //В методе происходит полный перерасчёт всех вторичных навыков
 void CharacterWindow::recalculateStats()
 {
-    qDebug()<<'f';
     //Непосредственно перерасчёт делается в классе Person
     person.recalculateStats();
-    //Задание значения воли, для подсказки, требуемой до получения нового чанка магической защиты
-    ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.willUntilNextChunk;
-    //Инициализация получеными значениями
-    initSecondaryStatsWidgets();
+    //Обновление отображения статов
+    refreshDisplayStats();
 }
 
 void CharacterWindow::initPrimaryStatsWidgets()
@@ -998,6 +995,15 @@ void CharacterWindow::onWillBonusesChanged()
     if(!isManualStatReplacement){
         ui->WillValue->setValue(person.getWill()->getFinalValue());
     }
+}
+
+//Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
+void CharacterWindow::refreshDisplayStats()
+{
+    //Задание значения воли, для подсказки, требуемой до получения нового чанка магической защиты
+    ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.willUntilNextChunk;
+    //Инициализация получеными значениями
+    initSecondaryStatsWidgets();
 }
 
 void CharacterWindow::on_StrengthValue_valueChanged(int arg1)

@@ -784,5 +784,7 @@ void Person::fullReinitialization()
     Mana.reinitializationOfBonuses(ManaBonuses);
     magicDefense.reinitializationOfBonuses(magicDefenseBonuses);
 
+    recalculateStats();
+
     emit FullReinitializationRequest();
 }

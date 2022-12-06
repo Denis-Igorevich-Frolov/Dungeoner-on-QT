@@ -43,7 +43,7 @@ struct qt_meta_stringdata_CharacterWindow_t {
     char stringdata11[22];
     char stringdata12[25];
     char stringdata13[21];
-    char stringdata14[17];
+    char stringdata14[20];
     char stringdata15[37];
     char stringdata16[7];
     char stringdata17[34];
@@ -77,21 +77,21 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
         QT_MOC_LITERAL(191, 21),  // "onMagicBonusesChanged"
         QT_MOC_LITERAL(213, 24),  // "onBodyTypeBonusesChanged"
         QT_MOC_LITERAL(238, 20),  // "onWillBonusesChanged"
-        QT_MOC_LITERAL(259, 16),  // "recalculateStats"
-        QT_MOC_LITERAL(276, 36),  // "on_verticalScrollBar_actionTr..."
-        QT_MOC_LITERAL(313, 6),  // "action"
-        QT_MOC_LITERAL(320, 33),  // "on_verticalScrollBar_valueCha..."
-        QT_MOC_LITERAL(354, 29),  // "on_StrengthValue_valueChanged"
-        QT_MOC_LITERAL(384, 4),  // "arg1"
-        QT_MOC_LITERAL(389, 28),  // "on_AgilityValue_valueChanged"
-        QT_MOC_LITERAL(418, 33),  // "on_IntelligenceValue_valueCha..."
-        QT_MOC_LITERAL(452, 26),  // "on_MagicValue_valueChanged"
-        QT_MOC_LITERAL(479, 29),  // "on_BodyTypeValue_valueChanged"
-        QT_MOC_LITERAL(509, 25),  // "on_WillValue_valueChanged"
-        QT_MOC_LITERAL(535, 23),  // "on_pushButton_4_clicked"
-        QT_MOC_LITERAL(559, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(581, 23),  // "on_pushButton_2_clicked"
-        QT_MOC_LITERAL(605, 23)   // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(259, 19),  // "refreshDisplayStats"
+        QT_MOC_LITERAL(279, 36),  // "on_verticalScrollBar_actionTr..."
+        QT_MOC_LITERAL(316, 6),  // "action"
+        QT_MOC_LITERAL(323, 33),  // "on_verticalScrollBar_valueCha..."
+        QT_MOC_LITERAL(357, 29),  // "on_StrengthValue_valueChanged"
+        QT_MOC_LITERAL(387, 4),  // "arg1"
+        QT_MOC_LITERAL(392, 28),  // "on_AgilityValue_valueChanged"
+        QT_MOC_LITERAL(421, 33),  // "on_IntelligenceValue_valueCha..."
+        QT_MOC_LITERAL(455, 26),  // "on_MagicValue_valueChanged"
+        QT_MOC_LITERAL(482, 29),  // "on_BodyTypeValue_valueChanged"
+        QT_MOC_LITERAL(512, 25),  // "on_WillValue_valueChanged"
+        QT_MOC_LITERAL(538, 23),  // "on_pushButton_4_clicked"
+        QT_MOC_LITERAL(562, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(584, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(608, 23)   // "on_pushButton_3_clicked"
     },
     "CharacterWindow",
     "ScrollAreaSecondarySkillsScrolled",
@@ -107,7 +107,7 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
     "onMagicBonusesChanged",
     "onBodyTypeBonusesChanged",
     "onWillBonusesChanged",
-    "recalculateStats",
+    "refreshDisplayStats",
     "on_verticalScrollBar_actionTriggered",
     "action",
     "on_verticalScrollBar_valueChanged",
@@ -219,7 +219,7 @@ Q_CONSTINIT const QMetaObject CharacterWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onWillBonusesChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'recalculateStats'
+        // method 'refreshDisplayStats'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_verticalScrollBar_actionTriggered'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -272,7 +272,7 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 6: _t->onMagicBonusesChanged(); break;
         case 7: _t->onBodyTypeBonusesChanged(); break;
         case 8: _t->onWillBonusesChanged(); break;
-        case 9: _t->recalculateStats(); break;
+        case 9: _t->refreshDisplayStats(); break;
         case 10: _t->on_verticalScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 11: _t->on_verticalScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 12: _t->on_StrengthValue_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;

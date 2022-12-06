@@ -34,8 +34,8 @@ private slots:
     void onBodyTypeBonusesChanged();
     void onWillBonusesChanged();
 
-    //В методе происходит полный перерасчёт всех вторичных навыков
-    void recalculateStats();
+    //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
+    void refreshDisplayStats();
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
@@ -78,6 +78,9 @@ private:
     /*Данный метод связывает все слоты показа и сокрытия подсказки у всех
      *необходимых элементов со слотами показа и сокрытия подсказки окна*/
     void linkingTooltipSlots();
+
+    //В методе происходит полный перерасчёт всех вторичных навыков
+    void recalculateStats();
 
     void initPrimaryStatsWidgets();
 
