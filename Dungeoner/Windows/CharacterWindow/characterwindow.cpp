@@ -372,6 +372,13 @@ void CharacterWindow::associatingLabelsWithValues()
     }
 }
 
+/*В данном методе связывается вектор бонусов статов из класса Person с указателем внутри
+ *виджета стата, чтобы у каждого виджета был доступ к своим бонусам для выведения подсказки*/
+void CharacterWindow::linkingStatBonusesPointers()
+{
+//    ui->StrengthPrimarySkillSignature->bonuses = person.getStrength().
+}
+
 void CharacterWindow::associatingLabelsWithStat()
 {
     ui->StrengthPrimarySkillSignature->setStat(person.getStrength());

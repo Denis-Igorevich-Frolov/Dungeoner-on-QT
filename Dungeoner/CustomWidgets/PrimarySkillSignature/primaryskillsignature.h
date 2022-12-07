@@ -47,6 +47,8 @@ public:
     Stat *getStat() const;
     void setStat(Stat *newStat);
 
+    QVector<Bonus*>* bonuses;
+
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();

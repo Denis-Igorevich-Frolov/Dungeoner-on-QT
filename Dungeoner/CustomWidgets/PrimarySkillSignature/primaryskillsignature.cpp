@@ -183,6 +183,10 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     descriptionLabel->setWordWrap(true);
     tooltipContent.append(descriptionLabel);
 
+//    if(!bonuses->isEmpty()){
+
+//    }
+
     ui->labelWithTooltip->setTooltipContent(tooltipContent);
 }
 

@@ -7,117 +7,90 @@ void Person::addBonusToStat(Bonus *bonus)
 {
     switch (bonus->statName) {
     case Bonus::STRENGTH:
-        StrengthBonuses.append(bonus);
         Strength.addBonus(bonus);
         emit StrengthBonusesChanged();
         break;
     case Bonus::AGILITY:
-        AgilityBonuses.append(bonus);
         Agility.addBonus(bonus);
         emit AgilityBonusesChanged();
         break;
     case Bonus::INTELLIGENCE:
-        IntelligenceBonuses.append(bonus);
         Intelligence.addBonus(bonus);
         emit IntelligenceBonusesChanged();
         break;
     case Bonus::MAGIC:
-        MagicBonuses.append(bonus);
         Magic.addBonus(bonus);
         emit MagicBonusesChanged();
         break;
     case Bonus::BODYTYPE:
-        BodyTypeBonuses.append(bonus);
         BodyType.addBonus(bonus);
         emit BodyTypeBonusesChanged();
         break;
     case Bonus::WILL:
-        WillBonuses.append(bonus);
         Will.addBonus(bonus);
         emit WillBonusesChanged();
         break;
     case Bonus::MAGIC_DAMAGE:
-        MagicDamageBonuses.append(bonus);
         MagicDamage.addBonus(bonus);
         break;
     case Bonus::RESIST_PHYSICAL_DAMAGE:
-        ResistPhysicalDamageBonuses.append(bonus);
         ResistPhysicalDamage.addBonus(bonus);
         break;
     case Bonus::RESIST_MAGIC_DAMAGE:
-        ResistMagicDamageBonuses.append(bonus);
         ResistMagicDamage.addBonus(bonus);
         break;
     case Bonus::RESIST_PHYSICAL_EFFECTS:
-        ResistPhysicalEffectsBonuses.append(bonus);
         ResistPhysicalEffects.addBonus(bonus);
         break;
     case Bonus::RESIST_MAGIC_EFFECTS:
-        ResistMagicEffectsBonuses.append(bonus);
         ResistMagicEffects.addBonus(bonus);
         break;
     case Bonus::STRENGTHENING_PHYSICAL_EFFECTS:
-        StrengtheningPhysicalEffectsBonuses.append(bonus);
         StrengtheningPhysicalEffects.addBonus(bonus);
         break;
     case Bonus::STRENGTHENING_MAGICAL_EFFECTS:
-        StrengtheningMagicalEffectsBonuses.append(bonus);
         StrengtheningMagicalEffects.addBonus(bonus);
         break;
     case Bonus::MELEE_ACCURACY:
-        MeleeAccuracyBonuses.append(bonus);
         MeleeAccuracy.addBonus(bonus);
         break;
     case Bonus::RANGED_ACCURACY:
-        RangedAccuracyBonuses.append(bonus);
         RangedAccuracy.addBonus(bonus);
         break;
     case Bonus::MAGIC_ACCURACY:
-        MagicAccuracyBonuses.append(bonus);
         MagicAccuracy.addBonus(bonus);
         break;
     case Bonus::EVASION:
-        EvasionBonuses.append(bonus);
         Evasion.addBonus(bonus);
         break;
     case Bonus::STEALTH:
-        StealthBonuses.append(bonus);
         Stealth.addBonus(bonus);
         break;
     case Bonus::ATTENTIVENESS:
-        AttentivenessBonuses.append(bonus);
         Attentiveness.addBonus(bonus);
         break;
     case Bonus::LOAD_CAPACITY:
-        LoadCapacityBonuses.append(bonus);
         LoadCapacity.addBonus(bonus);
         break;
     case Bonus::INITIATIVE:
-        InitiativeBonuses.append(bonus);
         Initiative.addBonus(bonus);
         break;
     case Bonus::MAGIC_CAST_CHANCE:
-        MagicCastChanceBonuses.append(bonus);
         MagicCastChance.addBonus(bonus);
         break;
     case Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE:
-        ChanceOfUsingCombatTechniqueBonuses.append(bonus);
         ChanceOfUsingCombatTechnique.addBonus(bonus);
         break;
     case Bonus::MOVE_RANGE:
-        MoveRangeBonuses.append(bonus);
         MoveRange.addBonus(bonus);
         break;
     case Bonus::HEALTH:
-        HealthBonuses.append(bonus);
         Health.addBonus(bonus);
         break;
     case Bonus::ENDURANCE:
-        EnduranceBonuses.append(bonus);
         Endurance.addBonus(bonus);
         break;
     case Bonus::MANA:
-        ManaBonuses.append(bonus);
         Mana.addBonus(bonus);
         break;
     }
@@ -126,7 +99,6 @@ void Person::addBonusToStat(Bonus *bonus)
 //Добавление бонуса на магическую защиту
 void Person::addBonusToStat(MagicDefenseBonus *bonus)
 {
-    magicDefenseBonuses.append(bonus);
     magicDefense.addBonus(bonus);
 }
 
@@ -136,218 +108,160 @@ bool Person::removeBonusFromStat(Bonus *bonus)
     bool successful;
     switch (bonus->statName) {
     case Bonus::STRENGTH:
-        successful = bonusRemoval(StrengthBonuses, bonus);
-        Strength.reinitializationOfBonuses(StrengthBonuses);
+        successful = Strength.removeBonus(bonus);
         emit StrengthBonusesChanged();
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::AGILITY:
-        successful = bonusRemoval(AgilityBonuses, bonus);
-        Agility.reinitializationOfBonuses(AgilityBonuses);
+        successful = Agility.removeBonus(bonus);
         emit AgilityBonusesChanged();
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::INTELLIGENCE:
-        successful = bonusRemoval(IntelligenceBonuses, bonus);
-        Intelligence.reinitializationOfBonuses(IntelligenceBonuses);
+        successful = Intelligence.removeBonus(bonus);
         emit IntelligenceBonusesChanged();
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::MAGIC:
-        successful = bonusRemoval(MagicBonuses, bonus);
-        Magic.reinitializationOfBonuses(MagicBonuses);
+        successful = Magic.removeBonus(bonus);
         emit MagicBonusesChanged();
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::BODYTYPE:
-        successful = bonusRemoval(BodyTypeBonuses, bonus);
-        BodyType.reinitializationOfBonuses(BodyTypeBonuses);
+        successful = BodyType.removeBonus(bonus);
         emit BodyTypeBonusesChanged();
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::WILL:
-        successful = bonusRemoval(WillBonuses, bonus);
-        Will.reinitializationOfBonuses(WillBonuses);
+        successful = Will.removeBonus(bonus);
         emit WillBonusesChanged();
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::MAGIC_DAMAGE:
-        successful = bonusRemoval(MagicDamageBonuses, bonus);
-        MagicDamage.reinitializationOfBonuses(MagicDamageBonuses);
+        successful =  MagicDamage.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::RESIST_PHYSICAL_DAMAGE:
-        successful = bonusRemoval(ResistPhysicalDamageBonuses, bonus);
-        ResistPhysicalDamage.reinitializationOfBonuses(ResistPhysicalDamageBonuses);
+        successful =  ResistPhysicalDamage.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::RESIST_MAGIC_DAMAGE:
-        successful = bonusRemoval(ResistMagicDamageBonuses, bonus);
-        ResistMagicDamage.reinitializationOfBonuses(ResistMagicDamageBonuses);
+        successful =  ResistMagicDamage.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::RESIST_PHYSICAL_EFFECTS:
-        successful = bonusRemoval(ResistPhysicalEffectsBonuses, bonus);
-        ResistPhysicalEffects.reinitializationOfBonuses(ResistPhysicalEffectsBonuses);
+        successful =  ResistPhysicalEffects.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::RESIST_MAGIC_EFFECTS:
-        successful = bonusRemoval(ResistMagicEffectsBonuses, bonus);
-        ResistMagicEffects.reinitializationOfBonuses(ResistMagicEffectsBonuses);
+        successful =  ResistMagicEffects.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::STRENGTHENING_PHYSICAL_EFFECTS:
-        successful = bonusRemoval(StrengtheningPhysicalEffectsBonuses, bonus);
-        StrengtheningPhysicalEffects.reinitializationOfBonuses(StrengtheningPhysicalEffectsBonuses);
+        successful =  StrengtheningPhysicalEffects.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::STRENGTHENING_MAGICAL_EFFECTS:
-        successful = bonusRemoval(StrengtheningMagicalEffectsBonuses, bonus);
-        StrengtheningMagicalEffects.reinitializationOfBonuses(StrengtheningMagicalEffectsBonuses);
+        successful =  StrengtheningMagicalEffects.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::MELEE_ACCURACY:
-        successful = bonusRemoval(MeleeAccuracyBonuses, bonus);
-        MeleeAccuracy.reinitializationOfBonuses(MeleeAccuracyBonuses);
+        successful =  MeleeAccuracy.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::RANGED_ACCURACY:
-        successful = bonusRemoval(RangedAccuracyBonuses, bonus);
-        RangedAccuracy.reinitializationOfBonuses(RangedAccuracyBonuses);
+        successful =  RangedAccuracy.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::MAGIC_ACCURACY:
-        successful = bonusRemoval(MagicAccuracyBonuses, bonus);
-        MagicAccuracy.reinitializationOfBonuses(MagicAccuracyBonuses);
+        successful =  MagicAccuracy.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::EVASION:
-        successful = bonusRemoval(EvasionBonuses, bonus);
-        Evasion.reinitializationOfBonuses(EvasionBonuses);
+        successful =  Evasion.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::STEALTH:
-        successful = bonusRemoval(StealthBonuses, bonus);
-        Stealth.reinitializationOfBonuses(StealthBonuses);
+        successful =  Stealth.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::ATTENTIVENESS:
-        successful = bonusRemoval(AttentivenessBonuses, bonus);
-        Attentiveness.reinitializationOfBonuses(AttentivenessBonuses);
+        successful =  Attentiveness.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::LOAD_CAPACITY:
-        successful = bonusRemoval(LoadCapacityBonuses, bonus);
-        LoadCapacity.reinitializationOfBonuses(LoadCapacityBonuses);
+        successful =  LoadCapacity.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::INITIATIVE:
-        successful = bonusRemoval(InitiativeBonuses, bonus);
-        Initiative.reinitializationOfBonuses(InitiativeBonuses);
+        successful =  Initiative.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::MAGIC_CAST_CHANCE:
-        successful = bonusRemoval(MagicCastChanceBonuses, bonus);
-        MagicCastChance.reinitializationOfBonuses(MagicCastChanceBonuses);
+        successful =  MagicCastChance.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE:
-        successful = bonusRemoval(ChanceOfUsingCombatTechniqueBonuses, bonus);
-        ChanceOfUsingCombatTechnique.reinitializationOfBonuses(ChanceOfUsingCombatTechniqueBonuses);
+        successful =  ChanceOfUsingCombatTechnique.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::MOVE_RANGE:
-        successful = bonusRemoval(MoveRangeBonuses, bonus);
-        MoveRange.reinitializationOfBonuses(MoveRangeBonuses);
+        successful =  MoveRange.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::HEALTH:
-        successful = bonusRemoval(HealthBonuses, bonus);
-        Health.reinitializationOfBonuses(HealthBonuses);
+        successful =  Health.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::ENDURANCE:
-        successful = bonusRemoval(EnduranceBonuses, bonus);
-        Endurance.reinitializationOfBonuses(EnduranceBonuses);
+        successful =  Endurance.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     case Bonus::MANA:
-        successful = bonusRemoval(ManaBonuses, bonus);
-        Mana.reinitializationOfBonuses(ManaBonuses);
+        successful =  Mana.removeBonus(bonus);
+        if (!successful)
+            fullReinitialization();
         return successful;
     default:
         return false;
     }
 }
 
-/*Метод непосредственно удаляющий бонусы, в отличии от
- *removeBonusFromStat, который лишь направляет данные сюда*/
-bool Person::bonusRemoval(QVector<Bonus*>& bonuses, Bonus *bonus)
-{
-    QMutableVectorIterator<Bonus*> iterator(bonuses);
-    iterator.toBack();
-    Bonus* MD;
-    //Итератор идёт с конца, чтобы найти ближайшее к краю совпадение
-    while(iterator.hasPrevious()){
-        MD = iterator.previous();
-        if(*MD==*bonus){
-            delete MD;
-            iterator.remove();
-            return true;
-        }
-    }
-    /*Если ничего найдено небыло, то выводится предупреждение. Вызывающему классу следует
-     *запросить полный пересчёт всех бонусов и провести полную переинициализацию.*/
-
-    //Вывод предупреждения в консоль и файл
-    QDate cd = QDate::currentDate();
-    QTime ct = QTime::currentTime();
-
-    QString error =
-    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-    "\nПРЕДУПРЕЖДЕНИЕ: не найден Bonus\n"
-    "Person выдал предупреждение в методе bonusRemoval.\n"
-    "При попытке удалить Bonus, он не был обнаружен.\n\n";
-    qDebug()<<error;
-
-    QFile errorFile("error log.txt");
-    if (!errorFile.open(QIODevice::Append))
-    {
-        qDebug() << "Ошибка при открытии файла логов";
-    }else{
-        errorFile.open(QIODevice::Append  | QIODevice::Text);
-        QTextStream writeStream(&errorFile);
-        writeStream<<error;
-        errorFile.close();
-    }
-
-    //Полная переинициализация всех статов из-за вызваной ошибки
-    fullReinitialization();
-
-    return false;
-}
-
 //Удаление бонуса с магической защиты
 bool Person::removeBonusFromStat(MagicDefenseBonus *bonus)
 {
-    QMutableVectorIterator<MagicDefenseBonus*> iterator(magicDefenseBonuses);
-    iterator.toBack();
-    MagicDefenseBonus* MD;
-    //Итератор идёт с конца, чтобы найти ближайшее к краю совпадение
-    while(iterator.hasPrevious()){
-        MD = iterator.previous();
-        if(*MD==*bonus){
-            delete MD;
-            iterator.remove();
+    //Переменная, говорящая о том было ли успешным удаление бонуса
+    bool successful = magicDefense.removeBonus(bonus);
 
-            magicDefense.reinitializationOfBonuses(magicDefenseBonuses);
-
-            return true;
-        }
-    }
-    /*Если ничего найдено небыло, то выводится предупреждение. Вызывающему классу следует
-     *запросить полный пересчёт всех векторов чанков и провести их полную переинициализацию.*/
-
-    //Вывод предупреждения в консоль и файл
-    QDate cd = QDate::currentDate();
-    QTime ct = QTime::currentTime();
-
-    QString error =
-    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-    "\nПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus\n"
-    "Person выдал предупреждение в методе removeBonusFromStat.\n"
-    "При попытке удалить MagicDefenseBonus, он не был обнаружен.\n\n";
-    qDebug()<<error;
-
-    QFile errorFile("error log.txt");
-    if (!errorFile.open(QIODevice::Append))
-    {
-        qDebug() << "Ошибка при открытии файла логов";
-    }else{
-        errorFile.open(QIODevice::Append  | QIODevice::Text);
-        QTextStream writeStream(&errorFile);
-        writeStream<<error;
-        errorFile.close();
-    }
-
-    //Полная переинициализация всех статов из-за вызваной ошибки
-    fullReinitialization();
-
-    return false;
+    if (!successful)
+        fullReinitialization();
+    return successful;
 }
 
 //Перерасчёт вторичных навыков
@@ -748,41 +662,7 @@ void Person::fullReinitialization()
 {
     qDebug()<<"!!!Полная переинициализация всех бонусов!!!";
 
-    Strength.reinitializationOfBonuses(StrengthBonuses);
-    emit StrengthBonusesChanged();
-    Agility.reinitializationOfBonuses(AgilityBonuses);
-    emit AgilityBonusesChanged();
-    Intelligence.reinitializationOfBonuses(IntelligenceBonuses);
-    emit IntelligenceBonusesChanged();
-    Magic.reinitializationOfBonuses(MagicBonuses);
-    emit MagicBonusesChanged();
-    BodyType.reinitializationOfBonuses(BodyTypeBonuses);
-    emit BodyTypeBonusesChanged();
-    Will.reinitializationOfBonuses(WillBonuses);
-    emit WillBonusesChanged();
-
-    MagicDamage.reinitializationOfBonuses(MagicDamageBonuses);
-    ResistPhysicalDamage.reinitializationOfBonuses(ResistPhysicalDamageBonuses);
-    ResistMagicDamage.reinitializationOfBonuses(ResistMagicDamageBonuses);
-    ResistPhysicalEffects.reinitializationOfBonuses(ResistPhysicalEffectsBonuses);
-    ResistMagicEffects.reinitializationOfBonuses(ResistMagicEffectsBonuses);
-    StrengtheningPhysicalEffects.reinitializationOfBonuses(StrengtheningPhysicalEffectsBonuses);
-    StrengtheningMagicalEffects.reinitializationOfBonuses(StrengtheningMagicalEffectsBonuses);
-    MeleeAccuracy.reinitializationOfBonuses(MeleeAccuracyBonuses);
-    RangedAccuracy.reinitializationOfBonuses(RangedAccuracyBonuses);
-    MagicAccuracy.reinitializationOfBonuses(MagicAccuracyBonuses);
-    Evasion.reinitializationOfBonuses(EvasionBonuses);
-    Stealth.reinitializationOfBonuses(StealthBonuses);
-    Attentiveness.reinitializationOfBonuses(AttentivenessBonuses);
-    LoadCapacity.reinitializationOfBonuses(LoadCapacityBonuses);
-    Initiative.reinitializationOfBonuses(InitiativeBonuses);
-    MagicCastChance.reinitializationOfBonuses(MagicCastChanceBonuses);
-    ChanceOfUsingCombatTechnique.reinitializationOfBonuses(ChanceOfUsingCombatTechniqueBonuses);
-    MoveRange.reinitializationOfBonuses(MoveRangeBonuses);
-    Health.reinitializationOfBonuses(HealthBonuses);
-    Endurance.reinitializationOfBonuses(EnduranceBonuses);
-    Mana.reinitializationOfBonuses(ManaBonuses);
-    magicDefense.reinitializationOfBonuses(magicDefenseBonuses);
+    //!!!Здесь должны быть запросы на пересчёты инвенторя и активных эффектов!!!
 
     recalculateStats();
 
