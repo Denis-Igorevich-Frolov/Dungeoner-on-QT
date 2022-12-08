@@ -13,6 +13,9 @@ Bonus::Bonus(StatName statName, int value, bool isPercentage, QString bonusName)
     this->value = value;
     this->isPercentage = isPercentage;
     this->bonusName = bonusName;
+
+    if(!isPercentage)
+        finalValue = value;
 }
 
 Bonus::Bonus()
@@ -34,6 +37,18 @@ void Bonus::setValue(int newValue)
         value = 9999999;
     else if(value < -9999999)
         value = -9999999;
+    if(!isPercentage)
+        finalValue = value;
+}
+
+int Bonus::getFinalValue() const
+{
+    return finalValue;
+}
+
+void Bonus::setFinalValue(int newFinalValue)
+{
+    finalValue = newFinalValue;
 }
 
 bool operator ==(const Bonus& bonus1, const Bonus& bonus2)
@@ -44,4 +59,34 @@ bool operator ==(const Bonus& bonus1, const Bonus& bonus2)
 bool operator !=(const Bonus& bonus1, const Bonus& bonus2)
 {
     return !((bonus1.value==bonus2.value)&&(bonus1.isPercentage==bonus2.isPercentage));
+}
+
+bool Bonus::operator <(const Bonus& bonus2)
+{
+    if(isPercentage && !bonus2.isPercentage)
+        return std::abs(finalValue) < std::abs(bonus2.getValue());
+    else if(!isPercentage && bonus2.isPercentage)
+        return std::abs(value) < std::abs(bonus2.getFinalValue());
+    else if(isPercentage && bonus2.isPercentage){
+        if(finalValue == bonus2.finalValue)
+            return std::abs(value) < std::abs(bonus2.getValue());
+        else
+            return std::abs(finalValue) < std::abs(bonus2.getFinalValue());
+    }else
+        return std::abs(value) < std::abs(bonus2.getValue());
+}
+
+bool Bonus::operator >(const Bonus& bonus2)
+{
+    if(isPercentage && !bonus2.isPercentage)
+        return std::abs(finalValue) > std::abs(bonus2.getValue());
+    else if(!isPercentage && bonus2.isPercentage)
+        return std::abs(value) > std::abs(bonus2.getFinalValue());
+    else if(isPercentage && bonus2.isPercentage){
+        if(finalValue == bonus2.finalValue)
+            return std::abs(value) > std::abs(bonus2.getValue());
+        else
+            return std::abs(finalValue) > std::abs(bonus2.getFinalValue());
+    }else
+        return std::abs(value) > std::abs(bonus2.getValue());
 }

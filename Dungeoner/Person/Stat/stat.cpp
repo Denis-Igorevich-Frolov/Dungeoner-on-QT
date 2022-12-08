@@ -32,6 +32,9 @@ void Stat::setValue(int newValue)
 void Stat::addBonus(Bonus *bonus)
 {
     bonuses.append(bonus);
+    std::sort(bonuses.begin(), bonuses.end(), [](Bonus* a, Bonus* b) {
+        return *a > *b;
+    });
     calculateFinalValue();
 }
 
@@ -109,9 +112,11 @@ void Stat::calculateFinalValue()
 
     for(Bonus* bonus : bonuses){
         if(bonus != nullptr){
-            if (bonus->isPercentage)
-                finalValue += ((double)value/100)*bonus->getValue();
-            else
+            if (bonus->isPercentage){
+                int bonusFinalValue = ((double)value/100)*bonus->getValue();
+                finalValue += bonusFinalValue;
+                bonus->setFinalValue(bonusFinalValue);
+            }else
                 finalValue += bonus->getValue();
         }
     }

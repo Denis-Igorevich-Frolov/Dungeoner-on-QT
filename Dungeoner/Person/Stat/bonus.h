@@ -56,8 +56,14 @@ public:
 
     friend bool operator == (const Bonus& bonus1, const Bonus& bonus2);
     friend bool operator != (const Bonus& bonus1, const Bonus& bonus2);
+    bool operator > (const Bonus& bonus2);
+    bool operator < (const Bonus& bonus2);
+
+    int getFinalValue() const;
+    void setFinalValue(int newFinalValue);
 
 private:
+    int finalValue = 0;
     int value = 0;
 };
 

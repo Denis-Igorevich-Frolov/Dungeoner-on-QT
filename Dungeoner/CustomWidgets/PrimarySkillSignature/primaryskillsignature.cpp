@@ -178,8 +178,24 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     if(!stat->getBonuses().isEmpty()){
         int row = 0;
         int col = 0;
+        int maxRow = 10;
+        if(stat->getBonuses().size() > 10)
+            maxRow = ceil((float)stat->getBonuses().size()/2);
+        qDebug()<<maxRow;
+        if(maxRow > 10)
+            maxRow = 10;
         for(Bonus* bonus : stat->getBonuses()){
             QString text;
+            QString sign = "";
+            int plus = -1;
+
+            if(bonus->getFinalValue() > 0){
+                plus = 1;
+                sign = '+';
+            }else if(bonus->getFinalValue() < 0){
+                plus = 0;
+            }
+
             if(bonus->bonusName.size()>16){
                 for(int i = 0; i<bonus->bonusName.size(); i++){
                     text.append(bonus->bonusName.at(i));
@@ -192,15 +208,18 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
                 }
             }else
                 text.append(bonus->bonusName);
-            text.append(": ");
-            text.append(QVariant(bonus->getValue()).toString());
+            text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
 
-            QString color = "cad160";
-            if(bonus->getValue()>0)
+            if(bonus->isPercentage)
+                text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
+
+            QString color;
+            if(plus == 1)
                 color = "77DB46";
-            else if(bonus->getValue()<0)
+            else if(plus == 0)
                 color = "FF7F4F";
-
+            else
+                color = "C9CF82";
             QLabel* bonusLabel = new QLabel(bonusesLabel);
             bonusLabel->setFont(QFont("TextFont"));
             bonusLabel->setText(text);
@@ -209,12 +228,12 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
             bonusesLayout->addWidget(bonusLabel, row, col, Qt::AlignCenter);
 
             row++;
-            if(row>9){
+            if(row>=maxRow){
                 row = 0;
                 col++;
-                if(col > 1){
+                if(col > 1 && maxRow==10){
                     bonusLabel->setText("...");
-                    bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(40, "cad160"));
+                    bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(50, "cad160"));
                     break;
                 }
             }
