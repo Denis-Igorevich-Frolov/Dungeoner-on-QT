@@ -7,11 +7,12 @@
 
 #include "bonus.h"
 
-Bonus::Bonus(StatName statName, int value, bool isPercentage)
+Bonus::Bonus(StatName statName, int value, bool isPercentage, QString bonusName)
 {
     this->statName = statName;
     this->value = value;
     this->isPercentage = isPercentage;
+    this->bonusName = bonusName;
 }
 
 Bonus::Bonus()

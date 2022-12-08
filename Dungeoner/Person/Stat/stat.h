@@ -36,6 +36,8 @@ public:
     //Задание текущего значения прогрессбара, при этом просто value, в таком случае, является максимальным значением
     void setProgressBarCurrentValue(int newProgressBarCurrentValue);
 
+    QVector<Bonus *> getBonuses() const;
+
 private:
     int value = 0;
     //Значение с учётом всех бонусов

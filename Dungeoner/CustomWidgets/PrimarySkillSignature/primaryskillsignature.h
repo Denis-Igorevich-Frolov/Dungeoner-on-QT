@@ -15,6 +15,7 @@
 #include <QWidget>
 #include <QSpinBox>
 #include <QTimer>
+#include <qgridlayout.h>
 
 namespace Ui {
 class PrimarySkillSignature;
@@ -47,8 +48,6 @@ public:
     Stat *getStat() const;
     void setStat(Stat *newStat);
 
-    QVector<Bonus*>* bonuses;
-
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
@@ -80,6 +79,8 @@ private:
     QVector<QLabel*> tooltipContent;
     QLabel* buttonTooltipContentLabel = new QLabel;
     QLabel* valueLabel;
+    QLabel* bonusesLabel = new QLabel;
+    QGridLayout* bonusesLayout = new QGridLayout;
 
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/

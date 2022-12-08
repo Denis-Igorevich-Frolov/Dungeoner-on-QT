@@ -97,6 +97,11 @@ void Stat::setProgressBarCurrentValue(int newProgressBarCurrentValue)
     progressBarCurrentValue = newProgressBarCurrentValue;
 }
 
+QVector<Bonus *> Stat::getBonuses() const
+{
+    return bonuses;
+}
+
 //Вычисление финального максимального значения стата с учётом всех бонусов
 void Stat::calculateFinalValue()
 {

@@ -8,6 +8,9 @@
 #ifndef BONUS_H
 #define BONUS_H
 
+#include <qstring.h>
+
+
 class Bonus
 {
 public:
@@ -41,7 +44,7 @@ public:
         MANA
     };
 
-    Bonus(StatName statName, int value, bool isPercentage);
+    Bonus(StatName statName, int value, bool isPercentage, QString bonusName);
     Bonus();
     int getValue() const;
     void setValue(int newValue);
@@ -49,6 +52,7 @@ public:
     //Определяет тип бонуса: абсолютный или процентный
     bool isPercentage = false;
     StatName statName;
+    QString bonusName;
 
     friend bool operator == (const Bonus& bonus1, const Bonus& bonus2);
     friend bool operator != (const Bonus& bonus1, const Bonus& bonus2);

@@ -27,6 +27,8 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
     ui->labelRight->setStyleSheet(PSS_StyleMaster::RightTextureStyle());
     ui->labelLeft->setStyleSheet(PSS_StyleMaster::LeftTextureStyle());
 
+    bonusesLabel->setLayout(bonusesLayout);
+
     ui->ButtonTop->installEventFilter(this);
     ui->ButtonBottom->installEventFilter(this);
 
@@ -39,6 +41,9 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
 
 PrimarySkillSignature::~PrimarySkillSignature()
 {
+    qDeleteAll(bonusesLayout->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
+    delete bonusesLayout;
+
     for(QLabel* label : tooltipContent)
         delete label;
     for(QLabel* label : buttonTooltipContent)
@@ -170,6 +175,57 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
 
+    if(!stat->getBonuses().isEmpty()){
+        int row = 0;
+        int col = 0;
+        for(Bonus* bonus : stat->getBonuses()){
+            QString text;
+            if(bonus->bonusName.size()>16){
+                for(int i = 0; i<bonus->bonusName.size(); i++){
+                    text.append(bonus->bonusName.at(i));
+                    if(i%16==0 && i!=0 && i!=bonus->bonusName.size()-1){
+                        if(bonus->bonusName.at(i+1)!=' '&&bonus->bonusName.at(i)!=' '){
+                            text.append('-');
+                        }
+                        text.append("\n");
+                    }
+                }
+            }else
+                text.append(bonus->bonusName);
+            text.append(": ");
+            text.append(QVariant(bonus->getValue()).toString());
+
+            QString color = "cad160";
+            if(bonus->getValue()>0)
+                color = "77DB46";
+            else if(bonus->getValue()<0)
+                color = "FF7F4F";
+
+            QLabel* bonusLabel = new QLabel(bonusesLabel);
+            bonusLabel->setFont(QFont("TextFont"));
+            bonusLabel->setText(text);
+            bonusLabel->setFixedWidth(225);
+            bonusLabel->setWordWrap(true);
+            bonusesLayout->addWidget(bonusLabel, row, col, Qt::AlignCenter);
+
+            row++;
+            if(row>9){
+                row = 0;
+                col++;
+                if(col > 1){
+                    bonusLabel->setText("...");
+                    bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(40, "cad160"));
+                    break;
+                }
+            }
+
+            bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(17, color));
+        }
+        bonusesLabel->setMaximumWidth(450);
+
+        tooltipContent.append(bonusesLabel);
+    }
+
     QLabel* separator2 = new QLabel;
     valueLabel->setMaximumWidth(450);
     separator2->setStyleSheet(PSS_StyleMaster::SeparatorStyle());
@@ -182,10 +238,6 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     descriptionLabel->setMaximumWidth(450);
     descriptionLabel->setWordWrap(true);
     tooltipContent.append(descriptionLabel);
-
-//    if(!bonuses->isEmpty()){
-
-//    }
 
     ui->labelWithTooltip->setTooltipContent(tooltipContent);
 }

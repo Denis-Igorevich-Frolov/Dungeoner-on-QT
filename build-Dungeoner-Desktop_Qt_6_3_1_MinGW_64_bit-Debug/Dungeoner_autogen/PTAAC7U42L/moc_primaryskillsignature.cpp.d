@@ -144,9 +144,13 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-De
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/QSpinBox \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  E:/Qt/6.4.0/mingw_64/include/QtWidgets/qboxlayout.h \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/qframe.h \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgraphicseffect.h \
+  E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgridlayout.h \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlabel.h \
+  E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayout.h \
+  E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/qspinbox.h \
   E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h \

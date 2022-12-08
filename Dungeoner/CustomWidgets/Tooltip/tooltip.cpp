@@ -59,22 +59,54 @@ void Tooltip::setContent(QVector<QLabel *> content)
      *этого для копирования пары троек односложных лейблов не выигрывает ничего.*/
     int i = 0;
     for(QLabel* label : content){
-        QLabel* newLabel = new QLabel;
-        newLabel->setWordWrap(label->wordWrap());
-        newLabel->setText(label->text());
-        newLabel->setAlignment(Qt::AlignCenter);
-        newLabel->setStyleSheet(label->styleSheet());
-        newLabel->setMinimumSize(label->minimumSize());
-        newLabel->setMaximumSize(label->maximumSize());
-        newLabel->setFont(label->font());
-        layout->addWidget(newLabel);
+        if(!dynamic_cast<QGridLayout*>(label->layout())){
+            QLabel* newLabel = new QLabel;
+            newLabel->setWordWrap(label->wordWrap());
+            newLabel->setText(label->text());
+            newLabel->setAlignment(Qt::AlignCenter);
+            newLabel->setStyleSheet(label->styleSheet());
+            newLabel->setMinimumSize(label->minimumSize());
+            newLabel->setMaximumSize(label->maximumSize());
+            newLabel->setFont(label->font());
+            layout->addWidget(newLabel);
 
-        //Если текст лейбла пуст - это всегда разделитель, и эффекта обводки не требуется
-        if(!newLabel->text().isEmpty()){
-            OutlineEffect* border = new OutlineEffect;
-            border->setOutlineThickness(2);
-            newLabel->setGraphicsEffect(border);
-            newLabel->setMargin(2);
+            //Если текст лейбла пуст - это всегда разделитель, и эффекта обводки не требуется
+            if(!newLabel->text().isEmpty()){
+                OutlineEffect* border = new OutlineEffect;
+                border->setOutlineThickness(2);
+                newLabel->setGraphicsEffect(border);
+                newLabel->setMargin(2);
+            }
+        }else{
+             QLabel* newLabel = new QLabel;
+             QGridLayout* labelLayout = new QGridLayout;
+             newLabel->setLayout(labelLayout);
+            for(int i = 0; i < label->layout()->count(); i++){
+                QLabel* bonusLabel;
+                if(dynamic_cast<QLabel*>(label->layout()->itemAt(i)->widget()))
+                    bonusLabel = static_cast<QLabel*>(label->layout()->itemAt(i)->widget());
+
+                QGridLayout* grid = static_cast<QGridLayout*>(label->layout());
+                int row = -1;
+                int col = -1;
+                int span;
+                grid->getItemPosition(i, &row, &col, &span, &span);
+
+                QLabel* newBonusLabel = new QLabel;
+                newBonusLabel->setWordWrap(bonusLabel->wordWrap());
+                newBonusLabel->setText(bonusLabel->text());
+                newBonusLabel->setAlignment(Qt::AlignCenter);
+                newBonusLabel->setStyleSheet(bonusLabel->styleSheet());
+                newBonusLabel->setMinimumSize(bonusLabel->minimumSize());
+                newBonusLabel->setMaximumSize(bonusLabel->maximumSize());
+                newBonusLabel->setFont(bonusLabel->font());
+                labelLayout->addWidget(newBonusLabel, row, col, Qt::AlignCenter);
+            }
+            labelLayout->setContentsMargins(0, 0, 0, 0);
+            newLabel->setMinimumSize(label->minimumSize());
+            newLabel->setMaximumSize(label->maximumSize());
+
+            layout->addWidget(newLabel);
         }
 
         i++;

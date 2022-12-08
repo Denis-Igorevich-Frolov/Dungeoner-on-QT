@@ -27,6 +27,32 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     //Без этого атрибута эвенты наведения мыши не будут вызываться
     setAttribute(Qt::WA_Hover);
 
+    //!!!
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 10, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -11, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 12, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -13, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 14, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 15, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -16, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -17, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 18, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 19, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 20, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -21, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 22, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -23, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -24, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 25, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 26, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 27, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -28, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 29, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 30, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 31, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -32, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -33, true, "Проклятие чорота эля"));
+
     ui->StrengthValue->installEventFilter(this);
     ui->AgilityValue->installEventFilter(this);
     ui->IntelligenceValue->installEventFilter(this);
@@ -1080,14 +1106,14 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 10, true));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 10, true, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, 10, true));
+    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, 10, true, "Проклятие чорота эля"));
     recalculateStats();
 }
 
