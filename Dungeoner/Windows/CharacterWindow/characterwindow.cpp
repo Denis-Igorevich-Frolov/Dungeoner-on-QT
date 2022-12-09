@@ -27,33 +27,6 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     //Без этого атрибута эвенты наведения мыши не будут вызываться
     setAttribute(Qt::WA_Hover);
 
-    //!!!
-//    person.getStrength()->setValue(50);
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 10, true, "Проклятие чорота эля1"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля2"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 42, true, "Проклятие чорота эля3"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -13, false, "Проклятие чорота эля4"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 14, true, "Проклятие чорота эля5"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 15, false, "Проклятие чорота эля6"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -16, true, "Проклятие чорота эля7"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -17, true, "Проклятие чорота эля8"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 33, true, "Проклятие чорота эля9"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 39, true, "Проклятие чорота эля10"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 20, false, "Проклятие чорота эля11"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -21, true, "Проклятие чорота эля12"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 22, true, "Проклятие чорота эля13"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -23, true, "Проклятие чорота эля14"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -1, true, "Проклятие чорота эля15"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 0, true, "Проклятие чорота эля16"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 26, true, "Проклятие чорота эля17"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 27, false, "Проклятие чорота эля18"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -1, true, "Проклятие чорота эля19"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 29, true, "Проклятие чорота эля20"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 30, false, "Проклятие чорота эля21"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 31, false, "Проклятие чорота эля22"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -32, true, "Проклятие чорота эля23"));
-//    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -33, true, "Проклятие чорота эля24"));
-
     ui->StrengthValue->installEventFilter(this);
     ui->AgilityValue->installEventFilter(this);
     ui->IntelligenceValue->installEventFilter(this);

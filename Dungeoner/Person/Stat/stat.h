@@ -40,6 +40,7 @@ public:
 
     QVector<Bonus *> getBonuses() const;
 
+    //Так как класс Stat унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
     Stat& operator= (const Stat &stat);
 signals:
     void bonusesChanged();

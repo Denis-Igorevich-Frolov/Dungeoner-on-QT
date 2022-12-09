@@ -77,6 +77,7 @@ void Tooltip::setContent(QVector<QLabel *> content)
                 newLabel->setGraphicsEffect(border);
                 newLabel->setMargin(2);
             }
+        //Если Layout лейбля является QGridLayout, значит что этот лейбл - лейбл бонусов
         }else{
              QLabel* newLabel = new QLabel;
              QGridLayout* labelLayout = new QGridLayout;
@@ -89,6 +90,7 @@ void Tooltip::setContent(QVector<QLabel *> content)
                 QGridLayout* grid = static_cast<QGridLayout*>(label->layout());
                 int row = -1;
                 int col = -1;
+                //span обязателен в конструкторе getItemPosition, но он нам не нужен, так что эта переменная нигде не используется
                 int span;
                 grid->getItemPosition(i, &row, &col, &span, &span);
 

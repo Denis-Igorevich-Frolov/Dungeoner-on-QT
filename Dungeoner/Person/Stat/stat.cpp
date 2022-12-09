@@ -32,6 +32,7 @@ void Stat::setValue(int newValue)
 void Stat::addBonus(Bonus *bonus)
 {
     bonuses.append(bonus);
+    //Сортировка по степени воздействия
     std::sort(bonuses.begin(), bonuses.end(), [](Bonus* a, Bonus* b) {
         return *a > *b;
     });
@@ -141,6 +142,7 @@ Stat::~Stat()
         delete bonus;
 }
 
+//Так как класс Stat унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
 Stat& Stat::operator= (const Stat &stat)
 {
     value = stat.value;

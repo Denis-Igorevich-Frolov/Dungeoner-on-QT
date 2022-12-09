@@ -10,7 +10,9 @@
 Bonus::Bonus(StatName statName, int value, bool isPercentage, QString bonusName)
 {
     this->statName = statName;
-    this->value = value;
+    if(isPercentage && value > 9999)
+        value = 9999;
+    setValue(value);
     this->isPercentage = isPercentage;
     this->bonusName = bonusName;
 
@@ -61,29 +63,37 @@ bool operator !=(const Bonus& bonus1, const Bonus& bonus2)
     return !((bonus1.value==bonus2.value)&&(bonus1.isPercentage==bonus2.isPercentage));
 }
 
+//Операторы сравнения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
 bool Bonus::operator <(const Bonus& bonus2)
 {
+    //Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue, а у другого value
     if(isPercentage && !bonus2.isPercentage)
         return std::abs(finalValue) < std::abs(bonus2.getValue());
     else if(!isPercentage && bonus2.isPercentage)
         return std::abs(value) < std::abs(bonus2.getFinalValue());
     else if(isPercentage && bonus2.isPercentage){
         if(finalValue == bonus2.finalValue)
+            /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
+             *они имеют разный процент, но эта разница достаточно незначительная, чтобы выдавать одинаковый
+             *finalValue. В таком случае большим считается тот бонус, чей процент выше*/
             return std::abs(value) < std::abs(bonus2.getValue());
         else
             return std::abs(finalValue) < std::abs(bonus2.getFinalValue());
     }else
         return std::abs(value) < std::abs(bonus2.getValue());
 }
-
 bool Bonus::operator >(const Bonus& bonus2)
 {
+    //Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue, а у другого value
     if(isPercentage && !bonus2.isPercentage)
         return std::abs(finalValue) > std::abs(bonus2.getValue());
     else if(!isPercentage && bonus2.isPercentage)
         return std::abs(value) > std::abs(bonus2.getFinalValue());
     else if(isPercentage && bonus2.isPercentage){
         if(finalValue == bonus2.finalValue)
+            /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
+             *они имеют разный процент, но эта разница достаточно незначительная, чтобы выдавать одинаковый
+             *finalValue. В таком случае большим считается тот бонус, чей процент выше*/
             return std::abs(value) > std::abs(bonus2.getValue());
         else
             return std::abs(finalValue) > std::abs(bonus2.getFinalValue());

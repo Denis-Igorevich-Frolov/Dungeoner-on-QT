@@ -66,6 +66,14 @@ private slots:
 private:
     Ui::PrimarySkillSignature *ui;
 
+    //Энум знака числа. Используется для подсказки бонусов
+    enum NumberSign{
+        PLUS,
+        MINUS,
+        ZERO
+    };
+    NumberSign numberSign = ZERO;
+
     /*Указатель на QSpinBox со значением стата, относящимся к этой подписи. Само связывание
      *PrimarySkillSignature и QSpinBox производится непосредственно в классе окна.*/
     QSpinBox *SpinBoxValue;
@@ -84,6 +92,7 @@ private:
     QLabel* bonusesLabel = new QLabel;
     QGridLayout* bonusesLayout = new QGridLayout;
 
+    //Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
     void CreatingBonusTooltip();
 
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.

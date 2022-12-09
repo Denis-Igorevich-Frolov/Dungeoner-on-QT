@@ -128,6 +128,8 @@ void PrimarySkillSignature::valueChanged(int value)
 
 void PrimarySkillSignature::bonusesChanged()
 {
+    /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
+     *на 3 позиции, если это изменится, то надо поменять это и здесь*/
     if(!stat->getBonuses().isEmpty()){
         CreatingBonusTooltip();
 
@@ -136,42 +138,65 @@ void PrimarySkillSignature::bonusesChanged()
             bonusesLableIsAppend = true;
             ui->labelWithTooltip->setTooltipContent(tooltipContent);
         }
-    }else if(bonusesLabel)
-        delete tooltipContent.at(3);
+    }else if(bonusesLabel){
+        tooltipContent.removeAt(3);
+        bonusesLableIsAppend = false;
+        ui->labelWithTooltip->setTooltipContent(tooltipContent);
+    }
 }
 
+//Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
 void PrimarySkillSignature::CreatingBonusTooltip()
 {
+    //Сначала следует очистить лейбл от всей предыдущей информации
     qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
     int row = 0;
     int col = 0;
+    //Переменная показывающая после какого значения row следует сделать перенос на новую col
     int maxRow = 10;
+    /*Если количество бонусов больше 10, то maxRow пытается разделить столбец
+     *пополам с приоритетом на првый столбец, если количество бонусов нечётное*/
     if(stat->getBonuses().size() > 10)
         maxRow = ceil((float)stat->getBonuses().size()/2);
+    //Также столбец никогда не должен превышать 10 строк
     if(maxRow > 10)
         maxRow = 10;
     for(Bonus* bonus : stat->getBonuses()){
         QString text;
+        /*Знак, говорящий о положительности числа. Если '-' очевидно добавляется к числу сам, то '+'
+         *следует добавить вручную. Можно было бы это сделать и с помощью валидатора или с помощью
+         *лямбд, но эти способы кажутся излишним переусложнением простой и единичной задачи.*/
         QString sign = "";
-        int plus = -1;
 
         if(bonus->getFinalValue() > 0){
-            plus = 1;
+            numberSign = PLUS;
             sign = '+';
         }else if(bonus->getFinalValue() < 0){
-            plus = 0;
+            numberSign = MINUS;
+        }else
+            numberSign = ZERO;
+
+        QLabel* bonusLabel = new QLabel(bonusesLabel);
+
+        //Число символов в строке до переноса слова
+        int numberOfCharactersBeforeLineBreak;
+
+        //Если бонусов меньше 11, то они пишутся в 1 столбец и им доступен весь размер окна подсказки
+        if(stat->getBonuses().size()<11){
+            numberOfCharactersBeforeLineBreak = 35;
+            bonusLabel->setFixedWidth(450);
+        }else{
+        //Если же больше, то они пишутся в 2 сотбца и им доступна только половина
+            numberOfCharactersBeforeLineBreak = 16;
+            bonusLabel->setFixedWidth(225);
         }
 
-        int numberOfCharactersBeforeLineBreak;
-        if(stat->getBonuses().size()<11)
-            numberOfCharactersBeforeLineBreak = 35;
-        else
-            numberOfCharactersBeforeLineBreak = 16;
-
+        //Перенос строки
         if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
             for(int i = 0; i<bonus->bonusName.size(); i++){
                 text.append(bonus->bonusName.at(i));
                 if(i%numberOfCharactersBeforeLineBreak==0 && i!=0 && i!=bonus->bonusName.size()-1){
+                    //Если текущий или следующий символ является пробелом, то тире, показывающее перенос, не нужно
                     if(bonus->bonusName.at(i+1)!=' '&&bonus->bonusName.at(i)!=' '){
                         text.append('-');
                     }
@@ -182,23 +207,23 @@ void PrimarySkillSignature::CreatingBonusTooltip()
             text.append(bonus->bonusName);
         text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
 
+        //Если бонус процентный, то его процент выводится в скобочках после значения
         if(bonus->isPercentage)
             text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
 
         QString color;
-        if(plus == 1)
+        //Зелёный
+        if(numberSign == PLUS)
             color = "77DB46";
-        else if(plus == 0)
+        //Красный
+        else if(numberSign == MINUS)
             color = "FF7F4F";
+        //Блёкло-жёлтый
         else
             color = "C9CF82";
-        QLabel* bonusLabel = new QLabel(bonusesLabel);
+
         bonusLabel->setFont(QFont("TextFont"));
         bonusLabel->setText(text);
-        if(stat->getBonuses().size()<11)
-            bonusLabel->setFixedWidth(450);
-        else
-            bonusLabel->setFixedWidth(225);
         bonusLabel->setWordWrap(true);
         bonusesLayout->addWidget(bonusLabel, row, col, Qt::AlignCenter);
 
@@ -206,6 +231,8 @@ void PrimarySkillSignature::CreatingBonusTooltip()
         if(row>=maxRow){
             row = 0;
             col++;
+            /*Если бонусов больше 20, то последний двацатый просто заменяется на многоточие,
+             *говорящее о том, что все бонусы не влезли в подсказку, и цикл прерывается*/
             if(col > 1 && maxRow==10 && stat->getBonuses().size()>20){
                 bonusLabel->setText("...");
                 bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(50, "cad160"));
