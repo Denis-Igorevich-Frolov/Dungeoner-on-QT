@@ -1099,14 +1099,14 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::HEALTH, 10, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::HEALTH, 10, true, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::HEALTH, 10, false, "Проклятие чорота эля"));
+    person.removeBonusFromStat(new Bonus(Bonus::HEALTH, 10, true, "Проклятие чорота эля"));
     recalculateStats();
 }
 

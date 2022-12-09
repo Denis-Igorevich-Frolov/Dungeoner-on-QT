@@ -70,7 +70,7 @@ private:
     int value = 0;
     QString SValue;
 
-    Stat* stat;
+    Stat* stat = nullptr;
 
     QLabel* formulaLabel = new QLabel;
     QVector<QLabel*> tooltipContent;

@@ -95,6 +95,8 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
+
+    bonusesChanged();
 }
 
 int ProgressBar_1::getValue() const
@@ -206,9 +208,11 @@ void ProgressBar_1::bonusesChanged()
             ui->labelWithTooltip->setTooltipContent(tooltipContent);
         }
     }else if(bonusesLabel){
-        tooltipContent.removeAt(4);
-        bonusesLableIsAppend = false;
-        ui->labelWithTooltip->setTooltipContent(tooltipContent);
+        if(bonusesLableIsAppend){
+            tooltipContent.removeAt(4);
+            bonusesLableIsAppend = false;
+            ui->labelWithTooltip->setTooltipContent(tooltipContent);
+        }
     }
 }
 

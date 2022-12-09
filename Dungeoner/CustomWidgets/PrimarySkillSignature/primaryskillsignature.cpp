@@ -124,6 +124,7 @@ void PrimarySkillSignature::clickModifierTooltipTimerAlarm()
 void PrimarySkillSignature::valueChanged(int value)
 {
     valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
+    bonusesChanged();
 }
 
 void PrimarySkillSignature::bonusesChanged()
@@ -139,9 +140,11 @@ void PrimarySkillSignature::bonusesChanged()
             ui->labelWithTooltip->setTooltipContent(tooltipContent);
         }
     }else if(bonusesLabel){
-        tooltipContent.removeAt(3);
-        bonusesLableIsAppend = false;
-        ui->labelWithTooltip->setTooltipContent(tooltipContent);
+        if(bonusesLableIsAppend){
+            tooltipContent.removeAt(3);
+            bonusesLableIsAppend = false;
+            ui->labelWithTooltip->setTooltipContent(tooltipContent);
+        }
     }
 }
 
