@@ -36,6 +36,7 @@ void Stat::addBonus(Bonus *bonus)
         return *a > *b;
     });
     calculateFinalValue();
+    emit bonusesChanged();
 }
 
 /*Удаление бонуса. В метод передаётся указатель на бонус, который должен быть удалён. При этом
@@ -54,6 +55,7 @@ bool Stat::removeBonus(Bonus *bonus)
             iterator.remove();
 
             calculateFinalValue();
+            emit bonusesChanged();
             return true;
         }
     }
@@ -137,4 +139,15 @@ Stat::~Stat()
 {
     for(Bonus* bonus : bonuses)
         delete bonus;
+}
+
+Stat& Stat::operator= (const Stat &stat)
+{
+    value = stat.value;
+    finalValue = stat.finalValue;
+    progressBarCurrentValue = stat.progressBarCurrentValue;
+    maximum = stat.maximum;
+    bonuses = stat.bonuses;
+
+    return *this;
 }

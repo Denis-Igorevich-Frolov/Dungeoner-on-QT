@@ -41,7 +41,7 @@ PrimarySkillSignature::PrimarySkillSignature(QWidget *parent) :
 
 PrimarySkillSignature::~PrimarySkillSignature()
 {
-    qDeleteAll(bonusesLayout->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
+    qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
     delete bonusesLayout;
 
     for(QLabel* label : tooltipContent)
@@ -126,6 +126,98 @@ void PrimarySkillSignature::valueChanged(int value)
     valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
 }
 
+void PrimarySkillSignature::bonusesChanged()
+{
+    if(!stat->getBonuses().isEmpty()){
+        CreatingBonusTooltip();
+
+        if(!bonusesLableIsAppend){
+            tooltipContent.insert(3, bonusesLabel);
+            bonusesLableIsAppend = true;
+            ui->labelWithTooltip->setTooltipContent(tooltipContent);
+        }
+    }else if(bonusesLabel)
+        delete tooltipContent.at(3);
+}
+
+void PrimarySkillSignature::CreatingBonusTooltip()
+{
+    qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
+    int row = 0;
+    int col = 0;
+    int maxRow = 10;
+    if(stat->getBonuses().size() > 10)
+        maxRow = ceil((float)stat->getBonuses().size()/2);
+    if(maxRow > 10)
+        maxRow = 10;
+    for(Bonus* bonus : stat->getBonuses()){
+        QString text;
+        QString sign = "";
+        int plus = -1;
+
+        if(bonus->getFinalValue() > 0){
+            plus = 1;
+            sign = '+';
+        }else if(bonus->getFinalValue() < 0){
+            plus = 0;
+        }
+
+        int numberOfCharactersBeforeLineBreak;
+        if(stat->getBonuses().size()<11)
+            numberOfCharactersBeforeLineBreak = 35;
+        else
+            numberOfCharactersBeforeLineBreak = 16;
+
+        if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
+            for(int i = 0; i<bonus->bonusName.size(); i++){
+                text.append(bonus->bonusName.at(i));
+                if(i%numberOfCharactersBeforeLineBreak==0 && i!=0 && i!=bonus->bonusName.size()-1){
+                    if(bonus->bonusName.at(i+1)!=' '&&bonus->bonusName.at(i)!=' '){
+                        text.append('-');
+                    }
+                    text.append("\n");
+                }
+            }
+        }else
+            text.append(bonus->bonusName);
+        text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
+
+        if(bonus->isPercentage)
+            text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
+
+        QString color;
+        if(plus == 1)
+            color = "77DB46";
+        else if(plus == 0)
+            color = "FF7F4F";
+        else
+            color = "C9CF82";
+        QLabel* bonusLabel = new QLabel(bonusesLabel);
+        bonusLabel->setFont(QFont("TextFont"));
+        bonusLabel->setText(text);
+        if(stat->getBonuses().size()<11)
+            bonusLabel->setFixedWidth(450);
+        else
+            bonusLabel->setFixedWidth(225);
+        bonusLabel->setWordWrap(true);
+        bonusesLayout->addWidget(bonusLabel, row, col, Qt::AlignCenter);
+
+        row++;
+        if(row>=maxRow){
+            row = 0;
+            col++;
+            if(col > 1 && maxRow==10 && stat->getBonuses().size()>20){
+                bonusLabel->setText("...");
+                bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(50, "cad160"));
+                break;
+            }
+        }
+
+        bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(17, color));
+    }
+    bonusesLabel->setMaximumWidth(450);
+}
+
 Stat *PrimarySkillSignature::getStat() const
 {
     return stat;
@@ -134,6 +226,7 @@ Stat *PrimarySkillSignature::getStat() const
 void PrimarySkillSignature::setStat(Stat *newStat)
 {
     stat = newStat;
+    connect(stat, &Stat::bonusesChanged, this, &PrimarySkillSignature::bonusesChanged);
 }
 
 QSpinBox *PrimarySkillSignature::getSpinBoxValue() const
@@ -176,73 +269,10 @@ void PrimarySkillSignature::setTooltipContent(QString fullName, QString descript
     tooltipContent.append(valueLabel);
 
     if(!stat->getBonuses().isEmpty()){
-        int row = 0;
-        int col = 0;
-        int maxRow = 10;
-        if(stat->getBonuses().size() > 10)
-            maxRow = ceil((float)stat->getBonuses().size()/2);
-        qDebug()<<maxRow;
-        if(maxRow > 10)
-            maxRow = 10;
-        for(Bonus* bonus : stat->getBonuses()){
-            QString text;
-            QString sign = "";
-            int plus = -1;
-
-            if(bonus->getFinalValue() > 0){
-                plus = 1;
-                sign = '+';
-            }else if(bonus->getFinalValue() < 0){
-                plus = 0;
-            }
-
-            if(bonus->bonusName.size()>16){
-                for(int i = 0; i<bonus->bonusName.size(); i++){
-                    text.append(bonus->bonusName.at(i));
-                    if(i%16==0 && i!=0 && i!=bonus->bonusName.size()-1){
-                        if(bonus->bonusName.at(i+1)!=' '&&bonus->bonusName.at(i)!=' '){
-                            text.append('-');
-                        }
-                        text.append("\n");
-                    }
-                }
-            }else
-                text.append(bonus->bonusName);
-            text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
-
-            if(bonus->isPercentage)
-                text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
-
-            QString color;
-            if(plus == 1)
-                color = "77DB46";
-            else if(plus == 0)
-                color = "FF7F4F";
-            else
-                color = "C9CF82";
-            QLabel* bonusLabel = new QLabel(bonusesLabel);
-            bonusLabel->setFont(QFont("TextFont"));
-            bonusLabel->setText(text);
-            bonusLabel->setFixedWidth(225);
-            bonusLabel->setWordWrap(true);
-            bonusesLayout->addWidget(bonusLabel, row, col, Qt::AlignCenter);
-
-            row++;
-            if(row>=maxRow){
-                row = 0;
-                col++;
-                if(col > 1 && maxRow==10){
-                    bonusLabel->setText("...");
-                    bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(50, "cad160"));
-                    break;
-                }
-            }
-
-            bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(17, color));
-        }
-        bonusesLabel->setMaximumWidth(450);
+        CreatingBonusTooltip();
 
         tooltipContent.append(bonusesLabel);
+        bonusesLableIsAppend = true;
     }
 
     QLabel* separator2 = new QLabel;

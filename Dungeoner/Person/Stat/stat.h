@@ -7,11 +7,13 @@
 #define STAT_H
 
 #include "Person/Stat/bonus.h"
+#include "qobject.h"
 
 #include <QVector>
 
-class Stat
+class Stat: public QObject
 {
+    Q_OBJECT
 public:
     /*Разные группы статов имеют разные максимальные значения. Так для первичных навыков -
      *это 999999,а для вторичных - 9999999. Чтобы корректно работали ограничители на
@@ -38,6 +40,9 @@ public:
 
     QVector<Bonus *> getBonuses() const;
 
+    Stat& operator= (const Stat &stat);
+signals:
+    void bonusesChanged();
 private:
     int value = 0;
     //Значение с учётом всех бонусов

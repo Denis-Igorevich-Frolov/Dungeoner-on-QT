@@ -53,3 +53,13 @@ Person выдал предупреждение в методе bonusRemoval.
 MagicDefense выдал предупреждение в методе removeBonus.
 При попытке удалить MagicDefenseBonus, он не был обнаружен.
 
+9-December-2022  15:22:29
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+9-December-2022  15:29:13
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+

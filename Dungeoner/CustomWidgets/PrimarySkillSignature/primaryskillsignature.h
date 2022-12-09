@@ -61,6 +61,7 @@ private slots:
     void on_ButtonBottom_released();
     void clickModifierTooltipTimerAlarm();
     void valueChanged(int value);
+    void bonusesChanged();
 
 private:
     Ui::PrimarySkillSignature *ui;
@@ -69,6 +70,7 @@ private:
      *PrimarySkillSignature и QSpinBox производится непосредственно в классе окна.*/
     QSpinBox *SpinBoxValue;
     Stat* stat;
+    bool bonusesLableIsAppend = false;
 
     //Таймер до вывода подсказки по модификаторам нажатия при наведении курсора на кнопку прибавки или убавки стата
     QTimer* clickModifierTooltipTimer = new QTimer;
@@ -81,6 +83,8 @@ private:
     QLabel* valueLabel;
     QLabel* bonusesLabel = new QLabel;
     QGridLayout* bonusesLayout = new QGridLayout;
+
+    void CreatingBonusTooltip();
 
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/
