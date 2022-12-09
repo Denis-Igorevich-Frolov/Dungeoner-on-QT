@@ -68,7 +68,6 @@ void Tooltip::setContent(QVector<QLabel *> content)
             newLabel->setMinimumSize(label->minimumSize());
             newLabel->setMaximumSize(label->maximumSize());
             newLabel->setFont(label->font());
-            layout->addWidget(newLabel);
 
             //Если текст лейбла пуст - это всегда разделитель, и эффекта обводки не требуется
             if(!newLabel->text().isEmpty()){
@@ -77,6 +76,8 @@ void Tooltip::setContent(QVector<QLabel *> content)
                 newLabel->setGraphicsEffect(border);
                 newLabel->setMargin(2);
             }
+
+            layout->addWidget(newLabel);
         //Если Layout лейбля является QGridLayout, значит что этот лейбл - лейбл бонусов
         }else{
              QLabel* newLabel = new QLabel;

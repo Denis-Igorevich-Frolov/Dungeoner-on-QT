@@ -351,8 +351,11 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.h
  mdp:E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QVector
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h
@@ -437,6 +440,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvariant.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h
@@ -469,9 +473,13 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QGraphicsEffect
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QLabel
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qframe.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgraphicseffect.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgridlayout.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlabel.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayout.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
@@ -2124,8 +2132,11 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondarys
  mmc:Q_OBJECT
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.h
  mdp:E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QVector
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h
@@ -2210,6 +2221,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondarys
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvariant.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h
@@ -2242,9 +2254,13 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondarys
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QGraphicsEffect
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QLabel
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qframe.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgraphicseffect.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgridlayout.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlabel.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayout.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsexports.h
@@ -2471,8 +2487,11 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar
  mdp:E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QVector
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h
@@ -2557,6 +2576,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvariant.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h
@@ -2589,9 +2609,13 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QGraphicsEffect
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QLabel
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/QWidget
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qframe.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgraphicseffect.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qgridlayout.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlabel.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayout.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtWidgets/qtwidgetsexports.h

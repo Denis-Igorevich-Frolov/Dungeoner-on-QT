@@ -59,11 +59,6 @@ void OutlineEffect::draw(QPainter *painter)
                 painter->drawImage(-i, j, outline);
                 painter->drawImage(i, -j, outline);
                 painter->drawImage(-i, -j, outline);
-
-                painter->drawImage(j, i, outline);
-                painter->drawImage(-j, i, outline);
-                painter->drawImage(j, -i, outline);
-                painter->drawImage(-j, -i, outline);
             }
         }
     }

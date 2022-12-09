@@ -372,13 +372,6 @@ void CharacterWindow::associatingLabelsWithValues()
     }
 }
 
-/*В данном методе связывается вектор бонусов статов из класса Person с указателем внутри
- *виджета стата, чтобы у каждого виджета был доступ к своим бонусам для выведения подсказки*/
-void CharacterWindow::linkingStatBonusesPointers()
-{
-//    ui->StrengthPrimarySkillSignature->bonuses = person.getStrength().
-}
-
 void CharacterWindow::associatingLabelsWithStat()
 {
     ui->StrengthPrimarySkillSignature->setStat(person.getStrength());
@@ -387,6 +380,32 @@ void CharacterWindow::associatingLabelsWithStat()
     ui->MagicPrimarySkillSignature->setStat(person.getMagic());
     ui->BodyTypePrimarySkillSignature->setStat(person.getBodyType());
     ui->WillPrimarySkillSignature->setStat(person.getWill());
+
+    ui->MagicDamage->setStat(person.getMagicDamage());
+    ui->ResistPhysicalDamage->setStat(person.getResistPhysicalDamage());
+    ui->ResistMagicDamage->setStat(person.getResistMagicDamage());
+    ui->ResistPhysicalEffects->setStat(person.getResistPhysicalEffects());
+    ui->ResistMagicEffects->setStat(person.getResistMagicEffects());
+    ui->StrengtheningPhysicalEffects->setStat(person.getStrengtheningPhysicalEffects());
+    ui->StrengtheningMagicalEffects->setStat(person.getStrengtheningMagicalEffects());
+    ui->MeleeAccuracy->setStat(person.getMeleeAccuracy());
+    ui->RangedAccuracy->setStat(person.getRangedAccuracy());
+    ui->MagicAccuracy->setStat(person.getMagicAccuracy());
+    ui->Evasion->setStat(person.getEvasion());
+    ui->Stealth->setStat(person.getStealth());
+    ui->Attentiveness->setStat(person.getAttentiveness());
+    ui->LoadCapacity->setStat(person.getLoadCapacity());
+    ui->Initiative->setStat(person.getInitiative());
+    ui->MagicCastChance->setStat(person.getMagicCastChance());
+    ui->ChanceOfUsingCombatTechnique->setStat(person.getChanceOfUsingCombatTechnique());
+    ui->MoveRange->setStat(person.getMoveRange());
+
+    ui->Health->getProgressBar()->setStat(person.getHealth());
+    ui->Endurance->getProgressBar()->setStat(person.getEndurance());
+    ui->Mana->getProgressBar()->setStat(person.getMana());
+
+//    ui->MagicDefense->getProgressBar()->setStat(magicDefense->getChunks(), magicDefense->getTotalValue(),
+//                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
 }
 
 /*Данный метод связывает все слоты показа и сокрытия подсказки у всех
@@ -1080,14 +1099,14 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 10, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::HEALTH, 10, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, 10, false, "Проклятие чорота эля"));
+    person.removeBonusFromStat(new Bonus(Bonus::HEALTH, 10, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 

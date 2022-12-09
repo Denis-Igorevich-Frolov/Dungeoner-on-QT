@@ -13,8 +13,11 @@
 #define PROGRESSBAR_1_H
 
 #include <QWidget>
+#include <qgridlayout.h>
 
 #include <CustomWidgets/LabelWithTooltip/labelwithtooltip.h>
+
+#include <Person/Stat/stat.h>
 
 namespace Ui {
 class ProgressBar_1;
@@ -40,10 +43,22 @@ public:
     void setColor(const QColor &newColor);
 
     LabelWithTooltip* getLabelWithTooltip();
-
+    //Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
     void setTooltipContent(QString fullName, QString formula, int formulaFontSize, QString description);
+    void setStat(Stat *newStat);
+
+private slots:
+    void bonusesChanged();
 
 private:
+    //Энум знака числа. Используется для подсказки бонусов
+    enum NumberSign{
+        PLUS,
+        MINUS,
+        ZERO
+    };
+    NumberSign numberSign = ZERO;
+
     //Цвет, в который будет окрашенна заполненная область прогрессбара
     QColor color = QColor(0 , 0, 0, 0);
     int minValue = 0;
@@ -52,6 +67,11 @@ private:
     /*Размер в пикселях, которому эквивалентен сдвиг
      *заполняемой области при изменении значения на 1*/
     double stepSize = 0;
+
+    Stat* stat;
+
+    bool bonusesLableIsAppend = 0;
+    void CreatingBonusTooltip();
 
     //Пересчёт размера заполненной области
     void recalculationChunkWidth();
@@ -64,6 +84,8 @@ private:
 
     QVector<QLabel*> tooltipContent;
     QLabel* valueLabel = new QLabel;
+    QLabel* bonusesLabel = new QLabel;
+    QGridLayout* bonusesLayout = new QGridLayout;
 
     Ui::ProgressBar_1 *ui;
 };

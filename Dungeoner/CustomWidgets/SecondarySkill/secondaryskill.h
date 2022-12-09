@@ -12,6 +12,9 @@
 
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
+#include <qgridlayout.h>
+
+#include <Person/Stat/stat.h>
 
 namespace Ui {
 class SecondarySkill;
@@ -41,22 +44,43 @@ public:
     void setTooltipContent(QString fullName, QString formula, QString description);
     void setFormula(QString formula, int fontSize);
 
+    void setStat(Stat *newStat);
+
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
 
+private slots:
+    void bonusesChanged();
+
 private:
     OutlineEffect* borderInscription;
     OutlineEffect* borderValue;
+
+    //Энум знака числа. Используется для подсказки бонусов
+    enum NumberSign{
+        PLUS,
+        MINUS,
+        ZERO
+    };
+    NumberSign numberSign = ZERO;
 
     /*Значение стата имеет ограничение в 9999999, превышать которое не стоит
      *из-за возрастающего риска переполнения при взаимодействии с ним*/
     int value = 0;
     QString SValue;
 
+    Stat* stat;
+
     QLabel* formulaLabel = new QLabel;
     QVector<QLabel*> tooltipContent;
     QLabel* valueLabel = new QLabel;
+    QLabel* bonusesLabel = new QLabel;
+    QGridLayout* bonusesLayout = new QGridLayout;
+    //Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
+    void CreatingBonusTooltip();
+
+    bool bonusesLableIsAppend = 0;
 
     Ui::SecondarySkill *ui;
 
