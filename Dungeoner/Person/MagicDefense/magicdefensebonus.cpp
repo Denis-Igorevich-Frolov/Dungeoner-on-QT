@@ -21,25 +21,33 @@
 #include "magicdefensebonus.h"
 
 //Конструктор для бонуса на динамической позиции
-MagicDefenseBonus::MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage)
+MagicDefenseBonus::MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage, QString bonusName)
 {
     this->dynamicPosition = dynamicPosition;
     setValue(value);
     this->isPercentage = isPercentage;
+    this->bonusName = bonusName;
 
     isDynamic = true;
     isBonusChunk = false;
+
+    if(!isPercentage)
+        finalValue = value;
 }
 
 //Конструктор для бонуса на статической позиции
-MagicDefenseBonus::MagicDefenseBonus(int staticPosition, int value, bool isPercentage)
+MagicDefenseBonus::MagicDefenseBonus(int staticPosition, int value, bool isPercentage, QString bonusName)
 {
     setValue(value);
     this->isPercentage = isPercentage;
     this->staticPosition = staticPosition;
+    this->bonusName = bonusName;
 
     isDynamic = false;
     isBonusChunk = false;
+
+    if(!isPercentage)
+        finalValue = value;
 }
 
 //Конструктор для бонусных чанков
@@ -136,4 +144,80 @@ bool operator != (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonu
             bonus1.isBonusChunk == bonus2.isBonusChunk && dynamicPositionMatch &&
             staticPositionMatch && bonus1.value == bonus2.getValue() &&
             bonus1.bonusChunksMaxVales == bonus2.bonusChunksMaxVales);
+}
+
+int MagicDefenseBonus::getFinalValue() const
+{
+    return finalValue;
+}
+
+void MagicDefenseBonus::setFinalValue(int newFinalValue)
+{
+    finalValue = newFinalValue;
+}
+
+//Операторы сравнения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
+bool MagicDefenseBonus::operator <(const MagicDefenseBonus& bonus2)
+{
+    if(isBonusChunk && !bonus2.isBonusChunk){
+        return false;
+    }else if(!isBonusChunk && bonus2.isBonusChunk){
+        return true;
+    }else if(isBonusChunk && bonus2.isBonusChunk){
+        int bonus1TotalValue = 0;
+        int bonus2TotalValue = 0;
+        for(int num : bonusChunksMaxVales){
+            bonus1TotalValue+=num;
+        }
+        for(int num : bonus2.getBonusChunksMaxVales()){
+            bonus2TotalValue+=num;
+        }
+        return bonus1TotalValue < bonus2TotalValue;
+    //Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue, а у другого value
+    }else if(isPercentage && !bonus2.isPercentage)
+        return std::abs(finalValue) < std::abs(bonus2.getValue());
+    else if(!isPercentage && bonus2.isPercentage)
+        return std::abs(value) < std::abs(bonus2.getFinalValue());
+    else if(isPercentage && bonus2.isPercentage){
+        if(finalValue == bonus2.finalValue)
+            /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
+             *они имеют разный процент, но эта разница достаточно незначительная, чтобы выдавать одинаковый
+             *finalValue. В таком случае большим считается тот бонус, чей процент выше*/
+            return std::abs(value) < std::abs(bonus2.getValue());
+        else
+            return std::abs(finalValue) < std::abs(bonus2.getFinalValue());
+    }else
+        return std::abs(value) < std::abs(bonus2.getValue());
+}
+bool MagicDefenseBonus::operator >(const MagicDefenseBonus& bonus2)
+{
+    if(isBonusChunk && !bonus2.isBonusChunk){
+        return true;
+    }else if(!isBonusChunk && bonus2.isBonusChunk){
+        return false;
+    }else if(isBonusChunk && bonus2.isBonusChunk){
+        int bonus1TotalValue = 0;
+        int bonus2TotalValue = 0;
+        for(int num : bonusChunksMaxVales){
+            bonus1TotalValue+=num;
+        }
+        for(int num : bonus2.getBonusChunksMaxVales()){
+            bonus2TotalValue+=num;
+        }
+        return bonus1TotalValue > bonus2TotalValue;
+    //Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue, а у другого value
+    }if(isPercentage && !bonus2.isPercentage)
+        return std::abs(finalValue) > std::abs(bonus2.getValue());
+    else if(!isPercentage && bonus2.isPercentage)
+        return std::abs(value) > std::abs(bonus2.getFinalValue());
+    else if(isPercentage && bonus2.isPercentage){
+        if(finalValue == bonus2.finalValue)
+            /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
+             *они имеют разный процент, но эта разница достаточно незначительная, чтобы выдавать одинаковый
+             *finalValue. В таком случае большим считается тот бонус, чей процент выше*/
+            return std::abs(value) > std::abs(bonus2.getValue());
+        else
+            return std::abs(finalValue) > std::abs(bonus2.getFinalValue());
+    }else
+        return std::abs(value) > std::abs(bonus2.getValue());
 }

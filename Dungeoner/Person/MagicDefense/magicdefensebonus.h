@@ -35,9 +35,9 @@ public:
     };
 
     //Конструктор для бонуса на динамической позиции
-    MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage);
+    MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage, QString bonusName);
     //Конструктор для бонуса на статической позиции
-    MagicDefenseBonus(int staticPosition, int value, bool isPercentage);
+    MagicDefenseBonus(int staticPosition, int value, bool isPercentage, QString bonusName);
     //Конструктор для бонусных чанков
     MagicDefenseBonus(QVector<int> bonusChunksMaxVales);
 
@@ -59,7 +59,18 @@ public:
     friend bool operator == (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonus2);
     friend bool operator != (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonus2);
 
+    //Операторы сравнения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
+    bool operator > (const MagicDefenseBonus& bonus2);
+    bool operator < (const MagicDefenseBonus& bonus2);
+
+    QString bonusName;
+
+    int getFinalValue() const;
+    void setFinalValue(int newFinalValue);
+
 private:
+    //Финальное значеие с учётом процента. Хранится для подсказки
+    int finalValue = 0;
     //Значение бонуса. Используется только для статических и динамических бонусов
     int value = 0;
     //Вектор максимальных значений бонусных чанков. Используется только для бонуса на чанки.

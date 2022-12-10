@@ -30,6 +30,8 @@
 
 #include <CustomWidgets/LabelWithTooltip/labelwithtooltip.h>
 
+#include <Person/MagicDefense/magicdefense.h>
+
 namespace Ui {
 class ProgressBar_2;
 }
@@ -70,7 +72,24 @@ public:
     //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты
     int willUntilNextChunk = 0;
 
+    void setStat(MagicDefense *newStat);
+
+private slots:
+    void bonusesChanged();
+
 private:
+    //Энум знака числа. Используется для подсказки бонусов
+    enum NumberSign{
+        PLUS,
+        MINUS,
+        ZERO
+    };
+    NumberSign numberSign = ZERO;
+
+    bool bonusesLableIsAppend = false;
+
+    MagicDefense* stat = nullptr;
+
     int amountOfNativeChunks = 0;
     int amountOfBonusChunks = 0;
 
@@ -94,6 +113,8 @@ private:
     void recalculationChunkWidth();
     //Перерисовка заполненной области при помощи тайлящейся окрашенной текстуры
     void redrawChunk();
+    //Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
+    void CreatingBonusTooltip();
 
     /*Переопределённая виртуальная функция класса QWidget. Во время этого эвента
      *происходит подгонка всех обёрток(wrapper) под размер виджета.*/
@@ -106,6 +127,8 @@ private:
     QLabel* chunkNumber = new QLabel;
     QLabel* newChunkRequirementsLabel = new QLabel;
     QLabel* detailedInformationLabel = new QLabel;
+    QLabel* bonusesLabel = new QLabel;
+    QGridLayout* bonusesLayout = new QGridLayout;
 
     Ui::ProgressBar_2 *ui;
 };

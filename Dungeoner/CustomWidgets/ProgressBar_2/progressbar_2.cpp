@@ -38,6 +38,9 @@ ProgressBar_2::ProgressBar_2(QWidget *parent) :
     ui->BordersWrapper->setStyleSheet(PB2_StyleMaster::BordersStyle());
     ui->TipsWrapper->setStyleSheet(PB2_StyleMaster::TipsStyle());
     ui->ShadowWrapper->setStyleSheet(PB2_StyleMaster::ShadowStyle());
+
+    bonusesLabel->setLayout(bonusesLayout);
+
     //Задаётся стиль текста лейбла с подсказкой как "ЧИСЛА"
     ui->labelWithTooltip->setFontType(LabelWithTooltip::NUMBERS);
     ui->labelWithTooltip->setOutlineThickness(2);
@@ -105,21 +108,21 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
 
     chunkNumber = new QLabel;
     chunkNumber->setFont(QFont("TextFont"));
-    chunkNumber->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "cad160"));
+    chunkNumber->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
     chunkNumber->setMaximumWidth(450);
     chunkNumber->setWordWrap(true);
     tooltipContent.append(chunkNumber);
 
     generalValueLabel = new QLabel;
     generalValueLabel->setFont(QFont("TextFont"));
-    generalValueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "cad160"));
+    generalValueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
     generalValueLabel->setMaximumWidth(450);
     generalValueLabel->setWordWrap(true);
     tooltipContent.append(generalValueLabel);
 
     valueLabel = new QLabel;
     valueLabel->setFont(QFont("TextFont"));
-    valueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "cad160"));
+    valueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
     valueLabel->setMaximumWidth(450);
     valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
@@ -128,6 +131,18 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     separator2->setFixedSize(450, 1);
     separator2->setStyleSheet("background: #bdc440;");
     tooltipContent.append(separator2);
+
+    if(!stat->getBonuses().isEmpty()){
+        CreatingBonusTooltip();
+
+        tooltipContent.append(bonusesLabel);
+        bonusesLableIsAppend = true;
+
+        QLabel* separator = new QLabel;
+        separator->setFixedSize(450, 1);
+        separator->setStyleSheet("background: #bdc440;");
+        tooltipContent.append(separator);
+    }
 
     QLabel* numberOfChunksFormulalaLabel = new QLabel;
     numberOfChunksFormulalaLabel->setFont(QFont("TextFont"));
@@ -139,7 +154,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
 
     newChunkRequirementsLabel = new QLabel;
     newChunkRequirementsLabel->setFont(QFont("TextFont"));
-    newChunkRequirementsLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(21, "cad160"));
+    newChunkRequirementsLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
     newChunkRequirementsLabel->setText("До следующего фрагмента " + QVariant(willUntilNextChunk).toString() + " Воли");
     newChunkRequirementsLabel->setMaximumWidth(450);
     newChunkRequirementsLabel->setWordWrap(true);
@@ -283,6 +298,12 @@ void ProgressBar_2::setValue(int value)
     }
 
     recalculationChunkWidth();
+}
+
+void ProgressBar_2::setStat(MagicDefense *newStat)
+{
+    stat = newStat;
+    connect(stat, &MagicDefense::bonusesChanged, this, &ProgressBar_2::bonusesChanged);
 }
 
 //Пересчёт размера заполненной области и позиций разделителей
@@ -451,6 +472,115 @@ void ProgressBar_2::redrawChunk()
     ui->ProgressBarChunk->setPixmap(pixmap);
 }
 
+void ProgressBar_2::CreatingBonusTooltip()
+{
+    //Сначала следует очистить лейбл от всей предыдущей информации
+    qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
+    int row = 0;
+    int col = 0;
+    //Переменная показывающая после какого значения row следует сделать перенос на новую col
+    int maxRow = 9;
+    /*Если количество бонусов больше 9, то maxRow пытается разделить столбец
+     *пополам с приоритетом на првый столбец, если количество бонусов нечётное*/
+    if(stat->getBonuses().size() > 9)
+        maxRow = ceil((float)stat->getBonuses().size()/2);
+    //Также столбец никогда не должен превышать 10 строк
+    if(maxRow > 9)
+        maxRow = 9;
+    for(MagicDefenseBonus* bonus : stat->getBonuses()){
+        QString text;
+        /*Знак, говорящий о положительности числа. Если '-' очевидно добавляется к числу сам, то '+'
+         *следует добавить вручную. Можно было бы это сделать и с помощью валидатора или с помощью
+         *лямбд, но эти способы кажутся излишним переусложнением простой и единичной задачи.*/
+        QString sign = "";
+
+        if(bonus->getFinalValue() > 0){
+            numberSign = PLUS;
+            sign = '+';
+        }else if(bonus->getFinalValue() < 0){
+            numberSign = MINUS;
+        }else
+            numberSign = ZERO;
+
+        QLabel* bonusLabel = new QLabel(bonusesLabel);
+
+        //Число символов в строке до переноса слова
+        int numberOfCharactersBeforeLineBreak;
+
+        //Если бонусов меньше 10, то они пишутся в 1 столбец и им доступен весь размер окна подсказки
+        if(stat->getBonuses().size()<10){
+            numberOfCharactersBeforeLineBreak = 35;
+            bonusLabel->setFixedWidth(450);
+        }else{
+        //Если же больше, то они пишутся в 2 сотбца и им доступна только половина
+            numberOfCharactersBeforeLineBreak = 16;
+            bonusLabel->setFixedWidth(225);
+        }
+
+        //Перенос строки
+        if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
+            for(int i = 0; i<bonus->bonusName.size(); i++){
+                text.append(bonus->bonusName.at(i));
+                if(i%numberOfCharactersBeforeLineBreak==0 && i!=0 && i!=bonus->bonusName.size()-1){
+                    //Если текущий или следующий символ является пробелом, то тире, показывающее перенос, не нужно
+                    if(bonus->bonusName.at(i+1)!=' '&&bonus->bonusName.at(i)!=' '){
+                        text.append('-');
+                    }
+                    text.append("\n");
+                }
+            }
+        }else
+            text.append(bonus->bonusName);
+        text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
+
+        //Если бонус процентный, то его процент выводится в скобочках после значения
+        if(bonus->isPercentage)
+            text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
+
+        QString color;
+        //Зелёный
+        if(numberSign == PLUS)
+            color = "77DB46";
+        //Красный
+        else if(numberSign == MINUS)
+            color = "FF7F4F";
+        //Блёкло-жёлтый
+        else
+            color = "C9CF82";
+
+        bonusLabel->setFont(QFont("TextFont"));
+        bonusLabel->setText(text);
+        bonusLabel->setWordWrap(true);
+        bonusesLayout->addWidget(bonusLabel, row, col, Qt::AlignCenter);
+
+        row++;
+        if(row>=maxRow){
+            row = 0;
+            col++;
+            /*Если бонусов больше 20, то последний двацатый просто заменяется на многоточие,
+             *говорящее о том, что все бонусы не влезли в подсказку, и цикл прерывается*/
+            if(col > 1 && maxRow==9 && stat->getBonuses().size()>18){
+                bonusLabel->setText("...");
+                bonusLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(50, "cad160"));
+                break;
+            }
+        }
+
+        bonusLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(17, color));
+    }
+    bonusesLabel->setMaximumWidth(450);
+
+//    if(stat->getValue()!=stat->getFinalValue()){
+//        QString value;
+//        value.append(QVariant(stat->getFinalValue()).toString() + " (" + QVariant(stat->getValue()).toString());
+//        int difference = stat->getFinalValue() - stat->getValue();
+//        if(difference>0)
+//            value.append("+");
+//        value.append(QVariant(difference).toString() +")");
+//        valueLabel->setText(value);
+//    }
+}
+
 /*Переопределённая виртуальная функция класса QWidget. Во время этого эвента
  *происходит подгонка всех обёрток(wrapper) под размер виджета.*/
 void ProgressBar_2::resizeEvent(QResizeEvent *event)
@@ -465,4 +595,35 @@ void ProgressBar_2::resizeEvent(QResizeEvent *event)
     //После изменения размера нужно перерисовать тело прогрессбара и разделители
     recalculationChunkWidth();
     redrawChunk();
+}
+
+void ProgressBar_2::bonusesChanged()
+{
+    /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
+     *на 6 позиции, если это изменится, то надо поменять это и здесь*/
+    if(stat!=nullptr){
+//        setTextValue(stat->getFinalValue());
+        if(!stat->getBonuses().isEmpty()){
+            CreatingBonusTooltip();
+
+            if(!bonusesLableIsAppend){
+                tooltipContent.insert(6, bonusesLabel);
+
+                QLabel* separator = new QLabel;
+                separator->setFixedSize(450, 1);
+                separator->setStyleSheet("background: #bdc440;");
+                tooltipContent.insert(7, separator);
+
+                bonusesLableIsAppend = true;
+                ui->labelWithTooltip->setTooltipContent(tooltipContent);
+            }
+        }else if(bonusesLabel){
+            if(bonusesLableIsAppend){
+                tooltipContent.removeAt(6);
+                tooltipContent.removeAt(6);
+                bonusesLableIsAppend = false;
+                ui->labelWithTooltip->setTooltipContent(tooltipContent);
+            }
+        }
+    }
 }

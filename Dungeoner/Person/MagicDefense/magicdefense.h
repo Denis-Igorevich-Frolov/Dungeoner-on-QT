@@ -8,11 +8,13 @@
 
 #include "chunk.h"
 #include "magicdefensebonus.h"
+#include "qobject.h"
 
 #include <QVector>
 
-class MagicDefense
+class MagicDefense: public QObject
 {
+    Q_OBJECT
 public:
     ~MagicDefense();
 
@@ -54,6 +56,14 @@ public:
      *значения, то текущий чанк обнуляется, а остаток вычитается из предыдущего чанка, и так пока
      *либо не кончится значение, либо не кончатся чанки.*/
     void subtractValue(int value);
+
+    QVector<MagicDefenseBonus *> getBonuses();
+
+    //Так как класс MagicDefense унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
+    MagicDefense& operator= (const MagicDefense &stat);
+
+signals:
+    void bonusesChanged();
 
 private:
     /*Добавление чанка в вектор бонусных чанков. В метод передаётся указатель на новый чанк, затем его

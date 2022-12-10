@@ -63,9 +63,14 @@ void MagicDefense::setValue(int newValue)
 void MagicDefense::addBonus(MagicDefenseBonus *bonus)
 {
     bonuses.append(bonus);
+    //Сортировка по степени воздействия
+    std::sort(bonuses.begin(), bonuses.end(), [](MagicDefenseBonus* a, MagicDefenseBonus* b) {
+        return *a > *b;
+    });
 
     //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
     recalculationChunks();
+    emit bonusesChanged();
 }
 
 /*Удаление бонуса. В метод передаётся указатель на бонус, который должен быть удалён. При этом
@@ -86,6 +91,7 @@ bool MagicDefense::removeBonus(MagicDefenseBonus *bonus)
 
             //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
             recalculationChunks();
+            emit bonusesChanged();
             return true;
         }
     }
@@ -518,4 +524,25 @@ void MagicDefense::clearNativeChunks()
         delete chunk;
 
     nativeChunks.clear();
+}
+
+QVector<MagicDefenseBonus *> MagicDefense::getBonuses()
+{
+    return bonuses;
+}
+
+//Так как класс MagicDefense унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
+MagicDefense& MagicDefense::operator= (const MagicDefense &stat)
+{
+    totalValue = stat.totalValue;
+    value = stat.value;
+    amountOfNativeChunks = stat.amountOfNativeChunks;
+    amountOfBonusChunks = stat.amountOfBonusChunks;
+    chunks = stat.chunks;
+    nativeChunks = stat.nativeChunks;
+    bonusChunks = stat.bonusChunks;
+    finalBonusChunks = stat.finalBonusChunks;
+    bonuses = stat.bonuses;
+
+    return *this;
 }

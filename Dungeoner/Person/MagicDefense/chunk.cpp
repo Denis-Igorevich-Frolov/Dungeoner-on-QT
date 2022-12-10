@@ -88,9 +88,11 @@ void Chunk::calculateFinalMaxValue()
 
     for(MagicDefenseBonus* bonus : bonuses){
         if(bonus != nullptr){
-            if (bonus->isPercentage)
-                finalMaxValue += ((double)maxValue/100)*bonus->getValue();
-            else
+            if (bonus->isPercentage){
+                int finalBonusValue = ((double)maxValue/100)*bonus->getValue();
+                finalMaxValue += finalBonusValue;
+                bonus->setFinalValue(finalBonusValue);
+            }else
                 finalMaxValue += bonus->getValue();
         }
     }

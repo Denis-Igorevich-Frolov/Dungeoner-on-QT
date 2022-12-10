@@ -404,8 +404,7 @@ void CharacterWindow::associatingLabelsWithStat()
     ui->Endurance->getProgressBar()->setStat(person.getEndurance());
     ui->Mana->getProgressBar()->setStat(person.getMana());
 
-//    ui->MagicDefense->getProgressBar()->setStat(magicDefense->getChunks(), magicDefense->getTotalValue(),
-//                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+    ui->MagicDefense->getProgressBar()->setStat(person.getMagicDefense());
 }
 
 /*Данный метод связывает все слоты показа и сокрытия подсказки у всех
@@ -1099,20 +1098,19 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::HEALTH, 10, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(1, 10, true, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::HEALTH, 10, true, "Проклятие чорота эля"));
+    person.removeBonusFromStat(new MagicDefenseBonus(1, 10, true, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::HEALTH, -10, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(1, -10, true, "Проклятие чорота эля"));
 }
-

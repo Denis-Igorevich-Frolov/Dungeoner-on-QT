@@ -82,7 +82,7 @@ private:
 
     void setTextValue(int newValue);
 
-    bool bonusesLableIsAppend = 0;
+    bool bonusesLableIsAppend = false;
 
     Ui::SecondarySkill *ui;
 
