@@ -39,7 +39,7 @@ public:
     //Конструктор для бонуса на статической позиции
     MagicDefenseBonus(int staticPosition, int value, bool isPercentage, QString bonusName);
     //Конструктор для бонусных чанков
-    MagicDefenseBonus(QVector<int> bonusChunksMaxVales);
+    MagicDefenseBonus(QVector<int> bonusChunksMaxVales, QString bonusName);
 
     bool isDynamic = false;
     bool isPercentage = false;

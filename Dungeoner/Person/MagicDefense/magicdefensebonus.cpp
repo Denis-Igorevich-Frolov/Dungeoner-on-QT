@@ -51,9 +51,10 @@ MagicDefenseBonus::MagicDefenseBonus(int staticPosition, int value, bool isPerce
 }
 
 //Конструктор для бонусных чанков
-MagicDefenseBonus::MagicDefenseBonus(QVector<int> bonusChunksMaxVales)
+MagicDefenseBonus::MagicDefenseBonus(QVector<int> bonusChunksMaxVales, QString bonusName)
 {
     this->bonusChunksMaxVales = bonusChunksMaxVales;
+    this->bonusName = bonusName;
 
     isDynamic = false;
     isBonusChunk = true;

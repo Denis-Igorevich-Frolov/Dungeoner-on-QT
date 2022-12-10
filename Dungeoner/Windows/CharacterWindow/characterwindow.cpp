@@ -1098,14 +1098,14 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(8, 10, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{50}, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new MagicDefenseBonus(8, 10, false, "Проклятие чорота эля"));
+    person.removeBonusFromStat(new MagicDefenseBonus(QVector<int>{50}, "Проклятие чорота эля"));
     recalculateStats();
 }
 

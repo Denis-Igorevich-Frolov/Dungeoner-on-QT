@@ -558,7 +558,19 @@ void ProgressBar_2::CreatingBonusTooltip()
             }
         }else
             text.append(bonus->bonusName);
-        text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
+        if(!bonus->isBonusChunk)
+            text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
+        else{
+            text.append(": +фрагмент");
+            for(int i = 0; i < bonus->getBonusChunksMaxVales().size(); i++){
+                text.append("[");
+                text.append(QString::number(bonus->getBonusChunksMaxVales().at(i)));
+                text.append("]");
+                if(!bonus->getBonusChunksMaxVales().isEmpty())
+                    if(i < bonus->getBonusChunksMaxVales().size()-1)
+                        text.append(", ");
+            }
+        }
 
         //Если бонус процентный, то его процент выводится в скобочках после значения
         if(bonus->isPercentage)
@@ -621,6 +633,7 @@ void ProgressBar_2::resizeEvent(QResizeEvent *event)
 
 void ProgressBar_2::bonusesChanged()
 {
+    chunks = stat->getChunks();
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 6 позиции, если это изменится, то надо поменять это и здесь*/
     if(stat!=nullptr){
@@ -628,7 +641,6 @@ void ProgressBar_2::bonusesChanged()
 
         if(!stat->getBonuses().isEmpty()){
             CreatingBonusTooltip();
-            recalculationChunkWidth();
 
             if(!bonusesLableIsAppend){
                 tooltipContent.insert(6, bonusesLabel);
@@ -649,6 +661,7 @@ void ProgressBar_2::bonusesChanged()
                 ui->labelWithTooltip->setTooltipContent(tooltipContent);
             }
         }
+        recalculationChunkWidth();
     }
 }
 
