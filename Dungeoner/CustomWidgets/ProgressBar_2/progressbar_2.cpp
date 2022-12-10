@@ -605,6 +605,7 @@ void ProgressBar_2::bonusesChanged()
 //        setTextValue(stat->getFinalValue());
         if(!stat->getBonuses().isEmpty()){
             CreatingBonusTooltip();
+            recalculationChunkWidth();
 
             if(!bonusesLableIsAppend){
                 tooltipContent.insert(6, bonusesLabel);
