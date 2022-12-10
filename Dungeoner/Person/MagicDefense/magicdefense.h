@@ -62,6 +62,8 @@ public:
     //Так как класс MagicDefense унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
     MagicDefense& operator= (const MagicDefense &stat);
 
+    int getTotalValueWithoutBonuses() const;
+
 signals:
     void bonusesChanged();
 
@@ -83,6 +85,8 @@ private:
     int totalValue = 0;
     //Текущее общее заполненное значение всех чанков прогрессбара. То есть сумма всех текущих значений всех чанков
     int value = 0;
+
+    int totalValueWithoutBonuses = 0;
 
     //Количество родных и бонусных чанков хранятся здесь для более простой передачи этих данных в подсказку
     int amountOfNativeChunks = 0;

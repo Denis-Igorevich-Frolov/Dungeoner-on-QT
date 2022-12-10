@@ -106,4 +106,7 @@ void Chunk::calculateFinalMaxValue()
      *фрагмент 0/0 - это фактическое отсутствие фрагмента, что не делает смысла*/
     else if(finalMaxValue<1)
         finalMaxValue = 1;
+
+    if(value>finalMaxValue)
+        value = finalMaxValue;
 }

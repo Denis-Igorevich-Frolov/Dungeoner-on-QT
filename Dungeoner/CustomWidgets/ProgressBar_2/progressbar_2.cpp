@@ -48,6 +48,9 @@ ProgressBar_2::ProgressBar_2(QWidget *parent) :
 
 ProgressBar_2::~ProgressBar_2()
 {
+    qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
+    delete bonusesLayout;
+
     //SeparatorWrapper нужно очистить так как эллементам в нём память вызывалась динамически
     qDeleteAll(ui->SeparatorWrapper->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
 
@@ -378,7 +381,7 @@ void ProgressBar_2::recalculationChunkWidth()
         else
             ui->labelWithTooltip->setText("1 / "+QString::number(chunks.at(currentChunk)->getFinalMaxValue()));
 
-    generalValueLabel->setText("Общее текущее значение:\n" + QVariant(this->value).toString() + " / " + QVariant(totalValue).toString());
+    setTextValue();
 
     if(amountOfNativeChunks<50)
         if(willUntilNextChunk>1)
@@ -395,18 +398,31 @@ void ProgressBar_2::recalculationChunkWidth()
         else
             newChunkRequirementsLabel->setText("Достигнуто максимальное количество фрагментов защиты");
 
+    QString valueLabelText;
     if (currentChunk != 0){
         chunkNumber->setText(QString::number(currentChunk+1)+" фрагмент из "+QString::number(chunks.size()));
-        valueLabel->setText("В текущем фрагменте:\n" + QString::number(chunks.at(currentChunk)->getValue())+" / "+
+        valueLabelText = ("В текущем фрагменте:\n" + QString::number(chunks.at(currentChunk)->getValue())+" / "+
                             QString::number(chunks.at(currentChunk)->getFinalMaxValue()));
     }else{
         chunkNumber->setText("0 фрагмент из " + QString::number(chunks.size()));
         if(chunks.isEmpty())
-            valueLabel->setText("В текущем фрагменте:\n0 / 0");
+            valueLabelText = ("В текущем фрагменте:\n0 / 0");
         else
-            valueLabel->setText("В текущем фрагменте:\n" + QString::number(chunks.at(currentChunk)->getValue())+" / "+
+            valueLabelText = ("В текущем фрагменте:\n" + QString::number(chunks.at(currentChunk)->getValue())+" / "+
                                 QString::number(chunks.at(currentChunk)->getFinalMaxValue()));
     }
+
+    if (currentChunk != 0){
+        if(chunks.at(currentChunk)->getMaxValue()!=chunks.at(currentChunk)->getFinalMaxValue()){
+            int difference = chunks.at(currentChunk)->getFinalMaxValue() - chunks.at(currentChunk)->getMaxValue();
+            valueLabelText.append(" (" + QVariant(chunks.at(currentChunk)->getMaxValue()).toString());
+            if(difference>0)
+                valueLabelText.append("+");
+            valueLabelText.append(QVariant(difference).toString() + ")");
+        }
+    }
+
+    valueLabel->setText(valueLabelText);
 
     /*Подробная информация по чанкам задаётся при помощи HTML абзаца с CSS стилями. Здесь показатели по каждому
      *чанку оборачиваются в span, которому, в заисимости от статуса, задаётся цвет: зелёный - для полностью
@@ -416,6 +432,7 @@ void ProgressBar_2::recalculationChunkWidth()
     if(!chunks.isEmpty())
         for(int i = 0; i < chunks.size(); i++){
             detailedInformationLabelText.append("<span");
+
             if(chunks.at(i)->getValue() == 0)
                 //Красный
                 detailedInformationLabelText.append(" style=\"color: #FF7F4F;\"");
@@ -425,8 +442,16 @@ void ProgressBar_2::recalculationChunkWidth()
                     //Зелёный
                     detailedInformationLabelText.append(" style=\"color: #77DB46;\"");
             detailedInformationLabelText.append(">");
-            detailedInformationLabelText.append("(" + QVariant(chunks.at(i)->getValue()).toString() + "/");
-            detailedInformationLabelText.append(QVariant(chunks.at(i)->getFinalMaxValue()).toString() + ")</span>");
+            detailedInformationLabelText.append("[" + QVariant(chunks.at(i)->getValue()).toString() + "/");
+            detailedInformationLabelText.append(QVariant(chunks.at(i)->getFinalMaxValue()).toString());
+            if(chunks.at(i)->getMaxValue()!=chunks.at(i)->getFinalMaxValue()){
+                int difference = chunks.at(i)->getFinalMaxValue() - chunks.at(i)->getMaxValue();
+                detailedInformationLabelText.append(" (" + QVariant(chunks.at(i)->getMaxValue()).toString());
+                if(difference>0)
+                    detailedInformationLabelText.append("+");
+                detailedInformationLabelText.append(QVariant(difference).toString() + ")");
+            }
+            detailedInformationLabelText.append("]</span>");
             if(i!=chunks.size()-1)
                 detailedInformationLabelText.append(", ");
             if(i!=0 && i!=chunks.size()-1 && ((i+1)%5)==0 && chunks.size()>5)
@@ -494,13 +519,15 @@ void ProgressBar_2::CreatingBonusTooltip()
          *лямбд, но эти способы кажутся излишним переусложнением простой и единичной задачи.*/
         QString sign = "";
 
-        if(bonus->getFinalValue() > 0){
-            numberSign = PLUS;
-            sign = '+';
-        }else if(bonus->getFinalValue() < 0){
-            numberSign = MINUS;
-        }else
-            numberSign = ZERO;
+        if(!bonus->isBonusChunk){
+            if(bonus->getFinalValue() > 0){
+                numberSign = PLUS;
+                sign = '+';
+            }else if(bonus->getFinalValue() < 0){
+                numberSign = MINUS;
+            }else
+                numberSign = ZERO;
+        }
 
         QLabel* bonusLabel = new QLabel(bonusesLabel);
 
@@ -538,15 +565,18 @@ void ProgressBar_2::CreatingBonusTooltip()
             text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
 
         QString color;
-        //Зелёный
-        if(numberSign == PLUS)
+        if(!bonus->isBonusChunk){
+            //Зелёный
+            if(numberSign == PLUS)
+                color = "77DB46";
+            //Красный
+            else if(numberSign == MINUS)
+                color = "FF7F4F";
+            //Блёкло-жёлтый
+            else
+                color = "C9CF82";
+        }else
             color = "77DB46";
-        //Красный
-        else if(numberSign == MINUS)
-            color = "FF7F4F";
-        //Блёкло-жёлтый
-        else
-            color = "C9CF82";
 
         bonusLabel->setFont(QFont("TextFont"));
         bonusLabel->setText(text);
@@ -570,15 +600,7 @@ void ProgressBar_2::CreatingBonusTooltip()
     }
     bonusesLabel->setMaximumWidth(450);
 
-//    if(stat->getValue()!=stat->getFinalValue()){
-//        QString value;
-//        value.append(QVariant(stat->getFinalValue()).toString() + " (" + QVariant(stat->getValue()).toString());
-//        int difference = stat->getFinalValue() - stat->getValue();
-//        if(difference>0)
-//            value.append("+");
-//        value.append(QVariant(difference).toString() +")");
-//        valueLabel->setText(value);
-//    }
+    setTextValue();
 }
 
 /*Переопределённая виртуальная функция класса QWidget. Во время этого эвента
@@ -602,7 +624,8 @@ void ProgressBar_2::bonusesChanged()
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 6 позиции, если это изменится, то надо поменять это и здесь*/
     if(stat!=nullptr){
-//        setTextValue(stat->getFinalValue());
+        totalValue = stat->getTotalValue();
+
         if(!stat->getBonuses().isEmpty()){
             CreatingBonusTooltip();
             recalculationChunkWidth();
@@ -627,4 +650,19 @@ void ProgressBar_2::bonusesChanged()
             }
         }
     }
+}
+
+void ProgressBar_2::setTextValue()
+{
+    if(stat->getTotalValueWithoutBonuses()!=stat->getTotalValue()){
+        QString value;
+        value.append("Общее текущее значение:\n" + QVariant(this->value).toString() + " / " + QVariant(totalValue).toString() +
+                     " (" + QVariant(stat->getTotalValueWithoutBonuses()).toString());
+        int difference = stat->getTotalValue() - stat->getTotalValueWithoutBonuses();
+        if(difference>0)
+            value.append("+");
+        value.append(QVariant(difference).toString() +")");
+        generalValueLabel->setText(value);
+    }else
+        generalValueLabel->setText("Общее текущее значение:\n" + QVariant(this->value).toString() + " / " + QVariant(totalValue).toString());
 }

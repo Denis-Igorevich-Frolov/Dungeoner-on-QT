@@ -324,6 +324,11 @@ void MagicDefense::addChunk(Chunk *chunk)
     recalculationChunks();
 }
 
+int MagicDefense::getTotalValueWithoutBonuses() const
+{
+    return totalValueWithoutBonuses;
+}
+
 //Вычисление текущего общего заполненного значения всех чанков прогрессбара
 void MagicDefense::calculateValue()
 {
@@ -377,8 +382,11 @@ void MagicDefense::recalculationChunks()
 
     //Вычисляется общее максимальное значение всех чанков
     totalValue = 0;
-    for(Chunk* chunk : chunks)
+    totalValueWithoutBonuses = 0;
+    for(Chunk* chunk : chunks){
         totalValue+=chunk->getFinalMaxValue();
+        totalValueWithoutBonuses+=chunk->getMaxValue();
+    }
 
     //Если значение больше максимального, то оно усекается до максимального
     if(value > totalValue)
@@ -543,6 +551,7 @@ MagicDefense& MagicDefense::operator= (const MagicDefense &stat)
     bonusChunks = stat.bonusChunks;
     finalBonusChunks = stat.finalBonusChunks;
     bonuses = stat.bonuses;
+    totalValueWithoutBonuses = stat.totalValueWithoutBonuses;
 
     return *this;
 }
