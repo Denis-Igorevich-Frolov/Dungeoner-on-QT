@@ -86,6 +86,7 @@ void ProgressBar_2::setChunks(const QVector<Chunk*> &newChunks, int totalValue, 
     this->amountOfBonusChunks = amountOfBonusChunks;
     setValue(value);
 
+    CreatingBonusTooltip();
     recalculationChunkWidth();
 }
 
@@ -559,9 +560,12 @@ void ProgressBar_2::CreatingBonusTooltip()
         }else
             text.append(bonus->bonusName);
         if(!bonus->isBonusChunk)
-            text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
+            if(bonus->isDynamic&&bonus->dynamicPosition == MagicDefenseBonus::ALL)
+                text.append(": " + QString::number(bonus->getFinalValue()*stat->nativeChunksSize));
+            else
+                text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
         else{
-            text.append(": +фрагмент");
+            text.append(": +фрагмент ");
             for(int i = 0; i < bonus->getBonusChunksMaxVales().size(); i++){
                 text.append("[");
                 text.append(QString::number(bonus->getBonusChunksMaxVales().at(i)));

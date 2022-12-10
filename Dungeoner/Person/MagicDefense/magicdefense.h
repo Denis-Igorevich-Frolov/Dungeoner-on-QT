@@ -64,6 +64,8 @@ public:
 
     int getTotalValueWithoutBonuses() const;
 
+    int nativeChunksSize;
+
 signals:
     void bonusesChanged();
 

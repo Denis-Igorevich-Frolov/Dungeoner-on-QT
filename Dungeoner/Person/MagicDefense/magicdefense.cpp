@@ -343,6 +343,7 @@ void MagicDefense::calculateValue()
 void MagicDefense::recalculationChunks()
 {
     updateBonuses();
+    nativeChunksSize = nativeChunks.size();
     /*Если суммарное количество родных и бонусных чанков превышает 60,
      *то родные чанки вытесняют бонусные. В конечном итоге общая сумма
      *родных и бонусных чанков никогда не превышает 60.*/
