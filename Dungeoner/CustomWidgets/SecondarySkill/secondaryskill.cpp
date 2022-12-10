@@ -72,54 +72,8 @@ int SecondarySkill::getValue() const
  *лейбл Value и меняет его межстрочный интервал*/
 void SecondarySkill::setValue(int newValue)
 {
-    if(newValue != value){
-        /*Просто так в Qt межстрочный интервал не задать, приходится прибегать к
-        *цыганским фокусам. Тут в QString переменную передаётся не просто значение,
-        *а HTML абзац с CSS стилем, где прописан межстрочный интервал. Первый arg
-        *передаёт значение межстрочного интервала (в данном случае 70%), а второй уже
-        *сам текст. Также стоит помнить, что Qt больше не сможет корректно центровать
-        *такой текст в лейбле. К счастью погрешность легко определить. При изменении
-        *интервала сам размер строки тоже становится меньше, считая даже первую строку. Из-за
-        *этой уменьшенной первой строки, и получается некоторый сдвиг вниз размером в срезанные
-        *30% (при интервале в 70%) размера строки. Точно посчитав на глаз недостающие
-        *пиксели, лейбл надо толкнуть нижним мердженом в CSS чуть-чуть вверх, компенсировав
-        *размер уменьшенной первой строки. При этом толкать придётся именно лейбл, так
-        *как попытки задать хоть какие-то отступы у изначально отредактированного абзаца
-        *ни к чему не приводят.*/
-        SValue = "<p style=\"line-height:%1%;\">%2</p>";
-
-        //Ограничение стата для уменьшения шанса возможных переполнений
-        if(newValue>9999999)
-            newValue = 9999999;
-        value = newValue;
-
-       /*Установка разделительных пробелов у значения стата для большей читабельности.
-        *Цель существования sValue в том, чтобы был посчитан размер строки и по ней уже бежал
-        *цикл. finalValue при прочих обстоятельствах был бы не нужен, но здесь мы не просто
-        *передаём значение в переменную QString, а при помощи arg подставляем необходимый текст
-        *на место %2 в HTML абзац. finalValue и есть этот текст, который бедет передан в arg.
-        *Использован prepend и обратный цикл из-за того, что эти разделители ставятся через каждые
-        *3 числа с конца.*/
-        QString sValue;
-        QString finalValue;
-        sValue.setNum(value);
-        if(sValue.size()!=0){
-            int j = 0;
-            for(int i = sValue.size(); i>0; --i){
-                finalValue.prepend(sValue[i-1]);
-                ++j;
-                if(sValue.size()!=3 && j==3){
-                    j = 0;
-                    finalValue.prepend(' ');
-                }
-            }
-        }
-        SValue = SValue.arg(70).arg(finalValue);
-        ui->Value->setText(SValue);
-
-        valueLabel->setText(SValue);
-        bonusesChanged();
-    }
+    setTextValue(newValue);
+    bonusesChanged();
 }
 
 void SecondarySkill::setInscription(QString inscription)
@@ -236,6 +190,7 @@ void SecondarySkill::bonusesChanged()
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 4 позиции, если это изменится, то надо поменять это и здесь*/
     if(stat!=nullptr){
+        setTextValue(stat->getFinalValue());
         if(!stat->getBonuses().isEmpty()){
             CreatingBonusTooltip();
 
@@ -352,6 +307,65 @@ void SecondarySkill::CreatingBonusTooltip()
         bonusLabel->setStyleSheet(SS_StyleMaster::TooltipTextStyle(17, color));
     }
     bonusesLabel->setMaximumWidth(450);
+
+    if(stat->getValue()!=stat->getFinalValue()){
+        QString value;
+        value.append(QVariant(stat->getFinalValue()).toString() + " (" + QVariant(stat->getValue()).toString());
+        int difference = stat->getFinalValue() - stat->getValue();
+        if(difference>0)
+            value.append("+");
+        value.append(QVariant(difference).toString() +")");
+        valueLabel->setText(value);
+    }
+}
+
+void SecondarySkill::setTextValue(int newValue)
+{
+    /*Просто так в Qt межстрочный интервал не задать, приходится прибегать к
+     *цыганским фокусам. Тут в QString переменную передаётся не просто значение,
+     *а HTML абзац с CSS стилем, где прописан межстрочный интервал. Первый arg
+     *передаёт значение межстрочного интервала (в данном случае 70%), а второй уже
+     *сам текст. Также стоит помнить, что Qt больше не сможет корректно центровать
+     *такой текст в лейбле. К счастью погрешность легко определить. При изменении
+     *интервала сам размер строки тоже становится меньше, считая даже первую строку. Из-за
+     *этой уменьшенной первой строки, и получается некоторый сдвиг вниз размером в срезанные
+     *30% (при интервале в 70%) размера строки. Точно посчитав на глаз недостающие
+     *пиксели, лейбл надо толкнуть нижним мердженом в CSS чуть-чуть вверх, компенсировав
+     *размер уменьшенной первой строки. При этом толкать придётся именно лейбл, так
+     *как попытки задать хоть какие-то отступы у изначально отредактированного абзаца
+     *ни к чему не приводят.*/
+    SValue = "<p style=\"line-height:%1%;\">%2</p>";
+
+    //Ограничение стата для уменьшения шанса возможных переполнений
+    if(newValue>9999999)
+        newValue = 9999999;
+    value = newValue;
+
+    /*Установка разделительных пробелов у значения стата для большей читабельности.
+     *Цель существования sValue в том, чтобы был посчитан размер строки и по ней уже бежал
+     *цикл. finalValue при прочих обстоятельствах был бы не нужен, но здесь мы не просто
+     *передаём значение в переменную QString, а при помощи arg подставляем необходимый текст
+     *на место %2 в HTML абзац. finalValue и есть этот текст, который бедет передан в arg.
+     *Использован prepend и обратный цикл из-за того, что эти разделители ставятся через каждые
+     *3 числа с конца.*/
+    QString sValue;
+    QString finalValue;
+    sValue.setNum(value);
+    if(sValue.size()!=0){
+        int j = 0;
+        for(int i = sValue.size(); i>0; --i){
+            finalValue.prepend(sValue[i-1]);
+            ++j;
+            if(sValue.size()!=3 && j==3){
+                j = 0;
+                finalValue.prepend(' ');
+            }
+        }
+    }
+    SValue = SValue.arg(70).arg(finalValue);
+    ui->Value->setText(SValue);
+
+    valueLabel->setText(SValue);
 }
 
 int SecondarySkill::getScrollAreaHeight() const

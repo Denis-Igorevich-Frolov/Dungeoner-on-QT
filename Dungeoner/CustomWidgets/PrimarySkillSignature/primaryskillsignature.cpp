@@ -246,6 +246,16 @@ void PrimarySkillSignature::CreatingBonusTooltip()
         bonusLabel->setStyleSheet(PSS_StyleMaster::TooltipTextStyle(17, color));
     }
     bonusesLabel->setMaximumWidth(450);
+
+    if(stat->getValue()!=stat->getFinalValue()){
+        QString value;
+        value.append(QVariant(stat->getFinalValue()).toString() + " (" + QVariant(stat->getValue()).toString());
+        int difference = stat->getFinalValue() - stat->getValue();
+        if(difference>0)
+            value.append("+");
+        value.append(QVariant(difference).toString() +")");
+        valueLabel->setText(value);
+    }
 }
 
 Stat *PrimarySkillSignature::getStat() const

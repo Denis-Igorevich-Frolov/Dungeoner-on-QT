@@ -119,6 +119,8 @@ void ProgressBar_1::setValue(int newValue)
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
+
+    bonusesChanged();
 }
 
 void ProgressBar_1::setColor(const QColor &newColor)
@@ -200,6 +202,12 @@ void ProgressBar_1::bonusesChanged()
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 4 позиции, если это изменится, то надо поменять это и здесь*/
     if(!stat->getBonuses().isEmpty()){
+        value = stat->getProgressBarCurrentValue();
+        maxValue = stat->getFinalValue();
+
+        //После изменения диапазона нужно пересчитать размер заполненной области
+        recalculationChunkWidth();
+
         CreatingBonusTooltip();
 
         if(!bonusesLableIsAppend){
@@ -313,6 +321,17 @@ void ProgressBar_1::CreatingBonusTooltip()
         bonusLabel->setStyleSheet(PB1_StyleMaster::TooltipTextStyle(17, color));
     }
     bonusesLabel->setMaximumWidth(450);
+
+    if(stat->getValue()!=stat->getFinalValue()){
+        QString value;
+        value.append(QVariant(stat->getProgressBarCurrentValue()).toString() + " / " + QVariant(stat->getFinalValue()).toString()
+                     + " (" + QVariant(stat->getValue()).toString());
+        int difference = stat->getFinalValue() - stat->getValue();
+        if(difference>0)
+            value.append("+");
+        value.append(QVariant(difference).toString() +")");
+        valueLabel->setText(value);
+    }
 }
 
 //Пересчёт размера заполненной области

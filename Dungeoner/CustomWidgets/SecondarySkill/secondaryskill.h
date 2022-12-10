@@ -80,6 +80,8 @@ private:
     //Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
     void CreatingBonusTooltip();
 
+    void setTextValue(int newValue);
+
     bool bonusesLableIsAppend = 0;
 
     Ui::SecondarySkill *ui;
