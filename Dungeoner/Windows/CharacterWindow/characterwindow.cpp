@@ -124,16 +124,26 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     tooltipInitialization();
 
 
-    person.addBonusToStat(new MagicDefenseBonus(3, -3, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(6, 34, false, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(7, 56, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::ALL, 4, false, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::FIRST, 4, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::LAST, 5, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::CENTER, 7, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::ALL, 9, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(2, 1, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 10, false, "F"));
+    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 11, false, "F"));
+    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 3, false, "F"));
+    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 7, true, "F"));
+    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 8, true, "F"));
+    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 43, false, "F"));
+    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 22, true, "F"));
+
+//    person.addBonusToStat(new MagicDefenseBonus(3, -3, true, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(6, 34, false, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(7, 56, true, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::ALL, 4, false, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::FIRST, 4, true, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::LAST, 5, true, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::CENTER, 7, true, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::ALL, 9, true, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(2, 1, false, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{5,5,5}, "Проклятие чорота эля"));
+//    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{16}, "Проклятие чорота эля"));
 
 
     recalculateStats();

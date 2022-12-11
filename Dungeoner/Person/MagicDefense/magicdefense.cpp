@@ -63,10 +63,6 @@ void MagicDefense::setValue(int newValue)
 void MagicDefense::addBonus(MagicDefenseBonus *bonus)
 {
     bonuses.append(bonus);
-    //Сортировка по степени воздействия
-    std::sort(bonuses.begin(), bonuses.end(), [](MagicDefenseBonus* a, MagicDefenseBonus* b) {
-        return *a > *b;
-    });
 
     //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
     recalculationChunks();
@@ -125,11 +121,6 @@ bool MagicDefense::removeBonus(MagicDefenseBonus *bonus)
 //Перерасчёт всех бонусов магической защиты
 void MagicDefense::updateBonuses()
 {
-    //Так как идёт переинициализация сначала удаляются все старые бонусы со всех чанков
-    for(Chunk* chunk : nativeChunks){
-        chunk->clearBonuses();
-    }
-
     //Также удаляются и все бонусные чанки
     for(Chunk* chunk : bonusChunks)
         delete chunk;
@@ -161,6 +152,10 @@ void MagicDefense::updateBonuses()
                 bonus->setFinalValue(0);
         }
     }
+    //Сортировка бонусов по степени воздействия
+    std::sort(bonuses.begin(), bonuses.end(), [](MagicDefenseBonus* a, MagicDefenseBonus* b) {
+        return *a > *b;
+    });
 }
 
 int MagicDefense::getNativeChunksSize()

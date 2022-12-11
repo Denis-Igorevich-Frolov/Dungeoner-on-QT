@@ -128,6 +128,11 @@ void Stat::calculateFinalValue()
         finalValue = maximum;
     else if(finalValue<0)
         finalValue = 0;
+
+    //Сортировка бонусов по степени воздействия
+    std::sort(bonuses.begin(), bonuses.end(), [](Bonus* a, Bonus* b) {
+        return *a > *b;
+    });
 }
 
 /*Разные группы статов имеют разные максимальные значения. Так для первичных навыков -

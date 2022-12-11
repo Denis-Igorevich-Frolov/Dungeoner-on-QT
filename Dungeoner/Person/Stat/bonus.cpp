@@ -66,11 +66,18 @@ bool operator !=(const Bonus& bonus1, const Bonus& bonus2)
 //Операторы отношения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
 bool Bonus::operator <(const Bonus& bonus2)
 {
-    //Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue, а у другого value
+    /*Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue,
+     *а у другого value, при этом если эти значения равны большим посчитается процентный*/
     if(isPercentage && !bonus2.isPercentage)
-        return std::abs(finalValue) < std::abs(bonus2.getValue());
+        if(std::abs(finalValue) == std::abs(bonus2.getValue()))
+            return false;
+        else
+            return std::abs(finalValue) < std::abs(bonus2.getValue());
     else if(!isPercentage && bonus2.isPercentage)
-        return std::abs(value) < std::abs(bonus2.getFinalValue());
+        if(std::abs(value) == std::abs(bonus2.getFinalValue()))
+            return true;
+        else
+            return std::abs(value) < std::abs(bonus2.getFinalValue());
     else if(isPercentage && bonus2.isPercentage){
         if(finalValue == bonus2.finalValue)
             /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
@@ -84,11 +91,18 @@ bool Bonus::operator <(const Bonus& bonus2)
 }
 bool Bonus::operator >(const Bonus& bonus2)
 {
-    //Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue, а у другого value
+    /*Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue,
+     *а у другого value, при этом если эти значения равны большим посчитается процентный*/
     if(isPercentage && !bonus2.isPercentage)
-        return std::abs(finalValue) > std::abs(bonus2.getValue());
+        if(std::abs(finalValue) == std::abs(bonus2.getValue()))
+            return true;
+        else
+            return std::abs(finalValue) > std::abs(bonus2.getValue());
     else if(!isPercentage && bonus2.isPercentage)
-        return std::abs(value) > std::abs(bonus2.getFinalValue());
+        if(std::abs(value) == std::abs(bonus2.getFinalValue()))
+            return false;
+        else
+            return std::abs(value) > std::abs(bonus2.getFinalValue());
     else if(isPercentage && bonus2.isPercentage){
         if(finalValue == bonus2.finalValue)
             /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
