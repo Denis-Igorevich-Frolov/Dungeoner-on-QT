@@ -152,7 +152,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
 
     QLabel* numberOfChunksFormulalaLabel = new QLabel;
     numberOfChunksFormulalaLabel->setFont(QFont("TextFont"));
-    numberOfChunksFormulalaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "bdc440"));
+    numberOfChunksFormulalaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(16, "bdc440"));
     numberOfChunksFormulalaLabel->setText(numberOfChunksFormula);
     numberOfChunksFormulalaLabel->setMaximumWidth(450);
     numberOfChunksFormulalaLabel->setWordWrap(true);
@@ -445,7 +445,11 @@ void ProgressBar_2::recalculationChunkWidth()
                     //Зелёный
                     detailedInformationLabelText.append(" style=\"color: #77DB46;\"");
             detailedInformationLabelText.append(">");
-            detailedInformationLabelText.append("[" + QVariant(chunks.at(i)->getValue()).toString() + "/");
+            if(i>=stat->getNativeChunksSize())
+                detailedInformationLabelText.append("{");
+            else
+                detailedInformationLabelText.append("[");
+            detailedInformationLabelText.append(QVariant(chunks.at(i)->getValue()).toString() + "/");
             detailedInformationLabelText.append(QVariant(chunks.at(i)->getFinalMaxValue()).toString());
             if(chunks.at(i)->getMaxValue()!=chunks.at(i)->getFinalMaxValue()){
                 int difference = chunks.at(i)->getFinalMaxValue() - chunks.at(i)->getMaxValue();
@@ -454,7 +458,12 @@ void ProgressBar_2::recalculationChunkWidth()
                     detailedInformationLabelText.append("+");
                 detailedInformationLabelText.append(QVariant(difference).toString() + ")");
             }
-            detailedInformationLabelText.append("]</span>");
+            if(i>=stat->getNativeChunksSize())
+                detailedInformationLabelText.append("}");
+            else
+                detailedInformationLabelText.append("]");
+            detailedInformationLabelText.append("</span>");
+
             if(i!=chunks.size()-1)
                 detailedInformationLabelText.append(", ");
             if(i!=0 && i!=chunks.size()-1 && ((i+1)%5)==0 && chunks.size()>5)
@@ -523,16 +532,18 @@ void ProgressBar_2::CreatingBonusTooltip()
         QString sign = "";
 
         if(bonus->isDynamic&&bonus->dynamicPosition==MagicDefenseBonus::ALL)
-            bonus->numberOfChunksChanged = stat->getNativeChunksSize();
+            bonus->setNumberOfChunksChanged(stat->getNativeChunksSize());
 
         if(!bonus->isBonusChunk){
             if(bonus->getFinalValue() > 0){
                 numberSign = PLUS;
-                sign = '+';
             }else if(bonus->getFinalValue() < 0){
                 numberSign = MINUS;
             }else
                 numberSign = ZERO;
+
+            if(bonus->getValue() > 0)
+                sign = '+';
         }
 
         QLabel* bonusLabel = new QLabel(bonusesLabel);
@@ -564,10 +575,25 @@ void ProgressBar_2::CreatingBonusTooltip()
             }
         }else
             text.append(bonus->bonusName);
-        if(!bonus->isBonusChunk)
-            text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
-        else{
-            text.append(": +фрагмент ");
+        if(!bonus->isBonusChunk){
+            text.append(": ");
+            if(bonus->getNumberOfChunksChanged()>1 && bonus->getFinalValue()!=0)
+                text.append(sign + QString::number(bonus->getFinalValue() * bonus->getNumberOfChunksChanged())+" (");
+            if(bonus->isPercentage)
+                if(bonus->getFinalValue()!=0)
+                    text.append(sign + QVariant(bonus->getFinalValue()).toString());
+                else
+                    text.append(QVariant(bonus->getFinalValue()).toString());
+            else
+                if(bonus->getValue()!=0)
+                    text.append(sign + QVariant(bonus->getValue()).toString());
+                else
+                    text.append(QVariant(bonus->getValue()).toString());
+        }else{
+            text.append(": +фрагмент");
+            if(bonus->getBonusChunksMaxVales().size()>1)
+                text.append("ы");
+            text.append(" ");
             for(int i = 0; i < bonus->getBonusChunksMaxVales().size(); i++){
                 text.append("[");
                 text.append(QString::number(bonus->getBonusChunksMaxVales().at(i)));
@@ -580,12 +606,14 @@ void ProgressBar_2::CreatingBonusTooltip()
 
         //Если бонус процентный, то его процент выводится в скобочках после значения
         if(bonus->isPercentage)
-            text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
+            text.append(" (" + sign + QVariant(bonus->getValue()).toString() + "%)");
 
         if(bonus->isDynamic){
-            if(bonus->dynamicPosition==MagicDefenseBonus::ALL)
+            if(bonus->dynamicPosition==MagicDefenseBonus::ALL){
                 text.append(" ко всем");
-            else if(bonus->dynamicPosition==MagicDefenseBonus::FIRST)
+                if(bonus->getNumberOfChunksChanged()>1 && bonus->getFinalValue()!=0)
+                    text.append(") ");
+            }else if(bonus->dynamicPosition==MagicDefenseBonus::FIRST)
                 text.append(" к перв.");
             else if(bonus->dynamicPosition==MagicDefenseBonus::LAST)
                 text.append(" к пос.");

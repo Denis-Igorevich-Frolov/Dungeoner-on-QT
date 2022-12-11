@@ -65,12 +65,15 @@ public:
     bool operator < (const MagicDefenseBonus& bonus2);
 
     QString bonusName;
-    int numberOfChunksChanged;
 
     int getFinalValue() const;
     void setFinalValue(int newFinalValue);
 
+    int getNumberOfChunksChanged() const;
+    void setNumberOfChunksChanged(int newNumberOfChunksChanged);
+
 private:
+    int numberOfChunksChanged = 1;
     //Финальное значеие с учётом процента. Хранится для подсказки
     int finalValue = 0;
     //Значение бонуса. Используется только для статических и динамических бонусов

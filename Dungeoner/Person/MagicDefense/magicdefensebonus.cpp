@@ -157,6 +157,18 @@ void MagicDefenseBonus::setFinalValue(int newFinalValue)
     finalValue = newFinalValue;
 }
 
+int MagicDefenseBonus::getNumberOfChunksChanged() const
+{
+    return numberOfChunksChanged;
+}
+
+void MagicDefenseBonus::setNumberOfChunksChanged(int newNumberOfChunksChanged)
+{
+    if(newNumberOfChunksChanged<1)
+        newNumberOfChunksChanged = 1;
+    numberOfChunksChanged = newNumberOfChunksChanged;
+}
+
 /*Операторы отношения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно
  *сравнение производится по модулю. Бонус на новые чанки всегда считается большим чем любой другой.*/
 bool MagicDefenseBonus::operator <(const MagicDefenseBonus& bonus2)
@@ -180,25 +192,19 @@ bool MagicDefenseBonus::operator <(const MagicDefenseBonus& bonus2)
     /*Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue,
      *а у другого value, при этом если эти значения равны большим посчитается процентный*/
     }else if(isPercentage && !bonus2.isPercentage)
-        if(std::abs(finalValue) == std::abs(bonus2.getValue()))
-            return false;
-        else
-            return std::abs(finalValue) < std::abs(bonus2.getValue());
+        return std::abs(finalValue * numberOfChunksChanged) < std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
     else if(!isPercentage && bonus2.isPercentage)
-        if(std::abs(value) == std::abs(bonus2.getFinalValue()))
-            return true;
-        else
-            return std::abs(value) < std::abs(bonus2.getFinalValue());
+        return std::abs(finalValue * numberOfChunksChanged) < std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
     else if(isPercentage && bonus2.isPercentage){
-        if(finalValue == bonus2.finalValue)
+        if(finalValue * numberOfChunksChanged == bonus2.finalValue * bonus2.getNumberOfChunksChanged())
             /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
              *они имеют разный процент, но эта разница достаточно незначительная, чтобы выдавать одинаковый
              *finalValue. В таком случае большим считается тот бонус, чей процент выше*/
-            return std::abs(value) < std::abs(bonus2.getValue());
+            return std::abs(finalValue * numberOfChunksChanged) < std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
         else
-            return std::abs(finalValue) < std::abs(bonus2.getFinalValue());
+            return std::abs(finalValue * numberOfChunksChanged) < std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
     }else
-        return std::abs(value) < std::abs(bonus2.getValue());
+        return std::abs(finalValue * numberOfChunksChanged) < std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
 }
 bool MagicDefenseBonus::operator >(const MagicDefenseBonus& bonus2)
 {
@@ -221,18 +227,17 @@ bool MagicDefenseBonus::operator >(const MagicDefenseBonus& bonus2)
     /*Если один из бонусов процентный, а второй нет, то у процентного берётся finalValue,
      *а у другого value, при этом если эти значения равны большим посчитается процентный*/
     }else if(isPercentage && !bonus2.isPercentage)
-        if(std::abs(finalValue) == std::abs(bonus2.getValue()))
-            return true;
-        else
-            return std::abs(finalValue) > std::abs(bonus2.getValue());
+        return std::abs(finalValue * numberOfChunksChanged) > std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
+    else if(!isPercentage && bonus2.isPercentage)
+        return std::abs(finalValue * numberOfChunksChanged) > std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
     else if(isPercentage && bonus2.isPercentage){
-        if(finalValue == bonus2.finalValue)
+        if(finalValue * numberOfChunksChanged == bonus2.finalValue * bonus2.getNumberOfChunksChanged())
             /*Если оба бонуса процентные и имеют одинаковое finalValue, но разный value, это значит, что
              *они имеют разный процент, но эта разница достаточно незначительная, чтобы выдавать одинаковый
              *finalValue. В таком случае большим считается тот бонус, чей процент выше*/
-            return std::abs(value) > std::abs(bonus2.getValue());
+            return std::abs(finalValue * numberOfChunksChanged) > std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
         else
-            return std::abs(finalValue) > std::abs(bonus2.getFinalValue());
+            return std::abs(finalValue * numberOfChunksChanged) > std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
     }else
-        return std::abs(value) > std::abs(bonus2.getValue());
+        return std::abs(finalValue * numberOfChunksChanged) > std::abs(bonus2.getFinalValue() * bonus2.getNumberOfChunksChanged());
 }
