@@ -57,7 +57,7 @@ public:
     friend bool operator == (const Bonus& bonus1, const Bonus& bonus2);
     friend bool operator != (const Bonus& bonus1, const Bonus& bonus2);
 
-    //Операторы сравнения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
+    //Операторы отношения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
     bool operator > (const Bonus& bonus2);
     bool operator < (const Bonus& bonus2);
 
@@ -65,7 +65,7 @@ public:
     void setFinalValue(int newFinalValue);
 
 private:
-    //Финальное значеие с учётом процента. Хранится для подсказки
+    //Финальное значеие с учётом процента, если таковой имеется. Хранится для выведения подсказки
     int finalValue = 0;
     int value = 0;
 };

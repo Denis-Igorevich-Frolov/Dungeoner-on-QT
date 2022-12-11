@@ -157,13 +157,16 @@ void MagicDefenseBonus::setFinalValue(int newFinalValue)
     finalValue = newFinalValue;
 }
 
-//Операторы сравнения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
+/*Операторы отношения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно
+ *сравнение производится по модулю. Бонус на новые чанки всегда считается большим чем любой другой.*/
 bool MagicDefenseBonus::operator <(const MagicDefenseBonus& bonus2)
 {
+    //Бонус на новые чанки всегда считается большим чем любой другой
     if(isBonusChunk && !bonus2.isBonusChunk){
         return false;
     }else if(!isBonusChunk && bonus2.isBonusChunk){
         return true;
+    //Если оба бонуса на новые чанки, большим считатется тот, у кого больше суммарный размер всех новых чанков
     }else if(isBonusChunk && bonus2.isBonusChunk){
         int bonus1TotalValue = 0;
         int bonus2TotalValue = 0;
@@ -192,10 +195,12 @@ bool MagicDefenseBonus::operator <(const MagicDefenseBonus& bonus2)
 }
 bool MagicDefenseBonus::operator >(const MagicDefenseBonus& bonus2)
 {
+    //Бонус на новые чанки всегда считается большим чем любой другой
     if(isBonusChunk && !bonus2.isBonusChunk){
         return true;
     }else if(!isBonusChunk && bonus2.isBonusChunk){
         return false;
+    //Если оба бонуса на новые чанки, большим считатется тот, у кого больше суммарный размер всех новых чанков
     }else if(isBonusChunk && bonus2.isBonusChunk){
         int bonus1TotalValue = 0;
         int bonus2TotalValue = 0;

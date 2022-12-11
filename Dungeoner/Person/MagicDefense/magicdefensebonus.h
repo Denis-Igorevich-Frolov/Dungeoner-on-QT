@@ -59,11 +59,13 @@ public:
     friend bool operator == (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonus2);
     friend bool operator != (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonus2);
 
-    //Операторы сравнения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю
+    /*Операторы отношения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно
+     *сравнение производится по модулю. Бонус на новые чанки всегда считается большим чем любой другой.*/
     bool operator > (const MagicDefenseBonus& bonus2);
     bool operator < (const MagicDefenseBonus& bonus2);
 
     QString bonusName;
+    int numberOfChunksChanged;
 
     int getFinalValue() const;
     void setFinalValue(int newFinalValue);

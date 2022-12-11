@@ -153,11 +153,19 @@ void MagicDefense::updateBonuses()
                 }else if(bonus->dynamicPosition == MagicDefenseBonus::ALL){
                     for(Chunk* chunk : nativeChunks)
                         chunk->addBonus(bonus);
+                    bonus->numberOfChunksChanged = nativeChunks.size();
                 }
-            }else if(bonus->staticPosition <= nativeChunks.size() && bonus->staticPosition>0)
+            }else if(bonus->staticPosition <= nativeChunks.size() && bonus->staticPosition>0){
                 nativeChunks.at(bonus->staticPosition-1)->addBonus(bonus);
+            }else
+                bonus->setFinalValue(0);
         }
     }
+}
+
+int MagicDefense::getNativeChunksSize()
+{
+    return nativeChunks.size();
 }
 
 /*Удаление бонусного чанка. В метод передаётся указатель на чанк, который должен быть удалён из
@@ -343,7 +351,6 @@ void MagicDefense::calculateValue()
 void MagicDefense::recalculationChunks()
 {
     updateBonuses();
-    nativeChunksSize = nativeChunks.size();
     /*Если суммарное количество родных и бонусных чанков превышает 60,
      *то родные чанки вытесняют бонусные. В конечном итоге общая сумма
      *родных и бонусных чанков никогда не превышает 60.*/
@@ -381,7 +388,7 @@ void MagicDefense::recalculationChunks()
     chunks.append(nativeChunks);
     chunks.append(finalBonusChunks);
 
-    //Вычисляется общее максимальное значение всех чанков
+    //Вычисляется общее максимальное значение всех чанков с учётом бонусов и без них
     totalValue = 0;
     totalValueWithoutBonuses = 0;
     for(Chunk* chunk : chunks){

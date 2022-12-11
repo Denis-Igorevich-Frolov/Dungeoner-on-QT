@@ -90,10 +90,13 @@ void Chunk::calculateFinalMaxValue()
         if(bonus != nullptr){
             if (bonus->isPercentage){
                 int finalBonusValue = ((double)maxValue/100)*bonus->getValue();
+                bonus->setFinalValue(finalBonusValue);
                 finalMaxValue += finalBonusValue;
                 bonus->setFinalValue(finalBonusValue);
-            }else
+            }else{
                 finalMaxValue += bonus->getValue();
+                bonus->setFinalValue(bonus->getValue());
+            }
         }
     }
 
@@ -107,6 +110,7 @@ void Chunk::calculateFinalMaxValue()
     else if(finalMaxValue<1)
         finalMaxValue = 1;
 
+    //Текущее значение не может привышать максимальное
     if(value>finalMaxValue)
         value = finalMaxValue;
 }

@@ -64,7 +64,7 @@ public:
 
     int getTotalValueWithoutBonuses() const;
 
-    int nativeChunksSize;
+    int getNativeChunksSize();
 
 signals:
     void bonusesChanged();
@@ -87,7 +87,7 @@ private:
     int totalValue = 0;
     //Текущее общее заполненное значение всех чанков прогрессбара. То есть сумма всех текущих значений всех чанков
     int value = 0;
-
+    //Максимальное значение без чёта бонусов. Хранится для выведения подсказки
     int totalValueWithoutBonuses = 0;
 
     //Количество родных и бонусных чанков хранятся здесь для более простой передачи этих данных в подсказку

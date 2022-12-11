@@ -27,18 +27,6 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     //Без этого атрибута эвенты наведения мыши не будут вызываться
     setAttribute(Qt::WA_Hover);
 
-    person.addBonusToStat(new MagicDefenseBonus(3, -3, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(6, 34, false, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(7, 56, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{50}, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{30,11}, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::ALL, 4, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{7}, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::FIRST, -30, true, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(2, 1, false, "Проклятие чорота эля"));
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{5,5,5}, "Проклятие чорота эля"));
-
     ui->StrengthValue->installEventFilter(this);
     ui->AgilityValue->installEventFilter(this);
     ui->IntelligenceValue->installEventFilter(this);
@@ -134,6 +122,19 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     }
 
     tooltipInitialization();
+
+
+    person.addBonusToStat(new MagicDefenseBonus(3, -3, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(6, 34, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(7, 56, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::ALL, 4, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::FIRST, 4, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::LAST, 5, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::CENTER, 7, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::ALL, 9, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(2, 1, false, "Проклятие чорота эля"));
+
 
     recalculateStats();
 }
@@ -1110,19 +1111,19 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{50}, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new MagicDefenseBonus(QVector<int>{50}, "Проклятие чорота эля"));
+    person.removeBonusFromStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(8, -10, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(1, 11, true, "Проклятие чорота эля"));
 }

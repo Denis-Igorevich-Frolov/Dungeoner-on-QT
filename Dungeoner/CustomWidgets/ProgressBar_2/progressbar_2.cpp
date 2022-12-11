@@ -136,12 +136,14 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     separator2->setStyleSheet("background: #bdc440;");
     tooltipContent.append(separator2);
 
+    //Если есть бонусы, то они будут внесены в подсказку
     if(!stat->getBonuses().isEmpty()){
         CreatingBonusTooltip();
 
         tooltipContent.append(bonusesLabel);
         bonusesLableIsAppend = true;
 
+        //Также после лейбла с бонусами помещается разделитель
         QLabel* separator = new QLabel;
         separator->setFixedSize(450, 1);
         separator->setStyleSheet("background: #bdc440;");
@@ -520,6 +522,9 @@ void ProgressBar_2::CreatingBonusTooltip()
          *лямбд, но эти способы кажутся излишним переусложнением простой и единичной задачи.*/
         QString sign = "";
 
+        if(bonus->isDynamic&&bonus->dynamicPosition==MagicDefenseBonus::ALL)
+            bonus->numberOfChunksChanged = stat->getNativeChunksSize();
+
         if(!bonus->isBonusChunk){
             if(bonus->getFinalValue() > 0){
                 numberSign = PLUS;
@@ -560,10 +565,7 @@ void ProgressBar_2::CreatingBonusTooltip()
         }else
             text.append(bonus->bonusName);
         if(!bonus->isBonusChunk)
-            if(bonus->isDynamic&&bonus->dynamicPosition == MagicDefenseBonus::ALL)
-                text.append(": " + QString::number(bonus->getFinalValue()*stat->nativeChunksSize));
-            else
-                text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
+            text.append(": " + sign + QVariant(bonus->getFinalValue()).toString());
         else{
             text.append(": +фрагмент ");
             for(int i = 0; i < bonus->getBonusChunksMaxVales().size(); i++){
@@ -579,6 +581,19 @@ void ProgressBar_2::CreatingBonusTooltip()
         //Если бонус процентный, то его процент выводится в скобочках после значения
         if(bonus->isPercentage)
             text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
+
+        if(bonus->isDynamic){
+            if(bonus->dynamicPosition==MagicDefenseBonus::ALL)
+                text.append(" ко всем");
+            else if(bonus->dynamicPosition==MagicDefenseBonus::FIRST)
+                text.append(" к перв.");
+            else if(bonus->dynamicPosition==MagicDefenseBonus::LAST)
+                text.append(" к пос.");
+            else if(bonus->dynamicPosition==MagicDefenseBonus::CENTER)
+                text.append(" к центр.");
+        }else if(!bonus->isBonusChunk){
+            text.append(" ко фрагм. "+QString::number(bonus->staticPosition));
+        }
 
         QString color;
         if(!bonus->isBonusChunk){

@@ -120,6 +120,7 @@ void ProgressBar_1::setValue(int newValue)
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
 
+    //Если есть процентные бонусы, то от изменения значения они тоже изменятся
     bonusesChanged();
 }
 
@@ -168,6 +169,7 @@ void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int for
     formulaLabel->setWordWrap(true);
     tooltipContent.append(formulaLabel);
 
+    //Если есть бонусы, то они будут внесены в подсказку
     if(!stat->getBonuses().isEmpty()){
         CreatingBonusTooltip();
 
@@ -322,10 +324,13 @@ void ProgressBar_1::CreatingBonusTooltip()
     }
     bonusesLabel->setMaximumWidth(450);
 
+    /*Если после применения всех бонусов текущее значение отличается от родного,
+     *то в подсказке в скобочках пишется (Родное_Значение + Разница_От_Текущего)*/
     if(stat->getValue()!=stat->getFinalValue()){
         QString value;
         value.append(QVariant(stat->getProgressBarCurrentValue()).toString() + " / " + QVariant(stat->getFinalValue()).toString()
                      + " (" + QVariant(stat->getValue()).toString());
+        //Разница текущего значения и родного без учёта бонусов
         int difference = stat->getFinalValue() - stat->getValue();
         if(difference>0)
             value.append("+");
