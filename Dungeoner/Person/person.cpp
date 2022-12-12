@@ -367,13 +367,13 @@ void Person::recalculateStats()
     willUntilNextChunk = amountOfRequirements - Will.getFinalValue();
 
     //Генерируется новый вектор чанков исходя из новых статов
-    QVector<Chunk*> chinks;
+    QVector<Chunk*> chunks;
     for(int i = 0; i<numberOfChunks; i++){
         int chunkValue = floor(Magic.getFinalValue() * 0.7 + BodyType.getFinalValue() * 0.3);
-        chinks.append(new Chunk(chunkValue, 0));
+        chunks.append(new Chunk(chunkValue, 0));
     }
 
-    magicDefense.setNativeChunks(chinks);
+    magicDefense.setNativeChunks(chunks);
 }
 
 Stat* Person::getStrength()

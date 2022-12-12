@@ -150,6 +150,7 @@ void SecondarySkill::setTooltipContent(QString fullName, QString formula, QStrin
     formulaLabel->setWordWrap(true);
     tooltipContent.append(formulaLabel);
 
+    //Если есть бонусы, то они будут внесены в подсказку
     if(!stat->getBonuses().isEmpty()){
         CreatingBonusTooltip();
 
@@ -204,6 +205,7 @@ void SecondarySkill::bonusesChanged()
                 tooltipContent.removeAt(4);
                 bonusesLableIsAppend = false;
                 tooltipDisplayEvents.setTooltipContent(tooltipContent);
+                qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
             }
         }
     }
@@ -258,6 +260,7 @@ void SecondarySkill::CreatingBonusTooltip()
         //Перенос строки
         if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
             for(int i = 0; i<bonus->bonusName.size(); i++){
+                //Если имя бонуса превышает 35 символов, то оно усекается
                 if(i>35){
                     text.append("... ");
                     break;
@@ -279,6 +282,7 @@ void SecondarySkill::CreatingBonusTooltip()
         if(bonus->isPercentage)
             text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
 
+        //В зависимости от положительности значения, его лейбл красится в определённый цвет
         QString color;
         //Зелёный
         if(numberSign == PLUS)
@@ -312,9 +316,12 @@ void SecondarySkill::CreatingBonusTooltip()
     }
     bonusesLabel->setMaximumWidth(450);
 
+    /*Если после применения всех бонусов текущее значение отличается от родного,
+     *то в подсказке в пишется Текущее_Значение (Исходное_Значение+Бонус)*/
     if(stat->getValue()!=stat->getFinalValue()){
         QString value;
         value.append(QVariant(stat->getFinalValue()).toString() + " (" + QVariant(stat->getValue()).toString());
+        //Эта разница отражает то, на сколько изменился стат при применении бонусов
         int difference = stat->getFinalValue() - stat->getValue();
         if(difference>0)
             value.append("+");

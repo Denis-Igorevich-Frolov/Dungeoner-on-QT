@@ -236,7 +236,6 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     detailedInformationLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "E8E23C"));
     //В этом лейбле мы сами управляем переносом строк и автоперенос нам не нужен
     detailedInformationLabel->setWordWrap(false);
-    detailedInformationLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     AltTooltipContent.append(detailedInformationLabel);
 
     QLabel* AltSeparator2 = new QLabel();
@@ -446,6 +445,7 @@ void ProgressBar_2::recalculationChunkWidth()
                     //Зелёный
                     detailedInformationLabelText.append(" style=\"color: #77DB46;\"");
             detailedInformationLabelText.append(">");
+            //Родной чанк выделяется квадратными скобочками, бонусный - фигурными
             if(i>=stat->getNativeChunksSize())
                 detailedInformationLabelText.append("{");
             else
@@ -459,6 +459,7 @@ void ProgressBar_2::recalculationChunkWidth()
                     detailedInformationLabelText.append("+");
                 detailedInformationLabelText.append(QVariant(difference).toString() + ")");
             }
+            //Родной чанк выделяется квадратными скобочками, бонусный - фигурными
             if(i>=stat->getNativeChunksSize())
                 detailedInformationLabelText.append("}");
             else
@@ -518,9 +519,9 @@ void ProgressBar_2::CreatingBonusTooltip()
     int col = 0;
     //Переменная показывающая после какого значения row следует сделать перенос на новую col
     int maxRow = 9;
-    /*Если количество бонусов больше 9, то maxRow пытается разделить столбец
-     *пополам с приоритетом на првый столбец, если количество бонусов нечётное*/
-    if(stat->getBonuses().size() > 9)
+    /*Если количество бонусов больше maxRow, то программа пытается разделить столбец
+     *пополам с приоритетом на первый столбец, если количество бонусов нечётное*/
+    if(stat->getBonuses().size() > maxRow)
         maxRow = ceil((float)stat->getBonuses().size()/2);
     //Также столбец никогда не должен превышать 9 строк
     if(maxRow > 9)
@@ -532,6 +533,7 @@ void ProgressBar_2::CreatingBonusTooltip()
          *лямбд, но эти способы кажутся излишним переусложнением простой и единичной задачи.*/
         QString sign = "";
 
+        //Если бонус затрагивает все родные чанки, то ему передаётся количество этих чанков для выведения подсказки и сортировок
         if(bonus->isDynamic&&bonus->dynamicPosition==MagicDefenseBonus::ALL)
             bonus->setNumberOfChunksChanged(stat->getNativeChunksSize());
 
@@ -543,6 +545,8 @@ void ProgressBar_2::CreatingBonusTooltip()
             }else
                 numberSign = ZERO;
 
+            /*Знак берётся по сырому значению, а не по итоговму, так как если бонус повешен на несуществующий чанк, его
+             *финальным значением будет 0, но в подсказке всё-равно нужно выводить знак потенциального изменения.*/
             if(bonus->getValue() > 0)
                 sign = '+';
         }
@@ -555,7 +559,7 @@ void ProgressBar_2::CreatingBonusTooltip()
         //Если бонусов меньше 10, то они пишутся в 1 столбец и им доступен весь размер окна подсказки
         if(stat->getBonuses().size()<10){
             numberOfCharactersBeforeLineBreak = 45;
-            bonusLabel->setFixedWidth(550);
+            bonusLabel->setFixedWidth(540);
         }else{
         //Если же больше, то они пишутся в 2 сотбца и им доступна только половина
             numberOfCharactersBeforeLineBreak = 22;
@@ -565,7 +569,8 @@ void ProgressBar_2::CreatingBonusTooltip()
         //Перенос строки
         if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
             for(int i = 0; i<bonus->bonusName.size(); i++){
-                if(i>30){
+                //Если имя бонуса превышает длину строки на 8 символов, то оно усекается
+                if(i>numberOfCharactersBeforeLineBreak+8){
                     text.append("... ");
                     break;
                 }
@@ -582,8 +587,10 @@ void ProgressBar_2::CreatingBonusTooltip()
             text.append(bonus->bonusName);
         if(!bonus->isBonusChunk){
             text.append(": ");
+            //Если бонус затрагивает несколько чанков, информация об этом пишется в скобочках
             if(bonus->getNumberOfChunksChanged()>1 && bonus->getFinalValue()!=0)
                 text.append(sign + QString::number(bonus->getFinalValue() * bonus->getNumberOfChunksChanged())+" (");
+            //Если итоговый бонус равен нулю, знак плюса не нужен
             if(bonus->isPercentage)
                 if(bonus->getFinalValue()!=0)
                     text.append(sign + QVariant(bonus->getFinalValue()).toString());
@@ -599,6 +606,7 @@ void ProgressBar_2::CreatingBonusTooltip()
             if(bonus->getBonusChunksMaxVales().size()>1)
                 text.append("ы");
             text.append(" ");
+            //Список новых фрагмнтов указывается в квадратных скобках
             for(int i = 0; i < bonus->getBonusChunksMaxVales().size(); i++){
                 text.append("[");
                 text.append(QString::number(bonus->getBonusChunksMaxVales().at(i)));
@@ -616,6 +624,8 @@ void ProgressBar_2::CreatingBonusTooltip()
         if(bonus->isDynamic){
             if(bonus->dynamicPosition==MagicDefenseBonus::ALL){
                 text.append(" ко всем");
+                /*Пока единственным способом затронуть несколько чанков одним бонусом - это быть бонусом ко всем
+                 *чанкам, а если бонус затрагивает несколько чанков, информация об этом пишется в скобочках*/
                 if(bonus->getNumberOfChunksChanged()>1 && bonus->getFinalValue()!=0)
                     text.append(") ");
             }else if(bonus->dynamicPosition==MagicDefenseBonus::FIRST)
@@ -628,6 +638,7 @@ void ProgressBar_2::CreatingBonusTooltip()
             text.append(" ко фрагм. "+QString::number(bonus->staticPosition));
         }
 
+        //В зависимости от положительности значения, его лейбл красится в определённый цвет
         QString color;
         if(!bonus->isBonusChunk){
             //Зелёный
@@ -651,7 +662,7 @@ void ProgressBar_2::CreatingBonusTooltip()
         if(row>=maxRow){
             row = 0;
             col++;
-            /*Если бонусов больше 20, то последний двацатый просто заменяется на многоточие,
+            /*Если бонусов больше 18, то последний двацатый просто заменяется на многоточие,
              *говорящее о том, что все бонусы не влезли в подсказку, и цикл прерывается*/
             if(col > 1 && maxRow==9 && stat->getBonuses().size()>18){
                 bonusLabel->setText("...");
@@ -697,6 +708,7 @@ void ProgressBar_2::bonusesChanged()
             if(!bonusesLableIsAppend){
                 tooltipContent.insert(6, bonusesLabel);
 
+                //После лейбла бонусов вставляется разделитель
                 QLabel* separator = new QLabel;
                 separator->setFixedSize(550, 1);
                 separator->setStyleSheet("background: #bdc440;");
@@ -708,21 +720,27 @@ void ProgressBar_2::bonusesChanged()
         }else if(bonusesLabel){
             if(bonusesLableIsAppend){
                 tooltipContent.removeAt(6);
+                /*Нужно также удалить разделитель, добавляемый после лейбла бонусов. Он был на 7
+                 *позиции, но так как лейбл бонусов удалён, разделитель стал тоже на 6 позиции*/
+                delete tooltipContent.at(6);
                 tooltipContent.removeAt(6);
                 bonusesLableIsAppend = false;
                 ui->labelWithTooltip->setTooltipContent(tooltipContent);
+                qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
             }
         }
         recalculationChunkWidth();
     }
 }
 
+//Метод задаёт текущее значение в подсказве в формате Текущее_Значение (Исходное_Значение+Бонус)
 void ProgressBar_2::setTextValue()
 {
     if(stat->getTotalValueWithoutBonuses()!=stat->getTotalValue()){
         QString value;
         value.append("Общее текущее значение:\n" + QVariant(this->value).toString() + " / " + QVariant(totalValue).toString() +
                      " (" + QVariant(stat->getTotalValueWithoutBonuses()).toString());
+        //Эта разница отражает то, на сколько изменился стат при применении бонусов
         int difference = stat->getTotalValue() - stat->getTotalValueWithoutBonuses();
         if(difference>0)
             value.append("+");

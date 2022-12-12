@@ -145,6 +145,7 @@ void PrimarySkillSignature::bonusesChanged()
             tooltipContent.removeAt(3);
             bonusesLableIsAppend = false;
             ui->labelWithTooltip->setTooltipContent(tooltipContent);
+            qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
         }
     }
 }
@@ -198,6 +199,7 @@ void PrimarySkillSignature::CreatingBonusTooltip()
         //Перенос строки
         if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
             for(int i = 0; i<bonus->bonusName.size(); i++){
+                //Если имя бонуса превышает 35 символов, то оно усекается
                 if(i>35){
                     text.append("... ");
                     break;
@@ -219,6 +221,7 @@ void PrimarySkillSignature::CreatingBonusTooltip()
         if(bonus->isPercentage)
             text.append(" (" + QVariant(bonus->getValue()).toString() + "%)");
 
+        //В зависимости от положительности значения, его лейбл красится в определённый цвет
         QString color;
         //Зелёный
         if(numberSign == PLUS)
@@ -253,11 +256,11 @@ void PrimarySkillSignature::CreatingBonusTooltip()
     bonusesLabel->setMaximumWidth(450);
 
     /*Если после применения всех бонусов текущее значение отличается от родного,
-     *то в подсказке в скобочках пишется (Родное_Значение + Разница_От_Текущего)*/
+     *то в подсказке пишется Текущее_Значение (Исходное_Значение+Бонус)*/
     if(stat->getValue()!=stat->getFinalValue()){
         QString value;
         value.append(QVariant(stat->getFinalValue()).toString() + " (" + QVariant(stat->getValue()).toString());
-        //Разница текущего значения и родного без учёта бонусов
+        //Эта разница отражает то, на сколько изменился стат при применении бонусов
         int difference = stat->getFinalValue() - stat->getValue();
         if(difference>0)
             value.append("+");

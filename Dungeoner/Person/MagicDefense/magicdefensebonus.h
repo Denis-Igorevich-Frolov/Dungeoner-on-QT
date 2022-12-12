@@ -73,6 +73,7 @@ public:
     void setNumberOfChunksChanged(int newNumberOfChunksChanged);
 
 private:
+    //Количество чанков, которые затронул бонус. Не может опускаться ниже 1. Значение нужно только для сортировки и подсказки
     int numberOfChunksChanged = 1;
     //Финальное значеие с учётом процента. Хранится для подсказки
     int finalValue = 0;

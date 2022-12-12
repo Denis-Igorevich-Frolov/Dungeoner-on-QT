@@ -149,16 +149,13 @@ void MagicDefense::updateBonuses()
                 }else if(bonus->dynamicPosition == MagicDefenseBonus::ALL){
                     for(Chunk* chunk : nativeChunks)
                         chunk->addBonus(bonus);
+                    //Бонусу передаётся информация о том сколько чанков он изменил. Это требуется для информации в подсказке
                     bonus->setNumberOfChunksChanged(nativeChunks.size());
                 }
             }else if(bonus->staticPosition <= nativeChunks.size() && bonus->staticPosition>0){
-                if (bonus->isPercentage){
-                    int bonusFinalValue = ((double)value/100)*bonus->getValue();
-                    bonus->setFinalValue(bonusFinalValue);
-                }else
-                    bonus->setFinalValue(bonus->getValue());
                 nativeChunks.at(bonus->staticPosition-1)->addBonus(bonus);
             }else
+                //Если чанка, к котому следует назначить бонус не существует, то финальное значение такого бонуса - 0
                 bonus->setFinalValue(0);
         }
     }
@@ -168,6 +165,7 @@ void MagicDefense::updateBonuses()
     });
 }
 
+//Получение количества родных чанков. Нужно только для подсказок
 int MagicDefense::getNativeChunksSize()
 {
     return nativeChunks.size();

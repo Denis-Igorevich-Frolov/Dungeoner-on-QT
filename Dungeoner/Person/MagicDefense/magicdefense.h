@@ -64,6 +64,7 @@ public:
 
     int getTotalValueWithoutBonuses() const;
 
+    //Получение количества родных чанков. Нужно только для подсказок
     int getNativeChunksSize();
 
 signals:

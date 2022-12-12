@@ -84,10 +84,13 @@ void Tooltip::setContent(QVector<QLabel *> content)
              QGridLayout* labelLayout = new QGridLayout;
              newLabel->setLayout(labelLayout);
             for(int i = 0; i < label->layout()->count(); i++){
-                QLabel* bonusLabel;
-                if(dynamic_cast<QLabel*>(label->layout()->itemAt(i)->widget()))
+                QLabel* bonusLabel = new QLabel;
+                if(dynamic_cast<QLabel*>(label->layout()->itemAt(i)->widget())){
+                    delete bonusLabel;
                     bonusLabel = static_cast<QLabel*>(label->layout()->itemAt(i)->widget());
+                }
 
+                //Выше уже делалась проверка того, что это именно QGridLayout, так что ещё одного dynamic_cast не требуется
                 QGridLayout* grid = static_cast<QGridLayout*>(label->layout());
                 int row = -1;
                 int col = -1;
@@ -100,6 +103,7 @@ void Tooltip::setContent(QVector<QLabel *> content)
                 newBonusLabel->setText(bonusLabel->text());
                 newBonusLabel->setAlignment(Qt::AlignCenter);
                 newBonusLabel->setStyleSheet(bonusLabel->styleSheet());
+                //Нужно сделать лейбл бонуса несжимаемым, а его размер фактическим, так что ему задаётся размер через sizeHint()
                 newBonusLabel->setMinimumSize(bonusLabel->sizeHint());
                 newBonusLabel->setMaximumSize(bonusLabel->sizeHint());
                 newBonusLabel->setFont(bonusLabel->font());
