@@ -100,8 +100,8 @@ void Tooltip::setContent(QVector<QLabel *> content)
                 newBonusLabel->setText(bonusLabel->text());
                 newBonusLabel->setAlignment(Qt::AlignCenter);
                 newBonusLabel->setStyleSheet(bonusLabel->styleSheet());
-                newBonusLabel->setMinimumSize(bonusLabel->minimumSize());
-                newBonusLabel->setMaximumSize(bonusLabel->maximumSize());
+                newBonusLabel->setMinimumSize(bonusLabel->sizeHint());
+                newBonusLabel->setMaximumSize(bonusLabel->sizeHint());
                 newBonusLabel->setFont(bonusLabel->font());
                 labelLayout->addWidget(newBonusLabel, row, col, Qt::AlignCenter);
             }
@@ -110,6 +110,11 @@ void Tooltip::setContent(QVector<QLabel *> content)
             newLabel->setMaximumSize(label->maximumSize());
 
             layout->addWidget(newLabel);
+
+            OutlineEffect* border = new OutlineEffect;
+            border->setOutlineThickness(1);
+            newLabel->setGraphicsEffect(border);
+            newLabel->setMargin(1);
         }
 
         i++;

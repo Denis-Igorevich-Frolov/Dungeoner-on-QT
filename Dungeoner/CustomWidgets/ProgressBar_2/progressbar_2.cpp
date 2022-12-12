@@ -101,38 +101,38 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     fullNameLabel->setFont(QFont("TextFont"));
     fullNameLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(27, "bdc440"));
     fullNameLabel->setText(fullName);
-    fullNameLabel->setMaximumWidth(450);
+    fullNameLabel->setMaximumWidth(550);
     fullNameLabel->setWordWrap(true);
     tooltipContent.append(fullNameLabel);
 
     QLabel* separator = new QLabel;
-    separator->setFixedSize(450, 1);
+    separator->setFixedSize(550, 1);
     separator->setStyleSheet("background: #bdc440;");
     tooltipContent.append(separator);
 
     chunkNumber = new QLabel;
     chunkNumber->setFont(QFont("TextFont"));
     chunkNumber->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
-    chunkNumber->setMaximumWidth(450);
+    chunkNumber->setMaximumWidth(550);
     chunkNumber->setWordWrap(true);
     tooltipContent.append(chunkNumber);
 
     generalValueLabel = new QLabel;
     generalValueLabel->setFont(QFont("TextFont"));
     generalValueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
-    generalValueLabel->setMaximumWidth(450);
+    generalValueLabel->setMaximumWidth(550);
     generalValueLabel->setWordWrap(true);
     tooltipContent.append(generalValueLabel);
 
     valueLabel = new QLabel;
     valueLabel->setFont(QFont("TextFont"));
     valueLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
-    valueLabel->setMaximumWidth(450);
+    valueLabel->setMaximumWidth(550);
     valueLabel->setWordWrap(true);
     tooltipContent.append(valueLabel);
 
     QLabel* separator2 = new QLabel;
-    separator2->setFixedSize(450, 1);
+    separator2->setFixedSize(550, 1);
     separator2->setStyleSheet("background: #bdc440;");
     tooltipContent.append(separator2);
 
@@ -145,58 +145,58 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
 
         //Также после лейбла с бонусами помещается разделитель
         QLabel* separator = new QLabel;
-        separator->setFixedSize(450, 1);
+        separator->setFixedSize(550, 1);
         separator->setStyleSheet("background: #bdc440;");
         tooltipContent.append(separator);
     }
 
     QLabel* numberOfChunksFormulalaLabel = new QLabel;
     numberOfChunksFormulalaLabel->setFont(QFont("TextFont"));
-    numberOfChunksFormulalaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(16, "bdc440"));
+    numberOfChunksFormulalaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(18, "bdc440"));
     numberOfChunksFormulalaLabel->setText(numberOfChunksFormula);
-    numberOfChunksFormulalaLabel->setMaximumWidth(450);
+    numberOfChunksFormulalaLabel->setMaximumWidth(550);
     numberOfChunksFormulalaLabel->setWordWrap(true);
     tooltipContent.append(numberOfChunksFormulalaLabel);
 
     newChunkRequirementsLabel = new QLabel;
     newChunkRequirementsLabel->setFont(QFont("TextFont"));
-    newChunkRequirementsLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(20, "cad160"));
+    newChunkRequirementsLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(19, "cad160"));
     newChunkRequirementsLabel->setText("До следующего фрагмента " + QVariant(willUntilNextChunk).toString() + " Воли");
-    newChunkRequirementsLabel->setMaximumWidth(450);
+    newChunkRequirementsLabel->setMaximumWidth(550);
     newChunkRequirementsLabel->setWordWrap(true);
     tooltipContent.append(newChunkRequirementsLabel);
 
     QLabel* detailedInformationHint = new QLabel;
     detailedInformationHint->setFont(QFont("TextFont"));
-    detailedInformationHint->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(14, "bdc440"));
+    detailedInformationHint->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(13, "bdc440"));
     detailedInformationHint->setText("Вывод подробной сводки фрагментов магической защиты: Alt + ПКМ");
-    detailedInformationHint->setMaximumWidth(450);
+    detailedInformationHint->setMaximumWidth(550);
     detailedInformationHint->setWordWrap(true);
     tooltipContent.append(detailedInformationHint);
 
     QLabel* separator3 = new QLabel;
-    separator3->setFixedSize(450, 1);
+    separator3->setFixedSize(550, 1);
     separator3->setStyleSheet("background: #bdc440;");
     tooltipContent.append(separator3);
 
     QLabel* FormulaSignatureLabel = new QLabel;
     FormulaSignatureLabel->setFont(QFont("TextFont"));
-    FormulaSignatureLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(24, "bdc440"));
+    FormulaSignatureLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(22, "bdc440"));
     FormulaSignatureLabel->setText("Размер фрагмента вычисляется по формуле:");
-    FormulaSignatureLabel->setMaximumWidth(450);
+    FormulaSignatureLabel->setMaximumWidth(550);
     FormulaSignatureLabel->setWordWrap(true);
     tooltipContent.append(FormulaSignatureLabel);
 
     QLabel* chunkValueFormulaLabel = new QLabel;
     chunkValueFormulaLabel->setFont(QFont("TextFont"));
-    chunkValueFormulaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(24, "bdc440"));
+    chunkValueFormulaLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(22, "bdc440"));
     chunkValueFormulaLabel->setText(chunkValueFormula);
-    chunkValueFormulaLabel->setMaximumWidth(450);
+    chunkValueFormulaLabel->setMaximumWidth(550);
     chunkValueFormulaLabel->setWordWrap(true);
     tooltipContent.append(chunkValueFormulaLabel);
 
     QLabel* separator4 = new QLabel;
-    separator4->setMaximumWidth(450);
+    separator4->setMaximumWidth(550);
     separator4->setStyleSheet(PB2_StyleMaster::SeparatorStyle());
     tooltipContent.append(separator4);
 
@@ -204,7 +204,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     descriptionLabel->setFont(QFont("TextFont"));
     descriptionLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(18, "cad160"));
     descriptionLabel->setText(description);
-    descriptionLabel->setMaximumWidth(450);
+    descriptionLabel->setMaximumWidth(550);
     descriptionLabel->setWordWrap(true);
     tooltipContent.append(descriptionLabel);
 
@@ -522,7 +522,7 @@ void ProgressBar_2::CreatingBonusTooltip()
      *пополам с приоритетом на првый столбец, если количество бонусов нечётное*/
     if(stat->getBonuses().size() > 9)
         maxRow = ceil((float)stat->getBonuses().size()/2);
-    //Также столбец никогда не должен превышать 10 строк
+    //Также столбец никогда не должен превышать 9 строк
     if(maxRow > 9)
         maxRow = 9;
     for(MagicDefenseBonus* bonus : stat->getBonuses()){
@@ -554,17 +554,21 @@ void ProgressBar_2::CreatingBonusTooltip()
 
         //Если бонусов меньше 10, то они пишутся в 1 столбец и им доступен весь размер окна подсказки
         if(stat->getBonuses().size()<10){
-            numberOfCharactersBeforeLineBreak = 35;
-            bonusLabel->setFixedWidth(450);
+            numberOfCharactersBeforeLineBreak = 45;
+            bonusLabel->setFixedWidth(550);
         }else{
         //Если же больше, то они пишутся в 2 сотбца и им доступна только половина
-            numberOfCharactersBeforeLineBreak = 16;
-            bonusLabel->setFixedWidth(225);
+            numberOfCharactersBeforeLineBreak = 22;
+            bonusLabel->setFixedWidth(260);
         }
 
         //Перенос строки
         if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
             for(int i = 0; i<bonus->bonusName.size(); i++){
+                if(i>30){
+                    text.append("... ");
+                    break;
+                }
                 text.append(bonus->bonusName.at(i));
                 if(i%numberOfCharactersBeforeLineBreak==0 && i!=0 && i!=bonus->bonusName.size()-1){
                     //Если текущий или следующий символ является пробелом, то тире, показывающее перенос, не нужно
@@ -656,9 +660,9 @@ void ProgressBar_2::CreatingBonusTooltip()
             }
         }
 
-        bonusLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(17, color));
+        bonusLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(15, color));
     }
-    bonusesLabel->setMaximumWidth(450);
+    bonusesLabel->setMaximumWidth(550);
 
     setTextValue();
 }
@@ -694,7 +698,7 @@ void ProgressBar_2::bonusesChanged()
                 tooltipContent.insert(6, bonusesLabel);
 
                 QLabel* separator = new QLabel;
-                separator->setFixedSize(450, 1);
+                separator->setFixedSize(550, 1);
                 separator->setStyleSheet("background: #bdc440;");
                 tooltipContent.insert(7, separator);
 

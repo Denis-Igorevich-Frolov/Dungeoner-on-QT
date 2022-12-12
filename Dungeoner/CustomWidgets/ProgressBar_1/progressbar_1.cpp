@@ -274,6 +274,10 @@ void ProgressBar_1::CreatingBonusTooltip()
         //Перенос строки
         if(bonus->bonusName.size()>numberOfCharactersBeforeLineBreak){
             for(int i = 0; i<bonus->bonusName.size(); i++){
+                if(i>35){
+                    text.append("... ");
+                    break;
+                }
                 text.append(bonus->bonusName.at(i));
                 if(i%numberOfCharactersBeforeLineBreak==0 && i!=0 && i!=bonus->bonusName.size()-1){
                     //Если текущий или следующий символ является пробелом, то тире, показывающее перенос, не нужно

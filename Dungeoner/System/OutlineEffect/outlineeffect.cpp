@@ -19,26 +19,17 @@ OutlineEffect::OutlineEffect(QGraphicsEffect *parent)
 //Переопределение родительской виртуальной функции отрисовки
 void OutlineEffect::draw(QPainter *painter)
 {
-    //Так как работа идёт уже с QImage антиалайзинг должен быть обычным, а не TextAntialiasing
+    //Так как работа идёт уже с QPixmap антиалайзинг должен быть обычным, а не TextAntialiasing
     painter->setRenderHint(QPainter::Antialiasing);
 
     //Если толщина обводки нулевая, то и смысла гонять эти циклы нет
     if(outlineThickness > 0){
-        /*Создание QImage на основе sourcePixmap необходимо для перекраски полученного изображения
-         *в цвет обводки функцией setPixelColor. Тоже самое можно сделать и при помощи QPixmap с
-         *QBitmap маской, что скорее всего будет более выгодно по затрачиваемым ресурсам, но
-         *полученная обводка будет очень пиксельной. И так как это просто маска, антиалайзинг не
-         *будет её сглаживать.*/
-        QImage outline (sourcePixmap().toImage());
-
-        //Перекраска всех пикселей QImage outline в цвет обводки
-        for(int y = 0; y < outline.height(); y++)
-            for(int x= 0; x < outline.width(); x++){
-                /*Для сохранения прозрачности изображения цвету задаётся
-                 *альфа перекрашиваемого пикселя*/
-                color.setAlpha(outline.pixelColor(x,y).alpha());
-                outline.setPixelColor(x, y, color);
-            }
+        //Перекрашивание дубликата изображения в переданый цвет
+        QPixmap outline = sourcePixmap();
+        QPainter repaintingPainter(&outline);
+        repaintingPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+        repaintingPainter.fillRect(outline.rect(), color);
+        repaintingPainter.end();
 
         /*После перекрашивания получается дубликат исходного изображения, залитый цветом обводки.
          *Теперь из него можно сделать непосредственно обводку. Масштабировать этот дубликат для
@@ -56,10 +47,10 @@ void OutlineEffect::draw(QPainter *painter)
         for(int i = 0; i<=outlineThickness; i++){
             for(int j = 0; j<=outlineThickness; j++){
                 if(i!=0||j!=0){
-                    painter->drawImage(i, j, outline);
-                    painter->drawImage(-i, j, outline);
-                    painter->drawImage(i, -j, outline);
-                    painter->drawImage(-i, -j, outline);
+                    painter->drawPixmap(i, j, outline);
+                    painter->drawPixmap(-i, j, outline);
+                    painter->drawPixmap(i, -j, outline);
+                    painter->drawPixmap(-i, -j, outline);
                 }
             }
         }
