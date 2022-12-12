@@ -236,6 +236,7 @@ void ProgressBar_2::setTooltipContent(QString fullName, QString numberOfChunksFo
     detailedInformationLabel->setStyleSheet(PB2_StyleMaster::TooltipTextStyle(25, "E8E23C"));
     //В этом лейбле мы сами управляем переносом строк и автоперенос нам не нужен
     detailedInformationLabel->setWordWrap(false);
+    detailedInformationLabel->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     AltTooltipContent.append(detailedInformationLabel);
 
     QLabel* AltSeparator2 = new QLabel();
@@ -477,7 +478,7 @@ void ProgressBar_2::recalculationChunkWidth()
     /*Ширина подсказки подробной информации высчитывается исходя из ширины лейбла detailedInformationLabel,
      *но она не может быть меньше стандартного обычного размера подсказки в 450 пикселей, иначе описание и
      *имя могут не влезть в блок.*/
-    int detailedInformationWidth = detailedInformationLabel->sizeHint().width();
+    int detailedInformationWidth = detailedInformationLabel->size().width();
     if(detailedInformationWidth<450)
         detailedInformationWidth = 450;
 
