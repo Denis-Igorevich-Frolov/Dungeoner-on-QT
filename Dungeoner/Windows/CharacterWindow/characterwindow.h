@@ -60,6 +60,10 @@ private slots:
 
     void on_pushButton_3_clicked();
 
+    void on_SaveButton_clicked();
+
+    void on_LoadButton_clicked();
+
 private:
     Ui::CharacterWindow *ui;
 

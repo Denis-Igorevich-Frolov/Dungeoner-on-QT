@@ -40,6 +40,8 @@ public:
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
+    QPushButton *SaveButton;
+    QPushButton *LoadButton;
     QLabel *TopMenuBorder;
     QFrame *SkillsWraper;
     QVBoxLayout *verticalLayout;
@@ -155,6 +157,14 @@ public:
         pushButton_3->setObjectName("pushButton_3");
         pushButton_3->setGeometry(QRect(380, 10, 91, 41));
         pushButton_3->setStyleSheet(QString::fromUtf8("background:white;"));
+        SaveButton = new QPushButton(TopMenu);
+        SaveButton->setObjectName("SaveButton");
+        SaveButton->setGeometry(QRect(1480, 20, 71, 41));
+        SaveButton->setStyleSheet(QString::fromUtf8("background:white;"));
+        LoadButton = new QPushButton(TopMenu);
+        LoadButton->setObjectName("LoadButton");
+        LoadButton->setGeometry(QRect(1580, 20, 71, 41));
+        LoadButton->setStyleSheet(QString::fromUtf8("background:white;"));
 
         verticalLayout_3->addWidget(TopMenu);
 
@@ -798,6 +808,8 @@ public:
         pushButton->setText(QCoreApplication::translate("CharacterWindow", "1", nullptr));
         pushButton_2->setText(QCoreApplication::translate("CharacterWindow", "2", nullptr));
         pushButton_3->setText(QCoreApplication::translate("CharacterWindow", "3", nullptr));
+        SaveButton->setText(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", nullptr));
+        LoadButton->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", nullptr));
         TopMenuBorder->setText(QString());
         StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
         StrengthPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr)));

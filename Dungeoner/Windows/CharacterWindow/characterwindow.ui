@@ -139,6 +139,38 @@
         <string>3</string>
        </property>
       </widget>
+      <widget class="QPushButton" name="SaveButton">
+       <property name="geometry">
+        <rect>
+         <x>1480</x>
+         <y>20</y>
+         <width>71</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>Сохранить</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="LoadButton">
+       <property name="geometry">
+        <rect>
+         <x>1580</x>
+         <y>20</y>
+         <width>71</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>Загрузить</string>
+       </property>
+      </widget>
      </widget>
     </item>
     <item>

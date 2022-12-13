@@ -1,6 +1,7 @@
 #include "person.h"
 
 #include <QDate>
+#include <QDir>
 #include <qfile.h>
 
 void Person::addBonusToStat(Bonus *bonus)
@@ -667,4 +668,56 @@ void Person::fullReinitialization()
     recalculateStats();
 
     emit FullReinitializationRequest();
+}
+
+bool Person::saveStrength()
+{
+    QDir dir;
+    if(!dir.exists("SaveGames/"+Global::DungeonName))
+        dir.mkpath("SaveGames/"+Global::DungeonName);
+
+    QFile file("SaveGames/"+Global::DungeonName+"/"+personName+".xml");
+    file.open(QIODevice::WriteOnly);
+
+    if(!file.isOpen()){
+        //Вывод предупреждения в консоль и файл
+        QDate cd = QDate::currentDate();
+        QTime ct = QTime::currentTime();
+
+        QString error =
+        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+        "\nПРЕДУПРЕЖДЕНИЕ: Ошибка открытия файла\n"
+        "Person выдал предупреждение в методе saveStrength.\n"
+        "Файл SaveGames/"+Global::DungeonName+"/"+personName+".xml не удалось открыть.\n\n";
+        qDebug()<<error;
+
+        QFile errorFile("error log.txt");
+        if (!errorFile.open(QIODevice::Append))
+        {
+            qDebug() << "Ошибка при открытии файла логов";
+        }else{
+            errorFile.open(QIODevice::Append  | QIODevice::Text);
+            QTextStream writeStream(&errorFile);
+            writeStream<<error;
+            errorFile.close();
+        }
+        return false;
+    }
+
+    QXmlStreamWriter xmlWriter(&file);
+    xmlWriter.setAutoFormatting(true);
+    xmlWriter.writeStartDocument();
+    xmlWriter.writeStartElement(QString::number(Strength.getValue()));
+
+    return true;
+}
+
+QString Person::getPersonName() const
+{
+    return personName;
+}
+
+void Person::setPersonName(const QString &newPersonName)
+{
+    personName = newPersonName;
 }

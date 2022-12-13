@@ -4114,6 +4114,8 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/person.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QVector
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamReader
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamWriter
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h
@@ -4145,6 +4147,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/person.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qglobalstatic.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qhash.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qhashfunctions.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qiodevice.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qiodevicebase.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qiterable.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qiterator.h
@@ -4202,6 +4205,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/person.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qxmlstream.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/QFont
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h
@@ -4814,6 +4818,8 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/person.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QVector
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamReader
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamWriter
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h
@@ -4903,6 +4909,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qxmlstream.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/QFont
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h
@@ -5180,6 +5187,8 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/person.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QVector
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamReader
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamWriter
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h
@@ -5269,6 +5278,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h
+ mdp:E:/Qt/6.4.0/mingw_64/include/QtCore/qxmlstream.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/QFont
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h
  mdp:E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h

@@ -13,20 +13,13 @@ Dungeoner::Dungeoner(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Dungeoner)
 {
-//    ui->setupUi(this);
-
-//    this->close();
-
     QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf");
     QFontDatabase::addApplicationFont(":/Fonts/NumbersFont.ttf");
 
     characterWindow = new CharacterWindow();
     characterWindow->show();
 
-
-//    int id = QFontDatabase::addApplicationFont(":/Fonts/TextFont.ttf");
-//    QString f = QFontDatabase::applicationFontFamilies(id).at(0);
-//    qDebug()<<f;
+    Global::DungeonName = "New Dungeon";
 }
 
 Dungeoner::~Dungeoner()

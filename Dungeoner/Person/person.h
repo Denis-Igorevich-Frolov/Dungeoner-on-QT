@@ -4,8 +4,9 @@
 #include "Person/Stat/stat.h"
 
 #include <Global/global.h>
-
 #include <Person/MagicDefense/magicdefense.h>
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
 
 #include <qspinbox.h>
 
@@ -84,6 +85,9 @@ public:
 
     //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки
     int willUntilNextChunk = 0;
+    QString getPersonName() const;
+    void setPersonName(const QString &newPersonName);
+
 signals:
     void StrengthBonusesChanged();
     void AgilityBonusesChanged();
@@ -97,6 +101,9 @@ public slots:
     /*Слот полной переинициализации. Каждый раз когда операции с бонусами проваливаются
      *запрашивается их полная переинциализация для избежания последующих проблем.*/
     void fullReinitialization();
+
+    bool saveStrength();
+
 private:
     Stat Strength = Stat(999999);
     Stat Agility = Stat(999999);
@@ -127,6 +134,8 @@ private:
     Stat Endurance = Stat(9999999);
     Stat Mana = Stat(9999999);
     MagicDefense magicDefense;
+
+    QString personName = "newPerson";
 };
 
 #endif // PERSON_H

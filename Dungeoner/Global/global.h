@@ -33,6 +33,8 @@ public:
      *нажатия должны иметь переопределения виртуальных функций keyPressEvent и keyReleaseEvent.*/
     static QVector<int> pressedKeys;
 
+    static QString DungeonName;
+
     Global();
 };
 

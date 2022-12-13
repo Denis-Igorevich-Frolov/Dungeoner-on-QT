@@ -7,6 +7,7 @@
 
 MediaPlayer Global::mediaplayer;
 QVector<int> Global::pressedKeys;
+QString Global::DungeonName;
 
 
 Global::Global()

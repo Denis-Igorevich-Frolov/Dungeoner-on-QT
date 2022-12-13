@@ -1127,3 +1127,15 @@ void CharacterWindow::on_pushButton_3_clicked()
 {
     person.addBonusToStat(new MagicDefenseBonus(1, 11, true, "Проклятие чорота эля"));
 }
+
+void CharacterWindow::on_SaveButton_clicked()
+{
+    person.saveStrength();
+}
+
+
+void CharacterWindow::on_LoadButton_clicked()
+{
+
+}
+
