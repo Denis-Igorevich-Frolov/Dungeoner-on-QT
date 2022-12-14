@@ -714,9 +714,12 @@ bool Person::saveStrength()
         QSqlQuery query(database);
         if(!query.exec("CREATE TABLE IF NOT EXISTS Stats("
                        "stat_name TEXT NOT NULL, "
-                       "value INTEGER NOT NULL DEFAULT 0, "
+                       "value INTEGER NOT NULL DEFAULT 0,"
+                       "maximum INTEGER NOT NULL DEFAULT 0,"
+                       "progress_bar_current_value INTEGER NOT NULL DEFAULT 0, "
+                       "CONSTRAINT value_chek CHECK ((value >= 0) AND (value <= maximum)), "
+                       "CONSTRAINT progress_bar_current_value_chek CHECK ((value >= -value) AND (value <= value)), "
                        "CONSTRAINT stat PRIMARY KEY (stat_name), "
-                       "CONSTRAINT value_chek CHECK (value >= 0), "
                        "CONSTRAINT stat_name_chek CHECK (stat_name !=''));"
                        )){
 
@@ -782,7 +785,8 @@ bool Person::saveStrength()
             return false;
         }
 
-        if(!query.exec("REPLACE INTO Stats (stat_name, value) VALUES ('Strength', " + QString::number(Strength.getValue()) + ");")){
+        if(!query.exec("REPLACE INTO Stats (stat_name, value, maximum) VALUES ('Strength', "
+                       + QString::number(Strength.getValue()) + ", " +  QString::number(Strength.getMaximum()) +");")){
 
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -966,6 +970,39 @@ bool Person::loadStrength()
 
         query.first();
         Strength.setValue(query.value(0).toInt());
+
+        query.clear();
+        if( !query.exec( "SELECT * FROM Bonuses WHERE stat_name = 'Strength';"
+                         )) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось считать данные из таблицы\n"
+            "Person выдал ошибку в методе loadStrength.\n"
+            "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        Strength.removeAllBonuses();
+        while (query.next())
+            Strength.addBonus(new Bonus(Bonus::STRENGTH, query.value(1).toInt(), query.value(2).toBool(), query.value(3).toString()));
 
         emit StrengthChanged();
         database.close();

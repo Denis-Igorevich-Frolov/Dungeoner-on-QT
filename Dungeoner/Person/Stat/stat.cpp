@@ -103,9 +103,16 @@ void Stat::setProgressBarCurrentValue(int newProgressBarCurrentValue)
     progressBarCurrentValue = newProgressBarCurrentValue;
 }
 
-QVector<Bonus *> Stat::getBonuses() const
+QVector<Bonus *> Stat::getBonuses()
 {
     return bonuses;
+}
+
+void Stat::removeAllBonuses()
+{
+    for(Bonus* bonus : bonuses)
+        delete bonus;
+    bonuses.clear();
 }
 
 //Вычисление финального максимального значения стата с учётом всех бонусов
@@ -157,4 +164,9 @@ Stat& Stat::operator= (const Stat &stat)
     bonuses = stat.bonuses;
 
     return *this;
+}
+
+int Stat::getMaximum() const
+{
+    return maximum;
 }

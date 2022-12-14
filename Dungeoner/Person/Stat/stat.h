@@ -38,10 +38,14 @@ public:
     //Задание текущего значения прогрессбара, при этом просто value, в таком случае, является максимальным значением
     void setProgressBarCurrentValue(int newProgressBarCurrentValue);
 
-    QVector<Bonus *> getBonuses() const;
+    QVector<Bonus *> getBonuses();
+
+    void removeAllBonuses();
 
     //Так как класс Stat унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
     Stat& operator= (const Stat &stat);
+    int getMaximum() const;
+
 signals:
     void bonusesChanged();
 private:
