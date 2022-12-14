@@ -27,12 +27,12 @@ private slots:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
 
-    void onStrengthBonusesChanged();
-    void onAgilityBonusesChanged();
-    void onIntelligenceBonusesChanged();
-    void onMagicBonusesChanged();
-    void onBodyTypeBonusesChanged();
-    void onWillBonusesChanged();
+    void onStrengthChanged();
+    void onAgilityChanged();
+    void onIntelligenceChanged();
+    void onMagicChanged();
+    void onBodyTypeChanged();
+    void onWillChanged();
 
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();

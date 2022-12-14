@@ -87,12 +87,12 @@ public:
     void setPersonName(const QString &newPersonName);
 
 signals:
-    void StrengthBonusesChanged();
-    void AgilityBonusesChanged();
-    void IntelligenceBonusesChanged();
-    void MagicBonusesChanged();
-    void BodyTypeBonusesChanged();
-    void WillBonusesChanged();
+    void StrengthChanged();
+    void AgilityChanged();
+    void IntelligenceChanged();
+    void MagicChanged();
+    void BodyTypeChanged();
+    void WillChanged();
 
     void FullReinitializationRequest();
 public slots:
@@ -101,6 +101,7 @@ public slots:
     void fullReinitialization();
 
     bool saveStrength();
+    bool loadStrength();
 
 private:
     Stat Strength = Stat(999999);

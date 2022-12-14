@@ -43,12 +43,12 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     associatingLabelsWithStat();
 
     //Связывание слотов изменения первичных навыков бонусами с сигналами сигнализирующими об этом
-    connect(&person, &Person::StrengthBonusesChanged, this, &CharacterWindow::onStrengthBonusesChanged);
-    connect(&person, &Person::AgilityBonusesChanged, this, &CharacterWindow::onAgilityBonusesChanged);
-    connect(&person, &Person::IntelligenceBonusesChanged, this, &CharacterWindow::onIntelligenceBonusesChanged);
-    connect(&person, &Person::MagicBonusesChanged, this, &CharacterWindow::onMagicBonusesChanged);
-    connect(&person, &Person::BodyTypeBonusesChanged, this, &CharacterWindow::onBodyTypeBonusesChanged);
-    connect(&person, &Person::WillBonusesChanged, this, &CharacterWindow::onWillBonusesChanged);
+    connect(&person, &Person::StrengthChanged, this, &CharacterWindow::onStrengthChanged);
+    connect(&person, &Person::AgilityChanged, this, &CharacterWindow::onAgilityChanged);
+    connect(&person, &Person::IntelligenceChanged, this, &CharacterWindow::onIntelligenceChanged);
+    connect(&person, &Person::MagicChanged, this, &CharacterWindow::onMagicChanged);
+    connect(&person, &Person::BodyTypeChanged, this, &CharacterWindow::onBodyTypeChanged);
+    connect(&person, &Person::WillChanged, this, &CharacterWindow::onWillChanged);
 
     //Связывание слота полной переинициализации из класса person с обновлением отображения статов
     connect(&person, &Person::FullReinitializationRequest, this, &CharacterWindow::refreshDisplayStats);
@@ -993,42 +993,42 @@ void CharacterWindow::RemoveTooltip()
     ui->tooltip->setVisible(false);
 }
 
-void CharacterWindow::onStrengthBonusesChanged()
+void CharacterWindow::onStrengthChanged()
 {
     if(!isManualStatReplacement){
         ui->StrengthValue->setValue(person.getStrength()->getFinalValue());
     }
 }
 
-void CharacterWindow::onAgilityBonusesChanged()
+void CharacterWindow::onAgilityChanged()
 {
     if(!isManualStatReplacement){
         ui->AgilityValue->setValue(person.getAgility()->getFinalValue());
     }
 }
 
-void CharacterWindow::onIntelligenceBonusesChanged()
+void CharacterWindow::onIntelligenceChanged()
 {
     if(!isManualStatReplacement){
         ui->IntelligenceValue->setValue(person.getIntelligence()->getFinalValue());
     }
 }
 
-void CharacterWindow::onMagicBonusesChanged()
+void CharacterWindow::onMagicChanged()
 {
     if(!isManualStatReplacement){
         ui->MagicValue->setValue(person.getMagic()->getFinalValue());
     }
 }
 
-void CharacterWindow::onBodyTypeBonusesChanged()
+void CharacterWindow::onBodyTypeChanged()
 {
     if(!isManualStatReplacement){
         ui->BodyTypeValue->setValue(person.getBodyType()->getFinalValue());
     }
 }
 
-void CharacterWindow::onWillBonusesChanged()
+void CharacterWindow::onWillChanged()
 {
     if(!isManualStatReplacement){
         ui->WillValue->setValue(person.getWill()->getFinalValue());
@@ -1149,5 +1149,5 @@ void CharacterWindow::on_SaveButton_clicked()
 
 void CharacterWindow::on_LoadButton_clicked()
 {
-
+    person.loadStrength();
 }

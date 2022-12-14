@@ -37,12 +37,12 @@ struct qt_meta_stringdata_CharacterWindow_t {
     char stringdata5[15];
     char stringdata6[15];
     char stringdata7[14];
-    char stringdata8[25];
-    char stringdata9[24];
-    char stringdata10[29];
-    char stringdata11[22];
-    char stringdata12[25];
-    char stringdata13[21];
+    char stringdata8[18];
+    char stringdata9[17];
+    char stringdata10[22];
+    char stringdata11[15];
+    char stringdata12[18];
+    char stringdata13[14];
     char stringdata14[20];
     char stringdata15[37];
     char stringdata16[7];
@@ -75,31 +75,31 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
         QT_MOC_LITERAL(69, 14),  // "QList<QLabel*>"
         QT_MOC_LITERAL(84, 14),  // "TooltipContent"
         QT_MOC_LITERAL(99, 13),  // "RemoveTooltip"
-        QT_MOC_LITERAL(113, 24),  // "onStrengthBonusesChanged"
-        QT_MOC_LITERAL(138, 23),  // "onAgilityBonusesChanged"
-        QT_MOC_LITERAL(162, 28),  // "onIntelligenceBonusesChanged"
-        QT_MOC_LITERAL(191, 21),  // "onMagicBonusesChanged"
-        QT_MOC_LITERAL(213, 24),  // "onBodyTypeBonusesChanged"
-        QT_MOC_LITERAL(238, 20),  // "onWillBonusesChanged"
-        QT_MOC_LITERAL(259, 19),  // "refreshDisplayStats"
-        QT_MOC_LITERAL(279, 36),  // "on_verticalScrollBar_actionTr..."
-        QT_MOC_LITERAL(316, 6),  // "action"
-        QT_MOC_LITERAL(323, 33),  // "on_verticalScrollBar_valueCha..."
-        QT_MOC_LITERAL(357, 29),  // "on_StrengthValue_valueChanged"
-        QT_MOC_LITERAL(387, 4),  // "arg1"
-        QT_MOC_LITERAL(392, 28),  // "on_AgilityValue_valueChanged"
-        QT_MOC_LITERAL(421, 33),  // "on_IntelligenceValue_valueCha..."
-        QT_MOC_LITERAL(455, 26),  // "on_MagicValue_valueChanged"
-        QT_MOC_LITERAL(482, 29),  // "on_BodyTypeValue_valueChanged"
-        QT_MOC_LITERAL(512, 25),  // "on_WillValue_valueChanged"
-        QT_MOC_LITERAL(538, 23),  // "on_pushButton_4_clicked"
-        QT_MOC_LITERAL(562, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(584, 23),  // "on_pushButton_2_clicked"
-        QT_MOC_LITERAL(608, 23),  // "on_pushButton_3_clicked"
-        QT_MOC_LITERAL(632, 21),  // "on_SaveButton_clicked"
-        QT_MOC_LITERAL(654, 21),  // "on_LoadButton_clicked"
-        QT_MOC_LITERAL(676, 23),  // "on_pushButton_5_clicked"
-        QT_MOC_LITERAL(700, 23)   // "on_pushButton_6_clicked"
+        QT_MOC_LITERAL(113, 17),  // "onStrengthChanged"
+        QT_MOC_LITERAL(131, 16),  // "onAgilityChanged"
+        QT_MOC_LITERAL(148, 21),  // "onIntelligenceChanged"
+        QT_MOC_LITERAL(170, 14),  // "onMagicChanged"
+        QT_MOC_LITERAL(185, 17),  // "onBodyTypeChanged"
+        QT_MOC_LITERAL(203, 13),  // "onWillChanged"
+        QT_MOC_LITERAL(217, 19),  // "refreshDisplayStats"
+        QT_MOC_LITERAL(237, 36),  // "on_verticalScrollBar_actionTr..."
+        QT_MOC_LITERAL(274, 6),  // "action"
+        QT_MOC_LITERAL(281, 33),  // "on_verticalScrollBar_valueCha..."
+        QT_MOC_LITERAL(315, 29),  // "on_StrengthValue_valueChanged"
+        QT_MOC_LITERAL(345, 4),  // "arg1"
+        QT_MOC_LITERAL(350, 28),  // "on_AgilityValue_valueChanged"
+        QT_MOC_LITERAL(379, 33),  // "on_IntelligenceValue_valueCha..."
+        QT_MOC_LITERAL(413, 26),  // "on_MagicValue_valueChanged"
+        QT_MOC_LITERAL(440, 29),  // "on_BodyTypeValue_valueChanged"
+        QT_MOC_LITERAL(470, 25),  // "on_WillValue_valueChanged"
+        QT_MOC_LITERAL(496, 23),  // "on_pushButton_4_clicked"
+        QT_MOC_LITERAL(520, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(542, 23),  // "on_pushButton_2_clicked"
+        QT_MOC_LITERAL(566, 23),  // "on_pushButton_3_clicked"
+        QT_MOC_LITERAL(590, 21),  // "on_SaveButton_clicked"
+        QT_MOC_LITERAL(612, 21),  // "on_LoadButton_clicked"
+        QT_MOC_LITERAL(634, 23),  // "on_pushButton_5_clicked"
+        QT_MOC_LITERAL(658, 23)   // "on_pushButton_6_clicked"
     },
     "CharacterWindow",
     "ScrollAreaSecondarySkillsScrolled",
@@ -109,12 +109,12 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
     "QList<QLabel*>",
     "TooltipContent",
     "RemoveTooltip",
-    "onStrengthBonusesChanged",
-    "onAgilityBonusesChanged",
-    "onIntelligenceBonusesChanged",
-    "onMagicBonusesChanged",
-    "onBodyTypeBonusesChanged",
-    "onWillBonusesChanged",
+    "onStrengthChanged",
+    "onAgilityChanged",
+    "onIntelligenceChanged",
+    "onMagicChanged",
+    "onBodyTypeChanged",
+    "onWillChanged",
     "refreshDisplayStats",
     "on_verticalScrollBar_actionTriggered",
     "action",
@@ -227,17 +227,17 @@ Q_CONSTINIT const QMetaObject CharacterWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>,
         // method 'RemoveTooltip'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onStrengthBonusesChanged'
+        // method 'onStrengthChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onAgilityBonusesChanged'
+        // method 'onAgilityChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onIntelligenceBonusesChanged'
+        // method 'onIntelligenceChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onMagicBonusesChanged'
+        // method 'onMagicChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onBodyTypeBonusesChanged'
+        // method 'onBodyTypeChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onWillBonusesChanged'
+        // method 'onWillChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'refreshDisplayStats'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -294,12 +294,12 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 0: _t->ScrollAreaSecondarySkillsScrolled((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 1: _t->ShowTooltip((*reinterpret_cast< std::add_pointer_t<QList<QLabel*>>>(_a[1]))); break;
         case 2: _t->RemoveTooltip(); break;
-        case 3: _t->onStrengthBonusesChanged(); break;
-        case 4: _t->onAgilityBonusesChanged(); break;
-        case 5: _t->onIntelligenceBonusesChanged(); break;
-        case 6: _t->onMagicBonusesChanged(); break;
-        case 7: _t->onBodyTypeBonusesChanged(); break;
-        case 8: _t->onWillBonusesChanged(); break;
+        case 3: _t->onStrengthChanged(); break;
+        case 4: _t->onAgilityChanged(); break;
+        case 5: _t->onIntelligenceChanged(); break;
+        case 6: _t->onMagicChanged(); break;
+        case 7: _t->onBodyTypeChanged(); break;
+        case 8: _t->onWillChanged(); break;
         case 9: _t->refreshDisplayStats(); break;
         case 10: _t->on_verticalScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 11: _t->on_verticalScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;

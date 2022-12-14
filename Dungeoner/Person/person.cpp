@@ -14,27 +14,27 @@ void Person::addBonusToStat(Bonus *bonus)
     switch (bonus->statName) {
     case Bonus::STRENGTH:
         Strength.addBonus(bonus);
-        emit StrengthBonusesChanged();
+        emit StrengthChanged();
         break;
     case Bonus::AGILITY:
         Agility.addBonus(bonus);
-        emit AgilityBonusesChanged();
+        emit AgilityChanged();
         break;
     case Bonus::INTELLIGENCE:
         Intelligence.addBonus(bonus);
-        emit IntelligenceBonusesChanged();
+        emit IntelligenceChanged();
         break;
     case Bonus::MAGIC:
         Magic.addBonus(bonus);
-        emit MagicBonusesChanged();
+        emit MagicChanged();
         break;
     case Bonus::BODYTYPE:
         BodyType.addBonus(bonus);
-        emit BodyTypeBonusesChanged();
+        emit BodyTypeChanged();
         break;
     case Bonus::WILL:
         Will.addBonus(bonus);
-        emit WillBonusesChanged();
+        emit WillChanged();
         break;
     case Bonus::MAGIC_DAMAGE:
         MagicDamage.addBonus(bonus);
@@ -115,37 +115,37 @@ bool Person::removeBonusFromStat(Bonus *bonus)
     switch (bonus->statName) {
     case Bonus::STRENGTH:
         successful = Strength.removeBonus(bonus);
-        emit StrengthBonusesChanged();
+        emit StrengthChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::AGILITY:
         successful = Agility.removeBonus(bonus);
-        emit AgilityBonusesChanged();
+        emit AgilityChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::INTELLIGENCE:
         successful = Intelligence.removeBonus(bonus);
-        emit IntelligenceBonusesChanged();
+        emit IntelligenceChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MAGIC:
         successful = Magic.removeBonus(bonus);
-        emit MagicBonusesChanged();
+        emit MagicChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::BODYTYPE:
         successful = BodyType.removeBonus(bonus);
-        emit BodyTypeBonusesChanged();
+        emit BodyTypeChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::WILL:
         successful = Will.removeBonus(bonus);
-        emit WillBonusesChanged();
+        emit WillChanged();
         if (!successful)
             fullReinitialization();
         return successful;
@@ -873,6 +873,105 @@ bool Person::saveStrength()
     }
     QSqlDatabase::removeDatabase("stats");
 
+    return true;
+}
+
+bool Person::loadStrength()
+{
+    {
+        QDir dir;
+        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName)){
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Ошибка открытия файла\n"
+            "Person выдал ошибку в методе loadStrength.\n"
+            "Директории Game Saves/"+Global::DungeonName+"/Heroes/"+personName + " не существует.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "stats");
+        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite");
+
+        if(!database.open()) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Ошибка открытия файла\n"
+            "Person выдал ошибку в методе loadStrength.\n"
+            "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite не удалось открыть.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        QSqlQuery query(database);
+        if( !query.exec( "SELECT value FROM Stats WHERE stat_name = 'Strength';"
+                         )) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось считать данные из таблицы\n"
+            "Person выдал ошибку в методе loadStrength.\n"
+            "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        query.first();
+        Strength.setValue(query.value(0).toInt());
+
+        emit StrengthChanged();
+        database.close();
+    }
+
+    QSqlDatabase::removeDatabase("stats");
     return true;
 }
 
