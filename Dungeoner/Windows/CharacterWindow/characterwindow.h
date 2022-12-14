@@ -64,6 +64,10 @@ private slots:
 
     void on_LoadButton_clicked();
 
+    void on_pushButton_5_clicked();
+
+    void on_pushButton_6_clicked();
+
 private:
     Ui::CharacterWindow *ui;
 

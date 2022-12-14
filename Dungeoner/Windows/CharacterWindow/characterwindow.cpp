@@ -1111,22 +1111,35 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -34, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new MagicDefenseBonus(3, 34, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 34, false, "Изгнание чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(1, 11, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 100, true, "Благословление"));
 }
+
+void CharacterWindow::on_pushButton_5_clicked()
+{
+    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, -34, false, "Проклятие чорота эля"));
+    recalculateStats();
+}
+
+
+void CharacterWindow::on_pushButton_6_clicked()
+{
+    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, 34, false, "Изгнание чорота эля"));
+}
+
 
 void CharacterWindow::on_SaveButton_clicked()
 {
@@ -1138,4 +1151,3 @@ void CharacterWindow::on_LoadButton_clicked()
 {
 
 }
-

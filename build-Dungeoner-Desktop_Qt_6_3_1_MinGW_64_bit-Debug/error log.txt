@@ -93,3 +93,58 @@ Person выдал ошибку в методе saveStrength.
 Person выдал ошибку в методе saveStrength.
 Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
 
+14-December-2022  08:46:18
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:47:34
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:48:56
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:50:16
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:51:01
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:51:51
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:52:39
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:53:12
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:54:17
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:55:01
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  09:00:15
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+

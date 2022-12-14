@@ -28,7 +28,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_CharacterWindow_t {
-    uint offsetsAndSizes[62];
+    uint offsetsAndSizes[66];
     char stringdata0[16];
     char stringdata1[34];
     char stringdata2[1];
@@ -60,6 +60,8 @@ struct qt_meta_stringdata_CharacterWindow_t {
     char stringdata28[24];
     char stringdata29[22];
     char stringdata30[22];
+    char stringdata31[24];
+    char stringdata32[24];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CharacterWindow_t::offsetsAndSizes) + ofs), len 
@@ -95,7 +97,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
         QT_MOC_LITERAL(584, 23),  // "on_pushButton_2_clicked"
         QT_MOC_LITERAL(608, 23),  // "on_pushButton_3_clicked"
         QT_MOC_LITERAL(632, 21),  // "on_SaveButton_clicked"
-        QT_MOC_LITERAL(654, 21)   // "on_LoadButton_clicked"
+        QT_MOC_LITERAL(654, 21),  // "on_LoadButton_clicked"
+        QT_MOC_LITERAL(676, 23),  // "on_pushButton_5_clicked"
+        QT_MOC_LITERAL(700, 23)   // "on_pushButton_6_clicked"
     },
     "CharacterWindow",
     "ScrollAreaSecondarySkillsScrolled",
@@ -127,7 +131,9 @@ Q_CONSTINIT static const qt_meta_stringdata_CharacterWindow_t qt_meta_stringdata
     "on_pushButton_2_clicked",
     "on_pushButton_3_clicked",
     "on_SaveButton_clicked",
-    "on_LoadButton_clicked"
+    "on_LoadButton_clicked",
+    "on_pushButton_5_clicked",
+    "on_pushButton_6_clicked"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -138,7 +144,7 @@ Q_CONSTINIT static const uint qt_meta_data_CharacterWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      24,   14, // methods
+      26,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -146,30 +152,32 @@ Q_CONSTINIT static const uint qt_meta_data_CharacterWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  158,    2, 0x08,    1 /* Private */,
-       4,    1,  161,    2, 0x08,    3 /* Private */,
-       7,    0,  164,    2, 0x08,    5 /* Private */,
-       8,    0,  165,    2, 0x08,    6 /* Private */,
-       9,    0,  166,    2, 0x08,    7 /* Private */,
-      10,    0,  167,    2, 0x08,    8 /* Private */,
-      11,    0,  168,    2, 0x08,    9 /* Private */,
-      12,    0,  169,    2, 0x08,   10 /* Private */,
-      13,    0,  170,    2, 0x08,   11 /* Private */,
-      14,    0,  171,    2, 0x08,   12 /* Private */,
-      15,    1,  172,    2, 0x08,   13 /* Private */,
-      17,    1,  175,    2, 0x08,   15 /* Private */,
-      18,    1,  178,    2, 0x08,   17 /* Private */,
-      20,    1,  181,    2, 0x08,   19 /* Private */,
-      21,    1,  184,    2, 0x08,   21 /* Private */,
-      22,    1,  187,    2, 0x08,   23 /* Private */,
-      23,    1,  190,    2, 0x08,   25 /* Private */,
-      24,    1,  193,    2, 0x08,   27 /* Private */,
-      25,    0,  196,    2, 0x08,   29 /* Private */,
-      26,    0,  197,    2, 0x08,   30 /* Private */,
-      27,    0,  198,    2, 0x08,   31 /* Private */,
-      28,    0,  199,    2, 0x08,   32 /* Private */,
-      29,    0,  200,    2, 0x08,   33 /* Private */,
-      30,    0,  201,    2, 0x08,   34 /* Private */,
+       1,    1,  170,    2, 0x08,    1 /* Private */,
+       4,    1,  173,    2, 0x08,    3 /* Private */,
+       7,    0,  176,    2, 0x08,    5 /* Private */,
+       8,    0,  177,    2, 0x08,    6 /* Private */,
+       9,    0,  178,    2, 0x08,    7 /* Private */,
+      10,    0,  179,    2, 0x08,    8 /* Private */,
+      11,    0,  180,    2, 0x08,    9 /* Private */,
+      12,    0,  181,    2, 0x08,   10 /* Private */,
+      13,    0,  182,    2, 0x08,   11 /* Private */,
+      14,    0,  183,    2, 0x08,   12 /* Private */,
+      15,    1,  184,    2, 0x08,   13 /* Private */,
+      17,    1,  187,    2, 0x08,   15 /* Private */,
+      18,    1,  190,    2, 0x08,   17 /* Private */,
+      20,    1,  193,    2, 0x08,   19 /* Private */,
+      21,    1,  196,    2, 0x08,   21 /* Private */,
+      22,    1,  199,    2, 0x08,   23 /* Private */,
+      23,    1,  202,    2, 0x08,   25 /* Private */,
+      24,    1,  205,    2, 0x08,   27 /* Private */,
+      25,    0,  208,    2, 0x08,   29 /* Private */,
+      26,    0,  209,    2, 0x08,   30 /* Private */,
+      27,    0,  210,    2, 0x08,   31 /* Private */,
+      28,    0,  211,    2, 0x08,   32 /* Private */,
+      29,    0,  212,    2, 0x08,   33 /* Private */,
+      30,    0,  213,    2, 0x08,   34 /* Private */,
+      31,    0,  214,    2, 0x08,   35 /* Private */,
+      32,    0,  215,    2, 0x08,   36 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::Int,    3,
@@ -190,6 +198,8 @@ Q_CONSTINIT static const uint qt_meta_data_CharacterWindow[] = {
     QMetaType::Void, QMetaType::Int,   19,
     QMetaType::Void, QMetaType::Int,   19,
     QMetaType::Void, QMetaType::Int,   19,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -266,6 +276,10 @@ Q_CONSTINIT const QMetaObject CharacterWindow::staticMetaObject = { {
         // method 'on_SaveButton_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_LoadButton_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_5_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButton_6_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -301,6 +315,8 @@ void CharacterWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 21: _t->on_pushButton_3_clicked(); break;
         case 22: _t->on_SaveButton_clicked(); break;
         case 23: _t->on_LoadButton_clicked(); break;
+        case 24: _t->on_pushButton_5_clicked(); break;
+        case 25: _t->on_pushButton_6_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -336,13 +352,13 @@ int CharacterWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 24)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 24;
+        _id -= 26;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 24)
+        if (_id < 26)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 24;
+        _id -= 26;
     }
     return _id;
 }

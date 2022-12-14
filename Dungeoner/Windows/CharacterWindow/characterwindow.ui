@@ -78,7 +78,7 @@
       <widget class="QPushButton" name="pushButton_4">
        <property name="geometry">
         <rect>
-         <x>660</x>
+         <x>780</x>
          <y>10</y>
          <width>161</width>
          <height>41</height>
@@ -94,8 +94,8 @@
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>150</x>
-         <y>10</y>
+         <x>60</x>
+         <y>20</y>
          <width>91</width>
          <height>41</height>
         </rect>
@@ -110,8 +110,8 @@
       <widget class="QPushButton" name="pushButton_2">
        <property name="geometry">
         <rect>
-         <x>260</x>
-         <y>10</y>
+         <x>170</x>
+         <y>20</y>
          <width>91</width>
          <height>41</height>
         </rect>
@@ -126,8 +126,8 @@
       <widget class="QPushButton" name="pushButton_3">
        <property name="geometry">
         <rect>
-         <x>380</x>
-         <y>10</y>
+         <x>290</x>
+         <y>20</y>
          <width>91</width>
          <height>41</height>
         </rect>
@@ -169,6 +169,38 @@
        </property>
        <property name="text">
         <string>Загрузить</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>20</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="geometry">
+        <rect>
+         <x>520</x>
+         <y>20</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>5</string>
        </property>
       </widget>
      </widget>
