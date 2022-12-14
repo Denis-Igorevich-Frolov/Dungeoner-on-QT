@@ -5,8 +5,6 @@
 
 #include <Global/global.h>
 #include <Person/MagicDefense/magicdefense.h>
-#include <QXmlStreamWriter>
-#include <QXmlStreamReader>
 
 #include <qspinbox.h>
 
@@ -135,7 +133,7 @@ private:
     Stat Mana = Stat(9999999);
     MagicDefense magicDefense;
 
-    QString personName = "newPerson";
+    QString personName = "new hero";
 };
 
 #endif // PERSON_H

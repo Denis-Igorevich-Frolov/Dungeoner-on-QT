@@ -1,0 +1,95 @@
+14-December-2022  05:44:31
+ПРЕДУПРЕЖДЕНИЕ: Ошибка открытия файла
+Person выдал предупреждение в методе saveStrength.
+Файл SaveGames/New Dungeon/newPerson/stats values.sqlite не удалось открыть.
+
+14-December-2022  06:19:40
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле SaveGames/New Dungeon/Heroes/new hero/stats values.sqlite
+
+14-December-2022  06:21:16
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле SaveGames/New Dungeon/Heroes/new hero/stats values.sqlite
+
+14-December-2022  06:33:59
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  06:36:50
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  07:20:45
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_values.sqlite
+
+14-December-2022  07:22:07
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_values.sqlite
+
+14-December-2022  07:23:07
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_values.sqlite
+
+14-December-2022  07:23:33
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_values.sqlite
+
+14-December-2022  07:25:25
+qПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_values.sqlite
+
+14-December-2022  07:27:33
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_values.sqlite
+
+14-December-2022  07:38:16
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  07:45:42
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  07:46:54
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  07:48:02
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  07:56:07
+ПРЕДУПРЕЖДЕНИЕ: Не удалось создать таблицу
+Person выдал предупреждение в методе saveStrength.
+Не удалось создать таблицу в файле Game Saves/New Dungeon/Heroes/new hero/stats_values.sqlite
+
+14-December-2022  08:27:00
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:27:21
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+
+14-December-2022  08:28:02
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStrength.
+Не удалось записать данные в базу данных Game Saves/New Dungeon/Heroes/new hero/stats_bonuses.sqlite
+

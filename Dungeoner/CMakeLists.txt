@@ -136,5 +136,7 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Dungeoner)
 endif()
 
-find_package(Qt6 REQUIRED COMPONENTS Multimedia)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Multimedia)
 target_link_libraries(Dungeoner PRIVATE Qt${QT_VERSION_MAJOR}::Multimedia)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Sql)
+target_link_libraries(Dungeoner PRIVATE Qt${QT_VERSION_MAJOR}::Sql)

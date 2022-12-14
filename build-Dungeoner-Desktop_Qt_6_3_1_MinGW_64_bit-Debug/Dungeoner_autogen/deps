@@ -76,8 +76,6 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/QTimer \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
-	E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamReader \
-	E:/Qt/6.4.0/mingw_64/include/QtCore/QXmlStreamWriter \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
@@ -169,7 +167,6 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
 	E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
-	E:/Qt/6.4.0/mingw_64/include/QtCore/qxmlstream.h \
 	E:/Qt/6.4.0/mingw_64/include/QtGui/QFont \
 	E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h \
 	E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h \
@@ -394,6 +391,27 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake \
 	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake \
 	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginAdditionalTargetInfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginConfig.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets-relwithdebinfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QODBCDriverPluginTargets.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginAdditionalTargetInfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginConfig.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets-relwithdebinfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QPSQLDriverPluginTargets.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginConfig.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlAdditionalTargetInfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfig.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersion.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlConfigVersionImpl.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlDependencies.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlPlugins.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets.cmake \
+	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessTargets.cmake \
 	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginAdditionalTargetInfo.cmake \
 	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginConfig.cmake \
 	E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QWindowsVistaStylePluginTargets-relwithdebinfo.cmake \
