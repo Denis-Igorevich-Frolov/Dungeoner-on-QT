@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Person_t {
-    uint offsetsAndSizes[56];
+    uint offsetsAndSizes[144];
     char stringdata0[7];
     char stringdata1[16];
     char stringdata2[1];
@@ -44,17 +44,61 @@ struct qt_meta_stringdata_Person_t {
     char stringdata14[11];
     char stringdata15[12];
     char stringdata16[13];
-    char stringdata17[15];
+    char stringdata17[11];
     char stringdata18[12];
-    char stringdata19[12];
-    char stringdata20[17];
-    char stringdata21[17];
-    char stringdata22[10];
-    char stringdata23[10];
-    char stringdata24[13];
-    char stringdata25[13];
-    char stringdata26[9];
-    char stringdata27[9];
+    char stringdata19[15];
+    char stringdata20[12];
+    char stringdata21[12];
+    char stringdata22[17];
+    char stringdata23[17];
+    char stringdata24[10];
+    char stringdata25[10];
+    char stringdata26[13];
+    char stringdata27[13];
+    char stringdata28[9];
+    char stringdata29[9];
+    char stringdata30[16];
+    char stringdata31[16];
+    char stringdata32[25];
+    char stringdata33[25];
+    char stringdata34[22];
+    char stringdata35[22];
+    char stringdata36[26];
+    char stringdata37[26];
+    char stringdata38[23];
+    char stringdata39[23];
+    char stringdata40[33];
+    char stringdata41[33];
+    char stringdata42[32];
+    char stringdata43[32];
+    char stringdata44[18];
+    char stringdata45[18];
+    char stringdata46[19];
+    char stringdata47[19];
+    char stringdata48[18];
+    char stringdata49[18];
+    char stringdata50[12];
+    char stringdata51[12];
+    char stringdata52[12];
+    char stringdata53[12];
+    char stringdata54[18];
+    char stringdata55[18];
+    char stringdata56[17];
+    char stringdata57[17];
+    char stringdata58[15];
+    char stringdata59[15];
+    char stringdata60[20];
+    char stringdata61[20];
+    char stringdata62[33];
+    char stringdata63[33];
+    char stringdata64[14];
+    char stringdata65[14];
+    char stringdata66[11];
+    char stringdata67[11];
+    char stringdata68[14];
+    char stringdata69[14];
+    char stringdata70[9];
+    char stringdata71[9];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Person_t::offsetsAndSizes) + ofs), len 
@@ -77,17 +121,61 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
         QT_MOC_LITERAL(202, 10),  // "saveValues"
         QT_MOC_LITERAL(213, 11),  // "saveBonuses"
         QT_MOC_LITERAL(225, 12),  // "loadStrength"
-        QT_MOC_LITERAL(238, 14),  // "emittedChanged"
-        QT_MOC_LITERAL(253, 11),  // "saveAgility"
-        QT_MOC_LITERAL(265, 11),  // "loadAgility"
-        QT_MOC_LITERAL(277, 16),  // "saveIntelligence"
-        QT_MOC_LITERAL(294, 16),  // "loadIntelligence"
-        QT_MOC_LITERAL(311, 9),  // "saveMagic"
-        QT_MOC_LITERAL(321, 9),  // "loadMagic"
-        QT_MOC_LITERAL(331, 12),  // "saveBodyType"
-        QT_MOC_LITERAL(344, 12),  // "loadBodyType"
-        QT_MOC_LITERAL(357, 8),  // "saveWill"
-        QT_MOC_LITERAL(366, 8)   // "loadWill"
+        QT_MOC_LITERAL(238, 10),  // "loadValues"
+        QT_MOC_LITERAL(249, 11),  // "loadBonuses"
+        QT_MOC_LITERAL(261, 14),  // "emittedChanged"
+        QT_MOC_LITERAL(276, 11),  // "saveAgility"
+        QT_MOC_LITERAL(288, 11),  // "loadAgility"
+        QT_MOC_LITERAL(300, 16),  // "saveIntelligence"
+        QT_MOC_LITERAL(317, 16),  // "loadIntelligence"
+        QT_MOC_LITERAL(334, 9),  // "saveMagic"
+        QT_MOC_LITERAL(344, 9),  // "loadMagic"
+        QT_MOC_LITERAL(354, 12),  // "saveBodyType"
+        QT_MOC_LITERAL(367, 12),  // "loadBodyType"
+        QT_MOC_LITERAL(380, 8),  // "saveWill"
+        QT_MOC_LITERAL(389, 8),  // "loadWill"
+        QT_MOC_LITERAL(398, 15),  // "saveMagicDamage"
+        QT_MOC_LITERAL(414, 15),  // "loadMagicDamage"
+        QT_MOC_LITERAL(430, 24),  // "saveResistPhysicalDamage"
+        QT_MOC_LITERAL(455, 24),  // "loadResistPhysicalDamage"
+        QT_MOC_LITERAL(480, 21),  // "saveResistMagicDamage"
+        QT_MOC_LITERAL(502, 21),  // "loadResistMagicDamage"
+        QT_MOC_LITERAL(524, 25),  // "saveResistPhysicalEffects"
+        QT_MOC_LITERAL(550, 25),  // "loadResistPhysicalEffects"
+        QT_MOC_LITERAL(576, 22),  // "saveResistMagicEffects"
+        QT_MOC_LITERAL(599, 22),  // "loadResistMagicEffects"
+        QT_MOC_LITERAL(622, 32),  // "saveStrengtheningPhysicalEffects"
+        QT_MOC_LITERAL(655, 32),  // "loadStrengtheningPhysicalEffects"
+        QT_MOC_LITERAL(688, 31),  // "saveStrengtheningMagicalEffects"
+        QT_MOC_LITERAL(720, 31),  // "loadStrengtheningMagicalEffects"
+        QT_MOC_LITERAL(752, 17),  // "saveMeleeAccuracy"
+        QT_MOC_LITERAL(770, 17),  // "loadMeleeAccuracy"
+        QT_MOC_LITERAL(788, 18),  // "saveRangedAccuracy"
+        QT_MOC_LITERAL(807, 18),  // "loadRangedAccuracy"
+        QT_MOC_LITERAL(826, 17),  // "saveMagicAccuracy"
+        QT_MOC_LITERAL(844, 17),  // "loadMagicAccuracy"
+        QT_MOC_LITERAL(862, 11),  // "saveEvasion"
+        QT_MOC_LITERAL(874, 11),  // "loadEvasion"
+        QT_MOC_LITERAL(886, 11),  // "saveStealth"
+        QT_MOC_LITERAL(898, 11),  // "loadStealth"
+        QT_MOC_LITERAL(910, 17),  // "saveAttentiveness"
+        QT_MOC_LITERAL(928, 17),  // "loadAttentiveness"
+        QT_MOC_LITERAL(946, 16),  // "saveLoadCapacity"
+        QT_MOC_LITERAL(963, 16),  // "loadLoadCapacity"
+        QT_MOC_LITERAL(980, 14),  // "saveInitiative"
+        QT_MOC_LITERAL(995, 14),  // "loadInitiative"
+        QT_MOC_LITERAL(1010, 19),  // "saveMagicCastChance"
+        QT_MOC_LITERAL(1030, 19),  // "loadMagicCastChance"
+        QT_MOC_LITERAL(1050, 32),  // "saveChanceOfUsingCombatTechnique"
+        QT_MOC_LITERAL(1083, 32),  // "loadChanceOfUsingCombatTechnique"
+        QT_MOC_LITERAL(1116, 13),  // "saveMoveRange"
+        QT_MOC_LITERAL(1130, 13),  // "loadMoveRange"
+        QT_MOC_LITERAL(1144, 10),  // "saveHealth"
+        QT_MOC_LITERAL(1155, 10),  // "loadHealth"
+        QT_MOC_LITERAL(1166, 13),  // "saveEndurance"
+        QT_MOC_LITERAL(1180, 13),  // "loadEndurance"
+        QT_MOC_LITERAL(1194, 8),  // "saveMana"
+        QT_MOC_LITERAL(1203, 8)   // "loadMana"
     },
     "Person",
     "StrengthChanged",
@@ -106,6 +194,8 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
     "saveValues",
     "saveBonuses",
     "loadStrength",
+    "loadValues",
+    "loadBonuses",
     "emittedChanged",
     "saveAgility",
     "loadAgility",
@@ -116,7 +206,49 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
     "saveBodyType",
     "loadBodyType",
     "saveWill",
-    "loadWill"
+    "loadWill",
+    "saveMagicDamage",
+    "loadMagicDamage",
+    "saveResistPhysicalDamage",
+    "loadResistPhysicalDamage",
+    "saveResistMagicDamage",
+    "loadResistMagicDamage",
+    "saveResistPhysicalEffects",
+    "loadResistPhysicalEffects",
+    "saveResistMagicEffects",
+    "loadResistMagicEffects",
+    "saveStrengtheningPhysicalEffects",
+    "loadStrengtheningPhysicalEffects",
+    "saveStrengtheningMagicalEffects",
+    "loadStrengtheningMagicalEffects",
+    "saveMeleeAccuracy",
+    "loadMeleeAccuracy",
+    "saveRangedAccuracy",
+    "loadRangedAccuracy",
+    "saveMagicAccuracy",
+    "loadMagicAccuracy",
+    "saveEvasion",
+    "loadEvasion",
+    "saveStealth",
+    "loadStealth",
+    "saveAttentiveness",
+    "loadAttentiveness",
+    "saveLoadCapacity",
+    "loadLoadCapacity",
+    "saveInitiative",
+    "loadInitiative",
+    "saveMagicCastChance",
+    "loadMagicCastChance",
+    "saveChanceOfUsingCombatTechnique",
+    "loadChanceOfUsingCombatTechnique",
+    "saveMoveRange",
+    "loadMoveRange",
+    "saveHealth",
+    "loadHealth",
+    "saveEndurance",
+    "loadEndurance",
+    "saveMana",
+    "loadMana"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -127,7 +259,7 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
+      64,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -135,30 +267,72 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
        7,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  146,    2, 0x06,    1 /* Public */,
-       3,    0,  147,    2, 0x06,    2 /* Public */,
-       4,    0,  148,    2, 0x06,    3 /* Public */,
-       5,    0,  149,    2, 0x06,    4 /* Public */,
-       6,    0,  150,    2, 0x06,    5 /* Public */,
-       7,    0,  151,    2, 0x06,    6 /* Public */,
-       8,    0,  152,    2, 0x06,    7 /* Public */,
+       1,    0,  398,    2, 0x06,    1 /* Public */,
+       3,    0,  399,    2, 0x06,    2 /* Public */,
+       4,    0,  400,    2, 0x06,    3 /* Public */,
+       5,    0,  401,    2, 0x06,    4 /* Public */,
+       6,    0,  402,    2, 0x06,    5 /* Public */,
+       7,    0,  403,    2, 0x06,    6 /* Public */,
+       8,    0,  404,    2, 0x06,    7 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    0,  153,    2, 0x0a,    8 /* Public */,
-      10,    1,  154,    2, 0x0a,    9 /* Public */,
-      12,    0,  157,    2, 0x0a,   11 /* Public */,
-      13,    3,  158,    2, 0x0a,   12 /* Public */,
-      16,    1,  165,    2, 0x0a,   16 /* Public */,
-      18,    3,  168,    2, 0x0a,   18 /* Public */,
-      19,    1,  175,    2, 0x0a,   22 /* Public */,
-      20,    3,  178,    2, 0x0a,   24 /* Public */,
-      21,    1,  185,    2, 0x0a,   28 /* Public */,
-      22,    3,  188,    2, 0x0a,   30 /* Public */,
-      23,    1,  195,    2, 0x0a,   34 /* Public */,
-      24,    3,  198,    2, 0x0a,   36 /* Public */,
-      25,    1,  205,    2, 0x0a,   40 /* Public */,
-      26,    3,  208,    2, 0x0a,   42 /* Public */,
-      27,    1,  215,    2, 0x0a,   46 /* Public */,
+       9,    0,  405,    2, 0x0a,    8 /* Public */,
+      10,    1,  406,    2, 0x0a,    9 /* Public */,
+      12,    0,  409,    2, 0x0a,   11 /* Public */,
+      13,    3,  410,    2, 0x0a,   12 /* Public */,
+      16,    3,  417,    2, 0x0a,   16 /* Public */,
+      20,    3,  424,    2, 0x0a,   20 /* Public */,
+      21,    3,  431,    2, 0x0a,   24 /* Public */,
+      22,    3,  438,    2, 0x0a,   28 /* Public */,
+      23,    3,  445,    2, 0x0a,   32 /* Public */,
+      24,    3,  452,    2, 0x0a,   36 /* Public */,
+      25,    3,  459,    2, 0x0a,   40 /* Public */,
+      26,    3,  466,    2, 0x0a,   44 /* Public */,
+      27,    3,  473,    2, 0x0a,   48 /* Public */,
+      28,    3,  480,    2, 0x0a,   52 /* Public */,
+      29,    3,  487,    2, 0x0a,   56 /* Public */,
+      30,    1,  494,    2, 0x0a,   60 /* Public */,
+      31,    0,  497,    2, 0x0a,   62 /* Public */,
+      32,    1,  498,    2, 0x0a,   63 /* Public */,
+      33,    0,  501,    2, 0x0a,   65 /* Public */,
+      34,    1,  502,    2, 0x0a,   66 /* Public */,
+      35,    0,  505,    2, 0x0a,   68 /* Public */,
+      36,    1,  506,    2, 0x0a,   69 /* Public */,
+      37,    0,  509,    2, 0x0a,   71 /* Public */,
+      38,    1,  510,    2, 0x0a,   72 /* Public */,
+      39,    0,  513,    2, 0x0a,   74 /* Public */,
+      40,    1,  514,    2, 0x0a,   75 /* Public */,
+      41,    0,  517,    2, 0x0a,   77 /* Public */,
+      42,    1,  518,    2, 0x0a,   78 /* Public */,
+      43,    0,  521,    2, 0x0a,   80 /* Public */,
+      44,    1,  522,    2, 0x0a,   81 /* Public */,
+      45,    0,  525,    2, 0x0a,   83 /* Public */,
+      46,    1,  526,    2, 0x0a,   84 /* Public */,
+      47,    0,  529,    2, 0x0a,   86 /* Public */,
+      48,    1,  530,    2, 0x0a,   87 /* Public */,
+      49,    0,  533,    2, 0x0a,   89 /* Public */,
+      50,    1,  534,    2, 0x0a,   90 /* Public */,
+      51,    0,  537,    2, 0x0a,   92 /* Public */,
+      52,    1,  538,    2, 0x0a,   93 /* Public */,
+      53,    0,  541,    2, 0x0a,   95 /* Public */,
+      54,    1,  542,    2, 0x0a,   96 /* Public */,
+      55,    0,  545,    2, 0x0a,   98 /* Public */,
+      56,    1,  546,    2, 0x0a,   99 /* Public */,
+      57,    0,  549,    2, 0x0a,  101 /* Public */,
+      58,    1,  550,    2, 0x0a,  102 /* Public */,
+      59,    0,  553,    2, 0x0a,  104 /* Public */,
+      60,    1,  554,    2, 0x0a,  105 /* Public */,
+      61,    0,  557,    2, 0x0a,  107 /* Public */,
+      62,    1,  558,    2, 0x0a,  108 /* Public */,
+      63,    0,  561,    2, 0x0a,  110 /* Public */,
+      64,    1,  562,    2, 0x0a,  111 /* Public */,
+      65,    0,  565,    2, 0x0a,  113 /* Public */,
+      66,    1,  566,    2, 0x0a,  114 /* Public */,
+      67,    0,  569,    2, 0x0a,  116 /* Public */,
+      68,    1,  570,    2, 0x0a,  117 /* Public */,
+      69,    0,  573,    2, 0x0a,  119 /* Public */,
+      70,    1,  574,    2, 0x0a,  120 /* Public */,
+      71,    0,  577,    2, 0x0a,  122 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -174,17 +348,59 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
     QMetaType::Bool, QMetaType::Bool,   11,
     QMetaType::Bool,
     QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
-    QMetaType::Bool, QMetaType::Bool,   17,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
     QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
-    QMetaType::Bool, QMetaType::Bool,   17,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
     QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
-    QMetaType::Bool, QMetaType::Bool,   17,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
     QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
-    QMetaType::Bool, QMetaType::Bool,   17,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
     QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
-    QMetaType::Bool, QMetaType::Bool,   17,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
     QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
-    QMetaType::Bool, QMetaType::Bool,   17,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool,
 
        0        // eod
 };
@@ -227,12 +443,16 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         // method 'loadStrength'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveAgility'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'loadAgility'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveIntelligence'
@@ -243,12 +463,16 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         // method 'loadIntelligence'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveMagic'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'loadMagic'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveBodyType'
@@ -259,6 +483,8 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         // method 'loadBodyType'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveWill'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
@@ -266,6 +492,113 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'loadWill'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveMagicDamage'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadMagicDamage'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveResistPhysicalDamage'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadResistPhysicalDamage'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveResistMagicDamage'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadResistMagicDamage'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveResistPhysicalEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadResistPhysicalEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveResistMagicEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadResistMagicEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveStrengtheningPhysicalEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadStrengtheningPhysicalEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveStrengtheningMagicalEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadStrengtheningMagicalEffects'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveMeleeAccuracy'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadMeleeAccuracy'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveRangedAccuracy'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadRangedAccuracy'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveMagicAccuracy'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadMagicAccuracy'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveEvasion'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadEvasion'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveStealth'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadStealth'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveAttentiveness'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadAttentiveness'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveLoadCapacity'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadLoadCapacity'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveInitiative'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadInitiative'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveMagicCastChance'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadMagicCastChance'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveChanceOfUsingCombatTechnique'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadChanceOfUsingCombatTechnique'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveMoveRange'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadMoveRange'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveHealth'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadHealth'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveEndurance'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadEndurance'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'saveMana'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        // method 'loadMana'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>
     >,
     nullptr
@@ -291,27 +624,111 @@ void Person::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 10: { bool _r = _t->saveStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 11: { bool _r = _t->loadStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+        case 11: { bool _r = _t->loadStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 12: { bool _r = _t->saveAgility((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 13: { bool _r = _t->loadAgility((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+        case 13: { bool _r = _t->loadAgility((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 14: { bool _r = _t->saveIntelligence((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 15: { bool _r = _t->loadIntelligence((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+        case 15: { bool _r = _t->loadIntelligence((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 16: { bool _r = _t->saveMagic((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 17: { bool _r = _t->loadMagic((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+        case 17: { bool _r = _t->loadMagic((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 18: { bool _r = _t->saveBodyType((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 19: { bool _r = _t->loadBodyType((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+        case 19: { bool _r = _t->loadBodyType((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 20: { bool _r = _t->saveWill((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 21: { bool _r = _t->loadWill((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+        case 21: { bool _r = _t->loadWill((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 22: { bool _r = _t->saveMagicDamage((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 23: { bool _r = _t->loadMagicDamage();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 24: { bool _r = _t->saveResistPhysicalDamage((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 25: { bool _r = _t->loadResistPhysicalDamage();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 26: { bool _r = _t->saveResistMagicDamage((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 27: { bool _r = _t->loadResistMagicDamage();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 28: { bool _r = _t->saveResistPhysicalEffects((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 29: { bool _r = _t->loadResistPhysicalEffects();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 30: { bool _r = _t->saveResistMagicEffects((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 31: { bool _r = _t->loadResistMagicEffects();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 32: { bool _r = _t->saveStrengtheningPhysicalEffects((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 33: { bool _r = _t->loadStrengtheningPhysicalEffects();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 34: { bool _r = _t->saveStrengtheningMagicalEffects((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 35: { bool _r = _t->loadStrengtheningMagicalEffects();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 36: { bool _r = _t->saveMeleeAccuracy((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 37: { bool _r = _t->loadMeleeAccuracy();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 38: { bool _r = _t->saveRangedAccuracy((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 39: { bool _r = _t->loadRangedAccuracy();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 40: { bool _r = _t->saveMagicAccuracy((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 41: { bool _r = _t->loadMagicAccuracy();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 42: { bool _r = _t->saveEvasion((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 43: { bool _r = _t->loadEvasion();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 44: { bool _r = _t->saveStealth((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 45: { bool _r = _t->loadStealth();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 46: { bool _r = _t->saveAttentiveness((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 47: { bool _r = _t->loadAttentiveness();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 48: { bool _r = _t->saveLoadCapacity((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 49: { bool _r = _t->loadLoadCapacity();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 50: { bool _r = _t->saveInitiative((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 51: { bool _r = _t->loadInitiative();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 52: { bool _r = _t->saveMagicCastChance((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 53: { bool _r = _t->loadMagicCastChance();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 54: { bool _r = _t->saveChanceOfUsingCombatTechnique((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 55: { bool _r = _t->loadChanceOfUsingCombatTechnique();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 56: { bool _r = _t->saveMoveRange((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 57: { bool _r = _t->loadMoveRange();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 58: { bool _r = _t->saveHealth((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 59: { bool _r = _t->loadHealth();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 60: { bool _r = _t->saveEndurance((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 61: { bool _r = _t->loadEndurance();
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 62: { bool _r = _t->saveMana((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
+            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 63: { bool _r = _t->loadMana();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -388,13 +805,13 @@ int Person::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 64)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 64;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 22)
+        if (_id < 64)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 22;
+        _id -= 64;
     }
     return _id;
 }

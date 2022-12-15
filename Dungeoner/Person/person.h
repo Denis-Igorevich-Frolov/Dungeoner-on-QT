@@ -104,26 +104,89 @@ public slots:
     bool loadALLStats();
 
     bool saveStrength(bool saveValues, bool saveBonuses, bool createBackups);
-    bool loadStrength(bool emittedChanged);
+    bool loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged);
 
     bool saveAgility(bool saveValues, bool saveBonuses, bool createBackups);
-    bool loadAgility(bool emittedChanged);
+    bool loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged);
 
     bool saveIntelligence(bool saveValues, bool saveBonuses, bool createBackups);
-    bool loadIntelligence(bool emittedChanged);
+    bool loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged);
 
     bool saveMagic(bool saveValues, bool saveBonuses, bool createBackups);
-    bool loadMagic(bool emittedChanged);
+    bool loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged);
 
     bool saveBodyType(bool saveValues, bool saveBonuses, bool createBackups);
-    bool loadBodyType(bool emittedChanged);
+    bool loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged);
 
     bool saveWill(bool saveValues, bool saveBonuses, bool createBackups);
-    bool loadWill(bool emittedChanged);
+    bool loadWill(bool loadValues, bool loadBonuses, bool emittedChanged);
+
+    bool saveMagicDamage(bool createBackups);
+    bool loadMagicDamage();
+
+    bool saveResistPhysicalDamage(bool createBackups);
+    bool loadResistPhysicalDamage();
+
+    bool saveResistMagicDamage(bool createBackups);
+    bool loadResistMagicDamage();
+
+    bool saveResistPhysicalEffects(bool createBackups);
+    bool loadResistPhysicalEffects();
+
+    bool saveResistMagicEffects(bool createBackups);
+    bool loadResistMagicEffects();
+
+    bool saveStrengtheningPhysicalEffects(bool createBackups);
+    bool loadStrengtheningPhysicalEffects();
+
+    bool saveStrengtheningMagicalEffects(bool createBackups);
+    bool loadStrengtheningMagicalEffects();
+
+    bool saveMeleeAccuracy(bool createBackups);
+    bool loadMeleeAccuracy();
+
+    bool saveRangedAccuracy(bool createBackups);
+    bool loadRangedAccuracy();
+
+    bool saveMagicAccuracy(bool createBackups);
+    bool loadMagicAccuracy();
+
+    bool saveEvasion(bool createBackups);
+    bool loadEvasion();
+
+    bool saveStealth(bool createBackups);
+    bool loadStealth();
+
+    bool saveAttentiveness(bool createBackups);
+    bool loadAttentiveness();
+
+    bool saveLoadCapacity(bool createBackups);
+    bool loadLoadCapacity();
+
+    bool saveInitiative(bool createBackups);
+    bool loadInitiative();
+
+    bool saveMagicCastChance(bool createBackups);
+    bool loadMagicCastChance();
+
+    bool saveChanceOfUsingCombatTechnique(bool createBackups);
+    bool loadChanceOfUsingCombatTechnique();
+
+    bool saveMoveRange(bool createBackups);
+    bool loadMoveRange();
+
+    bool saveHealth(bool createBackups);
+    bool loadHealth();
+
+    bool saveEndurance(bool createBackups);
+    bool loadEndurance();
+
+    bool saveMana(bool createBackups);
+    bool loadMana();
 
 private:
     bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses, bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat);
+    bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValues, bool loadBonuses);
     void createBackup();
 
     Stat Strength = Stat(999999);
