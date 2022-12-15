@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Person_t {
-    uint offsetsAndSizes[24];
+    uint offsetsAndSizes[28];
     char stringdata0[7];
     char stringdata1[16];
     char stringdata2[1];
@@ -38,7 +38,9 @@ struct qt_meta_stringdata_Person_t {
     char stringdata8[28];
     char stringdata9[21];
     char stringdata10[13];
-    char stringdata11[13];
+    char stringdata11[14];
+    char stringdata12[13];
+    char stringdata13[15];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Person_t::offsetsAndSizes) + ofs), len 
@@ -55,7 +57,9 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
         QT_MOC_LITERAL(100, 27),  // "FullReinitializationRequest"
         QT_MOC_LITERAL(128, 20),  // "fullReinitialization"
         QT_MOC_LITERAL(149, 12),  // "saveStrength"
-        QT_MOC_LITERAL(162, 12)   // "loadStrength"
+        QT_MOC_LITERAL(162, 13),  // "createBackups"
+        QT_MOC_LITERAL(176, 12),  // "loadStrength"
+        QT_MOC_LITERAL(189, 14)   // "emittedChanged"
     },
     "Person",
     "StrengthChanged",
@@ -68,7 +72,9 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
     "FullReinitializationRequest",
     "fullReinitialization",
     "saveStrength",
-    "loadStrength"
+    "createBackups",
+    "loadStrength",
+    "emittedChanged"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -97,8 +103,8 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
        9,    0,   81,    2, 0x0a,    8 /* Public */,
-      10,    0,   82,    2, 0x0a,    9 /* Public */,
-      11,    0,   83,    2, 0x0a,   10 /* Public */,
+      10,    1,   82,    2, 0x0a,    9 /* Public */,
+      12,    1,   85,    2, 0x0a,   11 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -111,8 +117,8 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Bool,
-    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,   11,
+    QMetaType::Bool, QMetaType::Bool,   13,
 
        0        // eod
 };
@@ -144,7 +150,9 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'saveStrength'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'loadStrength'
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>
     >,
     nullptr
@@ -164,9 +172,9 @@ void Person::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 5: _t->WillChanged(); break;
         case 6: _t->FullReinitializationRequest(); break;
         case 7: _t->fullReinitialization(); break;
-        case 8: { bool _r = _t->saveStrength();
+        case 8: { bool _r = _t->saveStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 9: { bool _r = _t->loadStrength();
+        case 9: { bool _r = _t->loadStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }

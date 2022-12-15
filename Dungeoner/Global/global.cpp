@@ -8,7 +8,7 @@
 MediaPlayer Global::mediaplayer;
 QVector<int> Global::pressedKeys;
 QString Global::DungeonName;
-
+int Global::numberOfBackups;
 
 Global::Global()
 {

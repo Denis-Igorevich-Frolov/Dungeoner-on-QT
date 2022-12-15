@@ -100,11 +100,11 @@ public slots:
      *запрашивается их полная переинциализация для избежания последующих проблем.*/
     void fullReinitialization();
 
-    bool saveStrength();
-    bool loadStrength();
+    bool saveStrength(bool createBackups);
+    bool loadStrength(bool emittedChanged);
 
 private:
-    bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses, QString sourceFileName);
+    bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses, bool createBackups);
     bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat);
 
     Stat Strength = Stat(999999);

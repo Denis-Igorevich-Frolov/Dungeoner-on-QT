@@ -20,6 +20,7 @@ Dungeoner::Dungeoner(QWidget *parent)
     characterWindow->show();
 
     Global::DungeonName = "New Dungeon";
+    Global::numberOfBackups = 10;
 }
 
 Dungeoner::~Dungeoner()

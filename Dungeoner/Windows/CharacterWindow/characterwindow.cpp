@@ -1143,11 +1143,11 @@ void CharacterWindow::on_pushButton_6_clicked()
 
 void CharacterWindow::on_SaveButton_clicked()
 {
-    person.saveStrength();
+    person.saveStrength(true);
 }
 
 
 void CharacterWindow::on_LoadButton_clicked()
 {
-    person.loadStrength();
+    person.loadStrength(true);
 }

@@ -675,18 +675,19 @@ void Person::fullReinitialization()
     emit FullReinitializationRequest();
 }
 
-bool Person::saveStrength()
+bool Person::saveStrength(bool createBackups)
 {
-    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), "Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save");;
+    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), createBackups);;
 }
-bool Person::loadStrength()
+bool Person::loadStrength(bool emittedChanged)
 {
     bool success = loadStat("Strength", Bonus::STRENGTH, Strength);
-    emit StrengthChanged();
+    if(emittedChanged)
+        emit StrengthChanged();
     return success;
 }
 
-bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses, QString sourceFileName)
+bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses, bool createBackups)
 {
     {
         QDir dir;
@@ -694,11 +695,27 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
             dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName);
 
         QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
-        database.setDatabaseName(sourceFileName + ".sqlite");
+        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
 
-//        for(int i = 10 ; i >= 0; i++){
-//            QFile backup ("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save backup.sqlite");
-//        }
+        if(createBackups){
+            QDir dir;
+            if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups"))
+                dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
+            dir = QDir("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
+
+            QStringList files = dir.entryList(QDir::Files, QDir::Time);
+
+            for (int i = Global::numberOfBackups - 1; i < files.size(); i++)
+            {
+                dir.remove(files.at(i));
+            }
+
+            QDateTime dt = QDateTime::currentDateTime();
+
+            QFile::copy("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite",
+                        "Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups/save "
+                        + dt.toString("dd-MM-yyyy hh.mm.ss") + ".sqlite");
+        }
 
         if(!database.open()) {
             //Вывод предупреждения в консоль и файл

@@ -34,6 +34,7 @@ public:
     static QVector<int> pressedKeys;
 
     static QString DungeonName;
+    static int numberOfBackups;
 
     Global();
 };
