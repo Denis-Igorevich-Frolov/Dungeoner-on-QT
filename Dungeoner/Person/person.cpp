@@ -677,207 +677,7 @@ void Person::fullReinitialization()
 
 bool Person::saveStrength()
 {
-    {
-        QDir dir;
-        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName))
-            dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName);
-
-        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "stats");
-        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite");
-
-        if(!database.open()) {
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Ошибка открытия файла\n"
-            "Person выдал ошибку в методе saveStrength.\n"
-            "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite не удалось открыть.\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            return false;
-        }
-
-        QSqlQuery query(database);
-        if(!query.exec("CREATE TABLE IF NOT EXISTS Stats("
-                       "stat_name TEXT NOT NULL, "
-                       "value INTEGER NOT NULL DEFAULT 0,"
-                       "maximum INTEGER NOT NULL DEFAULT 0,"
-                       "progress_bar_current_value INTEGER NOT NULL DEFAULT 0, "
-                       "CONSTRAINT value_chek CHECK ((value >= 0) AND (value <= maximum)), "
-                       "CONSTRAINT progress_bar_current_value_chek CHECK ((value >= -value) AND (value <= value)), "
-                       "CONSTRAINT stat PRIMARY KEY (stat_name), "
-                       "CONSTRAINT stat_name_chek CHECK (stat_name !=''));"
-                       )){
-
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Не удалось создать таблицу\n"
-            "Person выдал ошибку в методе saveStrength.\n"
-            "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            database.close();
-            return false;
-        }
-
-        if(!query.exec("CREATE TABLE IF NOT EXISTS Bonuses("
-                       "stat_name TEXT NOT NULL, "
-                       "value INTEGER NOT NULL DEFAULT 0, "
-                       "is_percentage INTEGER NOT NULL DEFAULT 0, "
-                       "bonus_name TEXT NOT NULL, "
-                       "CONSTRAINT bool_chek CHECK (is_percentage >= 0 AND is_percentage <= 1), "
-                       "CONSTRAINT stat_name_chek CHECK (stat_name != ''), "
-                       "CONSTRAINT bonus_name_chek CHECK (bonus_name != ''));"
-                       )){
-
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Не удалось создать таблицу\n"
-            "Person выдал ошибку в методе saveStrength.\n"
-            "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            database.close();
-            return false;
-        }
-
-        if(!query.exec("REPLACE INTO Stats (stat_name, value, maximum) VALUES ('Strength', "
-                       + QString::number(Strength.getValue()) + ", " +  QString::number(Strength.getMaximum()) +");")){
-
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Не удалось записать данные в таблицу\n"
-            "Person выдал ошибку в методе saveStrength.\n"
-            "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            database.close();
-            return false;
-        }
-
-        if(!query.exec("DELETE FROM Bonuses;")){
-
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Не удалось удалить данные из таблицы\n"
-            "Person выдал ошибку в методе saveStrength.\n"
-            "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            database.close();
-            return false;
-        }
-
-        for(Bonus* bonus : Strength.getBonuses()){
-            if(!query.exec("INSERT INTO Bonuses (stat_name, value, is_percentage, bonus_name) VALUES ('Strength', " +
-                           QString::number(bonus->getValue())+ ", " + QString::number(bonus->isPercentage) + ", '" + bonus->bonusName + "');")){
-
-                //Вывод предупреждения в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                "\nОШИБКА: Не удалось записать данные в таблицу\n"
-                "Person выдал ошибку в методе saveStrength.\n"
-                "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/stats.sqlite\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
-                }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
-                }
-
-                database.close();
-                return false;
-            }
-        }
-
-        database.close();
-    }
-    QSqlDatabase::removeDatabase("stats");
-
-    return true;
+    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), "Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save");;
 }
 
 bool Person::loadStrength()
@@ -1009,6 +809,215 @@ bool Person::loadStrength()
     }
 
     QSqlDatabase::removeDatabase("stats");
+    return true;
+}
+
+bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses, QString sourceFileName)
+{
+    {
+        QDir dir;
+        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName))
+            dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName);
+
+        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
+        database.setDatabaseName(sourceFileName + ".sqlite");
+
+//        for(int i = 10 ; i >= 0; i++){
+//            QFile backup ("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save backup.sqlite");
+//        }
+
+        if(!database.open()) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Ошибка открытия файла\n"
+            "Person выдал ошибку в методе saveStat.\n"
+            "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        QSqlQuery query(database);
+        if(!query.exec("CREATE TABLE IF NOT EXISTS Stats("
+                       "stat_name TEXT NOT NULL, "
+                       "value INTEGER NOT NULL DEFAULT 0,"
+                       "maximum INTEGER NOT NULL DEFAULT 0,"
+                       "progress_bar_current_value INTEGER NOT NULL DEFAULT 0, "
+                       "CONSTRAINT value_chek CHECK ((value >= 0) AND (value <= maximum)), "
+                       "CONSTRAINT progress_bar_current_value_chek CHECK ((value >= -value) AND (value <= value)), "
+                       "CONSTRAINT stat PRIMARY KEY (stat_name), "
+                       "CONSTRAINT stat_name_chek CHECK (stat_name !=''));"
+                       )){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось создать таблицу\n"
+            "Person выдал ошибку в методе saveStat.\n"
+            "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        if(!query.exec("CREATE TABLE IF NOT EXISTS Bonuses("
+                       "stat_name TEXT NOT NULL, "
+                       "value INTEGER NOT NULL DEFAULT 0, "
+                       "is_percentage INTEGER NOT NULL DEFAULT 0, "
+                       "bonus_name TEXT NOT NULL, "
+                       "CONSTRAINT bool_chek CHECK (is_percentage >= 0 AND is_percentage <= 1), "
+                       "CONSTRAINT stat_name_chek CHECK (stat_name != ''), "
+                       "CONSTRAINT bonus_name_chek CHECK (bonus_name != ''));"
+                       )){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось создать таблицу\n"
+            "Person выдал ошибку в методе saveStat.\n"
+            "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        if(!query.exec("REPLACE INTO Stats (stat_name, value, maximum) VALUES ('" + statName + "', "
+                       + QString::number(value) + ", " +  QString::number(maximum) +");")){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось записать данные в таблицу\n"
+            "Person выдал ошибку в методе saveStat.\n"
+            "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        if(!query.exec("DELETE FROM Bonuses;")){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось удалить данные из таблицы\n"
+            "Person выдал ошибку в методе saveStat.\n"
+            "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        for(Bonus* bonus : bonuses){
+            if(!query.exec("INSERT INTO Bonuses (stat_name, value, is_percentage, bonus_name) VALUES ('" + statName + "', " +
+                           QString::number(bonus->getValue())+ ", " + QString::number(bonus->isPercentage) + ", '" + bonus->bonusName + "');")){
+
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                "Person выдал ошибку в методе saveStat.\n"
+                "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }
+        }
+
+        database.close();
+    }
+    QSqlDatabase::removeDatabase("save");
+
     return true;
 }
 
