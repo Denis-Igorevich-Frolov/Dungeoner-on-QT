@@ -675,9 +675,27 @@ void Person::fullReinitialization()
     emit FullReinitializationRequest();
 }
 
-bool Person::saveStrength(bool createBackups)
+bool Person::saveAllStats(bool createBackups)
 {
-    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), createBackups);;
+    if(createBackups){
+        this->createBackup();
+    }
+
+    return(saveStrength(true, true, false) && saveAgility(true, true, false) &&
+           saveIntelligence(true, true, false) && saveMagic(true, true, false) &&
+           saveBodyType(true, true, false) && saveWill(true, true, false));
+}
+
+bool Person::loadALLStats()
+{
+    return(loadStrength(true) && loadAgility(true)&&
+           loadIntelligence(true) && loadMagic(true)&&
+           loadBodyType(true) && loadWill(true));
+}
+
+bool Person::saveStrength(bool saveValues, bool saveBonuses, bool createBackups)
+{
+    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), saveValues, saveBonuses, createBackups);
 }
 bool Person::loadStrength(bool emittedChanged)
 {
@@ -687,7 +705,67 @@ bool Person::loadStrength(bool emittedChanged)
     return success;
 }
 
-bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses, bool createBackups)
+bool Person::saveAgility(bool saveValues, bool saveBonuses, bool createBackups)
+{
+    return saveStat("Agility", Agility.getValue(), Agility.getMaximum(), 0, Agility.getBonuses(), saveValues, saveBonuses, createBackups);
+}
+bool Person::loadAgility(bool emittedChanged)
+{
+    bool success = loadStat("Agility", Bonus::AGILITY, Agility);
+    if(emittedChanged)
+        emit AgilityChanged();
+    return success;
+}
+
+bool Person::saveIntelligence(bool saveValues, bool saveBonuses, bool createBackups)
+{
+    return saveStat("Intelligence", Intelligence.getValue(), Intelligence.getMaximum(), 0, Intelligence.getBonuses(), saveValues, saveBonuses, createBackups);
+}
+bool Person::loadIntelligence(bool emittedChanged)
+{
+    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence);
+    if(emittedChanged)
+        emit IntelligenceChanged();
+    return success;
+}
+
+bool Person::saveMagic(bool saveValues, bool saveBonuses, bool createBackups)
+{
+    return saveStat("Magic", Magic.getValue(), Magic.getMaximum(), 0, Magic.getBonuses(), saveValues, saveBonuses, createBackups);
+}
+bool Person::loadMagic(bool emittedChanged)
+{
+    bool success = loadStat("Magic", Bonus::MAGIC, Magic);
+    if(emittedChanged)
+        emit MagicChanged();
+    return success;
+}
+
+bool Person::saveBodyType(bool saveValues, bool saveBonuses, bool createBackups)
+{
+    return saveStat("BodyType", BodyType.getValue(), BodyType.getMaximum(), 0, BodyType.getBonuses(), saveValues, saveBonuses, createBackups);
+}
+bool Person::loadBodyType(bool emittedChanged)
+{
+    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType);
+    if(emittedChanged)
+        emit BodyTypeChanged();
+    return success;
+}
+
+bool Person::saveWill(bool saveValues, bool saveBonuses, bool createBackups)
+{
+    return saveStat("Will", Will.getValue(), Will.getMaximum(), 0, Will.getBonuses(), saveValues, saveBonuses, createBackups);
+}
+bool Person::loadWill(bool emittedChanged)
+{
+    bool success = loadStat("Will", Bonus::WILL, Will);
+    if(emittedChanged)
+        emit WillChanged();
+    return success;
+}
+
+bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses, bool saveValues, bool saveBonuses, bool createBackup)
 {
     {
         QDir dir;
@@ -697,25 +775,8 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
         QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
         database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
 
-        if(createBackups){
-            QDir dir;
-            if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups"))
-                dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
-            dir = QDir("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
-
-            QStringList files = dir.entryList(QDir::Files, QDir::Time);
-
-            for (int i = Global::numberOfBackups - 1; i < files.size(); i++)
-            {
-                dir.remove(files.at(i));
-            }
-
-            QDateTime dt = QDateTime::currentDateTime();
-
-            QFile::copy("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite",
-                        "Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups/save "
-                        + dt.toString("dd-MM-yyyy hh.mm.ss") + ".sqlite");
-        }
+        if(createBackup)
+            this->createBackup();
 
         if(!database.open()) {
             //Вывод предупреждения в консоль и файл
@@ -817,76 +878,19 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
             return false;
         }
 
-        if(!query.exec("REPLACE INTO Stats (stat_name, value, maximum) VALUES ('" + statName + "', "
-                       + QString::number(value) + ", " +  QString::number(maximum) +");")){
-
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Не удалось записать данные в таблицу\n"
-            "Person выдал ошибку в методе saveStat.\n"
-            "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            database.close();
-            return false;
-        }
-
-        if(!query.exec("DELETE FROM Bonuses;")){
-
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Не удалось удалить данные из таблицы\n"
-            "Person выдал ошибку в методе saveStat.\n"
-            "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            database.close();
-            return false;
-        }
-
-        for(Bonus* bonus : bonuses){
-            if(!query.exec("INSERT INTO Bonuses (stat_name, value, is_percentage, bonus_name) VALUES ('" + statName + "', " +
-                           QString::number(bonus->getValue())+ ", " + QString::number(bonus->isPercentage) + ", '" + bonus->bonusName + "');")){
+        if(saveValues)
+            if(!query.exec("REPLACE INTO Stats (stat_name, value, maximum) VALUES ('" + statName + "', "
+                           + QString::number(value) + ", " +  QString::number(maximum) +");")){
 
                 //Вывод предупреждения в консоль и файл
                 QDate cd = QDate::currentDate();
                 QTime ct = QTime::currentTime();
 
                 QString error =
-                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                "\nОШИБКА: Не удалось записать данные в таблицу\n"
-                "Person выдал ошибку в методе saveStat.\n"
-                "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                        "Person выдал ошибку в методе saveStat.\n"
+                        "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
                 qDebug()<<error;
 
                 QFile errorFile("error log.txt");
@@ -902,6 +906,66 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
 
                 database.close();
                 return false;
+            }
+
+        if(saveBonuses){
+            if(!query.exec("DELETE FROM Bonuses WHERE stat_name = '" + statName + "';")){
+
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось удалить данные из таблицы\n"
+                        "Person выдал ошибку в методе saveStat.\n"
+                        "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }
+
+            for(Bonus* bonus : bonuses){
+                if(!query.exec("INSERT INTO Bonuses (stat_name, value, is_percentage, bonus_name) VALUES ('" + statName + "', " +
+                               QString::number(bonus->getValue())+ ", " + QString::number(bonus->isPercentage) + ", '" + bonus->bonusName + "');")){
+
+                    //Вывод предупреждения в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                            "Person выдал ошибку в методе saveStat.\n"
+                            "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
+
+                    database.close();
+                    return false;
+                }
             }
         }
 
@@ -972,7 +1036,7 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat)
         }
 
         QSqlQuery query(database);
-        if( !query.exec( "SELECT value FROM Stats WHERE stat_name = '" + statName + "';")) {
+        if( !query.exec( "SELECT value FROM Stats WHERE stat_name IS '" + statName + "';")) {
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
             QTime ct = QTime::currentTime();
@@ -1039,6 +1103,27 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat)
 
     QSqlDatabase::removeDatabase("save");
     return true;
+}
+
+void Person::createBackup()
+{
+    QDir dir;
+    if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups"))
+        dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
+    dir = QDir("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
+
+    QStringList files = dir.entryList(QDir::Files, QDir::Time);
+
+    for (int i = Global::numberOfBackups - 1; i < files.size(); i++)
+    {
+        dir.remove(files.at(i));
+    }
+
+    QDateTime dt = QDateTime::currentDateTime();
+
+    QFile::copy("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite",
+                "Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups/save "
+                + dt.toString("dd-MM-yyyy hh.mm.ss") + ".sqlite");
 }
 
 QString Person::getPersonName() const

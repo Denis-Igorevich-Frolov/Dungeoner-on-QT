@@ -188,3 +188,18 @@ Person выдал ошибку в методе loadStat.
 Person выдал ошибку в методе loadStat.
 Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/stats.sqlite
 
+15-December-2022  20:57:40
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+15-December-2022  20:57:40
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+15-December-2022  20:57:40
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+

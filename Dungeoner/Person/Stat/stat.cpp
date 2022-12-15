@@ -113,6 +113,9 @@ void Stat::removeAllBonuses()
     for(Bonus* bonus : bonuses)
         delete bonus;
     bonuses.clear();
+
+    calculateFinalValue();
+    emit bonusesChanged();
 }
 
 //Вычисление финального максимального значения стата с учётом всех бонусов

@@ -100,12 +100,31 @@ public slots:
      *запрашивается их полная переинциализация для избежания последующих проблем.*/
     void fullReinitialization();
 
-    bool saveStrength(bool createBackups);
+    bool saveAllStats(bool createBackups);
+    bool loadALLStats();
+
+    bool saveStrength(bool saveValues, bool saveBonuses, bool createBackups);
     bool loadStrength(bool emittedChanged);
 
+    bool saveAgility(bool saveValues, bool saveBonuses, bool createBackups);
+    bool loadAgility(bool emittedChanged);
+
+    bool saveIntelligence(bool saveValues, bool saveBonuses, bool createBackups);
+    bool loadIntelligence(bool emittedChanged);
+
+    bool saveMagic(bool saveValues, bool saveBonuses, bool createBackups);
+    bool loadMagic(bool emittedChanged);
+
+    bool saveBodyType(bool saveValues, bool saveBonuses, bool createBackups);
+    bool loadBodyType(bool emittedChanged);
+
+    bool saveWill(bool saveValues, bool saveBonuses, bool createBackups);
+    bool loadWill(bool emittedChanged);
+
 private:
-    bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses, bool createBackups);
+    bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses, bool saveValues, bool saveBonuses, bool createBackup);
     bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat);
+    void createBackup();
 
     Stat Strength = Stat(999999);
     Stat Agility = Stat(999999);
