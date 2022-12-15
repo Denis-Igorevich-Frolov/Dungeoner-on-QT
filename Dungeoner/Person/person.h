@@ -105,6 +105,7 @@ public slots:
 
 private:
     bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses, QString sourceFileName);
+    bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat);
 
     Stat Strength = Stat(999999);
     Stat Agility = Stat(999999);

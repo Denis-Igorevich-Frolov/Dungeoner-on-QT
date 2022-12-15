@@ -173,3 +173,18 @@ Person выдал ошибку в методе saveStrength.
 Person выдал ошибку в методе saveStrength.
 Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/stats.sqlite
 
+15-December-2022  10:15:31
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/stats.sqlite
+
+15-December-2022  10:16:58
+1ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/stats.sqlite
+
+15-December-2022  10:18:48
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/stats.sqlite
+
