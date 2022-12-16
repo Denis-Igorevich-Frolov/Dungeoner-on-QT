@@ -203,3 +203,228 @@ MagicDefense выдал предупреждение в методе removeBonus
 MagicDefense выдал предупреждение в методе removeBonus.
 При попытке удалить MagicDefenseBonus, он не был обнаружен.
 
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  14:29:16
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:43:53
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:48:18
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:55:39
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:57:31
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:57:59
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:58:33
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:59:05
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  18:59:44
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  19:29:39
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  20:02:17
+ОШИБКА: Не удалось удалить данные из таблицы
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось удалить данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  20:03:01
+ОШИБКА: Не удалось удалить данные из таблицы
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось удалить данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+16-December-2022  20:08:50
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  00:01:49
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  00:12:08
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  00:21:28
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  00:45:36
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  00:49:12
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  00:52:18
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+

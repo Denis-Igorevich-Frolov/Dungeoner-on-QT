@@ -290,9 +290,6 @@ void CharacterWindow::setStyles()
             magicDefenseProgressBar->getProgressBar()->setColor(magicDefenseProgressBar->property("Color").toString());
             //Установка имени прогрессбара при помощи динамического свойства Name
             magicDefenseProgressBar->setName(magicDefenseProgressBar->property("Name").toString());
-
-            //Временная заглушка для прогрессбара магической защиты
-//            magicDefenseProgressBar->getProgressBar()->setBonusChunks(QVector<Chunk*>{new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100),new Chunk(100,100)});
         }else if(!dynamic_cast <QLayout*> (autoFrame)){
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -1111,52 +1108,27 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -34, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(1, 10, true, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 34, false, "Изгнание чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::LAST, 15, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::STRENGTH, 1, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::AGILITY, 2, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::INTELLIGENCE, 3, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::MAGIC, 4, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::BODYTYPE, 5, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::WILL, 6, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::MAGIC_DAMAGE, 7, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::RESIST_PHYSICAL_DAMAGE, 8, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::RESIST_MAGIC_DAMAGE, 9, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::RESIST_PHYSICAL_EFFECTS, 10, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::RESIST_MAGIC_EFFECTS, 11, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::STRENGTHENING_PHYSICAL_EFFECTS, 12, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::STRENGTHENING_MAGICAL_EFFECTS, 13, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::MELEE_ACCURACY, 14, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::RANGED_ACCURACY, 15, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::MAGIC_ACCURACY, 16, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::EVASION, 17, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::STEALTH, 18, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::ATTENTIVENESS, 19, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::LOAD_CAPACITY, 20, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::INITIATIVE, 21, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::MAGIC_CAST_CHANCE, 22, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE, 23, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::MOVE_RANGE, 24, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::HEALTH, 25, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::ENDURANCE, 26, true, "Благословление"));
-    person.addBonusToStat(new Bonus(Bonus::MANA, 27, true, "Благословление"));
+    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {10, 18}, "Проклятие чорота эля"));
+    recalculateStats();
 }
 
 void CharacterWindow::on_pushButton_5_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, -34, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {4, 1, 7}, "Проклятие чорота эля"));
     recalculateStats();
 }
 

@@ -49,9 +49,9 @@ public:
     void setValue(int newValue);
 
     //Переменная показывающая на какой динамической позиции бонус, если бонус динамический
-    DynamicPosition dynamicPosition;
+    DynamicPosition dynamicPosition = FIRST;
     //Переменная показывающая на какой статической позиции бонус, если бонус статический
-    int staticPosition;
+    int staticPosition = 0;
 
     QVector<int> getBonusChunksMaxVales() const;
     void setBonusChunksMaxVales(const QVector<int> &newBonusChunksMaxVales);

@@ -675,9 +675,9 @@ void Person::fullReinitialization()
     emit FullReinitializationRequest();
 }
 
-bool Person::saveAllStats(bool createBackups)
+bool Person::saveAllStats(bool createBackup)
 {
-    if(createBackups){
+    if(createBackup){
         this->createBackup();
     }
 
@@ -709,6 +709,7 @@ bool Person::saveAllStats(bool createBackups)
     bool successSaveHealth = saveHealth(false);
     bool successSaveEndurance = saveEndurance(false);
     bool successSaveMana = saveMana(false);
+    bool succesSaveMagicDefense = saveMagicDefense(false);
 
     return successSaveStrength && successSaveAgility && successSaveIntelligence &&
             successSaveMagic && successSaveMagic && successSaveBodyType &&
@@ -719,7 +720,7 @@ bool Person::saveAllStats(bool createBackups)
             successSaveRangedAccuracy && successSaveMagicAccuracy && successSaveEvasion &&
             successSaveStealth && successSaveAttentiveness && successSaveLoadCapacity &&
             successSaveInitiative && successSaveMagicCastChance && successSaveChanceOfUsingCombatTechnique &&
-            successSaveMoveRange && successSaveHealth && successSaveEndurance && successSaveMana;
+            successSaveMoveRange && successSaveHealth && successSaveEndurance && successSaveMana && succesSaveMagicDefense;
 }
 
 bool Person::loadALLStats()
@@ -765,9 +766,9 @@ bool Person::loadALLStats()
             successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana;
 }
 
-bool Person::saveStrength(bool saveValues, bool saveBonuses, bool createBackups)
+bool Person::saveStrength(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), saveValues, saveBonuses, createBackups);
+    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), saveValues, saveBonuses, createBackup);
 }
 bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
@@ -777,9 +778,9 @@ bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged
     return success;
 }
 
-bool Person::saveAgility(bool saveValues, bool saveBonuses, bool createBackups)
+bool Person::saveAgility(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Agility", Agility.getValue(), Agility.getMaximum(), 0, Agility.getBonuses(), saveValues, saveBonuses, createBackups);
+    return saveStat("Agility", Agility.getValue(), Agility.getMaximum(), 0, Agility.getBonuses(), saveValues, saveBonuses, createBackup);
 }
 bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
@@ -789,9 +790,9 @@ bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
     return success;
 }
 
-bool Person::saveIntelligence(bool saveValues, bool saveBonuses, bool createBackups)
+bool Person::saveIntelligence(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Intelligence", Intelligence.getValue(), Intelligence.getMaximum(), 0, Intelligence.getBonuses(), saveValues, saveBonuses, createBackups);
+    return saveStat("Intelligence", Intelligence.getValue(), Intelligence.getMaximum(), 0, Intelligence.getBonuses(), saveValues, saveBonuses, createBackup);
 }
 bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
@@ -801,9 +802,9 @@ bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedCha
     return success;
 }
 
-bool Person::saveMagic(bool saveValues, bool saveBonuses, bool createBackups)
+bool Person::saveMagic(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Magic", Magic.getValue(), Magic.getMaximum(), 0, Magic.getBonuses(), saveValues, saveBonuses, createBackups);
+    return saveStat("Magic", Magic.getValue(), Magic.getMaximum(), 0, Magic.getBonuses(), saveValues, saveBonuses, createBackup);
 }
 bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
@@ -813,9 +814,9 @@ bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
     return success;
 }
 
-bool Person::saveBodyType(bool saveValues, bool saveBonuses, bool createBackups)
+bool Person::saveBodyType(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("BodyType", BodyType.getValue(), BodyType.getMaximum(), 0, BodyType.getBonuses(), saveValues, saveBonuses, createBackups);
+    return saveStat("BodyType", BodyType.getValue(), BodyType.getMaximum(), 0, BodyType.getBonuses(), saveValues, saveBonuses, createBackup);
 }
 bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
@@ -825,9 +826,9 @@ bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged
     return success;
 }
 
-bool Person::saveWill(bool saveValues, bool saveBonuses, bool createBackups)
+bool Person::saveWill(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Will", Will.getValue(), Will.getMaximum(), 0, Will.getBonuses(), saveValues, saveBonuses, createBackups);
+    return saveStat("Will", Will.getValue(), Will.getMaximum(), 0, Will.getBonuses(), saveValues, saveBonuses, createBackup);
 }
 bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
@@ -837,9 +838,9 @@ bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
     return success;
 }
 
-bool Person::saveMagicDamage(bool createBackups)
+bool Person::saveMagicDamage(bool createBackup)
 {
-    return saveStat("MagicDamage", MagicDamage.getValue(), MagicDamage.getMaximum(), 0, MagicDamage.getBonuses(), false, true, createBackups);
+    return saveStat("MagicDamage", MagicDamage.getValue(), MagicDamage.getMaximum(), 0, MagicDamage.getBonuses(), false, true, createBackup);
 }
 bool Person::loadMagicDamage()
 {
@@ -847,10 +848,10 @@ bool Person::loadMagicDamage()
     return success;
 }
 
-bool Person::saveResistPhysicalDamage(bool createBackups)
+bool Person::saveResistPhysicalDamage(bool createBackup)
 {
     return saveStat("ResistPhysicalDamage", ResistPhysicalDamage.getValue(), ResistPhysicalDamage.getMaximum(),
-                    0, ResistPhysicalDamage.getBonuses(), false, true, createBackups);
+                    0, ResistPhysicalDamage.getBonuses(), false, true, createBackup);
 }
 bool Person::loadResistPhysicalDamage()
 {
@@ -858,10 +859,10 @@ bool Person::loadResistPhysicalDamage()
     return success;
 }
 
-bool Person::saveResistMagicDamage(bool createBackups)
+bool Person::saveResistMagicDamage(bool createBackup)
 {
     return saveStat("ResistMagicDamage", ResistMagicDamage.getValue(), ResistMagicDamage.getMaximum(),
-                    0, ResistMagicDamage.getBonuses(), false, true, createBackups);
+                    0, ResistMagicDamage.getBonuses(), false, true, createBackup);
 }
 bool Person::loadResistMagicDamage()
 {
@@ -869,10 +870,10 @@ bool Person::loadResistMagicDamage()
     return success;
 }
 
-bool Person::saveResistPhysicalEffects(bool createBackups)
+bool Person::saveResistPhysicalEffects(bool createBackup)
 {
     return saveStat("ResistPhysicalEffects", ResistPhysicalEffects.getValue(), ResistPhysicalEffects.getMaximum(),
-                    0, ResistPhysicalEffects.getBonuses(), false, true, createBackups);
+                    0, ResistPhysicalEffects.getBonuses(), false, true, createBackup);
 }
 bool Person::loadResistPhysicalEffects()
 {
@@ -880,9 +881,9 @@ bool Person::loadResistPhysicalEffects()
     return success;
 }
 
-bool Person::saveResistMagicEffects(bool createBackups)
+bool Person::saveResistMagicEffects(bool createBackup)
 {
-    return saveStat("ResistMagicEffects", ResistMagicEffects.getValue(), ResistMagicEffects.getMaximum(), 0, ResistMagicEffects.getBonuses(), false, true, createBackups);
+    return saveStat("ResistMagicEffects", ResistMagicEffects.getValue(), ResistMagicEffects.getMaximum(), 0, ResistMagicEffects.getBonuses(), false, true, createBackup);
 }
 bool Person::loadResistMagicEffects()
 {
@@ -890,10 +891,10 @@ bool Person::loadResistMagicEffects()
     return success;
 }
 
-bool Person::saveStrengtheningPhysicalEffects(bool createBackups)
+bool Person::saveStrengtheningPhysicalEffects(bool createBackup)
 {
     return saveStat("StrengtheningPhysicalEffects", StrengtheningPhysicalEffects.getValue(), StrengtheningPhysicalEffects.getMaximum(),
-                    0, StrengtheningPhysicalEffects.getBonuses(), false, true, createBackups);
+                    0, StrengtheningPhysicalEffects.getBonuses(), false, true, createBackup);
 }
 bool Person::loadStrengtheningPhysicalEffects()
 {
@@ -901,10 +902,10 @@ bool Person::loadStrengtheningPhysicalEffects()
     return success;
 }
 
-bool Person::saveStrengtheningMagicalEffects(bool createBackups)
+bool Person::saveStrengtheningMagicalEffects(bool createBackup)
 {
     return saveStat("StrengtheningMagicalEffects", StrengtheningMagicalEffects.getValue(), StrengtheningMagicalEffects.getMaximum(),
-                    0, StrengtheningMagicalEffects.getBonuses(), false, true, createBackups);
+                    0, StrengtheningMagicalEffects.getBonuses(), false, true, createBackup);
 }
 bool Person::loadStrengtheningMagicalEffects()
 {
@@ -912,9 +913,9 @@ bool Person::loadStrengtheningMagicalEffects()
     return success;
 }
 
-bool Person::saveMeleeAccuracy(bool createBackups)
+bool Person::saveMeleeAccuracy(bool createBackup)
 {
-    return saveStat("MeleeAccuracy", MeleeAccuracy.getValue(), MeleeAccuracy.getMaximum(), 0, MeleeAccuracy.getBonuses(), false, true, createBackups);
+    return saveStat("MeleeAccuracy", MeleeAccuracy.getValue(), MeleeAccuracy.getMaximum(), 0, MeleeAccuracy.getBonuses(), false, true, createBackup);
 }
 bool Person::loadMeleeAccuracy()
 {
@@ -922,10 +923,10 @@ bool Person::loadMeleeAccuracy()
     return success;
 }
 
-bool Person::saveRangedAccuracy(bool createBackups)
+bool Person::saveRangedAccuracy(bool createBackup)
 {
     return saveStat("RangedAccuracy", RangedAccuracy.getValue(), RangedAccuracy.getMaximum(),
-                    0, RangedAccuracy.getBonuses(), false, true, createBackups);
+                    0, RangedAccuracy.getBonuses(), false, true, createBackup);
 }
 bool Person::loadRangedAccuracy()
 {
@@ -933,10 +934,10 @@ bool Person::loadRangedAccuracy()
     return success;
 }
 
-bool Person::saveMagicAccuracy(bool createBackups)
+bool Person::saveMagicAccuracy(bool createBackup)
 {
     return saveStat("MagicAccuracy", MagicAccuracy.getValue(), MagicAccuracy.getMaximum(),
-                    0, MagicAccuracy.getBonuses(), false, true, createBackups);
+                    0, MagicAccuracy.getBonuses(), false, true, createBackup);
 }
 bool Person::loadMagicAccuracy()
 {
@@ -944,10 +945,10 @@ bool Person::loadMagicAccuracy()
     return success;
 }
 
-bool Person::saveEvasion(bool createBackups)
+bool Person::saveEvasion(bool createBackup)
 {
     return saveStat("Evasion", Evasion.getValue(), Evasion.getMaximum(),
-                    0, Evasion.getBonuses(), false, true, createBackups);
+                    0, Evasion.getBonuses(), false, true, createBackup);
 }
 bool Person::loadEvasion()
 {
@@ -955,10 +956,10 @@ bool Person::loadEvasion()
     return success;
 }
 
-bool Person::saveStealth(bool createBackups)
+bool Person::saveStealth(bool createBackup)
 {
     return saveStat("Stealth", Stealth.getValue(), Stealth.getMaximum(),
-                    0, Stealth.getBonuses(), false, true, createBackups);
+                    0, Stealth.getBonuses(), false, true, createBackup);
 }
 bool Person::loadStealth()
 {
@@ -966,10 +967,10 @@ bool Person::loadStealth()
     return success;
 }
 
-bool Person::saveAttentiveness(bool createBackups)
+bool Person::saveAttentiveness(bool createBackup)
 {
     return saveStat("Attentiveness", Attentiveness.getValue(), Attentiveness.getMaximum(),
-                    0, Attentiveness.getBonuses(), false, true, createBackups);
+                    0, Attentiveness.getBonuses(), false, true, createBackup);
 }
 bool Person::loadAttentiveness()
 {
@@ -977,10 +978,10 @@ bool Person::loadAttentiveness()
     return success;
 }
 
-bool Person::saveLoadCapacity(bool createBackups)
+bool Person::saveLoadCapacity(bool createBackup)
 {
     return saveStat("LoadCapacity", LoadCapacity.getValue(), LoadCapacity.getMaximum(),
-                    0, LoadCapacity.getBonuses(), false, true, createBackups);
+                    0, LoadCapacity.getBonuses(), false, true, createBackup);
 }
 bool Person::loadLoadCapacity()
 {
@@ -988,10 +989,10 @@ bool Person::loadLoadCapacity()
     return success;
 }
 
-bool Person::saveInitiative(bool createBackups)
+bool Person::saveInitiative(bool createBackup)
 {
     return saveStat("Initiative", Initiative.getValue(), Initiative.getMaximum(),
-                    0, Initiative.getBonuses(), false, true, createBackups);
+                    0, Initiative.getBonuses(), false, true, createBackup);
 }
 bool Person::loadInitiative()
 {
@@ -999,10 +1000,10 @@ bool Person::loadInitiative()
     return success;
 }
 
-bool Person::saveMagicCastChance(bool createBackups)
+bool Person::saveMagicCastChance(bool createBackup)
 {
     return saveStat("MagicCastChance", MagicCastChance.getValue(), MagicCastChance.getMaximum(),
-                    0, MagicCastChance.getBonuses(), false, true, createBackups);
+                    0, MagicCastChance.getBonuses(), false, true, createBackup);
 }
 bool Person::loadMagicCastChance()
 {
@@ -1010,10 +1011,10 @@ bool Person::loadMagicCastChance()
     return success;
 }
 
-bool Person::saveChanceOfUsingCombatTechnique(bool createBackups)
+bool Person::saveChanceOfUsingCombatTechnique(bool createBackup)
 {
     return saveStat("ChanceOfUsingCombatTechnique", ChanceOfUsingCombatTechnique.getValue(), ChanceOfUsingCombatTechnique.getMaximum(),
-                    0, ChanceOfUsingCombatTechnique.getBonuses(), false, true, createBackups);
+                    0, ChanceOfUsingCombatTechnique.getBonuses(), false, true, createBackup);
 }
 bool Person::loadChanceOfUsingCombatTechnique()
 {
@@ -1021,9 +1022,9 @@ bool Person::loadChanceOfUsingCombatTechnique()
     return success;
 }
 
-bool Person::saveMoveRange(bool createBackups)
+bool Person::saveMoveRange(bool createBackup)
 {
-    return saveStat("MoveRange", MoveRange.getValue(), MoveRange.getMaximum(), 0, MoveRange.getBonuses(), false, true, createBackups);
+    return saveStat("MoveRange", MoveRange.getValue(), MoveRange.getMaximum(), 0, MoveRange.getBonuses(), false, true, createBackup);
 }
 bool Person::loadMoveRange()
 {
@@ -1031,9 +1032,9 @@ bool Person::loadMoveRange()
     return success;
 }
 
-bool Person::saveHealth(bool createBackups)
+bool Person::saveHealth(bool createBackup)
 {
-    return saveStat("Health", Health.getValue(), Health.getMaximum(), 0, Health.getBonuses(), false, true, createBackups);
+    return saveStat("Health", Health.getValue(), Health.getMaximum(), 0, Health.getBonuses(), false, true, createBackup);
 }
 bool Person::loadHealth()
 {
@@ -1041,9 +1042,9 @@ bool Person::loadHealth()
     return success;
 }
 
-bool Person::saveEndurance(bool createBackups)
+bool Person::saveEndurance(bool createBackup)
 {
-    return saveStat("Endurance", Endurance.getValue(), Endurance.getMaximum(), 0, Endurance.getBonuses(), false, true, createBackups);
+    return saveStat("Endurance", Endurance.getValue(), Endurance.getMaximum(), 0, Endurance.getBonuses(), false, true, createBackup);
 }
 bool Person::loadEndurance()
 {
@@ -1051,14 +1052,288 @@ bool Person::loadEndurance()
     return success;
 }
 
-bool Person::saveMana(bool createBackups)
+bool Person::saveMana(bool createBackup)
 {
-    return saveStat("Mana", Mana.getValue(), Mana.getMaximum(), 0, Mana.getBonuses(), false, true, createBackups);
+    return saveStat("Mana", Mana.getValue(), Mana.getMaximum(), 0, Mana.getBonuses(), false, true, createBackup);
 }
 bool Person::loadMana()
 {
     bool success = loadStat("Mana", Bonus::MANA, Mana, false, true);
     return success;
+}
+
+bool Person::saveMagicDefense(bool createBackup)
+{
+    {
+        QDir dir;
+        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName))
+            dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName);
+
+        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
+        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
+
+        if(createBackup)
+            this->createBackup();
+
+        if(!database.open()) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Ошибка открытия файла\n"
+                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        QSqlQuery query(database);
+        if(!query.exec("CREATE TABLE IF NOT EXISTS MagicDefenseBonuses("
+                       "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                       "value INTEGER NOT NULL DEFAULT 0, "
+                       "static_position INTEGER NOT NULL DEFAULT 0, "
+                       "dynamic_position INTEGER NOT NULL DEFAULT 0, "
+                       "is_percentage INTEGER NOT NULL DEFAULT 0, "
+                       "is_dynamic INTEGER NOT NULL DEFAULT 0, "
+                       "is_bonus_chunk INTEGER NOT NULL DEFAULT 0, "
+                       "bonus_name TEXT NOT NULL, "
+                       "CONSTRAINT static_position_chek CHECK (static_position >= 0), "
+                       "CONSTRAINT dynamic_position_chek CHECK (dynamic_position >= 0 AND dynamic_position <= 3), "
+                       "CONSTRAINT is_percentage_bool_chek CHECK (is_percentage >= 0 AND is_percentage <= 1), "
+                       "CONSTRAINT is_dynamic_bool_chek CHECK (is_dynamic >= 0 AND is_dynamic <= 1), "
+                       "CONSTRAINT is_bonus_chunk_bool_chek CHECK (is_bonus_chunk >= 0 AND is_bonus_chunk <= 1), "
+                       "CONSTRAINT stat_name_chek CHECK (bonus_name != ''));"
+                       )){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Не удалось создать таблицу\n"
+                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        if(!query.exec("DELETE FROM MagicDefenseBonuses;")){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Не удалось удалить данные из таблицы\n"
+                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        if(!query.exec("CREATE TABLE IF NOT EXISTS MagicDefenseBonusChunks("
+                       "bonus_id INTEGER NOT NULL, "
+                       "value INTEGER NOT NULL DEFAULT 0);"
+                       )){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Не удалось создать таблицу\n"
+                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        if(!query.exec("DELETE FROM MagicDefenseBonusChunks;")){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Не удалось удалить данные из таблицы\n"
+                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        for(MagicDefenseBonus* bonus : magicDefense.getBonuses()){
+            if(!query.exec("INSERT INTO MagicDefenseBonuses (value, static_position, dynamic_position, is_percentage, is_dynamic, is_bonus_chunk, bonus_name) VALUES (" +
+                           QString::number(bonus->getValue()) + ", " + QString::number(bonus->staticPosition) + ", " + QString::number(bonus->dynamicPosition) + ", " +
+                           QString::number(bonus->isPercentage) + ", " + QString::number(bonus->isDynamic) + ", " + QString::number(bonus->isBonusChunk) + ", '" +
+                           bonus->bonusName + "');")){
+
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                        "Person выдал ошибку в методе saveMagicDefense.\n"
+                        "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }            
+
+            if(bonus->isBonusChunk){
+                for(int i : bonus->getBonusChunksMaxVales()){
+                    if( !query.exec("SELECT seq FROM sqlite_sequence WHERE name IS 'MagicDefenseBonuses';")) {
+                        //Вывод предупреждения в консоль и файл
+                        QDate cd = QDate::currentDate();
+                        QTime ct = QTime::currentTime();
+
+                        QString error =
+                                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                                "\nОШИБКА: Не удалось считать данные из таблицы\n"
+                                "Person выдал ошибку в методе loadStat.\n"
+                                "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                        qDebug()<<error;
+
+                        QFile errorFile("error log.txt");
+                        if (!errorFile.open(QIODevice::Append))
+                        {
+                            qDebug() << "Ошибка при открытии файла логов";
+                        }else{
+                            errorFile.open(QIODevice::Append  | QIODevice::Text);
+                            QTextStream writeStream(&errorFile);
+                            writeStream<<error;
+                            errorFile.close();
+                        }
+
+                        database.close();
+                        return false;
+                    }
+
+                    query.first();
+                    int id = query.value(0).toInt();
+
+                    if(!query.exec("INSERT INTO MagicDefenseBonusChunks (bonus_id, value) VALUES (" +  QString::number(id) + ", " + QString::number(i) + ");")){
+                        //Вывод предупреждения в консоль и файл
+                        QDate cd = QDate::currentDate();
+                        QTime ct = QTime::currentTime();
+
+                        QString error =
+                                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                                "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                                "Person выдал ошибку в методе saveMagicDefense.\n"
+                                "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                        qDebug()<<error;
+
+                        QFile errorFile("error log.txt");
+                        if (!errorFile.open(QIODevice::Append))
+                        {
+                            qDebug() << "Ошибка при открытии файла логов";
+                        }else{
+                            errorFile.open(QIODevice::Append  | QIODevice::Text);
+                            QTextStream writeStream(&errorFile);
+                            writeStream<<error;
+                            errorFile.close();
+                        }
+
+                        database.close();
+                        return false;
+                    }
+                }
+            }
+        }
+        database.close();
+    }
+    QSqlDatabase::removeDatabase("save");
+
+    return true;
+}
+bool Person::loadMagicDefense()
+{
+
 }
 
 bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses, bool saveValues, bool saveBonuses, bool createBackup)
