@@ -337,6 +337,11 @@ void Person::recalculateStats()
     int mana = Magic.getFinalValue() * 10 + Intelligence.getFinalValue() * 2 + Will.getFinalValue();
     Mana.setValue(mana);
 
+    recalculateMagicDefense();
+}
+
+void Person::recalculateMagicDefense()
+{
     int numberOfChunks = 0;
     //Требование для появления нового чанка магической защиты
     int requirementOfChunk = 5;
@@ -753,6 +758,7 @@ bool Person::loadALLStats()
     bool successLoadHealth = loadHealth();
     bool successLoadEndurance = loadEndurance();
     bool successLoadMana = loadMana();
+    bool successLoadMagicDefense = loadMagicDefense();
 
     return successLoadStrength && successLoadAgility && successLoadIntelligence &&
             successLoadMagic && successLoadMagic && successLoadBodyType &&
@@ -763,7 +769,7 @@ bool Person::loadALLStats()
             successLoadRangedAccuracy && successLoadMagicAccuracy && successLoadEvasion &&
             successLoadStealth && successLoadAttentiveness && successLoadLoadCapacity &&
             successLoadInitiative && successLoadMagicCastChance && successLoadChanceOfUsingCombatTechnique &&
-            successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana;
+            successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana && successLoadMagicDefense;
 }
 
 bool Person::saveStrength(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
@@ -1064,6 +1070,7 @@ bool Person::loadMana()
 
 bool Person::saveMagicDefense(bool createBackup)
 {
+    bool succesSaveValue = saveStat("MagicDefense", 0, 0, magicDefense.getValue(), QVector<Bonus*>{}, false, true, false, false);
     {
         QDir dir;
         if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName))
@@ -1329,11 +1336,178 @@ bool Person::saveMagicDefense(bool createBackup)
     }
     QSqlDatabase::removeDatabase("save");
 
-    return true;
+    return succesSaveValue;
 }
 bool Person::loadMagicDefense()
 {
+    {
+        QDir dir;
+        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName)){
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
 
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Ошибка открытия файла\n"
+            "Person выдал ошибку в методе loadMagicDefense.\n"
+            "Директории Game Saves/"+Global::DungeonName+"/Heroes/"+personName + " не существует.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
+        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
+
+        if(!database.open()) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Ошибка открытия файла\n"
+            "Person выдал ошибку в методе loadMagicDefense.\n"
+            "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        QSqlQuery query(database);
+        if( !query.exec( "SELECT * FROM MagicDefenseBonuses;")) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Не удалось считать данные из таблицы\n"
+                    "Person выдал ошибку в методе loadMagicDefense.\n"
+                    "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        magicDefense.removeAllBonuses();
+        while (query.next()){
+            if(query.value(6).toBool()){
+                QSqlQuery chunksQuery(database);
+                if( !chunksQuery.exec( "SELECT value FROM MagicDefenseBonusChunks WHERE bonus_id IS " + query.value(0).toString() + ";")) {
+                    //Вывод предупреждения в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nОШИБКА: Не удалось считать данные из таблицы\n"
+                            "Person выдал ошибку в методе loadMagicDefense.\n"
+                            "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
+
+                    database.close();
+                    return false;
+                }
+
+                QVector<int> bonusChunksMaxVales;
+                while(chunksQuery.next()){
+                    bonusChunksMaxVales.append(chunksQuery.value(0).toInt());
+                }
+                magicDefense.addBonus(new MagicDefenseBonus(bonusChunksMaxVales, query.value(7).toString()));
+
+            }else if(query.value(5).toBool())
+                magicDefense.addBonus(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition(query.value(3).toInt()),
+                                                            query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString()));
+            else
+                magicDefense.addBonus(new MagicDefenseBonus(query.value(2).toInt(), query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString()));
+        }
+
+        if( !query.exec( "SELECT progress_bar_current_value FROM Stats WHERE stat_name IS 'MagicDefense';")) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Не удалось считать данные из таблицы\n"
+                    "Person выдал ошибку в методе loadStat.\n"
+                    "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+
+        recalculateMagicDefense();
+        magicDefense.subtractValue(magicDefense.getValue());
+
+        query.first();
+        magicDefense.addValue(query.value(0).toInt());
+
+        database.close();
+    }
+
+    QSqlDatabase::removeDatabase("save");
+    return true;
 }
 
 bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses,
@@ -1450,7 +1624,7 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
             return false;
         }
 
-        if(saveValues)
+        if(saveValues){
             if(!query.exec("REPLACE INTO Stats (stat_name, value, maximum) VALUES ('" + statName + "', "
                            + QString::number(value) + ", " +  QString::number(maximum) +");")){
 
@@ -1479,8 +1653,7 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
                 database.close();
                 return false;
             }
-
-        if(saveProgressBarCurrentValue)
+        }else if(saveProgressBarCurrentValue)
             if(!query.exec("REPLACE INTO Stats (stat_name, progress_bar_current_value) VALUES ('" + statName + "', " + QString::number(progressBarCurrentValue) + ");")){
 
                 //Вывод предупреждения в консоль и файл

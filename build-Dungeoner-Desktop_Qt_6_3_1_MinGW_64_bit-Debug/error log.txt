@@ -548,3 +548,23 @@ Person выдал ошибку в методе saveStat.
 Person выдал ошибку в методе saveStat.
 Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
 
+18-December-2022  00:00:55
+ОШИБКА: Не удалось создать таблицу
+Person выдал ошибку в методе saveMagicDefense.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-December-2022  03:17:19
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+18-December-2022  03:17:20
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+18-December-2022  03:17:21
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+

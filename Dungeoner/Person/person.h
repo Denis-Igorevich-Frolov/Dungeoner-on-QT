@@ -23,6 +23,8 @@ public:
     //Перерасчёт вторичных навыков
     void recalculateStats();
 
+    void recalculateMagicDefense();
+
     Stat* getStrength();
     void setStrength(Stat &newStrength);
     Stat* getAgility();

@@ -67,6 +67,8 @@ public:
     //Получение количества родных чанков. Нужно только для подсказок
     int getNativeChunksSize();
 
+    void removeAllBonuses();
+
 signals:
     void bonusesChanged();
 
