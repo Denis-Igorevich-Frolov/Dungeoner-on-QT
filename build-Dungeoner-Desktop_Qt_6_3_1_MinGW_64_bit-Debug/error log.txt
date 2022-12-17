@@ -428,3 +428,123 @@ Person выдал ошибку в методе saveMagicDefense.
 Person выдал ошибку в методе saveMagicDefense.
 Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
 
+17-December-2022  17:53:25
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:53:25
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:53:25
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:56:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:56:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:56:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:59:33
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:59:33
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  17:59:33
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:00:25
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:00:25
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:00:25
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:00:49
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:00:49
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:00:49
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:01:09
+1ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:01:09
+1ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:01:09
+1ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:02:12
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:02:12
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:02:12
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:02:45
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:02:45
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+17-December-2022  18:02:45
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+

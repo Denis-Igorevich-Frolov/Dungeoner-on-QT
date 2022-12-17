@@ -681,12 +681,12 @@ bool Person::saveAllStats(bool createBackup)
         this->createBackup();
     }
 
-    bool successSaveStrength = saveStrength(true, true, false);
-    bool successSaveAgility = saveAgility(true, true, false);
-    bool successSaveIntelligence = saveIntelligence(true, true, false);
-    bool successSaveMagic = saveMagic(true, true, false);
-    bool successSaveBodyType = saveBodyType(true, true, false);
-    bool successSaveWill = saveWill(true, true, false);
+    bool successSaveStrength = saveStrength(true, false, true, false);
+    bool successSaveAgility = saveAgility(true, false, true, false);
+    bool successSaveIntelligence = saveIntelligence(true, false, true, false);
+    bool successSaveMagic = saveMagic(true, false, true, false);
+    bool successSaveBodyType = saveBodyType(true, false, true, false);
+    bool successSaveWill = saveWill(true, false, true, false);
 
     bool successSaveMagicDamage = saveMagicDamage(false);
     bool successSaveResistPhysicalDamage = saveResistPhysicalDamage(false);
@@ -725,12 +725,12 @@ bool Person::saveAllStats(bool createBackup)
 
 bool Person::loadALLStats()
 {
-    bool successLoadStrength = loadStrength(true, true, true);
-    bool successLoadAgility = loadAgility(true, true, true);
-    bool successLoadIntelligence = loadIntelligence(true, true, true);
-    bool successLoadMagic = loadMagic(true, true, true);
-    bool successLoadBodyType = loadBodyType(true, true, true);
-    bool successLoadWill = loadWill(true, true, true);
+    bool successLoadStrength = loadStrength(true, false, true, false);
+    bool successLoadAgility = loadAgility(true, false, true, false);
+    bool successLoadIntelligence = loadIntelligence(true, false, true, false);
+    bool successLoadMagic = loadMagic(true, false, true, false);
+    bool successLoadBodyType = loadBodyType(true, false, true, false);
+    bool successLoadWill = loadWill(true, false, true, false);
 
     bool successLoadMagicDamage = loadMagicDamage();
     bool successLoadResistPhysicalDamage = loadResistPhysicalDamage();
@@ -766,73 +766,73 @@ bool Person::loadALLStats()
             successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana;
 }
 
-bool Person::saveStrength(bool saveValues, bool saveBonuses, bool createBackup)
+bool Person::saveStrength(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), saveValues, saveBonuses, createBackup);
+    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
 }
-bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged)
+bool Person::loadStrength(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, loadBonuses);
+    bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, loadProgressBarCurrentValue, loadBonuses);
     if(emittedChanged)
         emit StrengthChanged();
     return success;
 }
 
-bool Person::saveAgility(bool saveValues, bool saveBonuses, bool createBackup)
+bool Person::saveAgility(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Agility", Agility.getValue(), Agility.getMaximum(), 0, Agility.getBonuses(), saveValues, saveBonuses, createBackup);
+    return saveStat("Agility", Agility.getValue(), Agility.getMaximum(), 0, Agility.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
 }
-bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
+bool Person::loadAgility(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, loadBonuses);
+    bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, loadProgressBarCurrentValue, loadBonuses);
     if(emittedChanged)
         emit AgilityChanged();
     return success;
 }
 
-bool Person::saveIntelligence(bool saveValues, bool saveBonuses, bool createBackup)
+bool Person::saveIntelligence(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Intelligence", Intelligence.getValue(), Intelligence.getMaximum(), 0, Intelligence.getBonuses(), saveValues, saveBonuses, createBackup);
+    return saveStat("Intelligence", Intelligence.getValue(), Intelligence.getMaximum(), 0, Intelligence.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
 }
-bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged)
+bool Person::loadIntelligence(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, loadBonuses);
+    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, loadProgressBarCurrentValue, loadBonuses);
     if(emittedChanged)
         emit IntelligenceChanged();
     return success;
 }
 
-bool Person::saveMagic(bool saveValues, bool saveBonuses, bool createBackup)
+bool Person::saveMagic(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Magic", Magic.getValue(), Magic.getMaximum(), 0, Magic.getBonuses(), saveValues, saveBonuses, createBackup);
+    return saveStat("Magic", Magic.getValue(), Magic.getMaximum(), 0, Magic.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
 }
-bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
+bool Person::loadMagic(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, loadBonuses);
+    bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, loadProgressBarCurrentValue, loadBonuses);
     if(emittedChanged)
         emit MagicChanged();
     return success;
 }
 
-bool Person::saveBodyType(bool saveValues, bool saveBonuses, bool createBackup)
+bool Person::saveBodyType(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
-    return saveStat("BodyType", BodyType.getValue(), BodyType.getMaximum(), 0, BodyType.getBonuses(), saveValues, saveBonuses, createBackup);
+    return saveStat("BodyType", BodyType.getValue(), BodyType.getMaximum(), 0, BodyType.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
 }
-bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged)
+bool Person::loadBodyType(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, loadBonuses);
+    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, loadProgressBarCurrentValue, loadBonuses);
     if(emittedChanged)
         emit BodyTypeChanged();
     return success;
 }
 
-bool Person::saveWill(bool saveValues, bool saveBonuses, bool createBackup)
+bool Person::saveWill(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Will", Will.getValue(), Will.getMaximum(), 0, Will.getBonuses(), saveValues, saveBonuses, createBackup);
+    return saveStat("Will", Will.getValue(), Will.getMaximum(), 0, Will.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
 }
-bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
+bool Person::loadWill(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Will", Bonus::WILL, Will, loadValues, loadBonuses);
+    bool success = loadStat("Will", Bonus::WILL, Will, loadValues, loadProgressBarCurrentValue, loadBonuses);
     if(emittedChanged)
         emit WillChanged();
     return success;
@@ -840,225 +840,225 @@ bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
 
 bool Person::saveMagicDamage(bool createBackup)
 {
-    return saveStat("MagicDamage", MagicDamage.getValue(), MagicDamage.getMaximum(), 0, MagicDamage.getBonuses(), false, true, createBackup);
+    return saveStat("MagicDamage", MagicDamage.getValue(), MagicDamage.getMaximum(), 0, MagicDamage.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadMagicDamage()
 {
-    bool success = loadStat("MagicDamage", Bonus::MAGIC_DAMAGE, MagicDamage, false, true);
+    bool success = loadStat("MagicDamage", Bonus::MAGIC_DAMAGE, MagicDamage, false, false, true);
     return success;
 }
 
 bool Person::saveResistPhysicalDamage(bool createBackup)
 {
     return saveStat("ResistPhysicalDamage", ResistPhysicalDamage.getValue(), ResistPhysicalDamage.getMaximum(),
-                    0, ResistPhysicalDamage.getBonuses(), false, true, createBackup);
+                    0, ResistPhysicalDamage.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadResistPhysicalDamage()
 {
-    bool success = loadStat("ResistPhysicalDamage", Bonus::RESIST_PHYSICAL_DAMAGE, ResistPhysicalDamage, false, true);
+    bool success = loadStat("ResistPhysicalDamage", Bonus::RESIST_PHYSICAL_DAMAGE, ResistPhysicalDamage, false, false, true);
     return success;
 }
 
 bool Person::saveResistMagicDamage(bool createBackup)
 {
     return saveStat("ResistMagicDamage", ResistMagicDamage.getValue(), ResistMagicDamage.getMaximum(),
-                    0, ResistMagicDamage.getBonuses(), false, true, createBackup);
+                    0, ResistMagicDamage.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadResistMagicDamage()
 {
-    bool success = loadStat("ResistMagicDamage", Bonus::RESIST_MAGIC_DAMAGE, ResistMagicDamage, false, true);
+    bool success = loadStat("ResistMagicDamage", Bonus::RESIST_MAGIC_DAMAGE, ResistMagicDamage, false, false, true);
     return success;
 }
 
 bool Person::saveResistPhysicalEffects(bool createBackup)
 {
     return saveStat("ResistPhysicalEffects", ResistPhysicalEffects.getValue(), ResistPhysicalEffects.getMaximum(),
-                    0, ResistPhysicalEffects.getBonuses(), false, true, createBackup);
+                    0, ResistPhysicalEffects.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadResistPhysicalEffects()
 {
-    bool success = loadStat("ResistPhysicalEffects", Bonus::RESIST_PHYSICAL_EFFECTS, ResistPhysicalEffects, false, true);
+    bool success = loadStat("ResistPhysicalEffects", Bonus::RESIST_PHYSICAL_EFFECTS, ResistPhysicalEffects, false, false, true);
     return success;
 }
 
 bool Person::saveResistMagicEffects(bool createBackup)
 {
-    return saveStat("ResistMagicEffects", ResistMagicEffects.getValue(), ResistMagicEffects.getMaximum(), 0, ResistMagicEffects.getBonuses(), false, true, createBackup);
+    return saveStat("ResistMagicEffects", ResistMagicEffects.getValue(), ResistMagicEffects.getMaximum(), 0, ResistMagicEffects.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadResistMagicEffects()
 {
-    bool success = loadStat("ResistMagicEffects", Bonus::RESIST_MAGIC_EFFECTS, ResistMagicEffects, false, true);
+    bool success = loadStat("ResistMagicEffects", Bonus::RESIST_MAGIC_EFFECTS, ResistMagicEffects, false, false, true);
     return success;
 }
 
 bool Person::saveStrengtheningPhysicalEffects(bool createBackup)
 {
     return saveStat("StrengtheningPhysicalEffects", StrengtheningPhysicalEffects.getValue(), StrengtheningPhysicalEffects.getMaximum(),
-                    0, StrengtheningPhysicalEffects.getBonuses(), false, true, createBackup);
+                    0, StrengtheningPhysicalEffects.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadStrengtheningPhysicalEffects()
 {
-    bool success = loadStat("StrengtheningPhysicalEffects", Bonus::STRENGTHENING_PHYSICAL_EFFECTS, StrengtheningPhysicalEffects, false, true);
+    bool success = loadStat("StrengtheningPhysicalEffects", Bonus::STRENGTHENING_PHYSICAL_EFFECTS, StrengtheningPhysicalEffects, false, false, true);
     return success;
 }
 
 bool Person::saveStrengtheningMagicalEffects(bool createBackup)
 {
     return saveStat("StrengtheningMagicalEffects", StrengtheningMagicalEffects.getValue(), StrengtheningMagicalEffects.getMaximum(),
-                    0, StrengtheningMagicalEffects.getBonuses(), false, true, createBackup);
+                    0, StrengtheningMagicalEffects.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadStrengtheningMagicalEffects()
 {
-    bool success = loadStat("StrengtheningMagicalEffects", Bonus::STRENGTHENING_MAGICAL_EFFECTS, StrengtheningMagicalEffects, false, true);
+    bool success = loadStat("StrengtheningMagicalEffects", Bonus::STRENGTHENING_MAGICAL_EFFECTS, StrengtheningMagicalEffects, false, false, true);
     return success;
 }
 
 bool Person::saveMeleeAccuracy(bool createBackup)
 {
-    return saveStat("MeleeAccuracy", MeleeAccuracy.getValue(), MeleeAccuracy.getMaximum(), 0, MeleeAccuracy.getBonuses(), false, true, createBackup);
+    return saveStat("MeleeAccuracy", MeleeAccuracy.getValue(), MeleeAccuracy.getMaximum(), 0, MeleeAccuracy.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadMeleeAccuracy()
 {
-    bool success = loadStat("MeleeAccuracy", Bonus::MELEE_ACCURACY, MeleeAccuracy, false, true);
+    bool success = loadStat("MeleeAccuracy", Bonus::MELEE_ACCURACY, MeleeAccuracy, false, false, true);
     return success;
 }
 
 bool Person::saveRangedAccuracy(bool createBackup)
 {
     return saveStat("RangedAccuracy", RangedAccuracy.getValue(), RangedAccuracy.getMaximum(),
-                    0, RangedAccuracy.getBonuses(), false, true, createBackup);
+                    0, RangedAccuracy.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadRangedAccuracy()
 {
-    bool success = loadStat("RangedAccuracy", Bonus::RANGED_ACCURACY, RangedAccuracy, false, true);
+    bool success = loadStat("RangedAccuracy", Bonus::RANGED_ACCURACY, RangedAccuracy, false, false, true);
     return success;
 }
 
 bool Person::saveMagicAccuracy(bool createBackup)
 {
     return saveStat("MagicAccuracy", MagicAccuracy.getValue(), MagicAccuracy.getMaximum(),
-                    0, MagicAccuracy.getBonuses(), false, true, createBackup);
+                    0, MagicAccuracy.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadMagicAccuracy()
 {
-    bool success = loadStat("MagicAccuracy", Bonus::MAGIC_ACCURACY, MagicAccuracy, false, true);
+    bool success = loadStat("MagicAccuracy", Bonus::MAGIC_ACCURACY, MagicAccuracy, false, false, true);
     return success;
 }
 
 bool Person::saveEvasion(bool createBackup)
 {
     return saveStat("Evasion", Evasion.getValue(), Evasion.getMaximum(),
-                    0, Evasion.getBonuses(), false, true, createBackup);
+                    0, Evasion.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadEvasion()
 {
-    bool success = loadStat("Evasion", Bonus::EVASION, Evasion, false, true);
+    bool success = loadStat("Evasion", Bonus::EVASION, Evasion, false, false, true);
     return success;
 }
 
 bool Person::saveStealth(bool createBackup)
 {
     return saveStat("Stealth", Stealth.getValue(), Stealth.getMaximum(),
-                    0, Stealth.getBonuses(), false, true, createBackup);
+                    0, Stealth.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadStealth()
 {
-    bool success = loadStat("Stealth", Bonus::STEALTH, Stealth, false, true);
+    bool success = loadStat("Stealth", Bonus::STEALTH, Stealth, false, false, true);
     return success;
 }
 
 bool Person::saveAttentiveness(bool createBackup)
 {
     return saveStat("Attentiveness", Attentiveness.getValue(), Attentiveness.getMaximum(),
-                    0, Attentiveness.getBonuses(), false, true, createBackup);
+                    0, Attentiveness.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadAttentiveness()
 {
-    bool success = loadStat("Attentiveness", Bonus::ATTENTIVENESS, Attentiveness, false, true);
+    bool success = loadStat("Attentiveness", Bonus::ATTENTIVENESS, Attentiveness, false, false, true);
     return success;
 }
 
 bool Person::saveLoadCapacity(bool createBackup)
 {
     return saveStat("LoadCapacity", LoadCapacity.getValue(), LoadCapacity.getMaximum(),
-                    0, LoadCapacity.getBonuses(), false, true, createBackup);
+                    0, LoadCapacity.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadLoadCapacity()
 {
-    bool success = loadStat("LoadCapacity", Bonus::LOAD_CAPACITY, LoadCapacity, false, true);
+    bool success = loadStat("LoadCapacity", Bonus::LOAD_CAPACITY, LoadCapacity, false, false, true);
     return success;
 }
 
 bool Person::saveInitiative(bool createBackup)
 {
     return saveStat("Initiative", Initiative.getValue(), Initiative.getMaximum(),
-                    0, Initiative.getBonuses(), false, true, createBackup);
+                    0, Initiative.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadInitiative()
 {
-    bool success = loadStat("Initiative", Bonus::INITIATIVE, Initiative, false, true);
+    bool success = loadStat("Initiative", Bonus::INITIATIVE, Initiative, false, false, true);
     return success;
 }
 
 bool Person::saveMagicCastChance(bool createBackup)
 {
     return saveStat("MagicCastChance", MagicCastChance.getValue(), MagicCastChance.getMaximum(),
-                    0, MagicCastChance.getBonuses(), false, true, createBackup);
+                    0, MagicCastChance.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadMagicCastChance()
 {
-    bool success = loadStat("MagicCastChance", Bonus::MAGIC_CAST_CHANCE, MagicCastChance, false, true);
+    bool success = loadStat("MagicCastChance", Bonus::MAGIC_CAST_CHANCE, MagicCastChance, false, false, true);
     return success;
 }
 
 bool Person::saveChanceOfUsingCombatTechnique(bool createBackup)
 {
     return saveStat("ChanceOfUsingCombatTechnique", ChanceOfUsingCombatTechnique.getValue(), ChanceOfUsingCombatTechnique.getMaximum(),
-                    0, ChanceOfUsingCombatTechnique.getBonuses(), false, true, createBackup);
+                    0, ChanceOfUsingCombatTechnique.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadChanceOfUsingCombatTechnique()
 {
-    bool success = loadStat("ChanceOfUsingCombatTechnique", Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE, ChanceOfUsingCombatTechnique, false, true);
+    bool success = loadStat("ChanceOfUsingCombatTechnique", Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE, ChanceOfUsingCombatTechnique, false, false, true);
     return success;
 }
 
 bool Person::saveMoveRange(bool createBackup)
 {
-    return saveStat("MoveRange", MoveRange.getValue(), MoveRange.getMaximum(), 0, MoveRange.getBonuses(), false, true, createBackup);
+    return saveStat("MoveRange", MoveRange.getValue(), MoveRange.getMaximum(), 0, MoveRange.getBonuses(), false, false, true, createBackup);
 }
 bool Person::loadMoveRange()
 {
-    bool success = loadStat("MoveRange", Bonus::MOVE_RANGE, MoveRange, false, true);
+    bool success = loadStat("MoveRange", Bonus::MOVE_RANGE, MoveRange, false, false, true);
     return success;
 }
 
 bool Person::saveHealth(bool createBackup)
 {
-    return saveStat("Health", Health.getValue(), Health.getMaximum(), 0, Health.getBonuses(), false, true, createBackup);
+    return saveStat("Health", Health.getValue(), Health.getMaximum(), Health.getProgressBarCurrentValue(), Health.getBonuses(), false, true, true, createBackup);
 }
 bool Person::loadHealth()
 {
-    bool success = loadStat("Health", Bonus::HEALTH, Health, false, true);
+    bool success = loadStat("Health", Bonus::HEALTH, Health, false, true, true);
     return success;
 }
 
 bool Person::saveEndurance(bool createBackup)
 {
-    return saveStat("Endurance", Endurance.getValue(), Endurance.getMaximum(), 0, Endurance.getBonuses(), false, true, createBackup);
+    return saveStat("Endurance", Endurance.getValue(), Endurance.getMaximum(), Endurance.getProgressBarCurrentValue(), Endurance.getBonuses(), false, true, true, createBackup);
 }
 bool Person::loadEndurance()
 {
-    bool success = loadStat("Endurance", Bonus::ENDURANCE, Endurance, false, true);
+    bool success = loadStat("Endurance", Bonus::ENDURANCE, Endurance, false, true, true);
     return success;
 }
 
 bool Person::saveMana(bool createBackup)
 {
-    return saveStat("Mana", Mana.getValue(), Mana.getMaximum(), 0, Mana.getBonuses(), false, true, createBackup);
+    return saveStat("Mana", Mana.getValue(), Mana.getMaximum(), Mana.getProgressBarCurrentValue(), Mana.getBonuses(), false, true, true, createBackup);
 }
 bool Person::loadMana()
 {
-    bool success = loadStat("Mana", Bonus::MANA, Mana, false, true);
+    bool success = loadStat("Mana", Bonus::MANA, Mana, false, true, true);
     return success;
 }
 
@@ -1336,7 +1336,8 @@ bool Person::loadMagicDefense()
 
 }
 
-bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses, bool saveValues, bool saveBonuses, bool createBackup)
+bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses,
+                      bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
     {
         QDir dir;
@@ -1479,6 +1480,35 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
                 return false;
             }
 
+        if(saveProgressBarCurrentValue)
+            if(!query.exec("REPLACE INTO Stats (stat_name, progress_bar_current_value) VALUES ('" + statName + "', " + QString::number(progressBarCurrentValue) + ");")){
+
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                        "Person выдал ошибку в методе saveStat.\n"
+                        "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }
+
         if(saveBonuses){
             if(!query.exec("DELETE FROM Bonuses WHERE stat_name = '" + statName + "';")){
 
@@ -1547,7 +1577,7 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
     return true;
 }
 
-bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValues, bool loadBonuses)
+bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValue, bool loadProgressBarCurrentValue, bool loadBonuses)
 {
     {
         QDir dir;
@@ -1607,7 +1637,7 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, b
         }
 
         QSqlQuery query(database);
-        if(loadValues){
+        if(loadValue){
             if( !query.exec( "SELECT value FROM Stats WHERE stat_name IS '" + statName + "';")) {
                 //Вывод предупреждения в консоль и файл
                 QDate cd = QDate::currentDate();
@@ -1637,6 +1667,40 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, b
 
             query.first();
             stat.setValue(query.value(0).toInt());
+
+            query.clear();
+        }
+
+        if(loadProgressBarCurrentValue){
+            if( !query.exec( "SELECT progress_bar_current_value FROM Stats WHERE stat_name IS '" + statName + "';")) {
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось считать данные из таблицы\n"
+                        "Person выдал ошибку в методе loadStat.\n"
+                        "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }
+
+            query.first();
+            stat.setProgressBarCurrentValue(query.value(0).toInt());
 
             query.clear();
         }

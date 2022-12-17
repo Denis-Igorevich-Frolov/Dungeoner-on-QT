@@ -103,23 +103,23 @@ public slots:
     bool saveAllStats(bool createBackup);
     bool loadALLStats();
 
-    bool saveStrength(bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged);
+    bool saveStrength(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    bool loadStrength(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
 
-    bool saveAgility(bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged);
+    bool saveAgility(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    bool loadAgility(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
 
-    bool saveIntelligence(bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged);
+    bool saveIntelligence(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    bool loadIntelligence(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
 
-    bool saveMagic(bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged);
+    bool saveMagic(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    bool loadMagic(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
 
-    bool saveBodyType(bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged);
+    bool saveBodyType(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    bool loadBodyType(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
 
-    bool saveWill(bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadWill(bool loadValues, bool loadBonuses, bool emittedChanged);
+    bool saveWill(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    bool loadWill(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
 
     bool saveMagicDamage(bool createBackup);
     bool loadMagicDamage();
@@ -188,8 +188,9 @@ public slots:
     bool loadMagicDefense();
 
 private:
-    bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses, bool saveValues, bool saveBonuses, bool createBackup);
-    bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValues, bool loadBonuses);
+    bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses,
+                  bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValue, bool loadProgressBarCurrentValue, bool loadBonuses);
     void createBackup();
 
     Stat Strength = Stat(999999);

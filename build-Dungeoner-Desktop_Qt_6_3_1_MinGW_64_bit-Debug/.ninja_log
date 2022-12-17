@@ -1,113 +1,77 @@
 # ninja log v5
-12	347	6929248146346109	Dungeoner_autogen/timestamp	d93722326897edfc
-2040	4804	6819217320742067	CMakeFiles/Dungeoner.dir/basicstylemaster.cpp.obj	d9366c9ae849d68c
-12	347	6929248146346109	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-686	4572	6819233854909463	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/SSstylemaster.cpp.obj	d9d96ccd8fc5d4c9
-12	347	6929248146346109	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
-688	4716	6819233855339205	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/PB1stylemaster.cpp.obj	e1797541e2c1bf2c
+12	1554	6929907603945100	Dungeoner_autogen/timestamp	d93722326897edfc
 50343	56101	6926655329288556	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/CW_stylemaster.cpp.obj	6ae0c5d8c530a42a
-12	347	6929248146346109	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-1644	4249	6818684156879020	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/stylemaster.cpp.obj	53ee1fa7622a9b5f
+688	4716	6819233855339205	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/PB1stylemaster.cpp.obj	e1797541e2c1bf2c
+12	1554	6929907603945100	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
+686	4572	6819233854909463	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/SSstylemaster.cpp.obj	d9d96ccd8fc5d4c9
+12	1554	6929907603945100	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
+2040	4804	6819217320742067	CMakeFiles/Dungeoner.dir/basicstylemaster.cpp.obj	d9366c9ae849d68c
+12	1554	6929907603945100	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
 3696	3936	6926493661364125	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp	920eb91e825b57c0
+1644	4249	6818684156879020	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/stylemaster.cpp.obj	53ee1fa7622a9b5f
 3696	3936	6926493661364125	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp	920eb91e825b57c0
 3697	4060	6926493663322929	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp	1d5a366dcb69eedc
+1455	7812	6929885835308204	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d1a3f8cea7bcf388
 3697	4060	6926493663322929	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp	1d5a366dcb69eedc
-3255	10694	6928921136171984	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d1a3f8cea7bcf388
-71878	77208	6926655540291026	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_2/windowborder_2.cpp.obj	83b9edc404d72a2f
 3695	3936	6926493661494044	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp	db80a13af497cf29
-539	862	6890483469236415	CMakeFiles/Dungeoner.dir/Person/Bonus/bonus.cpp.obj	af0164ca0438c444
+71878	77208	6926655540291026	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_2/windowborder_2.cpp.obj	83b9edc404d72a2f
 3695	3936	6926493661494044	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp	db80a13af497cf29
+539	862	6890483469236415	CMakeFiles/Dungeoner.dir/Person/Bonus/bonus.cpp.obj	af0164ca0438c444
+59897	64064	6926655408812390	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/SS_stylemaster.cpp.obj	b69c781787702c23
 271	3185	6819230551119631	CMakeFiles/Dungeoner.dir/CustomWidgets/LabelWithTooltip/lwtstylemaster.cpp.obj	c43d6e2698253b38
 298	2831	6819223343231644	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/stylemaster.cpp.obj	bdb046b09c679b89
-59897	64064	6926655408812390	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/SS_stylemaster.cpp.obj	b69c781787702c23
+16407	19732	6929907788211733	Dungeoner.exe	caf84e0c9ca86d9d
 2902	8345	6817969057342908	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/stylemaster.cpp.obj	5d7ddcaf197398db
-6536	9853	6929248241309163	Dungeoner.exe	caf84e0c9ca86d9d
-3257	11158	6928921141108951	CMakeFiles/Dungeoner.dir/main.cpp.obj	eb0f17a9192e9669
-71645	75489	6926655522301298	CMakeFiles/Dungeoner.dir/CustomWidgets/Tooltip/T_stylemaster.cpp.obj	38e35a077bd24657
 64612	69131	6926655458221911	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp.obj	e46f98f11a66095
-5229	25891	6928266373998485	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp.obj	dafbe96cfc355308
+1457	7222	6929885829431801	CMakeFiles/Dungeoner.dir/main.cpp.obj	eb0f17a9192e9669
+71645	75489	6926655522301298	CMakeFiles/Dungeoner.dir/CustomWidgets/Tooltip/T_stylemaster.cpp.obj	38e35a077bd24657
 62906	66874	6926655436972880	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/PB1_stylemaster.cpp.obj	86c975ea5145659
-353	5109	6929248193959862	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
-5226	34356	6928266461288647	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	4058f87e835d93bd
+1560	12915	6929907720093645	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
+5229	25891	6928266373998485	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp.obj	dafbe96cfc355308
 3085	7414	6825516937643409	CMakeFiles/Dungeoner.dir/Global/fonts.cpp.obj	32088a235de5492b
+5226	34356	6928266461288647	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	4058f87e835d93bd
 294	2772	6819223342671994	CMakeFiles/Dungeoner.dir/CustomWidgets/LabelWithTooltip/stylemaster.cpp.obj	bee05f09de0b4648
-328	6462	6929088577555419	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	b749d5e3e7e935e9
+1561	16406	6929907754992170	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	b749d5e3e7e935e9
 56101	62906	6926655396652317	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_1/windowborder_1.cpp.obj	348d5cd676d7e67a
 1236	6820	6927935447821554	CMakeFiles/Dungeoner.dir/Global/global.cpp.obj	64346f0c8738af7e
 6820	11492	6927935494532799	CMakeFiles/Dungeoner.dir/CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp.obj	3b4a7bd7ec59ac4
 52896	58662	6926655354363142	CMakeFiles/Dungeoner.dir/MediaPlayer/mediaplayer.cpp.obj	cb891899c88ab860
-13104	19758	6817969171768885	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_1/stylemaster.cpp.obj	9181283beb80a008
 5935	50278	6926655270729257	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.cpp.obj	a79a6c52c09cb9c4
-0	79	0	CMakeFiles/clean.additional	26ab82f82478fbc9
+13104	19758	6817969171768885	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_1/stylemaster.cpp.obj	9181283beb80a008
 15970	20567	6817969179939144	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/stylemaster.cpp.obj	f0e5010118d1debc
-51961	56092	6926655329208616	CMakeFiles/Dungeoner.dir/CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp.obj	8105adecb5469a71
+0	79	0	CMakeFiles/clean.additional	26ab82f82478fbc9
 78525	79426	6926655562081085	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp.obj	16ddd4b10996d259
+51961	56092	6926655329208616	CMakeFiles/Dungeoner.dir/CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp.obj	8105adecb5469a71
 3072	16535	6928265589406023	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/secondaryskill.cpp.obj	9690d08f5522a0f3
-77209	78811	6926655556220962	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp.obj	85a7dca6ba305be3
 1	5279	6928905658518461	build.ninja	6e7b03948a9d4d8b
+77209	78811	6926655556220962	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp.obj	85a7dca6ba305be3
 5228	30067	6928266417589421	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/progressbar_1.cpp.obj	15155dcf22fd7f1f
 7569	10890	6927935488456537	CMakeFiles/Dungeoner.dir/System/TooltipDisplayEvents/tooltipdisplayevents.cpp.obj	9a3c9d12ad09e84f
 77440	78525	6926655553160890	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp.obj	2e92783eb364c8b8
 60531	66779	6926655435822278	CMakeFiles/Dungeoner.dir/System/OutlineEffect/outlineeffect.cpp.obj	2ba734a24bab6f68
 287	2092	6819221339603739	CMakeFiles/Dungeoner.dir/System/BasicStyleMaster/stylemaster.cpp.obj	a1f7c4f82638523d
-64064	67926	6926655447391860	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.cpp.obj	cd79671fb0d9dd9f
-3141	5342	6889464571525584	CMakeFiles/Dungeoner.dir/System/Bonus/bonus.cpp.obj	170485e532626f84
 273	3141	6819230550500013	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/PSSstylemaster.cpp.obj	40ed8e68d92b79a9
 79	131	0	clean	fa92303e789e5432
-354	6535	6929248208209399	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	28843dd774f11fd0
+64064	67926	6926655447391860	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.cpp.obj	cd79671fb0d9dd9f
+3141	5342	6889464571525584	CMakeFiles/Dungeoner.dir/System/Bonus/bonus.cpp.obj	170485e532626f84
 54099	60530	6926655373122374	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_1/WB1_stylemaster.cpp.obj	bcd36fd865302450
-66780	77440	6926655542621193	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_2/progressbar_2.cpp.obj	24c3796804469135
+1562	14653	6929907737502922	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	28843dd774f11fd0
+2076	14928	6929273267476099	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_2/progressbar_2.cpp.obj	24c3796804469135
 8589	8827	6887680336948776	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_2/chunk.cpp.obj	8ed31d79a12f2317
-66875	74361	6926655511081238	CMakeFiles/Dungeoner.dir/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp.obj	6fdf9ccd76641937
+5478	20358	6929273321798393	CMakeFiles/Dungeoner.dir/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp.obj	6fdf9ccd76641937
 1861	2028	6821315882125083	CMakeFiles/Dungeoner.dir/CustomWidgets/MagicDefenseProgressBar/mdp_stylemaster.cpp.obj	7651cc5ce4b4ebfd
 67186	71645	6926655484661796	CMakeFiles/Dungeoner.dir/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.cpp.obj	b85cece45b90179
 69132	77080	6926655538911874	CMakeFiles/Dungeoner.dir/CustomWidgets/Tooltip/tooltip.cpp.obj	550b24b3aa90ae6b
 75489	79675	6926655564671014	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_2/WB2_stylemaster.cpp.obj	e9a754ae0d6494b4
-300	2205	6928923988761946	CMakeFiles/Dungeoner.dir/Person/MagicDefense/magicdefensebonus.cpp.obj	b0a9dadb6f08a8b
 4028	24544	6928268509959303	CMakeFiles/Dungeoner.dir/Person/Stat/stat.cpp.obj	3fd11535e589a4fa
-72912	76873	6926655536791943	CMakeFiles/Dungeoner.dir/Person/Stat/bonus.cpp.obj	3ad2050ba19742a5
-77081	82352	6926655592111143	CMakeFiles/Dungeoner.dir/Person/MagicDefense/magicdefense.cpp.obj	d196562f9638af3b
-67926	72912	6926655497071304	CMakeFiles/Dungeoner.dir/Person/MagicDefense/chunk.cpp.obj	2b9734460fa2fd63
-12	310	6929249617940186	Dungeoner_autogen/timestamp	d93722326897edfc
-12	310	6929249617940186	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-12	310	6929249617940186	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
-12	310	6929249617940186	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-317	3632	6929249651156429	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
-318	4931	6929249664134362	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	28843dd774f11fd0
-4931	7532	6929249690071870	Dungeoner.exe	caf84e0c9ca86d9d
-12	348	6929251600363648	Dungeoner_autogen/timestamp	d93722326897edfc
-12	348	6929251600363648	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-12	348	6929251600363648	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
-12	348	6929251600363648	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-355	4833	6929251645226056	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
-356	6326	6929251660126880	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	28843dd774f11fd0
-6327	11077	6929251707517752	Dungeoner.exe	caf84e0c9ca86d9d
-14	1369	6929266818323686	Dungeoner_autogen/timestamp	d93722326897edfc
-14	1369	6929266818323686	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-14	1369	6929266818323686	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
-14	1369	6929266818323686	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-1474	8998	6929266895955929	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
-1482	9081	6929266896835386	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	28843dd774f11fd0
-9081	15463	6929266960586157	Dungeoner.exe	caf84e0c9ca86d9d
-12	354	6929268728972674	Dungeoner_autogen/timestamp	d93722326897edfc
-12	354	6929268728972674	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-12	354	6929268728972674	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
-12	354	6929268728972674	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-360	5486	6929268780291106	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
-361	7087	6929268796281269	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	28843dd774f11fd0
-7087	9778	6929268823124741	Dungeoner.exe	caf84e0c9ca86d9d
-12	2073	6929273137220467	Dungeoner_autogen/timestamp	d93722326897edfc
-12	2073	6929273137220467	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-12	2073	6929273137220467	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
-12	2073	6929273137220467	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
-2077	5478	6929273172392796	CMakeFiles/Dungeoner.dir/Person/MagicDefense/chunk.cpp.obj	2b9734460fa2fd63
-2074	14474	6929273262419209	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
-2075	14490	6929273262988867	CMakeFiles/Dungeoner.dir/main.cpp.obj	eb0f17a9192e9669
-2073	14863	6929273266806506	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d1a3f8cea7bcf388
-2076	14928	6929273267476099	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_2/progressbar_2.cpp.obj	24c3796804469135
-2076	15487	6929273271503723	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	b749d5e3e7e935e9
 14863	18522	6929273301950602	CMakeFiles/Dungeoner.dir/Person/MagicDefense/magicdefensebonus.cpp.obj	b0a9dadb6f08a8b
-5478	20358	6929273321798393	CMakeFiles/Dungeoner.dir/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp.obj	6fdf9ccd76641937
+72912	76873	6926655536791943	CMakeFiles/Dungeoner.dir/Person/Stat/bonus.cpp.obj	3ad2050ba19742a5
 14490	21077	6929273328973975	CMakeFiles/Dungeoner.dir/Person/MagicDefense/magicdefense.cpp.obj	d196562f9638af3b
-14475	22294	6929273341136492	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	28843dd774f11fd0
-22294	26836	6929273386484160	Dungeoner.exe	caf84e0c9ca86d9d
+2077	5478	6929273172392796	CMakeFiles/Dungeoner.dir/Person/MagicDefense/chunk.cpp.obj	2b9734460fa2fd63
+12	354	6929908658415668	Dungeoner_autogen/timestamp	d93722326897edfc
+12	354	6929908658415668	Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
+12	354	6929908658415668	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	d93722326897edfc
+12	354	6929908658415668	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	d93722326897edfc
+360	4689	6929908702098791	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	abf14e735502f260
+361	8298	6929908738136628	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	b749d5e3e7e935e9
+8298	10993	6929908765050054	Dungeoner.exe	caf84e0c9ca86d9d

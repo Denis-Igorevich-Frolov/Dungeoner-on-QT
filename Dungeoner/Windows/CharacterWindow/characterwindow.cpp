@@ -1035,6 +1035,7 @@ void CharacterWindow::onWillChanged()
 //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
 void CharacterWindow::refreshDisplayStats()
 {
+    initPrimaryStatsWidgets();
     //Задание значения воли, для подсказки, требуемой до получения нового чанка магической защиты
     ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.willUntilNextChunk;
     //Инициализация получеными значениями
@@ -1148,4 +1149,5 @@ void CharacterWindow::on_SaveButton_clicked()
 void CharacterWindow::on_LoadButton_clicked()
 {
     person.loadALLStats();
+    recalculateStats();
 }
