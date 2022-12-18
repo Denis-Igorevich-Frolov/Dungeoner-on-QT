@@ -40,6 +40,9 @@ CMAKE_CXX_FLAGS:STRING=
 //Flags used by the CXX compiler during DEBUG builds.
 CMAKE_CXX_FLAGS_DEBUG:STRING=-g
 
+//No help, variable specified on the command line.
+CMAKE_CXX_FLAGS_INIT:STRING=
+
 //Flags used by the CXX compiler during MINSIZEREL builds.
 CMAKE_CXX_FLAGS_MINSIZEREL:STRING=-Os -DNDEBUG
 
@@ -169,16 +172,13 @@ CMAKE_OBJCOPY:FILEPATH=E:/Qt/Tools/mingw1120_64/bin/objcopy.exe
 CMAKE_OBJDUMP:FILEPATH=E:/Qt/Tools/mingw1120_64/bin/objdump.exe
 
 //No help, variable specified on the command line.
-CMAKE_PREFIX_PATH:PATH=E:/Qt/6.4.0/mingw_64;E:/Qt/6.3.1/mingw_64
+CMAKE_PREFIX_PATH:PATH=E:/Qt/6.4.0/mingw_64
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=
 
 //Value Computed by CMake
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
-
-//No help, variable specified on the command line.
-CMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=E:/Qt/Tools/QtCreator/share/qtcreator/package-manager/auto-setup.cmake
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=Dungeoner
@@ -294,9 +294,6 @@ QT_ADDITIONAL_HOST_PACKAGES_PREFIX_PATH:STRING=
 //Additional directories where find(Qt6 ...) components are searched
 QT_ADDITIONAL_PACKAGES_PREFIX_PATH:STRING=
 
-//Skip Qt Creator's package manager auto-setup
-QT_CREATOR_SKIP_PACKAGE_MANAGER_SETUP:BOOL=OFF
-
 //The directory containing a CMake configuration file for QT.
 QT_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6
 
@@ -324,6 +321,9 @@ Qt6Multimedia_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Multimedia
 //The directory containing a CMake configuration file for Qt6Network.
 Qt6Network_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Network
 
+//The directory containing a CMake configuration file for Qt6Sql.
+Qt6Sql_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6Sql
+
 //The directory containing a CMake configuration file for Qt6WidgetsTools.
 Qt6WidgetsTools_DIR:PATH=E:/Qt/6.4.0/mingw_64/lib/cmake/Qt6WidgetsTools
 
@@ -349,7 +349,7 @@ Vulkan_INCLUDE_DIR:PATH=Vulkan_INCLUDE_DIR-NOTFOUND
 Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 
 //Path to a program.
-WINDEPLOYQT_EXECUTABLE:FILEPATH=E:/Qt/6.3.1/mingw_64/bin/windeployqt.exe
+WINDEPLOYQT_EXECUTABLE:FILEPATH=E:/Qt/6.4.0/mingw_64/bin/windeployqt.exe
 
 
 ########################
@@ -1038,8 +1038,6 @@ QT_FEATURE_processenvironment:INTERNAL=ON
 QT_FEATURE_progressbar:INTERNAL=ON
 //Qt feature: progressdialog (from target Qt6::Widgets)
 QT_FEATURE_progressdialog:INTERNAL=ON
-//Qt feature: properties (from target Qt6::Core)
-QT_FEATURE_properties:INTERNAL=ON
 //Qt feature: proxymodel (from target Qt6::Core)
 QT_FEATURE_proxymodel:INTERNAL=ON
 //Qt feature: publicsuffix_qt (from target Qt6::Network)
@@ -1110,8 +1108,6 @@ QT_FEATURE_sharedmemory:INTERNAL=ON
 QT_FEATURE_shortcut:INTERNAL=ON
 //Qt feature: signaling_nan (from target Qt6::Core)
 QT_FEATURE_signaling_nan:INTERNAL=ON
-//Qt feature: simdAlways (from target Qt6::Core)
-QT_FEATURE_simdAlways:INTERNAL=ON
 //Qt feature: simulator_and_device (from target Qt6::Core)
 QT_FEATURE_simulator_and_device:INTERNAL=OFF
 //Qt feature: sizegrip (from target Qt6::Widgets)
@@ -1136,6 +1132,8 @@ QT_FEATURE_splashscreen:INTERNAL=ON
 QT_FEATURE_splitter:INTERNAL=ON
 //Qt feature: sql (from target Qt6::Core)
 QT_FEATURE_sql:INTERNAL=ON
+//Qt feature: sqlmodel (from target Qt6::Sql)
+QT_FEATURE_sqlmodel:INTERNAL=ON
 //Qt feature: sse2 (from target Qt6::Core)
 QT_FEATURE_sse2:INTERNAL=ON
 //Qt feature: sse3 (from target Qt6::Core)

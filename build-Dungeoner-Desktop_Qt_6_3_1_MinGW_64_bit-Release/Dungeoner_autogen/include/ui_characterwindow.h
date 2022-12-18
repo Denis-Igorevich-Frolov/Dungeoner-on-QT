@@ -36,10 +36,14 @@ public:
     QFrame *TopMenuWrapper;
     QVBoxLayout *verticalLayout_3;
     QFrame *TopMenu;
+    QPushButton *pushButton_4;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
     QPushButton *pushButton_3;
-    QPushButton *pushButton_4;
+    QPushButton *SaveButton;
+    QPushButton *LoadButton;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_6;
     QLabel *TopMenuBorder;
     QFrame *SkillsWraper;
     QVBoxLayout *verticalLayout;
@@ -74,25 +78,24 @@ public:
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_2;
     QGridLayout *SecondarySkills;
-    SecondarySkill *MeleeAccuracy;
-    SecondarySkill *ResistMagicDamage;
-    SecondarySkill *MagicCastChance;
-    SecondarySkill *LoadCapacity;
-    SecondarySkill *Attentiveness;
-    SecondarySkill *MagicDamage;
-    SecondarySkill *Initiative;
-    SecondarySkill *ResistPhysicalDamage;
-    SecondarySkill *Evasion;
-    SecondarySkill *MagicAccuracy;
-    SecondarySkill *StrengtheningPhysicalEffects;
     SecondarySkill *ResistPhysicalEffects;
-    SecondarySkill *StrengtheningMagicalEffects;
-    SecondarySkill *ChanceOfUsingCombatTechnique;
+    SecondarySkill *StrengtheningPhysicalEffects;
     SecondarySkill *ResistMagicEffects;
+    SecondarySkill *MeleeAccuracy;
+    SecondarySkill *StrengtheningMagicalEffects;
+    SecondarySkill *ResistPhysicalDamage;
+    SecondarySkill *MagicDamage;
+    SecondarySkill *MagicAccuracy;
+    SecondarySkill *LoadCapacity;
     SecondarySkill *RangedAccuracy;
+    SecondarySkill *ResistMagicDamage;
+    SecondarySkill *Evasion;
     SecondarySkill *Stealth;
-    SecondarySkill *PhysicalDamage;
     SecondarySkill *MoveRange;
+    SecondarySkill *MagicCastChance;
+    SecondarySkill *ChanceOfUsingCombatTechnique;
+    SecondarySkill *Initiative;
+    SecondarySkill *Attentiveness;
     QFrame *SecondarySkillsShadowBottom;
     QFrame *SecondarySkillsShadowTop;
     QScrollBar *verticalScrollBar;
@@ -140,22 +143,38 @@ public:
         TopMenu->setFrameShape(QFrame::StyledPanel);
         TopMenu->setFrameShadow(QFrame::Raised);
         TopMenu->setLineWidth(0);
-        pushButton = new QPushButton(TopMenu);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(340, 20, 80, 24));
-        pushButton->setStyleSheet(QString::fromUtf8("background: white;"));
-        pushButton_2 = new QPushButton(TopMenu);
-        pushButton_2->setObjectName("pushButton_2");
-        pushButton_2->setGeometry(QRect(430, 20, 80, 24));
-        pushButton_2->setStyleSheet(QString::fromUtf8("background: white;"));
-        pushButton_3 = new QPushButton(TopMenu);
-        pushButton_3->setObjectName("pushButton_3");
-        pushButton_3->setGeometry(QRect(520, 20, 80, 24));
-        pushButton_3->setStyleSheet(QString::fromUtf8("background: white;"));
         pushButton_4 = new QPushButton(TopMenu);
         pushButton_4->setObjectName("pushButton_4");
-        pushButton_4->setGeometry(QRect(660, 10, 161, 41));
+        pushButton_4->setGeometry(QRect(780, 10, 161, 41));
         pushButton_4->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton = new QPushButton(TopMenu);
+        pushButton->setObjectName("pushButton");
+        pushButton->setGeometry(QRect(60, 20, 91, 41));
+        pushButton->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_2 = new QPushButton(TopMenu);
+        pushButton_2->setObjectName("pushButton_2");
+        pushButton_2->setGeometry(QRect(170, 20, 91, 41));
+        pushButton_2->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_3 = new QPushButton(TopMenu);
+        pushButton_3->setObjectName("pushButton_3");
+        pushButton_3->setGeometry(QRect(290, 20, 91, 41));
+        pushButton_3->setStyleSheet(QString::fromUtf8("background:white;"));
+        SaveButton = new QPushButton(TopMenu);
+        SaveButton->setObjectName("SaveButton");
+        SaveButton->setGeometry(QRect(1480, 20, 71, 41));
+        SaveButton->setStyleSheet(QString::fromUtf8("background:white;"));
+        LoadButton = new QPushButton(TopMenu);
+        LoadButton->setObjectName("LoadButton");
+        LoadButton->setGeometry(QRect(1580, 20, 71, 41));
+        LoadButton->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_5 = new QPushButton(TopMenu);
+        pushButton_5->setObjectName("pushButton_5");
+        pushButton_5->setGeometry(QRect(410, 20, 91, 41));
+        pushButton_5->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_6 = new QPushButton(TopMenu);
+        pushButton_6->setObjectName("pushButton_6");
+        pushButton_6->setGeometry(QRect(520, 20, 91, 41));
+        pushButton_6->setStyleSheet(QString::fromUtf8("background:white;"));
 
         verticalLayout_3->addWidget(TopMenu);
 
@@ -441,7 +460,7 @@ public:
         ScrollAreaSecondarySkills->setAlignment(Qt::AlignCenter);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName("scrollAreaWidgetContents");
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 616, 774));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 616, 696));
         scrollAreaWidgetContents->setStyleSheet(QString::fromUtf8(""));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setSpacing(0);
@@ -451,118 +470,19 @@ public:
         SecondarySkills->setSpacing(8);
         SecondarySkills->setObjectName("SecondarySkills");
         SecondarySkills->setSizeConstraint(QLayout::SetDefaultConstraint);
-        MeleeAccuracy = new SecondarySkill(scrollAreaWidgetContents);
-        MeleeAccuracy->setObjectName("MeleeAccuracy");
+        ResistPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
+        ResistPhysicalEffects->setObjectName("ResistPhysicalEffects");
         QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Preferred);
         sizePolicy3.setHorizontalStretch(0);
         sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(MeleeAccuracy->sizePolicy().hasHeightForWidth());
-        MeleeAccuracy->setSizePolicy(sizePolicy3);
-        MeleeAccuracy->setMinimumSize(QSize(303, 70));
-        MeleeAccuracy->setMaximumSize(QSize(303, 70));
-        MeleeAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
-        MeleeAccuracy->setProperty("FontSize", QVariant(19));
+        sizePolicy3.setHeightForWidth(ResistPhysicalEffects->sizePolicy().hasHeightForWidth());
+        ResistPhysicalEffects->setSizePolicy(sizePolicy3);
+        ResistPhysicalEffects->setMinimumSize(QSize(303, 70));
+        ResistPhysicalEffects->setMaximumSize(QSize(303, 70));
+        ResistPhysicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
+        ResistPhysicalEffects->setProperty("FontSize", QVariant(18));
 
-        SecondarySkills->addWidget(MeleeAccuracy, 4, 0, 1, 1);
-
-        ResistMagicDamage = new SecondarySkill(scrollAreaWidgetContents);
-        ResistMagicDamage->setObjectName("ResistMagicDamage");
-        sizePolicy3.setHeightForWidth(ResistMagicDamage->sizePolicy().hasHeightForWidth());
-        ResistMagicDamage->setSizePolicy(sizePolicy3);
-        ResistMagicDamage->setMinimumSize(QSize(303, 70));
-        ResistMagicDamage->setMaximumSize(QSize(303, 70));
-        ResistMagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
-        ResistMagicDamage->setProperty("FontSize", QVariant(18));
-
-        SecondarySkills->addWidget(ResistMagicDamage, 1, 1, 1, 1);
-
-        MagicCastChance = new SecondarySkill(scrollAreaWidgetContents);
-        MagicCastChance->setObjectName("MagicCastChance");
-        sizePolicy3.setHeightForWidth(MagicCastChance->sizePolicy().hasHeightForWidth());
-        MagicCastChance->setSizePolicy(sizePolicy3);
-        MagicCastChance->setMinimumSize(QSize(303, 70));
-        MagicCastChance->setMaximumSize(QSize(303, 70));
-        MagicCastChance->setStyleSheet(QString::fromUtf8("background:black;"));
-        MagicCastChance->setProperty("FontSize", QVariant(16));
-
-        SecondarySkills->addWidget(MagicCastChance, 8, 0, 1, 1);
-
-        LoadCapacity = new SecondarySkill(scrollAreaWidgetContents);
-        LoadCapacity->setObjectName("LoadCapacity");
-        sizePolicy3.setHeightForWidth(LoadCapacity->sizePolicy().hasHeightForWidth());
-        LoadCapacity->setSizePolicy(sizePolicy3);
-        LoadCapacity->setMinimumSize(QSize(303, 70));
-        LoadCapacity->setMaximumSize(QSize(303, 70));
-        LoadCapacity->setStyleSheet(QString::fromUtf8("background:black;"));
-        LoadCapacity->setProperty("FontSize", QVariant(16));
-
-        SecondarySkills->addWidget(LoadCapacity, 7, 0, 1, 1);
-
-        Attentiveness = new SecondarySkill(scrollAreaWidgetContents);
-        Attentiveness->setObjectName("Attentiveness");
-        sizePolicy3.setHeightForWidth(Attentiveness->sizePolicy().hasHeightForWidth());
-        Attentiveness->setSizePolicy(sizePolicy3);
-        Attentiveness->setMinimumSize(QSize(303, 70));
-        Attentiveness->setMaximumSize(QSize(303, 70));
-        Attentiveness->setStyleSheet(QString::fromUtf8("background:black;"));
-        Attentiveness->setProperty("FontSize", QVariant(17));
-
-        SecondarySkills->addWidget(Attentiveness, 6, 1, 1, 1);
-
-        MagicDamage = new SecondarySkill(scrollAreaWidgetContents);
-        MagicDamage->setObjectName("MagicDamage");
-        sizePolicy3.setHeightForWidth(MagicDamage->sizePolicy().hasHeightForWidth());
-        MagicDamage->setSizePolicy(sizePolicy3);
-        MagicDamage->setMinimumSize(QSize(303, 70));
-        MagicDamage->setMaximumSize(QSize(303, 70));
-        MagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
-        MagicDamage->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(MagicDamage, 0, 1, 1, 1);
-
-        Initiative = new SecondarySkill(scrollAreaWidgetContents);
-        Initiative->setObjectName("Initiative");
-        sizePolicy3.setHeightForWidth(Initiative->sizePolicy().hasHeightForWidth());
-        Initiative->setSizePolicy(sizePolicy3);
-        Initiative->setMinimumSize(QSize(303, 70));
-        Initiative->setMaximumSize(QSize(303, 70));
-        Initiative->setStyleSheet(QString::fromUtf8("background:black;"));
-        Initiative->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(Initiative, 7, 1, 1, 1);
-
-        ResistPhysicalDamage = new SecondarySkill(scrollAreaWidgetContents);
-        ResistPhysicalDamage->setObjectName("ResistPhysicalDamage");
-        sizePolicy3.setHeightForWidth(ResistPhysicalDamage->sizePolicy().hasHeightForWidth());
-        ResistPhysicalDamage->setSizePolicy(sizePolicy3);
-        ResistPhysicalDamage->setMinimumSize(QSize(303, 70));
-        ResistPhysicalDamage->setMaximumSize(QSize(303, 70));
-        ResistPhysicalDamage->setStyleSheet(QString::fromUtf8("background:black;"));
-        ResistPhysicalDamage->setProperty("FontSize", QVariant(18));
-
-        SecondarySkills->addWidget(ResistPhysicalDamage, 1, 0, 1, 1);
-
-        Evasion = new SecondarySkill(scrollAreaWidgetContents);
-        Evasion->setObjectName("Evasion");
-        sizePolicy3.setHeightForWidth(Evasion->sizePolicy().hasHeightForWidth());
-        Evasion->setSizePolicy(sizePolicy3);
-        Evasion->setMinimumSize(QSize(303, 70));
-        Evasion->setMaximumSize(QSize(303, 70));
-        Evasion->setStyleSheet(QString::fromUtf8("background:black;"));
-        Evasion->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(Evasion, 5, 1, 1, 1);
-
-        MagicAccuracy = new SecondarySkill(scrollAreaWidgetContents);
-        MagicAccuracy->setObjectName("MagicAccuracy");
-        sizePolicy3.setHeightForWidth(MagicAccuracy->sizePolicy().hasHeightForWidth());
-        MagicAccuracy->setSizePolicy(sizePolicy3);
-        MagicAccuracy->setMinimumSize(QSize(303, 70));
-        MagicAccuracy->setMaximumSize(QSize(303, 70));
-        MagicAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
-        MagicAccuracy->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(MagicAccuracy, 5, 0, 1, 1);
+        SecondarySkills->addWidget(ResistPhysicalEffects, 2, 0, 1, 1);
 
         StrengtheningPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
         StrengtheningPhysicalEffects->setObjectName("StrengtheningPhysicalEffects");
@@ -575,16 +495,27 @@ public:
 
         SecondarySkills->addWidget(StrengtheningPhysicalEffects, 3, 0, 1, 1);
 
-        ResistPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
-        ResistPhysicalEffects->setObjectName("ResistPhysicalEffects");
-        sizePolicy3.setHeightForWidth(ResistPhysicalEffects->sizePolicy().hasHeightForWidth());
-        ResistPhysicalEffects->setSizePolicy(sizePolicy3);
-        ResistPhysicalEffects->setMinimumSize(QSize(303, 70));
-        ResistPhysicalEffects->setMaximumSize(QSize(303, 70));
-        ResistPhysicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
-        ResistPhysicalEffects->setProperty("FontSize", QVariant(18));
+        ResistMagicEffects = new SecondarySkill(scrollAreaWidgetContents);
+        ResistMagicEffects->setObjectName("ResistMagicEffects");
+        sizePolicy3.setHeightForWidth(ResistMagicEffects->sizePolicy().hasHeightForWidth());
+        ResistMagicEffects->setSizePolicy(sizePolicy3);
+        ResistMagicEffects->setMinimumSize(QSize(303, 70));
+        ResistMagicEffects->setMaximumSize(QSize(303, 70));
+        ResistMagicEffects->setStyleSheet(QString::fromUtf8("background:black;"));
+        ResistMagicEffects->setProperty("FontSize", QVariant(18));
 
-        SecondarySkills->addWidget(ResistPhysicalEffects, 2, 0, 1, 1);
+        SecondarySkills->addWidget(ResistMagicEffects, 2, 1, 1, 1);
+
+        MeleeAccuracy = new SecondarySkill(scrollAreaWidgetContents);
+        MeleeAccuracy->setObjectName("MeleeAccuracy");
+        sizePolicy3.setHeightForWidth(MeleeAccuracy->sizePolicy().hasHeightForWidth());
+        MeleeAccuracy->setSizePolicy(sizePolicy3);
+        MeleeAccuracy->setMinimumSize(QSize(303, 70));
+        MeleeAccuracy->setMaximumSize(QSize(303, 70));
+        MeleeAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
+        MeleeAccuracy->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(MeleeAccuracy, 4, 0, 1, 1);
 
         StrengtheningMagicalEffects = new SecondarySkill(scrollAreaWidgetContents);
         StrengtheningMagicalEffects->setObjectName("StrengtheningMagicalEffects");
@@ -597,27 +528,49 @@ public:
 
         SecondarySkills->addWidget(StrengtheningMagicalEffects, 3, 1, 1, 1);
 
-        ChanceOfUsingCombatTechnique = new SecondarySkill(scrollAreaWidgetContents);
-        ChanceOfUsingCombatTechnique->setObjectName("ChanceOfUsingCombatTechnique");
-        sizePolicy3.setHeightForWidth(ChanceOfUsingCombatTechnique->sizePolicy().hasHeightForWidth());
-        ChanceOfUsingCombatTechnique->setSizePolicy(sizePolicy3);
-        ChanceOfUsingCombatTechnique->setMinimumSize(QSize(303, 70));
-        ChanceOfUsingCombatTechnique->setMaximumSize(QSize(303, 70));
-        ChanceOfUsingCombatTechnique->setStyleSheet(QString::fromUtf8("background:black;"));
-        ChanceOfUsingCombatTechnique->setProperty("FontSize", QVariant(18));
+        ResistPhysicalDamage = new SecondarySkill(scrollAreaWidgetContents);
+        ResistPhysicalDamage->setObjectName("ResistPhysicalDamage");
+        sizePolicy3.setHeightForWidth(ResistPhysicalDamage->sizePolicy().hasHeightForWidth());
+        ResistPhysicalDamage->setSizePolicy(sizePolicy3);
+        ResistPhysicalDamage->setMinimumSize(QSize(303, 70));
+        ResistPhysicalDamage->setMaximumSize(QSize(303, 70));
+        ResistPhysicalDamage->setStyleSheet(QString::fromUtf8("background:black;"));
+        ResistPhysicalDamage->setProperty("FontSize", QVariant(18));
 
-        SecondarySkills->addWidget(ChanceOfUsingCombatTechnique, 8, 1, 1, 1);
+        SecondarySkills->addWidget(ResistPhysicalDamage, 1, 0, 1, 1);
 
-        ResistMagicEffects = new SecondarySkill(scrollAreaWidgetContents);
-        ResistMagicEffects->setObjectName("ResistMagicEffects");
-        sizePolicy3.setHeightForWidth(ResistMagicEffects->sizePolicy().hasHeightForWidth());
-        ResistMagicEffects->setSizePolicy(sizePolicy3);
-        ResistMagicEffects->setMinimumSize(QSize(303, 70));
-        ResistMagicEffects->setMaximumSize(QSize(303, 70));
-        ResistMagicEffects->setStyleSheet(QString::fromUtf8("background:black;"));
-        ResistMagicEffects->setProperty("FontSize", QVariant(18));
+        MagicDamage = new SecondarySkill(scrollAreaWidgetContents);
+        MagicDamage->setObjectName("MagicDamage");
+        sizePolicy3.setHeightForWidth(MagicDamage->sizePolicy().hasHeightForWidth());
+        MagicDamage->setSizePolicy(sizePolicy3);
+        MagicDamage->setMinimumSize(QSize(303, 70));
+        MagicDamage->setMaximumSize(QSize(303, 70));
+        MagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
+        MagicDamage->setProperty("FontSize", QVariant(19));
 
-        SecondarySkills->addWidget(ResistMagicEffects, 2, 1, 1, 1);
+        SecondarySkills->addWidget(MagicDamage, 0, 0, 1, 1);
+
+        MagicAccuracy = new SecondarySkill(scrollAreaWidgetContents);
+        MagicAccuracy->setObjectName("MagicAccuracy");
+        sizePolicy3.setHeightForWidth(MagicAccuracy->sizePolicy().hasHeightForWidth());
+        MagicAccuracy->setSizePolicy(sizePolicy3);
+        MagicAccuracy->setMinimumSize(QSize(303, 70));
+        MagicAccuracy->setMaximumSize(QSize(303, 70));
+        MagicAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
+        MagicAccuracy->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(MagicAccuracy, 5, 0, 1, 1);
+
+        LoadCapacity = new SecondarySkill(scrollAreaWidgetContents);
+        LoadCapacity->setObjectName("LoadCapacity");
+        sizePolicy3.setHeightForWidth(LoadCapacity->sizePolicy().hasHeightForWidth());
+        LoadCapacity->setSizePolicy(sizePolicy3);
+        LoadCapacity->setMinimumSize(QSize(303, 70));
+        LoadCapacity->setMaximumSize(QSize(303, 70));
+        LoadCapacity->setStyleSheet(QString::fromUtf8("background:black;"));
+        LoadCapacity->setProperty("FontSize", QVariant(16));
+
+        SecondarySkills->addWidget(LoadCapacity, 7, 0, 1, 1);
 
         RangedAccuracy = new SecondarySkill(scrollAreaWidgetContents);
         RangedAccuracy->setObjectName("RangedAccuracy");
@@ -630,6 +583,28 @@ public:
 
         SecondarySkills->addWidget(RangedAccuracy, 4, 1, 1, 1);
 
+        ResistMagicDamage = new SecondarySkill(scrollAreaWidgetContents);
+        ResistMagicDamage->setObjectName("ResistMagicDamage");
+        sizePolicy3.setHeightForWidth(ResistMagicDamage->sizePolicy().hasHeightForWidth());
+        ResistMagicDamage->setSizePolicy(sizePolicy3);
+        ResistMagicDamage->setMinimumSize(QSize(303, 70));
+        ResistMagicDamage->setMaximumSize(QSize(303, 70));
+        ResistMagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
+        ResistMagicDamage->setProperty("FontSize", QVariant(18));
+
+        SecondarySkills->addWidget(ResistMagicDamage, 1, 1, 1, 1);
+
+        Evasion = new SecondarySkill(scrollAreaWidgetContents);
+        Evasion->setObjectName("Evasion");
+        sizePolicy3.setHeightForWidth(Evasion->sizePolicy().hasHeightForWidth());
+        Evasion->setSizePolicy(sizePolicy3);
+        Evasion->setMinimumSize(QSize(303, 70));
+        Evasion->setMaximumSize(QSize(303, 70));
+        Evasion->setStyleSheet(QString::fromUtf8("background:black;"));
+        Evasion->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(Evasion, 0, 1, 1, 1);
+
         Stealth = new SecondarySkill(scrollAreaWidgetContents);
         Stealth->setObjectName("Stealth");
         sizePolicy3.setHeightForWidth(Stealth->sizePolicy().hasHeightForWidth());
@@ -639,18 +614,7 @@ public:
         Stealth->setStyleSheet(QString::fromUtf8("background:black;"));
         Stealth->setProperty("FontSize", QVariant(20));
 
-        SecondarySkills->addWidget(Stealth, 6, 0, 1, 1);
-
-        PhysicalDamage = new SecondarySkill(scrollAreaWidgetContents);
-        PhysicalDamage->setObjectName("PhysicalDamage");
-        sizePolicy3.setHeightForWidth(PhysicalDamage->sizePolicy().hasHeightForWidth());
-        PhysicalDamage->setSizePolicy(sizePolicy3);
-        PhysicalDamage->setMinimumSize(QSize(303, 70));
-        PhysicalDamage->setMaximumSize(QSize(303, 70));
-        PhysicalDamage->setStyleSheet(QString::fromUtf8("background:black;"));
-        PhysicalDamage->setProperty("FontSize", QVariant(19));
-
-        SecondarySkills->addWidget(PhysicalDamage, 0, 0, 1, 1);
+        SecondarySkills->addWidget(Stealth, 5, 1, 1, 1);
 
         MoveRange = new SecondarySkill(scrollAreaWidgetContents);
         MoveRange->setObjectName("MoveRange");
@@ -661,7 +625,51 @@ public:
         MoveRange->setStyleSheet(QString::fromUtf8("background:black;"));
         MoveRange->setProperty("FontSize", QVariant(19));
 
-        SecondarySkills->addWidget(MoveRange, 9, 0, 1, 1, Qt::AlignLeft);
+        SecondarySkills->addWidget(MoveRange, 8, 1, 1, 1);
+
+        MagicCastChance = new SecondarySkill(scrollAreaWidgetContents);
+        MagicCastChance->setObjectName("MagicCastChance");
+        sizePolicy3.setHeightForWidth(MagicCastChance->sizePolicy().hasHeightForWidth());
+        MagicCastChance->setSizePolicy(sizePolicy3);
+        MagicCastChance->setMinimumSize(QSize(303, 70));
+        MagicCastChance->setMaximumSize(QSize(303, 70));
+        MagicCastChance->setStyleSheet(QString::fromUtf8("background:black;"));
+        MagicCastChance->setProperty("FontSize", QVariant(16));
+
+        SecondarySkills->addWidget(MagicCastChance, 6, 0, 1, 1);
+
+        ChanceOfUsingCombatTechnique = new SecondarySkill(scrollAreaWidgetContents);
+        ChanceOfUsingCombatTechnique->setObjectName("ChanceOfUsingCombatTechnique");
+        sizePolicy3.setHeightForWidth(ChanceOfUsingCombatTechnique->sizePolicy().hasHeightForWidth());
+        ChanceOfUsingCombatTechnique->setSizePolicy(sizePolicy3);
+        ChanceOfUsingCombatTechnique->setMinimumSize(QSize(303, 70));
+        ChanceOfUsingCombatTechnique->setMaximumSize(QSize(303, 70));
+        ChanceOfUsingCombatTechnique->setStyleSheet(QString::fromUtf8("background:black;"));
+        ChanceOfUsingCombatTechnique->setProperty("FontSize", QVariant(18));
+
+        SecondarySkills->addWidget(ChanceOfUsingCombatTechnique, 6, 1, 1, 1);
+
+        Initiative = new SecondarySkill(scrollAreaWidgetContents);
+        Initiative->setObjectName("Initiative");
+        sizePolicy3.setHeightForWidth(Initiative->sizePolicy().hasHeightForWidth());
+        Initiative->setSizePolicy(sizePolicy3);
+        Initiative->setMinimumSize(QSize(303, 70));
+        Initiative->setMaximumSize(QSize(303, 70));
+        Initiative->setStyleSheet(QString::fromUtf8("background:black;"));
+        Initiative->setProperty("FontSize", QVariant(19));
+
+        SecondarySkills->addWidget(Initiative, 7, 1, 1, 1);
+
+        Attentiveness = new SecondarySkill(scrollAreaWidgetContents);
+        Attentiveness->setObjectName("Attentiveness");
+        sizePolicy3.setHeightForWidth(Attentiveness->sizePolicy().hasHeightForWidth());
+        Attentiveness->setSizePolicy(sizePolicy3);
+        Attentiveness->setMinimumSize(QSize(303, 70));
+        Attentiveness->setMaximumSize(QSize(303, 70));
+        Attentiveness->setStyleSheet(QString::fromUtf8("background:black;"));
+        Attentiveness->setProperty("FontSize", QVariant(17));
+
+        SecondarySkills->addWidget(Attentiveness, 8, 0, 1, 1);
 
 
         verticalLayout_2->addLayout(SecondarySkills);
@@ -689,7 +697,7 @@ public:
         verticalScrollBar->setMaximumSize(QSize(16777215, 340));
         verticalScrollBar->setCursor(QCursor(Qt::PointingHandCursor));
         verticalScrollBar->setStyleSheet(QString::fromUtf8(""));
-        verticalScrollBar->setMaximum(377);
+        verticalScrollBar->setMaximum(299);
         verticalScrollBar->setSingleStep(76);
         verticalScrollBar->setPageStep(18);
         verticalScrollBar->setOrientation(Qt::Vertical);
@@ -736,7 +744,6 @@ public:
         MagicDefense->setObjectName("MagicDefense");
         MagicDefense->setMinimumSize(QSize(734, 80));
         MagicDefense->setMaximumSize(QSize(734, 80));
-        MagicDefense->setProperty("FormulaFontSize", QVariant(24));
 
         verticalLayout_5->addWidget(MagicDefense);
 
@@ -807,10 +814,14 @@ public:
     void retranslateUi(QWidget *CharacterWindow)
     {
         CharacterWindow->setWindowTitle(QCoreApplication::translate("CharacterWindow", "Form", nullptr));
-        pushButton->setText(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("CharacterWindow", "\320\233\320\276\320\262\320\272\320\276\321\201\321\202\321\214", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\217", nullptr));
         pushButton_4->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\321\205\320\270\320\273\321\217\321\202\321\214 \320\277\321\200\320\276\320\263\321\200\320\265\321\201\321\201\320\261\320\260\321\200\321\213", nullptr));
+        pushButton->setText(QCoreApplication::translate("CharacterWindow", "1", nullptr));
+        pushButton_2->setText(QCoreApplication::translate("CharacterWindow", "2", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("CharacterWindow", "3", nullptr));
+        SaveButton->setText(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", nullptr));
+        LoadButton->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("CharacterWindow", "4", nullptr));
+        pushButton_6->setText(QCoreApplication::translate("CharacterWindow", "5", nullptr));
         TopMenuBorder->setText(QString());
         StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
         StrengthPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr)));
@@ -835,82 +846,78 @@ public:
         Separator5->setText(QString());
         Separator2->setText(QString());
         Separator3->setText(QString());
-        MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
-        MeleeAccuracy->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
-        MeleeAccuracy->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\233\320\276\320\262\320\272 + 20", nullptr)));
-        MeleeAccuracy->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        ResistMagicDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\203\321\200\320\276\320\275\321\203", nullptr)));
-        ResistMagicDamage->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\276\320\274\321\203 \321\203\321\200\320\276\320\275\321\203", nullptr)));
-        ResistMagicDamage->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "1.5\303\227\320\222\320\276\320\273\321\217 + \320\234\320\260\320\263 + 0.5\303\227\320\242\320\265\320\273", nullptr)));
-        ResistMagicDamage->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        MagicCastChance->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \321\201\320\276\321\202\320\262\320\276\321\200\320\265\320\275\320\270\321\217 \320\274\320\260\320\263\320\270\320\270", nullptr)));
-        MagicCastChance->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \321\201\320\276\321\202\320\262\320\276\321\200\320\265\320\275\320\270\321\217 \320\274\320\260\320\263\320\270\320\270", nullptr)));
-        MagicCastChance->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.3\303\227\320\230\320\275\321\202 + 0.2\303\227\320\234\320\260\320\263", nullptr)));
-        MagicCastChance->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        LoadCapacity->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\223\321\200\321\203\320\267\320\276\320\277\320\276\320\264\321\212\321\221\320\274\320\275\320\276\321\201\321\202\321\214", nullptr)));
-        LoadCapacity->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\223\321\200\321\203\320\267\320\276\320\277\320\276\320\264\321\212\321\221\320\274\320\275\320\276\321\201\321\202\321\214", nullptr)));
-        LoadCapacity->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.5\303\227\320\241\320\270\320\273\320\260 + 0.5\303\227\320\242\320\265\320\273", nullptr)));
-        LoadCapacity->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        Attentiveness->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\275\320\270\320\274\320\260\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr)));
-        Attentiveness->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\275\320\270\320\274\320\260\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr)));
-        Attentiveness->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\321\202 + \320\233\320\276\320\262\320\272 + \320\222\320\276\320\273\321\217", nullptr)));
-        Attentiveness->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        MagicDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
-        MagicDamage->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
-        MagicDamage->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "1.5\303\227\320\234\320\260\320\263 + 1.5\303\227\320\230\320\275\321\202 + 0.5\303\227\320\222\320\276\320\273\321\217", nullptr)));
-        MagicDamage->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        Initiative->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\320\270\321\206\320\270\320\260\321\202\320\270\320\262\320\260", nullptr)));
-        Initiative->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\320\270\321\206\320\270\320\260\321\202\320\270\320\262\320\260", nullptr)));
-        Initiative->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "5\303\227\320\233\320\276\320\262\320\272 + \320\230\320\275\321\202 + \320\222\320\276\320\273\321\217", nullptr)));
-        Initiative->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        ResistPhysicalDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\203\321\200\320\276\320\275\321\203", nullptr)));
-        ResistPhysicalDamage->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\276\320\274\321\203 \321\203\321\200\320\276\320\275\321\203", nullptr)));
-        ResistPhysicalDamage->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "1.5\303\227\320\222\320\276\320\273\321\217 + \320\242\320\265\320\273 + 0.5\303\227\320\234\320\260\320\263\320\270\321\217", nullptr)));
-        ResistPhysicalDamage->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        Evasion->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\320\272\320\273\320\276\320\275\320\265\320\275\320\270\320\265", nullptr)));
-        Evasion->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\320\272\320\273\320\276\320\275\320\265\320\275\320\270\320\265", nullptr)));
-        Evasion->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.5\303\227\320\233\320\276\320\262\320\272 + 0.1\303\227\320\242\320\265\320\273", nullptr)));
-        Evasion->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        MagicAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\274\320\260\320\263\320\270\320\270", nullptr)));
-        MagicAccuracy->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\274\320\260\320\263\320\270\320\270", nullptr)));
-        MagicAccuracy->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\230\320\275\321\202 + 15", nullptr)));
-        MagicAccuracy->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        StrengtheningPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
-        StrengtheningPhysicalEffects->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\270\321\205 \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
-        StrengtheningPhysicalEffects->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\241\320\270\320\273\320\260", nullptr)));
-        StrengtheningPhysicalEffects->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         ResistPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
         ResistPhysicalEffects->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\270\320\274 \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
         ResistPhysicalEffects->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\222\320\276\320\273\321\217 + 10", nullptr)));
         ResistPhysicalEffects->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        StrengtheningMagicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
-        StrengtheningMagicalEffects->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\321\205 \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
-        StrengtheningMagicalEffects->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\230\320\275\321\202", nullptr)));
-        StrengtheningMagicalEffects->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        ChanceOfUsingCombatTechnique->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \320\261\320\276\320\265\320\262\320\276\320\263\320\276  \320\277\321\200\320\270\321\221\320\274\320\260", nullptr)));
-        ChanceOfUsingCombatTechnique->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \320\277\321\200\320\270\320\274\320\265\320\275\320\265\320\275\320\270\321\217 \320\261\320\276\320\265\320\262\320\276\320\263\320\276  \320\277\321\200\320\270\321\221\320\274\320\260", nullptr)));
-        ChanceOfUsingCombatTechnique->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.2\303\227\320\233\320\276\320\262\320\272 + 20", nullptr)));
-        ChanceOfUsingCombatTechnique->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        StrengtheningPhysicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
+        StrengtheningPhysicalEffects->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\270\321\205 \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
+        StrengtheningPhysicalEffects->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\241\320\270\320\273\320\260", nullptr)));
+        StrengtheningPhysicalEffects->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         ResistMagicEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
         ResistMagicEffects->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\320\274 \321\215\321\204\321\204\320\265\320\272\321\202\320\260\320\274", nullptr)));
         ResistMagicEffects->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\222\320\276\320\273\321\217 + 0.1\303\227\320\234\320\260\320\263 + 5", nullptr)));
         ResistMagicEffects->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        MeleeAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
+        MeleeAccuracy->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\261\320\273\320\270\320\266\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
+        MeleeAccuracy->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\233\320\276\320\262\320\272 + 20", nullptr)));
+        MeleeAccuracy->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        StrengtheningMagicalEffects->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
+        StrengtheningMagicalEffects->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\321\201\320\270\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\321\205 \321\215\321\204\321\204\320\265\320\272\321\202\320\276\320\262", nullptr)));
+        StrengtheningMagicalEffects->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\230\320\275\321\202", nullptr)));
+        StrengtheningMagicalEffects->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        ResistPhysicalDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267. \321\203\321\200\320\276\320\275\321\203", nullptr)));
+        ResistPhysicalDamage->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \321\204\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\276\320\274\321\203 \321\203\321\200\320\276\320\275\321\203", nullptr)));
+        ResistPhysicalDamage->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "1.5\303\227\320\222\320\276\320\273\321\217 + \320\242\320\265\320\273 + 0.5\303\227\320\234\320\260\320\263\320\270\321\217", nullptr)));
+        ResistPhysicalDamage->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        MagicDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
+        MagicDamage->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
+        MagicDamage->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "1.5\303\227\320\234\320\260\320\263 + 1.5\303\227\320\230\320\275\321\202 + 0.5\303\227\320\222\320\276\320\273\321\217", nullptr)));
+        MagicDamage->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        MagicAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\274\320\260\320\263\320\270\320\270", nullptr)));
+        MagicAccuracy->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\274\320\260\320\263\320\270\320\270", nullptr)));
+        MagicAccuracy->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\230\320\275\321\202 + 15", nullptr)));
+        MagicAccuracy->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        LoadCapacity->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\223\321\200\321\203\320\267\320\276\320\277\320\276\320\264\321\212\321\221\320\274\320\275\320\276\321\201\321\202\321\214", nullptr)));
+        LoadCapacity->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\223\321\200\321\203\320\267\320\276\320\277\320\276\320\264\321\212\321\221\320\274\320\275\320\276\321\201\321\202\321\214", nullptr)));
+        LoadCapacity->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.5\303\227\320\241\320\270\320\273\320\260 + 0.5\303\227\320\242\320\265\320\273", nullptr)));
+        LoadCapacity->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         RangedAccuracy->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\264\320\260\320\273\321\214\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
         RangedAccuracy->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\276\321\207\320\275\320\276\321\201\321\202\321\214 \320\264\320\260\320\273\321\214\320\275\320\265\320\263\320\276 \320\261\320\276\321\217", nullptr)));
         RangedAccuracy->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.1\303\227\320\233\320\276\320\262\320\272 + 15", nullptr)));
         RangedAccuracy->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        ResistMagicDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263. \321\203\321\200\320\276\320\275\321\203", nullptr)));
+        ResistMagicDamage->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\320\277\321\200\320\276\321\202\320\270\320\262\320\273\320\265\320\275\320\270\320\265 \320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\276\320\274\321\203 \321\203\321\200\320\276\320\275\321\203", nullptr)));
+        ResistMagicDamage->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "1.5\303\227\320\222\320\276\320\273\321\217 + \320\234\320\260\320\263 + 0.5\303\227\320\242\320\265\320\273", nullptr)));
+        ResistMagicDamage->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        Evasion->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\320\272\320\273\320\276\320\275\320\265\320\275\320\270\320\265", nullptr)));
+        Evasion->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\243\320\272\320\273\320\276\320\275\320\265\320\275\320\270\320\265", nullptr)));
+        Evasion->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.5\303\227\320\233\320\276\320\262\320\272 + 0.1\303\227\320\242\320\265\320\273", nullptr)));
+        Evasion->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         Stealth->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\272\321\200\321\213\321\202\320\275\320\276\321\201\321\202\321\214", nullptr)));
         Stealth->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\272\321\200\321\213\321\202\320\275\320\276\321\201\321\202\321\214", nullptr)));
         Stealth->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\321\202 + \320\233\320\276\320\262\320\272", nullptr)));
         Stealth->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        PhysicalDamage->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\244\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
-        PhysicalDamage->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\244\320\270\320\267\320\270\321\207\320\265\321\201\320\272\320\270\320\271 \321\203\321\200\320\276\320\275", nullptr)));
-        PhysicalDamage->setProperty("Formula", QVariant(QString()));
-        PhysicalDamage->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         MoveRange->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
         MoveRange->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\224\320\260\320\273\321\214\320\275\320\276\321\201\321\202\321\214 \320\277\320\265\321\200\320\265\320\264\320\262\320\270\320\266\320\265\320\275\320\270\321\217", nullptr)));
         MoveRange->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\265\320\273 + 0.75\303\227\320\233\320\276\320\262\320\272 + 0.5\303\227\320\241\320\270\320\273\320\260", nullptr)));
         MoveRange->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        MagicCastChance->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \321\201\320\276\321\202\320\262\320\276\321\200\320\265\320\275\320\270\321\217 \320\274\320\260\320\263\320\270\320\270", nullptr)));
+        MagicCastChance->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \321\201\320\276\321\202\320\262\320\276\321\200\320\265\320\275\320\270\321\217 \320\274\320\260\320\263\320\270\320\270", nullptr)));
+        MagicCastChance->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.3\303\227\320\230\320\275\321\202 + 0.2\303\227\320\234\320\260\320\263", nullptr)));
+        MagicCastChance->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        ChanceOfUsingCombatTechnique->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \320\261\320\276\320\265\320\262\320\276\320\263\320\276  \320\277\321\200\320\270\321\221\320\274\320\260", nullptr)));
+        ChanceOfUsingCombatTechnique->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\250\320\260\320\275\321\201 \320\277\321\200\320\270\320\274\320\265\320\275\320\265\320\275\320\270\321\217 \320\261\320\276\320\265\320\262\320\276\320\263\320\276  \320\277\321\200\320\270\321\221\320\274\320\260", nullptr)));
+        ChanceOfUsingCombatTechnique->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "0.2\303\227\320\233\320\276\320\262\320\272 + 20", nullptr)));
+        ChanceOfUsingCombatTechnique->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        Initiative->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\320\270\321\206\320\270\320\260\321\202\320\270\320\262\320\260", nullptr)));
+        Initiative->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\320\270\321\206\320\270\320\260\321\202\320\270\320\262\320\260", nullptr)));
+        Initiative->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "5\303\227\320\233\320\276\320\262\320\272 + \320\230\320\275\321\202 + \320\222\320\276\320\273\321\217", nullptr)));
+        Initiative->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        Attentiveness->setProperty("Inscription", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\275\320\270\320\274\320\260\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr)));
+        Attentiveness->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\275\320\270\320\274\320\260\321\202\320\265\320\273\321\214\320\275\320\276\321\201\321\202\321\214", nullptr)));
+        Attentiveness->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\321\202 + \320\233\320\276\320\262\320\272 + \320\222\320\276\320\273\321\217", nullptr)));
+        Attentiveness->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         Health->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#dc0000", nullptr)));
         Health->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\227\320\264\320\276\321\200\320\276\320\262\321\214\320\265", nullptr)));
         Health->setProperty("Formula", QVariant(QCoreApplication::translate("CharacterWindow", "10\303\227\320\242\320\265\320\273 + 5\303\227\320\222\320\276\320\273\321\217 + 2\303\227\320\241\320\270\320\273\320\260 + \320\234\320\260\320\263", nullptr)));
@@ -925,8 +932,9 @@ public:
         Mana->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         MagicDefense->setProperty("Color", QVariant(QCoreApplication::translate("CharacterWindow", "#9e17cf", nullptr)));
         MagicDefense->setProperty("Name", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\260\321\217 \320\267\320\260\321\211\320\270\321\202\320\260", nullptr)));
-        MagicDefense->setProperty("Formula", QVariant(QString()));
         MagicDefense->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        MagicDefense->setProperty("NumberOfChunksFormula", QVariant(QCoreApplication::translate("CharacterWindow", "\320\237\320\265\321\200\320\262\321\213\320\271 \321\204\321\200\320\260\320\263\320\274\320\265\320\275\321\202 \320\267\320\260\321\211\320\270\321\202\321\213 \320\264\320\260\321\221\321\202\321\201\321\217 \320\277\321\200\320\270 5 \320\262\320\276\320\273\320\270, \320\270 \320\264\320\273\321\217 \320\277\320\276\320\273\321\203\321\207\320\265\320\275\320\270\321\217 \320\272\320\260\320\266\320\264\320\276\320\263\320\276 \320\277\320\276\321\201\320\273\320\265\320\264\321\203\321\216\321\211\320\265\320\263\320\276 \321\204\321\200\320\260\320\274\320\265\320\275\321\202\320\260 \321\202\321\200\320\265\320\261\321\203\320\265\321\202\321\201\321\217 \320\262 1.2 \321\200\320\260\320\267\320\260 \320\261\320\276\320\273\321\214\321\210\320\265 \320\262\320\276\320\273\320\270", nullptr)));
+        MagicDefense->setProperty("ChunkValueFormula", QVariant(QCoreApplication::translate("CharacterWindow", "0.7\303\227\320\234\320\260\320\263 + 0.3\303\227\320\242\320\265\320\273", nullptr)));
         label->setText(QString());
         label_2->setText(QString());
         label_3->setText(QString());

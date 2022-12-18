@@ -28,7 +28,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_PrimarySkillSignature_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[24];
     char stringdata0[22];
     char stringdata1[12];
     char stringdata2[1];
@@ -40,6 +40,7 @@ struct qt_meta_stringdata_PrimarySkillSignature_t {
     char stringdata8[31];
     char stringdata9[13];
     char stringdata10[6];
+    char stringdata11[15];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_PrimarySkillSignature_t::offsetsAndSizes) + ofs), len 
@@ -55,7 +56,8 @@ Q_CONSTINIT static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stri
         QT_MOC_LITERAL(101, 24),  // "on_ButtonBottom_released"
         QT_MOC_LITERAL(126, 30),  // "clickModifierTooltipTimerAlarm"
         QT_MOC_LITERAL(157, 12),  // "valueChanged"
-        QT_MOC_LITERAL(170, 5)   // "value"
+        QT_MOC_LITERAL(170, 5),  // "value"
+        QT_MOC_LITERAL(176, 14)   // "bonusesChanged"
     },
     "PrimarySkillSignature",
     "ShowTooltip",
@@ -67,7 +69,8 @@ Q_CONSTINIT static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stri
     "on_ButtonBottom_released",
     "clickModifierTooltipTimerAlarm",
     "valueChanged",
-    "value"
+    "value",
+    "bonusesChanged"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -78,7 +81,7 @@ Q_CONSTINIT static const uint qt_meta_data_PrimarySkillSignature[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -86,14 +89,15 @@ Q_CONSTINIT static const uint qt_meta_data_PrimarySkillSignature[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   50,    2, 0x06,    1 /* Public */,
-       5,    0,   53,    2, 0x06,    3 /* Public */,
+       1,    1,   56,    2, 0x06,    1 /* Public */,
+       5,    0,   59,    2, 0x06,    3 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       6,    0,   54,    2, 0x08,    4 /* Private */,
-       7,    0,   55,    2, 0x08,    5 /* Private */,
-       8,    0,   56,    2, 0x08,    6 /* Private */,
-       9,    1,   57,    2, 0x08,    7 /* Private */,
+       6,    0,   60,    2, 0x08,    4 /* Private */,
+       7,    0,   61,    2, 0x08,    5 /* Private */,
+       8,    0,   62,    2, 0x08,    6 /* Private */,
+       9,    1,   63,    2, 0x08,    7 /* Private */,
+      11,    0,   66,    2, 0x08,    9 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -104,6 +108,7 @@ Q_CONSTINIT static const uint qt_meta_data_PrimarySkillSignature[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   10,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -130,7 +135,9 @@ Q_CONSTINIT const QMetaObject PrimarySkillSignature::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'valueChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>
+        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        // method 'bonusesChanged'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
 } };
@@ -147,6 +154,7 @@ void PrimarySkillSignature::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 3: _t->on_ButtonBottom_released(); break;
         case 4: _t->clickModifierTooltipTimerAlarm(); break;
         case 5: _t->valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 6: _t->bonusesChanged(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -198,13 +206,13 @@ int PrimarySkillSignature::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

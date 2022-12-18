@@ -1,10 +1,13 @@
 E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/Dungeoner_autogen/3ITW7LGL6C/moc_magicdefenseprogressbar.cpp: E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h \
   E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Release/Dungeoner_autogen/moc_predefs.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.h \
-  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/chunk.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/chunk.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefense.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h \
+  E:/Qt/6.4.0/mingw_64/include/QtCore/QVector \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qanystringview.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qarraydata.h \
@@ -89,6 +92,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_1_MinGW_64_bit-Re
   E:/Qt/6.4.0/mingw_64/include/QtCore/qutf8stringview.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qvariant.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qvarlengtharray.h \
+  E:/Qt/6.4.0/mingw_64/include/QtCore/qvector.h \
   E:/Qt/6.4.0/mingw_64/include/QtCore/qversiontagging.h \
   E:/Qt/6.4.0/mingw_64/include/QtGui/qaction.h \
   E:/Qt/6.4.0/mingw_64/include/QtGui/qbitmap.h \
