@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_Person_t {
-    uint offsetsAndSizes[152];
+    uint offsetsAndSizes[148];
     char stringdata0[7];
     char stringdata1[16];
     char stringdata2[1];
@@ -42,67 +42,65 @@ struct qt_meta_stringdata_Person_t {
     char stringdata12[13];
     char stringdata13[13];
     char stringdata14[11];
-    char stringdata15[28];
-    char stringdata16[12];
-    char stringdata17[13];
-    char stringdata18[11];
-    char stringdata19[28];
+    char stringdata15[12];
+    char stringdata16[13];
+    char stringdata17[11];
+    char stringdata18[12];
+    char stringdata19[15];
     char stringdata20[12];
-    char stringdata21[15];
-    char stringdata22[12];
-    char stringdata23[12];
-    char stringdata24[17];
-    char stringdata25[17];
-    char stringdata26[10];
-    char stringdata27[10];
-    char stringdata28[13];
-    char stringdata29[13];
-    char stringdata30[9];
-    char stringdata31[9];
-    char stringdata32[16];
-    char stringdata33[16];
-    char stringdata34[25];
-    char stringdata35[25];
-    char stringdata36[22];
-    char stringdata37[22];
-    char stringdata38[26];
-    char stringdata39[26];
-    char stringdata40[23];
-    char stringdata41[23];
-    char stringdata42[33];
-    char stringdata43[33];
-    char stringdata44[32];
-    char stringdata45[32];
-    char stringdata46[18];
-    char stringdata47[18];
-    char stringdata48[19];
-    char stringdata49[19];
-    char stringdata50[18];
-    char stringdata51[18];
+    char stringdata21[12];
+    char stringdata22[17];
+    char stringdata23[17];
+    char stringdata24[10];
+    char stringdata25[10];
+    char stringdata26[13];
+    char stringdata27[13];
+    char stringdata28[9];
+    char stringdata29[9];
+    char stringdata30[16];
+    char stringdata31[16];
+    char stringdata32[25];
+    char stringdata33[25];
+    char stringdata34[22];
+    char stringdata35[22];
+    char stringdata36[26];
+    char stringdata37[26];
+    char stringdata38[23];
+    char stringdata39[23];
+    char stringdata40[33];
+    char stringdata41[33];
+    char stringdata42[32];
+    char stringdata43[32];
+    char stringdata44[18];
+    char stringdata45[18];
+    char stringdata46[19];
+    char stringdata47[19];
+    char stringdata48[18];
+    char stringdata49[18];
+    char stringdata50[12];
+    char stringdata51[12];
     char stringdata52[12];
     char stringdata53[12];
-    char stringdata54[12];
-    char stringdata55[12];
-    char stringdata56[18];
-    char stringdata57[18];
-    char stringdata58[17];
-    char stringdata59[17];
-    char stringdata60[15];
-    char stringdata61[15];
-    char stringdata62[20];
-    char stringdata63[20];
-    char stringdata64[33];
-    char stringdata65[33];
-    char stringdata66[14];
-    char stringdata67[14];
-    char stringdata68[11];
-    char stringdata69[11];
-    char stringdata70[14];
-    char stringdata71[14];
-    char stringdata72[9];
-    char stringdata73[9];
-    char stringdata74[17];
-    char stringdata75[17];
+    char stringdata54[18];
+    char stringdata55[18];
+    char stringdata56[17];
+    char stringdata57[17];
+    char stringdata58[15];
+    char stringdata59[15];
+    char stringdata60[20];
+    char stringdata61[20];
+    char stringdata62[33];
+    char stringdata63[33];
+    char stringdata64[14];
+    char stringdata65[14];
+    char stringdata66[11];
+    char stringdata67[11];
+    char stringdata68[14];
+    char stringdata69[14];
+    char stringdata70[9];
+    char stringdata71[9];
+    char stringdata72[17];
+    char stringdata73[17];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Person_t::offsetsAndSizes) + ofs), len 
@@ -120,70 +118,68 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
         QT_MOC_LITERAL(128, 20),  // "fullReinitialization"
         QT_MOC_LITERAL(149, 12),  // "saveAllStats"
         QT_MOC_LITERAL(162, 12),  // "createBackup"
-        QT_MOC_LITERAL(175, 12),  // "loadALLStats"
+        QT_MOC_LITERAL(175, 12),  // "loadAllStats"
         QT_MOC_LITERAL(188, 12),  // "saveStrength"
         QT_MOC_LITERAL(201, 10),  // "saveValues"
-        QT_MOC_LITERAL(212, 27),  // "saveProgressBarCurrentValue"
-        QT_MOC_LITERAL(240, 11),  // "saveBonuses"
-        QT_MOC_LITERAL(252, 12),  // "loadStrength"
-        QT_MOC_LITERAL(265, 10),  // "loadValues"
-        QT_MOC_LITERAL(276, 27),  // "loadProgressBarCurrentValue"
-        QT_MOC_LITERAL(304, 11),  // "loadBonuses"
-        QT_MOC_LITERAL(316, 14),  // "emittedChanged"
-        QT_MOC_LITERAL(331, 11),  // "saveAgility"
-        QT_MOC_LITERAL(343, 11),  // "loadAgility"
-        QT_MOC_LITERAL(355, 16),  // "saveIntelligence"
-        QT_MOC_LITERAL(372, 16),  // "loadIntelligence"
-        QT_MOC_LITERAL(389, 9),  // "saveMagic"
-        QT_MOC_LITERAL(399, 9),  // "loadMagic"
-        QT_MOC_LITERAL(409, 12),  // "saveBodyType"
-        QT_MOC_LITERAL(422, 12),  // "loadBodyType"
-        QT_MOC_LITERAL(435, 8),  // "saveWill"
-        QT_MOC_LITERAL(444, 8),  // "loadWill"
-        QT_MOC_LITERAL(453, 15),  // "saveMagicDamage"
-        QT_MOC_LITERAL(469, 15),  // "loadMagicDamage"
-        QT_MOC_LITERAL(485, 24),  // "saveResistPhysicalDamage"
-        QT_MOC_LITERAL(510, 24),  // "loadResistPhysicalDamage"
-        QT_MOC_LITERAL(535, 21),  // "saveResistMagicDamage"
-        QT_MOC_LITERAL(557, 21),  // "loadResistMagicDamage"
-        QT_MOC_LITERAL(579, 25),  // "saveResistPhysicalEffects"
-        QT_MOC_LITERAL(605, 25),  // "loadResistPhysicalEffects"
-        QT_MOC_LITERAL(631, 22),  // "saveResistMagicEffects"
-        QT_MOC_LITERAL(654, 22),  // "loadResistMagicEffects"
-        QT_MOC_LITERAL(677, 32),  // "saveStrengtheningPhysicalEffects"
-        QT_MOC_LITERAL(710, 32),  // "loadStrengtheningPhysicalEffects"
-        QT_MOC_LITERAL(743, 31),  // "saveStrengtheningMagicalEffects"
-        QT_MOC_LITERAL(775, 31),  // "loadStrengtheningMagicalEffects"
-        QT_MOC_LITERAL(807, 17),  // "saveMeleeAccuracy"
-        QT_MOC_LITERAL(825, 17),  // "loadMeleeAccuracy"
-        QT_MOC_LITERAL(843, 18),  // "saveRangedAccuracy"
-        QT_MOC_LITERAL(862, 18),  // "loadRangedAccuracy"
-        QT_MOC_LITERAL(881, 17),  // "saveMagicAccuracy"
-        QT_MOC_LITERAL(899, 17),  // "loadMagicAccuracy"
-        QT_MOC_LITERAL(917, 11),  // "saveEvasion"
-        QT_MOC_LITERAL(929, 11),  // "loadEvasion"
-        QT_MOC_LITERAL(941, 11),  // "saveStealth"
-        QT_MOC_LITERAL(953, 11),  // "loadStealth"
-        QT_MOC_LITERAL(965, 17),  // "saveAttentiveness"
-        QT_MOC_LITERAL(983, 17),  // "loadAttentiveness"
-        QT_MOC_LITERAL(1001, 16),  // "saveLoadCapacity"
-        QT_MOC_LITERAL(1018, 16),  // "loadLoadCapacity"
-        QT_MOC_LITERAL(1035, 14),  // "saveInitiative"
-        QT_MOC_LITERAL(1050, 14),  // "loadInitiative"
-        QT_MOC_LITERAL(1065, 19),  // "saveMagicCastChance"
-        QT_MOC_LITERAL(1085, 19),  // "loadMagicCastChance"
-        QT_MOC_LITERAL(1105, 32),  // "saveChanceOfUsingCombatTechnique"
-        QT_MOC_LITERAL(1138, 32),  // "loadChanceOfUsingCombatTechnique"
-        QT_MOC_LITERAL(1171, 13),  // "saveMoveRange"
-        QT_MOC_LITERAL(1185, 13),  // "loadMoveRange"
-        QT_MOC_LITERAL(1199, 10),  // "saveHealth"
-        QT_MOC_LITERAL(1210, 10),  // "loadHealth"
-        QT_MOC_LITERAL(1221, 13),  // "saveEndurance"
-        QT_MOC_LITERAL(1235, 13),  // "loadEndurance"
-        QT_MOC_LITERAL(1249, 8),  // "saveMana"
-        QT_MOC_LITERAL(1258, 8),  // "loadMana"
-        QT_MOC_LITERAL(1267, 16),  // "saveMagicDefense"
-        QT_MOC_LITERAL(1284, 16)   // "loadMagicDefense"
+        QT_MOC_LITERAL(212, 11),  // "saveBonuses"
+        QT_MOC_LITERAL(224, 12),  // "loadStrength"
+        QT_MOC_LITERAL(237, 10),  // "loadValues"
+        QT_MOC_LITERAL(248, 11),  // "loadBonuses"
+        QT_MOC_LITERAL(260, 14),  // "emittedChanged"
+        QT_MOC_LITERAL(275, 11),  // "saveAgility"
+        QT_MOC_LITERAL(287, 11),  // "loadAgility"
+        QT_MOC_LITERAL(299, 16),  // "saveIntelligence"
+        QT_MOC_LITERAL(316, 16),  // "loadIntelligence"
+        QT_MOC_LITERAL(333, 9),  // "saveMagic"
+        QT_MOC_LITERAL(343, 9),  // "loadMagic"
+        QT_MOC_LITERAL(353, 12),  // "saveBodyType"
+        QT_MOC_LITERAL(366, 12),  // "loadBodyType"
+        QT_MOC_LITERAL(379, 8),  // "saveWill"
+        QT_MOC_LITERAL(388, 8),  // "loadWill"
+        QT_MOC_LITERAL(397, 15),  // "saveMagicDamage"
+        QT_MOC_LITERAL(413, 15),  // "loadMagicDamage"
+        QT_MOC_LITERAL(429, 24),  // "saveResistPhysicalDamage"
+        QT_MOC_LITERAL(454, 24),  // "loadResistPhysicalDamage"
+        QT_MOC_LITERAL(479, 21),  // "saveResistMagicDamage"
+        QT_MOC_LITERAL(501, 21),  // "loadResistMagicDamage"
+        QT_MOC_LITERAL(523, 25),  // "saveResistPhysicalEffects"
+        QT_MOC_LITERAL(549, 25),  // "loadResistPhysicalEffects"
+        QT_MOC_LITERAL(575, 22),  // "saveResistMagicEffects"
+        QT_MOC_LITERAL(598, 22),  // "loadResistMagicEffects"
+        QT_MOC_LITERAL(621, 32),  // "saveStrengtheningPhysicalEffects"
+        QT_MOC_LITERAL(654, 32),  // "loadStrengtheningPhysicalEffects"
+        QT_MOC_LITERAL(687, 31),  // "saveStrengtheningMagicalEffects"
+        QT_MOC_LITERAL(719, 31),  // "loadStrengtheningMagicalEffects"
+        QT_MOC_LITERAL(751, 17),  // "saveMeleeAccuracy"
+        QT_MOC_LITERAL(769, 17),  // "loadMeleeAccuracy"
+        QT_MOC_LITERAL(787, 18),  // "saveRangedAccuracy"
+        QT_MOC_LITERAL(806, 18),  // "loadRangedAccuracy"
+        QT_MOC_LITERAL(825, 17),  // "saveMagicAccuracy"
+        QT_MOC_LITERAL(843, 17),  // "loadMagicAccuracy"
+        QT_MOC_LITERAL(861, 11),  // "saveEvasion"
+        QT_MOC_LITERAL(873, 11),  // "loadEvasion"
+        QT_MOC_LITERAL(885, 11),  // "saveStealth"
+        QT_MOC_LITERAL(897, 11),  // "loadStealth"
+        QT_MOC_LITERAL(909, 17),  // "saveAttentiveness"
+        QT_MOC_LITERAL(927, 17),  // "loadAttentiveness"
+        QT_MOC_LITERAL(945, 16),  // "saveLoadCapacity"
+        QT_MOC_LITERAL(962, 16),  // "loadLoadCapacity"
+        QT_MOC_LITERAL(979, 14),  // "saveInitiative"
+        QT_MOC_LITERAL(994, 14),  // "loadInitiative"
+        QT_MOC_LITERAL(1009, 19),  // "saveMagicCastChance"
+        QT_MOC_LITERAL(1029, 19),  // "loadMagicCastChance"
+        QT_MOC_LITERAL(1049, 32),  // "saveChanceOfUsingCombatTechnique"
+        QT_MOC_LITERAL(1082, 32),  // "loadChanceOfUsingCombatTechnique"
+        QT_MOC_LITERAL(1115, 13),  // "saveMoveRange"
+        QT_MOC_LITERAL(1129, 13),  // "loadMoveRange"
+        QT_MOC_LITERAL(1143, 10),  // "saveHealth"
+        QT_MOC_LITERAL(1154, 10),  // "loadHealth"
+        QT_MOC_LITERAL(1165, 13),  // "saveEndurance"
+        QT_MOC_LITERAL(1179, 13),  // "loadEndurance"
+        QT_MOC_LITERAL(1193, 8),  // "saveMana"
+        QT_MOC_LITERAL(1202, 8),  // "loadMana"
+        QT_MOC_LITERAL(1211, 16),  // "saveMagicDefense"
+        QT_MOC_LITERAL(1228, 16)   // "loadMagicDefense"
     },
     "Person",
     "StrengthChanged",
@@ -197,14 +193,12 @@ Q_CONSTINIT static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person =
     "fullReinitialization",
     "saveAllStats",
     "createBackup",
-    "loadALLStats",
+    "loadAllStats",
     "saveStrength",
     "saveValues",
-    "saveProgressBarCurrentValue",
     "saveBonuses",
     "loadStrength",
     "loadValues",
-    "loadProgressBarCurrentValue",
     "loadBonuses",
     "emittedChanged",
     "saveAgility",
@@ -291,62 +285,62 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
        9,    0,  417,    2, 0x0a,    8 /* Public */,
       10,    1,  418,    2, 0x0a,    9 /* Public */,
       12,    0,  421,    2, 0x0a,   11 /* Public */,
-      13,    4,  422,    2, 0x0a,   12 /* Public */,
-      17,    4,  431,    2, 0x0a,   17 /* Public */,
-      22,    4,  440,    2, 0x0a,   22 /* Public */,
-      23,    4,  449,    2, 0x0a,   27 /* Public */,
-      24,    4,  458,    2, 0x0a,   32 /* Public */,
-      25,    4,  467,    2, 0x0a,   37 /* Public */,
-      26,    4,  476,    2, 0x0a,   42 /* Public */,
-      27,    4,  485,    2, 0x0a,   47 /* Public */,
-      28,    4,  494,    2, 0x0a,   52 /* Public */,
-      29,    4,  503,    2, 0x0a,   57 /* Public */,
-      30,    4,  512,    2, 0x0a,   62 /* Public */,
-      31,    4,  521,    2, 0x0a,   67 /* Public */,
-      32,    1,  530,    2, 0x0a,   72 /* Public */,
-      33,    0,  533,    2, 0x0a,   74 /* Public */,
-      34,    1,  534,    2, 0x0a,   75 /* Public */,
-      35,    0,  537,    2, 0x0a,   77 /* Public */,
-      36,    1,  538,    2, 0x0a,   78 /* Public */,
-      37,    0,  541,    2, 0x0a,   80 /* Public */,
-      38,    1,  542,    2, 0x0a,   81 /* Public */,
-      39,    0,  545,    2, 0x0a,   83 /* Public */,
-      40,    1,  546,    2, 0x0a,   84 /* Public */,
-      41,    0,  549,    2, 0x0a,   86 /* Public */,
-      42,    1,  550,    2, 0x0a,   87 /* Public */,
-      43,    0,  553,    2, 0x0a,   89 /* Public */,
-      44,    1,  554,    2, 0x0a,   90 /* Public */,
-      45,    0,  557,    2, 0x0a,   92 /* Public */,
-      46,    1,  558,    2, 0x0a,   93 /* Public */,
-      47,    0,  561,    2, 0x0a,   95 /* Public */,
-      48,    1,  562,    2, 0x0a,   96 /* Public */,
-      49,    0,  565,    2, 0x0a,   98 /* Public */,
-      50,    1,  566,    2, 0x0a,   99 /* Public */,
-      51,    0,  569,    2, 0x0a,  101 /* Public */,
-      52,    1,  570,    2, 0x0a,  102 /* Public */,
-      53,    0,  573,    2, 0x0a,  104 /* Public */,
-      54,    1,  574,    2, 0x0a,  105 /* Public */,
-      55,    0,  577,    2, 0x0a,  107 /* Public */,
-      56,    1,  578,    2, 0x0a,  108 /* Public */,
-      57,    0,  581,    2, 0x0a,  110 /* Public */,
-      58,    1,  582,    2, 0x0a,  111 /* Public */,
-      59,    0,  585,    2, 0x0a,  113 /* Public */,
-      60,    1,  586,    2, 0x0a,  114 /* Public */,
-      61,    0,  589,    2, 0x0a,  116 /* Public */,
-      62,    1,  590,    2, 0x0a,  117 /* Public */,
-      63,    0,  593,    2, 0x0a,  119 /* Public */,
-      64,    1,  594,    2, 0x0a,  120 /* Public */,
-      65,    0,  597,    2, 0x0a,  122 /* Public */,
-      66,    1,  598,    2, 0x0a,  123 /* Public */,
-      67,    0,  601,    2, 0x0a,  125 /* Public */,
-      68,    1,  602,    2, 0x0a,  126 /* Public */,
-      69,    0,  605,    2, 0x0a,  128 /* Public */,
-      70,    1,  606,    2, 0x0a,  129 /* Public */,
-      71,    0,  609,    2, 0x0a,  131 /* Public */,
-      72,    1,  610,    2, 0x0a,  132 /* Public */,
-      73,    0,  613,    2, 0x0a,  134 /* Public */,
-      74,    1,  614,    2, 0x0a,  135 /* Public */,
-      75,    0,  617,    2, 0x0a,  137 /* Public */,
+      13,    3,  422,    2, 0x0a,   12 /* Public */,
+      16,    3,  429,    2, 0x0a,   16 /* Public */,
+      20,    3,  436,    2, 0x0a,   20 /* Public */,
+      21,    3,  443,    2, 0x0a,   24 /* Public */,
+      22,    3,  450,    2, 0x0a,   28 /* Public */,
+      23,    3,  457,    2, 0x0a,   32 /* Public */,
+      24,    3,  464,    2, 0x0a,   36 /* Public */,
+      25,    3,  471,    2, 0x0a,   40 /* Public */,
+      26,    3,  478,    2, 0x0a,   44 /* Public */,
+      27,    3,  485,    2, 0x0a,   48 /* Public */,
+      28,    3,  492,    2, 0x0a,   52 /* Public */,
+      29,    3,  499,    2, 0x0a,   56 /* Public */,
+      30,    1,  506,    2, 0x0a,   60 /* Public */,
+      31,    0,  509,    2, 0x0a,   62 /* Public */,
+      32,    1,  510,    2, 0x0a,   63 /* Public */,
+      33,    0,  513,    2, 0x0a,   65 /* Public */,
+      34,    1,  514,    2, 0x0a,   66 /* Public */,
+      35,    0,  517,    2, 0x0a,   68 /* Public */,
+      36,    1,  518,    2, 0x0a,   69 /* Public */,
+      37,    0,  521,    2, 0x0a,   71 /* Public */,
+      38,    1,  522,    2, 0x0a,   72 /* Public */,
+      39,    0,  525,    2, 0x0a,   74 /* Public */,
+      40,    1,  526,    2, 0x0a,   75 /* Public */,
+      41,    0,  529,    2, 0x0a,   77 /* Public */,
+      42,    1,  530,    2, 0x0a,   78 /* Public */,
+      43,    0,  533,    2, 0x0a,   80 /* Public */,
+      44,    1,  534,    2, 0x0a,   81 /* Public */,
+      45,    0,  537,    2, 0x0a,   83 /* Public */,
+      46,    1,  538,    2, 0x0a,   84 /* Public */,
+      47,    0,  541,    2, 0x0a,   86 /* Public */,
+      48,    1,  542,    2, 0x0a,   87 /* Public */,
+      49,    0,  545,    2, 0x0a,   89 /* Public */,
+      50,    1,  546,    2, 0x0a,   90 /* Public */,
+      51,    0,  549,    2, 0x0a,   92 /* Public */,
+      52,    1,  550,    2, 0x0a,   93 /* Public */,
+      53,    0,  553,    2, 0x0a,   95 /* Public */,
+      54,    1,  554,    2, 0x0a,   96 /* Public */,
+      55,    0,  557,    2, 0x0a,   98 /* Public */,
+      56,    1,  558,    2, 0x0a,   99 /* Public */,
+      57,    0,  561,    2, 0x0a,  101 /* Public */,
+      58,    1,  562,    2, 0x0a,  102 /* Public */,
+      59,    0,  565,    2, 0x0a,  104 /* Public */,
+      60,    1,  566,    2, 0x0a,  105 /* Public */,
+      61,    0,  569,    2, 0x0a,  107 /* Public */,
+      62,    1,  570,    2, 0x0a,  108 /* Public */,
+      63,    0,  573,    2, 0x0a,  110 /* Public */,
+      64,    1,  574,    2, 0x0a,  111 /* Public */,
+      65,    0,  577,    2, 0x0a,  113 /* Public */,
+      66,    1,  578,    2, 0x0a,  114 /* Public */,
+      67,    0,  581,    2, 0x0a,  116 /* Public */,
+      68,    1,  582,    2, 0x0a,  117 /* Public */,
+      69,    0,  585,    2, 0x0a,  119 /* Public */,
+      70,    1,  586,    2, 0x0a,  120 /* Public */,
+      71,    0,  589,    2, 0x0a,  122 /* Public */,
+      72,    1,  590,    2, 0x0a,  123 /* Public */,
+      73,    0,  593,    2, 0x0a,  125 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -361,18 +355,18 @@ Q_CONSTINIT static const uint qt_meta_data_Person[] = {
     QMetaType::Void,
     QMetaType::Bool, QMetaType::Bool,   11,
     QMetaType::Bool,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   16,   11,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   18,   19,   20,   21,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   16,   11,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   18,   19,   20,   21,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   16,   11,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   18,   19,   20,   21,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   16,   11,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   18,   19,   20,   21,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   16,   11,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   18,   19,   20,   21,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   16,   11,
-    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   18,   19,   20,   21,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   14,   15,   11,
+    QMetaType::Bool, QMetaType::Bool, QMetaType::Bool, QMetaType::Bool,   17,   18,   19,
     QMetaType::Bool, QMetaType::Bool,   11,
     QMetaType::Bool,
     QMetaType::Bool, QMetaType::Bool,   11,
@@ -449,10 +443,9 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         // method 'saveAllStats'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        // method 'loadALLStats'
+        // method 'loadAllStats'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveStrength'
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
@@ -462,9 +455,7 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveAgility'
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
@@ -474,9 +465,7 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveIntelligence'
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
@@ -486,9 +475,7 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveMagic'
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
@@ -498,9 +485,7 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveBodyType'
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
@@ -510,15 +495,12 @@ Q_CONSTINIT const QMetaObject Person::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'saveWill'
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         // method 'loadWill'
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
         QtPrivate::TypeAndForceComplete<bool, std::false_type>,
@@ -653,31 +635,31 @@ void Person::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 7: _t->fullReinitialization(); break;
         case 8: { bool _r = _t->saveAllStats((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 9: { bool _r = _t->loadALLStats();
+        case 9: { bool _r = _t->loadAllStats();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 10: { bool _r = _t->saveStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 10: { bool _r = _t->saveStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 11: { bool _r = _t->loadStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 11: { bool _r = _t->loadStrength((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 12: { bool _r = _t->saveAgility((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 12: { bool _r = _t->saveAgility((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 13: { bool _r = _t->loadAgility((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 13: { bool _r = _t->loadAgility((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 14: { bool _r = _t->saveIntelligence((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 14: { bool _r = _t->saveIntelligence((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 15: { bool _r = _t->loadIntelligence((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 15: { bool _r = _t->loadIntelligence((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 16: { bool _r = _t->saveMagic((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 16: { bool _r = _t->saveMagic((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 17: { bool _r = _t->loadMagic((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 17: { bool _r = _t->loadMagic((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 18: { bool _r = _t->saveBodyType((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 18: { bool _r = _t->saveBodyType((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 19: { bool _r = _t->loadBodyType((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 19: { bool _r = _t->loadBodyType((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 20: { bool _r = _t->saveWill((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 20: { bool _r = _t->saveWill((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 21: { bool _r = _t->loadWill((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[4])));
+        case 21: { bool _r = _t->loadWill((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[3])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 22: { bool _r = _t->saveMagicDamage((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;

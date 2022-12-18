@@ -273,73 +273,158 @@ bool Person::removeBonusFromStat(MagicDefenseBonus *bonus)
 //Перерасчёт вторичных навыков
 void Person::recalculateStats()
 {
-    int magicDamage =
-    floor(1.5 * Magic.getFinalValue()) + floor(1.5 * Intelligence.getFinalValue()) + floor(0.5 * Will.getFinalValue());
-    MagicDamage.setValue(magicDamage);
-
-    int resistPhysicalDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * Magic.getFinalValue()) + BodyType.getFinalValue();
-    ResistPhysicalDamage.setValue(resistPhysicalDamage);
-
-    int resistMagicDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * BodyType.getFinalValue()) + Magic.getFinalValue();
-    ResistMagicDamage.setValue(resistMagicDamage);
-
-    int resistPhysicalEffects = floor(0.1 * Will.getFinalValue()) + 10;
-    ResistPhysicalEffects.setValue(resistPhysicalEffects);
-
-    int resistMagicEffects = floor(0.1 * Will.getFinalValue()) + floor(0.1 * Magic.getFinalValue()) + 5;
-    ResistMagicEffects.setValue(resistMagicEffects);
-
-    int strengtheningPhysicalEffects = floor(0.1 * Strength.getFinalValue());
-    StrengtheningPhysicalEffects.setValue(strengtheningPhysicalEffects);
-
-    int strengtheningMagicalEffects = floor(0.1 * Intelligence.getFinalValue());
-    StrengtheningMagicalEffects.setValue(strengtheningMagicalEffects);
-
-    int meleeAccuracy = floor(0.1 * Agility.getFinalValue()) + 20;
-    MeleeAccuracy.setValue(meleeAccuracy);
-
-    int rangedAccuracy = floor(0.1 * Agility.getFinalValue()) + 15;
-    RangedAccuracy.setValue(rangedAccuracy);
-
-    int magicAccuracy = floor(0.1 * Intelligence.getFinalValue()) + 15;
-    MagicAccuracy.setValue(magicAccuracy);
-
-    int evasion = floor(0.5 * Agility.getFinalValue()) + floor(0.1 * BodyType.getFinalValue());
-    Evasion.setValue(evasion);
-
-    int stealth = Intelligence.getFinalValue() + Agility.getFinalValue();
-    Stealth.setValue(stealth);
-
-    int attentiveness = Intelligence.getFinalValue() + Agility.getFinalValue() + Will.getFinalValue();
-    Attentiveness.setValue(attentiveness);
-
-    int loadCapacity = floor(0.5 * Strength.getFinalValue()) + floor(0.5 * BodyType.getFinalValue());
-    LoadCapacity.setValue(loadCapacity);
-
-    int initiative = floor(5 * Agility.getFinalValue()) + Intelligence.getFinalValue() + Will.getFinalValue();
-    Initiative.setValue(initiative);
-
-    int magicCastChance = floor(0.3 * Intelligence.getFinalValue()) + floor(0.2 * Magic.getFinalValue());
-    MagicCastChance.setValue(magicCastChance);
-
-    int chanceOfUsingCombatTechnique = floor(0.2 * Agility.getFinalValue()) + 20;
-    ChanceOfUsingCombatTechnique.setValue(chanceOfUsingCombatTechnique);
-
-    int moveRange = floor(0.75 * Agility.getFinalValue()) + floor(0.5 * Strength.getFinalValue()) + BodyType.getFinalValue();
-    MoveRange.setValue(moveRange);
-
-    int health = Strength.getFinalValue() * 2 + BodyType.getFinalValue() * 10 + Will.getFinalValue() * 5 + Magic.getFinalValue();
-    Health.setValue(health);
-
-    int endurance = Agility.getFinalValue() * 10 + BodyType.getFinalValue();
-    Endurance.setValue(endurance);
-
-    int mana = Magic.getFinalValue() * 10 + Intelligence.getFinalValue() * 2 + Will.getFinalValue();
-    Mana.setValue(mana);
-
+    recalculateMagicDamage();
+    recalculateResistPhysicalDamage();
+    recalculateResistMagicDamage();
+    recalculateResistPhysicalEffects();
+    recalculateResistMagicEffects();
+    recalculateStrengtheningPhysicalEffects();
+    recalculateStrengtheningMagicalEffects();
+    recalculateMeleeAccuracy();
+    recalculateRangedAccuracy();
+    recalculateMagicAccuracy();
+    recalculateEvasion();
+    recalculateStealth();
+    recalculateAttentiveness();
+    recalculateLoadCapacity();
+    recalculateInitiative();
+    recalculateMagicCastChance();
+    recalculateChanceOfUsingCombatTechnique();
+    recalculateMoveRange();
+    recalculateHealth();
+    recalculateEndurance();
+    recalculateMana();
     recalculateMagicDefense();
 }
 
+void Person::recalculateMagicDamage()
+{
+    int magicDamage =
+    floor(1.5 * Magic.getFinalValue()) + floor(1.5 * Intelligence.getFinalValue()) + floor(0.5 * Will.getFinalValue());
+    MagicDamage.setValue(magicDamage);
+}
+
+void Person::recalculateResistPhysicalDamage()
+{
+    int resistPhysicalDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * Magic.getFinalValue()) + BodyType.getFinalValue();
+    ResistPhysicalDamage.setValue(resistPhysicalDamage);
+}
+
+void Person::recalculateResistMagicDamage()
+{
+    int resistMagicDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * BodyType.getFinalValue()) + Magic.getFinalValue();
+    ResistMagicDamage.setValue(resistMagicDamage);
+}
+
+void Person::recalculateResistPhysicalEffects()
+{
+    int resistPhysicalEffects = floor(0.1 * Will.getFinalValue()) + 10;
+    ResistPhysicalEffects.setValue(resistPhysicalEffects);
+}
+
+void Person::recalculateResistMagicEffects()
+{
+    int resistMagicEffects = floor(0.1 * Will.getFinalValue()) + floor(0.1 * Magic.getFinalValue()) + 5;
+    ResistMagicEffects.setValue(resistMagicEffects);
+}
+
+void Person::recalculateStrengtheningPhysicalEffects()
+{
+    int strengtheningPhysicalEffects = floor(0.1 * Strength.getFinalValue());
+    StrengtheningPhysicalEffects.setValue(strengtheningPhysicalEffects);
+}
+
+void Person::recalculateStrengtheningMagicalEffects()
+{
+    int strengtheningMagicalEffects = floor(0.1 * Intelligence.getFinalValue());
+    StrengtheningMagicalEffects.setValue(strengtheningMagicalEffects);
+}
+
+void Person::recalculateMeleeAccuracy()
+{
+    int meleeAccuracy = floor(0.1 * Agility.getFinalValue()) + 20;
+    MeleeAccuracy.setValue(meleeAccuracy);
+}
+
+void Person::recalculateRangedAccuracy()
+{
+    int rangedAccuracy = floor(0.1 * Agility.getFinalValue()) + 15;
+    RangedAccuracy.setValue(rangedAccuracy);
+}
+
+void Person::recalculateMagicAccuracy()
+{
+    int magicAccuracy = floor(0.1 * Intelligence.getFinalValue()) + 15;
+    MagicAccuracy.setValue(magicAccuracy);
+}
+
+void Person::recalculateEvasion()
+{
+    int evasion = floor(0.5 * Agility.getFinalValue()) + floor(0.1 * BodyType.getFinalValue());
+    Evasion.setValue(evasion);
+}
+
+void Person::recalculateStealth()
+{
+    int stealth = Intelligence.getFinalValue() + Agility.getFinalValue();
+    Stealth.setValue(stealth);
+}
+
+void Person::recalculateAttentiveness()
+{
+    int attentiveness = Intelligence.getFinalValue() + Agility.getFinalValue() + Will.getFinalValue();
+    Attentiveness.setValue(attentiveness);
+}
+
+void Person::recalculateLoadCapacity()
+{
+    int loadCapacity = floor(0.5 * Strength.getFinalValue()) + floor(0.5 * BodyType.getFinalValue());
+    LoadCapacity.setValue(loadCapacity);
+}
+
+void Person::recalculateInitiative()
+{
+    int initiative = floor(5 * Agility.getFinalValue()) + Intelligence.getFinalValue() + Will.getFinalValue();
+    Initiative.setValue(initiative);
+}
+
+void Person::recalculateMagicCastChance()
+{
+    int magicCastChance = floor(0.3 * Intelligence.getFinalValue()) + floor(0.2 * Magic.getFinalValue());
+    MagicCastChance.setValue(magicCastChance);
+}
+
+void Person::recalculateChanceOfUsingCombatTechnique()
+{
+    int chanceOfUsingCombatTechnique = floor(0.2 * Agility.getFinalValue()) + 20;
+    ChanceOfUsingCombatTechnique.setValue(chanceOfUsingCombatTechnique);
+}
+
+void Person::recalculateMoveRange()
+{
+    int moveRange = floor(0.75 * Agility.getFinalValue()) + floor(0.5 * Strength.getFinalValue()) + BodyType.getFinalValue();
+    MoveRange.setValue(moveRange);
+}
+
+void Person::recalculateHealth()
+{
+    int health = Strength.getFinalValue() * 2 + BodyType.getFinalValue() * 10 + Will.getFinalValue() * 5 + Magic.getFinalValue();
+    Health.setValue(health);
+}
+
+void Person::recalculateEndurance()
+{
+    int endurance = Agility.getFinalValue() * 10 + BodyType.getFinalValue();
+    Endurance.setValue(endurance);
+}
+
+void Person::recalculateMana()
+{
+    int mana = Magic.getFinalValue() * 10 + Intelligence.getFinalValue() * 2 + Will.getFinalValue();
+    Mana.setValue(mana);
+}
+
+//Перерасчёт количества родных чанков магической защиты
 void Person::recalculateMagicDefense()
 {
     int numberOfChunks = 0;
@@ -686,12 +771,12 @@ bool Person::saveAllStats(bool createBackup)
         this->createBackup();
     }
 
-    bool successSaveStrength = saveStrength(true, false, true, false);
-    bool successSaveAgility = saveAgility(true, false, true, false);
-    bool successSaveIntelligence = saveIntelligence(true, false, true, false);
-    bool successSaveMagic = saveMagic(true, false, true, false);
-    bool successSaveBodyType = saveBodyType(true, false, true, false);
-    bool successSaveWill = saveWill(true, false, true, false);
+    bool successSaveStrength = saveStrength(true, true, false);
+    bool successSaveAgility = saveAgility(true, true, false);
+    bool successSaveIntelligence = saveIntelligence(true, true, false);
+    bool successSaveMagic = saveMagic(true, true, false);
+    bool successSaveBodyType = saveBodyType(true, true, false);
+    bool successSaveWill = saveWill(true, true, false);
 
     bool successSaveMagicDamage = saveMagicDamage(false);
     bool successSaveResistPhysicalDamage = saveResistPhysicalDamage(false);
@@ -728,14 +813,14 @@ bool Person::saveAllStats(bool createBackup)
             successSaveMoveRange && successSaveHealth && successSaveEndurance && successSaveMana && succesSaveMagicDefense;
 }
 
-bool Person::loadALLStats()
+bool Person::loadAllStats()
 {
-    bool successLoadStrength = loadStrength(true, false, true, false);
-    bool successLoadAgility = loadAgility(true, false, true, false);
-    bool successLoadIntelligence = loadIntelligence(true, false, true, false);
-    bool successLoadMagic = loadMagic(true, false, true, false);
-    bool successLoadBodyType = loadBodyType(true, false, true, false);
-    bool successLoadWill = loadWill(true, false, true, false);
+    bool successLoadStrength = loadStrength(true, true, false);
+    bool successLoadAgility = loadAgility(true, true, false);
+    bool successLoadIntelligence = loadIntelligence(true, true, false);
+    bool successLoadMagic = loadMagic(true, true, false);
+    bool successLoadBodyType = loadBodyType(true, true, false);
+    bool successLoadWill = loadWill(true, true, false);
 
     bool successLoadMagicDamage = loadMagicDamage();
     bool successLoadResistPhysicalDamage = loadResistPhysicalDamage();
@@ -760,6 +845,9 @@ bool Person::loadALLStats()
     bool successLoadMana = loadMana();
     bool successLoadMagicDefense = loadMagicDefense();
 
+    recalculateStats();
+    emit FullReinitializationRequest();
+
     return successLoadStrength && successLoadAgility && successLoadIntelligence &&
             successLoadMagic && successLoadMagic && successLoadBodyType &&
             successLoadWill && successLoadMagicDamage && successLoadResistPhysicalDamage &&
@@ -772,73 +860,80 @@ bool Person::loadALLStats()
             successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana && successLoadMagicDefense;
 }
 
-bool Person::saveStrength(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
+/*Ниже идут методы сохранения и загрузки ко всем статам. Почти все из них вызывают универсальные методы
+ *сохранения и загрузки, и только магическая защита имеет свои уникальные функции. У первичных навыков
+ *можно выбрать сохранять/загружать ли значения и бонусы, а также у загрузки - посылать ли сигнал,
+ *говорящий о том, что стат был изменён. У всех методов сохранения есть возможность выбрать сгенерирует
+ *ли запрос бекап. У всех вторичных навыков не сохраняется значение, ведь оно просто генерируется заного
+ *при любом обновлении первичных, и смысла хранить его нет. У них сохраняются только бонусы, а у навыков
+ *имеющих прогресбар, сохраняется текущее значение прогресбара.*/
+bool Person::saveStrength(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
+    return saveStat("Strength", Strength.getValue(), Strength.getMaximum(), 0, Strength.getBonuses(), saveValues, false, saveBonuses, createBackup);
 }
-bool Person::loadStrength(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
+bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, loadProgressBarCurrentValue, loadBonuses);
+    bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, false, loadBonuses);
     if(emittedChanged)
         emit StrengthChanged();
     return success;
 }
 
-bool Person::saveAgility(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
+bool Person::saveAgility(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Agility", Agility.getValue(), Agility.getMaximum(), 0, Agility.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
+    return saveStat("Agility", Agility.getValue(), Agility.getMaximum(), 0, Agility.getBonuses(), saveValues, false, saveBonuses, createBackup);
 }
-bool Person::loadAgility(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
+bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, loadProgressBarCurrentValue, loadBonuses);
+    bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, false, loadBonuses);
     if(emittedChanged)
         emit AgilityChanged();
     return success;
 }
 
-bool Person::saveIntelligence(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
+bool Person::saveIntelligence(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Intelligence", Intelligence.getValue(), Intelligence.getMaximum(), 0, Intelligence.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
+    return saveStat("Intelligence", Intelligence.getValue(), Intelligence.getMaximum(), 0, Intelligence.getBonuses(), saveValues, false, saveBonuses, createBackup);
 }
-bool Person::loadIntelligence(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
+bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, loadProgressBarCurrentValue, loadBonuses);
+    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, false, loadBonuses);
     if(emittedChanged)
         emit IntelligenceChanged();
     return success;
 }
 
-bool Person::saveMagic(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
+bool Person::saveMagic(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Magic", Magic.getValue(), Magic.getMaximum(), 0, Magic.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
+    return saveStat("Magic", Magic.getValue(), Magic.getMaximum(), 0, Magic.getBonuses(), saveValues, false, saveBonuses, createBackup);
 }
-bool Person::loadMagic(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
+bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, loadProgressBarCurrentValue, loadBonuses);
+    bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, false, loadBonuses);
     if(emittedChanged)
         emit MagicChanged();
     return success;
 }
 
-bool Person::saveBodyType(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
+bool Person::saveBodyType(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("BodyType", BodyType.getValue(), BodyType.getMaximum(), 0, BodyType.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
+    return saveStat("BodyType", BodyType.getValue(), BodyType.getMaximum(), 0, BodyType.getBonuses(), saveValues, false, saveBonuses, createBackup);
 }
-bool Person::loadBodyType(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
+bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, loadProgressBarCurrentValue, loadBonuses);
+    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, false, loadBonuses);
     if(emittedChanged)
         emit BodyTypeChanged();
     return success;
 }
 
-bool Person::saveWill(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
+bool Person::saveWill(bool saveValues, bool saveBonuses, bool createBackup)
 {
-    return saveStat("Will", Will.getValue(), Will.getMaximum(), 0, Will.getBonuses(), saveValues, saveProgressBarCurrentValue, saveBonuses, createBackup);
+    return saveStat("Will", Will.getValue(), Will.getMaximum(), 0, Will.getBonuses(), saveValues, false, saveBonuses, createBackup);
 }
-bool Person::loadWill(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged)
+bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
-    bool success = loadStat("Will", Bonus::WILL, Will, loadValues, loadProgressBarCurrentValue, loadBonuses);
+    bool success = loadStat("Will", Bonus::WILL, Will, loadValues, false, loadBonuses);
     if(emittedChanged)
         emit WillChanged();
     return success;
@@ -1425,7 +1520,7 @@ bool Person::loadMagicDefense()
             return false;
         }
 
-        magicDefense.removeAllBonuses();
+        magicDefense.getBonuses().clear();
         while (query.next()){
             if(query.value(6).toBool()){
                 QSqlQuery chunksQuery(database);
@@ -1510,6 +1605,10 @@ bool Person::loadMagicDefense()
     return true;
 }
 
+/*Универсальный метод сохранения стата. В нём представлены все возможные поля статов. Если у
+ *стата, который необходимо сохранить некоторых полей нет, то в них передаётся просто 0 и
+ *указывается false в переменных, говорящих что сохранять. В поле statName следует передать
+ *имя стата так, как его переменная названа в этом классе.*/
 bool Person::saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus *> bonuses,
                       bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup)
 {
@@ -1750,6 +1849,11 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
     return true;
 }
 
+/*Универсальный метод загрузки стата. В нём представлены все возможные варианты того, что у
+ *стата можно загрузить. Если у стата, который необходимо загрузить некоторых полей нет, то
+ *указвается false в переменных, говорящих что загружать. В поле statName следует передать
+ *имя стата так, как его переменная названа в этом классе. В перемннею statIndex следует
+ *передать соответствующее стату значение enum'а StatName из Bonus*/
 bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValue, bool loadProgressBarCurrentValue, bool loadBonuses)
 {
     {
@@ -1906,7 +2010,7 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, b
                 return false;
             }
 
-            stat.removeAllBonuses();
+            stat.getBonuses().clear();
             while (query.next())
                 stat.addBonus(new Bonus(statIndex, query.value(1).toInt(), query.value(2).toBool(), query.value(3).toString()));
         }
@@ -1918,6 +2022,7 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, b
     return true;
 }
 
+//Создание бекапа сохранений в отдельной папке в той же директории, что и текущее сохранение
 void Person::createBackup()
 {
     QDir dir;

@@ -23,6 +23,28 @@ public:
     //Перерасчёт вторичных навыков
     void recalculateStats();
 
+    void recalculateMagicDamage();
+    void recalculateResistPhysicalDamage();
+    void recalculateResistMagicDamage();
+    void recalculateResistPhysicalEffects();
+    void recalculateResistMagicEffects();
+    void recalculateStrengtheningPhysicalEffects();
+    void recalculateStrengtheningMagicalEffects();
+    void recalculateMeleeAccuracy();
+    void recalculateRangedAccuracy();
+    void recalculateMagicAccuracy();
+    void recalculateEvasion();
+    void recalculateStealth();
+    void recalculateAttentiveness();
+    void recalculateLoadCapacity();
+    void recalculateInitiative();
+    void recalculateMagicCastChance();
+    void recalculateChanceOfUsingCombatTechnique();
+    void recalculateMoveRange();
+    void recalculateHealth();
+    void recalculateEndurance();
+    void recalculateMana();
+    //Перерасчёт количества родных чанков магической защиты
     void recalculateMagicDefense();
 
     Stat* getStrength();
@@ -103,25 +125,38 @@ public slots:
     void fullReinitialization();
 
     bool saveAllStats(bool createBackup);
-    bool loadALLStats();
+    bool loadAllStats();
 
-    bool saveStrength(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
-    bool loadStrength(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
+    /*Ниже идут методы сохранения и загрузки ко всем статам. Почти все из них вызывают универсальные методы
+     *сохранения и загрузки, и только магическая защита имеет свои уникальные функции. У первичных навыков
+     *можно выбрать сохранять/загружать ли значения и бонусы, а также у загрузки - посылать ли сигнал,
+     *говорящий о том, что стат был изменён. У всех методов сохранения есть возможность выбрать сгенерирует
+     *ли запрос бекап. У всех вторичных навыков не сохраняется значение, ведь оно просто генерируется заного
+     *при любом обновлении первичных, и смысла хранить его нет. У них сохраняются только бонусы, а у навыков
+     *имеющих прогресбар, сохраняется текущее значение прогресбара.
+     *
+     *Важно отметить, что загрузка статов по отдельности из окна персонажа имеет непредсказуемый эффект в
+     *плане отображения значений на виджетах. Если появится надобность загружать статы по одному от туда,
+     *то следует явным образом запустить переинициализацию всех задействованых виджетов. loadAllStats же
+     *автоматически посылает запрос на полную переинициализацию и настоятельно рекомендуется использовать
+     *именно эту функцию для загрузки.*/
+    bool saveStrength(bool saveValues, bool saveBonuses, bool createBackup);
+    bool loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveAgility(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
-    bool loadAgility(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
+    bool saveAgility(bool saveValues, bool saveBonuses, bool createBackup);
+    bool loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveIntelligence(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
-    bool loadIntelligence(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
+    bool saveIntelligence(bool saveValues, bool saveBonuses, bool createBackup);
+    bool loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveMagic(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
-    bool loadMagic(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
+    bool saveMagic(bool saveValues, bool saveBonuses, bool createBackup);
+    bool loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveBodyType(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
-    bool loadBodyType(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
+    bool saveBodyType(bool saveValues, bool saveBonuses, bool createBackup);
+    bool loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveWill(bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
-    bool loadWill(bool loadValues, bool loadProgressBarCurrentValue, bool loadBonuses, bool emittedChanged);
+    bool saveWill(bool saveValues, bool saveBonuses, bool createBackup);
+    bool loadWill(bool loadValues, bool loadBonuses, bool emittedChanged);
 
     bool saveMagicDamage(bool createBackup);
     bool loadMagicDamage();
@@ -190,9 +225,19 @@ public slots:
     bool loadMagicDefense();
 
 private:
+    /*Универсальный метод сохранения стата. В нём представлены все возможные поля статов. Если у
+     *стата, который необходимо сохранить некоторых полей нет, то в них передаётся просто 0 и
+     *указывается false в переменных, говорящих что сохранять. В поле statName следует передать
+     *имя стата так, как его переменная названа в этом классе.*/
     bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses,
                   bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
+    /*Универсальный метод загрузки стата. В нём представлены все возможные варианты того, что у
+     *стата можно загрузить. Если у стата, который необходимо загрузить некоторых полей нет, то
+     *указвается false в переменных, говорящих что загружать. В поле statName следует передать
+     *имя стата так, как его переменная названа в этом классе. В перемннею statIndex следует
+     *передать соответствующее стату значение enum'а StatName из Bonus*/
     bool loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValue, bool loadProgressBarCurrentValue, bool loadBonuses);
+    //Создание бекапа сохранений в отдельной папке в той же директории, что и текущее сохранение
     void createBackup();
 
     Stat Strength = Stat(999999);
