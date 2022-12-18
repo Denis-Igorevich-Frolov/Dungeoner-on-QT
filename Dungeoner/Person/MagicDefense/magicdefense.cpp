@@ -550,6 +550,13 @@ QVector<MagicDefenseBonus *> MagicDefense::getBonuses()
     return bonuses;
 }
 
+/*Очистка вектора бонусов. Метод не обновляет отображение бонусов в виджетах. Память указателей на
+ *бонусы не высвобождается, так как это должно происходить только в классе предмета или эффекта*/
+void MagicDefense::removeAllBonuses()
+{
+    bonuses.clear();
+}
+
 //Так как класс MagicDefense унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
 MagicDefense& MagicDefense::operator= (const MagicDefense &stat)
 {

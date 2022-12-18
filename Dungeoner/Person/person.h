@@ -118,6 +118,7 @@ signals:
     void BodyTypeChanged();
     void WillChanged();
 
+    //Запрос на полную переинициализацию виджетов статов
     void FullReinitializationRequest();
 public slots:
     /*Слот полной переинициализации. Каждый раз когда операции с бонусами проваливаются
