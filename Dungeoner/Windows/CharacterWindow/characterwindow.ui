@@ -2260,7 +2260,7 @@ border: none;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);</string>
+        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);</string>
        </property>
        <property name="text">
         <string/>
@@ -2276,7 +2276,7 @@ border: none;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);</string>
+        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);</string>
        </property>
        <property name="text">
         <string/>
@@ -2292,7 +2292,7 @@ border: none;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);</string>
+        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);</string>
        </property>
        <property name="text">
         <string/>
@@ -2308,7 +2308,7 @@ border: none;</string>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);</string>
+        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);</string>
        </property>
        <property name="text">
         <string/>
@@ -2372,11 +2372,22 @@ border: none;</string>
     </rect>
    </property>
   </widget>
+  <widget class="InventoryItem" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>1220</x>
+     <y>490</y>
+     <width>201</width>
+     <height>161</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>TopMenuWrapper</zorder>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
   <zorder>ProgressBars</zorder>
   <zorder>tooltip</zorder>
+  <zorder>widget</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -2407,6 +2418,12 @@ border: none;</string>
    <class>Tooltip</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/Tooltip/tooltip.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>InventoryItem</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/InventoryItem/inventoryitem.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

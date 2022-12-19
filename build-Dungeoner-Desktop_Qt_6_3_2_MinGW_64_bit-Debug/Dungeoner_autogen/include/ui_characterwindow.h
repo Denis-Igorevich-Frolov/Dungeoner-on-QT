@@ -9,6 +9,7 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
+#include <CustomWidgets/InventoryItem/inventoryitem.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -115,6 +116,7 @@ public:
     QLabel *BottomBorder;
     QLabel *BottomBound;
     Tooltip *tooltip;
+    InventoryItem *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -765,19 +767,19 @@ public:
         label = new QLabel(DecorativeElementWrapper);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(9, 0, 43, 10));
-        label->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);"));
+        label->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
         label_2 = new QLabel(DecorativeElementWrapper);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(776, 0, 43, 10));
-        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);"));
+        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
         label_3 = new QLabel(DecorativeElementWrapper);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(1868, 0, 43, 10));
-        label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);"));
+        label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
         label_4 = new QLabel(DecorativeElementWrapper);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(1101, 0, 43, 10));
-        label_4->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);"));
+        label_4->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
 
         verticalLayout_4->addWidget(DecorativeElementWrapper);
 
@@ -800,11 +802,15 @@ public:
         tooltip = new Tooltip(CharacterWindow);
         tooltip->setObjectName(QString::fromUtf8("tooltip"));
         tooltip->setGeometry(QRect(0, 0, 0, 0));
+        widget = new InventoryItem(CharacterWindow);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(1220, 490, 201, 161));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
         tooltip->raise();
+        widget->raise();
 
         retranslateUi(CharacterWindow);
 

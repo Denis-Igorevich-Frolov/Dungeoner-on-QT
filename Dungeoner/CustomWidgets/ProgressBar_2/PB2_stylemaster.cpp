@@ -10,12 +10,12 @@ QString PB2_StyleMaster::BordersStyle()
     return
     "QLabel#BorderBottom{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Border-B-1.png);"
+    "   background-image: url(:/Text-Block-3/Textures PNG/Border-B-1.png);"
     "}"
     ""
     "QLabel#BorderTop{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Border-T-1.png);"
+    "   background-image: url(:/Text-Block-3/Textures PNG/Border-T-1.png);"
     "}";
 }
 
@@ -34,13 +34,13 @@ QString PB2_StyleMaster::TipsStyle()
     return
     "QLabel#TipLeft{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/ProgressBarTip-L-1.png);"
+    "   background-image: url(:/Progressbar-1/Textures PNG/ProgressBarTip-L-1.png);"
     "   background-repeat: no-repeat;"
     "}"
     ""
     "QLabel#TipRight{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/ProgressBarTip-R-1.png);"
+    "   background-image: url(:/Progressbar-1/Textures PNG/ProgressBarTip-R-1.png);"
     "   background-repeat: no-repeat;"
     "}";
 }
@@ -50,7 +50,7 @@ QString PB2_StyleMaster::ProgressBarSeparatorStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/ProgressBarSeparator.png);"
+    "   background-image: url(:/Progressbar-1/Textures PNG/ProgressBarSeparator.png);"
     "}";
 }
 
@@ -70,7 +70,7 @@ QString PB2_StyleMaster::TooltipTextStyle(int sizePX, QString color)
 QString PB2_StyleMaster::SeparatorStyle()
 {
     return
-    "background: url(:/Text-Block-1/Textures PNG/Separator-1.png);"
+    "background: url(:/Separators/Textures PNG/Separator-1.png);"
     "background-repeat: norepeat;"
     "background-position: center;";
 }

@@ -490,7 +490,7 @@ void ProgressBar_2::recalculationChunkWidth()
 //Перерисовка заполненной области при помощи тайлящейся окрашенной текстуры
 void ProgressBar_2::redrawChunk()
 {
-    QImage new_image(":/Text-Block-1/Textures PNG/ProgressBarBody-1.jpg");
+    QImage new_image(":/Progressbar-1/Textures PNG/ProgressBarBody-1.jpg");
     QPixmap pixmap(this->width(), ui->ProgressBarChunk->height());
     QPainter painter(&pixmap);
     //Тайлинг текстуры

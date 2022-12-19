@@ -1,10 +1,6 @@
 <RCC>
     <qresource prefix="/Text-Block-1">
         <file>Textures PNG/Text-Block-1-BG.png</file>
-        <file>Textures PNG/Angle-7-B-L.png</file>
-        <file>Textures PNG/Angle-7-B-R.png</file>
-        <file>Textures PNG/Angle-7-T-L.png</file>
-        <file>Textures PNG/Angle-7-T-R.png</file>
         <file>Textures PNG/Text-Block-1-B.png</file>
         <file>Textures PNG/Text-Block-1-L.png</file>
         <file>Textures PNG/Text-Block-1-R.png</file>
@@ -13,30 +9,48 @@
         <file>Textures PNG/Text-Block-Hovered-1-T.png</file>
         <file>Textures PNG/Text-Block-Pressed-1-T.png</file>
         <file>Textures PNG/Text-Block-Pressed-1-B.png</file>
+    </qresource>
+    <qresource prefix="/Text-Block-2">
+        <file>Textures PNG/Angle-7-B-L.png</file>
+        <file>Textures PNG/Angle-7-B-R.png</file>
+        <file>Textures PNG/Angle-7-T-L.png</file>
+        <file>Textures PNG/Angle-7-T-R.png</file>
+    </qresource>
+    <qresource prefix="/Separators">
+        <file>Textures PNG/Separator-1.png</file>
+    </qresource>
+    <qresource prefix="/Vertical-Slider-1">
         <file>Textures PNG/Vertical-Slider-Body.png</file>
         <file>Textures PNG/Vertical-Slider-Button.png</file>
         <file>Textures PNG/Vertical-Slider-Button-Hovered.png</file>
-        <file>Textures PNG/Vertical-Slider-Pike-B.png</file>
-        <file>Textures PNG/Vertical-Slider-Pike-T.png</file>
         <file>Textures PNG/Vertical-Slider-Button-Pressed.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-B.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-Hovered-B.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-Hovered-T.png</file>
-        <file>Textures PNG/Vertical-Slider-Pike-Pressed-T.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-Pressed-B.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-Pressed-T.png</file>
+        <file>Textures PNG/Vertical-Slider-Pike-T.png</file>
+    </qresource>
+    <qresource prefix="/Text-Block-3">
         <file>Textures PNG/Border-B-1.png</file>
         <file>Textures PNG/Border-T-1.png</file>
-        <file>Textures PNG/ProgressBarTip-L-1.png</file>
-        <file>Textures PNG/ProgressBarTip-R-1.png</file>
-        <file>Textures PNG/Tip-L-1.png</file>
-        <file>Textures PNG/Tip-R-1.png</file>
+    </qresource>
+    <qresource prefix="/Progressbar-1">
         <file>Textures PNG/ProgressBarBody-1.jpg</file>
         <file>Textures PNG/ProgressBarSeparator.png</file>
+        <file>Textures PNG/ProgressBarTip-L-1.png</file>
+        <file>Textures PNG/ProgressBarTip-R-1.png</file>
+    </qresource>
+    <qresource prefix="/Decorative-Elements">
         <file>Textures PNG/DecorativeElement-1-L.png</file>
         <file>Textures PNG/DecorativeElement-1-R.png</file>
+        <file>Textures PNG/Tip-L-1.png</file>
+        <file>Textures PNG/Tip-R-1.png</file>
+    </qresource>
+    <qresource prefix="/Text-Block-4">
         <file>Textures PNG/Angle-1-B-L.png</file>
         <file>Textures PNG/Angle-1-B-R.png</file>
         <file>Textures PNG/Angle-1-T-L.png</file>
         <file>Textures PNG/Angle-1-T-R.png</file>
-        <file>Textures PNG/Separator-1.png</file>
     </qresource>
 </RCC>

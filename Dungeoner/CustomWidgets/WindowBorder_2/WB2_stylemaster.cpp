@@ -10,7 +10,7 @@ QString WB2_Stylemaster::BottomLeftCornerStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Angle-1-B-L.png);"
+    "   background-image: url(:/Text-Block-4/Textures PNG/Angle-1-B-L.png);"
     "}";
 }
 
@@ -19,7 +19,7 @@ QString WB2_Stylemaster::TopLeftCornerStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Angle-1-T-L.png);"
+    "   background-image: url(:/Text-Block-4/Textures PNG/Angle-1-T-L.png);"
     "}";
 }
 
@@ -28,7 +28,7 @@ QString WB2_Stylemaster::BottomRightCornerStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Angle-1-B-R.png);"
+    "   background-image: url(:/Text-Block-4/Textures PNG/Angle-1-B-R.png);"
     "}";
 }
 
@@ -37,7 +37,7 @@ QString WB2_Stylemaster::TopRightCornerStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Angle-1-T-R.png);"
+    "   background-image: url(:/Text-Block-4/Textures PNG/Angle-1-T-R.png);"
     "}";
 }
 

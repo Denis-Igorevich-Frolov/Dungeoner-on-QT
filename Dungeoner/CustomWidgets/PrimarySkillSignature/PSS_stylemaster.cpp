@@ -92,7 +92,7 @@ QString PSS_StyleMaster::TooltipTextStyle(int sizePX, QString color)
 QString PSS_StyleMaster::SeparatorStyle()
 {
     return
-    "background: url(:/Text-Block-1/Textures PNG/Separator-1.png);"
+    "background: url(:/Separators/Textures PNG/Separator-1.png);"
     "background-repeat: norepeat;"
     "background-position: center;";
 }

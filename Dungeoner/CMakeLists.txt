@@ -97,6 +97,10 @@ set(PROJECT_SOURCES
         Person/MagicDefense/magicdefense.cpp
         Person/MagicDefense/magicdefensebonus.h
         Person/MagicDefense/magicdefensebonus.cpp
+        CustomWidgets/InventoryItem/inventoryitem.h
+        CustomWidgets/InventoryItem/inventoryitem.cpp
+        CustomWidgets/InventoryItem/inventoryitem.ui
+        Resources/Gifs.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

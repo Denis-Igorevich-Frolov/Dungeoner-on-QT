@@ -23,7 +23,7 @@ QString SSPB_StyleMaster::TipLeftStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Tip-L-1.png);"
+    "   background-image: url(:/Decorative-Elements/Textures PNG/Tip-L-1.png);"
     "}";
 }
 
@@ -32,7 +32,7 @@ QString SSPB_StyleMaster::TipRightStyle()
     return
     "QLabel{"
     "   background: none;"
-    "   background-image: url(:/Text-Block-1/Textures PNG/Tip-R-1.png);"
+    "   background-image: url(:/Decorative-Elements/Textures PNG/Tip-R-1.png);"
     "}";
 }
 
