@@ -1109,20 +1109,21 @@ void CharacterWindow::on_pushButton_2_clicked()
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {10, 18}, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 void CharacterWindow::on_pushButton_5_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {4, 1, 7}, "1Проклятие чорота эля"));
+    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля"));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_6_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, 34, false, "Изгнание чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {23, 17, 40}, "1Проклятие чорота эля"));
+    recalculateStats();
 }
 
 

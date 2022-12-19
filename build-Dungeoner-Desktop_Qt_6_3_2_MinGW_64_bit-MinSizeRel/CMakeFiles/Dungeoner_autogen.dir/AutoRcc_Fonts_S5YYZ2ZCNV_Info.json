@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/Dungeoner_autogen",
+	"CMAKE_BINARY_DIR" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel",
+	"CMAKE_CURRENT_BINARY_DIR" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel",
+	"CMAKE_CURRENT_SOURCE_DIR" : "E:/Qt projects/Dungeoner-on-QT/Dungeoner",
+	"CMAKE_SOURCE_DIR" : "E:/Qt projects/Dungeoner-on-QT/Dungeoner",
+	"INCLUDE_DIR" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/Dungeoner_autogen/include",
+	"INPUTS" : 
+	[
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts/TextFont.ttf",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts/NumbersFont.ttf"
+	],
+	"LOCK_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Fonts_S5YYZ2ZCNV_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "Fonts" ],
+	"OUTPUT_CHECKSUM" : "S5YYZ2ZCNV",
+	"OUTPUT_NAME" : "qrc_Fonts.cpp",
+	"RCC_EXECUTABLE" : "E:/Qt/6.3.2/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Fonts_S5YYZ2ZCNV_Used.txt",
+	"SOURCE" : "E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts.qrc",
+	"VERBOSITY" : 0
+}
