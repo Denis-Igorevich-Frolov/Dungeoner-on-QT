@@ -44,7 +44,7 @@ public:
         MANA
     };
 
-    Bonus(StatName statName, int value, bool isPercentage, QString bonusName);
+    Bonus(StatName statName, int value, bool isPercentage, QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds);
     Bonus();
     int getValue() const;
     void setValue(int newValue);
@@ -64,10 +64,27 @@ public:
     int getFinalValue() const;
     void setFinalValue(int newFinalValue);
 
+    int getDurationDays() const;
+    void setDurationDays(int newDurationDays);
+
+    int getDurationHours() const;
+    void setDurationHours(int newDurationHours);
+
+    int getDurationMinutes() const;
+    void setDurationMinutes(int newDurationMinutes);
+
+    int getDurationSeconds() const;
+    void setDurationSeconds(int newDurationSeconds);
+
 private:
     //Финальное значеие с учётом процента, если таковой имеется. Хранится для выведения подсказки
     int finalValue = 0;
     int value = 0;
+
+    int durationDays = 0;
+    int durationHours = 0;
+    int durationMinutes = 0;
+    int durationSeconds = 0;
 };
 
 #endif // BONUS_H

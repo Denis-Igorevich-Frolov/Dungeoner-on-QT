@@ -101,6 +101,8 @@ set(PROJECT_SOURCES
         CustomWidgets/InventoryItem/inventoryitem.cpp
         CustomWidgets/InventoryItem/inventoryitem.ui
         Resources/Gifs.qrc
+        CustomWidgets/InventoryItem/II_stylemaster.h
+        CustomWidgets/InventoryItem/II_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

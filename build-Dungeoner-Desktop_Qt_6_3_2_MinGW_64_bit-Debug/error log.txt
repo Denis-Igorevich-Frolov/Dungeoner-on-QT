@@ -278,3 +278,8 @@ Person выдал ошибку в методе loadStat.
 Person выдал ошибку в методе loadMagicDefense.
 Директории Game Saves/New Dungeon/Heroes/new hero не существует.
 
+20-December-2022  23:17:29
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+

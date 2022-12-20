@@ -1095,34 +1095,34 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(3, 10, true, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(3, 10, true, "Проклятие чорота эля", 1, 2, 3, 4));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::LAST, 15, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::LAST, 15, false, "Проклятие чорота эля", 3, 4, 5, 6));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля"));
+    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля", 0, 1, 2, 3));
     recalculateStats();
 }
 
 void CharacterWindow::on_pushButton_5_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля"));
+    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля", 0, 1, 2, 3));
     recalculateStats();
 }
 
 
 void CharacterWindow::on_pushButton_6_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {23, 17, 40}, "1Проклятие чорота эля"));
+    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {23, 17, 40}, "1Проклятие чорота эля", 4, 3, 2, 1));
     recalculateStats();
 }
 

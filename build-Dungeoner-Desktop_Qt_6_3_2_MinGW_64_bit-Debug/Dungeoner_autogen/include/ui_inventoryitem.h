@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -19,16 +20,40 @@ QT_BEGIN_NAMESPACE
 class Ui_InventoryItem
 {
 public:
-    QLabel *label;
+    QLabel *inventoryItemBG;
+    QLabel *CentralElement;
+    QLabel *inventoryItemNew;
+    QPushButton *DropdownButton;
 
     void setupUi(QWidget *InventoryItem)
     {
         if (InventoryItem->objectName().isEmpty())
             InventoryItem->setObjectName(QString::fromUtf8("InventoryItem"));
-        InventoryItem->resize(400, 300);
-        label = new QLabel(InventoryItem);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(100, 100, 91, 81));
+        InventoryItem->resize(68, 83);
+        inventoryItemBG = new QLabel(InventoryItem);
+        inventoryItemBG->setObjectName(QString::fromUtf8("inventoryItemBG"));
+        inventoryItemBG->setGeometry(QRect(0, 0, 68, 68));
+        inventoryItemBG->setStyleSheet(QString::fromUtf8("background-image: url(:/Inventory/Textures PNG/Inventory-Item-BG.png);\n"
+"background-repeat: no-repiat;\n"
+"background-position: center center;"));
+        CentralElement = new QLabel(InventoryItem);
+        CentralElement->setObjectName(QString::fromUtf8("CentralElement"));
+        CentralElement->setGeometry(QRect(0, 0, 68, 68));
+        CentralElement->setStyleSheet(QString::fromUtf8("background-image: url(:/Inventory/Textures PNG/Inventory-Item-Central-Element.png);\n"
+"background-repeat: no-repiat;\n"
+"background-position: center center;"));
+        inventoryItemNew = new QLabel(InventoryItem);
+        inventoryItemNew->setObjectName(QString::fromUtf8("inventoryItemNew"));
+        inventoryItemNew->setGeometry(QRect(0, 0, 68, 68));
+        inventoryItemNew->setStyleSheet(QString::fromUtf8(""));
+        DropdownButton = new QPushButton(InventoryItem);
+        DropdownButton->setObjectName(QString::fromUtf8("DropdownButton"));
+        DropdownButton->setGeometry(QRect(4, 56, 59, 27));
+        DropdownButton->setStyleSheet(QString::fromUtf8("background: none;\n"
+"border: none;\n"
+"background-image: url(:/Text-Block-2/Textures PNG/DecorativeElement-2-D.png);\n"
+"background-repeat: no-repiat;\n"
+"background-position: center center;"));
 
         retranslateUi(InventoryItem);
 
@@ -38,7 +63,10 @@ public:
     void retranslateUi(QWidget *InventoryItem)
     {
         InventoryItem->setWindowTitle(QCoreApplication::translate("InventoryItem", "Form", nullptr));
-        label->setText(QString());
+        inventoryItemBG->setText(QString());
+        CentralElement->setText(QString());
+        inventoryItemNew->setText(QString());
+        DropdownButton->setText(QString());
     } // retranslateUi
 
 };

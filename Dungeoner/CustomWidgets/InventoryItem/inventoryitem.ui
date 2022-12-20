@@ -6,21 +6,80 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>68</width>
+    <height>83</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QLabel" name="inventoryItemBG">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>100</y>
-     <width>91</width>
-     <height>81</height>
+     <x>0</x>
+     <y>0</y>
+     <width>68</width>
+     <height>68</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Inventory/Textures PNG/Inventory-Item-BG.png);
+background-repeat: no-repiat;
+background-position: center center;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="CentralElement">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>68</width>
+     <height>68</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Inventory/Textures PNG/Inventory-Item-Central-Element.png);
+background-repeat: no-repiat;
+background-position: center center;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inventoryItemNew">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>68</width>
+     <height>68</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="DropdownButton">
+   <property name="geometry">
+    <rect>
+     <x>4</x>
+     <y>56</y>
+     <width>59</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background: none;
+border: none;
+background-image: url(:/Text-Block-2/Textures PNG/DecorativeElement-2-D.png);
+background-repeat: no-repiat;
+background-position: center center;</string>
    </property>
    <property name="text">
     <string/>

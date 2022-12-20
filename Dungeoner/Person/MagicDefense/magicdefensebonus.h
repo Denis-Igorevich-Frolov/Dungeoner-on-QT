@@ -35,11 +35,14 @@ public:
     };
 
     //Конструктор для бонуса на динамической позиции
-    MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage, QString bonusName);
+    MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage, QString bonusName,
+                      int durationDays, int durationHours, int durationMinutes, int durationSeconds);
     //Конструктор для бонуса на статической позиции
-    MagicDefenseBonus(int staticPosition, int value, bool isPercentage, QString bonusName);
+    MagicDefenseBonus(int staticPosition, int value, bool isPercentage, QString bonusName,
+                      int durationDays, int durationHours, int durationMinutes, int durationSeconds);
     //Конструктор для бонусных чанков
-    MagicDefenseBonus(QVector<int> bonusChunksMaxVales, QString bonusName);
+    MagicDefenseBonus(QVector<int> bonusChunksMaxVales,
+                      QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds);
 
     bool isDynamic = false;
     bool isPercentage = false;
@@ -72,6 +75,18 @@ public:
     int getNumberOfChunksChanged() const;
     void setNumberOfChunksChanged(int newNumberOfChunksChanged);
 
+    int getDurationDays() const;
+    void setDurationDays(int newDurationDays);
+
+    int getDurationHours() const;
+    void setDurationHours(int newDurationHours);
+
+    int getDurationMinutes() const;
+    void setDurationMinutes(int newDurationMinutes);
+
+    int getDurationSeconds() const;
+    void setDurationSeconds(int newDurationSeconds);
+
 private:
     //Количество чанков, которые затронул бонус. Не может опускаться ниже 1. Значение нужно только для сортировки и подсказки
     int numberOfChunksChanged = 1;
@@ -81,6 +96,11 @@ private:
     int value = 0;
     //Вектор максимальных значений бонусных чанков. Используется только для бонуса на чанки.
     QVector<int> bonusChunksMaxVales;
+
+    int durationDays = 0;
+    int durationHours = 0;
+    int durationMinutes = 0;
+    int durationSeconds = 0;
 };
 
 #endif // MAGICDEFENSEBONUS_H

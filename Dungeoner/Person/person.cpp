@@ -1203,12 +1203,20 @@ bool Person::saveMagicDefense(bool createBackup)
                        "is_dynamic INTEGER NOT NULL DEFAULT 0, "
                        "is_bonus_chunk INTEGER NOT NULL DEFAULT 0, "
                        "bonus_name TEXT NOT NULL, "
+                       "duration_days INTEGER NOT NULL DEFAULT 0, "
+                       "duration_hours INTEGER NOT NULL DEFAULT 0, "
+                       "duration_minutes INTEGER NOT NULL DEFAULT 0, "
+                       "duration_seconds INTEGER NOT NULL DEFAULT 0, "
                        "CONSTRAINT static_position_chek CHECK (static_position >= 0), "
                        "CONSTRAINT dynamic_position_chek CHECK (dynamic_position >= 0 AND dynamic_position <= 3), "
                        "CONSTRAINT is_percentage_bool_chek CHECK (is_percentage >= 0 AND is_percentage <= 1), "
                        "CONSTRAINT is_dynamic_bool_chek CHECK (is_dynamic >= 0 AND is_dynamic <= 1), "
                        "CONSTRAINT is_bonus_chunk_bool_chek CHECK (is_bonus_chunk >= 0 AND is_bonus_chunk <= 1), "
-                       "CONSTRAINT stat_name_chek CHECK (bonus_name != ''));"
+                       "CONSTRAINT stat_name_chek CHECK (bonus_name != ''), "
+                       "CONSTRAINT duration_days_chek CHECK (duration_days >= -1), "
+                       "CONSTRAINT duration_hours_chek CHECK (duration_hours >= -1), "
+                       "CONSTRAINT duration_minutes_chek CHECK (duration_minutes >= -1), "
+                       "CONSTRAINT duration_seconds_chek CHECK (duration_seconds >= -1));"
                        )){
 
             //Вывод предупреждения в консоль и файл
@@ -1357,10 +1365,12 @@ bool Person::saveMagicDefense(bool createBackup)
         }
 
         for(MagicDefenseBonus* bonus : magicDefense.getBonuses()){
-            if(!query.exec("INSERT INTO MagicDefenseBonuses (value, static_position, dynamic_position, is_percentage, is_dynamic, is_bonus_chunk, bonus_name) VALUES (" +
-                           QString::number(bonus->getValue()) + ", " + QString::number(bonus->staticPosition) + ", " + QString::number(bonus->dynamicPosition) + ", " +
-                           QString::number(bonus->isPercentage) + ", " + QString::number(bonus->isDynamic) + ", " + QString::number(bonus->isBonusChunk) + ", '" +
-                           bonus->bonusName + "');")){
+            if(!query.exec("INSERT INTO MagicDefenseBonuses (value, static_position, dynamic_position, is_percentage, is_dynamic, is_bonus_chunk, bonus_name, "
+                           "duration_days, duration_hours, duration_minutes, duration_seconds) VALUES (" + QString::number(bonus->getValue()) + ", " +
+                           QString::number(bonus->staticPosition) + ", " + QString::number(bonus->dynamicPosition) + ", " + QString::number(bonus->isPercentage) +
+                           ", " + QString::number(bonus->isDynamic) + ", " + QString::number(bonus->isBonusChunk) + ", '" + bonus->bonusName + "', " +
+                           QString::number(bonus->getDurationDays()) + ", " + QString::number(bonus->getDurationHours()) + ", " + QString::number(bonus->getDurationMinutes())
+                           + ", " + QString::number(bonus->getDurationSeconds()) + ");")){
 
                 //Вывод предупреждения в консоль и файл
                 QDate cd = QDate::currentDate();
@@ -1584,15 +1594,18 @@ bool Person::loadMagicDefense()
                 while(chunksQuery.next()){
                     bonusChunksMaxVales.append(chunksQuery.value(0).toInt());
                 }
-                magicDefense.addBonus(new MagicDefenseBonus(bonusChunksMaxVales, query.value(7).toString()));
+                magicDefense.addBonus(new MagicDefenseBonus(bonusChunksMaxVales, query.value(7).toString(), query.value(8).toInt(),
+                                                            query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
 
             //Проверка является ли бонус динамическим
             }else if(query.value(5).toBool())
                 magicDefense.addBonus(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition(query.value(3).toInt()),
-                                                            query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString()));
+                                                            query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString(),
+                                                            query.value(8).toInt(), query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
             //Иначе он статический
             else
-                magicDefense.addBonus(new MagicDefenseBonus(query.value(2).toInt(), query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString()));
+                magicDefense.addBonus(new MagicDefenseBonus(query.value(2).toInt(), query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString(),
+                                                            query.value(8).toInt(), query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
         }
 
         //Считывание из БД текущего значения прогрессбара магической защиты
@@ -1729,10 +1742,18 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
                        "stat_name TEXT NOT NULL, "
                        "value INTEGER NOT NULL DEFAULT 0, "
                        "is_percentage INTEGER NOT NULL DEFAULT 0, "
-                       "bonus_name TEXT NOT NULL, "
+                       "bonus_name TEXT NOT NULL,"
+                       "duration_days INTEGER NOT NULL DEFAULT 0, "
+                       "duration_hours INTEGER NOT NULL DEFAULT 0, "
+                       "duration_minutes INTEGER NOT NULL DEFAULT 0, "
+                       "duration_seconds INTEGER NOT NULL DEFAULT 0, "
                        "CONSTRAINT bool_chek CHECK (is_percentage >= 0 AND is_percentage <= 1), "
                        "CONSTRAINT stat_name_chek CHECK (stat_name != ''), "
-                       "CONSTRAINT bonus_name_chek CHECK (bonus_name != ''));"
+                       "CONSTRAINT bonus_name_chek CHECK (bonus_name != ''), "
+                       "CONSTRAINT duration_days_chek CHECK (duration_days >= -1), "
+                       "CONSTRAINT duration_hours_chek CHECK (duration_hours >= -1), "
+                       "CONSTRAINT duration_minutes_chek CHECK (duration_minutes >= -1), "
+                       "CONSTRAINT duration_seconds_chek CHECK (duration_seconds >= -1));"
                        )){
 
             //Вывод предупреждения в консоль и файл
@@ -1849,8 +1870,12 @@ bool Person::saveStat(QString statName, int value, int maximum, int progressBarC
             }
 
             for(Bonus* bonus : bonuses){
-                if(!query.exec("INSERT INTO Bonuses (stat_name, value, is_percentage, bonus_name) VALUES ('" + statName + "', " +
-                               QString::number(bonus->getValue())+ ", " + QString::number(bonus->isPercentage) + ", '" + bonus->bonusName + "');")){
+                if(!query.exec("INSERT INTO Bonuses (stat_name, value, is_percentage, bonus_name, duration_days, "
+                               "duration_hours, duration_minutes, duration_seconds) VALUES ('" + statName + "', " +
+                               QString::number(bonus->getValue())+ ", " + QString::number(bonus->isPercentage) +
+                               ", '" + bonus->bonusName + "', " + QString::number(bonus->getDurationDays()) + ", " +
+                               QString::number(bonus->getDurationHours()) + ", " + QString::number(bonus->getDurationMinutes())
+                               + ", " + QString::number(bonus->getDurationSeconds()) + ");")){
 
                     //Вывод предупреждения в консоль и файл
                     QDate cd = QDate::currentDate();
@@ -2050,7 +2075,8 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, b
 
             stat.removeAllBonuses();
             while (query.next())
-                stat.addBonus(new Bonus(statIndex, query.value(1).toInt(), query.value(2).toBool(), query.value(3).toString()));
+                stat.addBonus(new Bonus(statIndex, query.value(1).toInt(), query.value(2).toBool(), query.value(3).toString(),
+                                        query.value(4).toInt(), query.value(5).toInt(), query.value(6).toInt(), query.value(7).toInt()));
         }
 
         database.close();

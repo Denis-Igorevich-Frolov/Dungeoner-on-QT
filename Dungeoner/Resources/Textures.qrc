@@ -15,6 +15,10 @@
         <file>Textures PNG/Angle-7-B-R.png</file>
         <file>Textures PNG/Angle-7-T-L.png</file>
         <file>Textures PNG/Angle-7-T-R.png</file>
+        <file>Textures PNG/DecorativeElement-2-D.png</file>
+        <file>Textures PNG/DecorativeElement-2-L.png</file>
+        <file>Textures PNG/DecorativeElement-2-R.png</file>
+        <file>Textures PNG/DecorativeElement-2-T.png</file>
     </qresource>
     <qresource prefix="/Separators">
         <file>Textures PNG/Separator-1.png</file>
@@ -52,5 +56,12 @@
         <file>Textures PNG/Angle-1-B-R.png</file>
         <file>Textures PNG/Angle-1-T-L.png</file>
         <file>Textures PNG/Angle-1-T-R.png</file>
+    </qresource>
+    <qresource prefix="/Inventory">
+        <file>Textures PNG/Inventory-Item-BG.png</file>
+        <file>Textures PNG/Inventory-Item-Central-Element.png</file>
+        <file>Textures PNG/Inventory-Item-Locked.png</file>
+        <file>Textures PNG/Inventory-Item-Not-Empty.png</file>
+        <file>Textures PNG/Inventory-Item-Not-Empty-BG.png</file>
     </qresource>
 </RCC>

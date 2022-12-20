@@ -21,7 +21,8 @@
 #include "magicdefensebonus.h"
 
 //Конструктор для бонуса на динамической позиции
-MagicDefenseBonus::MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage, QString bonusName)
+MagicDefenseBonus::MagicDefenseBonus(DynamicPosition dynamicPosition, int value, bool isPercentage, QString bonusName,
+                                     int durationDays, int durationHours, int durationMinutes, int durationSeconds)
 {
     this->dynamicPosition = dynamicPosition;
     setValue(value);
@@ -31,12 +32,18 @@ MagicDefenseBonus::MagicDefenseBonus(DynamicPosition dynamicPosition, int value,
     isDynamic = true;
     isBonusChunk = false;
 
+    this->durationDays = durationDays;
+    this->durationHours = durationHours;
+    this->durationMinutes = durationMinutes;
+    this->durationSeconds = durationSeconds;
+
     if(!isPercentage)
         finalValue = value;
 }
 
 //Конструктор для бонуса на статической позиции
-MagicDefenseBonus::MagicDefenseBonus(int staticPosition, int value, bool isPercentage, QString bonusName)
+MagicDefenseBonus::MagicDefenseBonus(int staticPosition, int value, bool isPercentage, QString bonusName,
+                                     int durationDays, int durationHours, int durationMinutes, int durationSeconds)
 {
     setValue(value);
     this->isPercentage = isPercentage;
@@ -46,15 +53,25 @@ MagicDefenseBonus::MagicDefenseBonus(int staticPosition, int value, bool isPerce
     isDynamic = false;
     isBonusChunk = false;
 
+    this->durationDays = durationDays;
+    this->durationHours = durationHours;
+    this->durationMinutes = durationMinutes;
+    this->durationSeconds = durationSeconds;
+
     if(!isPercentage)
         finalValue = value;
 }
 
 //Конструктор для бонусных чанков
-MagicDefenseBonus::MagicDefenseBonus(QVector<int> bonusChunksMaxVales, QString bonusName)
+MagicDefenseBonus::MagicDefenseBonus(QVector<int> bonusChunksMaxVales, QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds)
 {
     this->bonusChunksMaxVales = bonusChunksMaxVales;
     this->bonusName = bonusName;
+
+    this->durationDays = durationDays;
+    this->durationHours = durationHours;
+    this->durationMinutes = durationMinutes;
+    this->durationSeconds = durationSeconds;
 
     isDynamic = false;
     isBonusChunk = true;
@@ -168,6 +185,46 @@ void MagicDefenseBonus::setNumberOfChunksChanged(int newNumberOfChunksChanged)
     if(newNumberOfChunksChanged<1)
         newNumberOfChunksChanged = 1;
     numberOfChunksChanged = newNumberOfChunksChanged;
+}
+
+int MagicDefenseBonus::getDurationDays() const
+{
+    return durationDays;
+}
+
+void MagicDefenseBonus::setDurationDays(int newDurationDays)
+{
+    durationDays = newDurationDays;
+}
+
+int MagicDefenseBonus::getDurationHours() const
+{
+    return durationHours;
+}
+
+void MagicDefenseBonus::setDurationHours(int newDurationHours)
+{
+    durationHours = newDurationHours;
+}
+
+int MagicDefenseBonus::getDurationMinutes() const
+{
+    return durationMinutes;
+}
+
+void MagicDefenseBonus::setDurationMinutes(int newDurationMinutes)
+{
+    durationMinutes = newDurationMinutes;
+}
+
+int MagicDefenseBonus::getDurationSeconds() const
+{
+    return durationSeconds;
+}
+
+void MagicDefenseBonus::setDurationSeconds(int newDurationSeconds)
+{
+    durationSeconds = newDurationSeconds;
 }
 
 /*Операторы отношения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно

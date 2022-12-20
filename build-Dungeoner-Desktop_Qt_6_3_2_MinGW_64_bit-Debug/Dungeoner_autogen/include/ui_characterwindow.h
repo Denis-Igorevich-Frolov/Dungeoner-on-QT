@@ -804,7 +804,7 @@ public:
         tooltip->setGeometry(QRect(0, 0, 0, 0));
         widget = new InventoryItem(CharacterWindow);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(1220, 490, 201, 161));
+        widget->setGeometry(QRect(1220, 490, 261, 201));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();

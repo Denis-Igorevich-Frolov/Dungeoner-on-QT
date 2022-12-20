@@ -7,7 +7,7 @@
 
 #include "bonus.h"
 
-Bonus::Bonus(StatName statName, int value, bool isPercentage, QString bonusName)
+Bonus::Bonus(StatName statName, int value, bool isPercentage, QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds)
 {
     this->statName = statName;
     if(isPercentage && value > 9999)
@@ -15,6 +15,11 @@ Bonus::Bonus(StatName statName, int value, bool isPercentage, QString bonusName)
     setValue(value);
     this->isPercentage = isPercentage;
     this->bonusName = bonusName;
+
+    this->durationDays = durationDays;
+    this->durationHours = durationHours;
+    this->durationMinutes = durationMinutes;
+    this->durationSeconds = durationSeconds;
 
     if(!isPercentage)
         finalValue = value;
@@ -51,6 +56,46 @@ int Bonus::getFinalValue() const
 void Bonus::setFinalValue(int newFinalValue)
 {
     finalValue = newFinalValue;
+}
+
+int Bonus::getDurationDays() const
+{
+    return durationDays;
+}
+
+void Bonus::setDurationDays(int newDurationDays)
+{
+    durationDays = newDurationDays;
+}
+
+int Bonus::getDurationHours() const
+{
+    return durationHours;
+}
+
+void Bonus::setDurationHours(int newDurationHours)
+{
+    durationHours = newDurationHours;
+}
+
+int Bonus::getDurationMinutes() const
+{
+    return durationMinutes;
+}
+
+void Bonus::setDurationMinutes(int newDurationMinutes)
+{
+    durationMinutes = newDurationMinutes;
+}
+
+int Bonus::getDurationSeconds() const
+{
+    return durationSeconds;
+}
+
+void Bonus::setDurationSeconds(int newDurationSeconds)
+{
+    durationSeconds = newDurationSeconds;
 }
 
 bool operator ==(const Bonus& bonus1, const Bonus& bonus2)
