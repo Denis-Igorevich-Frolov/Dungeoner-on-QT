@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>68</width>
-    <height>83</height>
+    <height>84</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="inventoryItemBG">
+  <widget class="QLabel" name="inventoryItemBorder">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -23,9 +23,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/Inventory/Textures PNG/Inventory-Item-BG.png);
-background-repeat: no-repiat;
-background-position: center center;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -41,9 +39,7 @@ background-position: center center;</string>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-image: url(:/Inventory/Textures PNG/Inventory-Item-Central-Element.png);
-background-repeat: no-repiat;
-background-position: center center;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
@@ -70,21 +66,55 @@ background-position: center center;</string>
     <rect>
      <x>4</x>
      <y>56</y>
-     <width>59</width>
+     <width>60</width>
      <height>27</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">background: none;
-border: none;
-background-image: url(:/Text-Block-2/Textures PNG/DecorativeElement-2-D.png);
-background-repeat: no-repiat;
-background-position: center center;</string>
+    <string notr="true"/>
    </property>
    <property name="text">
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="inventoryItemBG">
+   <property name="geometry">
+    <rect>
+     <x>3</x>
+     <y>3</y>
+     <width>62</width>
+     <height>62</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Locked">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>58</width>
+     <height>58</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>CentralElement</zorder>
+  <zorder>inventoryItemBG</zorder>
+  <zorder>inventoryItemBorder</zorder>
+  <zorder>Locked</zorder>
+  <zorder>inventoryItemNew</zorder>
+  <zorder>DropdownButton</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -63,5 +63,9 @@
         <file>Textures PNG/Inventory-Item-Locked.png</file>
         <file>Textures PNG/Inventory-Item-Not-Empty.png</file>
         <file>Textures PNG/Inventory-Item-Not-Empty-BG.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty.png</file>
+        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty.png</file>
+        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-BG.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty.png</file>
     </qresource>
 </RCC>

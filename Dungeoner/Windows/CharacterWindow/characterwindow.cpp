@@ -123,6 +123,11 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     tooltipInitialization();
     recalculateStats();
+
+    ui->widget->setDropdownButtonVisible(true);
+    ui->widget->setEmptyStyle();
+    ui->widget->setCentralElementStyle(true);
+//    ui->widget->setDisabledStyle();
 }
 
 CharacterWindow::~CharacterWindow()
@@ -1095,37 +1100,60 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(3, 10, true, "Проклятие чорота эля", 1, 2, 3, 4));
-    recalculateStats();
+    ui->widget->setEmptyStyle();
 }
 
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::LAST, 15, false, "Проклятие чорота эля", 3, 4, 5, 6));
-    recalculateStats();
+    ui->widget->setNoEmptyStyle();
 }
 
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля", 0, 1, 2, 3));
-    recalculateStats();
+    ui->widget->setNewStyle();
 }
 
 void CharacterWindow::on_pushButton_5_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::STRENGTH, -11, false, "Проклятие чорота эля", 0, 1, 2, 3));
-    recalculateStats();
+    ui->widget->setLockedStyle();
 }
 
 
 void CharacterWindow::on_pushButton_6_clicked()
 {
-    person.addBonusToStat(new MagicDefenseBonus(QVector<int> {23, 17, 40}, "1Проклятие чорота эля", 4, 3, 2, 1));
-    recalculateStats();
+    ui->widget->setDisabledStyle();
 }
 
+void CharacterWindow::on_pushButton_9_clicked()
+{
+    ui->widget->setLockedNewStyle();
+}
+
+
+void CharacterWindow::on_pushButton_10_clicked()
+{
+    ui->widget->setDropdownButtonVisible(false);
+}
+
+
+void CharacterWindow::on_pushButton_11_clicked()
+{
+    ui->widget->setDropdownButtonVisible(true);
+}
+
+
+void CharacterWindow::on_pushButton_8_clicked()
+{
+    ui->widget->setCentralElementStyle(false);
+}
+
+
+void CharacterWindow::on_pushButton_7_clicked()
+{
+    ui->widget->setCentralElementStyle(true);
+}
 
 void CharacterWindow::on_SaveButton_clicked()
 {

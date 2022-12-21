@@ -16,11 +16,14 @@ public:
     explicit InventoryItem(QWidget *parent = nullptr);
     ~InventoryItem();
 
-    InventoryItem(bool hasDropdownList, bool hasCentralElement);
-
     void setEmptyStyle();
     void setNoEmptyStyle();
     void setNewStyle();
+    void setLockedNewStyle();
+    void setCentralElementStyle(bool isVisible);
+    void setDropdownButtonVisible(bool isVisible);
+    void setLockedStyle();
+    void setDisabledStyle();
 
 private:
     Ui::InventoryItem *ui;
