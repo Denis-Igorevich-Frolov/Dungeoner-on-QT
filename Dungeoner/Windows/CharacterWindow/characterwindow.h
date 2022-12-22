@@ -23,6 +23,7 @@ public:
 
 private slots:
     void ScrollAreaSecondarySkillsScrolled(int value);
+    void InventoryScrollAreaScrolled(int value);
 
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
@@ -38,6 +39,7 @@ private slots:
     void refreshDisplayStats();
 
     void addRowOfCellsToInventory();
+    void removeRowOfCellsFromInventory();
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
@@ -79,6 +81,10 @@ private slots:
     void on_pushButton_8_clicked();
 
     void on_pushButton_7_clicked();
+
+    void on_InventoryScrollBar_valueChanged(int value);
+
+    void on_InventoryScrollBar_actionTriggered(int action);
 
 private:
     Ui::CharacterWindow *ui;

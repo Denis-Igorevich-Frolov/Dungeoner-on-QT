@@ -60,6 +60,11 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), &QAbstractSlider::valueChanged,
             this, &CharacterWindow::ScrollAreaSecondarySkillsScrolled);
 
+    connect(ui->InventoryScrollArea->verticalScrollBar(), &QScrollBar::valueChanged,
+            this, &CharacterWindow::InventoryScrollAreaScrolled);
+
+    ui->InventoryScrollBar->setMaximum(0);
+
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
      *и ивенты мыши, чтобы они не перекрывали непосредственно вторичные навыки*/
     ui->SecondarySkillsShadowTop->setFocusPolicy(Qt::NoFocus);
@@ -124,7 +129,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     tooltipInitialization();
     recalculateStats();
 
-    for(int i = 0; i<5; i++)
+    for(int i = 0; i<4; i++)
         addRowOfCellsToInventory();
 }
 
@@ -177,6 +182,9 @@ void CharacterWindow::setTextPrimarySkillSignature()
 void CharacterWindow::setStyles()
 {
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setSingleStep(6);
+    ui->InventoryScrollArea->verticalScrollBar()->setSingleStep(10);
+    ui->InventoryScrollBar->setStyleSheet(CW_StyleMaster::VerticalScrollBarStyle());
+
     /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно,
      *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
      *проигнорирован и выведено предупреждение.*/
@@ -900,6 +908,12 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
     ui->verticalScrollBar->setValue(value);
 }
 
+void CharacterWindow::InventoryScrollAreaScrolled(int value)
+{
+//    qDebug()<<value;
+    ui->InventoryScrollBar->setValue(value);
+}
+
 void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
 {
     /*Звук проигрывается только при нажатии на стрелки прибавки и убавки.
@@ -1033,11 +1047,41 @@ void CharacterWindow::refreshDisplayStats()
 
 void CharacterWindow::addRowOfCellsToInventory()
 {
-    int row = ui->Inventory->rowCount();
+    int row = ui->Inventory->count()/10;
+
+    if(row>3){
+        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(74*(row-3));
+        ui->InventoryScrollBar->setMaximum(74*(row-3));
+    }else{
+        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
+        ui->InventoryScrollBar->setMaximum(0);
+    }
+
     for(int i = 0; i<10; i++){
         InventoryCell* cell = new InventoryCell;
         cell->setFixedSize(68, 68);
         ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
+    }
+}
+
+void CharacterWindow::removeRowOfCellsFromInventory()
+{
+    int row = ui->Inventory->count()/10;
+
+    if(row>3){
+        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(74*(row-5));
+        ui->InventoryScrollBar->setMaximum(74*(row-5));
+    }else{
+        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
+        ui->InventoryScrollBar->setMaximum(0);
+    }
+
+    if(row<=4)
+        return;
+
+    for(int i = 0; i<10; i++){
+        delete ui->Inventory->itemAtPosition(row-1, i);
+        ui->Inventory->removeItem(ui->Inventory->itemAtPosition(row-1, i));
     }
 }
 
@@ -1141,12 +1185,12 @@ void CharacterWindow::on_pushButton_11_clicked()
 
 void CharacterWindow::on_pushButton_8_clicked()
 {
-    ui->widget->setCentralElementStyle(false);
+    addRowOfCellsToInventory();
 }
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
-    ui->widget->setCentralElementStyle(true);
+    removeRowOfCellsFromInventory();
 }
 
 void CharacterWindow::on_SaveButton_clicked()
@@ -1158,3 +1202,18 @@ void CharacterWindow::on_LoadButton_clicked()
 {
     person.loadAllStats();
 }
+
+void CharacterWindow::on_InventoryScrollBar_valueChanged(int value)
+{
+    ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
+}
+
+
+void CharacterWindow::on_InventoryScrollBar_actionTriggered(int action)
+{
+    /*Звук проигрывается только при нажатии на стрелки прибавки и убавки.
+     *Цифры в проверке - это id этих ивентов*/
+    if(action==1||action==2)
+        Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+}
+

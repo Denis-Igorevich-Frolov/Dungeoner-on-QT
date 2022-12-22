@@ -2474,7 +2474,7 @@ border: none;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>50</y>
+      <y>54</y>
       <width>734</width>
       <height>299</height>
      </rect>
@@ -2503,9 +2503,15 @@ border: none;</string>
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>734</width>
-       <height>299</height>
+       <width>16</width>
+       <height>16</height>
       </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_8">
       <property name="spacing">
@@ -2524,7 +2530,22 @@ border: none;</string>
        <number>0</number>
       </property>
       <item>
-       <layout class="QGridLayout" name="Inventory">
+       <layout class="QGridLayout" name="Inventory" columnstretch="0" rowminimumheight="0" columnminimumwidth="0">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetFixedSize</enum>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>9</number>
+        </property>
         <property name="spacing">
          <number>6</number>
         </property>
@@ -2532,6 +2553,28 @@ border: none;</string>
       </item>
      </layout>
     </widget>
+   </widget>
+   <widget class="QScrollBar" name="InventoryScrollBar">
+    <property name="geometry">
+     <rect>
+      <x>751</x>
+      <y>85</y>
+      <width>24</width>
+      <height>246</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>0</number>
+    </property>
+    <property name="singleStep">
+     <number>74</number>
+    </property>
+    <property name="pageStep">
+     <number>18</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
    </widget>
   </widget>
   <widget class="InventoryCell" name="widget" native="true">
@@ -2544,12 +2587,12 @@ border: none;</string>
     </rect>
    </property>
   </widget>
+  <zorder>InventoryWrapper</zorder>
   <zorder>TopMenuWrapper</zorder>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
   <zorder>ProgressBars</zorder>
   <zorder>tooltip</zorder>
-  <zorder>InventoryWrapper</zorder>
   <zorder>widget</zorder>
  </widget>
  <customwidgets>
