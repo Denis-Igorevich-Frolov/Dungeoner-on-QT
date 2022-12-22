@@ -124,10 +124,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     tooltipInitialization();
     recalculateStats();
 
-    ui->widget->setDropdownButtonVisible(true);
-    ui->widget->setEmptyStyle();
-    ui->widget->setCentralElementStyle(true);
-//    ui->widget->setDisabledStyle();
+    for(int i = 0; i<5; i++)
+        addRowOfCellsToInventory();
 }
 
 CharacterWindow::~CharacterWindow()
@@ -1033,6 +1031,16 @@ void CharacterWindow::refreshDisplayStats()
     initSecondaryStatsWidgets();
 }
 
+void CharacterWindow::addRowOfCellsToInventory()
+{
+    int row = ui->Inventory->rowCount();
+    for(int i = 0; i<10; i++){
+        InventoryCell* cell = new InventoryCell;
+        cell->setFixedSize(68, 68);
+        ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
+    }
+}
+
 void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
@@ -1040,7 +1048,6 @@ void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
     }
     recalculateStats();
 }
-
 
 void CharacterWindow::on_AgilityValue_valueChanged(int arg1)
 {
@@ -1050,7 +1057,6 @@ void CharacterWindow::on_AgilityValue_valueChanged(int arg1)
     recalculateStats();
 }
 
-
 void CharacterWindow::on_IntelligenceValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
@@ -1058,7 +1064,6 @@ void CharacterWindow::on_IntelligenceValue_valueChanged(int arg1)
     }
     recalculateStats();
 }
-
 
 void CharacterWindow::on_MagicValue_valueChanged(int arg1)
 {
@@ -1068,7 +1073,6 @@ void CharacterWindow::on_MagicValue_valueChanged(int arg1)
     recalculateStats();
 }
 
-
 void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
@@ -1077,7 +1081,6 @@ void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
     recalculateStats();
 }
 
-
 void CharacterWindow::on_WillValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
@@ -1085,7 +1088,6 @@ void CharacterWindow::on_WillValue_valueChanged(int arg1)
     }
     recalculateStats();
 }
-
 
 void CharacterWindow::on_pushButton_4_clicked()
 {
@@ -1097,18 +1099,15 @@ void CharacterWindow::on_pushButton_4_clicked()
     ui->MagicDefense->getProgressBar()->setValue(person.getMagicDefense()->getValue());
 }
 
-
 void CharacterWindow::on_pushButton_clicked()
 {
     ui->widget->setEmptyStyle();
 }
 
-
 void CharacterWindow::on_pushButton_2_clicked()
 {
     ui->widget->setNoEmptyStyle();
 }
-
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
@@ -1120,7 +1119,6 @@ void CharacterWindow::on_pushButton_5_clicked()
     ui->widget->setLockedStyle();
 }
 
-
 void CharacterWindow::on_pushButton_6_clicked()
 {
     ui->widget->setDisabledStyle();
@@ -1131,24 +1129,20 @@ void CharacterWindow::on_pushButton_9_clicked()
     ui->widget->setLockedNewStyle();
 }
 
-
 void CharacterWindow::on_pushButton_10_clicked()
 {
     ui->widget->setDropdownButtonVisible(false);
 }
-
 
 void CharacterWindow::on_pushButton_11_clicked()
 {
     ui->widget->setDropdownButtonVisible(true);
 }
 
-
 void CharacterWindow::on_pushButton_8_clicked()
 {
     ui->widget->setCentralElementStyle(false);
 }
-
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
@@ -1159,7 +1153,6 @@ void CharacterWindow::on_SaveButton_clicked()
 {
     person.saveAllStats(true);
 }
-
 
 void CharacterWindow::on_LoadButton_clicked()
 {

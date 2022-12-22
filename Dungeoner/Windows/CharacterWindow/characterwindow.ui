@@ -2459,7 +2459,7 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>1129</x>
-     <y>699</y>
+     <y>706</y>
      <width>785</width>
      <height>349</height>
     </rect>
@@ -2474,14 +2474,26 @@ border: none;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>51</y>
+      <y>50</y>
       <width>734</width>
-      <height>298</height>
+      <height>299</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="styleSheet">
      <string notr="true">background: transparent;
 border: none;</string>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
     <property name="widgetResizable">
      <bool>true</bool>
@@ -2492,7 +2504,7 @@ border: none;</string>
        <x>0</x>
        <y>0</y>
        <width>734</width>
-       <height>298</height>
+       <height>299</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_8">
@@ -2512,9 +2524,9 @@ border: none;</string>
        <number>0</number>
       </property>
       <item>
-       <layout class="QGridLayout" name="gridLayout_3">
+       <layout class="QGridLayout" name="Inventory">
         <property name="spacing">
-         <number>3</number>
+         <number>6</number>
         </property>
        </layout>
       </item>
@@ -2525,8 +2537,8 @@ border: none;</string>
   <widget class="InventoryCell" name="widget" native="true">
    <property name="geometry">
     <rect>
-     <x>880</x>
-     <y>310</y>
+     <x>850</x>
+     <y>200</y>
      <width>221</width>
      <height>181</height>
     </rect>

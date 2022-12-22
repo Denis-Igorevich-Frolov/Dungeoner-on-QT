@@ -37,6 +37,8 @@ private slots:
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();
 
+    void addRowOfCellsToInventory();
+
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
 

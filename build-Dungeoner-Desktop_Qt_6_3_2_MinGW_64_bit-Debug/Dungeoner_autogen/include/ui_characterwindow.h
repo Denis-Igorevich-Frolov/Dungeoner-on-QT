@@ -125,7 +125,7 @@ public:
     QScrollArea *InventoryScrollArea;
     QWidget *scrollAreaWidgetContents_2;
     QVBoxLayout *verticalLayout_8;
-    QGridLayout *gridLayout_3;
+    QGridLayout *Inventory;
     InventoryCell *widget;
 
     void setupUi(QWidget *CharacterWindow)
@@ -837,32 +837,39 @@ public:
         tooltip->setGeometry(QRect(0, 0, 0, 0));
         InventoryWrapper = new QFrame(CharacterWindow);
         InventoryWrapper->setObjectName(QString::fromUtf8("InventoryWrapper"));
-        InventoryWrapper->setGeometry(QRect(1129, 699, 785, 349));
+        InventoryWrapper->setGeometry(QRect(1129, 706, 785, 349));
         InventoryWrapper->setFrameShape(QFrame::StyledPanel);
         InventoryWrapper->setFrameShadow(QFrame::Raised);
         InventoryScrollArea = new QScrollArea(InventoryWrapper);
         InventoryScrollArea->setObjectName(QString::fromUtf8("InventoryScrollArea"));
-        InventoryScrollArea->setGeometry(QRect(0, 51, 734, 298));
+        InventoryScrollArea->setGeometry(QRect(0, 50, 734, 299));
+        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
+        InventoryScrollArea->setSizePolicy(sizePolicy4);
         InventoryScrollArea->setStyleSheet(QString::fromUtf8("background: transparent;\n"
 "border: none;"));
+        InventoryScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        InventoryScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         InventoryScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 734, 298));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 734, 299));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setSpacing(0);
         verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
         verticalLayout_8->setContentsMargins(0, 0, 0, 0);
-        gridLayout_3 = new QGridLayout();
-        gridLayout_3->setSpacing(3);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        Inventory = new QGridLayout();
+        Inventory->setSpacing(6);
+        Inventory->setObjectName(QString::fromUtf8("Inventory"));
 
-        verticalLayout_8->addLayout(gridLayout_3);
+        verticalLayout_8->addLayout(Inventory);
 
         InventoryScrollArea->setWidget(scrollAreaWidgetContents_2);
         widget = new InventoryCell(CharacterWindow);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(880, 310, 221, 181));
+        widget->setGeometry(QRect(850, 200, 221, 181));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();

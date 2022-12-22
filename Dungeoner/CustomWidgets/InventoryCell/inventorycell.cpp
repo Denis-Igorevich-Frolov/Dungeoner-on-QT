@@ -8,6 +8,9 @@ InventoryCell::InventoryCell(QWidget *parent) :
     ui(new Ui::InventoryCell)
 {
     ui->setupUi(this);
+
+    setEmptyStyle();
+    setDropdownButtonVisible(false);
 }
 
 InventoryCell::~InventoryCell()
