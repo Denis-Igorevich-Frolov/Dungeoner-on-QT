@@ -423,15 +423,15 @@
 	"HEADERS" : 
 	[
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryItem/II_stylemaster.h",
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.h",
 			"MU",
-			"X6TZ336SRF/moc_II_stylemaster.cpp",
+			"7DUF5DABG5/moc_IC_stylemaster.cpp",
 			null
 		],
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryItem/inventoryitem.h",
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.h",
 			"MU",
-			"X6TZ336SRF/moc_inventoryitem.cpp",
+			"7DUF5DABG5/moc_inventorycell.cpp",
 			null
 		],
 		[
@@ -711,12 +711,12 @@
 	"SOURCES" : 
 	[
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryItem/II_stylemaster.cpp",
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.cpp",
 			"MU",
 			null
 		],
 		[
-			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryItem/inventoryitem.cpp",
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.cpp",
 			"MU",
 			null
 		],

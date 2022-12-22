@@ -9,7 +9,7 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
-#include <CustomWidgets/InventoryItem/inventoryitem.h>
+#include <CustomWidgets/InventoryCell/inventorycell.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -121,7 +121,12 @@ public:
     QLabel *BottomBorder;
     QLabel *BottomBound;
     Tooltip *tooltip;
-    InventoryItem *widget;
+    QFrame *InventoryWrapper;
+    QScrollArea *InventoryScrollArea;
+    QWidget *scrollAreaWidgetContents_2;
+    QVBoxLayout *verticalLayout_8;
+    QGridLayout *gridLayout_3;
+    InventoryCell *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -736,7 +741,7 @@ public:
 
         ProgressBars = new QFrame(CharacterWindow);
         ProgressBars->setObjectName(QString::fromUtf8("ProgressBars"));
-        ProgressBars->setGeometry(QRect(48, 676, 736, 361));
+        ProgressBars->setGeometry(QRect(48, 676, 754, 379));
         ProgressBars->setFrameShape(QFrame::StyledPanel);
         ProgressBars->setFrameShadow(QFrame::Raised);
         verticalLayout_5 = new QVBoxLayout(ProgressBars);
@@ -824,17 +829,46 @@ public:
 
         verticalLayout_4->addWidget(BottomBound);
 
+        BottomBorder->raise();
+        BottomBound->raise();
+        DecorativeElementWrapper->raise();
         tooltip = new Tooltip(CharacterWindow);
         tooltip->setObjectName(QString::fromUtf8("tooltip"));
         tooltip->setGeometry(QRect(0, 0, 0, 0));
-        widget = new InventoryItem(CharacterWindow);
+        InventoryWrapper = new QFrame(CharacterWindow);
+        InventoryWrapper->setObjectName(QString::fromUtf8("InventoryWrapper"));
+        InventoryWrapper->setGeometry(QRect(1129, 699, 785, 349));
+        InventoryWrapper->setFrameShape(QFrame::StyledPanel);
+        InventoryWrapper->setFrameShadow(QFrame::Raised);
+        InventoryScrollArea = new QScrollArea(InventoryWrapper);
+        InventoryScrollArea->setObjectName(QString::fromUtf8("InventoryScrollArea"));
+        InventoryScrollArea->setGeometry(QRect(0, 51, 734, 298));
+        InventoryScrollArea->setStyleSheet(QString::fromUtf8("background: transparent;\n"
+"border: none;"));
+        InventoryScrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 734, 298));
+        verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
+        verticalLayout_8->setSpacing(0);
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setSpacing(3);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+
+        verticalLayout_8->addLayout(gridLayout_3);
+
+        InventoryScrollArea->setWidget(scrollAreaWidgetContents_2);
+        widget = new InventoryCell(CharacterWindow);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(1220, 490, 261, 201));
+        widget->setGeometry(QRect(880, 310, 221, 181));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
         tooltip->raise();
+        InventoryWrapper->raise();
         widget->raise();
 
         retranslateUi(CharacterWindow);

@@ -97,12 +97,12 @@ set(PROJECT_SOURCES
         Person/MagicDefense/magicdefense.cpp
         Person/MagicDefense/magicdefensebonus.h
         Person/MagicDefense/magicdefensebonus.cpp
-        CustomWidgets/InventoryItem/inventoryitem.h
-        CustomWidgets/InventoryItem/inventoryitem.cpp
-        CustomWidgets/InventoryItem/inventoryitem.ui
+        CustomWidgets/InventoryCell/inventorycell.h
+        CustomWidgets/InventoryCell/inventorycell.cpp
+        CustomWidgets/InventoryCell/inventorycell.ui
         Resources/Gifs.qrc
-        CustomWidgets/InventoryItem/II_stylemaster.h
-        CustomWidgets/InventoryItem/II_stylemaster.cpp
+        CustomWidgets/InventoryCell/IC_stylemaster.h
+        CustomWidgets/InventoryCell/IC_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

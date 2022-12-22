@@ -2127,8 +2127,8 @@ border: none;</string>
     <rect>
      <x>48</x>
      <y>676</y>
-     <width>736</width>
-     <height>361</height>
+     <width>754</width>
+     <height>379</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -2441,6 +2441,9 @@ border: none;</string>
      </widget>
     </item>
    </layout>
+   <zorder>BottomBorder</zorder>
+   <zorder>BottomBound</zorder>
+   <zorder>DecorativeElementWrapper</zorder>
   </widget>
   <widget class="Tooltip" name="tooltip" native="true">
    <property name="geometry">
@@ -2452,13 +2455,80 @@ border: none;</string>
     </rect>
    </property>
   </widget>
-  <widget class="InventoryItem" name="widget" native="true">
+  <widget class="QFrame" name="InventoryWrapper">
    <property name="geometry">
     <rect>
-     <x>1220</x>
-     <y>490</y>
-     <width>261</width>
-     <height>201</height>
+     <x>1129</x>
+     <y>699</y>
+     <width>785</width>
+     <height>349</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QScrollArea" name="InventoryScrollArea">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>51</y>
+      <width>734</width>
+      <height>298</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;
+border: none;</string>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="scrollAreaWidgetContents_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>734</width>
+       <height>298</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_8">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_3">
+        <property name="spacing">
+         <number>3</number>
+        </property>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="InventoryCell" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>310</y>
+     <width>221</width>
+     <height>181</height>
     </rect>
    </property>
   </widget>
@@ -2467,6 +2537,7 @@ border: none;</string>
   <zorder>BottomBoundWrapper</zorder>
   <zorder>ProgressBars</zorder>
   <zorder>tooltip</zorder>
+  <zorder>InventoryWrapper</zorder>
   <zorder>widget</zorder>
  </widget>
  <customwidgets>
@@ -2501,9 +2572,9 @@ border: none;</string>
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>InventoryItem</class>
+   <class>InventoryCell</class>
    <extends>QWidget</extends>
-   <header location="global">CustomWidgets/InventoryItem/inventoryitem.h</header>
+   <header location="global">CustomWidgets/InventoryCell/inventorycell.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
