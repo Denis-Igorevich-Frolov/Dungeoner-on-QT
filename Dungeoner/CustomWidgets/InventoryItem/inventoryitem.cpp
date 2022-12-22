@@ -1,7 +1,6 @@
 #include "II_stylemaster.h"
 
 #include "inventoryitem.h"
-#include "qpainter.h"
 #include "ui_inventoryitem.h"
 
 InventoryItem::InventoryItem(QWidget *parent) :

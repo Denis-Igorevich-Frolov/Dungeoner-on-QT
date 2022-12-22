@@ -47,6 +47,7 @@ public:
         DropdownButton = new QPushButton(InventoryItem);
         DropdownButton->setObjectName(QString::fromUtf8("DropdownButton"));
         DropdownButton->setGeometry(QRect(4, 56, 60, 27));
+        DropdownButton->setCursor(QCursor(Qt::PointingHandCursor));
         DropdownButton->setStyleSheet(QString::fromUtf8(""));
         inventoryItemBG = new QLabel(InventoryItem);
         inventoryItemBG->setObjectName(QString::fromUtf8("inventoryItemBG"));
