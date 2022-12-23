@@ -2474,9 +2474,9 @@ border: none;</string>
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>54</y>
+      <y>45</y>
       <width>734</width>
-      <height>299</height>
+      <height>308</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -2538,7 +2538,7 @@ border: none;</string>
          <number>0</number>
         </property>
         <property name="topMargin">
-         <number>0</number>
+         <number>5</number>
         </property>
         <property name="rightMargin">
          <number>0</number>
@@ -2558,7 +2558,7 @@ border: none;</string>
     <property name="geometry">
      <rect>
       <x>751</x>
-      <y>85</y>
+      <y>83</y>
       <width>24</width>
       <height>246</height>
      </rect>

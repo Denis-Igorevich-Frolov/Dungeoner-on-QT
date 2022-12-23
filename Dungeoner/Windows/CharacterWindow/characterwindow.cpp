@@ -1068,7 +1068,7 @@ void CharacterWindow::removeRowOfCellsFromInventory()
 {
     int row = ui->Inventory->count()/10;
 
-    if(row>3){
+    if(row>4){
         ui->InventoryScrollArea->verticalScrollBar()->setMaximum(74*(row-5));
         ui->InventoryScrollBar->setMaximum(74*(row-5));
     }else{
@@ -1080,7 +1080,7 @@ void CharacterWindow::removeRowOfCellsFromInventory()
         return;
 
     for(int i = 0; i<10; i++){
-        delete ui->Inventory->itemAtPosition(row-1, i);
+        delete ui->Inventory->itemAtPosition(row-1, i)->widget();
         ui->Inventory->removeItem(ui->Inventory->itemAtPosition(row-1, i));
     }
 }

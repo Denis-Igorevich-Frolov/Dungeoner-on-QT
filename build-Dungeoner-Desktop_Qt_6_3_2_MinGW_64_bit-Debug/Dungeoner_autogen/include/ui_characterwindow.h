@@ -843,7 +843,7 @@ public:
         InventoryWrapper->setFrameShadow(QFrame::Raised);
         InventoryScrollArea = new QScrollArea(InventoryWrapper);
         InventoryScrollArea->setObjectName(QString::fromUtf8("InventoryScrollArea"));
-        InventoryScrollArea->setGeometry(QRect(0, 54, 734, 299));
+        InventoryScrollArea->setGeometry(QRect(0, 45, 734, 308));
         QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Minimum);
         sizePolicy4.setHorizontalStretch(0);
         sizePolicy4.setVerticalStretch(0);
@@ -867,14 +867,14 @@ public:
         Inventory->setSpacing(6);
         Inventory->setObjectName(QString::fromUtf8("Inventory"));
         Inventory->setSizeConstraint(QLayout::SetFixedSize);
-        Inventory->setContentsMargins(0, 0, 0, 9);
+        Inventory->setContentsMargins(0, 5, 0, 9);
 
         verticalLayout_8->addLayout(Inventory);
 
         InventoryScrollArea->setWidget(scrollAreaWidgetContents_2);
         InventoryScrollBar = new QScrollBar(InventoryWrapper);
         InventoryScrollBar->setObjectName(QString::fromUtf8("InventoryScrollBar"));
-        InventoryScrollBar->setGeometry(QRect(751, 85, 24, 246));
+        InventoryScrollBar->setGeometry(QRect(751, 83, 24, 246));
         InventoryScrollBar->setMaximum(0);
         InventoryScrollBar->setSingleStep(74);
         InventoryScrollBar->setPageStep(18);
