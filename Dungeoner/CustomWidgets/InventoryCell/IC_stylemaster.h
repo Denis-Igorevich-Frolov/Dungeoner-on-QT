@@ -14,13 +14,16 @@ public:
     static QString emptyBorderStyle();
     static QString notEmptyBorderStyle();
     static QString disabledNotEmptyBorderStyle();
+    static QString lockedBorderStyle();
     static QString notEmptyBGStyle();
     static QString disabledNotEmptyBGStyle();
     static QString centralElementStyle();
     static QString lockedStyle();
+    static QString blockedStyle();
     static QString dropdownButtonEmptyStyle();
     static QString dropdownButtonNotEmptyStyle();
     static QString dropdownButtonDisabledNotEmptyStyle();
+    static QString dropdownButtonLockedStyle();
 };
 
 #endif // IC_STYLEMASTER_H

@@ -68,10 +68,15 @@
         <file>Textures PNG/Inventory-Dropdown-Button-Empty-Hovered.png</file>
         <file>Textures PNG/Inventory-Dropdown-Button-Empty-Pressed.png</file>
         <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Hovered.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Pressed.png</file>
+        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-Locked.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Hovered.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Pressed.png</file>
         <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty.png</file>
         <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty-Hovered.png</file>
         <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty-Pressed.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Hovered.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Pressed.png</file>
+        <file>Textures PNG/Blocked-Cross.png</file>
     </qresource>
 </RCC>

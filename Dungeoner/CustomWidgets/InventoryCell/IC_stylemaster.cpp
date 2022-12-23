@@ -35,6 +35,16 @@ QString IC_stylemaster::disabledNotEmptyBorderStyle()
     "}";
 }
 
+QString IC_stylemaster::lockedBorderStyle()
+{
+    return
+    "QLabel{"
+    "   background-image: url(:/Inventory/Textures PNG/Disabled-Inventory-Item-Not-Empty-Locked.png);"
+    "   background-repeat: no-repiat;"
+    "   background-position: center center;"
+    "}";
+}
+
 QString IC_stylemaster::notEmptyBGStyle()
 {
     return
@@ -70,6 +80,16 @@ QString IC_stylemaster::lockedStyle()
     return
     "QLabel{"
     "   background-image: url(:/Inventory/Textures PNG/Inventory-Item-Locked.png);"
+    "   background-repeat: no-repiat;"
+    "   background-position: center center;"
+    "}";
+}
+
+QString IC_stylemaster::blockedStyle()
+{
+    return
+    "QLabel{"
+    "   background-image: url(:/Inventory/Textures PNG/Blocked-Cross.png);"
     "   background-repeat: no-repiat;"
     "   background-position: center center;"
     "}";
@@ -154,6 +174,34 @@ QString IC_stylemaster::dropdownButtonDisabledNotEmptyStyle()
     "   background: none;"
     "   border: none;"
     "   background-image: url(:/Inventory/Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty-Pressed.png);"
+    "   background-repeat: no-repiat;"
+    "   background-position: center center;"
+    "}";
+}
+
+QString IC_stylemaster::dropdownButtonLockedStyle()
+{
+    return
+    "QPushButton{"
+    "   background: none;"
+    "   border: none;"
+    "   background-image: url(:/Inventory/Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked.png);"
+    "   background-repeat: no-repiat;"
+    "   background-position: center center;"
+    "}"
+    ""
+    "QPushButton::hover{"
+    "   background: none;"
+    "   border: none;"
+    "   background-image: url(:/Inventory/Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Hovered.png);"
+    "   background-repeat: no-repiat;"
+    "   background-position: center center;"
+    "}"
+    ""
+    "QPushButton::pressed{"
+    "   background: none;"
+    "   border: none;"
+    "   background-image: url(:/Inventory/Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Pressed.png);"
     "   background-repeat: no-repiat;"
     "   background-position: center center;"
     "}";

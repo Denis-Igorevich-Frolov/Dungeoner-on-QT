@@ -28,10 +28,12 @@ public:
     void setNewStyle();
     //Стиль ячейки с новым заглушенным предметом
     void setLockedNewStyle();
-    //Стиль ячейки с заглушенным предметом
-    void setLockedStyle();
     //Стиль неактивной (заблокированной) ячейки
+    void setLockedStyle();
+    //Стиль ячейки с заглушенным предметом
     void setDisabledStyle();
+    //Стиль ячейки, в которую нельзя поместить выбранный итем
+    void setBlockedStyle(bool isBlocked);
 
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);

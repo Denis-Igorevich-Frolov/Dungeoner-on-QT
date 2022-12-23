@@ -112,12 +112,29 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="Blocked">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>1</y>
+     <width>66</width>
+     <height>66</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>CentralElement</zorder>
   <zorder>inventoryCellBG</zorder>
   <zorder>inventoryCellBorder</zorder>
   <zorder>Locked</zorder>
   <zorder>inventoryCellNew</zorder>
   <zorder>DropdownButton</zorder>
+  <zorder>Blocked</zorder>
  </widget>
  <resources/>
  <connections/>

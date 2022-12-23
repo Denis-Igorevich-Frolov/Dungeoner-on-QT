@@ -25,9 +25,6 @@ private slots:
     void ScrollAreaSecondarySkillsScrolled(int value);
     void InventoryScrollAreaScrolled(int value);
 
-    void ShowTooltip(QVector<QLabel*> TooltipContent);
-    void RemoveTooltip();
-
     void onStrengthChanged();
     void onAgilityChanged();
     void onIntelligenceChanged();
@@ -99,6 +96,9 @@ private:
      *указателя на QSpinBox в переменную SpinBoxValue класса PrimarySkillSignature.
      *Делается это для работы кнопок больше и меньше.*/
     void associatingLabelsWithValues();
+
+    void ShowTooltip(QVector<QLabel*> TooltipContent);
+    void RemoveTooltip();
 
     void associatingLabelsWithStat();
 

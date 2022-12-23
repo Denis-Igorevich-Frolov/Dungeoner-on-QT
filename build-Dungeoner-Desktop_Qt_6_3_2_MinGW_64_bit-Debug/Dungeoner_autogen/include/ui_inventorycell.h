@@ -26,6 +26,7 @@ public:
     QPushButton *DropdownButton;
     QLabel *inventoryCellBG;
     QLabel *Locked;
+    QLabel *Blocked;
 
     void setupUi(QWidget *InventoryCell)
     {
@@ -57,12 +58,17 @@ public:
         Locked->setObjectName(QString::fromUtf8("Locked"));
         Locked->setGeometry(QRect(5, 5, 58, 58));
         Locked->setStyleSheet(QString::fromUtf8(""));
+        Blocked = new QLabel(InventoryCell);
+        Blocked->setObjectName(QString::fromUtf8("Blocked"));
+        Blocked->setGeometry(QRect(1, 1, 66, 66));
+        Blocked->setStyleSheet(QString::fromUtf8(""));
         CentralElement->raise();
         inventoryCellBG->raise();
         inventoryCellBorder->raise();
         Locked->raise();
         inventoryCellNew->raise();
         DropdownButton->raise();
+        Blocked->raise();
 
         retranslateUi(InventoryCell);
 
@@ -78,6 +84,7 @@ public:
         DropdownButton->setText(QString());
         inventoryCellBG->setText(QString());
         Locked->setText(QString());
+        Blocked->setText(QString());
     } // retranslateUi
 
 };
