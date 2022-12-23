@@ -38,7 +38,9 @@ private slots:
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();
 
+    //Добавление новой линии пустых ячеек в инвентарь
     void addRowOfCellsToInventory();
+    //Удаление последней линии ячеек в инвентаре
     void removeRowOfCellsFromInventory();
 
     void on_verticalScrollBar_actionTriggered(int action);
@@ -83,7 +85,6 @@ private slots:
     void on_pushButton_7_clicked();
 
     void on_InventoryScrollBar_valueChanged(int value);
-
     void on_InventoryScrollBar_actionTriggered(int action);
 
 private:

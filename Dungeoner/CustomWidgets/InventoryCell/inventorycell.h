@@ -1,3 +1,7 @@
+/********************************************************************************************
+ *Данный класс является виджетом ячейки инвентаря, где хранятся любые итемы инвентаря.
+ ********************************************************************************************/
+
 #ifndef INVENTORYCELL_H
 #define INVENTORYCELL_H
 
@@ -16,14 +20,21 @@ public:
     explicit InventoryCell(QWidget *parent = nullptr);
     ~InventoryCell();
 
+    //Стиль пустой ячейки
     void setEmptyStyle();
+    //Стиль ячейки с предметом
     void setNoEmptyStyle();
+    //Стиль ячейки с новым предметом
     void setNewStyle();
+    //Стиль ячейки с новым заглушенным предметом
     void setLockedNewStyle();
+    //Стиль ячейки с заглушенным предметом
+    void setLockedStyle();
+    //Стиль неактивной (заблокированной) ячейки
+    void setDisabledStyle();
+
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
-    void setLockedStyle();
-    void setDisabledStyle();
 
 private:
     Ui::InventoryCell *ui;

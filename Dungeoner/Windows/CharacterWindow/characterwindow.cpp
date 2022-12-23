@@ -59,10 +59,12 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
      *области прокрутки, что собственно и есть то, что мне и нужно. Для этого я и связываю его сигнал с моим слотом*/
     connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), &QAbstractSlider::valueChanged,
             this, &CharacterWindow::ScrollAreaSecondarySkillsScrolled);
-
+    /*Связывание слота InventoryScrollAreaScrolled с сигналом valueChanged
+     *у вертикального скроллбара в области прокрутки ScrollAreaSecondarySkills.*/
     connect(ui->InventoryScrollArea->verticalScrollBar(), &QScrollBar::valueChanged,
             this, &CharacterWindow::InventoryScrollAreaScrolled);
-
+    /*По умолчанию скроллбар инвентаря имеет максимум в 0. Любое изменение количества
+     *ячеек инвентаря переопределит это значение, когда то будет нужно.*/
     ui->InventoryScrollBar->setMaximum(0);
 
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
@@ -129,6 +131,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     tooltipInitialization();
     recalculateStats();
 
+
+    //!!!
     for(int i = 0; i<4; i++)
         addRowOfCellsToInventory();
 }
@@ -182,6 +186,7 @@ void CharacterWindow::setTextPrimarySkillSignature()
 void CharacterWindow::setStyles()
 {
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setSingleStep(6);
+
     ui->InventoryScrollArea->verticalScrollBar()->setSingleStep(10);
     ui->InventoryScrollBar->setStyleSheet(CW_StyleMaster::VerticalScrollBarStyle());
 
@@ -910,7 +915,6 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
 
 void CharacterWindow::InventoryScrollAreaScrolled(int value)
 {
-//    qDebug()<<value;
     ui->InventoryScrollBar->setValue(value);
 }
 
@@ -1045,41 +1049,63 @@ void CharacterWindow::refreshDisplayStats()
     initSecondaryStatsWidgets();
 }
 
+//Добавление новой линии пустых ячеек в инвентарь
 void CharacterWindow::addRowOfCellsToInventory()
 {
+    /*В строке всегда 10 ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
+     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
     int row = ui->Inventory->count()/10;
 
+    /*row показывает текущее количество строк. Учитывая, что одна сейчас прибавися, row 3 означает, что
+     *в таблице будет 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
     if(row>3){
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(74*(row-3));
-        ui->InventoryScrollBar->setMaximum(74*(row-3));
+        //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
+        int maximum = 70*(row-3) + 4*(row-4);
+        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
+        ui->InventoryScrollBar->setMaximum(maximum);
     }else{
+        //Иначе прокрутка не требуется, и максимум скроллбаров обнуляется
         ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
         ui->InventoryScrollBar->setMaximum(0);
     }
 
+    //Создание новой строкиячеек
     for(int i = 0; i<10; i++){
         InventoryCell* cell = new InventoryCell;
         cell->setFixedSize(68, 68);
+        /*Учитывая что row всегда показывает текущее количество ячеек, то есть на
+         *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
         ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
     }
 }
 
+//Удаление последней линии ячеек в инвентаре
 void CharacterWindow::removeRowOfCellsFromInventory()
 {
+    /*В строке всегда 10 ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
+     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
     int row = ui->Inventory->count()/10;
 
-    if(row>4){
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(74*(row-5));
-        ui->InventoryScrollBar->setMaximum(74*(row-5));
+    /*row показывает текущее количество строк. Учитывая, что одна сейчас удалится, row 5 означает, что в
+     *таблице останется 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
+    if(row>5){
+        //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
+        int maximum = 70*(row-5) + 4*(row-6);
+        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
+        ui->InventoryScrollBar->setMaximum(maximum);
     }else{
+        //Иначе прокрутка не требуется, и максимум скроллбаров обнуляется
         ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
         ui->InventoryScrollBar->setMaximum(0);
     }
 
+    //В инвентаре не может быть менее 4 строк
     if(row<=4)
         return;
 
+    //Удаление строки ячеек
     for(int i = 0; i<10; i++){
+        //Учитывая что row всегда показывает текущее количество ячеек, то его надо привести к индексу с отсчётом от 0
         delete ui->Inventory->itemAtPosition(row-1, i)->widget();
         ui->Inventory->removeItem(ui->Inventory->itemAtPosition(row-1, i));
     }
