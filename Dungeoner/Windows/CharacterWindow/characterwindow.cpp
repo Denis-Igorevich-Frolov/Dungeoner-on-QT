@@ -1240,7 +1240,6 @@ void CharacterWindow::on_InventoryScrollBar_valueChanged(int value)
     ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
 }
 
-
 void CharacterWindow::on_InventoryScrollBar_actionTriggered(int action)
 {
     /*Звук проигрывается только при нажатии на стрелки прибавки и убавки.

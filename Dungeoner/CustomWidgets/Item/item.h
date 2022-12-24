@@ -45,6 +45,13 @@ public:
 
     int getId() const;
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_pressed();
+
+    void on_pushButton_released();
+
 private:
     Ui::Item *ui;
 
@@ -65,18 +72,26 @@ private:
     QVector<Item*> styles{this};
     int currentStyle = 0;
     QString folderName;
+    QImage image;
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
     OutlineEffect* border = new OutlineEffect;
     bool hasShadow = true;
     int shadowBlurRadius = 7;
     int shadowXOffset = 3;
     int shadowYOffset = 3;
+    bool isPressable = false;
+    QColor hoverColor = QColor(255, 255, 255, 40);
+    QColor pressedColor = QColor(0, 0, 0, 50);
 
     /*Нужны ещё:
      *1) Вектор навыков
      *2) Вектор эффектов при прожатии
      *3) Вектор эффектов при экиперовке
      *4) Требования*/
+
+    virtual bool eventFilter(QObject* object, QEvent* event) override;
+
+    int isHovered = false;
 };
 
 #endif // ITEM_H

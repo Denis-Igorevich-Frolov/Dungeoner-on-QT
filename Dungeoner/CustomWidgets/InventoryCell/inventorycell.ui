@@ -137,22 +137,27 @@
      <height>68</height>
     </rect>
    </property>
+   <property name="mouseTracking">
+    <bool>true</bool>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::StrongFocus</enum>
+   </property>
   </widget>
   <zorder>CentralElement</zorder>
   <zorder>inventoryCellBG</zorder>
   <zorder>inventoryCellBorder</zorder>
   <zorder>Locked</zorder>
   <zorder>inventoryCellNew</zorder>
-  <zorder>item</zorder>
   <zorder>DropdownButton</zorder>
   <zorder>Blocked</zorder>
+  <zorder>item</zorder>
  </widget>
  <customwidgets>
   <customwidget>
    <class>Item</class>
-   <extends>QWidget</extends>
+   <extends>QPushButton</extends>
    <header location="global">CustomWidgets/Item/item.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

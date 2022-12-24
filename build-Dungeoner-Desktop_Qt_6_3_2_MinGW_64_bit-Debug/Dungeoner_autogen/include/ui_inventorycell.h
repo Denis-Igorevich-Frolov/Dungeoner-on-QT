@@ -67,14 +67,16 @@ public:
         item = new Item(InventoryCell);
         item->setObjectName(QString::fromUtf8("item"));
         item->setGeometry(QRect(0, 0, 68, 68));
+        item->setMouseTracking(true);
+        item->setFocusPolicy(Qt::StrongFocus);
         CentralElement->raise();
         inventoryCellBG->raise();
         inventoryCellBorder->raise();
         Locked->raise();
         inventoryCellNew->raise();
-        item->raise();
         DropdownButton->raise();
         Blocked->raise();
+        item->raise();
 
         retranslateUi(InventoryCell);
 
