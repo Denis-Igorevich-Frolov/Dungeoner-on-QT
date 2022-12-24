@@ -5,6 +5,7 @@
 #include "Global/global.h"
 #include "Person/MagicDefense/magicdefensebonus.h"
 #include "Person/Stat/bonus.h"
+#include "System/OutlineEffect/outlineeffect.h"
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
 
@@ -56,7 +57,7 @@ private:
     int durability = 0;
     ItemCondition itemCondition = IDEAL;
     int damage = -1;
-    int amount = 1;
+    int quantity = 1;
     QVector<InventoryCell::Slots> cellSlots;
     QVector<InventoryCell::Slots> occupiedCellSlots;
     QVector<Bonus*> bonuses;
@@ -65,6 +66,7 @@ private:
     int currentStyle = 0;
     QString folderName;
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
+    OutlineEffect* border = new OutlineEffect;
     bool hasShadow = true;
     int shadowBlurRadius = 7;
     int shadowXOffset = 3;

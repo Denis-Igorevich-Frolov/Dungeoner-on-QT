@@ -1,3 +1,4 @@
+#include "I_stylemaster.h"
 #include "item.h"
 #include "ui_item.h"
 
@@ -13,6 +14,12 @@ Item::Item(QWidget *parent) :
     shadow->setBlurRadius(shadowBlurRadius);
     shadow->setOffset(shadowXOffset, shadowYOffset);
 
+    ui->Quantity->setFont(QFont("TextFont"));
+    ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(17));
+    border->setOutlineThickness(2);
+    ui->Quantity->setMargin(2);
+    ui->Quantity->setGraphicsEffect(border);
+
     folderName = "Test";
     id = 0;
 
@@ -22,14 +29,18 @@ Item::Item(QWidget *parent) :
         dir.mkpath("Items/"+folderName);
     QImage image = QImage("Items/"+folderName+"/image.png");
 
-    ui->image->setPixmap(QPixmap::fromImage(image,Qt::AutoColor));
+    ui->Image->setPixmap(QPixmap::fromImage(image,Qt::AutoColor));
     if(hasShadow)
-        ui->image->setGraphicsEffect(shadow);
+        ui->Image->setGraphicsEffect(shadow);
+
+    quantity=33;
+    ui->Quantity->setText(QString::number(quantity));
 }
 
 Item::~Item()
 {
     delete shadow;
+    delete border;
     delete ui;
 }
 

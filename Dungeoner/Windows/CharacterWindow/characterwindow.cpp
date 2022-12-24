@@ -1059,6 +1059,8 @@ void CharacterWindow::addRowOfCellsToInventory()
     /*row показывает текущее количество строк. Учитывая, что одна сейчас прибавися, row 3 означает, что
      *в таблице будет 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
     if(row>3){
+        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
+        ui->scrollAreaWidgetContents_2->setFixedHeight(308 + 70*(row-3) + 4*(row-4));
         //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
         int maximum = 70*(row-3) + 4*(row-4);
         ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
@@ -1089,11 +1091,15 @@ void CharacterWindow::removeRowOfCellsFromInventory()
     /*row показывает текущее количество строк. Учитывая, что одна сейчас удалится, row 5 означает, что в
      *таблице останется 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
     if(row>5){
+        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
+        ui->scrollAreaWidgetContents_2->setFixedHeight(308 + 70*(row-5) + 4*(row-6));
         //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
         int maximum = 70*(row-5) + 4*(row-6);
         ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
         ui->InventoryScrollBar->setMaximum(maximum);
     }else{
+        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
+        ui->scrollAreaWidgetContents_2->setFixedHeight(304);
         //Иначе прокрутка не требуется, и максимум скроллбаров обнуляется
         ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
         ui->InventoryScrollBar->setMaximum(0);

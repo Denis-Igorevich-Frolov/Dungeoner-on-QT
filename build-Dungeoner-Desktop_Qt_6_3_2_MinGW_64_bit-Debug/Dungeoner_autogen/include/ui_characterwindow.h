@@ -844,11 +844,8 @@ public:
         InventoryScrollArea = new QScrollArea(InventoryWrapper);
         InventoryScrollArea->setObjectName(QString::fromUtf8("InventoryScrollArea"));
         InventoryScrollArea->setGeometry(QRect(0, 45, 734, 308));
-        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
-        InventoryScrollArea->setSizePolicy(sizePolicy4);
+        sizePolicy1.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
+        InventoryScrollArea->setSizePolicy(sizePolicy1);
         InventoryScrollArea->setStyleSheet(QString::fromUtf8("background: transparent;\n"
 "border: none;"));
         InventoryScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -856,9 +853,13 @@ public:
         InventoryScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 16, 16));
-        sizePolicy.setHeightForWidth(scrollAreaWidgetContents_2->sizePolicy().hasHeightForWidth());
-        scrollAreaWidgetContents_2->setSizePolicy(sizePolicy);
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 734, 304));
+        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Maximum);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(scrollAreaWidgetContents_2->sizePolicy().hasHeightForWidth());
+        scrollAreaWidgetContents_2->setSizePolicy(sizePolicy4);
+        scrollAreaWidgetContents_2->setMinimumSize(QSize(0, 304));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setSpacing(0);
         verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));

@@ -9,6 +9,7 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
+#include <CustomWidgets/InventoryCell/inventorycell.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -44,6 +45,11 @@ public:
     QPushButton *LoadButton;
     QPushButton *pushButton_5;
     QPushButton *pushButton_6;
+    QPushButton *pushButton_7;
+    QPushButton *pushButton_8;
+    QPushButton *pushButton_9;
+    QPushButton *pushButton_10;
+    QPushButton *pushButton_11;
     QLabel *TopMenuBorder;
     QFrame *SkillsWraper;
     QVBoxLayout *verticalLayout;
@@ -115,6 +121,13 @@ public:
     QLabel *BottomBorder;
     QLabel *BottomBound;
     Tooltip *tooltip;
+    QFrame *InventoryWrapper;
+    QScrollArea *InventoryScrollArea;
+    QWidget *scrollAreaWidgetContents_2;
+    QVBoxLayout *verticalLayout_8;
+    QGridLayout *Inventory;
+    QScrollBar *InventoryScrollBar;
+    InventoryCell *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -149,15 +162,15 @@ public:
         pushButton_4->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton = new QPushButton(TopMenu);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(60, 20, 91, 41));
+        pushButton->setGeometry(QRect(60, 20, 51, 41));
         pushButton->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_2 = new QPushButton(TopMenu);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(170, 20, 91, 41));
+        pushButton_2->setGeometry(QRect(124, 20, 51, 41));
         pushButton_2->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_3 = new QPushButton(TopMenu);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(290, 20, 91, 41));
+        pushButton_3->setGeometry(QRect(184, 20, 51, 41));
         pushButton_3->setStyleSheet(QString::fromUtf8("background:white;"));
         SaveButton = new QPushButton(TopMenu);
         SaveButton->setObjectName(QString::fromUtf8("SaveButton"));
@@ -169,12 +182,32 @@ public:
         LoadButton->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_5 = new QPushButton(TopMenu);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(410, 20, 91, 41));
+        pushButton_5->setGeometry(QRect(243, 20, 51, 41));
         pushButton_5->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_6 = new QPushButton(TopMenu);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setGeometry(QRect(520, 20, 91, 41));
+        pushButton_6->setGeometry(QRect(302, 20, 51, 41));
         pushButton_6->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_7 = new QPushButton(TopMenu);
+        pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
+        pushButton_7->setGeometry(QRect(609, 20, 51, 41));
+        pushButton_7->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_8 = new QPushButton(TopMenu);
+        pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
+        pushButton_8->setGeometry(QRect(550, 20, 51, 41));
+        pushButton_8->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_9 = new QPushButton(TopMenu);
+        pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
+        pushButton_9->setGeometry(QRect(367, 20, 51, 41));
+        pushButton_9->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_10 = new QPushButton(TopMenu);
+        pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
+        pushButton_10->setGeometry(QRect(431, 20, 51, 41));
+        pushButton_10->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_11 = new QPushButton(TopMenu);
+        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
+        pushButton_11->setGeometry(QRect(491, 20, 51, 41));
+        pushButton_11->setStyleSheet(QString::fromUtf8("background:white;"));
 
         verticalLayout_3->addWidget(TopMenu);
 
@@ -709,7 +742,7 @@ public:
 
         ProgressBars = new QFrame(CharacterWindow);
         ProgressBars->setObjectName(QString::fromUtf8("ProgressBars"));
-        ProgressBars->setGeometry(QRect(48, 676, 736, 361));
+        ProgressBars->setGeometry(QRect(48, 676, 754, 379));
         ProgressBars->setFrameShape(QFrame::StyledPanel);
         ProgressBars->setFrameShadow(QFrame::Raised);
         verticalLayout_5 = new QVBoxLayout(ProgressBars);
@@ -765,19 +798,19 @@ public:
         label = new QLabel(DecorativeElementWrapper);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(9, 0, 43, 10));
-        label->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);"));
+        label->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
         label_2 = new QLabel(DecorativeElementWrapper);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(776, 0, 43, 10));
-        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);"));
+        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
         label_3 = new QLabel(DecorativeElementWrapper);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(1868, 0, 43, 10));
-        label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-R.png);"));
+        label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
         label_4 = new QLabel(DecorativeElementWrapper);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         label_4->setGeometry(QRect(1101, 0, 43, 10));
-        label_4->setStyleSheet(QString::fromUtf8("background-image: url(:/Text-Block-1/Textures PNG/DecorativeElement-1-L.png);"));
+        label_4->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
 
         verticalLayout_4->addWidget(DecorativeElementWrapper);
 
@@ -797,14 +830,65 @@ public:
 
         verticalLayout_4->addWidget(BottomBound);
 
+        BottomBorder->raise();
+        BottomBound->raise();
+        DecorativeElementWrapper->raise();
         tooltip = new Tooltip(CharacterWindow);
         tooltip->setObjectName(QString::fromUtf8("tooltip"));
         tooltip->setGeometry(QRect(0, 0, 0, 0));
+        InventoryWrapper = new QFrame(CharacterWindow);
+        InventoryWrapper->setObjectName(QString::fromUtf8("InventoryWrapper"));
+        InventoryWrapper->setGeometry(QRect(1129, 706, 785, 349));
+        InventoryWrapper->setFrameShape(QFrame::StyledPanel);
+        InventoryWrapper->setFrameShadow(QFrame::Raised);
+        InventoryScrollArea = new QScrollArea(InventoryWrapper);
+        InventoryScrollArea->setObjectName(QString::fromUtf8("InventoryScrollArea"));
+        InventoryScrollArea->setGeometry(QRect(0, 45, 734, 308));
+        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
+        InventoryScrollArea->setSizePolicy(sizePolicy4);
+        InventoryScrollArea->setStyleSheet(QString::fromUtf8("background: transparent;\n"
+"border: none;"));
+        InventoryScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        InventoryScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        InventoryScrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents_2 = new QWidget();
+        scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 16, 16));
+        sizePolicy.setHeightForWidth(scrollAreaWidgetContents_2->sizePolicy().hasHeightForWidth());
+        scrollAreaWidgetContents_2->setSizePolicy(sizePolicy);
+        verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
+        verticalLayout_8->setSpacing(0);
+        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
+        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
+        Inventory = new QGridLayout();
+        Inventory->setSpacing(6);
+        Inventory->setObjectName(QString::fromUtf8("Inventory"));
+        Inventory->setSizeConstraint(QLayout::SetFixedSize);
+        Inventory->setContentsMargins(0, 5, 0, 9);
+
+        verticalLayout_8->addLayout(Inventory);
+
+        InventoryScrollArea->setWidget(scrollAreaWidgetContents_2);
+        InventoryScrollBar = new QScrollBar(InventoryWrapper);
+        InventoryScrollBar->setObjectName(QString::fromUtf8("InventoryScrollBar"));
+        InventoryScrollBar->setGeometry(QRect(751, 83, 24, 246));
+        InventoryScrollBar->setMaximum(0);
+        InventoryScrollBar->setSingleStep(74);
+        InventoryScrollBar->setPageStep(18);
+        InventoryScrollBar->setOrientation(Qt::Vertical);
+        widget = new InventoryCell(CharacterWindow);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(850, 200, 221, 181));
+        InventoryWrapper->raise();
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
         tooltip->raise();
+        widget->raise();
 
         retranslateUi(CharacterWindow);
 
@@ -822,6 +906,11 @@ public:
         LoadButton->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", nullptr));
         pushButton_5->setText(QCoreApplication::translate("CharacterWindow", "4", nullptr));
         pushButton_6->setText(QCoreApplication::translate("CharacterWindow", "5", nullptr));
+        pushButton_7->setText(QCoreApplication::translate("CharacterWindow", "10", nullptr));
+        pushButton_8->setText(QCoreApplication::translate("CharacterWindow", "9", nullptr));
+        pushButton_9->setText(QCoreApplication::translate("CharacterWindow", "6", nullptr));
+        pushButton_10->setText(QCoreApplication::translate("CharacterWindow", "7", nullptr));
+        pushButton_11->setText(QCoreApplication::translate("CharacterWindow", "8", nullptr));
         TopMenuBorder->setText(QString());
         StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
         StrengthPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr)));

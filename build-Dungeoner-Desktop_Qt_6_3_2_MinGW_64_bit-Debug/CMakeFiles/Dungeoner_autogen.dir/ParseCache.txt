@@ -5842,6 +5842,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/QVector
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qanystringview.h
@@ -5983,6 +5984,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimediaexports.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimediaglobal.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsEffect
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicseffect.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h

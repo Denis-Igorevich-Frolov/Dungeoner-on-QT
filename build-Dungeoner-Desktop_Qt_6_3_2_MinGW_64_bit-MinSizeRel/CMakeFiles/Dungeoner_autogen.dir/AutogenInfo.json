@@ -7,58 +7,8 @@
 	"CMAKE_LIST_FILES" : 
 	[
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CMakeLists.txt",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystem.cmake.in",
 		"E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/CMakeFiles/3.24.2/CMakeSystem.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeNinjaFindMake.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCXXCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-Determine-CXX.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Comeau-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/HP-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/XL-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/GNU-FindBinUtils.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in",
 		"E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake",
@@ -72,26 +22,11 @@
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineRCCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCCompiler.cmake.in",
 		"E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/CMakeFiles/3.24.2/CMakeRCCompiler.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCInformation.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestRCCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestCXXCompiler.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake",
-		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompiler.cmake.in",
-		"E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake",
 		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
+		"E:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake",
 		"E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
 		"E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
@@ -479,13 +414,38 @@
 		"E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessTargets.cmake",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Textures.qrc",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Fonts.qrc",
-		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds.qrc"
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds.qrc",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Gifs.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "E:/Qt projects/Dungeoner-on-QT/Dungeoner",
 	"DEP_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/Dungeoner_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "Dungeoner_autogen/timestamp",
 	"HEADERS" : 
 	[
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.h",
+			"MU",
+			"7DUF5DABG5/moc_IC_stylemaster.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.h",
+			"MU",
+			"7DUF5DABG5/moc_inventorycell.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/I_stylemaster.h",
+			"MU",
+			"Y6PV5VOU3T/moc_I_stylemaster.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h",
+			"MU",
+			"Y6PV5VOU3T/moc_item.cpp",
+			null
+		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.h",
 			"MU",
@@ -763,6 +723,26 @@
 	"SETTINGS_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-MinSizeRel/CMakeFiles/Dungeoner_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/I_stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.cpp",
+			"MU",
+			null
+		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp",
 			"MU",

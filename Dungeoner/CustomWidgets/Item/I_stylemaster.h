@@ -1,11 +1,12 @@
 #ifndef I_STYLEMASTER_H
 #define I_STYLEMASTER_H
 
+#include <QString>
 
 class I_stylemaster
 {
 public:
-    I_stylemaster();
+    static QString TextFontStyle(int size);
 };
 
 #endif // I_STYLEMASTER_H
