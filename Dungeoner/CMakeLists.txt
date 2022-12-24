@@ -103,6 +103,11 @@ set(PROJECT_SOURCES
         Resources/Gifs.qrc
         CustomWidgets/InventoryCell/IC_stylemaster.h
         CustomWidgets/InventoryCell/IC_stylemaster.cpp
+        CustomWidgets/Item/item.h
+        CustomWidgets/Item/item.cpp
+        CustomWidgets/Item/item.ui
+        CustomWidgets/Item/I_stylemaster.h
+        CustomWidgets/Item/I_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -128,14 +128,33 @@
     <string/>
    </property>
   </widget>
+  <widget class="Item" name="item" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>68</width>
+     <height>68</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>CentralElement</zorder>
   <zorder>inventoryCellBG</zorder>
   <zorder>inventoryCellBorder</zorder>
   <zorder>Locked</zorder>
   <zorder>inventoryCellNew</zorder>
+  <zorder>item</zorder>
   <zorder>DropdownButton</zorder>
   <zorder>Blocked</zorder>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Item</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/Item/item.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

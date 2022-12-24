@@ -435,6 +435,18 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/I_stylemaster.h",
+			"MU",
+			"Y6PV5VOU3T/moc_I_stylemaster.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h",
+			"MU",
+			"Y6PV5VOU3T/moc_item.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.h",
 			"MU",
 			"5JHTRKW4VV/moc_LWT_stylemaster.cpp",
@@ -717,6 +729,16 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/I_stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.cpp",
 			"MU",
 			null
 		],

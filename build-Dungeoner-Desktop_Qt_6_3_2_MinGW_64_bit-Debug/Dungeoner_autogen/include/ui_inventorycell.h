@@ -9,6 +9,7 @@
 #ifndef UI_INVENTORYCELL_H
 #define UI_INVENTORYCELL_H
 
+#include <CustomWidgets/Item/item.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
@@ -27,6 +28,7 @@ public:
     QLabel *inventoryCellBG;
     QLabel *Locked;
     QLabel *Blocked;
+    Item *item;
 
     void setupUi(QWidget *InventoryCell)
     {
@@ -62,11 +64,15 @@ public:
         Blocked->setObjectName(QString::fromUtf8("Blocked"));
         Blocked->setGeometry(QRect(1, 1, 66, 66));
         Blocked->setStyleSheet(QString::fromUtf8(""));
+        item = new Item(InventoryCell);
+        item->setObjectName(QString::fromUtf8("item"));
+        item->setGeometry(QRect(0, 0, 68, 68));
         CentralElement->raise();
         inventoryCellBG->raise();
         inventoryCellBorder->raise();
         Locked->raise();
         inventoryCellNew->raise();
+        item->raise();
         DropdownButton->raise();
         Blocked->raise();
 

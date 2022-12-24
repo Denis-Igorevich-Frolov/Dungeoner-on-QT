@@ -1211,12 +1211,12 @@ void CharacterWindow::on_pushButton_11_clicked()
 
 void CharacterWindow::on_pushButton_8_clicked()
 {
-    ui->widget->setBlockedStyle(true);
+    addRowOfCellsToInventory();
 }
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
-    ui->widget->setBlockedStyle(false);
+    removeRowOfCellsFromInventory();
 }
 
 void CharacterWindow::on_SaveButton_clicked()

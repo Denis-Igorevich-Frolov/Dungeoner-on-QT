@@ -13,8 +13,10 @@ InventoryCell::InventoryCell(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //По умолчанию ячейка имеет пустой стиль, скрытую кнопку выпадающего меню и отображающися центральный эллемент
-    setEmptyStyle();
+    if(ui->item->getId()==-1)
+        setEmptyStyle();
+    else
+        setNoEmptyStyle();
     setDropdownButtonVisible(false);
 }
 
