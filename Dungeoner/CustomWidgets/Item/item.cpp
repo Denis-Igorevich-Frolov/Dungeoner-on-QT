@@ -32,9 +32,9 @@ Item::Item(QWidget *parent) :
 
     //Создаётся директория, если её небыло
     QDir dir;
-    if(!dir.exists("Items/"+folderName))
-        dir.mkpath("Items/"+folderName);
-    image = QImage("Items/"+folderName+"/image.png");
+    if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+folderName))
+        dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+folderName);
+    image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+folderName+"/image.png");
 
     ui->Image->setPixmap(QPixmap::fromImage(image,Qt::AutoColor));
     if(hasShadow)

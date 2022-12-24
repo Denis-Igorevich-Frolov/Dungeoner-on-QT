@@ -7,7 +7,7 @@
 
 MediaPlayer Global::mediaplayer;
 QVector<int> Global::pressedKeys;
-QString Global::DungeonName;
+QString Global::DungeonName = "New Dungeon";
 int Global::numberOfBackups;
 
 Global::Global()
