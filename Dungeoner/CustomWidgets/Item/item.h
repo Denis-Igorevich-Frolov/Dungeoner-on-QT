@@ -75,6 +75,7 @@ private:
     QImage image;
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
     OutlineEffect* border = new OutlineEffect;
+    QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect;
     bool hasShadow = true;
     int shadowBlurRadius = 7;
     int shadowXOffset = 3;

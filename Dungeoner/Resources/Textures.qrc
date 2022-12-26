@@ -1,14 +1,14 @@
 <RCC>
     <qresource prefix="/Text-Block-1">
-        <file>Textures PNG/Text-Block-1-BG.png</file>
         <file>Textures PNG/Text-Block-1-B.png</file>
+        <file>Textures PNG/Text-Block-1-BG.png</file>
         <file>Textures PNG/Text-Block-1-L.png</file>
         <file>Textures PNG/Text-Block-1-R.png</file>
         <file>Textures PNG/Text-Block-1-T.png</file>
         <file>Textures PNG/Text-Block-Hovered-1-B.png</file>
         <file>Textures PNG/Text-Block-Hovered-1-T.png</file>
-        <file>Textures PNG/Text-Block-Pressed-1-T.png</file>
         <file>Textures PNG/Text-Block-Pressed-1-B.png</file>
+        <file>Textures PNG/Text-Block-Pressed-1-T.png</file>
     </qresource>
     <qresource prefix="/Text-Block-2">
         <file>Textures PNG/Angle-7-B-L.png</file>
@@ -25,9 +25,9 @@
     </qresource>
     <qresource prefix="/Vertical-Slider-1">
         <file>Textures PNG/Vertical-Slider-Body.png</file>
-        <file>Textures PNG/Vertical-Slider-Button.png</file>
         <file>Textures PNG/Vertical-Slider-Button-Hovered.png</file>
         <file>Textures PNG/Vertical-Slider-Button-Pressed.png</file>
+        <file>Textures PNG/Vertical-Slider-Button.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-B.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-Hovered-B.png</file>
         <file>Textures PNG/Vertical-Slider-Pike-Hovered-T.png</file>
@@ -58,25 +58,29 @@
         <file>Textures PNG/Angle-1-T-R.png</file>
     </qresource>
     <qresource prefix="/Inventory">
+        <file>Textures PNG/Blocked-Cross.png</file>
+        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-BG.png</file>
+        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-Locked.png</file>
+        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Hovered.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Pressed.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty-Hovered.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty-Pressed.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Empty-Hovered.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Empty-Pressed.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Hovered.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Pressed.png</file>
+        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty.png</file>
         <file>Textures PNG/Inventory-Item-BG.png</file>
         <file>Textures PNG/Inventory-Item-Central-Element.png</file>
         <file>Textures PNG/Inventory-Item-Locked.png</file>
-        <file>Textures PNG/Inventory-Item-Not-Empty.png</file>
         <file>Textures PNG/Inventory-Item-Not-Empty-BG.png</file>
-        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty.png</file>
-        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-BG.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Empty-Hovered.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Empty-Pressed.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Hovered.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Pressed.png</file>
-        <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-Locked.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Hovered.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Empty-Locked-Pressed.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty-Hovered.png</file>
-        <file>Textures PNG/Inventory-Dropdown-Button-Disabled-Not-Empty-Pressed.png</file>
-        <file>Textures PNG/Blocked-Cross.png</file>
+        <file>Textures PNG/Inventory-Item-Not-Empty.png</file>
+        <file>Textures PNG/Item-Style-Button.png</file>
+        <file>Textures PNG/Item-Style-Button-Hovered.png</file>
+        <file>Textures PNG/Item-Style-Button-Pressed.png</file>
+        <file>Textures PNG/Unknown-Item.png</file>
     </qresource>
 </RCC>

@@ -7,6 +7,7 @@ class I_stylemaster
 {
 public:
     static QString TextFontStyle(int size);
+    static QString StyleButtonStile();
 };
 
 #endif // I_STYLEMASTER_H

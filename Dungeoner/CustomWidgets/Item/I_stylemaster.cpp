@@ -12,3 +12,27 @@ QString I_stylemaster::TextFontStyle(int size)
 
     return style.arg(size);
 }
+
+QString I_stylemaster::StyleButtonStile()
+{
+    return
+    "QPushButton{"
+    "   background: none;"
+    "   border: none;"
+    "   font: bold 7px;"
+    "   color: #492c03;"
+    "   background-image: url(:/Inventory/Textures PNG/Item-Style-Button.png);"
+    "}"
+    ""
+    "QPushButton::hover{"
+    "   background: none;"
+    "   border: none;"
+    "   background-image: url(:/Inventory/Textures PNG/Item-Style-Button-Hovered.png);"
+    "}"
+    ""
+    "QPushButton::pressed{"
+    "   background: none;"
+    "   border: none;"
+    "   background-image: url(:/Inventory/Textures PNG/Item-Style-Button-Pressed.png);"
+    "}";
+}

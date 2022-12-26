@@ -20,6 +20,20 @@ Item::Item(QWidget *parent) :
     shadow->setBlurRadius(shadowBlurRadius);
     shadow->setOffset(shadowXOffset, shadowYOffset);
 
+    if(styles.size()>1){
+        ui->StyleButtonsWrapper->setFixedHeight(14*styles.size()-2);
+        for(int i = 0; i < ui->StyleButtonsWrapper->children().size()-1; i++){
+            ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleButtonStile());
+            ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setFont(QFont("TextFont"));
+        }
+        for(int i = 4; i>styles.size()-1; i--)
+            ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setVisible(false);
+        opacity->setOpacity(0.3);
+        ui->StyleButtonsWrapper->setGraphicsEffect(opacity);
+        ui->StyleButtonsWrapper->installEventFilter(this);
+    }else
+        ui->StyleButtonsWrapper->setVisible(false);
+
     ui->Quantity->setFont(QFont("TextFont"));
     ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(17));
     border->setOutlineThickness(2);
@@ -34,7 +48,14 @@ Item::Item(QWidget *parent) :
     QDir dir;
     if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+folderName))
         dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+folderName);
-    image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+folderName+"/image.png");
+
+    if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+folderName+"/image.png").exists())
+        image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+folderName+"/image.png");
+    else{
+        image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
+        hoverColor = QColor(255, 255, 255, 30);
+        pressedColor = QColor(0, 0, 0, 50);
+    }
 
     ui->Image->setPixmap(QPixmap::fromImage(image,Qt::AutoColor));
     if(hasShadow)
@@ -58,20 +79,30 @@ int Item::getId() const
 
 bool Item::eventFilter(QObject *object, QEvent *event)
 {
-    if(event->type() == QEvent::HoverEnter){
-        QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
-        QPainter painter(&pixmap);
-        painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
-        painter.fillRect(pixmap.rect(), hoverColor);
+    if(object == ui->pushButton){
+        if(event->type() == QEvent::HoverEnter){
+            QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
+            QPainter painter(&pixmap);
+            painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
+            painter.fillRect(pixmap.rect(), hoverColor);
 
-        ui->Image->setPixmap(pixmap);
+            ui->Image->setPixmap(pixmap);
 
-        isHovered = true;
+            isHovered = true;
+        }
+        else if(event->type() == QEvent::HoverLeave){
+            ui->Image->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
+
+            isHovered = false;
+        }
     }
-    if(event->type() == QEvent::HoverLeave){
-        ui->Image->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
-
-        isHovered = false;
+    if(object == ui->StyleButtonsWrapper){
+        if(event->type() == QEvent::Enter){
+            opacity->setOpacity(1);
+        }
+        else if(event->type() == QEvent::Leave){
+            opacity->setOpacity(0.3);
+        }
     }
 
     return false;

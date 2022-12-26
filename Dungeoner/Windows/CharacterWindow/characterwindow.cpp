@@ -1073,7 +1073,7 @@ void CharacterWindow::addRowOfCellsToInventory()
 
     //Создание новой строкиячеек
     for(int i = 0; i<10; i++){
-        InventoryCell* cell = new InventoryCell;
+        InventoryCell* cell = new InventoryCell();
         cell->setFixedSize(68, 68);
         /*Учитывая что row всегда показывает текущее количество ячеек, то есть на
          *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
