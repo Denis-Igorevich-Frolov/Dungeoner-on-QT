@@ -45,6 +45,8 @@ public:
 
     int getId() const;
 
+    void setDisabledSyle(bool isDisabled);
+
 private slots:
     void on_pushButton_clicked();
 
@@ -81,8 +83,10 @@ private:
     int shadowXOffset = 3;
     int shadowYOffset = 3;
     bool isPressable = false;
+    bool isDisabled = false;
     QColor hoverColor = QColor(255, 255, 255, 40);
     QColor pressedColor = QColor(0, 0, 0, 50);
+    QColor disabledColor = QColor(0, 0, 0, 140);
 
     /*Нужны ещё:
      *1) Вектор навыков

@@ -39,6 +39,9 @@ void InventoryCell::setEmptyStyle()
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonEmptyStyle());
     ui->CentralElement->setStyleSheet(IC_stylemaster::centralElementStyle());
     ui->CentralElement->setVisible(true);
+
+    ui->item->setDisabledSyle(false);
+
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 56);
 }
@@ -57,6 +60,9 @@ void InventoryCell::setNoEmptyStyle()
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::notEmptyBGStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonNotEmptyStyle());
     ui->inventoryCellBG->setVisible(true);
+
+    ui->item->setDisabledSyle(false);
+
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
 }
@@ -74,6 +80,8 @@ void InventoryCell::setNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+
+    ui->item->setDisabledSyle(false);
 }
 
 //Стиль ячейки с новым заглушенным предметом
@@ -89,6 +97,8 @@ void InventoryCell::setLockedNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+
+    ui->item->setDisabledSyle(true);
 }
 
 void InventoryCell::setCentralElementStyle(bool isVisible)
@@ -116,6 +126,9 @@ void InventoryCell::setLockedStyle()
     ui->Locked->setStyleSheet(IC_stylemaster::lockedStyle());
     ui->CentralElement->setVisible(true);
     ui->Locked->setVisible(true);
+
+    ui->item->setDisabledSyle(false);
+
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 56);
 }
@@ -135,6 +148,9 @@ void InventoryCell::setDisabledStyle()
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonDisabledNotEmptyStyle());
     ui->inventoryCellBG->setVisible(true);
     ui->CentralElement->setVisible(true);
+
+    ui->item->setDisabledSyle(true);
+
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
 }
@@ -145,4 +161,6 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     ui->Blocked->setVisible(isBlocked);
     if(isBlocked)
         ui->Blocked->setStyleSheet(IC_stylemaster::blockedStyle());
+
+    ui->item->setDisabledSyle(false);
 }
