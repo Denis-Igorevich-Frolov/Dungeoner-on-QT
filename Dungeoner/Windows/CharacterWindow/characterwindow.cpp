@@ -1217,12 +1217,12 @@ void CharacterWindow::on_pushButton_11_clicked()
 
 void CharacterWindow::on_pushButton_8_clicked()
 {
-    addRowOfCellsToInventory();
+    ui->widget->setBrokenNewStyle();
 }
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
-    removeRowOfCellsFromInventory();
+    ui->widget->setLockedBrokenNewStyle();
 }
 
 void CharacterWindow::on_SaveButton_clicked()

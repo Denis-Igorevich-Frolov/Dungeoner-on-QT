@@ -68,6 +68,8 @@ public:
     void setNewStyle();
     //Стиль ячейки с новым заглушенным предметом
     void setLockedNewStyle();
+    void setBrokenNewStyle();
+    void setLockedBrokenNewStyle();
     //Стиль неактивной (заблокированной) ячейки
     void setLockedStyle();
     //Стиль ячейки с заглушенным предметом

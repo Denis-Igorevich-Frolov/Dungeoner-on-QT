@@ -105,6 +105,40 @@ void InventoryCell::setLockedNewStyle()
     ui->item->setBrokenSyle(false);
 }
 
+void InventoryCell::setBrokenNewStyle()
+{
+    inventoryCellNew.stop();
+    //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
+    ui->Locked->setVisible(false);
+    ui->CentralElement->setVisible(false);
+    //Включается отображение анимации ячейки с новым предметом
+    ui->inventoryCellNew->setVisible(true);
+    inventoryCellNew.setFileName(":/Inventory/GIF/BrokenInventoryItemNew.gif");
+    inventoryCellNew.setScaledSize(QSize(68,68));
+    ui->inventoryCellNew->setMovie(&inventoryCellNew);
+    inventoryCellNew.start();
+
+    ui->item->setDisabledSyle(false);
+    ui->item->setBrokenSyle(true);
+}
+
+void InventoryCell::setLockedBrokenNewStyle()
+{
+    inventoryCellNew.stop();
+    //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
+    ui->Locked->setVisible(false);
+    ui->CentralElement->setVisible(false);
+    //Включается отображение анимации ячейки с новым предметом
+    ui->inventoryCellNew->setVisible(true);
+    inventoryCellNew.setFileName(":/Inventory/GIF/DisabledBrokenInventoryItemNew.gif");
+    inventoryCellNew.setScaledSize(QSize(68,68));
+    ui->inventoryCellNew->setMovie(&inventoryCellNew);
+    inventoryCellNew.start();
+
+    ui->item->setDisabledSyle(true);
+    ui->item->setBrokenSyle(true);
+}
+
 void InventoryCell::setCentralElementStyle(bool isVisible)
 {
     ui->CentralElement->setVisible(isVisible);
