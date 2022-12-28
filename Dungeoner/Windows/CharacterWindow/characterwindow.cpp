@@ -1207,12 +1207,12 @@ void CharacterWindow::on_pushButton_9_clicked()
 
 void CharacterWindow::on_pushButton_10_clicked()
 {
-    ui->widget->setDropdownButtonVisible(false);
+    ui->widget->setBrokenStyle();
 }
 
 void CharacterWindow::on_pushButton_11_clicked()
 {
-    ui->widget->setDropdownButtonVisible(true);
+    ui->widget->setLockedBrokenStyle();
 }
 
 void CharacterWindow::on_pushButton_8_clicked()

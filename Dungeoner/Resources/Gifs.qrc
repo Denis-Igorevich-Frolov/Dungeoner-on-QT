@@ -2,5 +2,7 @@
     <qresource prefix="/Inventory">
         <file>GIF/InventoryItemNew.gif</file>
         <file>GIF/DisabledInventoryItemNew.gif</file>
+        <file>GIF/DisabledBrokenInventoryItemNew.gif</file>
+        <file>GIF/BrokenInventoryItemNew.gif</file>
     </qresource>
 </RCC>

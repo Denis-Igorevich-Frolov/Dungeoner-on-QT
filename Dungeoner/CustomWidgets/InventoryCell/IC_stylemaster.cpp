@@ -65,6 +65,26 @@ QString IC_stylemaster::disabledNotEmptyBGStyle()
     "}";
 }
 
+QString IC_stylemaster::brokenNotEmptyBGStyle()
+{
+    return
+    "QLabel{"
+    "   background-image: url(:/Inventory/Textures PNG/Inventory-Item-Broken-BG.png);"
+    "   background-repeat: no-repiat;"
+    "   background-position: center center;"
+    "}";
+}
+
+QString IC_stylemaster::disabledBrokenNotEmptyBGStyle()
+{
+    return
+    "QLabel{"
+    "   background-image: url(:/Inventory/Textures PNG/Disabled-Inventory-Item-Broken-BG.png);"
+    "   background-repeat: no-repiat;"
+    "   background-position: center center;"
+    "}";
+}
+
 QString IC_stylemaster::centralElementStyle()
 {
     return

@@ -74,6 +74,8 @@ public:
     void setDisabledStyle();
     //Стиль ячейки, в которую нельзя поместить выбранный итем
     void setBlockedStyle(bool isBlocked);
+    void setBrokenStyle();
+    void setLockedBrokenStyle();
 
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);

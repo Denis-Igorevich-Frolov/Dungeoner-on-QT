@@ -41,6 +41,7 @@ void InventoryCell::setEmptyStyle()
     ui->CentralElement->setVisible(true);
 
     ui->item->setDisabledSyle(false);
+    ui->item->setBrokenSyle(false);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 56);
@@ -62,6 +63,7 @@ void InventoryCell::setNoEmptyStyle()
     ui->inventoryCellBG->setVisible(true);
 
     ui->item->setDisabledSyle(false);
+    ui->item->setBrokenSyle(false);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
@@ -82,6 +84,7 @@ void InventoryCell::setNewStyle()
     inventoryCellNew.start();
 
     ui->item->setDisabledSyle(false);
+    ui->item->setBrokenSyle(false);
 }
 
 //Стиль ячейки с новым заглушенным предметом
@@ -99,6 +102,7 @@ void InventoryCell::setLockedNewStyle()
     inventoryCellNew.start();
 
     ui->item->setDisabledSyle(true);
+    ui->item->setBrokenSyle(false);
 }
 
 void InventoryCell::setCentralElementStyle(bool isVisible)
@@ -128,6 +132,7 @@ void InventoryCell::setLockedStyle()
     ui->Locked->setVisible(true);
 
     ui->item->setDisabledSyle(false);
+    ui->item->setBrokenSyle(false);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 56);
@@ -150,6 +155,7 @@ void InventoryCell::setDisabledStyle()
     ui->CentralElement->setVisible(true);
 
     ui->item->setDisabledSyle(true);
+    ui->item->setBrokenSyle(false);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
@@ -163,4 +169,48 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
         ui->Blocked->setStyleSheet(IC_stylemaster::blockedStyle());
 
     ui->item->setDisabledSyle(false);
+    ui->item->setBrokenSyle(false);
+}
+
+void InventoryCell::setBrokenStyle()
+{
+    //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена
+    ui->inventoryCellNew->setVisible(false);
+    inventoryCellNew.stop();
+    //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
+    ui->Locked->setVisible(false);
+    ui->CentralElement->setVisible(false);
+    //Установка стилей
+    ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::notEmptyBorderStyle());
+    ui->inventoryCellBG->setStyleSheet(IC_stylemaster::brokenNotEmptyBGStyle());
+    ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonNotEmptyStyle());
+    ui->inventoryCellBG->setVisible(true);
+
+    ui->item->setDisabledSyle(false);
+    ui->item->setBrokenSyle(true);
+
+    //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
+    ui->DropdownButton->move(3, 57);
+}
+
+void InventoryCell::setLockedBrokenStyle()
+{
+    //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена
+    ui->inventoryCellNew->setVisible(false);
+    inventoryCellNew.stop();
+    //Лейбл заблокированной ячейки и центральный элемент не участвуют в этом стиле, так что их следует скрыть
+    ui->Locked->setVisible(false);
+    ui->CentralElement->setVisible(false);
+    //Установка стилей
+    ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::disabledNotEmptyBorderStyle());
+    ui->inventoryCellBG->setStyleSheet(IC_stylemaster::disabledBrokenNotEmptyBGStyle());
+    ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonDisabledNotEmptyStyle());
+    ui->inventoryCellBG->setVisible(true);
+    ui->CentralElement->setVisible(true);
+
+    ui->item->setDisabledSyle(true);
+    ui->item->setBrokenSyle(true);
+
+    //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
+    ui->DropdownButton->move(3, 57);
 }

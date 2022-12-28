@@ -21,7 +21,7 @@ Item::Item(QWidget *parent) :
     shadow->setOffset(shadowXOffset, shadowYOffset);
 
     quantity=999;
-    styles.append({this, this, this, this});
+//    styles.append({this, this, this, this});
 
     if(styles.size()>1){
         ui->StyleButtonsWrapper->setFixedHeight(14*styles.size()-2);
@@ -81,19 +81,52 @@ int Item::getId() const
 
 void Item::setDisabledSyle(bool isDisabled)
 {
+    QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
+    QPainter painter(&pixmap);
+    painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
+
     if(isDisabled){
-        QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
-        QPainter painter(&pixmap);
-        painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
-        painter.fillRect(pixmap.rect(), disabledColor);
+        if(isBroken)
+            painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red())/2, (disabledColor.green() + brokenColor.green())/2,
+                                                   (disabledColor.blue() + brokenColor.blue())/2, (disabledColor.alpha() + brokenColor.alpha())/2));
+        else
+            painter.fillRect(pixmap.rect(), disabledColor);
 
         ui->Image->setPixmap(pixmap);
         this->isDisabled = true;
     }else{
-        ui->Image->setPixmap(QPixmap::fromImage(image,Qt::AutoColor));
+        if(isBroken){
+            painter.fillRect(pixmap.rect(), brokenColor);
+            ui->Image->setPixmap(pixmap);
+        }else
+            ui->Image->setPixmap(QPixmap::fromImage(image,Qt::AutoColor));
         this->isDisabled = false;
     }
+}
 
+void Item::setBrokenSyle(bool isBroken)
+{
+    QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
+    QPainter painter(&pixmap);
+    painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
+
+    if(isBroken){
+        if(isDisabled)
+            painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red())/2, (disabledColor.green() + brokenColor.green())/2,
+                                                   (disabledColor.blue() + brokenColor.blue())/2, (disabledColor.alpha() + brokenColor.alpha())/2));
+        else
+            painter.fillRect(pixmap.rect(), brokenColor);
+
+        ui->Image->setPixmap(pixmap);
+        this->isBroken = true;
+    }else{
+        if(isDisabled){
+            painter.fillRect(pixmap.rect(), disabledColor);
+            ui->Image->setPixmap(pixmap);
+        }else
+            ui->Image->setPixmap(QPixmap::fromImage(image,Qt::AutoColor));
+        this->isBroken = false;
+    }
 }
 
 bool Item::eventFilter(QObject *object, QEvent *event)
@@ -103,9 +136,15 @@ bool Item::eventFilter(QObject *object, QEvent *event)
             QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
             QPainter painter(&pixmap);
             painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
-            if(isDisabled)
+            if(isDisabled && isBroken)
+                painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red() + hoverColor.red())/3, (disabledColor.green() + brokenColor.green() + hoverColor.green())/3,
+                                                       (disabledColor.blue() + brokenColor.blue() + hoverColor.blue())/3, (disabledColor.alpha() + brokenColor.alpha() + hoverColor.alpha())/3));
+            else if(isDisabled)
                 painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + hoverColor.red())/2, (disabledColor.green() + hoverColor.green())/2,
                                                        (disabledColor.blue() + hoverColor.blue())/2, (disabledColor.alpha() + hoverColor.alpha())/2));
+            else if(isBroken)
+                painter.fillRect(pixmap.rect(), QColor((brokenColor.red() + hoverColor.red())/2, (brokenColor.green() + hoverColor.green())/2,
+                                                       (brokenColor.blue() + hoverColor.blue())/2, (brokenColor.alpha() + hoverColor.alpha())/2));
             else
                 painter.fillRect(pixmap.rect(), hoverColor);
 
@@ -114,14 +153,21 @@ bool Item::eventFilter(QObject *object, QEvent *event)
             isHovered = true;
         }
         else if(event->type() == QEvent::HoverLeave){
-            if(isDisabled){
-                QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
-                QPainter painter(&pixmap);
-                painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
-                painter.fillRect(pixmap.rect(), disabledColor);
-
+            QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
+            QPainter painter(&pixmap);
+            painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
+            if(isDisabled && isBroken){
+                painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red())/2, (disabledColor.green() + brokenColor.green())/2,
+                                                       (disabledColor.blue() + brokenColor.blue())/2, (disabledColor.alpha() + brokenColor.alpha())/2));
                 ui->Image->setPixmap(pixmap);
-            }else
+            }else if(isDisabled){
+                painter.fillRect(pixmap.rect(), disabledColor);
+                ui->Image->setPixmap(pixmap);
+            }else if(isBroken){
+                painter.fillRect(pixmap.rect(), brokenColor);
+                ui->Image->setPixmap(pixmap);
+            }
+            else
                 ui->Image->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
 
             isHovered = false;
@@ -151,14 +197,19 @@ void Item::on_pushButton_pressed()
     QPainter painter(&pixmap);
     painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
 
-    if(isDisabled){
+    if(isDisabled && isBroken)
+        painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red() + pressedColor.red())/3, (disabledColor.green() + brokenColor.green() + pressedColor.green())/3,
+                                               (disabledColor.blue() + brokenColor.blue() + pressedColor.blue())/3, (disabledColor.alpha() + brokenColor.alpha() + pressedColor.alpha())/3));
+    else if(isDisabled)
         painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + pressedColor.red())/2, (disabledColor.green() + pressedColor.green())/2,
                                                (disabledColor.blue() + pressedColor.blue())/2, (disabledColor.alpha() + pressedColor.alpha())/2));
-        ui->Image->setPixmap(pixmap);
-    }else{
+    else if(isBroken)
+        painter.fillRect(pixmap.rect(), QColor((brokenColor.red() + pressedColor.red())/2, (brokenColor.green() + pressedColor.green())/2,
+                                               (brokenColor.blue() + pressedColor.blue())/2, (brokenColor.alpha() + pressedColor.alpha())/2));
+    else
         painter.fillRect(pixmap.rect(), pressedColor);
-        ui->Image->setPixmap(pixmap);
-    }
+
+    ui->Image->setPixmap(pixmap);
 }
 
 
@@ -169,22 +220,34 @@ void Item::on_pushButton_released()
     painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
 
     if(isHovered){
-        if(isDisabled){
+        if(isDisabled && isBroken)
+            painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red() + hoverColor.red())/3, (disabledColor.green() + brokenColor.green() + hoverColor.green())/3,
+                                                   (disabledColor.blue() + brokenColor.blue() + hoverColor.blue())/3, (disabledColor.alpha() + brokenColor.alpha() + hoverColor.alpha())/3));
+        else if(isDisabled)
             painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + hoverColor.red())/2, (disabledColor.green() + hoverColor.green())/2,
                                                    (disabledColor.blue() + hoverColor.blue())/2, (disabledColor.alpha() + hoverColor.alpha())/2));
-
-            ui->Image->setPixmap(pixmap);
-        }else{
+        else if(isBroken)
+            painter.fillRect(pixmap.rect(), QColor((brokenColor.red() + hoverColor.red())/2, (brokenColor.green() + hoverColor.green())/2,
+                                                   (brokenColor.blue() + hoverColor.blue())/2, (brokenColor.alpha() + hoverColor.alpha())/2));
+        else
             painter.fillRect(pixmap.rect(), hoverColor);
 
-            ui->Image->setPixmap(pixmap);
-        }
+        ui->Image->setPixmap(pixmap);
     }else
-        if(isDisabled){
+        if(isDisabled && isBroken){
+            painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red())/2, (disabledColor.green() + brokenColor.green())/2,
+                                                   (disabledColor.blue() + brokenColor.blue())/2, (disabledColor.alpha() + brokenColor.alpha())/2));
+            ui->Image->setPixmap(pixmap);
+        }else if(isDisabled){
             painter.fillRect(pixmap.rect(), disabledColor);
 
             ui->Image->setPixmap(pixmap);
-        }else
+        }else if(isBroken){
+            painter.fillRect(pixmap.rect(), brokenColor);
+
+            ui->Image->setPixmap(pixmap);
+        }
+        else
             ui->Image->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
 }
 

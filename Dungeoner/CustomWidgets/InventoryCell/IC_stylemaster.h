@@ -17,6 +17,8 @@ public:
     static QString lockedBorderStyle();
     static QString notEmptyBGStyle();
     static QString disabledNotEmptyBGStyle();
+    static QString brokenNotEmptyBGStyle();
+    static QString disabledBrokenNotEmptyBGStyle();
     static QString centralElementStyle();
     static QString lockedStyle();
     static QString blockedStyle();
