@@ -1202,7 +1202,7 @@ void CharacterWindow::on_pushButton_6_clicked()
 
 void CharacterWindow::on_pushButton_9_clicked()
 {
-    ui->widget->setLockedNewStyle();
+    ui->widget->setDisabledNewStyle();
 }
 
 void CharacterWindow::on_pushButton_10_clicked()
@@ -1222,7 +1222,7 @@ void CharacterWindow::on_pushButton_8_clicked()
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
-    ui->widget->setLockedBrokenNewStyle();
+    ui->widget->setDisabledBrokenNewStyle();
 }
 
 void CharacterWindow::on_SaveButton_clicked()

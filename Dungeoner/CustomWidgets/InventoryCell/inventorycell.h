@@ -67,16 +67,20 @@ public:
     //Стиль ячейки с новым предметом
     void setNewStyle();
     //Стиль ячейки с новым заглушенным предметом
-    void setLockedNewStyle();
+    void setDisabledNewStyle();
+    //Стиль ячейки с новым сломанным пребметом
     void setBrokenNewStyle();
-    void setLockedBrokenNewStyle();
+    //Стиль ячейки с новым заглушенным сломанным пребметом
+    void setDisabledBrokenNewStyle();
     //Стиль неактивной (заблокированной) ячейки
     void setLockedStyle();
     //Стиль ячейки с заглушенным предметом
     void setDisabledStyle();
     //Стиль ячейки, в которую нельзя поместить выбранный итем
     void setBlockedStyle(bool isBlocked);
+    //Стиль ячейки со сломанным пребметом
     void setBrokenStyle();
+    //Стиль ячейки с заглушенным сломанным пребметом
     void setLockedBrokenStyle();
 
     void setCentralElementStyle(bool isVisible);

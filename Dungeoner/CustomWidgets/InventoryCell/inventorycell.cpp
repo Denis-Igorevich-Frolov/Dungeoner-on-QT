@@ -88,7 +88,7 @@ void InventoryCell::setNewStyle()
 }
 
 //Стиль ячейки с новым заглушенным предметом
-void InventoryCell::setLockedNewStyle()
+void InventoryCell::setDisabledNewStyle()
 {
     inventoryCellNew.stop();
     //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
@@ -105,6 +105,7 @@ void InventoryCell::setLockedNewStyle()
     ui->item->setBrokenSyle(false);
 }
 
+//Стиль ячейки с новым сломанным пребметом
 void InventoryCell::setBrokenNewStyle()
 {
     inventoryCellNew.stop();
@@ -122,7 +123,8 @@ void InventoryCell::setBrokenNewStyle()
     ui->item->setBrokenSyle(true);
 }
 
-void InventoryCell::setLockedBrokenNewStyle()
+//Стиль ячейки с новым заглушенным сломанным пребметом
+void InventoryCell::setDisabledBrokenNewStyle()
 {
     inventoryCellNew.stop();
     //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
@@ -206,6 +208,7 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     ui->item->setBrokenSyle(false);
 }
 
+//Стиль ячейки со сломанным пребметом
 void InventoryCell::setBrokenStyle()
 {
     //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена
@@ -227,6 +230,7 @@ void InventoryCell::setBrokenStyle()
     ui->DropdownButton->move(3, 57);
 }
 
+//Стиль ячейки с заглушенным сломанным пребметом
 void InventoryCell::setLockedBrokenStyle()
 {
     //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена

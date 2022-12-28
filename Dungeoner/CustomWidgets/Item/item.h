@@ -45,10 +45,13 @@ public:
 
     int getId() const;
 
+    //Установка/отключение стиля заглушенного итема
     void setDisabledSyle(bool isDisabled);
+    //Установка/отключение стиля сломанного итема
     void setBrokenSyle(bool isBroken);
 
 private slots:
+    //Эффекты при прожатии итема
     void on_pushButton_clicked();
 
     void on_pushButton_pressed();
@@ -72,6 +75,7 @@ private:
     QVector<InventoryCell::Slots> occupiedCellSlots;
     QVector<Bonus*> bonuses;
     QVector<MagicDefenseBonus*> magicDefenseBonuses;
+    //Первый стиль - всегда исходный предмет
     QVector<Item*> styles{this};
     int currentStyle = 0;
     QString folderName;
