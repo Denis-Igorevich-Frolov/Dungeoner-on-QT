@@ -1212,7 +1212,7 @@ void CharacterWindow::on_pushButton_10_clicked()
 
 void CharacterWindow::on_pushButton_11_clicked()
 {
-    ui->widget->setLockedBrokenStyle();
+    ui->widget->setDisabledBrokenStyle();
 }
 
 void CharacterWindow::on_pushButton_8_clicked()

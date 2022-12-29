@@ -1,3 +1,8 @@
+/********************************************************************************
+ *Данный класс является классом вещи. Здесь хранятся все её характеристики
+ *и имеются все необходимые методы визуализации предметов в инвентаре.
+ ********************************************************************************/
+
 #ifndef ITEM_H
 #define ITEM_H
 
@@ -43,12 +48,17 @@ public:
         Global::DamageType damageType;
     };
 
+    bool isNew = false;
+    bool isDisabled = false;
+
     int getId() const;
 
     //Установка/отключение стиля заглушенного итема
     void setDisabledSyle(bool isDisabled);
     //Установка/отключение стиля сломанного итема
     void setBrokenSyle(bool isBroken);
+
+    bool getIsBroken() const;
 
 private slots:
     //Эффекты при прожатии итема
@@ -88,7 +98,6 @@ private:
     int shadowXOffset = 3;
     int shadowYOffset = 3;
     bool isPressable = false;
-    bool isDisabled = false;
     bool isBroken = false;
     QColor hoverColor = QColor(255, 255, 255, 40);
     QColor pressedColor = QColor(0, 0, 0, 50);

@@ -1,3 +1,8 @@
+/********************************************************************************
+ *Данный класс является классом вещи. Здесь хранятся все её характеристики
+ *и имеются все необходимые методы визуализации предметов в инвентаре.
+ ********************************************************************************/
+
 #include "I_stylemaster.h"
 #include "item.h"
 #include "qpainter.h"
@@ -20,7 +25,6 @@ Item::Item(QWidget *parent) :
     shadow->setBlurRadius(shadowBlurRadius);
     shadow->setOffset(shadowXOffset, shadowYOffset);
 
-    quantity=999;
 //    styles.append({this, this, this, this});
 
     //Если у предмета несколько стилей, то включаются кнопки смены стилей
@@ -52,6 +56,8 @@ Item::Item(QWidget *parent) :
     folderName = "Test";
     id = 0;
     isPressable = true;
+    isNew = true;
+    quantity=999;
 
     //Создаётся директория, если её небыло
     QDir dir;
@@ -147,54 +153,56 @@ void Item::setBrokenSyle(bool isBroken)
 
 bool Item::eventFilter(QObject *object, QEvent *event)
 {
-    if(object == ui->pushButton && isPressable){
-        //Наложение на итем цета наведения
-        if(event->type() == QEvent::HoverEnter){
-            QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
-            QPainter painter(&pixmap);
-            painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
-            //Если вещь сломана и заглушена, то находится средний цвет между заглушенным, сломанным и наведённым цветами
-            if(isDisabled && isBroken)
-                painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red() + hoverColor.red())/3,
-                                                       (disabledColor.green() + brokenColor.green() + hoverColor.green())/3,
-                                                       (disabledColor.blue() + brokenColor.blue() + hoverColor.blue())/3,
-                                                       (disabledColor.alpha() + brokenColor.alpha() + hoverColor.alpha())/3));
-            //Если вещь заглушена, то находится средний цвет между заглушенным и наведённым цветами
-            else if(isDisabled)
-                painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + hoverColor.red())/2, (disabledColor.green() + hoverColor.green())/2,
-                                                       (disabledColor.blue() + hoverColor.blue())/2, (disabledColor.alpha() + hoverColor.alpha())/2));
-            //Если вещь сломана, то находится средний цвет между ломанным и наведённым цветами
-            else if(isBroken)
-                painter.fillRect(pixmap.rect(), QColor((brokenColor.red() + hoverColor.red())/2, (brokenColor.green() + hoverColor.green())/2,
-                                                       (brokenColor.blue() + hoverColor.blue())/2, (brokenColor.alpha() + hoverColor.alpha())/2));
-            else
-                painter.fillRect(pixmap.rect(), hoverColor);
+    if(object == ui->pushButton){
+        if(isPressable){
+            //Наложение на итем цета наведения
+            if(event->type() == QEvent::HoverEnter){
+                QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
+                QPainter painter(&pixmap);
+                painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
+                //Если вещь сломана и заглушена, то находится средний цвет между заглушенным, сломанным и наведённым цветами
+                if(isDisabled && isBroken)
+                    painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red() + hoverColor.red())/3,
+                                                           (disabledColor.green() + brokenColor.green() + hoverColor.green())/3,
+                                                           (disabledColor.blue() + brokenColor.blue() + hoverColor.blue())/3,
+                                                           (disabledColor.alpha() + brokenColor.alpha() + hoverColor.alpha())/3));
+                //Если вещь заглушена, то находится средний цвет между заглушенным и наведённым цветами
+                else if(isDisabled)
+                    painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + hoverColor.red())/2, (disabledColor.green() + hoverColor.green())/2,
+                                                           (disabledColor.blue() + hoverColor.blue())/2, (disabledColor.alpha() + hoverColor.alpha())/2));
+                //Если вещь сломана, то находится средний цвет между ломанным и наведённым цветами
+                else if(isBroken)
+                    painter.fillRect(pixmap.rect(), QColor((brokenColor.red() + hoverColor.red())/2, (brokenColor.green() + hoverColor.green())/2,
+                                                           (brokenColor.blue() + hoverColor.blue())/2, (brokenColor.alpha() + hoverColor.alpha())/2));
+                else
+                    painter.fillRect(pixmap.rect(), hoverColor);
 
-            ui->Image->setPixmap(pixmap);
+                ui->Image->setPixmap(pixmap);
 
-            isHovered = true;
-        }
-        //Возвращение исходных цветов
-        else if(event->type() == QEvent::HoverLeave){
-            QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
-            QPainter painter(&pixmap);
-            painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
-            //Если вещь сломана и заглушена, то находится средний цвет между заглушенным и сломанным цветами
-            if(isDisabled && isBroken){
-                painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red())/2, (disabledColor.green() + brokenColor.green())/2,
-                                                       (disabledColor.blue() + brokenColor.blue())/2, (disabledColor.alpha() + brokenColor.alpha())/2));
-                ui->Image->setPixmap(pixmap);
-            }else if(isDisabled){
-                painter.fillRect(pixmap.rect(), disabledColor);
-                ui->Image->setPixmap(pixmap);
-            }else if(isBroken){
-                painter.fillRect(pixmap.rect(), brokenColor);
-                ui->Image->setPixmap(pixmap);
+                isHovered = true;
             }
-            else
-                ui->Image->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
+            //Возвращение исходных цветов
+            else if(event->type() == QEvent::HoverLeave){
+                QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
+                QPainter painter(&pixmap);
+                painter.setCompositionMode(QPainter::CompositionMode_SourceAtop);
+                //Если вещь сломана и заглушена, то находится средний цвет между заглушенным и сломанным цветами
+                if(isDisabled && isBroken){
+                    painter.fillRect(pixmap.rect(), QColor((disabledColor.red() + brokenColor.red())/2, (disabledColor.green() + brokenColor.green())/2,
+                                                           (disabledColor.blue() + brokenColor.blue())/2, (disabledColor.alpha() + brokenColor.alpha())/2));
+                    ui->Image->setPixmap(pixmap);
+                }else if(isDisabled){
+                    painter.fillRect(pixmap.rect(), disabledColor);
+                    ui->Image->setPixmap(pixmap);
+                }else if(isBroken){
+                    painter.fillRect(pixmap.rect(), brokenColor);
+                    ui->Image->setPixmap(pixmap);
+                }
+                else
+                    ui->Image->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
 
-            isHovered = false;
+                isHovered = false;
+            }
         }
     }
     if(object == ui->StyleButtonsWrapper){
@@ -295,5 +303,10 @@ void Item::on_pushButton_released()
             else
                 ui->Image->setPixmap(QPixmap::fromImage(image, Qt::AutoColor));
     }
+}
+
+bool Item::getIsBroken() const
+{
+    return isBroken;
 }
 

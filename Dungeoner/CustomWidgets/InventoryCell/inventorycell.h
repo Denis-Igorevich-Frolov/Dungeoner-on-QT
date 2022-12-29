@@ -20,6 +20,7 @@ public:
     explicit InventoryCell(QWidget *parent = nullptr);
     ~InventoryCell();
 
+    //Все возможные типы слотов инвентаря
     enum Slots{
         INVENTORY,//Слот инвентаря
         //Под доспехом
@@ -60,7 +61,15 @@ public:
         ADDITIONAL_SLOT//Дополнительный слот
     };
 
-    //Стиль пустой ячейкиSS
+    //Метод, выставляющий стиль автоматически исходя из характеристик предмета
+    void setAutoStyle();
+    //Стиль неактивной (заблокированной) ячейки
+    void setLockedStyle();
+    //Стиль ячейки, в которую нельзя поместить выбранный итем
+    void setBlockedStyle(bool isBlocked);
+
+    //////!!!!!!!ПЕРЕМЕСТИТЬ В ПРИВАТ!!!!!!!
+    //Стиль пустой ячейки
     void setEmptyStyle();
     //Стиль ячейки с предметом
     void setNoEmptyStyle();
@@ -72,24 +81,24 @@ public:
     void setBrokenNewStyle();
     //Стиль ячейки с новым заглушенным сломанным пребметом
     void setDisabledBrokenNewStyle();
-    //Стиль неактивной (заблокированной) ячейки
-    void setLockedStyle();
     //Стиль ячейки с заглушенным предметом
     void setDisabledStyle();
-    //Стиль ячейки, в которую нельзя поместить выбранный итем
-    void setBlockedStyle(bool isBlocked);
     //Стиль ячейки со сломанным пребметом
     void setBrokenStyle();
     //Стиль ячейки с заглушенным сломанным пребметом
-    void setLockedBrokenStyle();
+    void setDisabledBrokenStyle();
 
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
 
 private:
+    bool isLoked = false;
+
     Ui::InventoryCell *ui;
 
     QMovie inventoryCellNew;
+
+    virtual bool eventFilter(QObject* object, QEvent* event) override;
 };
 
 #endif // INVENTORYCELL_H

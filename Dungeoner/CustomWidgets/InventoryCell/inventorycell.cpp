@@ -13,6 +13,8 @@ InventoryCell::InventoryCell(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->item->installEventFilter(this);
+
     if(ui->item->getId()==-1)
         setEmptyStyle();
     else
@@ -23,6 +25,30 @@ InventoryCell::InventoryCell(QWidget *parent) :
 InventoryCell::~InventoryCell()
 {
     delete ui;
+}
+
+//Метод, выставляющий стиль автоматически исходя из характеристик предмета
+void InventoryCell::setAutoStyle()
+{
+    //id -1 только у пустого неинициализированного предмета
+    if(ui->item->getId() == -1)
+        setEmptyStyle();
+    else if(ui->item->isNew && ui->item->isDisabled && ui->item->getIsBroken())
+        setDisabledBrokenNewStyle();
+    else if(ui->item->isNew && ui->item->isDisabled)
+        setDisabledNewStyle();
+    else if(ui->item->isNew && ui->item->getIsBroken())
+        setBrokenNewStyle();
+    else if(ui->item->isNew)
+        setNewStyle();
+    else if(ui->item->isDisabled && ui->item->getIsBroken())
+        setDisabledBrokenStyle();
+    else if(ui->item->isDisabled)
+        setDisabledStyle();
+    else if(ui->item->getIsBroken())
+        setBrokenStyle();
+    else
+        setNoEmptyStyle();
 }
 
 //Стиль пустой ячейки
@@ -151,6 +177,21 @@ void InventoryCell::setDropdownButtonVisible(bool isVisible)
     ui->DropdownButton->setVisible(isVisible);
 }
 
+bool InventoryCell::eventFilter(QObject *object, QEvent *event)
+{
+    if(object == ui->item){
+        //При наведении новый стиль пропадает
+        if(event->type() == QEvent::HoverEnter){
+            if(ui->item->isNew){
+                ui->item->isNew = false;
+                setAutoStyle();
+            }
+        }
+    }
+
+    return false;
+}
+
 //Стиль неактивной (заблокированной) ячейки
 void InventoryCell::setLockedStyle()
 {
@@ -231,7 +272,7 @@ void InventoryCell::setBrokenStyle()
 }
 
 //Стиль ячейки с заглушенным сломанным пребметом
-void InventoryCell::setLockedBrokenStyle()
+void InventoryCell::setDisabledBrokenStyle()
 {
     //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена
     ui->inventoryCellNew->setVisible(false);
