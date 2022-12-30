@@ -1,6 +1,5 @@
 E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/Y6PV5VOU3T/moc_item.cpp: E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h \
   E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h \
-  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h \
@@ -20,9 +19,6 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearraylist.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayview.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qcalendar.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qcborcommon.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qcborvalue.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qchar.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qcompare.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qcompare_impl.h \
@@ -32,29 +28,19 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qcontainerinfo.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qcontainertools_impl.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qcontiguouscache.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication_platform.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qdatastream.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qdatetime.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qdebug.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qeventloop.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qfactoryinterface.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qflags.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qgenericatomic.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qglobal.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qglobalstatic.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qhash.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qhashfunctions.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qiodevice.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qiodevicebase.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qiterable.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qiterator.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qjsonobject.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qjsonvalue.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qline.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qlist.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qlocale.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qlogging.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmap.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmargins.h \
@@ -63,20 +49,16 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmetaobject.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmetatype.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qnativeinterface.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qnumeric.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qobject_impl.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs_impl.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qpair.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qplugin.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qpoint.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qpointer.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qprocessordetection.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qrect.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qrefcount.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qregularexpression.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qscopedpointer.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qscopeguard.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qset.h \
@@ -103,7 +85,6 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qurl.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qutf8stringview.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/quuid.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvariant.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvarlengtharray.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvector.h \
@@ -119,10 +100,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtGui/qfontmetrics.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qicon.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qimage.h \
-  E:/Qt/6.3.2/mingw_64/include/QtGui/qimageiohandler.h \
-  E:/Qt/6.3.2/mingw_64/include/QtGui/qimagereader.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qkeysequence.h \
-  E:/Qt/6.3.2/mingw_64/include/QtGui/qmovie.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qpaintdevice.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qpalette.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qpixelformat.h \

@@ -1,5 +1,12 @@
 E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/7DUF5DABG5/moc_inventorycell.cpp: E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.h \
   E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QVector \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qanystringview.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qarraydata.h \
@@ -53,6 +60,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmargins.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmath.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmetacontainer.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/qmetaobject.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmetatype.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qnativeinterface.h \
@@ -98,7 +106,9 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/quuid.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvariant.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvarlengtharray.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/qvector.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qversiontagging.h \
+  E:/Qt/6.3.2/mingw_64/include/QtGui/QFont \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qaction.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qbitmap.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qbrush.h \
@@ -127,7 +137,19 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtGui/qtransform.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qwindowdefs.h \
   E:/Qt/6.3.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/QAudioOutput \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/QMediaPlayer \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qaudio.h \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qaudiooutput.h \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qmediaenumdebug.h \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qmediaplayer.h \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+  E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsEffect \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicseffect.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \

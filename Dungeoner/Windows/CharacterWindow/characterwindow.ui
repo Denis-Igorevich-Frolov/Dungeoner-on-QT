@@ -2583,23 +2583,12 @@ border: none;</string>
     </property>
    </widget>
   </widget>
-  <widget class="InventoryCell" name="widget" native="true">
-   <property name="geometry">
-    <rect>
-     <x>850</x>
-     <y>200</y>
-     <width>221</width>
-     <height>181</height>
-    </rect>
-   </property>
-  </widget>
   <zorder>InventoryWrapper</zorder>
   <zorder>TopMenuWrapper</zorder>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
   <zorder>ProgressBars</zorder>
   <zorder>tooltip</zorder>
-  <zorder>widget</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -2630,12 +2619,6 @@ border: none;</string>
    <class>Tooltip</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/Tooltip/tooltip.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>InventoryCell</class>
-   <extends>QWidget</extends>
-   <header location="global">CustomWidgets/InventoryCell/inventorycell.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

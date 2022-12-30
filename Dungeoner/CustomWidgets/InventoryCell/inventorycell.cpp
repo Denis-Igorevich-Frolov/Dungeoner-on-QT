@@ -15,16 +15,46 @@ InventoryCell::InventoryCell(QWidget *parent) :
 
     ui->item->installEventFilter(this);
 
-    if(ui->item->getId()==-1)
-        setEmptyStyle();
-    else
-        setNoEmptyStyle();
     setDropdownButtonVisible(false);
 }
 
 InventoryCell::~InventoryCell()
 {
     delete ui;
+}
+
+void InventoryCell::setItem(Item *item)
+{
+    ui->item->folderName = item->folderName;
+    ui->item->isNew = item->isNew;
+    ui->item->isDisabled = item->isDisabled;
+    ui->item->styles = item->styles;
+    ui->item->isPressable = item->isPressable;
+    ui->item->itemTypes = item->itemTypes;
+    ui->item->occupiedCellSlots = item->occupiedCellSlots;
+    ui->item->bonuses = item->bonuses;
+    ui->item->magicDefenseBonuses = item->magicDefenseBonuses;
+    ui->item->image = item->image;
+    ui->item->hoverColor = item->hoverColor;
+    ui->item->pressedColor = item->pressedColor;
+    ui->item->disabledColor = item->disabledColor;
+    ui->item->brokenColor = item->brokenColor;
+    ui->item->setId(item->getId());
+    ui->item->setWeight(item->getWeight());
+    ui->item->setVolume(item->getVolume());
+    ui->item->setPrice(item->getPrice());
+    ui->item->setItemName(item->getItemName());
+    ui->item->setMaxDurability(item->getMaxDurability());
+    ui->item->setCurrentDurability(item->getCurrentDurability());
+    ui->item->setDamage(item->getMinDamage(), item->getMaxDamage());
+    ui->item->setQuantity(item->getQuantity());
+    ui->item->setCellSlots(item->getCellSlots());
+    ui->item->setCurrentStyle(item->getCurrentStyle());
+
+    ui->item->setShadow(item->hasShadow, item->shadowBlurRadius, item->shadowXOffset, item->shadowYOffset);
+    ui->item->setStyleButtonsStyle();
+
+    setAutoStyle();
 }
 
 //Метод, выставляющий стиль автоматически исходя из характеристик предмета

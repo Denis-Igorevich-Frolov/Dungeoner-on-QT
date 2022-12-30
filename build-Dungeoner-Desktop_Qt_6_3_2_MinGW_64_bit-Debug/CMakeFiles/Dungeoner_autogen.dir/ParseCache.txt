@@ -694,6 +694,13 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventoryce
  mmc:Q_OBJECT
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.h
  mdp:E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h
+ mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/QVector
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qalgorithms.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qanystringview.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qarraydata.h
@@ -747,6 +754,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventoryce
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmargins.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmath.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmetacontainer.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmetaobject.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmetatype.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnativeinterface.h
@@ -792,7 +800,9 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventoryce
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/quuid.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvariant.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvarlengtharray.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvector.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qversiontagging.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/QFont
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qaction.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qbitmap.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qbrush.h
@@ -821,7 +831,19 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventoryce
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qtransform.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qwindowdefs.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qwindowdefs_win.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/QAudioOutput
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/QMediaPlayer
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qaudio.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qaudiooutput.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qmediaenumdebug.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qmediaplayer.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimedia-config.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimediaexports.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtMultimedia/qtmultimediaglobal.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsEffect
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicseffect.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgetsexports.h
@@ -1046,7 +1068,6 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mmc:Q_OBJECT
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/moc_predefs.h
- mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h
@@ -1066,9 +1087,6 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayalgorithms.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearraylist.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayview.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcalendar.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcborcommon.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcborvalue.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qchar.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcompare.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcompare_impl.h
@@ -1078,29 +1096,19 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcontainerinfo.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcontainertools_impl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcontiguouscache.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication_platform.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qdatastream.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qdatetime.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qdebug.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qeventloop.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qfactoryinterface.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qflags.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qgenericatomic.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qglobal.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qglobalstatic.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qhash.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qhashfunctions.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiodevice.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiodevicebase.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiterable.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiterator.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qjsonobject.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qjsonvalue.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qline.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qlist.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qlocale.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qlogging.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmap.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmargins.h
@@ -1109,20 +1117,16 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmetaobject.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmetatype.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnativeinterface.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnumeric.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobject_impl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs_impl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qpair.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qplugin.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qpoint.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qpointer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qprocessordetection.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qrect.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qrefcount.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qregularexpression.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qscopedpointer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qscopeguard.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qset.h
@@ -1149,7 +1153,6 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qurl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qutf8stringview.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/quuid.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvariant.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvector.h
@@ -1165,10 +1168,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qfontmetrics.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qicon.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qimage.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qimageiohandler.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qimagereader.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qkeysequence.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qmovie.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qpaintdevice.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qpalette.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qpixelformat.h

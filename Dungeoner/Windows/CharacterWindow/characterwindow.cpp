@@ -16,6 +16,10 @@
 #include <QScrollBar>
 #include <QMutableVectorIterator>
 
+#include <CustomWidgets/Item/item.h>
+
+#include <CustomWidgets/InventoryCell/inventorycell.h>
+
 CharacterWindow::CharacterWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CharacterWindow)
@@ -1078,6 +1082,20 @@ void CharacterWindow::addRowOfCellsToInventory()
         /*Учитывая что row всегда показывает текущее количество ячеек, то есть на
          *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
         ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
+
+        //////////////////////////////////////////////
+        Item* item = new Item("Test", new QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+//        item->styles->append({item, item, item, item});
+        item->isPressable = true;
+        item->isNew = true;
+        item->isDisabled = true;
+        item->setMaxDurability(1);
+        item->setCurrentDurability(0);
+        item->setQuantity(999);
+        item->setId(0);
+
+        cell->setItem(item);
+        /////////////////////////////////////////////
     }
 }
 
@@ -1177,52 +1195,54 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    ui->widget->setEmptyStyle();
+//    ui->widget->setEmptyStyle();
 }
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    ui->widget->setNoEmptyStyle();
+//    ui->widget->setNoEmptyStyle();
 }
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    ui->widget->setNewStyle();
+//    ui->widget->setNewStyle();
 }
 
 void CharacterWindow::on_pushButton_5_clicked()
 {
-    ui->widget->setLockedStyle();
+//    ui->widget->setLockedStyle();
 }
 
 void CharacterWindow::on_pushButton_6_clicked()
 {
-    ui->widget->setDisabledStyle();
+//    ui->widget->setDisabledStyle();
 }
 
 void CharacterWindow::on_pushButton_9_clicked()
 {
-    ui->widget->setDisabledNewStyle();
+//    ui->widget->setDisabledNewStyle();
 }
 
 void CharacterWindow::on_pushButton_10_clicked()
 {
-    ui->widget->setBrokenStyle();
+//    ui->widget->setBrokenStyle();
 }
 
 void CharacterWindow::on_pushButton_11_clicked()
 {
-    ui->widget->setDisabledBrokenStyle();
+//    ui->widget->setDisabledBrokenStyle();
 }
 
 void CharacterWindow::on_pushButton_8_clicked()
 {
-    ui->widget->setBrokenNewStyle();
+//    ui->widget->setBrokenNewStyle();
+    addRowOfCellsToInventory();
 }
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
-    ui->widget->setDisabledBrokenNewStyle();
+//    ui->widget->setDisabledBrokenNewStyle();
+    removeRowOfCellsFromInventory();
 }
 
 void CharacterWindow::on_SaveButton_clicked()

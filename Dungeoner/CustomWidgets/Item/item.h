@@ -6,7 +6,7 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-#include "CustomWidgets/InventoryCell/inventorycell.h"
+//#include "CustomWidgets/InventoryCell/inventorycell.h"
 #include "Global/global.h"
 #include "Person/MagicDefense/magicdefensebonus.h"
 #include "Person/Stat/bonus.h"
@@ -24,6 +24,7 @@ class Item : public QWidget
 
 public:
     explicit Item(QWidget *parent = nullptr);
+
     ~Item();
 
     enum ItemType{
@@ -35,8 +36,58 @@ public:
     enum ItemCondition{
         IDEAL,
         DAMAGED,
-        BROKEN
+        BROKEN,
+        CRASHPROOF
     };
+
+    //Все возможные типы слотов инвентаря
+    enum Slots{
+        INVENTORY,//Слот инвентаря
+        //Под доспехом
+        BALACLAVA_HELMET,//Подшлемник
+        CLOTHES,//Одежда
+        PANTS,//Штаны
+        R_GLOVE,//Правая перчатка
+        L_GLOVE,//Левая перчатка
+        //Доспех
+        HELMET,//Шлем
+        GORGET,//Горжет
+        R_SHOULDER,//Правый наплечник
+        L_SHOULDER,//Левый наплечник
+        BREASTPLATE,//Нагрудник
+        R_BRACE,//Правый наруч
+        L_BRACE,//Левый наруч
+        R_GAUNTLET,//Правая рукавица
+        L_GAUNTLET,//Левая рукавица
+        R_GREAVES,//Правый наголенник
+        L_GREAVES,//Левый наголенник
+        R_BOOT,//Правый ботинок
+        L_BOOT,//Левый ботинок
+        //Над доспехом
+        CAP,//Шапка
+        MANTLE,//Накидка
+        CLOAK,//Плащ
+        //Другое
+        R_HAND,//Вещь в правой руке
+        L_HAND,//Вещь в левой руке
+        NECKLACE,//Ожерелье
+        R_DECORATION,//Украшение правой руки
+        L_DECORATION,//Украшение левой руки
+        BAG,//Сумка
+        GUNPOWDER,//Порох
+        BULLETS,//Пули
+        ARROWS,//Стрелы
+        BOLTS,//Болты
+        ADDITIONAL_SLOT//Дополнительный слот
+    };
+
+    Item(QString folderName, QVector<ItemType>* itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
+         int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots>* cellSlots = {},
+         QVector<Slots>* occupiedCellSlots = {}, QVector<Bonus*>* bonuses = {}, QVector<MagicDefenseBonus*>* magicDefenseBonuses = {},
+         int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0);
+
+    void setShadow(bool hasShadow, int shadowBlurRadius = 7, int shadowXOffset = 3, int shadowYOffset = 3, QColor color = Qt::black);
+    void setStyleButtonsStyle();
 
     struct Damage
     {
@@ -50,6 +101,25 @@ public:
 
     bool isNew = false;
     bool isDisabled = false;
+    //Первый стиль - всегда исходный предмет
+    QVector<Item*>* styles = new QVector<Item*>{this};
+
+    QString folderName;
+    bool isPressable = false;
+    bool hasShadow = true;
+    QVector<ItemType>* itemTypes;
+    QVector<Slots>* occupiedCellSlots;
+    QVector<Bonus*>* bonuses;
+    QVector<MagicDefenseBonus*>* magicDefenseBonuses;
+
+    QImage image;
+    int shadowBlurRadius = 7;
+    int shadowXOffset = 3;
+    int shadowYOffset = 3;
+    QColor hoverColor = QColor(255, 255, 255, 40);
+    QColor pressedColor = QColor(0, 0, 0, 50);
+    QColor disabledColor = QColor(0, 0, 0, 140);
+    QColor brokenColor = QColor(255, 0, 0, 50);
 
     int getId() const;
 
@@ -58,7 +128,43 @@ public:
     //Установка/отключение стиля сломанного итема
     void setBrokenSyle(bool isBroken);
 
-    bool getIsBroken() const;
+    bool getIsBroken();
+
+    int getQuantity() const;
+    void setQuantity(int newQuantity);
+
+    double getWeight() const;
+    void setWeight(double newWeight);
+
+    double getVolume() const;
+    void setVolume(double newVolume);
+
+    int getPrice() const;
+    void setPrice(int newPrice);
+
+    QString getItemName() const;
+    void setItemName(const QString &newItemName);
+
+    int getMaxDurability() const;
+    void setMaxDurability(int newMaxDurability);
+
+    int getCurrentDurability() const;
+    void setCurrentDurability(int newCurrentDurability);
+
+    int getMinDamage() const;
+    void setDamage(int newMinDamage, int newMaxDamage);
+
+    int getMaxDamage() const;
+
+    QVector<Slots>* getCellSlots() const;
+    void setCellSlots(QVector<Slots> *newCellSlots);
+
+    int getCurrentStyle() const;
+    void setCurrentStyle(int newCurrentStyle);
+
+    void init(QPixmap pixMap);
+
+    void setId(int newId);
 
 private slots:
     //Эффекты при прожатии итема
@@ -76,34 +182,17 @@ private:
     double volume = 0;
     int price = 0;
     QString itemName;
-    QVector<ItemType> itemTypes;
-    int durability = 0;
-    ItemCondition itemCondition = IDEAL;
-    int damage = -1;
+    int maxDurability = -1;
+    int currentDurability = -1;
+    ItemCondition itemCondition = CRASHPROOF;
+    int minDamage = 0;
+    int maxDamage = 0;
     int quantity = 1;
-    QVector<InventoryCell::Slots> cellSlots;
-    QVector<InventoryCell::Slots> occupiedCellSlots;
-    QVector<Bonus*> bonuses;
-    QVector<MagicDefenseBonus*> magicDefenseBonuses;
-    //Первый стиль - всегда исходный предмет
-    QVector<Item*> styles{this};
+    QVector<Slots>* cellSlots;
     int currentStyle = 0;
-    QString folderName;
-    QImage image;
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
     OutlineEffect* border = new OutlineEffect;
     QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect;
-    bool hasShadow = true;
-    int shadowBlurRadius = 7;
-    int shadowXOffset = 3;
-    int shadowYOffset = 3;
-    bool isPressable = false;
-    bool isBroken = false;
-    QColor hoverColor = QColor(255, 255, 255, 40);
-    QColor pressedColor = QColor(0, 0, 0, 50);
-    QColor disabledColor = QColor(0, 0, 0, 140);
-    QColor brokenColor = QColor(255, 0, 0, 50);
-
     /*Нужны ещё:
      *1) Вектор навыков
      *2) Вектор эффектов при прожатии

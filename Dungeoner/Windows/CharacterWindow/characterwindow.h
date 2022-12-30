@@ -138,7 +138,6 @@ private:
 
     Person person;
     bool isManualStatReplacement = false;
-
 };
 
 #endif // CHARACTERWINDOW_H

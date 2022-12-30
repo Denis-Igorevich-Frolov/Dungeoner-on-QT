@@ -9,7 +9,6 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
-#include <CustomWidgets/InventoryCell/inventorycell.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -127,7 +126,6 @@ public:
     QVBoxLayout *verticalLayout_8;
     QGridLayout *Inventory;
     QScrollBar *InventoryScrollBar;
-    InventoryCell *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -880,16 +878,12 @@ public:
         InventoryScrollBar->setSingleStep(74);
         InventoryScrollBar->setPageStep(18);
         InventoryScrollBar->setOrientation(Qt::Vertical);
-        widget = new InventoryCell(CharacterWindow);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(850, 200, 221, 181));
         InventoryWrapper->raise();
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
         tooltip->raise();
-        widget->raise();
 
         retranslateUi(CharacterWindow);
 
