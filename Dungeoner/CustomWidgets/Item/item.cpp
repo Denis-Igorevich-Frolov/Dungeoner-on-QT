@@ -35,9 +35,9 @@ Item::~Item()
     delete ui;
 }
 
-Item::Item(QString folderName, QVector<ItemType>* itemTypes, QString itemName, int quantity, double weight, double volume,
-           int price, int maxDurability, int currentDurability, QVector<Slots>* cellSlots,
-           QVector<Slots>* occupiedCellSlots, QVector<Bonus *> *bonuses, QVector<MagicDefenseBonus *> *magicDefenseBonuses,
+Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, int quantity, double weight, double volume,
+           int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots,
+           QVector<Slots> occupiedCellSlots, QVector<Bonus *> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses,
            int minDamage, int maxDamage, bool isPressable, bool isDisabled, bool isNew, int currentStyle) :
     ui(new Ui::Item)
 {
@@ -73,13 +73,9 @@ Item::Item(QString folderName, QVector<ItemType>* itemTypes, QString itemName, i
     setPrice(price);
     setMaxDurability(maxDurability);
     setCurrentDurability(currentDurability);
-    setCellSlots(cellSlots);
-    if(occupiedCellSlots)
-        this->occupiedCellSlots->append(*occupiedCellSlots);
-    if(bonuses)
-        this->bonuses = bonuses;
-    if(magicDefenseBonuses)
-        this->magicDefenseBonuses = magicDefenseBonuses;
+    setCellSlots(cellSlots, occupiedCellSlots);
+    this->bonuses = bonuses;
+    this->magicDefenseBonuses = magicDefenseBonuses;
     setDamage(minDamage, maxDamage);
     this->isPressable = isPressable;
     setDisabledSyle(isDisabled);
@@ -117,17 +113,17 @@ void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, in
 void Item::setStyleButtonsStyle()
 {
     //Если у предмета несколько стилей, то включаются кнопки смены стилей
-    if(styles->size()>1){
+    if(styles.size()>1){
         /*Жёстко задаётся размер области кнопок стилей, чтобы как можно меньше перекрывать этим блоком виджет итема.
          *
          *2 - это нижний отступ, который учтён в размере, отдаваемом на каждую ячейку, но у последней кнопки нижний отступ не нужен.*/
-        ui->StyleButtonsWrapper->setFixedHeight(14*styles->size()-2);
+        ui->StyleButtonsWrapper->setFixedHeight(14*styles.size()-2);
         //Получают стили и видимость столько кнопок, сколько стилей есть у вещи
         for(int i = 0; i < ui->StyleButtonsWrapper->children().size()-1; i++){
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleButtonStile());
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setFont(QFont("TextFont"));
         }
-        for(int i = 4; i>styles->size()-1; i--)
+        for(int i = 4; i>styles.size()-1; i--)
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setVisible(false);
         //По умолчанию область кнопок стилей полупрозрачная
         opacity->setOpacity(0.3);
@@ -366,6 +362,11 @@ void Item::on_pushButton_released()
     }
 }
 
+QVector<Item::Slots> Item::getOccupiedCellSlots() const
+{
+    return occupiedCellSlots;
+}
+
 void Item::setId(int newId)
 {
     id = newId;
@@ -380,8 +381,8 @@ void Item::setCurrentStyle(int newCurrentStyle)
 {
     if(newCurrentStyle < 0)
         newCurrentStyle = 0;
-    if(newCurrentStyle > styles->size()-1)
-        newCurrentStyle = styles->size()-1;
+    if(newCurrentStyle > styles.size()-1)
+        newCurrentStyle = styles.size()-1;
 
     currentStyle = newCurrentStyle;
 }
@@ -392,19 +393,20 @@ void Item::init(QPixmap pixMap)
     ui->Image->setPixmap(QPixmap::fromImage(this->image,Qt::AutoColor));
 }
 
-QVector<Item::Slots>* Item::getCellSlots() const
+QVector<Item::Slots> Item::getCellSlots() const
 {
     return cellSlots;
 }
 
-void Item::setCellSlots(QVector<Slots> *newCellSlots)
+//Объединить с занимаемыми!!!!
+void Item::setCellSlots(QVector<Slots> newCellSlots, QVector<Slots> newOccupiedCellSlots)
 {
-    if(newCellSlots!=nullptr){
-        cellSlots = newCellSlots;
+    occupiedCellSlots.clear();
 
-        occupiedCellSlots->clear();
-        occupiedCellSlots->append(*cellSlots);
-    }
+    cellSlots = newCellSlots;
+    occupiedCellSlots.append(cellSlots);
+
+    occupiedCellSlots.append(newOccupiedCellSlots);
 }
 
 int Item::getMaxDamage() const

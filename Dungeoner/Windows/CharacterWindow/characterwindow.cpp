@@ -1084,7 +1084,7 @@ void CharacterWindow::addRowOfCellsToInventory()
         ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
 
         //////////////////////////////////////////////
-        Item* item = new Item("Test", new QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+        Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 //        item->styles->append({item, item, item, item});
         item->isPressable = true;
         item->isNew = true;

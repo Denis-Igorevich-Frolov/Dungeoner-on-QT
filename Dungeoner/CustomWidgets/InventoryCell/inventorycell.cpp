@@ -31,7 +31,6 @@ void InventoryCell::setItem(Item *item)
     ui->item->styles = item->styles;
     ui->item->isPressable = item->isPressable;
     ui->item->itemTypes = item->itemTypes;
-    ui->item->occupiedCellSlots = item->occupiedCellSlots;
     ui->item->bonuses = item->bonuses;
     ui->item->magicDefenseBonuses = item->magicDefenseBonuses;
     ui->item->image = item->image;
@@ -48,7 +47,7 @@ void InventoryCell::setItem(Item *item)
     ui->item->setCurrentDurability(item->getCurrentDurability());
     ui->item->setDamage(item->getMinDamage(), item->getMaxDamage());
     ui->item->setQuantity(item->getQuantity());
-    ui->item->setCellSlots(item->getCellSlots());
+    ui->item->setCellSlots(item->getCellSlots(), item->getOccupiedCellSlots());
     ui->item->setCurrentStyle(item->getCurrentStyle());
 
     ui->item->setShadow(item->hasShadow, item->shadowBlurRadius, item->shadowXOffset, item->shadowYOffset);

@@ -81,9 +81,9 @@ public:
         ADDITIONAL_SLOT//Дополнительный слот
     };
 
-    Item(QString folderName, QVector<ItemType>* itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
-         int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots>* cellSlots = {},
-         QVector<Slots>* occupiedCellSlots = {}, QVector<Bonus*>* bonuses = {}, QVector<MagicDefenseBonus*>* magicDefenseBonuses = {},
+    Item(QString folderName, QVector<ItemType> itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
+         int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},
+         QVector<Slots> occupiedCellSlots = {}, QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {},
          int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0);
 
     void setShadow(bool hasShadow, int shadowBlurRadius = 7, int shadowXOffset = 3, int shadowYOffset = 3, QColor color = Qt::black);
@@ -102,15 +102,14 @@ public:
     bool isNew = false;
     bool isDisabled = false;
     //Первый стиль - всегда исходный предмет
-    QVector<Item*>* styles = new QVector<Item*>{this};
+    QVector<Item*> styles {this};
 
     QString folderName;
     bool isPressable = false;
     bool hasShadow = true;
-    QVector<ItemType>* itemTypes;
-    QVector<Slots>* occupiedCellSlots;
-    QVector<Bonus*>* bonuses;
-    QVector<MagicDefenseBonus*>* magicDefenseBonuses;
+    QVector<ItemType> itemTypes;
+    QVector<Bonus*> bonuses;
+    QVector<MagicDefenseBonus*> magicDefenseBonuses;
 
     QImage image;
     int shadowBlurRadius = 7;
@@ -156,8 +155,8 @@ public:
 
     int getMaxDamage() const;
 
-    QVector<Slots>* getCellSlots() const;
-    void setCellSlots(QVector<Slots> *newCellSlots);
+    QVector<Slots> getCellSlots() const;
+    void setCellSlots(QVector<Slots> newCellSlots, QVector<Slots> newOccupiedCellSlots);
 
     int getCurrentStyle() const;
     void setCurrentStyle(int newCurrentStyle);
@@ -165,6 +164,8 @@ public:
     void init(QPixmap pixMap);
 
     void setId(int newId);
+
+    QVector<Slots> getOccupiedCellSlots() const;
 
 private slots:
     //Эффекты при прожатии итема
@@ -188,7 +189,8 @@ private:
     int minDamage = 0;
     int maxDamage = 0;
     int quantity = 1;
-    QVector<Slots>* cellSlots;
+    QVector<Slots> cellSlots;
+    QVector<Slots> occupiedCellSlots;
     int currentStyle = 0;
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
     OutlineEffect* border = new OutlineEffect;
