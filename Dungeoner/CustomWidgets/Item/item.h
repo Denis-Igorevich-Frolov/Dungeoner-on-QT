@@ -167,6 +167,8 @@ public:
 
     QVector<Slots> getOccupiedCellSlots() const;
 
+    void hidenEffects(bool hiden);
+
 private slots:
     //Эффекты при прожатии итема
     void on_pushButton_clicked();
@@ -193,8 +195,8 @@ private:
     QVector<Slots> occupiedCellSlots;
     int currentStyle = 0;
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
-    OutlineEffect* border = new OutlineEffect;
     QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect;
+    OutlineEffect* border = new OutlineEffect;
     /*Нужны ещё:
      *1) Вектор навыков
      *2) Вектор эффектов при прожатии

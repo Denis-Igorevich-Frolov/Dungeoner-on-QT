@@ -16,6 +16,10 @@ InventoryCell::InventoryCell(QWidget *parent) :
     ui->item->installEventFilter(this);
 
     setDropdownButtonVisible(false);
+
+    QSizePolicy sp_retain = sizePolicy();
+    sp_retain.setRetainSizeWhenHidden(true);
+    setSizePolicy(sp_retain);
 }
 
 InventoryCell::~InventoryCell()
@@ -206,6 +210,11 @@ void InventoryCell::setDropdownButtonVisible(bool isVisible)
     ui->DropdownButton->setVisible(isVisible);
 }
 
+void InventoryCell::setScrollAreaHeight(int newScrollAreaHeight)
+{
+    ScrollAreaHeight = newScrollAreaHeight;
+}
+
 bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 {
     if(object == ui->item){
@@ -321,4 +330,28 @@ void InventoryCell::setDisabledBrokenStyle()
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
+}
+
+void InventoryCell::cellHidingCheck()
+{
+    if(geometry().y() > ScrollAreaHeight+ScrollAreaOffset){
+        setVisible(false);
+        inventoryCellNew.stop();
+        ui->item->hidenEffects(true);
+    }else if(geometry().y()+72 < ScrollAreaOffset){
+        setVisible(false);
+        inventoryCellNew.stop();
+        ui->item->hidenEffects(true);
+    }else{
+        setVisible(true);
+        inventoryCellNew.start();
+        ui->item->hidenEffects(false);
+    }
+}
+
+void InventoryCell::setScrollAreaOffset(int newScrollAreaOffset)
+{
+    ScrollAreaOffset = newScrollAreaOffset;
+
+    cellHidingCheck();
 }

@@ -33,6 +33,10 @@ public:
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
 
+    void setScrollAreaHeight(int newScrollAreaHeight);
+
+    void setScrollAreaOffset(int newScrollAreaOffset);
+
 private:
     //Стиль пустой ячейки
     void setEmptyStyle();
@@ -53,7 +57,14 @@ private:
     //Стиль ячейки с заглушенным сломанным пребметом
     void setDisabledBrokenStyle();
 
+    void cellHidingCheck();
+
     bool isLoked = false;
+
+    //Высота скроллбара, в который помещён вторичный навык
+    int ScrollAreaHeight = 0;
+    //Сдвиг скроллбара, в который помещён вторичный навык
+    int ScrollAreaOffset = 0;
 
     Ui::InventoryCell *ui;
 

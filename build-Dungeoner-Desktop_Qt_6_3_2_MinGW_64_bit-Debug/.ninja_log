@@ -1,37 +1,37 @@
 # ninja log v5
 3949	4155	6937481351285690	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp	f1be3a3324397828
-26	1424	6941708104232300	Dungeoner_autogen/timestamp	69636554f5db1442
-2238	19796	6941325962763729	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-2011	2765	6939317064822473	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Gifs.cpp	7f418c7096256ac9
-26	1424	6941708104232300	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+16	3479	6942911728700532	Dungeoner_autogen/timestamp	69636554f5db1442
+3486	11122	6942911807545585	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
+12	85	6942816693317427	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Gifs.cpp	7f418c7096256ac9
+16	3479	6942911728700532	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
 3949	4155	6937481351285690	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp	f1be3a3324397828
-1031	3436	6940269816690578	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/I_stylemaster.cpp.obj	f9324760d1016b4b
-26	1424	6941708104232300	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+13265	22371	6942813014682224	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/I_stylemaster.cpp.obj	f9324760d1016b4b
+16	3479	6942911728700532	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
 1	263	0	CMakeFiles/clean.additional	26ab82f82478fbc9
 10	3273	6933940001549978	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryItem/inventoryitem.cpp.obj	cddad2864095cba9
-26	1424	6941708104232300	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+16	3479	6942911728700532	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
 3947	4158	6937481351345653	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp	d642abb8155b65ad
 3947	4158	6937481351345653	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp	d642abb8155b65ad
 27236	32163	6937481630454368	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_2/windowborder_2.cpp.obj	cb33d345fdd1334e
-307	381	6938363854098965	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp	544e218814354d32
-307	381	6938363854098965	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp	544e218814354d32
+9439	13262	6942812914673852	Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp	544e218814354d32
+9439	13262	6942812914673852	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp	544e218814354d32
 4162	7065	6937481380118299	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.cpp.obj	bd9828b978dab9b1
 17604	21855	6937481528107299	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp.obj	dc0d7aac6b75f4ac
 16746	21131	6937481520831779	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/PB1_stylemaster.cpp.obj	a1bff322a97429f3
-1430	8993	6941708181355027	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+3485	10038	6942911796705571	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
 27140	29631	6937481605819510	CMakeFiles/Dungeoner.dir/CustomWidgets/Tooltip/T_stylemaster.cpp.obj	2a40214d3acddfa4
 19722	21975	6937481529436483	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_2/PB2_stylemaster.cpp.obj	3cb2430711ba9ce9
 4013	12236	6941179389387539	CMakeFiles/Dungeoner.dir/main.cpp.obj	74152772b140db1b
 24312	27236	6937481582034137	CMakeFiles/Dungeoner.dir/Person/Stat/bonus.cpp.obj	d358affc4c262ee5
 4160	10499	6937481414357251	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	f75dbca292fdad96
-2236	21013	6941325974896238	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	83d4aabf412f51bb
-2496	10559	6941339484396492	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	caf49c82aad28262
+12	9683	6942849846092976	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	83d4aabf412f51bb
+5008	18395	6942908723711039	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	caf49c82aad28262
 31916	37488	6937481684681024	CMakeFiles/Dungeoner.dir/Person/MagicDefense/magicdefense.cpp.obj	97c6883de6806c48
 9371	12078	6937481430437361	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/CW_stylemaster.cpp.obj	742d8ddc23285ea7
 10164	17604	6937481485623423	CMakeFiles/Dungeoner.dir/MediaPlayer/mediaplayer.cpp.obj	5fb6a01336cb1322
 15719	19721	6937481506500590	CMakeFiles/Dungeoner.dir/Global/global.cpp.obj	588097f8e8567080
 4162	9371	6937481403044202	CMakeFiles/Dungeoner.dir/CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp.obj	ca4ac68a76435c66
-383	1473	6938363864742407	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp.obj	7f750e68ccf0389b
+13267	17711	6942812966042204	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Textures.cpp.obj	7f750e68ccf0389b
 9105	12160	6937481431116937	CMakeFiles/Dungeoner.dir/CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp.obj	207b7262b4d5ef68
 12079	16455	6937481473810688	CMakeFiles/Dungeoner.dir/CustomWidgets/WindowBorder_1/windowborder_1.cpp.obj	5c35306f14d012fe
 16163	18997	6937481499145107	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/SS_stylemaster.cpp.obj	8c873c98d1775e96
@@ -53,125 +53,80 @@
 29632	33464	6937481643496355	CMakeFiles/Dungeoner.dir/Person/MagicDefense/magicdefensebonus.cpp.obj	756bf59c70e6fa4f
 26837	31916	6937481628465588	CMakeFiles/Dungeoner.dir/Person/Stat/stat.cpp.obj	a1bf7a45955927f9
 33464	35192	6937481661075537	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp.obj	9a89a35b5620efbd
-1	819	6939316417823162	build.ninja	44bcd16b96b5624d
+1	819	6942816750804019	build.ninja	44bcd16b96b5624d
 34732	35630	6937481666062472	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp.obj	8eb96801271ade51
-9277	12223	6941708213476301	Dungeoner.exe	25bd02bde79ae325
-2011	2765	6939317064822473	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Gifs.cpp	7f418c7096256ac9
-2803	19694	6939317233556243	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Gifs.cpp.obj	4399f647322f0729
+11123	14437	6942911840610533	Dungeoner.exe	25bd02bde79ae325
+12	85	6942816693317427	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Gifs.cpp	7f418c7096256ac9
+86	956	6942816702072023	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/S5YYZ2ZCNV/qrc_Gifs.cpp.obj	4399f647322f0729
 384	3273	6938363882851248	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/IC_stylemaster.cpp.obj	8199f1ae5ac1a5bb
-1431	9277	6941708184193383	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-13	1815	6941708363608745	Dungeoner_autogen/timestamp	69636554f5db1442
-13	1815	6941708363608745	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	1815	6941708363608745	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	1815	6941708363608745	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-1821	8679	6941708434171925	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-1825	8967	6941708437057646	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-8967	12004	6941708467327013	Dungeoner.exe	25bd02bde79ae325
-14	2469	6941708614192315	Dungeoner_autogen/timestamp	69636554f5db1442
-14	2469	6941708614192315	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-14	2469	6941708614192315	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-14	2469	6941708614192315	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-2477	9125	6941708683279303	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-2478	9418	6941708686224296	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-9419	12550	6941708717368074	Dungeoner.exe	25bd02bde79ae325
-20	1412	6941710457175514	Dungeoner_autogen/timestamp	69636554f5db1442
-20	1412	6941710457175514	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-20	1412	6941710457175514	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-20	1412	6941710457175514	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-1418	7608	6941710519756905	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-1419	9148	6941710535759237	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-1420	9940	6941710543664441	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-9940	13032	6941710574499033	Dungeoner.exe	25bd02bde79ae325
-13	1567	6941710783847630	Dungeoner_autogen/timestamp	69636554f5db1442
-13	1567	6941710783847630	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	1567	6941710783847630	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	1567	6941710783847630	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-1572	8000	6941710849444675	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-1573	9084	6941710860273303	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-9085	11898	6941710888322931	Dungeoner.exe	25bd02bde79ae325
-85	2888	6941914023890313	Dungeoner_autogen/timestamp	69636554f5db1442
-85	2888	6941914023890313	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-85	2888	6941914023890313	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-85	2888	6941914023890313	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-2928	12116	6941914118498710	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-2946	12447	6941914121437397	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-2937	13910	6941914136428154	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	caf49c82aad28262
-2921	13990	6941914137257634	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	83d4aabf412f51bb
-13	1474	6941914657209334	Dungeoner_autogen/timestamp	69636554f5db1442
-13	1474	6941914657209334	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	1474	6941914657209334	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	1474	6941914657209334	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-1481	6307	6941914708017988	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-13	2538	6941916097911206	Dungeoner_autogen/timestamp	69636554f5db1442
-13	2538	6941916097911206	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	2538	6941916097911206	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	2538	6941916097911206	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-2543	6071	6941916133249406	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-2544	7138	6941916143902836	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-7138	12883	6941916201268859	Dungeoner.exe	25bd02bde79ae325
-13	901	6941916391292450	Dungeoner_autogen/timestamp	69636554f5db1442
-13	901	6941916391292450	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	901	6941916391292450	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	901	6941916391292450	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-927	6871	6941916451665201	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-928	7747	6941916460469779	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-7747	10606	6941916488982165	Dungeoner.exe	25bd02bde79ae325
-13	3029	6941916730019650	Dungeoner_autogen/timestamp	69636554f5db1442
-13	3029	6941916730019650	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	3029	6941916730019650	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	3029	6941916730019650	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-3031	12356	6941916826430150	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-3030	15070	6941916854232999	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	83d4aabf412f51bb
-3032	16059	6941916864186848	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	caf49c82aad28262
-19	3603	6941917517113634	Dungeoner_autogen/timestamp	69636554f5db1442
-19	3603	6941917517113634	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-19	3603	6941917517113634	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-19	3603	6941917517113634	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-3650	14868	6941917635450620	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-3652	14928	6941917636310086	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-3703	15163	6941917638638652	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-3604	16475	6941917651980422	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	83d4aabf412f51bb
-3651	17442	6941917661644455	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	caf49c82aad28262
-17442	24658	6941917733747121	Dungeoner.exe	25bd02bde79ae325
-12	1259	6941917865282414	Dungeoner_autogen/timestamp	69636554f5db1442
-12	1259	6941917865282414	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-12	1259	6941917865282414	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-12	1259	6941917865282414	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-1264	6871	6941917922717003	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-1265	7548	6941917929492795	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-7548	10428	6941917958215067	Dungeoner.exe	25bd02bde79ae325
-12	938	6941918069715522	Dungeoner_autogen/timestamp	69636554f5db1442
-12	938	6941918069715522	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-12	938	6941918069715522	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-12	938	6941918069715522	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-944	6928	6941918130657931	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-945	7826	6941918139632386	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-7826	10425	6941918165536424	Dungeoner.exe	25bd02bde79ae325
-12	2458	6941918507591527	Dungeoner_autogen/timestamp	69636554f5db1442
-12	2458	6941918507591527	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-12	2458	6941918507591527	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-12	2458	6941918507591527	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-2458	9449	6941918582365390	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	83d4aabf412f51bb
-2459	10946	6941918596746523	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-2461	11061	6941918599224994	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-2460	13988	6941918628466945	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	caf49c82aad28262
-13	2913	6941920348479627	Dungeoner_autogen/timestamp	69636554f5db1442
-13	2913	6941920348479627	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	2913	6941920348479627	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	2913	6941920348479627	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-2915	7048	6941920396330094	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-2914	9608	6941920421904326	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	83d4aabf412f51bb
-2917	11491	6941920440752691	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
-12	908	6941920832672251	Dungeoner_autogen/timestamp	69636554f5db1442
-12	908	6941920832672251	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-12	908	6941920832672251	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-12	908	6941920832672251	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-914	9089	6941920915780963	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-915	10252	6941920927393802	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
-13	4468	6941921561269632	Dungeoner_autogen/timestamp	69636554f5db1442
-13	4468	6941921561269632	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-13	4468	6941921561269632	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
-13	4468	6941921561269632	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
-4473	12431	6941921643508909	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
-4474	15605	6941921675489160	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	caf49c82aad28262
-15605	18667	6941921706030312	Dungeoner.exe	25bd02bde79ae325
+3197	10639	6942907982415067	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+14	2470	6942912620717395	Dungeoner_autogen/timestamp	69636554f5db1442
+14	2470	6942912620717395	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+14	2470	6942912620717395	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+14	2470	6942912620717395	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+2476	10647	6942912704067153	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+2477	11035	6942912707951278	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+2477	11813	6942912715717402	CMakeFiles/Dungeoner.dir/CustomWidgets/Item/item.cpp.obj	6a7a4729b05a6f03
+11813	15046	6942912747957546	Dungeoner.exe	25bd02bde79ae325
+23	3495	6942912934284601	Dungeoner_autogen/timestamp	69636554f5db1442
+23	3495	6942912934284601	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+23	3495	6942912934284601	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+23	3495	6942912934284601	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+3501	10056	6942913002195366	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+3503	10191	6942913003544540	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+10191	13220	6942913033736805	Dungeoner.exe	25bd02bde79ae325
+12	1992	6942915057589204	Dungeoner_autogen/timestamp	69636554f5db1442
+12	1992	6942915057589204	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+12	1992	6942915057589204	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+12	1992	6942915057589204	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+1998	10495	6942915146236639	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+1999	10851	6942915149803086	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+10852	14079	6942915181977260	Dungeoner.exe	25bd02bde79ae325
+13	1125	6942915328297864	Dungeoner_autogen/timestamp	69636554f5db1442
+13	1125	6942915328297864	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+13	1125	6942915328297864	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+13	1125	6942915328297864	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+1130	9998	6942915419250591	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+1132	10237	6942915421671123	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+10237	13250	6942915451720049	Dungeoner.exe	25bd02bde79ae325
+16	2331	6942915734625727	Dungeoner_autogen/timestamp	69636554f5db1442
+16	2331	6942915734625727	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+16	2331	6942915734625727	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+16	2331	6942915734625727	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+2337	8645	6942915798462615	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+2338	11509	6942915828152406	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+11510	14681	6942915859764185	Dungeoner.exe	25bd02bde79ae325
+13	3080	6942916293029032	Dungeoner_autogen/timestamp	69636554f5db1442
+13	3080	6942916293029032	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+13	3080	6942916293029032	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+13	3080	6942916293029032	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+3088	9517	6942916359012943	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+3089	9986	6942916363760857	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+9987	12953	6942916393328085	Dungeoner.exe	25bd02bde79ae325
+19	1964	6942917198120977	Dungeoner_autogen/timestamp	69636554f5db1442
+19	1964	6942917198120977	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+19	1964	6942917198120977	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+19	1964	6942917198120977	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+1970	10015	6942917280840585	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+1971	10381	6942917284523091	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+10381	13610	6942917316704626	Dungeoner.exe	25bd02bde79ae325
+13	1837	6942917497394544	Dungeoner_autogen/timestamp	69636554f5db1442
+13	1837	6942917497394544	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+13	1837	6942917497394544	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+13	1837	6942917497394544	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+1843	9815	6942917578948316	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+1844	10382	6942917584633865	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+18	3883	6942917703037296	Dungeoner_autogen/timestamp	69636554f5db1442
+18	3883	6942917703037296	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+18	3883	6942917703037296	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+18	3883	6942917703037296	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+3889	10667	6942917773349772	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+3890	11131	6942917778047954	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+11132	14235	6942917808981297	Dungeoner.exe	25bd02bde79ae325
+13	2952	6942918547182196	Dungeoner_autogen/timestamp	69636554f5db1442
+13	2952	6942918547182196	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+13	2952	6942918547182196	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+13	2952	6942918547182196	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+2958	8979	6942918609398587	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	616dd09a59fe264b
+2959	9413	6942918613733589	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	aa212ad81700046b
+9414	12541	6942918644915169	Dungeoner.exe	25bd02bde79ae325

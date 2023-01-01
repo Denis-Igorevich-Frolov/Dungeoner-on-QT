@@ -106,8 +106,16 @@ void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, in
         shadow->setOffset(this->shadowXOffset, this->shadowYOffset);
 
         ui->Image->setGraphicsEffect(shadow);
-    }else
-        ui->Image->setGraphicsEffect(NULL);
+    }else{
+        this->shadowBlurRadius = 0;
+        this->shadowXOffset = 0;
+        this->shadowYOffset = 0;
+
+        shadow->setBlurRadius(this->shadowBlurRadius);
+        shadow->setOffset(this->shadowXOffset, this->shadowYOffset);
+
+        ui->Image->setGraphicsEffect(shadow);
+    }
 }
 
 void Item::setStyleButtonsStyle()
@@ -365,6 +373,21 @@ void Item::on_pushButton_released()
 QVector<Item::Slots> Item::getOccupiedCellSlots() const
 {
     return occupiedCellSlots;
+}
+
+void Item::hidenEffects(bool hiden)
+{
+    if(hiden){
+        border->setOutlineThickness(0);
+        shadow->setBlurRadius(0);
+        shadow->setOffset(0, 0);
+        opacity->setOpacity(1);
+    }else{
+        border->setOutlineThickness(2);
+        shadow->setBlurRadius(shadowBlurRadius);
+        shadow->setOffset(shadowXOffset, shadowYOffset);
+        opacity->setOpacity(0.3);
+    }
 }
 
 void Item::setId(int newId)

@@ -1083,9 +1083,13 @@ void CharacterWindow::addRowOfCellsToInventory()
          *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
         ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
 
+        QRect rect = cell->geometry();
+        rect.setY(5 + 74*row);
+        cell->setGeometry(rect);
+
         //////////////////////////////////////////////
         Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-//        item->styles->append({item, item, item, item});
+        item->styles.append({item, item, item, item});
         item->isPressable = true;
         item->isNew = true;
         item->isDisabled = true;
@@ -1096,6 +1100,9 @@ void CharacterWindow::addRowOfCellsToInventory()
 
         cell->setItem(item);
         /////////////////////////////////////////////
+
+        cell->setScrollAreaHeight(ui->InventoryScrollArea->height());
+        cell->setScrollAreaOffset(ui->InventoryScrollBar->value());
     }
 }
 
@@ -1257,7 +1264,48 @@ void CharacterWindow::on_LoadButton_clicked()
 
 void CharacterWindow::on_InventoryScrollBar_valueChanged(int value)
 {
+    //При скролле скроллбара подсказка пропадает так как всё-равно окошко стата уезжает
+    RemoveTooltip();
+
     ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
+
+    /*Передача во все InventoryCell размера смещения их ScrollArea для последующей обработки
+     *выведения подсказки при усечении InventoryCell внутри ScrollArea.*/
+    QGridLayout *inventoryGrid = qobject_cast <QGridLayout*> (ui->Inventory->layout());
+    for(int row = 0; row < inventoryGrid->rowCount(); row++)
+    {
+        for (int column = 0; column < inventoryGrid->columnCount(); column++)
+        {
+            if(inventoryGrid->itemAtPosition(row, column)!=0){
+                if(dynamic_cast <InventoryCell*> (inventoryGrid->itemAtPosition(row, column)->widget())){
+                    InventoryCell* ic = qobject_cast <InventoryCell*> (inventoryGrid->itemAtPosition(row, column)->widget());
+                    ic->setScrollAreaOffset(value);
+                }else{
+                    //Вывод предупреждения в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                            "CharacterWindow выдал предупреждение в методе on_InventoryScrollBar_valueChanged.\n"
+                            "Объект " + inventoryGrid->itemAtPosition(row, column)->widget()->objectName() + " не является InventoryCell.\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
+                }
+            }
+        }
+    }
 }
 
 void CharacterWindow::on_InventoryScrollBar_actionTriggered(int action)
