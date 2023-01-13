@@ -1089,13 +1089,13 @@ void CharacterWindow::addRowOfCellsToInventory()
 
         //////////////////////////////////////////////
         Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-        item->styles.append({item, item, item, item});
+//        item->styles.append({item, item, item, item});
         item->isPressable = true;
         item->isNew = true;
-        item->isDisabled = true;
-        item->setMaxDurability(1);
-        item->setCurrentDurability(0);
-        item->setQuantity(999);
+//        item->isDisabled = true;
+//        item->setMaxDurability(1);
+//        item->setCurrentDurability(0);
+//        item->setQuantity(999);
         item->setId(0);
 
         cell->setItem(item);
