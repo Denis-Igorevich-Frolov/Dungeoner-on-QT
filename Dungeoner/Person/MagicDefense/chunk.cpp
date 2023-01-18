@@ -114,3 +114,14 @@ void Chunk::calculateFinalMaxValue()
     if(value>finalMaxValue)
         value = finalMaxValue;
 }
+
+bool operator ==(const Chunk& chunk1, const Chunk& chunk2)
+{
+    return true;
+    return (chunk1.finalMaxValue == chunk2.finalMaxValue)&&(chunk1.value == chunk2.value)&&(chunk1.bonuses == chunk2.bonuses);
+}
+
+bool operator !=(const Chunk& chunk1, const Chunk& chunk2)
+{
+    return (chunk1.finalMaxValue != chunk2.finalMaxValue)||(chunk1.value != chunk2.value)||(chunk1.bonuses != chunk2.bonuses);
+}

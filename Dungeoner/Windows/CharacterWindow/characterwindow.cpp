@@ -1075,7 +1075,7 @@ void CharacterWindow::addRowOfCellsToInventory()
         ui->InventoryScrollBar->setMaximum(0);
     }
 
-    //Создание новой строкиячеек
+    //Создание новой строки ячеек
     for(int i = 0; i<10; i++){
         InventoryCell* cell = new InventoryCell();
         cell->setFixedSize(68, 68);

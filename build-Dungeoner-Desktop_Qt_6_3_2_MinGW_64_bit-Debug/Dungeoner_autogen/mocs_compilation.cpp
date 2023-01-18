@@ -15,5 +15,6 @@
 #include "RTMTGG3MSQ/moc_stat.cpp"
 #include "FTS7AO547W/moc_person.cpp"
 #include "HOEPDZVIIP/moc_tooltipdisplayevents.cpp"
+#include "MFUUNYXX2X/moc_secondarySkillsTest.cpp"
 #include "OEOCRIOUE2/moc_characterwindow.cpp"
 #include "EWIEGA46WW/moc_dungeoner.cpp"

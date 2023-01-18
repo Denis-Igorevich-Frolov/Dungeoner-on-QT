@@ -72,6 +72,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/UnitTests/SecondarySkillsTest/secondarySkillsTest.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/UnitTests/SecondarySkillsTest/secondarySkillsTest.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/CW_stylemaster.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/CW_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.cpp \
@@ -83,6 +85,7 @@ Dungeoner_autogen/timestamp: \
   CMakeFiles/3.24.2/CMakeRCCompiler.cmake \
   CMakeFiles/3.24.2/CMakeSystem.cmake \
   Dungeoner_autogen/moc_predefs.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QObject \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QTimer \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QVector \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qalgorithms.h \
@@ -337,6 +340,14 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets-relwithdebinfo.cmake \
   E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Sql/Qt6SqlTargets.cmake \
   E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessTargets.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestAdditionalTargetInfo.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfig.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfigVersion.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestConfigVersionImpl.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestDependencies.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestTargets-relwithdebinfo.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestTargets.cmake \
+  E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Test/Qt6TestVersionlessTargets.cmake \
   E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsAdditionalTargetInfo.cmake \
   E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake \
   E:/Qt/6.3.2/mingw_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfigVersion.cmake \

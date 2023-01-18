@@ -301,131 +301,173 @@ void Person::recalculateStats()
     recalculateMagicDefense();
 }
 
-void Person::recalculateMagicDamage()
+int Person::recalculateMagicDamage()
 {
     int magicDamage =
     floor(1.5 * Magic.getFinalValue()) + floor(1.5 * Intelligence.getFinalValue()) + floor(0.5 * Will.getFinalValue());
     MagicDamage.setValue(magicDamage);
+
+    return MagicDamage.getFinalValue();
 }
 
-void Person::recalculateResistPhysicalDamage()
+int Person::recalculateResistPhysicalDamage()
 {
     int resistPhysicalDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * Magic.getFinalValue()) + BodyType.getFinalValue();
     ResistPhysicalDamage.setValue(resistPhysicalDamage);
+
+    return ResistPhysicalDamage.getFinalValue();
 }
 
-void Person::recalculateResistMagicDamage()
+int Person::recalculateResistMagicDamage()
 {
     int resistMagicDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * BodyType.getFinalValue()) + Magic.getFinalValue();
     ResistMagicDamage.setValue(resistMagicDamage);
+
+    return ResistMagicDamage.getFinalValue();
 }
 
-void Person::recalculateResistPhysicalEffects()
+int Person::recalculateResistPhysicalEffects()
 {
     int resistPhysicalEffects = floor(0.1 * Will.getFinalValue()) + 10;
     ResistPhysicalEffects.setValue(resistPhysicalEffects);
+
+    return ResistPhysicalEffects.getFinalValue();
 }
 
-void Person::recalculateResistMagicEffects()
+int Person::recalculateResistMagicEffects()
 {
     int resistMagicEffects = floor(0.1 * Will.getFinalValue()) + floor(0.1 * Magic.getFinalValue()) + 5;
     ResistMagicEffects.setValue(resistMagicEffects);
+
+    return ResistMagicEffects.getFinalValue();
 }
 
-void Person::recalculateStrengtheningPhysicalEffects()
+int Person::recalculateStrengtheningPhysicalEffects()
 {
     int strengtheningPhysicalEffects = floor(0.1 * Strength.getFinalValue());
     StrengtheningPhysicalEffects.setValue(strengtheningPhysicalEffects);
+
+    return StrengtheningPhysicalEffects.getFinalValue();
 }
 
-void Person::recalculateStrengtheningMagicalEffects()
+int Person::recalculateStrengtheningMagicalEffects()
 {
     int strengtheningMagicalEffects = floor(0.1 * Intelligence.getFinalValue());
     StrengtheningMagicalEffects.setValue(strengtheningMagicalEffects);
+
+    return StrengtheningMagicalEffects.getFinalValue();
 }
 
-void Person::recalculateMeleeAccuracy()
+int Person::recalculateMeleeAccuracy()
 {
     int meleeAccuracy = floor(0.1 * Agility.getFinalValue()) + 20;
     MeleeAccuracy.setValue(meleeAccuracy);
+
+    return MeleeAccuracy.getFinalValue();
 }
 
-void Person::recalculateRangedAccuracy()
+int Person::recalculateRangedAccuracy()
 {
     int rangedAccuracy = floor(0.1 * Agility.getFinalValue()) + 15;
     RangedAccuracy.setValue(rangedAccuracy);
+
+    return RangedAccuracy.getFinalValue();
 }
 
-void Person::recalculateMagicAccuracy()
+int Person::recalculateMagicAccuracy()
 {
     int magicAccuracy = floor(0.1 * Intelligence.getFinalValue()) + 15;
     MagicAccuracy.setValue(magicAccuracy);
+
+    return MagicAccuracy.getFinalValue();
 }
 
-void Person::recalculateEvasion()
+int Person::recalculateEvasion()
 {
     int evasion = floor(0.5 * Agility.getFinalValue()) + floor(0.1 * BodyType.getFinalValue());
     Evasion.setValue(evasion);
+
+    return Evasion.getFinalValue();
 }
 
-void Person::recalculateStealth()
+int Person::recalculateStealth()
 {
     int stealth = Intelligence.getFinalValue() + Agility.getFinalValue();
     Stealth.setValue(stealth);
+
+    return Stealth.getFinalValue();
 }
 
-void Person::recalculateAttentiveness()
+int Person::recalculateAttentiveness()
 {
     int attentiveness = Intelligence.getFinalValue() + Agility.getFinalValue() + Will.getFinalValue();
     Attentiveness.setValue(attentiveness);
+
+    return Attentiveness.getFinalValue();
 }
 
-void Person::recalculateLoadCapacity()
+int Person::recalculateLoadCapacity()
 {
     int loadCapacity = floor(0.5 * Strength.getFinalValue()) + floor(0.5 * BodyType.getFinalValue());
     LoadCapacity.setValue(loadCapacity);
+
+    return LoadCapacity.getFinalValue();
 }
 
-void Person::recalculateInitiative()
+int Person::recalculateInitiative()
 {
     int initiative = floor(5 * Agility.getFinalValue()) + Intelligence.getFinalValue() + Will.getFinalValue();
     Initiative.setValue(initiative);
+
+    return Initiative.getFinalValue();
 }
 
-void Person::recalculateMagicCastChance()
+int Person::recalculateMagicCastChance()
 {
     int magicCastChance = floor(0.3 * Intelligence.getFinalValue()) + floor(0.2 * Magic.getFinalValue());
     MagicCastChance.setValue(magicCastChance);
+
+    return MagicCastChance.getFinalValue();
 }
 
-void Person::recalculateChanceOfUsingCombatTechnique()
+int Person::recalculateChanceOfUsingCombatTechnique()
 {
     int chanceOfUsingCombatTechnique = floor(0.2 * Agility.getFinalValue()) + 20;
     ChanceOfUsingCombatTechnique.setValue(chanceOfUsingCombatTechnique);
+
+    return ChanceOfUsingCombatTechnique.getFinalValue();
 }
 
-void Person::recalculateMoveRange()
+int Person::recalculateMoveRange()
 {
     int moveRange = floor(0.75 * Agility.getFinalValue()) + floor(0.5 * Strength.getFinalValue()) + BodyType.getFinalValue();
     MoveRange.setValue(moveRange);
+
+    return MoveRange.getFinalValue();
 }
 
-void Person::recalculateHealth()
+int Person::recalculateHealth()
 {
     int health = Strength.getFinalValue() * 2 + BodyType.getFinalValue() * 10 + Will.getFinalValue() * 5 + Magic.getFinalValue();
     Health.setValue(health);
+
+    return Health.getFinalValue();
 }
 
-void Person::recalculateEndurance()
+int Person::recalculateEndurance()
 {
     int endurance = Agility.getFinalValue() * 10 + BodyType.getFinalValue();
     Endurance.setValue(endurance);
+
+    return Endurance.getFinalValue();
 }
 
-void Person::recalculateMana()
+int Person::recalculateMana()
 {
     int mana = Magic.getFinalValue() * 10 + Intelligence.getFinalValue() * 2 + Will.getFinalValue();
     Mana.setValue(mana);
+
+    return Mana.getFinalValue();
 }
 
 //Перерасчёт количества родных чанков магической защиты

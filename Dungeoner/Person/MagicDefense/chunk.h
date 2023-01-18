@@ -32,6 +32,9 @@ public:
 
     int getFinalMaxValue() const;
 
+    friend bool operator == (const Chunk& chunk1, const Chunk& chunk2);
+    friend bool operator != (const Chunk& chunk1, const Chunk& chunk2);
+
 private:
     int maxValue = 1;
     //Максимальное значение с учётом всех бонусов

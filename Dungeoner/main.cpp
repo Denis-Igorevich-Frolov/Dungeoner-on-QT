@@ -1,12 +1,17 @@
+#include "QtTest/qtestcase.h"
 #include "dungeoner.h"
 
 #include <QApplication>
+
+#include <System/UnitTests/SecondarySkillsTest/secondarySkillsTest.h>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    QTest::qExec(new SecondarySkillsTest, argc, argv);
+
     Dungeoner dungeoner;
-//    dungeoner.show();
+
     return a.exec();
 }

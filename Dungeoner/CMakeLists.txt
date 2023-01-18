@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project(Dungeoner VERSION 0.1 LANGUAGES CXX)
 
+enable_testing(true)
+
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(CMAKE_AUTOUIC ON)
@@ -108,6 +110,8 @@ set(PROJECT_SOURCES
         CustomWidgets/Item/item.ui
         CustomWidgets/Item/I_stylemaster.h
         CustomWidgets/Item/I_stylemaster.cpp
+        System/UnitTests/SecondarySkillsTest/secondarySkillsTest.h
+        System/UnitTests/SecondarySkillsTest/secondarySkillsTest.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -147,7 +151,11 @@ if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(Dungeoner)
 endif()
 
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Test)
+target_link_libraries(Dungeoner PRIVATE Qt${QT_VERSION_MAJOR}::Test)
+
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Multimedia)
 target_link_libraries(Dungeoner PRIVATE Qt${QT_VERSION_MAJOR}::Multimedia)
+
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Sql)
 target_link_libraries(Dungeoner PRIVATE Qt${QT_VERSION_MAJOR}::Sql)

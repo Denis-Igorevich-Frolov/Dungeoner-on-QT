@@ -27,27 +27,27 @@ public:
     //Перерасчёт вторичных навыков
     void recalculateStats();
 
-    void recalculateMagicDamage();
-    void recalculateResistPhysicalDamage();
-    void recalculateResistMagicDamage();
-    void recalculateResistPhysicalEffects();
-    void recalculateResistMagicEffects();
-    void recalculateStrengtheningPhysicalEffects();
-    void recalculateStrengtheningMagicalEffects();
-    void recalculateMeleeAccuracy();
-    void recalculateRangedAccuracy();
-    void recalculateMagicAccuracy();
-    void recalculateEvasion();
-    void recalculateStealth();
-    void recalculateAttentiveness();
-    void recalculateLoadCapacity();
-    void recalculateInitiative();
-    void recalculateMagicCastChance();
-    void recalculateChanceOfUsingCombatTechnique();
-    void recalculateMoveRange();
-    void recalculateHealth();
-    void recalculateEndurance();
-    void recalculateMana();
+    int recalculateMagicDamage();
+    int recalculateResistPhysicalDamage();
+    int recalculateResistMagicDamage();
+    int recalculateResistPhysicalEffects();
+    int recalculateResistMagicEffects();
+    int recalculateStrengtheningPhysicalEffects();
+    int recalculateStrengtheningMagicalEffects();
+    int recalculateMeleeAccuracy();
+    int recalculateRangedAccuracy();
+    int recalculateMagicAccuracy();
+    int recalculateEvasion();
+    int recalculateStealth();
+    int recalculateAttentiveness();
+    int recalculateLoadCapacity();
+    int recalculateInitiative();
+    int recalculateMagicCastChance();
+    int recalculateChanceOfUsingCombatTechnique();
+    int recalculateMoveRange();
+    int recalculateHealth();
+    int recalculateEndurance();
+    int recalculateMana();
     //Перерасчёт количества родных чанков магической защиты
     void recalculateMagicDefense();
 

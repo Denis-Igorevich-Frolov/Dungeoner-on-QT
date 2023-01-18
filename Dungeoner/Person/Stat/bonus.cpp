@@ -105,7 +105,7 @@ bool operator ==(const Bonus& bonus1, const Bonus& bonus2)
 
 bool operator !=(const Bonus& bonus1, const Bonus& bonus2)
 {
-    return !((bonus1.value==bonus2.value)&&(bonus1.isPercentage==bonus2.isPercentage));
+    return !((bonus1.value==bonus2.value)||(bonus1.isPercentage==bonus2.isPercentage));
 }
 
 //Операторы отношения сделаны для сортировки подсказок, которая производится по степени воздействия. Следовательно сравнение производится по модулю

@@ -158,9 +158,9 @@ bool operator != (const MagicDefenseBonus& bonus1, const MagicDefenseBonus& bonu
             staticPositionMatch = true;
         }
 
-    return !(bonus1.isDynamic == bonus2.isDynamic && bonus1.isPercentage == bonus2.isPercentage &&
-            bonus1.isBonusChunk == bonus2.isBonusChunk && dynamicPositionMatch &&
-            staticPositionMatch && bonus1.value == bonus2.getValue() &&
+    return !(bonus1.isDynamic == bonus2.isDynamic || bonus1.isPercentage == bonus2.isPercentage ||
+            bonus1.isBonusChunk == bonus2.isBonusChunk || dynamicPositionMatch ||
+            staticPositionMatch || bonus1.value == bonus2.getValue() ||
             bonus1.bonusChunksMaxVales == bonus2.bonusChunksMaxVales);
 }
 
