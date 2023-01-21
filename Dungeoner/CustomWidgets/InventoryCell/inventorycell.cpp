@@ -20,6 +20,9 @@ InventoryCell::InventoryCell(QWidget *parent) :
     QSizePolicy sp_retain = sizePolicy();
     sp_retain.setRetainSizeWhenHidden(true);
     setSizePolicy(sp_retain);
+
+    setAutoStyle();
+    ui->item->setStyleButtonsStyle();
 }
 
 InventoryCell::~InventoryCell()
@@ -332,6 +335,7 @@ void InventoryCell::setDisabledBrokenStyle()
     ui->DropdownButton->move(3, 57);
 }
 
+//Если ячейка находится вне границ скроллбара, то для оптимизации она очищается от стилей и скрывается
 void InventoryCell::cellHidingCheck()
 {
     if(geometry().y() > ScrollAreaHeight+ScrollAreaOffset){

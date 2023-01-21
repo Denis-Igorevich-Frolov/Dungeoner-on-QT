@@ -1087,7 +1087,9 @@ void CharacterWindow::addRowOfCellsToInventory()
         rect.setY(5 + 74*row);
         cell->setGeometry(rect);
 
+        //!!!отладка
         //////////////////////////////////////////////
+        if(true/*i == 0 && ui->Inventory->count()<10*/){
         Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 //        item->styles.append({item, item, item, item});
         item->isPressable = true;
@@ -1095,10 +1097,11 @@ void CharacterWindow::addRowOfCellsToInventory()
 //        item->isDisabled = true;
 //        item->setMaxDurability(1);
 //        item->setCurrentDurability(0);
-//        item->setQuantity(999);
+        item->setQuantity(999);
         item->setId(0);
 
         cell->setItem(item);
+        }
         /////////////////////////////////////////////
 
         cell->setScrollAreaHeight(ui->InventoryScrollArea->height());
@@ -1269,8 +1272,8 @@ void CharacterWindow::on_InventoryScrollBar_valueChanged(int value)
 
     ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
 
-    /*Передача во все InventoryCell размера смещения их ScrollArea для последующей обработки
-     *выведения подсказки при усечении InventoryCell внутри ScrollArea.*/
+    /*Передача во все InventoryCell размера смещения их ScrollArea для последующей обработки выведения
+     *подсказки при усечении InventoryCell внутри ScrollArea и для сокрытия неуместившихся ячеек.*/
     QGridLayout *inventoryGrid = qobject_cast <QGridLayout*> (ui->Inventory->layout());
     for(int row = 0; row < inventoryGrid->rowCount(); row++)
     {

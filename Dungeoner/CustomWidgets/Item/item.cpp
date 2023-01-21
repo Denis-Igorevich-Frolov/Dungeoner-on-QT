@@ -21,6 +21,7 @@ Item::Item(QWidget *parent) :
 
     ui->pushButton->installEventFilter(this);
 
+    //Установка всех стилей
     ui->Quantity->setFont(QFont("TextFont"));
     ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(17));
     border->setOutlineThickness(2);
@@ -35,6 +36,7 @@ Item::~Item()
     delete ui;
 }
 
+//Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item
 Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, int quantity, double weight, double volume,
            int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots,
            QVector<Slots> occupiedCellSlots, QVector<Bonus *> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses,
@@ -58,6 +60,7 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
          this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
     else{
+        //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
         this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
         this->hoverColor = QColor(255, 255, 255, 30);
         this->pressedColor = QColor(0, 0, 0, 50);
@@ -86,6 +89,7 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
 
     ui->Quantity->setFont(QFont("TextFont"));
     ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(17));
+
     border->setOutlineThickness(2);
     ui->Quantity->setMargin(2);
     ui->Quantity->setGraphicsEffect(border);
@@ -118,10 +122,12 @@ void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, in
     }
 }
 
+//Установка стиля для кнопки, переключающей стили предмета
 void Item::setStyleButtonsStyle()
 {
     //Если у предмета несколько стилей, то включаются кнопки смены стилей
     if(styles.size()>1){
+        ui->StyleButtonsWrapper->setVisible(true);
         /*Жёстко задаётся размер области кнопок стилей, чтобы как можно меньше перекрывать этим блоком виджет итема.
          *
          *2 - это нижний отступ, который учтён в размере, отдаваемом на каждую ячейку, но у последней кнопки нижний отступ не нужен.*/
@@ -208,6 +214,7 @@ void Item::setBrokenSyle(bool isBroken)
     }
 }
 
+//Проверка сломана ли вещь
 bool Item::getIsBroken()
 {
     if(itemCondition == BROKEN)
@@ -286,6 +293,7 @@ bool Item::eventFilter(QObject *object, QEvent *event)
 //Эффекты при прожатии итема
 void Item::on_pushButton_clicked()
 {
+    //!!!Пока класс эффекта прожатия вещи не реализован
     if(isPressable){
         qDebug()<<"Делаю штуку";
     }
@@ -375,6 +383,7 @@ QVector<Item::Slots> Item::getOccupiedCellSlots() const
     return occupiedCellSlots;
 }
 
+//Класс для оптимизации полностью скрывающий итем и его стили. Вызывается только когда итема и так не должно быть видно
 void Item::hidenEffects(bool hiden)
 {
     if(hiden){
@@ -382,11 +391,13 @@ void Item::hidenEffects(bool hiden)
         shadow->setBlurRadius(0);
         shadow->setOffset(0, 0);
         opacity->setOpacity(1);
+        setVisible(false);
     }else{
         border->setOutlineThickness(2);
         shadow->setBlurRadius(shadowBlurRadius);
         shadow->setOffset(shadowXOffset, shadowYOffset);
         opacity->setOpacity(0.3);
+        setVisible(true);
     }
 }
 
@@ -410,26 +421,17 @@ void Item::setCurrentStyle(int newCurrentStyle)
     currentStyle = newCurrentStyle;
 }
 
-void Item::init(QPixmap pixMap)
-{
-    this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
-    ui->Image->setPixmap(QPixmap::fromImage(this->image,Qt::AutoColor));
-}
-
 QVector<Item::Slots> Item::getCellSlots() const
 {
     return cellSlots;
 }
 
-//Объединить с занимаемыми!!!!
+/*Установка векторов ячеек доступных для этой вещи и её занимаемых слотов. В занимаемых
+ *слотах нужно указывать ячейки только если предмет всегда занимает их несколько*/
 void Item::setCellSlots(QVector<Slots> newCellSlots, QVector<Slots> newOccupiedCellSlots)
 {
-    occupiedCellSlots.clear();
-
+    occupiedCellSlots = newOccupiedCellSlots;
     cellSlots = newCellSlots;
-    occupiedCellSlots.append(cellSlots);
-
-    occupiedCellSlots.append(newOccupiedCellSlots);
 }
 
 int Item::getMaxDamage() const
@@ -465,11 +467,16 @@ void Item::setCurrentDurability(int newCurrentDurability)
 {
     if(newCurrentDurability > maxDurability)
         newCurrentDurability = maxDurability;
-    if(newCurrentDurability < -1)
+    //Текущая прочность -1 может быть только если и максимальная также равна -1
+    if(maxDurability > -1 && currentDurability < 0)
+        currentDurability = 0;
+    else if(newCurrentDurability < -1)
         newCurrentDurability = -1;
+
 
     currentDurability = newCurrentDurability;
 
+    //Прочность -1 означает, что предмет неразрушим
     if(currentDurability == -1)
         itemCondition = CRASHPROOF;
     else if(currentDurability == maxDurability)
@@ -495,11 +502,15 @@ void Item::setMaxDurability(int newMaxDurability)
     if(newMaxDurability < -1)
         newMaxDurability = -1;
 
+    if(currentDurability > maxDurability)
+        currentDurability = maxDurability;
+
     maxDurability = newMaxDurability;
 
     if(maxDurability < currentDurability)
         currentDurability = maxDurability;
 
+    //Прочность -1 означает, что предмет неразрушим
     if(currentDurability == -1)
         itemCondition = CRASHPROOF;
     else if(currentDurability == maxDurability)
@@ -515,6 +526,7 @@ QString Item::getItemName() const
     return itemName;
 }
 
+//Передаваемое имя не может быть пустым. При попытке передачии "" в функцию не произойдёт ничего
 void Item::setItemName(const QString &newItemName)
 {
     if(newItemName == "")

@@ -81,12 +81,14 @@ public:
         ADDITIONAL_SLOT//Дополнительный слот
     };
 
+    //Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item
     Item(QString folderName, QVector<ItemType> itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
          int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},
          QVector<Slots> occupiedCellSlots = {}, QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {},
          int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0);
 
     void setShadow(bool hasShadow, int shadowBlurRadius = 7, int shadowXOffset = 3, int shadowYOffset = 3, QColor color = Qt::black);
+    //Установка стиля для кнопки, переключающей стили предмета
     void setStyleButtonsStyle();
 
     struct Damage
@@ -127,6 +129,7 @@ public:
     //Установка/отключение стиля сломанного итема
     void setBrokenSyle(bool isBroken);
 
+    //Проверка сломана ли вещь
     bool getIsBroken();
 
     int getQuantity() const;
@@ -142,6 +145,7 @@ public:
     void setPrice(int newPrice);
 
     QString getItemName() const;
+    //Передаваемое имя не может быть пустым. При попытке передачии "" в функцию не произойдёт ничего
     void setItemName(const QString &newItemName);
 
     int getMaxDurability() const;
@@ -156,17 +160,18 @@ public:
     int getMaxDamage() const;
 
     QVector<Slots> getCellSlots() const;
+    /*Установка векторов ячеек доступных для этой вещи и её занимаемых слотов. В занимаемых
+     *слотах нужно указывать ячейки только если предмет всегда занимает их несколько*/
     void setCellSlots(QVector<Slots> newCellSlots, QVector<Slots> newOccupiedCellSlots);
 
     int getCurrentStyle() const;
     void setCurrentStyle(int newCurrentStyle);
 
-    void init(QPixmap pixMap);
-
     void setId(int newId);
 
     QVector<Slots> getOccupiedCellSlots() const;
 
+    //Класс для оптимизации полностью скрывающий итем и его стили. Вызывается только когда итема и так не должно быть видно
     void hidenEffects(bool hiden);
 
 private slots:
@@ -180,19 +185,27 @@ private slots:
 private:
     Ui::Item *ui;
 
+    //id должен быть уникальным. -1 означает, что в ячейке итема нет.
     int id = -1;
     double weight = 0;
     double volume = 0;
     int price = 0;
-    QString itemName;
+    QString itemName = "Item";
+
+    //Прочность -1 означает, что предмет неразрушим и ему сразу присваивается состояние CRASHPROOF
     int maxDurability = -1;
     int currentDurability = -1;
     ItemCondition itemCondition = CRASHPROOF;
+
     int minDamage = 0;
     int maxDamage = 0;
     int quantity = 1;
+    //Вектор слотов, в которые может быть помещён предмет. Некоторые предметы можно помещать в разные слоты на выбор
     QVector<Slots> cellSlots;
+    /*Вектор слотов, которые займёт вещь. Как правило одна вещь может занимать лишь один
+     *слот, но некоторые занимают несколько. Так например двуручный меч займёт обе руки*/
     QVector<Slots> occupiedCellSlots;
+    //Этот стиль является одним из переключаемых состояний предмета
     int currentStyle = 0;
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
     QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect;
