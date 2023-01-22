@@ -7,8 +7,6 @@
 
 #include <QFontDatabase>
 
-//#include <QFontDatabase>
-
 Dungeoner::Dungeoner(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Dungeoner)
