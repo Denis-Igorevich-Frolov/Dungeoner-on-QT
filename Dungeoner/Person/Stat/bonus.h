@@ -51,6 +51,7 @@ public:
 
     //Определяет тип бонуса: абсолютный или процентный
     bool isPercentage = false;
+    //Бонус должен знать, к какому стату он может быть применим
     StatName statName;
     QString bonusName;
 

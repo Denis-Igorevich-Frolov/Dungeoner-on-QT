@@ -121,18 +121,16 @@ bool MagicDefense::removeBonus(MagicDefenseBonus *bonus)
 //Перерасчёт всех бонусов магической защиты
 void MagicDefense::updateBonuses()
 {
+    //Удаляютя все бонусы с чанков, так как они сейчас будут переинициализированы и назначены заново
+    for(Chunk* chunk : nativeChunks)
+        chunk->clearBonuses();
+
     //Также удаляются и все бонусные чанки
     for(Chunk* chunk : bonusChunks)
         delete chunk;
     bonusChunks.clear();
 
     for(MagicDefenseBonus* bonus : bonuses){
-        if (bonus->isPercentage){
-            int bonusFinalValue = ((double)value/100)*bonus->getValue();
-            bonus->setFinalValue(bonusFinalValue);
-        }else
-            bonus->setFinalValue(bonus->getValue());
-
         if(bonus->isBonusChunk){
             for(int bonusChunkMaxValue : bonus->getBonusChunksMaxVales())
                 bonusChunks.append(new Chunk(bonusChunkMaxValue, 0));

@@ -78,10 +78,10 @@
       <widget class="QPushButton" name="pushButton_4">
        <property name="geometry">
         <rect>
-         <x>780</x>
-         <y>10</y>
+         <x>800</x>
+         <y>20</y>
          <width>161</width>
-         <height>41</height>
+         <height>34</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -95,10 +95,13 @@
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 1&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;непроцентного&lt;/span&gt; бонуса &lt;span style=&quot; font-weight:700;&quot;&gt;Силы&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -111,10 +114,13 @@
        <property name="geometry">
         <rect>
          <x>124</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 2&lt;/p&gt;&lt;p&gt;Удаление &lt;span style=&quot; font-weight:700;&quot;&gt;непроцентного&lt;/span&gt; бонуса &lt;span style=&quot; font-weight:700;&quot;&gt;Силы&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -127,10 +133,13 @@
        <property name="geometry">
         <rect>
          <x>184</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 3&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; бонуса &lt;span style=&quot; font-weight:700;&quot;&gt;Ловкости&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -175,10 +184,16 @@
        <property name="geometry">
         <rect>
          <x>243</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 4&lt;/p&gt;&lt;p&gt;Удаление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; бонуса &lt;span style=&quot; font-weight:700;&quot;&gt;Ловкости&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="whatsThis">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 4&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Удаление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; бонуса &lt;span style=&quot; font-weight:700;&quot;&gt;Ловкости&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -191,10 +206,13 @@
        <property name="geometry">
         <rect>
          <x>302</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 5&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;непроцентного&lt;/span&gt; дебафа &lt;span style=&quot; font-weight:700;&quot;&gt;Интеллекта&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -207,10 +225,13 @@
        <property name="geometry">
         <rect>
          <x>609</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 10&lt;/p&gt;&lt;p&gt;Удаляет строку инвентаря&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -223,10 +244,13 @@
        <property name="geometry">
         <rect>
          <x>550</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 9&lt;/p&gt;&lt;p&gt;Добавляет строку инвентаря с тестовой вещью в каждой ячейке&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -239,10 +263,13 @@
        <property name="geometry">
         <rect>
          <x>367</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 6&lt;/p&gt;&lt;p&gt;Удаление &lt;span style=&quot; font-weight:700;&quot;&gt;непроцентного&lt;/span&gt; дебафа &lt;span style=&quot; font-weight:700;&quot;&gt;Интеллекта&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -255,10 +282,13 @@
        <property name="geometry">
         <rect>
          <x>431</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 7&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; дебафа &lt;span style=&quot; font-weight:700;&quot;&gt;Магии&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
@@ -271,16 +301,212 @@
        <property name="geometry">
         <rect>
          <x>491</x>
-         <y>20</y>
+         <y>1</y>
          <width>51</width>
          <height>41</height>
         </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 8&lt;/p&gt;&lt;p&gt;Удаление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; дебафа &lt;span style=&quot; font-weight:700;&quot;&gt;Магии&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="styleSheet">
         <string notr="true">background:white;</string>
        </property>
        <property name="text">
         <string>8</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_12">
+       <property name="geometry">
+        <rect>
+         <x>550</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 19&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>19</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_13">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 12&lt;/p&gt;&lt;p&gt;Удаление всех бонусов и дебафов добавленных кнопкой 11&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>12</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_14">
+       <property name="geometry">
+        <rect>
+         <x>610</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 20&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>20</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_15">
+       <property name="geometry">
+        <rect>
+         <x>490</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 18&lt;/p&gt;&lt;p&gt;Бонус на ячейки 2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>18</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_16">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 16&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; бонуса ко &lt;span style=&quot; font-weight:700;&quot;&gt;всем&lt;/span&gt; ячейкам &lt;span style=&quot; font-weight:700;&quot;&gt;магической защиты&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>16</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_17">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 11&lt;/p&gt;&lt;p&gt;Добавление большого числа бонусово и дебафов к &lt;span style=&quot; font-weight:700;&quot;&gt;Здоровью&lt;/span&gt; для теста сортировки бонусов&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>11</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_18">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 14&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; бонуса к &lt;span style=&quot; font-weight:700;&quot;&gt;первой&lt;/span&gt; ячейке &lt;span style=&quot; font-weight:700;&quot;&gt;магической защиты&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="whatsThis">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 4&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Удаление &lt;span style=&quot; font-weight:700;&quot;&gt;процентного&lt;/span&gt; бонуса &lt;span style=&quot; font-weight:700;&quot;&gt;Ловкости&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>14</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_19">
+       <property name="geometry">
+        <rect>
+         <x>430</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 17&lt;/p&gt;&lt;p&gt;Бонус на ячейки 1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>17</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_20">
+       <property name="geometry">
+        <rect>
+         <x>303</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 15&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;непроцентного&lt;/span&gt; бонуса к &lt;span style=&quot; font-weight:700;&quot;&gt;третей&lt;/span&gt; ячейке &lt;span style=&quot; font-weight:700;&quot;&gt;магической защиты&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>15</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_21">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>44</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Тестовая кнопка 13&lt;/p&gt;&lt;p&gt;Добавление &lt;span style=&quot; font-weight:700;&quot;&gt;непроцентного&lt;/span&gt; бонуса к &lt;span style=&quot; font-weight:700;&quot;&gt;центральной&lt;/span&gt; ячейке &lt;span style=&quot; font-weight:700;&quot;&gt;магической защиты&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:white;</string>
+       </property>
+       <property name="text">
+        <string>13</string>
        </property>
       </widget>
      </widget>

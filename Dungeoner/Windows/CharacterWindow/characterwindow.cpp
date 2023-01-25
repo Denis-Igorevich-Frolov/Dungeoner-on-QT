@@ -1205,54 +1205,129 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-//    ui->widget->setEmptyStyle();
+    person.addBonusToStat(new Bonus(Bonus::StatName::STRENGTH, 10, false, "Тест увеличения силы", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-//    ui->widget->setNoEmptyStyle();
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::STRENGTH, 10, false, "Тест увеличения силы", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-//    ui->widget->setNewStyle();
+    person.addBonusToStat(new Bonus(Bonus::StatName::AGILITY, 17, true, "Тест увеличения ловкости", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_5_clicked()
 {
-//    ui->widget->setLockedStyle();
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::AGILITY, 17, true, "Тест увеличения ловкости", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_6_clicked()
 {
-//    ui->widget->setDisabledStyle();
+    person.addBonusToStat(new Bonus(Bonus::StatName::INTELLIGENCE, -9, false, "Тест уменьшения интеллекта", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_9_clicked()
 {
-//    ui->widget->setDisabledNewStyle();
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::INTELLIGENCE, -9, false, "Тест уменьшения интеллекта", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_10_clicked()
 {
-//    ui->widget->setBrokenStyle();
+    person.addBonusToStat(new Bonus(Bonus::StatName::MAGIC, -28, false, "Тест уменьшения магии", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_11_clicked()
 {
-//    ui->widget->setDisabledBrokenStyle();
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::MAGIC, -28, false, "Тест уменьшения магии", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_8_clicked()
 {
-//    ui->widget->setBrokenNewStyle();
     addRowOfCellsToInventory();
 }
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
-//    ui->widget->setDisabledBrokenNewStyle();
     removeRowOfCellsFromInventory();
+}
+
+void CharacterWindow::on_pushButton_17_clicked()
+{
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 3, false, "Бонус 1", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 8, false, "Бонус 2", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 1, true, "Бонус 4", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 23, false, "Бонус 5", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, -2, false, "Дебаф 1", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, -100, false, "Дебаф 2", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 25, true, "Бонус 6", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, -19, true, "Дебаф 3", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 249, false, "Бонус 7", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 47, true, "Бонус 8", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_13_clicked()
+{
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 3, false, "Бонус 1", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 8, false, "Бонус 2", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 1, true, "Бонус 4", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 23, false, "Бонус 5", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, -2, false, "Дебаф 1", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, -100, false, "Дебаф 2", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 25, true, "Бонус 6", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, -19, true, "Дебаф 3", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 249, false, "Бонус 7", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 47, true, "Бонус 8", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_21_clicked()
+{
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition::CENTER, 10, false, "Бонус к центральной ячейке", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_18_clicked()
+{
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition::FIRST, 13, true, "Бонус к первой ячейке", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_20_clicked()
+{
+    person.addBonusToStat(new MagicDefenseBonus(3, 18, false, "Бонус к третей ячейке", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_16_clicked()
+{
+    person.addBonusToStat(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition::ALL, 1, true, "Бонус ко всем ячейкам", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_19_clicked()
+{
+    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{134, 5, 9, 12}, "Бонусные ячейки 1", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_15_clicked()
+{
+    person.addBonusToStat(new MagicDefenseBonus(QVector<int>{3, 2, 1, 4}, "Бонусные ячейки 2", 1, 1, 1, 1));
+}
+
+
+void CharacterWindow::on_pushButton_12_clicked()
+{
+
+}
+
+
+void CharacterWindow::on_pushButton_14_clicked()
+{
+
 }
 
 void CharacterWindow::on_SaveButton_clicked()
@@ -1318,4 +1393,3 @@ void CharacterWindow::on_InventoryScrollBar_actionTriggered(int action)
     if(action==1||action==2)
         Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
 }
-
