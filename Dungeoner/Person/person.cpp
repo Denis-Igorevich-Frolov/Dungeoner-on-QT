@@ -18,27 +18,21 @@ void Person::addBonusToStat(Bonus *bonus)
     switch (bonus->statName) {
     case Bonus::STRENGTH:
         Strength.addBonus(bonus);
-        emit StrengthChanged();
         break;
     case Bonus::AGILITY:
         Agility.addBonus(bonus);
-        emit AgilityChanged();
         break;
     case Bonus::INTELLIGENCE:
         Intelligence.addBonus(bonus);
-        emit IntelligenceChanged();
         break;
     case Bonus::MAGIC:
         Magic.addBonus(bonus);
-        emit MagicChanged();
         break;
     case Bonus::BODYTYPE:
         BodyType.addBonus(bonus);
-        emit BodyTypeChanged();
         break;
     case Bonus::WILL:
         Will.addBonus(bonus);
-        emit WillChanged();
         break;
     case Bonus::MAGIC_DAMAGE:
         MagicDamage.addBonus(bonus);
@@ -119,37 +113,31 @@ bool Person::removeBonusFromStat(Bonus *bonus)
     switch (bonus->statName) {
     case Bonus::STRENGTH:
         successful = Strength.removeBonus(bonus);
-        emit StrengthChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::AGILITY:
         successful = Agility.removeBonus(bonus);
-        emit AgilityChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::INTELLIGENCE:
         successful = Intelligence.removeBonus(bonus);
-        emit IntelligenceChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MAGIC:
         successful = Magic.removeBonus(bonus);
-        emit MagicChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::BODYTYPE:
         successful = BodyType.removeBonus(bonus);
-        emit BodyTypeChanged();
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::WILL:
         successful = Will.removeBonus(bonus);
-        emit WillChanged();
         if (!successful)
             fullReinitialization();
         return successful;
@@ -920,8 +908,8 @@ bool Person::saveStrength(bool saveValues, bool saveBonuses, bool createBackup)
 bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
     bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, false, loadBonuses);
-    if(emittedChanged)
-        emit StrengthChanged();
+//    if(emittedChanged)
+//        emit StrengthChanged();
     return success;
 }
 
@@ -932,8 +920,8 @@ bool Person::saveAgility(bool saveValues, bool saveBonuses, bool createBackup)
 bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
     bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, false, loadBonuses);
-    if(emittedChanged)
-        emit AgilityChanged();
+//    if(emittedChanged)
+//        emit AgilityChanged();
     return success;
 }
 
@@ -944,8 +932,8 @@ bool Person::saveIntelligence(bool saveValues, bool saveBonuses, bool createBack
 bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
     bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, false, loadBonuses);
-    if(emittedChanged)
-        emit IntelligenceChanged();
+//    if(emittedChanged)
+//        emit IntelligenceChanged();
     return success;
 }
 
@@ -956,8 +944,8 @@ bool Person::saveMagic(bool saveValues, bool saveBonuses, bool createBackup)
 bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
     bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, false, loadBonuses);
-    if(emittedChanged)
-        emit MagicChanged();
+//    if(emittedChanged)
+//        emit MagicChanged();
     return success;
 }
 
@@ -968,8 +956,8 @@ bool Person::saveBodyType(bool saveValues, bool saveBonuses, bool createBackup)
 bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
     bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, false, loadBonuses);
-    if(emittedChanged)
-        emit BodyTypeChanged();
+//    if(emittedChanged)
+//        emit BodyTypeChanged();
     return success;
 }
 
@@ -980,8 +968,8 @@ bool Person::saveWill(bool saveValues, bool saveBonuses, bool createBackup)
 bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
 {
     bool success = loadStat("Will", Bonus::WILL, Will, loadValues, false, loadBonuses);
-    if(emittedChanged)
-        emit WillChanged();
+//    if(emittedChanged)
+//        emit WillChanged();
     return success;
 }
 

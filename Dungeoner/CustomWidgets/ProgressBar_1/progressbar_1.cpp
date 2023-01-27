@@ -96,7 +96,7 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
 
-    bonusesChanged();
+    statChanged();
 }
 
 int ProgressBar_1::getValue() const
@@ -121,7 +121,7 @@ void ProgressBar_1::setValue(int newValue)
     recalculationChunkWidth();
 
     //Если есть процентные бонусы, то от изменения значения они тоже изменятся
-    bonusesChanged();
+    statChanged();
 }
 
 void ProgressBar_1::setColor(const QColor &newColor)
@@ -196,10 +196,10 @@ void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int for
 void ProgressBar_1::setStat(Stat *newStat)
 {
     stat = newStat;
-    connect(stat, &Stat::bonusesChanged, this, &ProgressBar_1::bonusesChanged);
+    connect(stat, &Stat::statChanged, this, &ProgressBar_1::statChanged);
 }
 
-void ProgressBar_1::bonusesChanged()
+void ProgressBar_1::statChanged()
 {
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 4 позиции, если это изменится, то надо поменять это и здесь*/

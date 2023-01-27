@@ -73,7 +73,7 @@ int SecondarySkill::getValue() const
 void SecondarySkill::setValue(int newValue)
 {
     setTextValue(newValue);
-    bonusesChanged();
+    statChanged();
 }
 
 void SecondarySkill::setInscription(QString inscription)
@@ -183,10 +183,10 @@ void SecondarySkill::setFormula(QString formula, int fontSize)
 void SecondarySkill::setStat(Stat *newStat)
 {
     stat = newStat;
-    connect(stat, &Stat::bonusesChanged, this, &SecondarySkill::bonusesChanged);
+    connect(stat, &Stat::statChanged, this, &SecondarySkill::statChanged);
 }
 
-void SecondarySkill::bonusesChanged()
+void SecondarySkill::statChanged()
 {
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 4 позиции, если это изменится, то надо поменять это и здесь*/

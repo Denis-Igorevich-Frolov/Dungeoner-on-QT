@@ -18,7 +18,7 @@ public:
     /*Разные группы статов имеют разные максимальные значения. Так для первичных навыков -
      *это 999999,а для вторичных - 9999999. Чтобы корректно работали ограничители на
      *сеттерах это максимальное значение задаётся при инициализации*/
-    Stat(int maximum);
+    Stat(int maximum, bool isProgressBar = false);
     ~Stat();
 
     int getValue() const;
@@ -48,9 +48,12 @@ public:
     Stat& operator= (const Stat &stat);
     int getMaximum() const;
 
+    bool getIsProgressBar() const;
+
 signals:
-    void bonusesChanged();
+    void statChanged();
 private:
+    bool isProgressBar;
     int value = 0;
     //Значение с учётом всех бонусов
     int finalValue = 0;

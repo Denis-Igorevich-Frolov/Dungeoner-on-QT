@@ -48,7 +48,7 @@ public:
     void setStat(Stat *newStat);
 
 private slots:
-    void bonusesChanged();
+    void statChanged();
 
 private:
     //Энум знака числа. Используется для подсказки бонусов

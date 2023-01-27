@@ -115,12 +115,12 @@ public:
     void setPersonName(const QString &newPersonName);
 
 signals:
-    void StrengthChanged();
-    void AgilityChanged();
-    void IntelligenceChanged();
-    void MagicChanged();
-    void BodyTypeChanged();
-    void WillChanged();
+//    void StrengthChanged();
+//    void AgilityChanged();
+//    void IntelligenceChanged();
+//    void MagicChanged();
+//    void BodyTypeChanged();
+//    void WillChanged();
 
     //Запрос на полную переинициализацию виджетов статов
     void FullReinitializationRequest();
@@ -270,9 +270,9 @@ private:
     Stat MagicCastChance = Stat(9999999);
     Stat ChanceOfUsingCombatTechnique = Stat(9999999);
     Stat MoveRange = Stat(9999999);
-    Stat Health = Stat(9999999);
-    Stat Endurance = Stat(9999999);
-    Stat Mana = Stat(9999999);
+    Stat Health = Stat(9999999, true);
+    Stat Endurance = Stat(9999999, true);
+    Stat Mana = Stat(9999999, true);
     MagicDefense magicDefense;
 
     QString personName = "new hero";

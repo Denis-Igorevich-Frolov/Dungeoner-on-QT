@@ -47,12 +47,12 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     associatingLabelsWithStat();
 
     //Связывание слотов изменения первичных навыков бонусами с сигналами сигнализирующими об этом
-    connect(&person, &Person::StrengthChanged, this, &CharacterWindow::onStrengthChanged);
-    connect(&person, &Person::AgilityChanged, this, &CharacterWindow::onAgilityChanged);
-    connect(&person, &Person::IntelligenceChanged, this, &CharacterWindow::onIntelligenceChanged);
-    connect(&person, &Person::MagicChanged, this, &CharacterWindow::onMagicChanged);
-    connect(&person, &Person::BodyTypeChanged, this, &CharacterWindow::onBodyTypeChanged);
-    connect(&person, &Person::WillChanged, this, &CharacterWindow::onWillChanged);
+    connect(person.getStrength(), &Stat::statChanged, this, &CharacterWindow::onStrengthChanged);
+    connect(person.getAgility(), &Stat::statChanged, this, &CharacterWindow::onAgilityChanged);
+    connect(person.getIntelligence(), &Stat::statChanged, this, &CharacterWindow::onIntelligenceChanged);
+    connect(person.getMagic(), &Stat::statChanged, this, &CharacterWindow::onMagicChanged);
+    connect(person.getBodyType(), &Stat::statChanged, this, &CharacterWindow::onBodyTypeChanged);
+    connect(person.getWill(), &Stat::statChanged, this, &CharacterWindow::onWillChanged);
 
     //Связывание слота полной переинициализации из класса person с обновлением отображения статов
     connect(&person, &Person::FullReinitializationRequest, this, &CharacterWindow::refreshDisplayStats);
@@ -1046,7 +1046,8 @@ void CharacterWindow::onWillChanged()
 //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
 void CharacterWindow::refreshDisplayStats()
 {
-    initPrimaryStatsWidgets();
+    if(!isManualStatReplacement)
+        initPrimaryStatsWidgets();
     //Задание значения воли, для подсказки, требуемой до получения нового чанка магической защиты
     ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.willUntilNextChunk;
     //Инициализация получеными значениями

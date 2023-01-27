@@ -37,7 +37,7 @@ void Stat::addBonus(Bonus *bonus)
         return *a > *b;
     });
     calculateFinalValue();
-    emit bonusesChanged();
+    emit statChanged();
 }
 
 /*Удаление бонуса. В метод передаётся указатель на бонус, который должен быть удалён. При этом
@@ -56,7 +56,7 @@ bool Stat::removeBonus(Bonus *bonus)
             iterator.remove();
 
             calculateFinalValue();
-            emit bonusesChanged();
+            emit statChanged();
             return true;
         }
     }
@@ -145,7 +145,7 @@ void Stat::calculateFinalValue()
 /*Разные группы статов имеют разные максимальные значения. Так для первичных навыков -
  *это 999999,а для вторичных - 9999999. Чтобы корректно работали ограничители на
  *сеттерах это максимальное значение задаётся при инициализации*/
-Stat::Stat(int maximum) : maximum(maximum)
+Stat::Stat(int maximum, bool isProgressBar) : maximum(maximum), isProgressBar(isProgressBar)
 {}
 
 Stat::~Stat()
@@ -169,4 +169,9 @@ Stat& Stat::operator= (const Stat &stat)
 int Stat::getMaximum() const
 {
     return maximum;
+}
+
+bool Stat::getIsProgressBar() const
+{
+    return isProgressBar;
 }

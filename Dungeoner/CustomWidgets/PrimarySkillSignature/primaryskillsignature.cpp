@@ -125,10 +125,10 @@ void PrimarySkillSignature::valueChanged(int value)
 {
     valueLabel->setText(QVariant(SpinBoxValue->value()).toString());
     //Если есть процентные бонусы, то от изменения значения они тоже изменятся
-    bonusesChanged();
+    statChanged();
 }
 
-void PrimarySkillSignature::bonusesChanged()
+void PrimarySkillSignature::statChanged()
 {
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 3 позиции, если это изменится, то надо поменять это и здесь*/
@@ -277,7 +277,7 @@ Stat *PrimarySkillSignature::getStat() const
 void PrimarySkillSignature::setStat(Stat *newStat)
 {
     stat = newStat;
-    connect(stat, &Stat::bonusesChanged, this, &PrimarySkillSignature::bonusesChanged);
+    connect(stat, &Stat::statChanged, this, &PrimarySkillSignature::statChanged);
 }
 
 QSpinBox *PrimarySkillSignature::getSpinBoxValue() const

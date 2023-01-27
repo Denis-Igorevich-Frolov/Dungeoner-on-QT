@@ -61,7 +61,7 @@ private slots:
     void on_ButtonBottom_released();
     void clickModifierTooltipTimerAlarm();
     void valueChanged(int value);
-    void bonusesChanged();
+    void statChanged();
 
 private:
     Ui::PrimarySkillSignature *ui;

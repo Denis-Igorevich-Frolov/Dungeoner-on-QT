@@ -51,7 +51,7 @@ signals:
     void RemoveTooltip();
 
 private slots:
-    void bonusesChanged();
+    void statChanged();
 
 private:
     OutlineEffect* borderInscription;

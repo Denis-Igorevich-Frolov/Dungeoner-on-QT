@@ -36,7 +36,7 @@ struct qt_meta_stringdata_PrimarySkillSignature_t {
     char stringdata8[31];
     char stringdata9[13];
     char stringdata10[6];
-    char stringdata11[15];
+    char stringdata11[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_PrimarySkillSignature_t::offsetsAndSizes) + ofs), len 
@@ -53,7 +53,7 @@ static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stringdata_Prima
         QT_MOC_LITERAL(126, 30),  // "clickModifierTooltipTimerAlarm"
         QT_MOC_LITERAL(157, 12),  // "valueChanged"
         QT_MOC_LITERAL(170, 5),  // "value"
-        QT_MOC_LITERAL(176, 14)   // "bonusesChanged"
+        QT_MOC_LITERAL(176, 11)   // "statChanged"
     },
     "PrimarySkillSignature",
     "ShowTooltip",
@@ -66,7 +66,7 @@ static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stringdata_Prima
     "clickModifierTooltipTimerAlarm",
     "valueChanged",
     "value",
-    "bonusesChanged"
+    "statChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -120,7 +120,7 @@ void PrimarySkillSignature::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 3: _t->on_ButtonBottom_released(); break;
         case 4: _t->clickModifierTooltipTimerAlarm(); break;
         case 5: _t->valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 6: _t->bonusesChanged(); break;
+        case 6: _t->statChanged(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
