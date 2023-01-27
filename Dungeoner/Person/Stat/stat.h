@@ -34,10 +34,6 @@ public:
 
     int getFinalValue() const;
 
-    int getProgressBarCurrentValue() const;
-    //Задание текущего значения прогрессбара, при этом просто value, в таком случае, является максимальным значением
-    void setProgressBarCurrentValue(int newProgressBarCurrentValue);
-
     QVector<Bonus *> getBonuses();
 
     /*Очистка вектора бонусов. Метод не обновляет отображение бонусов в виджетах. Память указателей на
@@ -51,11 +47,6 @@ public:
 signals:
     void statChanged();
 private:
-    bool isProgressBar;
-    int value = 0;
-    //Текущее значение прогрессбара. Используется только в статах с прогрессбаром.
-    int progressBarCurrentValue = 0;
-
     //Максимальное значение стата
     int maximum = 0;
 
@@ -64,6 +55,7 @@ private:
     //Вычисление финального максимального значения стата с учётом всех бонусов
     void calculateFinalValue();
 protected:
+    int value = 0;
     //Значение с учётом всех бонусов
     int finalValue = 0;
 };
@@ -89,6 +81,20 @@ protected:
     Stat* Will;
 
     int numberOfPrimaryStat = 6;
+};
+
+//Данный класс является классом стата, к которому относится прогрессбар
+class ProgressBarStat : public RecalculatebleStat{
+public:
+    ProgressBarStat(int maximum, QVector<Stat*> primaryStats);
+    int getProgressBarCurrentValue() const;
+    //Задание текущего значения прогрессбара, при этом finalValue, в таком случае, является максимальным значением прогрессбара
+    void setProgressBarCurrentValue(int newProgressBarCurrentValue);
+    void setValue(int newValue);
+    ProgressBarStat& operator= (const ProgressBarStat &stat);
+
+private:
+    int progressBarCurrentValue = 0;
 };
 
 class MagicDamageStat : public RecalculatebleStat{
@@ -199,19 +205,19 @@ public:
     int recalculate();
 };
 
-class HealthStat : public RecalculatebleStat{
+class HealthStat : public ProgressBarStat{
 public:
     HealthStat(int maximum, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
-class EnduranceStat : public RecalculatebleStat{
+class EnduranceStat : public ProgressBarStat{
 public:
     EnduranceStat(int maximum, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
-class ManaStat : public RecalculatebleStat{
+class ManaStat : public ProgressBarStat{
 public:
     ManaStat(int maximum, QVector<Stat*> primaryStats);
     int recalculate();

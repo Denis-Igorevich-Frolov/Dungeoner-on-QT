@@ -22,10 +22,6 @@ void Stat::setValue(int newValue)
     else if(value<0)
         value = 0;
 
-    //Если текущее значение прогрессбара превышает максимальное значение, то оно усекается
-    if(progressBarCurrentValue>value)
-        progressBarCurrentValue = value;
-
     calculateFinalValue();
 }
 
@@ -92,17 +88,6 @@ int Stat::getFinalValue() const
     return finalValue;
 }
 
-int Stat::getProgressBarCurrentValue() const
-{
-    return progressBarCurrentValue;
-}
-
-//Задание текущего значения прогрессбара, при этом просто value, в таком случае, является максимальным значением
-void Stat::setProgressBarCurrentValue(int newProgressBarCurrentValue)
-{
-    progressBarCurrentValue = newProgressBarCurrentValue;
-}
-
 QVector<Bonus *> Stat::getBonuses()
 {
     return bonuses;
@@ -159,7 +144,6 @@ Stat& Stat::operator= (const Stat &stat)
 {
     value = stat.value;
     finalValue = stat.finalValue;
-    progressBarCurrentValue = stat.progressBarCurrentValue;
     maximum = stat.maximum;
     bonuses = stat.bonuses;
 
@@ -170,7 +154,6 @@ int Stat::getMaximum() const
 {
     return maximum;
 }
-
 
 RecalculatebleStat::RecalculatebleStat(int maximum, QVector<Stat *> primaryStats) : Stat(maximum)
 {
@@ -377,7 +360,7 @@ int MoveRangeStat::recalculate()
     return finalValue;
 }
 
-HealthStat::HealthStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+HealthStat::HealthStat(int maximum, QVector<Stat *> primaryStats):ProgressBarStat(maximum, primaryStats)
 {}
 int HealthStat::recalculate()
 {
@@ -386,7 +369,7 @@ int HealthStat::recalculate()
     return finalValue;
 }
 
-EnduranceStat::EnduranceStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+EnduranceStat::EnduranceStat(int maximum, QVector<Stat *> primaryStats):ProgressBarStat(maximum, primaryStats)
 {}
 int EnduranceStat::recalculate()
 {
@@ -395,11 +378,47 @@ int EnduranceStat::recalculate()
     return finalValue;
 }
 
-ManaStat::ManaStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+ManaStat::ManaStat(int maximum, QVector<Stat *> primaryStats):ProgressBarStat(maximum, primaryStats)
 {}
 int ManaStat::recalculate()
 {
     setValue(Magic->getFinalValue() * 10 + Intelligence->getFinalValue() * 2 + Will->getFinalValue());
 
     return finalValue;
+}
+
+ProgressBarStat::ProgressBarStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+
+int ProgressBarStat::getProgressBarCurrentValue() const
+{
+    return progressBarCurrentValue;
+}
+
+//Задание текущего значения прогрессбара, при этом finalValue, в таком случае, является максимальным значением прогрессбара
+void ProgressBarStat::setProgressBarCurrentValue(int newProgressBarCurrentValue)
+{
+    if(newProgressBarCurrentValue>value)
+        newProgressBarCurrentValue = value;
+    if(newProgressBarCurrentValue<0)
+        newProgressBarCurrentValue = 0;
+
+    progressBarCurrentValue = newProgressBarCurrentValue;
+}
+
+void ProgressBarStat::setValue(int newValue)
+{
+    Stat::setValue(newValue);
+
+    //Если текущее значение прогрессбара превышает максимальное значение, то оно усекается
+    if(progressBarCurrentValue>value)
+        progressBarCurrentValue = value;
+}
+
+ProgressBarStat &ProgressBarStat::operator=(const ProgressBarStat &stat)
+{
+    *this = stat;
+    progressBarCurrentValue = stat.progressBarCurrentValue;
+
+    return *this;
 }

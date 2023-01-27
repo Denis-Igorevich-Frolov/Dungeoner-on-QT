@@ -45,7 +45,7 @@ public:
     LabelWithTooltip* getLabelWithTooltip();
     //Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
     void setTooltipContent(QString fullName, QString formula, int formulaFontSize, QString description);
-    void setStat(Stat *newStat);
+    void setStat(ProgressBarStat *newStat);
 
 private slots:
     void statChanged();
@@ -68,7 +68,7 @@ private:
      *заполняемой области при изменении значения на 1*/
     double stepSize = 0;
 
-    Stat* stat;
+    ProgressBarStat* stat;
 
     bool bonusesLableIsAppend = 0;
     void CreatingBonusTooltip();

@@ -55,9 +55,9 @@ public:
     RecalculatebleStat* getMagicCastChance();
     RecalculatebleStat* getChanceOfUsingCombatTechnique();
     RecalculatebleStat* getMoveRange();
-    RecalculatebleStat* getHealth();
-    RecalculatebleStat* getEndurance();
-    RecalculatebleStat* getMana();
+    ProgressBarStat *getHealth();
+    ProgressBarStat *getEndurance();
+    ProgressBarStat *getMana();
     MagicDefense* getMagicDefense();
 
     //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки

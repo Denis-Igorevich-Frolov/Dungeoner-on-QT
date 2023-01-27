@@ -438,22 +438,22 @@ RecalculatebleStat* Person::getMoveRange()
     return &MoveRange;
 }
 
-RecalculatebleStat* Person::getHealth()
+ProgressBarStat* Person::getHealth()
 {
     return &Health;
 }
 
-RecalculatebleStat* Person::getEndurance()
+ProgressBarStat* Person::getEndurance()
 {
     return &Endurance;
 }
 
-RecalculatebleStat* Person::getMana()
+ProgressBarStat* Person::getMana()
 {
     return &Mana;
 }
 
-MagicDefense* Person::getMagicDefense()
+MagicDefense *Person::getMagicDefense()
 {
     return &magicDefense;
 }
@@ -1742,7 +1742,7 @@ bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, b
             }
 
             query.first();
-            stat.setProgressBarCurrentValue(query.value(0).toInt());
+//            stat.setProgressBarCurrentValue(query.value(0).toInt());
 
             query.clear();
         }

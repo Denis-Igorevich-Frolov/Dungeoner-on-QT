@@ -193,7 +193,7 @@ void ProgressBar_1::setTooltipContent(QString fullName, QString formula, int for
     ui->labelWithTooltip->setTooltipContent(tooltipContent);
 }
 
-void ProgressBar_1::setStat(Stat *newStat)
+void ProgressBar_1::setStat(ProgressBarStat *newStat)
 {
     stat = newStat;
     connect(stat, &Stat::statChanged, this, &ProgressBar_1::statChanged);
