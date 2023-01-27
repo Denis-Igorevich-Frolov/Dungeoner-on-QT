@@ -29,7 +29,7 @@ void SecondarySkillsTest::recalculateMagicDamage()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateMagicDamage(), result);
+    QCOMPARE(person.getMagicDamage()->recalculate(), result);
 }
 
 /*Тесты для проверки вычисления статов. Каждый выполняется в 4 прогона:
@@ -103,7 +103,7 @@ void SecondarySkillsTest::recalculateResistPhysicalDamage()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateResistPhysicalDamage(), result);
+    QCOMPARE(person.getResistPhysicalDamage()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistPhysicalDamage_data()
@@ -170,7 +170,7 @@ void SecondarySkillsTest::recalculateResistMagicDamage()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateResistMagicDamage(), result);
+    QCOMPARE(person.getResistMagicDamage()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistMagicDamage_data()
@@ -237,7 +237,7 @@ void SecondarySkillsTest::recalculateResistPhysicalEffects()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateResistPhysicalEffects(), result);
+    QCOMPARE(person.getResistPhysicalEffects()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistPhysicalEffects_data()
@@ -304,7 +304,7 @@ void SecondarySkillsTest::recalculateResistMagicEffects()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateResistMagicEffects(), result);
+    QCOMPARE(person.getResistMagicEffects()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistMagicEffects_data()
@@ -371,7 +371,7 @@ void SecondarySkillsTest::recalculateStrengtheningPhysicalEffects()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateStrengtheningPhysicalEffects(), result);
+    QCOMPARE(person.getStrengtheningPhysicalEffects()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateStrengtheningPhysicalEffects_data()
@@ -438,7 +438,7 @@ void SecondarySkillsTest::recalculateStrengtheningMagicalEffects()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateStrengtheningMagicalEffects(), result);
+    QCOMPARE(person.getStrengtheningMagicalEffects()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateStrengtheningMagicalEffects_data()
@@ -505,7 +505,7 @@ void SecondarySkillsTest::recalculateMeleeAccuracy()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateMeleeAccuracy(), result);
+    QCOMPARE(person.getMeleeAccuracy()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMeleeAccuracy_data()
@@ -572,7 +572,7 @@ void SecondarySkillsTest::recalculateRangedAccuracy()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateRangedAccuracy(), result);
+    QCOMPARE(person.getRangedAccuracy()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateRangedAccuracy_data()
@@ -639,7 +639,7 @@ void SecondarySkillsTest::recalculateMagicAccuracy()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateMagicAccuracy(), result);
+    QCOMPARE(person.getMagicAccuracy()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMagicAccuracy_data()
@@ -706,7 +706,7 @@ void SecondarySkillsTest::recalculateEvasion()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateEvasion(), result);
+    QCOMPARE(person.getEvasion()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateEvasion_data()
@@ -773,7 +773,7 @@ void SecondarySkillsTest::recalculateStealth()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateStealth(), result);
+    QCOMPARE(person.getStealth()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateStealth_data()
@@ -840,7 +840,7 @@ void SecondarySkillsTest::recalculateAttentiveness()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateAttentiveness(), result);
+    QCOMPARE(person.getAttentiveness()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateAttentiveness_data()
@@ -907,7 +907,7 @@ void SecondarySkillsTest::recalculateLoadCapacity()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateLoadCapacity(), result);
+    QCOMPARE(person.getLoadCapacity()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateLoadCapacity_data()
@@ -974,7 +974,7 @@ void SecondarySkillsTest::recalculateInitiative()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateInitiative(), result);
+    QCOMPARE(person.getInitiative()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateInitiative_data()
@@ -1041,7 +1041,7 @@ void SecondarySkillsTest::recalculateMagicCastChance()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateMagicCastChance(), result);
+    QCOMPARE(person.getMagicCastChance()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMagicCastChance_data()
@@ -1108,7 +1108,7 @@ void SecondarySkillsTest::recalculateChanceOfUsingCombatTechnique()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateChanceOfUsingCombatTechnique(), result);
+    QCOMPARE(person.getChanceOfUsingCombatTechnique()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateChanceOfUsingCombatTechnique_data()
@@ -1175,7 +1175,7 @@ void SecondarySkillsTest::recalculateMoveRange()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateMoveRange(), result);
+    QCOMPARE(person.getMoveRange()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMoveRange_data()
@@ -1242,7 +1242,7 @@ void SecondarySkillsTest::recalculateHealth()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateHealth(), result);
+    QCOMPARE(person.getHealth()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateHealth_data()
@@ -1309,7 +1309,7 @@ void SecondarySkillsTest::recalculateEndurance()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateEndurance(), result);
+    QCOMPARE(person.getEndurance()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateEndurance_data()
@@ -1376,7 +1376,7 @@ void SecondarySkillsTest::recalculateMana()
     person.getBodyType()->setValue(bodyType);
     person.getWill()->setValue(will);
 
-    QCOMPARE(person.recalculateMana(), result);
+    QCOMPARE(person.getMana()->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMana_data()

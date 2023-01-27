@@ -1236,12 +1236,12 @@ void CharacterWindow::on_pushButton_9_clicked()
 
 void CharacterWindow::on_pushButton_10_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::StatName::MAGIC, -28, false, "Тест уменьшения магии", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus(Bonus::StatName::MAGIC, -28, true, "Тест уменьшения магии", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_11_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::MAGIC, -28, false, "Тест уменьшения магии", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus(Bonus::StatName::MAGIC, -28, true, "Тест уменьшения магии", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_8_clicked()

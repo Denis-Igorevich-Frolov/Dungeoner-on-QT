@@ -27,87 +27,38 @@ public:
     //Перерасчёт вторичных навыков
     void recalculateStats();
 
-    int recalculateMagicDamage();
-    int recalculateResistPhysicalDamage();
-    int recalculateResistMagicDamage();
-    int recalculateResistPhysicalEffects();
-    int recalculateResistMagicEffects();
-    int recalculateStrengtheningPhysicalEffects();
-    int recalculateStrengtheningMagicalEffects();
-    int recalculateMeleeAccuracy();
-    int recalculateRangedAccuracy();
-    int recalculateMagicAccuracy();
-    int recalculateEvasion();
-    int recalculateStealth();
-    int recalculateAttentiveness();
-    int recalculateLoadCapacity();
-    int recalculateInitiative();
-    int recalculateMagicCastChance();
-    int recalculateChanceOfUsingCombatTechnique();
-    int recalculateMoveRange();
-    int recalculateHealth();
-    int recalculateEndurance();
-    int recalculateMana();
     //Перерасчёт количества родных чанков магической защиты
     void recalculateMagicDefense();
 
     Stat* getStrength();
-    void setStrength(Stat &newStrength);
     Stat* getAgility();
-    void setAgility(Stat &newAgility);
     Stat* getIntelligence();
-    void setIntelligence(Stat &newIntelligence);
     Stat* getMagic();
-    void setMagic(Stat &newMagic);
     Stat* getBodyType();
-    void setBodyType(Stat &newBodyType);
     Stat* getWill();
-    void setWill(Stat &newWill);
 
-    Stat* getMagicDamage();
-    void setMagicDamage(Stat &newMagicDamage);
-    Stat* getResistPhysicalDamage();
-    void setResistPhysicalDamage(Stat &newResistPhysicalDamage);
-    Stat* getResistMagicDamage();
-    void setResistMagicDamage(Stat &newResistMagicDamage);
-    Stat* getResistPhysicalEffects();
-    void setResistPhysicalEffects(Stat &newResistPhysicalEffects);
-    Stat* getResistMagicEffects();
-    void setResistMagicEffects(Stat &newResistMagicEffects);
-    Stat* getStrengtheningPhysicalEffects();
-    void setStrengtheningPhysicalEffects(Stat &newStrengtheningPhysicalEffects);
-    Stat* getStrengtheningMagicalEffects();
-    void setStrengtheningMagicalEffects(Stat &newStrengtheningMagicalEffects);
-    Stat* getMeleeAccuracy();
-    void setMeleeAccuracy(Stat &newMeleeAccuracy);
-    Stat* getRangedAccuracy();
-    void setRangedAccuracy(Stat &newRangedAccuracy);
-    Stat* getMagicAccuracy();
-    void setMagicAccuracy(Stat &newMagicAccuracy);
-    Stat* getEvasion();
-    void setEvasion(Stat &newEvasion);
-    Stat* getStealth();
-    void setStealth(Stat &newStealth);
-    Stat* getAttentiveness();
-    void setAttentiveness(Stat &newAttentiveness);
-    Stat* getLoadCapacity();
-    void setLoadCapacity(Stat &newLoadCapacity);
-    Stat* getInitiative();
-    void setInitiative(Stat &newInitiative);
-    Stat* getMagicCastChance();
-    void setMagicCastChance(Stat &newMagicCastChance);
-    Stat* getChanceOfUsingCombatTechnique();
-    void setChanceOfUsingCombatTechnique(Stat &newChanceOfUsingCombatTechnique);
-    Stat* getMoveRange();
-    void setMoveRange(Stat &newMoveRange);
-    Stat* getHealth();
-    void setHealth(Stat &newHealth);
-    Stat* getEndurance();
-    void setEndurance(Stat &newEndurance);
-    Stat* getMana();
-    void setMana(Stat &newMana);
+    RecalculatebleStat* getMagicDamage();
+    RecalculatebleStat* getResistPhysicalDamage();
+    RecalculatebleStat* getResistMagicDamage();
+    RecalculatebleStat* getResistPhysicalEffects();
+    RecalculatebleStat* getResistMagicEffects();
+    RecalculatebleStat* getStrengtheningPhysicalEffects();
+    RecalculatebleStat* getStrengtheningMagicalEffects();
+    RecalculatebleStat* getMeleeAccuracy();
+    RecalculatebleStat* getRangedAccuracy();
+    RecalculatebleStat* getMagicAccuracy();
+    RecalculatebleStat* getEvasion();
+    RecalculatebleStat* getStealth();
+    RecalculatebleStat* getAttentiveness();
+    RecalculatebleStat* getLoadCapacity();
+    RecalculatebleStat* getInitiative();
+    RecalculatebleStat* getMagicCastChance();
+    RecalculatebleStat* getChanceOfUsingCombatTechnique();
+    RecalculatebleStat* getMoveRange();
+    RecalculatebleStat* getHealth();
+    RecalculatebleStat* getEndurance();
+    RecalculatebleStat* getMana();
     MagicDefense* getMagicDefense();
-    void setMagicDefense(MagicDefense &newMagicDefense);
 
     //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки
     int willUntilNextChunk = 0;
@@ -115,13 +66,6 @@ public:
     void setPersonName(const QString &newPersonName);
 
 signals:
-//    void StrengthChanged();
-//    void AgilityChanged();
-//    void IntelligenceChanged();
-//    void MagicChanged();
-//    void BodyTypeChanged();
-//    void WillChanged();
-
     //Запрос на полную переинициализацию виджетов статов
     void FullReinitializationRequest();
 public slots:
@@ -252,28 +196,36 @@ private:
     Stat BodyType = Stat(999999);
     Stat Will = Stat(999999);
 
-    Stat MagicDamage = Stat(9999999);
-    Stat ResistPhysicalDamage = Stat(9999999);
-    Stat ResistMagicDamage = Stat(9999999);
-    Stat ResistPhysicalEffects = Stat(9999999);
-    Stat ResistMagicEffects = Stat(9999999);
-    Stat StrengtheningPhysicalEffects = Stat(9999999);
-    Stat StrengtheningMagicalEffects = Stat(9999999);
-    Stat MeleeAccuracy = Stat(9999999);
-    Stat RangedAccuracy = Stat(9999999);
-    Stat MagicAccuracy = Stat(9999999);
-    Stat Evasion = Stat(9999999);
-    Stat Stealth = Stat(9999999);
-    Stat Attentiveness = Stat(9999999);
-    Stat LoadCapacity = Stat(9999999);
-    Stat Initiative = Stat(9999999);
-    Stat MagicCastChance = Stat(9999999);
-    Stat ChanceOfUsingCombatTechnique = Stat(9999999);
-    Stat MoveRange = Stat(9999999);
-    Stat Health = Stat(9999999, true);
-    Stat Endurance = Stat(9999999, true);
-    Stat Mana = Stat(9999999, true);
+    QVector<Stat*> primaryStats {&Strength, &Agility, &Intelligence, &Magic, &BodyType, &Will};
+
+    MagicDamageStat MagicDamage = MagicDamageStat(9999999, primaryStats);
+    ResistPhysicalDamageStat ResistPhysicalDamage = ResistPhysicalDamageStat(9999999, primaryStats);
+    ResistMagicDamageStat ResistMagicDamage = ResistMagicDamageStat(9999999, primaryStats);
+    ResistPhysicalEffectsStat ResistPhysicalEffects = ResistPhysicalEffectsStat(9999999, primaryStats);
+    ResistMagicEffectsStat ResistMagicEffects = ResistMagicEffectsStat(9999999, primaryStats);
+    StrengtheningPhysicalEffectsStat StrengtheningPhysicalEffects = StrengtheningPhysicalEffectsStat(9999999, primaryStats);
+    StrengtheningMagicalEffectsStat StrengtheningMagicalEffects = StrengtheningMagicalEffectsStat(9999999, primaryStats);
+    MeleeAccuracyStat MeleeAccuracy = MeleeAccuracyStat(9999999, primaryStats);
+    RangedAccuracyStat RangedAccuracy = RangedAccuracyStat(9999999, primaryStats);
+    MagicAccuracyStat MagicAccuracy = MagicAccuracyStat(9999999, primaryStats);
+    EvasionStat Evasion = EvasionStat(9999999, primaryStats);
+    StealthStat Stealth = StealthStat(9999999, primaryStats);
+    AttentivenessStat Attentiveness = AttentivenessStat(9999999, primaryStats);
+    LoadCapacityStat LoadCapacity = LoadCapacityStat(9999999, primaryStats);
+    InitiativeStat Initiative = InitiativeStat(9999999, primaryStats);
+    MagicCastChanceStat MagicCastChance = MagicCastChanceStat(9999999, primaryStats);
+    ChanceOfUsingCombatTechniqueStat ChanceOfUsingCombatTechnique = ChanceOfUsingCombatTechniqueStat(9999999, primaryStats);
+    MoveRangeStat MoveRange = MoveRangeStat(9999999, primaryStats);
+    HealthStat Health = HealthStat(9999999, primaryStats);
+    EnduranceStat Endurance = EnduranceStat(9999999, primaryStats);
+    ManaStat Mana = ManaStat(9999999, primaryStats);
     MagicDefense magicDefense;
+
+    QVector<RecalculatebleStat*> secondaryStats {&MagicDamage, &ResistPhysicalDamage, &ResistMagicDamage, &ResistPhysicalEffects,
+                                                &ResistMagicEffects, &StrengtheningPhysicalEffects, &StrengtheningMagicalEffects,
+                                                &MeleeAccuracy, &RangedAccuracy, &MagicAccuracy, &Evasion, &Stealth, &Attentiveness,
+                                                &LoadCapacity, &Initiative, &MagicCastChance, &ChanceOfUsingCombatTechnique,
+                                                &MoveRange, &Health, &Endurance, &Mana};
 
     QString personName = "new hero";
 };

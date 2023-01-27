@@ -145,7 +145,7 @@ void Stat::calculateFinalValue()
 /*Разные группы статов имеют разные максимальные значения. Так для первичных навыков -
  *это 999999,а для вторичных - 9999999. Чтобы корректно работали ограничители на
  *сеттерах это максимальное значение задаётся при инициализации*/
-Stat::Stat(int maximum, bool isProgressBar) : maximum(maximum), isProgressBar(isProgressBar)
+Stat::Stat(int maximum) : maximum(maximum)
 {}
 
 Stat::~Stat()
@@ -171,7 +171,235 @@ int Stat::getMaximum() const
     return maximum;
 }
 
-bool Stat::getIsProgressBar() const
+
+RecalculatebleStat::RecalculatebleStat(int maximum, QVector<Stat *> primaryStats) : Stat(maximum)
 {
-    return isProgressBar;
+    if(primaryStats.size()>=numberOfPrimaryStat){
+        Strength = primaryStats.at(0);
+        Agility = primaryStats.at(1);
+        Intelligence = primaryStats.at(2);
+        Magic = primaryStats.at(3);
+        BodyType = primaryStats.at(4);
+        Will = primaryStats.at(5);
+    }else{
+        //Вывод ошибки в консоль и файл
+        QDate cd = QDate::currentDate();
+        QTime ct = QTime::currentTime();
+
+        QString error =
+        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+        "\nОШИБКА: неправильное количество первичных навыков\n"
+        "RecalculatebleStat выдал предупреждение в методе RecalculatebleStat.\n"
+        "В конструктор было передано менее " + QString::number(numberOfPrimaryStat) + " стандартных primaryStats.\n"
+        "Если вы хотите добавить новые первичные навыки, то просто добавьте\n"
+        "их в конец primaryStats вектора, не трогая оригинальные.\n\n";
+        qDebug()<<error;
+
+        QFile errorFile("error log.txt");
+        if (!errorFile.open(QIODevice::Append))
+        {
+            qDebug() << "Ошибка при открытии файла логов";
+        }else{
+            errorFile.open(QIODevice::Append  | QIODevice::Text);
+            QTextStream writeStream(&errorFile);
+            writeStream<<error;
+            errorFile.close();
+        }
+        std::exit(EXIT_FAILURE);
+    }
+}
+
+int RecalculatebleStat::recalculate()
+{
+    return 0;
+}
+
+MagicDamageStat::MagicDamageStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int MagicDamageStat::recalculate()
+{
+    setValue(floor(1.5 * Magic->getFinalValue()) + floor(1.5 * Intelligence->getFinalValue()) + floor(0.5 * Will->getFinalValue()));
+
+    return finalValue;
+
+}
+
+ResistPhysicalDamageStat::ResistPhysicalDamageStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int ResistPhysicalDamageStat::recalculate()
+{
+    setValue(floor(1.5 * Will->getFinalValue()) + floor(0.5 * Magic->getFinalValue()) + BodyType->getFinalValue());
+
+    return finalValue;
+}
+
+ResistMagicDamageStat::ResistMagicDamageStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int ResistMagicDamageStat::recalculate()
+{
+    setValue(floor(1.5 * Will->getFinalValue()) + floor(0.5 * BodyType->getFinalValue()) + Magic->getFinalValue());
+
+    return finalValue;
+}
+
+ResistPhysicalEffectsStat::ResistPhysicalEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int ResistPhysicalEffectsStat::recalculate()
+{
+    setValue(floor(0.1 * Will->getFinalValue()) + 10);
+
+    return finalValue;
+}
+
+ResistMagicEffectsStat::ResistMagicEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int ResistMagicEffectsStat::recalculate()
+{
+    setValue(floor(0.1 * Will->getFinalValue()) + floor(0.1 * Magic->getFinalValue()) + 5);
+
+    return finalValue;
+}
+
+StrengtheningPhysicalEffectsStat::StrengtheningPhysicalEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int StrengtheningPhysicalEffectsStat::recalculate()
+{
+    setValue(floor(0.1 * Strength->getFinalValue()));
+
+    return finalValue;
+}
+
+StrengtheningMagicalEffectsStat::StrengtheningMagicalEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int StrengtheningMagicalEffectsStat::recalculate()
+{
+    setValue(floor(0.1 * Intelligence->getFinalValue()));
+
+    return finalValue;
+}
+
+MeleeAccuracyStat::MeleeAccuracyStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int MeleeAccuracyStat::recalculate()
+{
+    setValue(floor(0.1 * Agility->getFinalValue()) + 20);
+
+    return finalValue;
+}
+
+RangedAccuracyStat::RangedAccuracyStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int RangedAccuracyStat::recalculate()
+{
+    setValue(floor(0.1 * Agility->getFinalValue()) + 15);
+
+    return finalValue;
+}
+
+MagicAccuracyStat::MagicAccuracyStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int MagicAccuracyStat::recalculate()
+{
+    setValue(floor(0.1 * Intelligence->getFinalValue()) + 15);
+
+    return finalValue;
+}
+
+EvasionStat::EvasionStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int EvasionStat::recalculate()
+{
+    setValue(floor(0.5 * Agility->getFinalValue()) + floor(0.1 * BodyType->getFinalValue()));
+
+    return finalValue;
+}
+
+StealthStat::StealthStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int StealthStat::recalculate()
+{
+    setValue(Intelligence->getFinalValue() + Agility->getFinalValue());
+
+    return finalValue;
+}
+
+AttentivenessStat::AttentivenessStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int AttentivenessStat::recalculate()
+{
+    setValue(Intelligence->getFinalValue() + Agility->getFinalValue() + Will->getFinalValue());
+
+    return finalValue;
+}
+
+LoadCapacityStat::LoadCapacityStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int LoadCapacityStat::recalculate()
+{
+    setValue(floor(0.5 * Strength->getFinalValue()) + floor(0.5 * BodyType->getFinalValue()));
+
+    return finalValue;
+}
+
+InitiativeStat::InitiativeStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int InitiativeStat::recalculate()
+{
+    setValue(floor(5 * Agility->getFinalValue()) + Intelligence->getFinalValue() + Will->getFinalValue());
+
+    return finalValue;
+}
+
+MagicCastChanceStat::MagicCastChanceStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int MagicCastChanceStat::recalculate()
+{
+    setValue(floor(0.3 * Intelligence->getFinalValue()) + floor(0.2 * Magic->getFinalValue()));
+
+    return finalValue;
+}
+
+ChanceOfUsingCombatTechniqueStat::ChanceOfUsingCombatTechniqueStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int ChanceOfUsingCombatTechniqueStat::recalculate()
+{
+    setValue(floor(0.2 * Agility->getFinalValue()) + 20);
+
+    return finalValue;
+}
+
+MoveRangeStat::MoveRangeStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int MoveRangeStat::recalculate()
+{
+    setValue(floor(0.75 * Agility->getFinalValue()) + floor(0.5 * Strength->getFinalValue()) + BodyType->getFinalValue());
+
+    return finalValue;
+}
+
+HealthStat::HealthStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int HealthStat::recalculate()
+{
+    setValue(Strength->getFinalValue() * 2 + BodyType->getFinalValue() * 10 + Will->getFinalValue() * 5 + Magic->getFinalValue());
+
+    return finalValue;
+}
+
+EnduranceStat::EnduranceStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int EnduranceStat::recalculate()
+{
+    setValue(Agility->getFinalValue() * 10 + BodyType->getFinalValue());
+
+    return finalValue;
+}
+
+ManaStat::ManaStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+{}
+int ManaStat::recalculate()
+{
+    setValue(Magic->getFinalValue() * 10 + Intelligence->getFinalValue() * 2 + Will->getFinalValue());
+
+    return finalValue;
 }

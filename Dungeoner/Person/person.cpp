@@ -265,197 +265,9 @@ bool Person::removeBonusFromStat(MagicDefenseBonus *bonus)
 //Перерасчёт вторичных навыков
 void Person::recalculateStats()
 {
-    recalculateMagicDamage();
-    recalculateResistPhysicalDamage();
-    recalculateResistMagicDamage();
-    recalculateResistPhysicalEffects();
-    recalculateResistMagicEffects();
-    recalculateStrengtheningPhysicalEffects();
-    recalculateStrengtheningMagicalEffects();
-    recalculateMeleeAccuracy();
-    recalculateRangedAccuracy();
-    recalculateMagicAccuracy();
-    recalculateEvasion();
-    recalculateStealth();
-    recalculateAttentiveness();
-    recalculateLoadCapacity();
-    recalculateInitiative();
-    recalculateMagicCastChance();
-    recalculateChanceOfUsingCombatTechnique();
-    recalculateMoveRange();
-    recalculateHealth();
-    recalculateEndurance();
-    recalculateMana();
+    for(RecalculatebleStat* stat : secondaryStats)
+        stat->recalculate();
     recalculateMagicDefense();
-}
-
-int Person::recalculateMagicDamage()
-{
-    int magicDamage =
-    floor(1.5 * Magic.getFinalValue()) + floor(1.5 * Intelligence.getFinalValue()) + floor(0.5 * Will.getFinalValue());
-    MagicDamage.setValue(magicDamage);
-
-    return MagicDamage.getFinalValue();
-}
-
-int Person::recalculateResistPhysicalDamage()
-{
-    int resistPhysicalDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * Magic.getFinalValue()) + BodyType.getFinalValue();
-    ResistPhysicalDamage.setValue(resistPhysicalDamage);
-
-    return ResistPhysicalDamage.getFinalValue();
-}
-
-int Person::recalculateResistMagicDamage()
-{
-    int resistMagicDamage = floor(1.5 * Will.getFinalValue()) + floor(0.5 * BodyType.getFinalValue()) + Magic.getFinalValue();
-    ResistMagicDamage.setValue(resistMagicDamage);
-
-    return ResistMagicDamage.getFinalValue();
-}
-
-int Person::recalculateResistPhysicalEffects()
-{
-    int resistPhysicalEffects = floor(0.1 * Will.getFinalValue()) + 10;
-    ResistPhysicalEffects.setValue(resistPhysicalEffects);
-
-    return ResistPhysicalEffects.getFinalValue();
-}
-
-int Person::recalculateResistMagicEffects()
-{
-    int resistMagicEffects = floor(0.1 * Will.getFinalValue()) + floor(0.1 * Magic.getFinalValue()) + 5;
-    ResistMagicEffects.setValue(resistMagicEffects);
-
-    return ResistMagicEffects.getFinalValue();
-}
-
-int Person::recalculateStrengtheningPhysicalEffects()
-{
-    int strengtheningPhysicalEffects = floor(0.1 * Strength.getFinalValue());
-    StrengtheningPhysicalEffects.setValue(strengtheningPhysicalEffects);
-
-    return StrengtheningPhysicalEffects.getFinalValue();
-}
-
-int Person::recalculateStrengtheningMagicalEffects()
-{
-    int strengtheningMagicalEffects = floor(0.1 * Intelligence.getFinalValue());
-    StrengtheningMagicalEffects.setValue(strengtheningMagicalEffects);
-
-    return StrengtheningMagicalEffects.getFinalValue();
-}
-
-int Person::recalculateMeleeAccuracy()
-{
-    int meleeAccuracy = floor(0.1 * Agility.getFinalValue()) + 20;
-    MeleeAccuracy.setValue(meleeAccuracy);
-
-    return MeleeAccuracy.getFinalValue();
-}
-
-int Person::recalculateRangedAccuracy()
-{
-    int rangedAccuracy = floor(0.1 * Agility.getFinalValue()) + 15;
-    RangedAccuracy.setValue(rangedAccuracy);
-
-    return RangedAccuracy.getFinalValue();
-}
-
-int Person::recalculateMagicAccuracy()
-{
-    int magicAccuracy = floor(0.1 * Intelligence.getFinalValue()) + 15;
-    MagicAccuracy.setValue(magicAccuracy);
-
-    return MagicAccuracy.getFinalValue();
-}
-
-int Person::recalculateEvasion()
-{
-    int evasion = floor(0.5 * Agility.getFinalValue()) + floor(0.1 * BodyType.getFinalValue());
-    Evasion.setValue(evasion);
-
-    return Evasion.getFinalValue();
-}
-
-int Person::recalculateStealth()
-{
-    int stealth = Intelligence.getFinalValue() + Agility.getFinalValue();
-    Stealth.setValue(stealth);
-
-    return Stealth.getFinalValue();
-}
-
-int Person::recalculateAttentiveness()
-{
-    int attentiveness = Intelligence.getFinalValue() + Agility.getFinalValue() + Will.getFinalValue();
-    Attentiveness.setValue(attentiveness);
-
-    return Attentiveness.getFinalValue();
-}
-
-int Person::recalculateLoadCapacity()
-{
-    int loadCapacity = floor(0.5 * Strength.getFinalValue()) + floor(0.5 * BodyType.getFinalValue());
-    LoadCapacity.setValue(loadCapacity);
-
-    return LoadCapacity.getFinalValue();
-}
-
-int Person::recalculateInitiative()
-{
-    int initiative = floor(5 * Agility.getFinalValue()) + Intelligence.getFinalValue() + Will.getFinalValue();
-    Initiative.setValue(initiative);
-
-    return Initiative.getFinalValue();
-}
-
-int Person::recalculateMagicCastChance()
-{
-    int magicCastChance = floor(0.3 * Intelligence.getFinalValue()) + floor(0.2 * Magic.getFinalValue());
-    MagicCastChance.setValue(magicCastChance);
-
-    return MagicCastChance.getFinalValue();
-}
-
-int Person::recalculateChanceOfUsingCombatTechnique()
-{
-    int chanceOfUsingCombatTechnique = floor(0.2 * Agility.getFinalValue()) + 20;
-    ChanceOfUsingCombatTechnique.setValue(chanceOfUsingCombatTechnique);
-
-    return ChanceOfUsingCombatTechnique.getFinalValue();
-}
-
-int Person::recalculateMoveRange()
-{
-    int moveRange = floor(0.75 * Agility.getFinalValue()) + floor(0.5 * Strength.getFinalValue()) + BodyType.getFinalValue();
-    MoveRange.setValue(moveRange);
-
-    return MoveRange.getFinalValue();
-}
-
-int Person::recalculateHealth()
-{
-    int health = Strength.getFinalValue() * 2 + BodyType.getFinalValue() * 10 + Will.getFinalValue() * 5 + Magic.getFinalValue();
-    Health.setValue(health);
-
-    return Health.getFinalValue();
-}
-
-int Person::recalculateEndurance()
-{
-    int endurance = Agility.getFinalValue() * 10 + BodyType.getFinalValue();
-    Endurance.setValue(endurance);
-
-    return Endurance.getFinalValue();
-}
-
-int Person::recalculateMana()
-{
-    int mana = Magic.getFinalValue() * 10 + Intelligence.getFinalValue() * 2 + Will.getFinalValue();
-    Mana.setValue(mana);
-
-    return Mana.getFinalValue();
 }
 
 //Перерасчёт количества родных чанков магической защиты
@@ -511,19 +323,9 @@ Stat* Person::getStrength()
     return &Strength;
 }
 
-void Person::setStrength(Stat &newStrength)
-{
-    Strength = newStrength;
-}
-
 Stat* Person::getAgility()
 {
     return &Agility;
-}
-
-void Person::setAgility(Stat &newAgility)
-{
-    Agility = newAgility;
 }
 
 Stat* Person::getIntelligence()
@@ -531,19 +333,9 @@ Stat* Person::getIntelligence()
     return &Intelligence;
 }
 
-void Person::setIntelligence(Stat &newIntelligence)
-{
-    Intelligence = newIntelligence;
-}
-
 Stat* Person::getMagic()
 {
     return &Magic;
-}
-
-void Person::setMagic(Stat &newMagic)
-{
-    Magic = newMagic;
 }
 
 Stat* Person::getBodyType()
@@ -551,239 +343,119 @@ Stat* Person::getBodyType()
     return &BodyType;
 }
 
-void Person::setBodyType(Stat &newBodyType)
-{
-    BodyType = newBodyType;
-}
-
 Stat* Person::getWill()
 {
     return &Will;
 }
 
-void Person::setWill(Stat &newWill)
-{
-    Will = newWill;
-}
-
-Stat* Person::getMagicDamage()
+RecalculatebleStat *Person::getMagicDamage()
 {
     return &MagicDamage;
 }
 
-void Person::setMagicDamage(Stat &newMagicDamage)
-{
-    MagicDamage = newMagicDamage;
-}
-
-Stat* Person::getResistPhysicalDamage()
+RecalculatebleStat* Person::getResistPhysicalDamage()
 {
     return &ResistPhysicalDamage;
 }
 
-void Person::setResistPhysicalDamage(Stat &newResistPhysicalDamage)
-{
-    ResistPhysicalDamage = newResistPhysicalDamage;
-}
-
-Stat* Person::getResistMagicDamage()
+RecalculatebleStat* Person::getResistMagicDamage()
 {
     return &ResistMagicDamage;
 }
 
-void Person::setResistMagicDamage(Stat &newResistMagicDamage)
-{
-    ResistMagicDamage = newResistMagicDamage;
-}
-
-Stat* Person::getResistPhysicalEffects()
+RecalculatebleStat* Person::getResistPhysicalEffects()
 {
     return &ResistPhysicalEffects;
 }
 
-void Person::setResistPhysicalEffects(Stat &newResistPhysicalEffects)
-{
-    ResistPhysicalEffects = newResistPhysicalEffects;
-}
-
-Stat* Person::getResistMagicEffects()
+RecalculatebleStat* Person::getResistMagicEffects()
 {
     return &ResistMagicEffects;
 }
 
-void Person::setResistMagicEffects(Stat &newResistMagicEffects)
-{
-    ResistMagicEffects = newResistMagicEffects;
-}
-
-Stat* Person::getStrengtheningPhysicalEffects()
+RecalculatebleStat* Person::getStrengtheningPhysicalEffects()
 {
     return &StrengtheningPhysicalEffects;
 }
 
-void Person::setStrengtheningPhysicalEffects(Stat &newStrengtheningPhysicalEffects)
-{
-    StrengtheningPhysicalEffects = newStrengtheningPhysicalEffects;
-}
-
-Stat* Person::getStrengtheningMagicalEffects()
+RecalculatebleStat* Person::getStrengtheningMagicalEffects()
 {
     return &StrengtheningMagicalEffects;
 }
 
-void Person::setStrengtheningMagicalEffects(Stat &newStrengtheningMagicalEffects)
-{
-    StrengtheningMagicalEffects = newStrengtheningMagicalEffects;
-}
-
-Stat* Person::getMeleeAccuracy()
+RecalculatebleStat* Person::getMeleeAccuracy()
 {
     return &MeleeAccuracy;
 }
 
-void Person::setMeleeAccuracy(Stat &newMeleeAccuracy)
-{
-    MeleeAccuracy = newMeleeAccuracy;
-}
-
-Stat* Person::getRangedAccuracy()
+RecalculatebleStat* Person::getRangedAccuracy()
 {
     return &RangedAccuracy;
 }
 
-void Person::setRangedAccuracy(Stat &newRangedAccuracy)
-{
-    RangedAccuracy = newRangedAccuracy;
-}
-
-Stat* Person::getMagicAccuracy()
+RecalculatebleStat* Person::getMagicAccuracy()
 {
     return &MagicAccuracy;
 }
 
-void Person::setMagicAccuracy(Stat &newMagicAccuracy)
-{
-    MagicAccuracy = newMagicAccuracy;
-}
-
-Stat* Person::getEvasion()
+RecalculatebleStat* Person::getEvasion()
 {
     return &Evasion;
 }
 
-void Person::setEvasion(Stat &newEvasion)
-{
-    Evasion = newEvasion;
-}
-
-Stat* Person::getStealth()
+RecalculatebleStat* Person::getStealth()
 {
     return &Stealth;
 }
 
-void Person::setStealth(Stat &newStealth)
-{
-    Stealth = newStealth;
-}
-
-Stat* Person::getAttentiveness()
+RecalculatebleStat* Person::getAttentiveness()
 {
     return &Attentiveness;
 }
 
-void Person::setAttentiveness(Stat &newAttentiveness)
-{
-    Attentiveness = newAttentiveness;
-}
-
-Stat* Person::getLoadCapacity()
+RecalculatebleStat* Person::getLoadCapacity()
 {
     return &LoadCapacity;
 }
 
-void Person::setLoadCapacity(Stat &newLoadCapacity)
-{
-    LoadCapacity = newLoadCapacity;
-}
-
-Stat* Person::getInitiative()
+RecalculatebleStat* Person::getInitiative()
 {
     return &Initiative;
 }
 
-void Person::setInitiative(Stat &newInitiative)
-{
-    Initiative = newInitiative;
-}
-
-Stat* Person::getMagicCastChance()
+RecalculatebleStat* Person::getMagicCastChance()
 {
     return &MagicCastChance;
 }
 
-void Person::setMagicCastChance(Stat &newMagicCastChance)
-{
-    MagicCastChance = newMagicCastChance;
-}
-
-Stat* Person::getChanceOfUsingCombatTechnique()
+RecalculatebleStat* Person::getChanceOfUsingCombatTechnique()
 {
     return &ChanceOfUsingCombatTechnique;
 }
 
-void Person::setChanceOfUsingCombatTechnique(Stat &newChanceOfUsingCombatTechnique)
-{
-    ChanceOfUsingCombatTechnique = newChanceOfUsingCombatTechnique;
-}
-
-Stat* Person::getMoveRange()
+RecalculatebleStat* Person::getMoveRange()
 {
     return &MoveRange;
 }
 
-void Person::setMoveRange(Stat &newMoveRange)
-{
-    MoveRange = newMoveRange;
-}
-
-Stat* Person::getHealth()
+RecalculatebleStat* Person::getHealth()
 {
     return &Health;
 }
 
-void Person::setHealth(Stat &newHealth)
-{
-    Health = newHealth;
-}
-
-Stat* Person::getEndurance()
+RecalculatebleStat* Person::getEndurance()
 {
     return &Endurance;
 }
 
-void Person::setEndurance(Stat &newEndurance)
-{
-    Endurance = newEndurance;
-}
-
-Stat* Person::getMana()
+RecalculatebleStat* Person::getMana()
 {
     return &Mana;
-}
-
-void Person::setMana(Stat &newMana)
-{
-    Mana = newMana;
 }
 
 MagicDefense* Person::getMagicDefense()
 {
     return &magicDefense;
-}
-
-void Person::setMagicDefense(MagicDefense &newMagicDefense)
-{
-    magicDefense = newMagicDefense;
 }
 
 /*Слот полной переинициализации. Каждый раз когда операции с бонусами проваливаются
