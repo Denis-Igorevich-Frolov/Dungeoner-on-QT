@@ -1161,3 +1161,568 @@ RecalculatebleStat выдал предупреждение в методе Recal
 Если вы хотите добавить новые первичные навыки, то просто добавьте
 их в конец primaryStats вектора, не трогая оригинальные.
 
+28-January-2023  03:51:27
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MagicDamage/save.sqlite
+
+28-January-2023  03:51:28
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ResistMagicDamage/save.sqlite
+
+28-January-2023  03:51:28
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ResistPhysicalEffects/save.sqlite
+
+28-January-2023  03:51:28
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ResistMagicEffects/save.sqlite
+
+28-January-2023  03:51:28
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/StrengtheningPhysicalEffects/save.sqlite
+
+28-January-2023  03:51:28
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/StrengtheningMagicalEffects/save.sqlite
+
+28-January-2023  03:51:28
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MeleeAccuracy/save.sqlite
+
+28-January-2023  03:51:29
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/RangedAccuracy/save.sqlite
+
+28-January-2023  03:51:29
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MagicAccuracy/save.sqlite
+
+28-January-2023  03:51:29
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Evasion/save.sqlite
+
+28-January-2023  03:51:29
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Stealth/save.sqlite
+
+28-January-2023  03:51:29
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Attentiveness/save.sqlite
+
+28-January-2023  03:51:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/LoadCapacity/save.sqlite
+
+28-January-2023  03:51:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Initiative/save.sqlite
+
+28-January-2023  03:51:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MagicCastChance/save.sqlite
+
+28-January-2023  03:51:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ChanceOfUsingCombatTechnique/save.sqlite
+
+28-January-2023  03:51:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MoveRange/save.sqlite
+
+28-January-2023  03:51:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes//save.sqlite
+
+28-January-2023  03:51:30
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Endurance/save.sqlite
+
+28-January-2023  03:51:31
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Mana/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MagicDamage/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ResistMagicDamage/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ResistPhysicalEffects/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ResistMagicEffects/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/StrengtheningPhysicalEffects/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/StrengtheningMagicalEffects/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MeleeAccuracy/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/RangedAccuracy/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MagicAccuracy/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Evasion/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Stealth/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Attentiveness/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/LoadCapacity/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Initiative/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MagicCastChance/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ChanceOfUsingCombatTechnique/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/MoveRange/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes//save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Endurance/save.sqlite
+
+28-January-2023  03:53:03
+ОШИБКА: Не удалось записать данные в таблицу
+Person выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/Mana/save.sqlite
+
+28-January-2023  03:57:33
+ОШИБКА: Не удалось записать данные в таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/ResistPhysicalDamage/save.sqlite
+
+28-January-2023  03:57:34
+ОШИБКА: Не удалось записать данные в таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes//save.sqlite
+
+28-January-2023  03:59:04
+ОШИБКА: Не удалось записать данные в таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes//save.sqlite
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  04:03:22
+ОШИБКА: Ошибка открытия файла
+Person выдал ошибку в методе loadMagicDefense.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+28-January-2023  05:11:12
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  05:11:12
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  05:11:12
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadStat.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  05:11:12
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadMagicDefense.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:15:06
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:15:06
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:15:06
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:18:06
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:18:06
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:18:06
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:18:46
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:18:46
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:18:46
+ОШИБКА: Не удалось создать таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:20:46
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:20:46
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:21:44
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:21:44
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:21:44
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:26:56
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:26:56
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:26:56
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:28:25
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:28:25
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:28:25
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:29:16
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:29:16
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:34:27
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:34:27
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:34:27
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:35:14
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:35:14
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:35:14
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:37:42
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:37:42
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:38:39
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:38:39
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:40:09
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:40:09
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:40:09
+ОШИБКА: Не удалось добавить столбец в таблицу
+ProgressBarStat выдал ошибку в методе saveStat.
+Не удалось добавить столбец в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:47:59
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadMagicDefense.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+28-January-2023  06:48:18
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+28-January-2023  06:48:38
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadMagicDefense.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+

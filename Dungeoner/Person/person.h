@@ -89,97 +89,64 @@ public slots:
      *то следует явным образом запустить переинициализацию всех задействованых виджетов. loadAllStats же
      *автоматически посылает запрос на полную переинициализацию и настоятельно рекомендуется использовать
      *именно эту функцию для загрузки.*/
-    bool saveStrength(bool saveValues, bool saveBonuses, bool createBackup);
     bool loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveAgility(bool saveValues, bool saveBonuses, bool createBackup);
     bool loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveIntelligence(bool saveValues, bool saveBonuses, bool createBackup);
     bool loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveMagic(bool saveValues, bool saveBonuses, bool createBackup);
     bool loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveBodyType(bool saveValues, bool saveBonuses, bool createBackup);
     bool loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveWill(bool saveValues, bool saveBonuses, bool createBackup);
     bool loadWill(bool loadValues, bool loadBonuses, bool emittedChanged);
 
-    bool saveMagicDamage(bool createBackup);
     bool loadMagicDamage();
 
-    bool saveResistPhysicalDamage(bool createBackup);
     bool loadResistPhysicalDamage();
 
-    bool saveResistMagicDamage(bool createBackup);
     bool loadResistMagicDamage();
 
-    bool saveResistPhysicalEffects(bool createBackup);
     bool loadResistPhysicalEffects();
 
-    bool saveResistMagicEffects(bool createBackup);
     bool loadResistMagicEffects();
 
-    bool saveStrengtheningPhysicalEffects(bool createBackup);
     bool loadStrengtheningPhysicalEffects();
 
-    bool saveStrengtheningMagicalEffects(bool createBackup);
     bool loadStrengtheningMagicalEffects();
 
-    bool saveMeleeAccuracy(bool createBackup);
     bool loadMeleeAccuracy();
 
-    bool saveRangedAccuracy(bool createBackup);
     bool loadRangedAccuracy();
 
-    bool saveMagicAccuracy(bool createBackup);
     bool loadMagicAccuracy();
 
-    bool saveEvasion(bool createBackup);
     bool loadEvasion();
 
-    bool saveStealth(bool createBackup);
     bool loadStealth();
 
-    bool saveAttentiveness(bool createBackup);
     bool loadAttentiveness();
 
-    bool saveLoadCapacity(bool createBackup);
     bool loadLoadCapacity();
 
-    bool saveInitiative(bool createBackup);
     bool loadInitiative();
 
-    bool saveMagicCastChance(bool createBackup);
     bool loadMagicCastChance();
 
-    bool saveChanceOfUsingCombatTechnique(bool createBackup);
     bool loadChanceOfUsingCombatTechnique();
 
-    bool saveMoveRange(bool createBackup);
     bool loadMoveRange();
 
-    bool saveHealth(bool createBackup);
     bool loadHealth();
 
-    bool saveEndurance(bool createBackup);
     bool loadEndurance();
 
-    bool saveMana(bool createBackup);
     bool loadMana();
 
     bool saveMagicDefense(bool createBackup);
     bool loadMagicDefense();
 
 private:
-    /*Универсальный метод сохранения стата. В нём представлены все возможные поля статов. Если у
-     *стата, который необходимо сохранить некоторых полей нет, то в них передаётся просто 0 и
-     *указывается false в переменных, говорящих что сохранять. В поле statName следует передать
-     *имя стата так, как его переменная названа в этом классе.*/
-    bool saveStat(QString statName, int value, int maximum, int progressBarCurrentValue, QVector<Bonus*> bonuses,
-                  bool saveValues, bool saveProgressBarCurrentValue, bool saveBonuses, bool createBackup);
     /*Универсальный метод загрузки стата. В нём представлены все возможные варианты того, что у
      *стата можно загрузить. Если у стата, который необходимо загрузить некоторых полей нет, то
      *указвается false в переменных, говорящих что загружать. В поле statName следует передать
@@ -189,36 +156,38 @@ private:
     //Создание бекапа сохранений в отдельной папке в той же директории, что и текущее сохранение
     void createBackup();
 
-    Stat Strength = Stat(999999);
-    Stat Agility = Stat(999999);
-    Stat Intelligence = Stat(999999);
-    Stat Magic = Stat(999999);
-    Stat BodyType = Stat(999999);
-    Stat Will = Stat(999999);
+    QString personName = "new hero";
+
+    Stat Strength = Stat(999999, personName, "Strength");
+    Stat Agility = Stat(999999, personName, "Agility");
+    Stat Intelligence = Stat(999999, personName, "Intelligence");
+    Stat Magic = Stat(999999, personName, "Magic");
+    Stat BodyType = Stat(999999, personName, "BodyType");
+    Stat Will = Stat(999999, personName, "Will");
 
     QVector<Stat*> primaryStats {&Strength, &Agility, &Intelligence, &Magic, &BodyType, &Will};
 
-    MagicDamageStat MagicDamage = MagicDamageStat(9999999, primaryStats);
-    ResistPhysicalDamageStat ResistPhysicalDamage = ResistPhysicalDamageStat(9999999, primaryStats);
-    ResistMagicDamageStat ResistMagicDamage = ResistMagicDamageStat(9999999, primaryStats);
-    ResistPhysicalEffectsStat ResistPhysicalEffects = ResistPhysicalEffectsStat(9999999, primaryStats);
-    ResistMagicEffectsStat ResistMagicEffects = ResistMagicEffectsStat(9999999, primaryStats);
-    StrengtheningPhysicalEffectsStat StrengtheningPhysicalEffects = StrengtheningPhysicalEffectsStat(9999999, primaryStats);
-    StrengtheningMagicalEffectsStat StrengtheningMagicalEffects = StrengtheningMagicalEffectsStat(9999999, primaryStats);
-    MeleeAccuracyStat MeleeAccuracy = MeleeAccuracyStat(9999999, primaryStats);
-    RangedAccuracyStat RangedAccuracy = RangedAccuracyStat(9999999, primaryStats);
-    MagicAccuracyStat MagicAccuracy = MagicAccuracyStat(9999999, primaryStats);
-    EvasionStat Evasion = EvasionStat(9999999, primaryStats);
-    StealthStat Stealth = StealthStat(9999999, primaryStats);
-    AttentivenessStat Attentiveness = AttentivenessStat(9999999, primaryStats);
-    LoadCapacityStat LoadCapacity = LoadCapacityStat(9999999, primaryStats);
-    InitiativeStat Initiative = InitiativeStat(9999999, primaryStats);
-    MagicCastChanceStat MagicCastChance = MagicCastChanceStat(9999999, primaryStats);
-    ChanceOfUsingCombatTechniqueStat ChanceOfUsingCombatTechnique = ChanceOfUsingCombatTechniqueStat(9999999, primaryStats);
-    MoveRangeStat MoveRange = MoveRangeStat(9999999, primaryStats);
-    HealthStat Health = HealthStat(9999999, primaryStats);
-    EnduranceStat Endurance = EnduranceStat(9999999, primaryStats);
-    ManaStat Mana = ManaStat(9999999, primaryStats);
+    MagicDamageStat MagicDamage = MagicDamageStat(9999999, personName, "MagicDamage", primaryStats);
+    ResistPhysicalDamageStat ResistPhysicalDamage = ResistPhysicalDamageStat(9999999, personName, "ResistPhysicalDamage", primaryStats);
+    ResistMagicDamageStat ResistMagicDamage = ResistMagicDamageStat(9999999, personName, "ResistMagicDamage", primaryStats);
+    ResistPhysicalEffectsStat ResistPhysicalEffects = ResistPhysicalEffectsStat(9999999, personName, "ResistPhysicalEffects", primaryStats);
+    ResistMagicEffectsStat ResistMagicEffects = ResistMagicEffectsStat(9999999, personName, "ResistMagicEffects", primaryStats);
+    StrengtheningPhysicalEffectsStat StrengtheningPhysicalEffects = StrengtheningPhysicalEffectsStat(9999999, personName, "StrengtheningPhysicalEffects", primaryStats);
+    StrengtheningMagicalEffectsStat StrengtheningMagicalEffects = StrengtheningMagicalEffectsStat(9999999, personName, "StrengtheningMagicalEffects", primaryStats);
+    MeleeAccuracyStat MeleeAccuracy = MeleeAccuracyStat(9999999, personName, "MeleeAccuracy", primaryStats);
+    RangedAccuracyStat RangedAccuracy = RangedAccuracyStat(9999999, personName, "RangedAccuracy", primaryStats);
+    MagicAccuracyStat MagicAccuracy = MagicAccuracyStat(9999999, personName, "MagicAccuracy", primaryStats);
+    EvasionStat Evasion = EvasionStat(9999999, personName, "Evasion", primaryStats);
+    StealthStat Stealth = StealthStat(9999999, personName, "Stealth", primaryStats);
+    AttentivenessStat Attentiveness = AttentivenessStat(9999999, personName, "Attentiveness", primaryStats);
+    LoadCapacityStat LoadCapacity = LoadCapacityStat(9999999, personName, "LoadCapacity", primaryStats);
+    InitiativeStat Initiative = InitiativeStat(9999999, personName, "Initiative", primaryStats);
+    MagicCastChanceStat MagicCastChance = MagicCastChanceStat(9999999, personName, "MagicCastChance", primaryStats);
+    ChanceOfUsingCombatTechniqueStat ChanceOfUsingCombatTechnique = ChanceOfUsingCombatTechniqueStat(9999999, personName, "ChanceOfUsingCombatTechnique", primaryStats);
+    MoveRangeStat MoveRange = MoveRangeStat(9999999, personName, "MoveRange", primaryStats);
+    HealthStat Health = HealthStat(9999999, personName, "Health", primaryStats);
+    EnduranceStat Endurance = EnduranceStat(9999999, personName, "Endurance", primaryStats);
+    ManaStat Mana = ManaStat(9999999, personName, "Mana", primaryStats);
     MagicDefense magicDefense;
 
     QVector<RecalculatebleStat*> secondaryStats {&MagicDamage, &ResistPhysicalDamage, &ResistMagicDamage, &ResistPhysicalEffects,
@@ -227,7 +196,6 @@ private:
                                                 &LoadCapacity, &Initiative, &MagicCastChance, &ChanceOfUsingCombatTechnique,
                                                 &MoveRange, &Health, &Endurance, &Mana};
 
-    QString personName = "new hero";
 };
 
 #endif // PERSON_H

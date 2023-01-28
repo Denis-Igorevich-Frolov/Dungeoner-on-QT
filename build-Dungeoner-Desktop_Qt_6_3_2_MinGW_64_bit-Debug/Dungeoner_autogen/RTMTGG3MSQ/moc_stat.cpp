@@ -111,6 +111,8 @@ void *Stat::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_Stat.stringdata0))
         return static_cast<void*>(this);
+    if (!strcmp(_clname, "Interface::fastSaveble"))
+        return static_cast< Interface::fastSaveble*>(this);
     return QObject::qt_metacast(_clname);
 }
 

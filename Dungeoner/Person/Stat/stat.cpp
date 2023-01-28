@@ -4,9 +4,14 @@
  **********************************************************************/
 
 #include "stat.h"
+#include "qdir.h"
+#include "qsqldatabase.h"
+#include "qsqlquery.h"
 
 #include <QDate>
 #include <qfile.h>
+
+#include <Global/global.h>
 
 int Stat::getValue() const
 {
@@ -130,7 +135,7 @@ void Stat::calculateFinalValue()
 /*Разные группы статов имеют разные максимальные значения. Так для первичных навыков -
  *это 999999,а для вторичных - 9999999. Чтобы корректно работали ограничители на
  *сеттерах это максимальное значение задаётся при инициализации*/
-Stat::Stat(int maximum) : maximum(maximum)
+Stat::Stat(int maximum, QString personName, QString statName) : maximum(maximum), personName(personName), statName(statName)
 {}
 
 Stat::~Stat()
@@ -155,7 +160,264 @@ int Stat::getMaximum() const
     return maximum;
 }
 
-RecalculatebleStat::RecalculatebleStat(int maximum, QVector<Stat *> primaryStats) : Stat(maximum)
+bool Stat::saveStat(bool saveValues, bool saveBonuses, bool createBackup)
+{
+    {
+        //Создаётся директория, если её небыло
+        QDir dir;
+        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName))
+            dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName);
+
+        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
+        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
+
+        if(createBackup)
+            this->createBackup();
+
+        if(!database.open()) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Ошибка открытия файла\n"
+            "Stat выдал ошибку в методе saveStat.\n"
+            "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        //Создание таблицы стата
+        QSqlQuery query(database);
+        if(!query.exec("CREATE TABLE IF NOT EXISTS Stats("
+                       "stat_name TEXT NOT NULL, "
+                       "value INTEGER NOT NULL DEFAULT 0,"
+                       "maximum INTEGER NOT NULL DEFAULT 0,"
+                       "CONSTRAINT value_chek CHECK ((value >= 0) AND (value <= maximum)), "
+                       "CONSTRAINT stat PRIMARY KEY (stat_name), "
+                       "CONSTRAINT stat_name_chek CHECK (stat_name !=''));"
+                       )){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось создать таблицу\n"
+            "Stat выдал ошибку в методе saveStat.\n"
+            "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        //Создание таблицы бонусов стата
+        if(!query.exec("CREATE TABLE IF NOT EXISTS Bonuses("
+                       "stat_name TEXT NOT NULL, "
+                       "value INTEGER NOT NULL DEFAULT 0, "
+                       "is_percentage INTEGER NOT NULL DEFAULT 0, "
+                       "bonus_name TEXT NOT NULL,"
+                       "duration_days INTEGER NOT NULL DEFAULT 0, "
+                       "duration_hours INTEGER NOT NULL DEFAULT 0, "
+                       "duration_minutes INTEGER NOT NULL DEFAULT 0, "
+                       "duration_seconds INTEGER NOT NULL DEFAULT 0, "
+                       "CONSTRAINT bool_chek CHECK (is_percentage >= 0 AND is_percentage <= 1), "
+                       "CONSTRAINT stat_name_chek CHECK (stat_name != ''), "
+                       "CONSTRAINT bonus_name_chek CHECK (bonus_name != ''), "
+                       "CONSTRAINT duration_days_chek CHECK (duration_days >= -1), "
+                       "CONSTRAINT duration_hours_chek CHECK (duration_hours >= -1), "
+                       "CONSTRAINT duration_minutes_chek CHECK (duration_minutes >= -1), "
+                       "CONSTRAINT duration_seconds_chek CHECK (duration_seconds >= -1));"
+                       )){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Не удалось создать таблицу\n"
+            "Stat выдал ошибку в методе saveStat.\n"
+            "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+
+        if(saveValues){
+            if(!query.exec("REPLACE INTO Stats (stat_name, value, maximum) VALUES ('" + statName + "', "
+                           + QString::number(value) + ", " +  QString::number(maximum) +");")){
+
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                        "Stat выдал ошибку в методе saveStat.\n"
+                        "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }
+        }
+
+        if(saveBonuses){
+            if(!query.exec("DELETE FROM Bonuses WHERE stat_name = '" + statName + "';")){
+
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось удалить данные из таблицы\n"
+                        "Stat выдал ошибку в методе saveStat.\n"
+                        "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }
+
+            for(Bonus* bonus : bonuses){
+                if(!query.exec("INSERT INTO Bonuses (stat_name, value, is_percentage, bonus_name, duration_days, "
+                               "duration_hours, duration_minutes, duration_seconds) VALUES ('" + statName + "', " +
+                               QString::number(bonus->getValue())+ ", " + QString::number(bonus->isPercentage) +
+                               ", '" + bonus->bonusName + "', " + QString::number(bonus->getDurationDays()) + ", " +
+                               QString::number(bonus->getDurationHours()) + ", " + QString::number(bonus->getDurationMinutes())
+                               + ", " + QString::number(bonus->getDurationSeconds()) + ");")){
+
+                    //Вывод предупреждения в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
+
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                            "Stat выдал ошибку в методе saveStat.\n"
+                            "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                    qDebug()<<error;
+
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
+
+                    database.close();
+                    return false;
+                }
+            }
+        }
+
+        database.close();
+    }
+    QSqlDatabase::removeDatabase("save");
+
+    return true;
+}
+
+bool Stat::fastSave()
+{
+    return saveStat(true, true, false);
+}
+
+//Создание бекапа сохранений в отдельной папке в той же директории, что и текущее сохранение
+void Stat::createBackup()
+{
+    //Создаётся директория, если её небыло
+    QDir dir;
+    if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups"))
+        dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
+    dir = QDir("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups");
+
+    //Из директории берутся файлы и сортируются по дате изменения
+    QStringList files = dir.entryList(QDir::Files, QDir::Time);
+
+    //В папке может храниться только такое число бекапов, какое узазано в Global::numberOfBackups. Новые бекапы вытесняют старые.
+    for (int i = Global::numberOfBackups - 1; i < files.size(); i++)
+    {
+        dir.remove(files.at(i));
+    }
+
+    QDateTime dt = QDateTime::currentDateTime();
+
+    //Создаётся новый бекап с указанием даты и времени создания
+    QFile::copy("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite",
+                "Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups/save "
+                + dt.toString("dd-MM-yyyy hh.mm.ss") + ".sqlite");
+}
+
+RecalculatebleStat::RecalculatebleStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    : Stat(maximum, personName, statName)
 {
     if(primaryStats.size()>=numberOfPrimaryStat){
         Strength = primaryStats.at(0);
@@ -192,12 +454,18 @@ RecalculatebleStat::RecalculatebleStat(int maximum, QVector<Stat *> primaryStats
     }
 }
 
-int RecalculatebleStat::recalculate()
+bool RecalculatebleStat::saveStat(bool createBackup)
 {
-    return 0;
+    return Stat::saveStat(false, true, createBackup);
 }
 
-MagicDamageStat::MagicDamageStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+bool RecalculatebleStat::fastSave()
+{
+    return saveStat(false);
+}
+
+MagicDamageStat::MagicDamageStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int MagicDamageStat::recalculate()
 {
@@ -207,7 +475,8 @@ int MagicDamageStat::recalculate()
 
 }
 
-ResistPhysicalDamageStat::ResistPhysicalDamageStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+ResistPhysicalDamageStat::ResistPhysicalDamageStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int ResistPhysicalDamageStat::recalculate()
 {
@@ -216,7 +485,8 @@ int ResistPhysicalDamageStat::recalculate()
     return finalValue;
 }
 
-ResistMagicDamageStat::ResistMagicDamageStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+ResistMagicDamageStat::ResistMagicDamageStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int ResistMagicDamageStat::recalculate()
 {
@@ -225,7 +495,8 @@ int ResistMagicDamageStat::recalculate()
     return finalValue;
 }
 
-ResistPhysicalEffectsStat::ResistPhysicalEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+ResistPhysicalEffectsStat::ResistPhysicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int ResistPhysicalEffectsStat::recalculate()
 {
@@ -234,7 +505,8 @@ int ResistPhysicalEffectsStat::recalculate()
     return finalValue;
 }
 
-ResistMagicEffectsStat::ResistMagicEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+ResistMagicEffectsStat::ResistMagicEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int ResistMagicEffectsStat::recalculate()
 {
@@ -243,7 +515,8 @@ int ResistMagicEffectsStat::recalculate()
     return finalValue;
 }
 
-StrengtheningPhysicalEffectsStat::StrengtheningPhysicalEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+StrengtheningPhysicalEffectsStat::StrengtheningPhysicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int StrengtheningPhysicalEffectsStat::recalculate()
 {
@@ -252,7 +525,8 @@ int StrengtheningPhysicalEffectsStat::recalculate()
     return finalValue;
 }
 
-StrengtheningMagicalEffectsStat::StrengtheningMagicalEffectsStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+StrengtheningMagicalEffectsStat::StrengtheningMagicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int StrengtheningMagicalEffectsStat::recalculate()
 {
@@ -261,7 +535,8 @@ int StrengtheningMagicalEffectsStat::recalculate()
     return finalValue;
 }
 
-MeleeAccuracyStat::MeleeAccuracyStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+MeleeAccuracyStat::MeleeAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int MeleeAccuracyStat::recalculate()
 {
@@ -270,7 +545,8 @@ int MeleeAccuracyStat::recalculate()
     return finalValue;
 }
 
-RangedAccuracyStat::RangedAccuracyStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+RangedAccuracyStat::RangedAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int RangedAccuracyStat::recalculate()
 {
@@ -279,7 +555,8 @@ int RangedAccuracyStat::recalculate()
     return finalValue;
 }
 
-MagicAccuracyStat::MagicAccuracyStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+MagicAccuracyStat::MagicAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int MagicAccuracyStat::recalculate()
 {
@@ -288,7 +565,8 @@ int MagicAccuracyStat::recalculate()
     return finalValue;
 }
 
-EvasionStat::EvasionStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+EvasionStat::EvasionStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int EvasionStat::recalculate()
 {
@@ -297,7 +575,8 @@ int EvasionStat::recalculate()
     return finalValue;
 }
 
-StealthStat::StealthStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+StealthStat::StealthStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int StealthStat::recalculate()
 {
@@ -306,7 +585,8 @@ int StealthStat::recalculate()
     return finalValue;
 }
 
-AttentivenessStat::AttentivenessStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+AttentivenessStat::AttentivenessStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int AttentivenessStat::recalculate()
 {
@@ -315,7 +595,8 @@ int AttentivenessStat::recalculate()
     return finalValue;
 }
 
-LoadCapacityStat::LoadCapacityStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+LoadCapacityStat::LoadCapacityStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int LoadCapacityStat::recalculate()
 {
@@ -324,7 +605,8 @@ int LoadCapacityStat::recalculate()
     return finalValue;
 }
 
-InitiativeStat::InitiativeStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+InitiativeStat::InitiativeStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int InitiativeStat::recalculate()
 {
@@ -333,7 +615,8 @@ int InitiativeStat::recalculate()
     return finalValue;
 }
 
-MagicCastChanceStat::MagicCastChanceStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+MagicCastChanceStat::MagicCastChanceStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int MagicCastChanceStat::recalculate()
 {
@@ -342,7 +625,8 @@ int MagicCastChanceStat::recalculate()
     return finalValue;
 }
 
-ChanceOfUsingCombatTechniqueStat::ChanceOfUsingCombatTechniqueStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+ChanceOfUsingCombatTechniqueStat::ChanceOfUsingCombatTechniqueStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int ChanceOfUsingCombatTechniqueStat::recalculate()
 {
@@ -351,7 +635,8 @@ int ChanceOfUsingCombatTechniqueStat::recalculate()
     return finalValue;
 }
 
-MoveRangeStat::MoveRangeStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+MoveRangeStat::MoveRangeStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 int MoveRangeStat::recalculate()
 {
@@ -360,7 +645,8 @@ int MoveRangeStat::recalculate()
     return finalValue;
 }
 
-HealthStat::HealthStat(int maximum, QVector<Stat *> primaryStats):ProgressBarStat(maximum, primaryStats)
+HealthStat::HealthStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :ProgressBarStat(maximum, personName, statName, primaryStats)
 {}
 int HealthStat::recalculate()
 {
@@ -369,7 +655,8 @@ int HealthStat::recalculate()
     return finalValue;
 }
 
-EnduranceStat::EnduranceStat(int maximum, QVector<Stat *> primaryStats):ProgressBarStat(maximum, primaryStats)
+EnduranceStat::EnduranceStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :ProgressBarStat(maximum, personName, statName, primaryStats)
 {}
 int EnduranceStat::recalculate()
 {
@@ -378,7 +665,8 @@ int EnduranceStat::recalculate()
     return finalValue;
 }
 
-ManaStat::ManaStat(int maximum, QVector<Stat *> primaryStats):ProgressBarStat(maximum, primaryStats)
+ManaStat::ManaStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :ProgressBarStat(maximum, personName, statName, primaryStats)
 {}
 int ManaStat::recalculate()
 {
@@ -387,7 +675,8 @@ int ManaStat::recalculate()
     return finalValue;
 }
 
-ProgressBarStat::ProgressBarStat(int maximum, QVector<Stat *> primaryStats):RecalculatebleStat(maximum, primaryStats)
+ProgressBarStat::ProgressBarStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+    :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 
 int ProgressBarStat::getProgressBarCurrentValue() const
@@ -415,9 +704,117 @@ void ProgressBarStat::setValue(int newValue)
         progressBarCurrentValue = value;
 }
 
+bool ProgressBarStat::saveStat(bool createBackup)
+{
+    bool saveSuccess = Stat::saveStat(false, true, true);
+    {
+        //Создаётся директория, если её небыло
+        QDir dir;
+        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName))
+            dir.mkpath("Game Saves/"+Global::DungeonName+"/Heroes/"+personName);
+
+        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
+        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
+
+        if(!database.open()) {
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nОШИБКА: Ошибка открытия файла\n"
+            "ProgressBarStat выдал ошибку в методе saveStat.\n"
+            "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            return false;
+        }
+
+        QSqlQuery query(database);
+        if(!query.exec("select progress_bar_current_value from Stats limit 1;")){
+            if(!query.exec("ALTER TABLE Stats ADD COLUMN progress_bar_current_value INTEGER NOT NULL DEFAULT 0;")){
+
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
+
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось добавить столбец в таблицу\n"
+                        "ProgressBarStat выдал ошибку в методе saveStat.\n"
+                        "Не удалось добавить столбец progress_bar_current_value\n"
+                        "в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
+            }
+        }
+        if(!query.exec("REPLACE INTO Stats (stat_name, progress_bar_current_value) VALUES ('" + statName + "', " + QString::number(progressBarCurrentValue) + ");")){
+
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nОШИБКА: Не удалось записать данные в таблицу\n"
+                    "ProgressBarStat выдал ошибку в методе saveStat.\n"
+                    "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+
+            database.close();
+            return false;
+        }
+        database.close();
+    }
+    QSqlDatabase::removeDatabase("save");
+
+    return saveSuccess;
+}
+
+bool ProgressBarStat::fastSave()
+{
+    return saveStat(false);
+}
+
 ProgressBarStat &ProgressBarStat::operator=(const ProgressBarStat &stat)
 {
-    *this = stat;
+    Stat::operator=(stat);
     progressBarCurrentValue = stat.progressBarCurrentValue;
 
     return *this;

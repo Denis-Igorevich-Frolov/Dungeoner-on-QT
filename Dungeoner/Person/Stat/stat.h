@@ -11,14 +11,21 @@
 
 #include <QVector>
 
-class Stat: public QObject
+namespace Interface {
+    class fastSaveble{
+    public:
+        virtual bool fastSave(){return false;}
+    };
+}
+
+class Stat: public QObject, Interface::fastSaveble
 {
     Q_OBJECT
 public:
     /*Разные группы статов имеют разные максимальные значения. Так для первичных навыков -
      *это 999999,а для вторичных - 9999999. Чтобы корректно работали ограничители на
      *сеттерах это максимальное значение задаётся при инициализации*/
-    Stat(int maximum);
+    Stat(int maximum, QString personName, QString statName);
     ~Stat();
 
     int getValue() const;
@@ -40,13 +47,23 @@ public:
      *бонусы не высвобождается, так как это должно происходить только в классе предмета или эффекта*/
     void removeAllBonuses();
 
+    bool saveStat(bool saveValues, bool saveBonuses, bool createBackup);
+    // fastSaveble interface
+    bool fastSave();
     //Так как класс Stat унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
     Stat& operator= (const Stat &stat);
     int getMaximum() const;
 
 signals:
     void statChanged();
-private:
+
+protected:
+    //Создание бекапа сохранений в отдельной папке в той же директории, что и текущее сохранение
+    void createBackup();
+
+    int value = 0;
+    //Значение с учётом всех бонусов
+    int finalValue = 0;
     //Максимальное значение стата
     int maximum = 0;
 
@@ -54,10 +71,8 @@ private:
 
     //Вычисление финального максимального значения стата с учётом всех бонусов
     void calculateFinalValue();
-protected:
-    int value = 0;
-    //Значение с учётом всех бонусов
-    int finalValue = 0;
+    QString personName;
+    QString statName;
 };
 
 /*Данный подкласс является классом всех вторичных навыков и имеет
@@ -70,8 +85,11 @@ protected:
  *навыки так как все они всегда доступны.*/
 class RecalculatebleStat : public Stat{
 public:
-    RecalculatebleStat(int maximum, QVector<Stat*> primaryStats);
-    virtual int recalculate();
+    RecalculatebleStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
+    bool saveStat(bool createBackup);
+    virtual int recalculate(){return 0;}
+    // fastSaveble interface
+    bool fastSave();
 protected:
     Stat* Strength;
     Stat* Agility;
@@ -86,11 +104,14 @@ protected:
 //Данный класс является классом стата, к которому относится прогрессбар
 class ProgressBarStat : public RecalculatebleStat{
 public:
-    ProgressBarStat(int maximum, QVector<Stat*> primaryStats);
+    ProgressBarStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int getProgressBarCurrentValue() const;
     //Задание текущего значения прогрессбара, при этом finalValue, в таком случае, является максимальным значением прогрессбара
     void setProgressBarCurrentValue(int newProgressBarCurrentValue);
     void setValue(int newValue);
+    bool saveStat(bool createBackup);
+    // fastSaveble interface
+    bool fastSave();
     ProgressBarStat& operator= (const ProgressBarStat &stat);
 
 private:
@@ -99,127 +120,127 @@ private:
 
 class MagicDamageStat : public RecalculatebleStat{
 public:
-    MagicDamageStat(int maximum, QVector<Stat*> primaryStats);
+    MagicDamageStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class ResistPhysicalDamageStat : public RecalculatebleStat{
 public:
-    ResistPhysicalDamageStat(int maximum, QVector<Stat*> primaryStats);
+    ResistPhysicalDamageStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class ResistMagicDamageStat : public RecalculatebleStat{
 public:
-    ResistMagicDamageStat(int maximum, QVector<Stat*> primaryStats);
+    ResistMagicDamageStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class ResistPhysicalEffectsStat : public RecalculatebleStat{
 public:
-    ResistPhysicalEffectsStat(int maximum, QVector<Stat*> primaryStats);
+    ResistPhysicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class ResistMagicEffectsStat : public RecalculatebleStat{
 public:
-    ResistMagicEffectsStat(int maximum, QVector<Stat*> primaryStats);
+    ResistMagicEffectsStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class StrengtheningPhysicalEffectsStat : public RecalculatebleStat{
 public:
-    StrengtheningPhysicalEffectsStat(int maximum, QVector<Stat*> primaryStats);
+    StrengtheningPhysicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class StrengtheningMagicalEffectsStat : public RecalculatebleStat{
 public:
-    StrengtheningMagicalEffectsStat(int maximum, QVector<Stat*> primaryStats);
+    StrengtheningMagicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class MeleeAccuracyStat : public RecalculatebleStat{
 public:
-    MeleeAccuracyStat(int maximum, QVector<Stat*> primaryStats);
+    MeleeAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class RangedAccuracyStat : public RecalculatebleStat{
 public:
-    RangedAccuracyStat(int maximum, QVector<Stat*> primaryStats);
+    RangedAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class MagicAccuracyStat : public RecalculatebleStat{
 public:
-    MagicAccuracyStat(int maximum, QVector<Stat*> primaryStats);
+    MagicAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class EvasionStat : public RecalculatebleStat{
 public:
-    EvasionStat(int maximum, QVector<Stat*> primaryStats);
+    EvasionStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class StealthStat : public RecalculatebleStat{
 public:
-    StealthStat(int maximum, QVector<Stat*> primaryStats);
+    StealthStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class AttentivenessStat : public RecalculatebleStat{
 public:
-    AttentivenessStat(int maximum, QVector<Stat*> primaryStats);
+    AttentivenessStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class LoadCapacityStat : public RecalculatebleStat{
 public:
-    LoadCapacityStat(int maximum, QVector<Stat*> primaryStats);
+    LoadCapacityStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class InitiativeStat : public RecalculatebleStat{
 public:
-    InitiativeStat(int maximum, QVector<Stat*> primaryStats);
+    InitiativeStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class MagicCastChanceStat : public RecalculatebleStat{
 public:
-    MagicCastChanceStat(int maximum, QVector<Stat*> primaryStats);
+    MagicCastChanceStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class ChanceOfUsingCombatTechniqueStat : public RecalculatebleStat{
 public:
-    ChanceOfUsingCombatTechniqueStat(int maximum, QVector<Stat*> primaryStats);
+    ChanceOfUsingCombatTechniqueStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class MoveRangeStat : public RecalculatebleStat{
 public:
-    MoveRangeStat(int maximum, QVector<Stat*> primaryStats);
+    MoveRangeStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class HealthStat : public ProgressBarStat{
 public:
-    HealthStat(int maximum, QVector<Stat*> primaryStats);
+    HealthStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class EnduranceStat : public ProgressBarStat{
 public:
-    EnduranceStat(int maximum, QVector<Stat*> primaryStats);
+    EnduranceStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
 class ManaStat : public ProgressBarStat{
 public:
-    ManaStat(int maximum, QVector<Stat*> primaryStats);
+    ManaStat(int maximum, QString personName, QString statName, QVector<Stat*> primaryStats);
     int recalculate();
 };
 
