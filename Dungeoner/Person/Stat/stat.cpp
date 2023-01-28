@@ -416,42 +416,16 @@ void Stat::createBackup()
                 + dt.toString("dd-MM-yyyy hh.mm.ss") + ".sqlite");
 }
 
-RecalculatebleStat::RecalculatebleStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
+RecalculatebleStat::RecalculatebleStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                       Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
     : Stat(maximum, personName, statName)
 {
-    if(primaryStats.size()>=numberOfPrimaryStat){
-        Strength = primaryStats.at(0);
-        Agility = primaryStats.at(1);
-        Intelligence = primaryStats.at(2);
-        Magic = primaryStats.at(3);
-        BodyType = primaryStats.at(4);
-        Will = primaryStats.at(5);
-    }else{
-        //Вывод ошибки в консоль и файл
-        QDate cd = QDate::currentDate();
-        QTime ct = QTime::currentTime();
-
-        QString error =
-        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-        "\nОШИБКА: неправильное количество первичных навыков\n"
-        "RecalculatebleStat выдал предупреждение в методе RecalculatebleStat.\n"
-        "В конструктор было передано менее " + QString::number(numberOfPrimaryStat) + " стандартных primaryStats.\n"
-        "Если вы хотите добавить новые первичные навыки, то просто добавьте\n"
-        "их в конец primaryStats вектора, не трогая оригинальные.\n\n";
-        qDebug()<<error;
-
-        QFile errorFile("error log.txt");
-        if (!errorFile.open(QIODevice::Append))
-        {
-            qDebug() << "Ошибка при открытии файла логов";
-        }else{
-            errorFile.open(QIODevice::Append  | QIODevice::Text);
-            QTextStream writeStream(&errorFile);
-            writeStream<<error;
-            errorFile.close();
-        }
-        std::exit(EXIT_FAILURE);
-    }
+    this->Strength = Strength;
+    this->Agility = Agility;
+    this->Intelligence = Intelligence;
+    this->Magic = Magic;
+    this->BodyType = BodyType;
+    this->Will = Will;
 }
 
 bool RecalculatebleStat::saveStat(bool createBackup)
@@ -464,8 +438,9 @@ bool RecalculatebleStat::fastSave()
     return saveStat(false);
 }
 
-MagicDamageStat::MagicDamageStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+MagicDamageStat::MagicDamageStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                 Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int MagicDamageStat::recalculate()
 {
@@ -475,8 +450,9 @@ int MagicDamageStat::recalculate()
 
 }
 
-ResistPhysicalDamageStat::ResistPhysicalDamageStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+ResistPhysicalDamageStat::ResistPhysicalDamageStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                                   Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int ResistPhysicalDamageStat::recalculate()
 {
@@ -485,8 +461,9 @@ int ResistPhysicalDamageStat::recalculate()
     return finalValue;
 }
 
-ResistMagicDamageStat::ResistMagicDamageStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+ResistMagicDamageStat::ResistMagicDamageStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                             Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int ResistMagicDamageStat::recalculate()
 {
@@ -495,8 +472,9 @@ int ResistMagicDamageStat::recalculate()
     return finalValue;
 }
 
-ResistPhysicalEffectsStat::ResistPhysicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+ResistPhysicalEffectsStat::ResistPhysicalEffectsStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                                     Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int ResistPhysicalEffectsStat::recalculate()
 {
@@ -505,8 +483,9 @@ int ResistPhysicalEffectsStat::recalculate()
     return finalValue;
 }
 
-ResistMagicEffectsStat::ResistMagicEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+ResistMagicEffectsStat::ResistMagicEffectsStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                               Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int ResistMagicEffectsStat::recalculate()
 {
@@ -515,8 +494,9 @@ int ResistMagicEffectsStat::recalculate()
     return finalValue;
 }
 
-StrengtheningPhysicalEffectsStat::StrengtheningPhysicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+StrengtheningPhysicalEffectsStat::StrengtheningPhysicalEffectsStat(int maximum, QString personName, QString statName, Stat* Strength,
+                                                                   Stat* Agility, Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int StrengtheningPhysicalEffectsStat::recalculate()
 {
@@ -525,8 +505,9 @@ int StrengtheningPhysicalEffectsStat::recalculate()
     return finalValue;
 }
 
-StrengtheningMagicalEffectsStat::StrengtheningMagicalEffectsStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+StrengtheningMagicalEffectsStat::StrengtheningMagicalEffectsStat(int maximum, QString personName, QString statName, Stat* Strength,
+                                                                 Stat* Agility, Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int StrengtheningMagicalEffectsStat::recalculate()
 {
@@ -535,8 +516,9 @@ int StrengtheningMagicalEffectsStat::recalculate()
     return finalValue;
 }
 
-MeleeAccuracyStat::MeleeAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+MeleeAccuracyStat::MeleeAccuracyStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                     Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int MeleeAccuracyStat::recalculate()
 {
@@ -545,8 +527,9 @@ int MeleeAccuracyStat::recalculate()
     return finalValue;
 }
 
-RangedAccuracyStat::RangedAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+RangedAccuracyStat::RangedAccuracyStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                       Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int RangedAccuracyStat::recalculate()
 {
@@ -555,8 +538,9 @@ int RangedAccuracyStat::recalculate()
     return finalValue;
 }
 
-MagicAccuracyStat::MagicAccuracyStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+MagicAccuracyStat::MagicAccuracyStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                     Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int MagicAccuracyStat::recalculate()
 {
@@ -565,8 +549,9 @@ int MagicAccuracyStat::recalculate()
     return finalValue;
 }
 
-EvasionStat::EvasionStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+EvasionStat::EvasionStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                         Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int EvasionStat::recalculate()
 {
@@ -575,8 +560,9 @@ int EvasionStat::recalculate()
     return finalValue;
 }
 
-StealthStat::StealthStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+StealthStat::StealthStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                         Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int StealthStat::recalculate()
 {
@@ -585,8 +571,9 @@ int StealthStat::recalculate()
     return finalValue;
 }
 
-AttentivenessStat::AttentivenessStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+AttentivenessStat::AttentivenessStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                     Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int AttentivenessStat::recalculate()
 {
@@ -595,8 +582,9 @@ int AttentivenessStat::recalculate()
     return finalValue;
 }
 
-LoadCapacityStat::LoadCapacityStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+LoadCapacityStat::LoadCapacityStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                   Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int LoadCapacityStat::recalculate()
 {
@@ -605,8 +593,9 @@ int LoadCapacityStat::recalculate()
     return finalValue;
 }
 
-InitiativeStat::InitiativeStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+InitiativeStat::InitiativeStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                               Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int InitiativeStat::recalculate()
 {
@@ -615,8 +604,9 @@ int InitiativeStat::recalculate()
     return finalValue;
 }
 
-MagicCastChanceStat::MagicCastChanceStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+MagicCastChanceStat::MagicCastChanceStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                         Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int MagicCastChanceStat::recalculate()
 {
@@ -625,8 +615,9 @@ int MagicCastChanceStat::recalculate()
     return finalValue;
 }
 
-ChanceOfUsingCombatTechniqueStat::ChanceOfUsingCombatTechniqueStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+ChanceOfUsingCombatTechniqueStat::ChanceOfUsingCombatTechniqueStat(int maximum, QString personName, QString statName, Stat* Strength,
+                                                                   Stat* Agility, Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int ChanceOfUsingCombatTechniqueStat::recalculate()
 {
@@ -635,8 +626,9 @@ int ChanceOfUsingCombatTechniqueStat::recalculate()
     return finalValue;
 }
 
-MoveRangeStat::MoveRangeStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+MoveRangeStat::MoveRangeStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                             Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int MoveRangeStat::recalculate()
 {
@@ -645,8 +637,9 @@ int MoveRangeStat::recalculate()
     return finalValue;
 }
 
-HealthStat::HealthStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :ProgressBarStat(maximum, personName, statName, primaryStats)
+HealthStat::HealthStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                       Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :ProgressBarStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int HealthStat::recalculate()
 {
@@ -655,8 +648,9 @@ int HealthStat::recalculate()
     return finalValue;
 }
 
-EnduranceStat::EnduranceStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :ProgressBarStat(maximum, personName, statName, primaryStats)
+EnduranceStat::EnduranceStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                             Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :ProgressBarStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int EnduranceStat::recalculate()
 {
@@ -665,8 +659,9 @@ int EnduranceStat::recalculate()
     return finalValue;
 }
 
-ManaStat::ManaStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :ProgressBarStat(maximum, personName, statName, primaryStats)
+ManaStat::ManaStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                   Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :ProgressBarStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 int ManaStat::recalculate()
 {
@@ -675,8 +670,9 @@ int ManaStat::recalculate()
     return finalValue;
 }
 
-ProgressBarStat::ProgressBarStat(int maximum, QString personName, QString statName, QVector<Stat *> primaryStats)
-    :RecalculatebleStat(maximum, personName, statName, primaryStats)
+ProgressBarStat::ProgressBarStat(int maximum, QString personName, QString statName, Stat* Strength, Stat* Agility,
+                                 Stat* Intelligence, Stat* Magic, Stat* BodyType, Stat* Will)
+    :RecalculatebleStat(maximum, personName, statName, Strength, Agility, Intelligence, Magic, BodyType,  Will)
 {}
 
 int ProgressBarStat::getProgressBarCurrentValue() const

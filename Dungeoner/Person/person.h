@@ -167,27 +167,46 @@ private:
 
     QVector<Stat*> primaryStats {&Strength, &Agility, &Intelligence, &Magic, &BodyType, &Will};
 
-    MagicDamageStat MagicDamage = MagicDamageStat(9999999, personName, "MagicDamage", primaryStats);
-    ResistPhysicalDamageStat ResistPhysicalDamage = ResistPhysicalDamageStat(9999999, personName, "ResistPhysicalDamage", primaryStats);
-    ResistMagicDamageStat ResistMagicDamage = ResistMagicDamageStat(9999999, personName, "ResistMagicDamage", primaryStats);
-    ResistPhysicalEffectsStat ResistPhysicalEffects = ResistPhysicalEffectsStat(9999999, personName, "ResistPhysicalEffects", primaryStats);
-    ResistMagicEffectsStat ResistMagicEffects = ResistMagicEffectsStat(9999999, personName, "ResistMagicEffects", primaryStats);
-    StrengtheningPhysicalEffectsStat StrengtheningPhysicalEffects = StrengtheningPhysicalEffectsStat(9999999, personName, "StrengtheningPhysicalEffects", primaryStats);
-    StrengtheningMagicalEffectsStat StrengtheningMagicalEffects = StrengtheningMagicalEffectsStat(9999999, personName, "StrengtheningMagicalEffects", primaryStats);
-    MeleeAccuracyStat MeleeAccuracy = MeleeAccuracyStat(9999999, personName, "MeleeAccuracy", primaryStats);
-    RangedAccuracyStat RangedAccuracy = RangedAccuracyStat(9999999, personName, "RangedAccuracy", primaryStats);
-    MagicAccuracyStat MagicAccuracy = MagicAccuracyStat(9999999, personName, "MagicAccuracy", primaryStats);
-    EvasionStat Evasion = EvasionStat(9999999, personName, "Evasion", primaryStats);
-    StealthStat Stealth = StealthStat(9999999, personName, "Stealth", primaryStats);
-    AttentivenessStat Attentiveness = AttentivenessStat(9999999, personName, "Attentiveness", primaryStats);
-    LoadCapacityStat LoadCapacity = LoadCapacityStat(9999999, personName, "LoadCapacity", primaryStats);
-    InitiativeStat Initiative = InitiativeStat(9999999, personName, "Initiative", primaryStats);
-    MagicCastChanceStat MagicCastChance = MagicCastChanceStat(9999999, personName, "MagicCastChance", primaryStats);
-    ChanceOfUsingCombatTechniqueStat ChanceOfUsingCombatTechnique = ChanceOfUsingCombatTechniqueStat(9999999, personName, "ChanceOfUsingCombatTechnique", primaryStats);
-    MoveRangeStat MoveRange = MoveRangeStat(9999999, personName, "MoveRange", primaryStats);
-    HealthStat Health = HealthStat(9999999, personName, "Health", primaryStats);
-    EnduranceStat Endurance = EnduranceStat(9999999, personName, "Endurance", primaryStats);
-    ManaStat Mana = ManaStat(9999999, personName, "Mana", primaryStats);
+    MagicDamageStat MagicDamage = MagicDamageStat(9999999, personName, "MagicDamage",&Strength, &Agility,
+                                                  &Intelligence, &Magic, &BodyType, &Will);
+    ResistPhysicalDamageStat ResistPhysicalDamage = ResistPhysicalDamageStat(9999999, personName, "ResistPhysicalDamage",&Strength,
+                                                                             &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    ResistMagicDamageStat ResistMagicDamage = ResistMagicDamageStat(9999999, personName, "ResistMagicDamage",&Strength,
+                                                                    &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    ResistPhysicalEffectsStat ResistPhysicalEffects = ResistPhysicalEffectsStat(9999999, personName, "ResistPhysicalEffects",&Strength,
+                                                                                &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    ResistMagicEffectsStat ResistMagicEffects = ResistMagicEffectsStat(9999999, personName, "ResistMagicEffects",&Strength,
+                                                                       &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    StrengtheningPhysicalEffectsStat StrengtheningPhysicalEffects = StrengtheningPhysicalEffectsStat(9999999, personName, "StrengtheningPhysicalEffects",&Strength,
+                                                                                                     &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    StrengtheningMagicalEffectsStat StrengtheningMagicalEffects = StrengtheningMagicalEffectsStat(9999999, personName, "StrengtheningMagicalEffects",&Strength,
+                                                                                                  &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    MeleeAccuracyStat MeleeAccuracy = MeleeAccuracyStat(9999999, personName, "MeleeAccuracy",&Strength,
+                                                        &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    RangedAccuracyStat RangedAccuracy = RangedAccuracyStat(9999999, personName, "RangedAccuracy",&Strength,
+                                                           &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    MagicAccuracyStat MagicAccuracy = MagicAccuracyStat(9999999, personName, "MagicAccuracy",&Strength,
+                                                        &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    EvasionStat Evasion = EvasionStat(9999999, personName, "Evasion",&Strength, &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    StealthStat Stealth = StealthStat(9999999, personName, "Stealth",&Strength, &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    AttentivenessStat Attentiveness = AttentivenessStat(9999999, personName, "Attentiveness",&Strength,
+                                                        &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    LoadCapacityStat LoadCapacity = LoadCapacityStat(9999999, personName, "LoadCapacity",&Strength,
+                                                     &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    InitiativeStat Initiative = InitiativeStat(9999999, personName, "Initiative",&Strength,
+                                               &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    MagicCastChanceStat MagicCastChance = MagicCastChanceStat(9999999, personName, "MagicCastChance",&Strength,
+                                                              &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    ChanceOfUsingCombatTechniqueStat ChanceOfUsingCombatTechnique = ChanceOfUsingCombatTechniqueStat(9999999, personName, "ChanceOfUsingCombatTechnique",&Strength,
+                                                                                                     &Agility, &Intelligence, &Magic, &BodyType, &Will);
+    MoveRangeStat MoveRange = MoveRangeStat(9999999, personName, "MoveRange",&Strength, &Agility,
+                                            &Intelligence, &Magic, &BodyType, &Will);
+    HealthStat Health = HealthStat(9999999, personName, "Health",&Strength, &Agility,
+                                   &Intelligence, &Magic, &BodyType, &Will);
+    EnduranceStat Endurance = EnduranceStat(9999999, personName, "Endurance",&Strength, &Agility,
+                                            &Intelligence, &Magic, &BodyType, &Will);
+    ManaStat Mana = ManaStat(9999999, personName, "Mana",&Strength, &Agility,
+                             &Intelligence, &Magic, &BodyType, &Will);
     MagicDefense magicDefense;
 
     QVector<RecalculatebleStat*> secondaryStats {&MagicDamage, &ResistPhysicalDamage, &ResistMagicDamage, &ResistPhysicalEffects,

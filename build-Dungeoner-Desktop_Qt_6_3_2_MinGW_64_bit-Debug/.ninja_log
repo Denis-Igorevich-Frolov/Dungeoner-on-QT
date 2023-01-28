@@ -71,3 +71,23 @@
 14	204	6955927451207043	secondarySkillsTest_autogen/mocs_compilation.cpp	ee75ed6e11ddcef9
 14	204	6955927451207043	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/secondarySkillsTest_autogen/timestamp	ee75ed6e11ddcef9
 2450	6662	6955924640852064	CMakeFiles/secondarySkillsTest.dir/secondarySkillsTest_autogen/mocs_compilation.cpp.obj	4b61caf2761f49f3
+14	7147	6965791229428622	Dungeoner_autogen/timestamp	69636554f5db1442
+14	7147	6965791229428622	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+14	7147	6965791229428622	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+14	7147	6965791229428622	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+7148	28736	6965791446834048	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	ec1a4c35be7fc911
+7153	28750	6965791447053919	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkill/secondaryskill.cpp.obj	b7e5c2cfcc60e479
+13	3280	6965794863855381	Dungeoner_autogen/timestamp	69636554f5db1442
+13	3280	6965794863855381	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+13	3280	6965794863855381	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+13	3280	6965794863855381	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+3286	9885	6965794931345774	CMakeFiles/Dungeoner.dir/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.cpp.obj	bb1d7f4042fb037b
+3284	10065	6965794933694328	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
+3286	10958	6965794942558865	CMakeFiles/Dungeoner.dir/CustomWidgets/ProgressBar_1/progressbar_1.cpp.obj	da0fba5eb9123fb5
+3282	11155	6965794944607608	CMakeFiles/Dungeoner.dir/main.cpp.obj	628cb24174c6f350
+3280	13092	6965794963945699	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d06d6b396b495f3f
+3285	14009	6965794973459829	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	62ac0b71a724af6a
+10065	15018	6965794983593585	CMakeFiles/Dungeoner.dir/Person/Stat/stat.cpp.obj	442d6256cf44c061
+9885	15563	6965794989040224	CMakeFiles/Dungeoner.dir/Person/person.cpp.obj	c00d9e799309e010
+10970	18170	6965795015112187	CMakeFiles/Dungeoner.dir/System/UnitTests/SecondarySkillsTest/secondarySkillsTest.cpp.obj	74a75ce20fb217d9
+18170	25079	6965795084117917	Dungeoner.exe	5226e6a8350b1acf

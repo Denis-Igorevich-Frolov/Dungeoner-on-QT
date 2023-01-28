@@ -1726,3 +1726,13 @@ MagicDefense выдал предупреждение в методе removeBonus
 Person выдал ошибку в методе loadMagicDefense.
 Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
 
+28-January-2023  07:25:27
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+28-January-2023  07:25:27
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
