@@ -13,89 +13,99 @@
 #include <QSqlRecord>
 #include <QSqlError>
 
+Person::Person()
+{
+    stats = new StatsStruct(personName, primaryStatsVector, secondaryStatsVector);
+}
+
+Person::~Person()
+{
+    delete stats;
+}
+
 void Person::addBonusToStat(Bonus *bonus)
 {
     switch (bonus->statName) {
     case Bonus::STRENGTH:
-        Strength.addBonus(bonus);
+        stats->primaryStats->Strength->addBonus(bonus);
         break;
     case Bonus::AGILITY:
-        Agility.addBonus(bonus);
+        stats->primaryStats->Agility->addBonus(bonus);
         break;
     case Bonus::INTELLIGENCE:
-        Intelligence.addBonus(bonus);
+        stats->primaryStats->Intelligence->addBonus(bonus);
         break;
     case Bonus::MAGIC:
-        Magic.addBonus(bonus);
+        stats->primaryStats->Magic->addBonus(bonus);
         break;
     case Bonus::BODYTYPE:
-        BodyType.addBonus(bonus);
+        stats->primaryStats->BodyType->addBonus(bonus);
         break;
     case Bonus::WILL:
-        Will.addBonus(bonus);
+        stats->primaryStats->Will->addBonus(bonus);
         break;
     case Bonus::MAGIC_DAMAGE:
-        MagicDamage.addBonus(bonus);
+        stats->secondaryStats->MagicDamage->addBonus(bonus);
         break;
     case Bonus::RESIST_PHYSICAL_DAMAGE:
-        ResistPhysicalDamage.addBonus(bonus);
+        stats->secondaryStats->ResistPhysicalDamage->addBonus(bonus);
         break;
     case Bonus::RESIST_MAGIC_DAMAGE:
-        ResistMagicDamage.addBonus(bonus);
+        stats->secondaryStats->ResistMagicDamage->addBonus(bonus);
         break;
     case Bonus::RESIST_PHYSICAL_EFFECTS:
-        ResistPhysicalEffects.addBonus(bonus);
+        stats->secondaryStats->ResistPhysicalEffects->addBonus(bonus);
         break;
     case Bonus::RESIST_MAGIC_EFFECTS:
-        ResistMagicEffects.addBonus(bonus);
+        stats->secondaryStats->ResistMagicEffects->addBonus(bonus);
         break;
     case Bonus::STRENGTHENING_PHYSICAL_EFFECTS:
-        StrengtheningPhysicalEffects.addBonus(bonus);
+        stats->secondaryStats->StrengtheningPhysicalEffects->addBonus(bonus);
         break;
     case Bonus::STRENGTHENING_MAGICAL_EFFECTS:
-        StrengtheningMagicalEffects.addBonus(bonus);
+        stats->secondaryStats->StrengtheningMagicalEffects->addBonus(bonus);
         break;
     case Bonus::MELEE_ACCURACY:
-        MeleeAccuracy.addBonus(bonus);
+        stats->secondaryStats->MeleeAccuracy->addBonus(bonus);
         break;
     case Bonus::RANGED_ACCURACY:
-        RangedAccuracy.addBonus(bonus);
+        stats->secondaryStats->RangedAccuracy->addBonus(bonus);
         break;
     case Bonus::MAGIC_ACCURACY:
-        MagicAccuracy.addBonus(bonus);
+        stats->secondaryStats->RangedAccuracy->addBonus(bonus);
         break;
     case Bonus::EVASION:
-        Evasion.addBonus(bonus);
+        stats->secondaryStats->Evasion->addBonus(bonus);
         break;
     case Bonus::STEALTH:
-        Stealth.addBonus(bonus);
+        stats->secondaryStats->Stealth->addBonus(bonus);
         break;
     case Bonus::ATTENTIVENESS:
-        Attentiveness.addBonus(bonus);
+        stats->secondaryStats->Attentiveness->addBonus(bonus);
         break;
     case Bonus::LOAD_CAPACITY:
-        LoadCapacity.addBonus(bonus);
+        stats->secondaryStats->LoadCapacity->addBonus(bonus);
         break;
     case Bonus::INITIATIVE:
-        Initiative.addBonus(bonus);
+        stats->secondaryStats->Initiative->addBonus(bonus);
         break;
     case Bonus::MAGIC_CAST_CHANCE:
-        MagicCastChance.addBonus(bonus);
+        stats->secondaryStats->MagicCastChance->addBonus(bonus);
         break;
     case Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE:
-        ChanceOfUsingCombatTechnique.addBonus(bonus);
+        stats->secondaryStats->ChanceOfUsingCombatTechnique->addBonus(bonus);
         break;
     case Bonus::MOVE_RANGE:
-        MoveRange.addBonus(bonus);
+        stats->secondaryStats->MoveRange->addBonus(bonus);
         break;
     case Bonus::HEALTH:
-        Health.addBonus(bonus);
+        stats->secondaryStats->Health->addBonus(bonus);
         break;
     case Bonus::ENDURANCE:
-        Endurance.addBonus(bonus);
+        stats->secondaryStats->Endurance->addBonus(bonus);
         break;
     case Bonus::MANA:
-        Mana.addBonus(bonus);
+        stats->secondaryStats->Mana->addBonus(bonus);
         break;
     }
 }
@@ -112,137 +122,137 @@ bool Person::removeBonusFromStat(Bonus *bonus)
     bool successful;
     switch (bonus->statName) {
     case Bonus::STRENGTH:
-        successful = Strength.removeBonus(bonus);
+        successful = stats->primaryStats->Strength->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::AGILITY:
-        successful = Agility.removeBonus(bonus);
+        successful = stats->primaryStats->Agility->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::INTELLIGENCE:
-        successful = Intelligence.removeBonus(bonus);
+        successful = stats->primaryStats->Intelligence->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MAGIC:
-        successful = Magic.removeBonus(bonus);
+        successful = stats->primaryStats->Magic->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::BODYTYPE:
-        successful = BodyType.removeBonus(bonus);
+        successful = stats->primaryStats->BodyType->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::WILL:
-        successful = Will.removeBonus(bonus);
+        successful = stats->primaryStats->Will->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MAGIC_DAMAGE:
-        successful =  MagicDamage.removeBonus(bonus);
+        successful =  stats->secondaryStats->MagicDamage->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::RESIST_PHYSICAL_DAMAGE:
-        successful =  ResistPhysicalDamage.removeBonus(bonus);
+        successful =  stats->secondaryStats->ResistPhysicalDamage->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::RESIST_MAGIC_DAMAGE:
-        successful =  ResistMagicDamage.removeBonus(bonus);
+        successful =  stats->secondaryStats->ResistMagicDamage->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::RESIST_PHYSICAL_EFFECTS:
-        successful =  ResistPhysicalEffects.removeBonus(bonus);
+        successful =  stats->secondaryStats->ResistPhysicalEffects->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::RESIST_MAGIC_EFFECTS:
-        successful =  ResistMagicEffects.removeBonus(bonus);
+        successful =  stats->secondaryStats->ResistMagicEffects->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::STRENGTHENING_PHYSICAL_EFFECTS:
-        successful =  StrengtheningPhysicalEffects.removeBonus(bonus);
+        successful =  stats->secondaryStats->StrengtheningPhysicalEffects->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::STRENGTHENING_MAGICAL_EFFECTS:
-        successful =  StrengtheningMagicalEffects.removeBonus(bonus);
+        successful =  stats->secondaryStats->StrengtheningMagicalEffects->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MELEE_ACCURACY:
-        successful =  MeleeAccuracy.removeBonus(bonus);
+        successful =  stats->secondaryStats->MeleeAccuracy->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::RANGED_ACCURACY:
-        successful =  RangedAccuracy.removeBonus(bonus);
+        successful =  stats->secondaryStats->RangedAccuracy->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MAGIC_ACCURACY:
-        successful =  MagicAccuracy.removeBonus(bonus);
+        successful =  stats->secondaryStats->RangedAccuracy->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::EVASION:
-        successful =  Evasion.removeBonus(bonus);
+        successful =  stats->secondaryStats->Evasion->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::STEALTH:
-        successful =  Stealth.removeBonus(bonus);
+        successful =  stats->secondaryStats->Stealth->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::ATTENTIVENESS:
-        successful =  Attentiveness.removeBonus(bonus);
+        successful =  stats->secondaryStats->Attentiveness->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::LOAD_CAPACITY:
-        successful =  LoadCapacity.removeBonus(bonus);
+        successful =  stats->secondaryStats->LoadCapacity->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::INITIATIVE:
-        successful =  Initiative.removeBonus(bonus);
+        successful =  stats->secondaryStats->Initiative->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MAGIC_CAST_CHANCE:
-        successful =  MagicCastChance.removeBonus(bonus);
+        successful =  stats->secondaryStats->MagicCastChance->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE:
-        successful =  ChanceOfUsingCombatTechnique.removeBonus(bonus);
+        successful =  stats->secondaryStats->ChanceOfUsingCombatTechnique->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MOVE_RANGE:
-        successful =  MoveRange.removeBonus(bonus);
+        successful =  stats->secondaryStats->MoveRange->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::HEALTH:
-        successful =  Health.removeBonus(bonus);
+        successful =  stats->secondaryStats->Health->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::ENDURANCE:
-        successful =  Endurance.removeBonus(bonus);
+        successful =  stats->secondaryStats->Endurance->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
     case Bonus::MANA:
-        successful =  Mana.removeBonus(bonus);
+        successful =  stats->secondaryStats->Mana->removeBonus(bonus);
         if (!successful)
             fullReinitialization();
         return successful;
@@ -265,7 +275,7 @@ bool Person::removeBonusFromStat(MagicDefenseBonus *bonus)
 //Перерасчёт вторичных навыков
 void Person::recalculateStats()
 {
-    for(RecalculatebleStat* stat : secondaryStats)
+    for(RecalculatebleStat* stat : secondaryStatsVector)
         stat->recalculate();
     recalculateMagicDefense();
 }
@@ -276,7 +286,7 @@ void Person::recalculateMagicDefense()
     int numberOfChunks = 0;
     //Требование для появления нового чанка магической защиты
     int requirementOfChunk = 5;
-    int will = Will.getFinalValue();
+    int will = stats->primaryStats->Will->getFinalValue();
     /*Общая сумма требований воли до получения ещё одного чанка. Служит для передачи
      *подсказке информации о том сколько ещё нужно воли до появления нового чанка*/
     int amountOfRequirements = requirementOfChunk;
@@ -306,151 +316,16 @@ void Person::recalculateMagicDefense()
     }
 
     //Прогрессбару магической защиты передаётся значение недостающей воли до появления ещё одного чанка
-    willUntilNextChunk = amountOfRequirements - Will.getFinalValue();
+    willUntilNextChunk = amountOfRequirements - stats->primaryStats->Will->getFinalValue();
 
     //Генерируется новый вектор чанков исходя из новых статов
     QVector<Chunk*> chunks;
     for(int i = 0; i<numberOfChunks; i++){
-        int chunkValue = floor(Magic.getFinalValue() * 0.7 + BodyType.getFinalValue() * 0.3);
+        int chunkValue = floor(stats->primaryStats->Magic->getFinalValue() * 0.7 + stats->primaryStats->BodyType->getFinalValue() * 0.3);
         chunks.append(new Chunk(chunkValue, 0));
     }
 
     magicDefense.setNativeChunks(chunks);
-}
-
-Stat* Person::getStrength()
-{
-    return &Strength;
-}
-
-Stat* Person::getAgility()
-{
-    return &Agility;
-}
-
-Stat* Person::getIntelligence()
-{
-    return &Intelligence;
-}
-
-Stat* Person::getMagic()
-{
-    return &Magic;
-}
-
-Stat* Person::getBodyType()
-{
-    return &BodyType;
-}
-
-Stat* Person::getWill()
-{
-    return &Will;
-}
-
-RecalculatebleStat *Person::getMagicDamage()
-{
-    return &MagicDamage;
-}
-
-RecalculatebleStat* Person::getResistPhysicalDamage()
-{
-    return &ResistPhysicalDamage;
-}
-
-RecalculatebleStat* Person::getResistMagicDamage()
-{
-    return &ResistMagicDamage;
-}
-
-RecalculatebleStat* Person::getResistPhysicalEffects()
-{
-    return &ResistPhysicalEffects;
-}
-
-RecalculatebleStat* Person::getResistMagicEffects()
-{
-    return &ResistMagicEffects;
-}
-
-RecalculatebleStat* Person::getStrengtheningPhysicalEffects()
-{
-    return &StrengtheningPhysicalEffects;
-}
-
-RecalculatebleStat* Person::getStrengtheningMagicalEffects()
-{
-    return &StrengtheningMagicalEffects;
-}
-
-RecalculatebleStat* Person::getMeleeAccuracy()
-{
-    return &MeleeAccuracy;
-}
-
-RecalculatebleStat* Person::getRangedAccuracy()
-{
-    return &RangedAccuracy;
-}
-
-RecalculatebleStat* Person::getMagicAccuracy()
-{
-    return &MagicAccuracy;
-}
-
-RecalculatebleStat* Person::getEvasion()
-{
-    return &Evasion;
-}
-
-RecalculatebleStat* Person::getStealth()
-{
-    return &Stealth;
-}
-
-RecalculatebleStat* Person::getAttentiveness()
-{
-    return &Attentiveness;
-}
-
-RecalculatebleStat* Person::getLoadCapacity()
-{
-    return &LoadCapacity;
-}
-
-RecalculatebleStat* Person::getInitiative()
-{
-    return &Initiative;
-}
-
-RecalculatebleStat* Person::getMagicCastChance()
-{
-    return &MagicCastChance;
-}
-
-RecalculatebleStat* Person::getChanceOfUsingCombatTechnique()
-{
-    return &ChanceOfUsingCombatTechnique;
-}
-
-RecalculatebleStat* Person::getMoveRange()
-{
-    return &MoveRange;
-}
-
-ProgressBarStat* Person::getHealth()
-{
-    return &Health;
-}
-
-ProgressBarStat* Person::getEndurance()
-{
-    return &Endurance;
-}
-
-ProgressBarStat* Person::getMana()
-{
-    return &Mana;
 }
 
 MagicDefense *Person::getMagicDefense()
@@ -478,8 +353,8 @@ bool Person::saveAllStats(bool createBackup)
     }
 
     QVector<Stat*> allStats;
-    allStats.append(primaryStats);
-    for(RecalculatebleStat* stat : secondaryStats)
+    allStats.append(primaryStatsVector);
+    for(RecalculatebleStat* stat : secondaryStatsVector)
         allStats.append(stat);
 
     bool saveSuccess = true;
@@ -494,210 +369,211 @@ bool Person::saveAllStats(bool createBackup)
 
 bool Person::loadAllStats()
 {
-    bool successLoadStrength = loadStrength(true, true, false);
-    bool successLoadAgility = loadAgility(true, true, false);
-    bool successLoadIntelligence = loadIntelligence(true, true, false);
-    bool successLoadMagic = loadMagic(true, true, false);
-    bool successLoadBodyType = loadBodyType(true, true, false);
-    bool successLoadWill = loadWill(true, true, false);
+//    bool successLoadStrength = loadStrength(true, true, false);
+//    bool successLoadAgility = loadAgility(true, true, false);
+//    bool successLoadIntelligence = loadIntelligence(true, true, false);
+//    bool successLoadMagic = loadMagic(true, true, false);
+//    bool successLoadBodyType = loadBodyType(true, true, false);
+//    bool successLoadWill = loadWill(true, true, false);
 
-    bool successLoadMagicDamage = loadMagicDamage();
-    bool successLoadResistPhysicalDamage = loadResistPhysicalDamage();
-    bool successLoadResistMagicDamage = loadResistMagicDamage();
-    bool successLoadResistPhysicalEffects = loadResistPhysicalEffects();
-    bool successLoadResistMagicEffects = loadResistMagicEffects();
-    bool successLoadStrengtheningPhysicalEffects = loadStrengtheningPhysicalEffects();
-    bool successLoadStrengtheningMagicalEffects = loadStrengtheningMagicalEffects();
-    bool successLoadMeleeAccuracy = loadMeleeAccuracy();
-    bool successLoadRangedAccuracy = loadRangedAccuracy();
-    bool successLoadMagicAccuracy = loadMagicAccuracy();
-    bool successLoadEvasion = loadEvasion();
-    bool successLoadStealth = loadStealth();
-    bool successLoadAttentiveness = loadAttentiveness();
-    bool successLoadLoadCapacity = loadLoadCapacity();
-    bool successLoadInitiative = loadInitiative();
-    bool successLoadMagicCastChance = loadMagicCastChance();
-    bool successLoadChanceOfUsingCombatTechnique = loadChanceOfUsingCombatTechnique();
-    bool successLoadMoveRange = loadMoveRange();
-    bool successLoadHealth = loadHealth();
-    bool successLoadEndurance = loadEndurance();
-    bool successLoadMana = loadMana();
-    bool successLoadMagicDefense = loadMagicDefense();
+//    bool successLoadMagicDamage = loadMagicDamage();
+//    bool successLoadResistPhysicalDamage = loadResistPhysicalDamage();
+//    bool successLoadResistMagicDamage = loadResistMagicDamage();
+//    bool successLoadResistPhysicalEffects = loadResistPhysicalEffects();
+//    bool successLoadResistMagicEffects = loadResistMagicEffects();
+//    bool successLoadStrengtheningPhysicalEffects = loadStrengtheningPhysicalEffects();
+//    bool successLoadStrengtheningMagicalEffects = loadStrengtheningMagicalEffects();
+//    bool successLoadMeleeAccuracy = loadMeleeAccuracy();
+//    bool successLoadRangedAccuracy = loadRangedAccuracy();
+//    bool successLoadMagicAccuracy = loadMagicAccuracy();
+//    bool successLoadEvasion = loadEvasion();
+//    bool successLoadStealth = loadStealth();
+//    bool successLoadAttentiveness = loadAttentiveness();
+//    bool successLoadLoadCapacity = loadLoadCapacity();
+//    bool successLoadInitiative = loadInitiative();
+//    bool successLoadMagicCastChance = loadMagicCastChance();
+//    bool successLoadChanceOfUsingCombatTechnique = loadChanceOfUsingCombatTechnique();
+//    bool successLoadMoveRange = loadMoveRange();
+//    bool successLoadHealth = loadHealth();
+//    bool successLoadEndurance = loadEndurance();
+//    bool successLoadMana = loadMana();
+//    bool successLoadMagicDefense = loadMagicDefense();
 
-    recalculateStats();
-    emit FullReinitializationRequest();
+//    recalculateStats();
+//    emit FullReinitializationRequest();
 
-    return successLoadStrength && successLoadAgility && successLoadIntelligence &&
-            successLoadMagic && successLoadMagic && successLoadBodyType &&
-            successLoadWill && successLoadMagicDamage && successLoadResistPhysicalDamage &&
-            successLoadResistMagicDamage && successLoadResistPhysicalEffects &&
-            successLoadResistMagicEffects && successLoadStrengtheningPhysicalEffects &&
-            successLoadStrengtheningMagicalEffects && successLoadMeleeAccuracy &&
-            successLoadRangedAccuracy && successLoadMagicAccuracy && successLoadEvasion &&
-            successLoadStealth && successLoadAttentiveness && successLoadLoadCapacity &&
-            successLoadInitiative && successLoadMagicCastChance && successLoadChanceOfUsingCombatTechnique &&
-            successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana && successLoadMagicDefense;
+//    return successLoadStrength && successLoadAgility && successLoadIntelligence &&
+//            successLoadMagic && successLoadMagic && successLoadBodyType &&
+//            successLoadWill && successLoadMagicDamage && successLoadResistPhysicalDamage &&
+//            successLoadResistMagicDamage && successLoadResistPhysicalEffects &&
+//            successLoadResistMagicEffects && successLoadStrengtheningPhysicalEffects &&
+//            successLoadStrengtheningMagicalEffects && successLoadMeleeAccuracy &&
+//            successLoadRangedAccuracy && successLoadMagicAccuracy && successLoadEvasion &&
+//            successLoadStealth && successLoadAttentiveness && successLoadLoadCapacity &&
+//            successLoadInitiative && successLoadMagicCastChance && successLoadChanceOfUsingCombatTechnique &&
+//            successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana && successLoadMagicDefense;
+    return true;
 }
 
-/*Ниже идут методы сохранения и загрузки ко всем статам. Почти все из них вызывают универсальные методы
- *сохранения и загрузки, и только магическая защита имеет свои уникальные функции. У первичных навыков
- *можно выбрать сохранять/загружать ли значения и бонусы, а также у загрузки - посылать ли сигнал,
- *говорящий о том, что стат был изменён. У всех методов сохранения есть возможность выбрать сгенерирует
- *ли запрос бекап. У всех вторичных навыков не сохраняется значение, ведь оно просто генерируется заного
- *при любом обновлении первичных, и смысла хранить его нет. У них сохраняются только бонусы, а у навыков
- *имеющих прогресбар, сохраняется текущее значение прогресбара.*/
-bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged)
-{
-    bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, false, loadBonuses);
-//    if(emittedChanged)
-//        emit StrengthChanged();
-    return success;
-}
+///*Ниже идут методы сохранения и загрузки ко всем статам. Почти все из них вызывают универсальные методы
+// *сохранения и загрузки, и только магическая защита имеет свои уникальные функции. У первичных навыков
+// *можно выбрать сохранять/загружать ли значения и бонусы, а также у загрузки - посылать ли сигнал,
+// *говорящий о том, что стат был изменён. У всех методов сохранения есть возможность выбрать сгенерирует
+// *ли запрос бекап. У всех вторичных навыков не сохраняется значение, ведь оно просто генерируется заного
+// *при любом обновлении первичных, и смысла хранить его нет. У них сохраняются только бонусы, а у навыков
+// *имеющих прогресбар, сохраняется текущее значение прогресбара.*/
+//bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged)
+//{
+//    bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, false, loadBonuses);
+////    if(emittedChanged)
+////        emit StrengthChanged();
+//    return success;
+//}
 
-bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
-{
-    bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, false, loadBonuses);
-//    if(emittedChanged)
-//        emit AgilityChanged();
-    return success;
-}
+//bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
+//{
+//    bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, false, loadBonuses);
+////    if(emittedChanged)
+////        emit AgilityChanged();
+//    return success;
+//}
 
-bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged)
-{
-    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, false, loadBonuses);
-//    if(emittedChanged)
-//        emit IntelligenceChanged();
-    return success;
-}
+//bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged)
+//{
+//    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, false, loadBonuses);
+////    if(emittedChanged)
+////        emit IntelligenceChanged();
+//    return success;
+//}
 
-bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
-{
-    bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, false, loadBonuses);
-//    if(emittedChanged)
-//        emit MagicChanged();
-    return success;
-}
+//bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
+//{
+//    bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, false, loadBonuses);
+////    if(emittedChanged)
+////        emit MagicChanged();
+//    return success;
+//}
 
-bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged)
-{
-    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, false, loadBonuses);
-//    if(emittedChanged)
-//        emit BodyTypeChanged();
-    return success;
-}
+//bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged)
+//{
+//    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, false, loadBonuses);
+////    if(emittedChanged)
+////        emit BodyTypeChanged();
+//    return success;
+//}
 
-bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
-{
-    bool success = loadStat("Will", Bonus::WILL, Will, loadValues, false, loadBonuses);
-//    if(emittedChanged)
-//        emit WillChanged();
-    return success;
-}
+//bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
+//{
+//    bool success = loadStat("Will", Bonus::WILL, Will, loadValues, false, loadBonuses);
+////    if(emittedChanged)
+////        emit WillChanged();
+//    return success;
+//}
 
-bool Person::loadMagicDamage()
-{
-    return loadStat("MagicDamage", Bonus::MAGIC_DAMAGE, MagicDamage, false, false, true);
-}
+//bool Person::loadMagicDamage()
+//{
+//    return loadStat("MagicDamage", Bonus::MAGIC_DAMAGE, MagicDamage, false, false, true);
+//}
 
-bool Person::loadResistPhysicalDamage()
-{
-    return loadStat("ResistPhysicalDamage", Bonus::RESIST_PHYSICAL_DAMAGE, ResistPhysicalDamage, false, false, true);
-}
+//bool Person::loadResistPhysicalDamage()
+//{
+//    return loadStat("ResistPhysicalDamage", Bonus::RESIST_PHYSICAL_DAMAGE, ResistPhysicalDamage, false, false, true);
+//}
 
-bool Person::loadResistMagicDamage()
-{
-    return loadStat("ResistMagicDamage", Bonus::RESIST_MAGIC_DAMAGE, ResistMagicDamage, false, false, true);
-}
+//bool Person::loadResistMagicDamage()
+//{
+//    return loadStat("ResistMagicDamage", Bonus::RESIST_MAGIC_DAMAGE, ResistMagicDamage, false, false, true);
+//}
 
-bool Person::loadResistPhysicalEffects()
-{
-    return loadStat("ResistPhysicalEffects", Bonus::RESIST_PHYSICAL_EFFECTS, ResistPhysicalEffects, false, false, true);
-}
+//bool Person::loadResistPhysicalEffects()
+//{
+//    return loadStat("ResistPhysicalEffects", Bonus::RESIST_PHYSICAL_EFFECTS, ResistPhysicalEffects, false, false, true);
+//}
 
-bool Person::loadResistMagicEffects()
-{
-    return loadStat("ResistMagicEffects", Bonus::RESIST_MAGIC_EFFECTS, ResistMagicEffects, false, false, true);
-}
+//bool Person::loadResistMagicEffects()
+//{
+//    return loadStat("ResistMagicEffects", Bonus::RESIST_MAGIC_EFFECTS, ResistMagicEffects, false, false, true);
+//}
 
-bool Person::loadStrengtheningPhysicalEffects()
-{
-    return loadStat("StrengtheningPhysicalEffects", Bonus::STRENGTHENING_PHYSICAL_EFFECTS, StrengtheningPhysicalEffects, false, false, true);
-}
+//bool Person::loadStrengtheningPhysicalEffects()
+//{
+//    return loadStat("StrengtheningPhysicalEffects", Bonus::STRENGTHENING_PHYSICAL_EFFECTS, StrengtheningPhysicalEffects, false, false, true);
+//}
 
-bool Person::loadStrengtheningMagicalEffects()
-{
-    return loadStat("StrengtheningMagicalEffects", Bonus::STRENGTHENING_MAGICAL_EFFECTS, StrengtheningMagicalEffects, false, false, true);
-}
+//bool Person::loadStrengtheningMagicalEffects()
+//{
+//    return loadStat("StrengtheningMagicalEffects", Bonus::STRENGTHENING_MAGICAL_EFFECTS, StrengtheningMagicalEffects, false, false, true);
+//}
 
-bool Person::loadMeleeAccuracy()
-{
-    return loadStat("MeleeAccuracy", Bonus::MELEE_ACCURACY, MeleeAccuracy, false, false, true);
-}
+//bool Person::loadMeleeAccuracy()
+//{
+//    return loadStat("MeleeAccuracy", Bonus::MELEE_ACCURACY, MeleeAccuracy, false, false, true);
+//}
 
-bool Person::loadRangedAccuracy()
-{
-    return loadStat("RangedAccuracy", Bonus::RANGED_ACCURACY, RangedAccuracy, false, false, true);
-}
+//bool Person::loadRangedAccuracy()
+//{
+//    return loadStat("RangedAccuracy", Bonus::RANGED_ACCURACY, RangedAccuracy, false, false, true);
+//}
 
-bool Person::loadMagicAccuracy()
-{
-    return loadStat("MagicAccuracy", Bonus::MAGIC_ACCURACY, MagicAccuracy, false, false, true);
-}
+//bool Person::loadMagicAccuracy()
+//{
+//    return loadStat("MagicAccuracy", Bonus::MAGIC_ACCURACY, MagicAccuracy, false, false, true);
+//}
 
-bool Person::loadEvasion()
-{
-    return loadStat("Evasion", Bonus::EVASION, Evasion, false, false, true);
-}
+//bool Person::loadEvasion()
+//{
+//    return loadStat("Evasion", Bonus::EVASION, Evasion, false, false, true);
+//}
 
-bool Person::loadStealth()
-{
-    return loadStat("Stealth", Bonus::STEALTH, Stealth, false, false, true);
-}
+//bool Person::loadStealth()
+//{
+//    return loadStat("Stealth", Bonus::STEALTH, Stealth, false, false, true);
+//}
 
-bool Person::loadAttentiveness()
-{
-    return loadStat("Attentiveness", Bonus::ATTENTIVENESS, Attentiveness, false, false, true);
-}
+//bool Person::loadAttentiveness()
+//{
+//    return loadStat("Attentiveness", Bonus::ATTENTIVENESS, Attentiveness, false, false, true);
+//}
 
-bool Person::loadLoadCapacity()
-{
-    return loadStat("LoadCapacity", Bonus::LOAD_CAPACITY, LoadCapacity, false, false, true);
-}
+//bool Person::loadLoadCapacity()
+//{
+//    return loadStat("LoadCapacity", Bonus::LOAD_CAPACITY, LoadCapacity, false, false, true);
+//}
 
-bool Person::loadInitiative()
-{
-    return loadStat("Initiative", Bonus::INITIATIVE, Initiative, false, false, true);
-}
+//bool Person::loadInitiative()
+//{
+//    return loadStat("Initiative", Bonus::INITIATIVE, Initiative, false, false, true);
+//}
 
-bool Person::loadMagicCastChance()
-{
-    return loadStat("MagicCastChance", Bonus::MAGIC_CAST_CHANCE, MagicCastChance, false, false, true);
-}
+//bool Person::loadMagicCastChance()
+//{
+//    return loadStat("MagicCastChance", Bonus::MAGIC_CAST_CHANCE, MagicCastChance, false, false, true);
+//}
 
-bool Person::loadChanceOfUsingCombatTechnique()
-{
-    return loadStat("ChanceOfUsingCombatTechnique", Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE, ChanceOfUsingCombatTechnique, false, false, true);
-}
+//bool Person::loadChanceOfUsingCombatTechnique()
+//{
+//    return loadStat("ChanceOfUsingCombatTechnique", Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE, ChanceOfUsingCombatTechnique, false, false, true);
+//}
 
-bool Person::loadMoveRange()
-{
-    return loadStat("MoveRange", Bonus::MOVE_RANGE, MoveRange, false, false, true);
-}
+//bool Person::loadMoveRange()
+//{
+//    return loadStat("MoveRange", Bonus::MOVE_RANGE, MoveRange, false, false, true);
+//}
 
-bool Person::loadHealth()
-{
-    return loadStat("Health", Bonus::HEALTH, Health, false, true, true);
-}
+//bool Person::loadHealth()
+//{
+//    return loadStat("Health", Bonus::HEALTH, Health, false, true, true);
+//}
 
-bool Person::loadEndurance()
-{
-    return loadStat("Endurance", Bonus::ENDURANCE, Endurance, false, true, true);
-}
+//bool Person::loadEndurance()
+//{
+//    return loadStat("Endurance", Bonus::ENDURANCE, Endurance, false, true, true);
+//}
 
-bool Person::loadMana()
-{
-    return loadStat("Mana", Bonus::MANA, Mana, false, true, true);
-}
+//bool Person::loadMana()
+//{
+//    return loadStat("Mana", Bonus::MANA, Mana, false, true, true);
+//}
 
 bool Person::saveMagicDefense(bool createBackup)
 {
@@ -1404,6 +1280,11 @@ void Person::createBackup()
     QFile::copy("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite",
                 "Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/backups/save "
                 + dt.toString("dd-MM-yyyy hh.mm.ss") + ".sqlite");
+}
+
+StatsStruct *Person::getStats()
+{
+    return stats;
 }
 
 QString Person::getPersonName() const

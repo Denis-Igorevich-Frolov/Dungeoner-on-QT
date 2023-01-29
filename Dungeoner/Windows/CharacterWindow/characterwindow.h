@@ -156,7 +156,7 @@ private:
 
     virtual bool eventFilter(QObject* object, QEvent* event) override;
 
-    Person person;
+    Person person = Person();
     bool isManualStatReplacement = false;
 };
 

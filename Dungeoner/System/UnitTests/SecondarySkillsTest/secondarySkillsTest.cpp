@@ -22,14 +22,14 @@ void SecondarySkillsTest::recalculateMagicDamage()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getMagicDamage()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->MagicDamage->recalculate(), result);
 }
 
 /*Тесты для проверки вычисления статов. Каждый выполняется в 4 прогона:
@@ -96,14 +96,14 @@ void SecondarySkillsTest::recalculateResistPhysicalDamage()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getResistPhysicalDamage()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->ResistPhysicalDamage->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistPhysicalDamage_data()
@@ -163,14 +163,14 @@ void SecondarySkillsTest::recalculateResistMagicDamage()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getResistMagicDamage()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->ResistMagicDamage->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistMagicDamage_data()
@@ -230,14 +230,14 @@ void SecondarySkillsTest::recalculateResistPhysicalEffects()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getResistPhysicalEffects()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->ResistPhysicalEffects->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistPhysicalEffects_data()
@@ -297,14 +297,14 @@ void SecondarySkillsTest::recalculateResistMagicEffects()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getResistMagicEffects()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->ResistMagicEffects->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateResistMagicEffects_data()
@@ -364,14 +364,14 @@ void SecondarySkillsTest::recalculateStrengtheningPhysicalEffects()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getStrengtheningPhysicalEffects()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->StrengtheningPhysicalEffects->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateStrengtheningPhysicalEffects_data()
@@ -431,14 +431,14 @@ void SecondarySkillsTest::recalculateStrengtheningMagicalEffects()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getStrengtheningMagicalEffects()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->StrengtheningMagicalEffects->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateStrengtheningMagicalEffects_data()
@@ -498,14 +498,14 @@ void SecondarySkillsTest::recalculateMeleeAccuracy()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getMeleeAccuracy()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->MeleeAccuracy->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMeleeAccuracy_data()
@@ -565,14 +565,14 @@ void SecondarySkillsTest::recalculateRangedAccuracy()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getRangedAccuracy()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->RangedAccuracy->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateRangedAccuracy_data()
@@ -632,14 +632,14 @@ void SecondarySkillsTest::recalculateMagicAccuracy()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getMagicAccuracy()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->MagicAccuracy->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMagicAccuracy_data()
@@ -699,14 +699,14 @@ void SecondarySkillsTest::recalculateEvasion()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getEvasion()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->Evasion->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateEvasion_data()
@@ -766,14 +766,14 @@ void SecondarySkillsTest::recalculateStealth()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getStealth()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->Stealth->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateStealth_data()
@@ -833,14 +833,14 @@ void SecondarySkillsTest::recalculateAttentiveness()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getAttentiveness()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->Attentiveness->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateAttentiveness_data()
@@ -900,14 +900,14 @@ void SecondarySkillsTest::recalculateLoadCapacity()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getLoadCapacity()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->LoadCapacity->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateLoadCapacity_data()
@@ -967,14 +967,14 @@ void SecondarySkillsTest::recalculateInitiative()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getInitiative()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->Initiative->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateInitiative_data()
@@ -1034,14 +1034,14 @@ void SecondarySkillsTest::recalculateMagicCastChance()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getMagicCastChance()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->MagicCastChance->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMagicCastChance_data()
@@ -1101,14 +1101,14 @@ void SecondarySkillsTest::recalculateChanceOfUsingCombatTechnique()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getChanceOfUsingCombatTechnique()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->ChanceOfUsingCombatTechnique->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateChanceOfUsingCombatTechnique_data()
@@ -1168,14 +1168,14 @@ void SecondarySkillsTest::recalculateMoveRange()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getMoveRange()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->MoveRange->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMoveRange_data()
@@ -1235,14 +1235,14 @@ void SecondarySkillsTest::recalculateHealth()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getHealth()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->Health->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateHealth_data()
@@ -1302,14 +1302,14 @@ void SecondarySkillsTest::recalculateEndurance()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getEndurance()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->Endurance->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateEndurance_data()
@@ -1369,14 +1369,14 @@ void SecondarySkillsTest::recalculateMana()
     QFETCH(int, will);
     QFETCH(int, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
-    QCOMPARE(person.getMana()->recalculate(), result);
+    QCOMPARE(person.getStats()->secondaryStats->Mana->recalculate(), result);
 }
 
 void SecondarySkillsTest::recalculateMana_data()
@@ -1436,12 +1436,12 @@ void SecondarySkillsTest::recalculateMagicDefense()
     QFETCH(int, will);
     QFETCH(QVector<Chunk>, result);
 
-    person.getStrength()->setValue(strength);
-    person.getAgility()->setValue(agility);
-    person.getIntelligence()->setValue(intelligence);
-    person.getMagic()->setValue(magic);
-    person.getBodyType()->setValue(bodyType);
-    person.getWill()->setValue(will);
+    person.getStats()->primaryStats->Strength->setValue(strength);
+    person.getStats()->primaryStats->Agility->setValue(agility);
+    person.getStats()->primaryStats->Intelligence->setValue(intelligence);
+    person.getStats()->primaryStats->Magic->setValue(magic);
+    person.getStats()->primaryStats->BodyType->setValue(bodyType);
+    person.getStats()->primaryStats->Will->setValue(will);
 
     person.recalculateMagicDefense();
 

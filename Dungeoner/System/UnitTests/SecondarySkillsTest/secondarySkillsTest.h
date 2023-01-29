@@ -87,7 +87,7 @@ private slots:
     void recalculateMagicDefense_data();
 
 private:
-    Person person;
+    Person person = Person();
 };
 
 #endif // SECONDARYSKILLSTEST_H

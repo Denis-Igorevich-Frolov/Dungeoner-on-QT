@@ -47,12 +47,12 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     associatingLabelsWithStat();
 
     //Связывание слотов изменения первичных навыков бонусами с сигналами сигнализирующими об этом
-    connect(person.getStrength(), &Stat::statChanged, this, &CharacterWindow::onStrengthChanged);
-    connect(person.getAgility(), &Stat::statChanged, this, &CharacterWindow::onAgilityChanged);
-    connect(person.getIntelligence(), &Stat::statChanged, this, &CharacterWindow::onIntelligenceChanged);
-    connect(person.getMagic(), &Stat::statChanged, this, &CharacterWindow::onMagicChanged);
-    connect(person.getBodyType(), &Stat::statChanged, this, &CharacterWindow::onBodyTypeChanged);
-    connect(person.getWill(), &Stat::statChanged, this, &CharacterWindow::onWillChanged);
+    connect(person.getStats()->primaryStats->Strength, &Stat::statChanged, this, &CharacterWindow::onStrengthChanged);
+    connect(person.getStats()->primaryStats->Agility, &Stat::statChanged, this, &CharacterWindow::onAgilityChanged);
+    connect(person.getStats()->primaryStats->Intelligence, &Stat::statChanged, this, &CharacterWindow::onIntelligenceChanged);
+    connect(person.getStats()->primaryStats->Magic, &Stat::statChanged, this, &CharacterWindow::onMagicChanged);
+    connect(person.getStats()->primaryStats->BodyType, &Stat::statChanged, this, &CharacterWindow::onBodyTypeChanged);
+    connect(person.getStats()->primaryStats->Will, &Stat::statChanged, this, &CharacterWindow::onWillChanged);
 
     //Связывание слота полной переинициализации из класса person с обновлением отображения статов
     connect(&person, &Person::FullReinitializationRequest, this, &CharacterWindow::refreshDisplayStats);
@@ -390,35 +390,35 @@ void CharacterWindow::associatingLabelsWithValues()
 
 void CharacterWindow::associatingLabelsWithStat()
 {
-    ui->StrengthPrimarySkillSignature->setStat(person.getStrength());
-    ui->AgilityPrimarySkillSignature->setStat(person.getAgility());
-    ui->IntelligencePrimarySkillSignature->setStat(person.getIntelligence());
-    ui->MagicPrimarySkillSignature->setStat(person.getMagic());
-    ui->BodyTypePrimarySkillSignature->setStat(person.getBodyType());
-    ui->WillPrimarySkillSignature->setStat(person.getWill());
+    ui->StrengthPrimarySkillSignature->setStat(person.getStats()->primaryStats->Strength);
+    ui->AgilityPrimarySkillSignature->setStat(person.getStats()->primaryStats->Agility);
+    ui->IntelligencePrimarySkillSignature->setStat(person.getStats()->primaryStats->Intelligence);
+    ui->MagicPrimarySkillSignature->setStat(person.getStats()->primaryStats->Magic);
+    ui->BodyTypePrimarySkillSignature->setStat(person.getStats()->primaryStats->BodyType);
+    ui->WillPrimarySkillSignature->setStat(person.getStats()->primaryStats->Will);
 
-    ui->MagicDamage->setStat(person.getMagicDamage());
-    ui->ResistPhysicalDamage->setStat(person.getResistPhysicalDamage());
-    ui->ResistMagicDamage->setStat(person.getResistMagicDamage());
-    ui->ResistPhysicalEffects->setStat(person.getResistPhysicalEffects());
-    ui->ResistMagicEffects->setStat(person.getResistMagicEffects());
-    ui->StrengtheningPhysicalEffects->setStat(person.getStrengtheningPhysicalEffects());
-    ui->StrengtheningMagicalEffects->setStat(person.getStrengtheningMagicalEffects());
-    ui->MeleeAccuracy->setStat(person.getMeleeAccuracy());
-    ui->RangedAccuracy->setStat(person.getRangedAccuracy());
-    ui->MagicAccuracy->setStat(person.getMagicAccuracy());
-    ui->Evasion->setStat(person.getEvasion());
-    ui->Stealth->setStat(person.getStealth());
-    ui->Attentiveness->setStat(person.getAttentiveness());
-    ui->LoadCapacity->setStat(person.getLoadCapacity());
-    ui->Initiative->setStat(person.getInitiative());
-    ui->MagicCastChance->setStat(person.getMagicCastChance());
-    ui->ChanceOfUsingCombatTechnique->setStat(person.getChanceOfUsingCombatTechnique());
-    ui->MoveRange->setStat(person.getMoveRange());
+    ui->MagicDamage->setStat(person.getStats()->secondaryStats->MagicDamage);
+    ui->ResistPhysicalDamage->setStat(person.getStats()->secondaryStats->ResistPhysicalDamage);
+    ui->ResistMagicDamage->setStat(person.getStats()->secondaryStats->ResistMagicDamage);
+    ui->ResistPhysicalEffects->setStat(person.getStats()->secondaryStats->ResistPhysicalEffects);
+    ui->ResistMagicEffects->setStat(person.getStats()->secondaryStats->ResistMagicEffects);
+    ui->StrengtheningPhysicalEffects->setStat(person.getStats()->secondaryStats->StrengtheningPhysicalEffects);
+    ui->StrengtheningMagicalEffects->setStat(person.getStats()->secondaryStats->StrengtheningMagicalEffects);
+    ui->MeleeAccuracy->setStat(person.getStats()->secondaryStats->MeleeAccuracy);
+    ui->RangedAccuracy->setStat(person.getStats()->secondaryStats->RangedAccuracy);
+    ui->MagicAccuracy->setStat(person.getStats()->secondaryStats->MagicAccuracy);
+    ui->Evasion->setStat(person.getStats()->secondaryStats->Evasion);
+    ui->Stealth->setStat(person.getStats()->secondaryStats->Stealth);
+    ui->Attentiveness->setStat(person.getStats()->secondaryStats->Attentiveness);
+    ui->LoadCapacity->setStat(person.getStats()->secondaryStats->LoadCapacity);
+    ui->Initiative->setStat(person.getStats()->secondaryStats->Initiative);
+    ui->MagicCastChance->setStat(person.getStats()->secondaryStats->MagicCastChance);
+    ui->ChanceOfUsingCombatTechnique->setStat(person.getStats()->secondaryStats->ChanceOfUsingCombatTechnique);
+    ui->MoveRange->setStat(person.getStats()->secondaryStats->MoveRange);
 
-    ui->Health->getProgressBar()->setStat(person.getHealth());
-    ui->Endurance->getProgressBar()->setStat(person.getEndurance());
-    ui->Mana->getProgressBar()->setStat(person.getMana());
+    ui->Health->getProgressBar()->setStat(person.getStats()->secondaryStats->Health);
+    ui->Endurance->getProgressBar()->setStat(person.getStats()->secondaryStats->Endurance);
+    ui->Mana->getProgressBar()->setStat(person.getStats()->secondaryStats->Mana);
 
     ui->MagicDefense->getProgressBar()->setStat(person.getMagicDefense());
 }
@@ -564,47 +564,47 @@ void CharacterWindow::recalculateStats()
 
 void CharacterWindow::initPrimaryStatsWidgets()
 {
-    ui->StrengthValue->setValue(person.getStrength()->getFinalValue());
+    ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getFinalValue());
 
-    ui->AgilityValue->setValue(person.getAgility()->getFinalValue());
+    ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getFinalValue());
 
-    ui->IntelligenceValue->setValue(person.getIntelligence()->getFinalValue());
+    ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getFinalValue());
 
-    ui->MagicValue->setValue(person.getMagic()->getFinalValue());
+    ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getFinalValue());
 
-    ui->BodyTypeValue->setValue(person.getBodyType()->getFinalValue());
+    ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getFinalValue());
 
-    ui->WillValue->setValue(person.getWill()->getFinalValue());
+    ui->WillValue->setValue(person.getStats()->primaryStats->Will->getFinalValue());
 }
 
 //Инициализация элементов интерфеса связанных со статами значениями из Person
 void CharacterWindow::initSecondaryStatsWidgets()
 {
-    ui->MagicDamage->setValue(person.getMagicDamage()->getFinalValue());
-    ui->ResistPhysicalDamage->setValue(person.getResistPhysicalDamage()->getFinalValue());
-    ui->ResistMagicDamage->setValue(person.getResistMagicDamage()->getFinalValue());
-    ui->ResistPhysicalEffects->setValue(person.getResistPhysicalEffects()->getFinalValue());
-    ui->ResistMagicEffects->setValue(person.getResistMagicEffects()->getFinalValue());
-    ui->StrengtheningPhysicalEffects->setValue(person.getStrengtheningPhysicalEffects()->getFinalValue());
-    ui->StrengtheningMagicalEffects->setValue(person.getStrengtheningMagicalEffects()->getFinalValue());
-    ui->MeleeAccuracy->setValue(person.getMeleeAccuracy()->getFinalValue());
-    ui->RangedAccuracy->setValue(person.getRangedAccuracy()->getFinalValue());
-    ui->MagicAccuracy->setValue(person.getMagicAccuracy()->getFinalValue());
-    ui->Evasion->setValue(person.getEvasion()->getFinalValue());
-    ui->Stealth->setValue(person.getStealth()->getFinalValue());
-    ui->Attentiveness->setValue(person.getAttentiveness()->getFinalValue());
-    ui->LoadCapacity->setValue(person.getLoadCapacity()->getFinalValue());
-    ui->Initiative->setValue(person.getInitiative()->getFinalValue());
-    ui->MagicCastChance->setValue(person.getMagicCastChance()->getFinalValue());
-    ui->ChanceOfUsingCombatTechnique->setValue(person.getChanceOfUsingCombatTechnique()->getFinalValue());
-    ui->MoveRange->setValue(person.getMoveRange()->getFinalValue());
+    ui->MagicDamage->setValue(person.getStats()->secondaryStats->MagicDamage->getFinalValue());
+    ui->ResistPhysicalDamage->setValue(person.getStats()->secondaryStats->ResistPhysicalDamage->getFinalValue());
+    ui->ResistMagicDamage->setValue(person.getStats()->secondaryStats->ResistMagicDamage->getFinalValue());
+    ui->ResistPhysicalEffects->setValue(person.getStats()->secondaryStats->ResistPhysicalEffects->getFinalValue());
+    ui->ResistMagicEffects->setValue(person.getStats()->secondaryStats->ResistMagicEffects->getFinalValue());
+    ui->StrengtheningPhysicalEffects->setValue(person.getStats()->secondaryStats->StrengtheningPhysicalEffects->getFinalValue());
+    ui->StrengtheningMagicalEffects->setValue(person.getStats()->secondaryStats->StrengtheningMagicalEffects->getFinalValue());
+    ui->MeleeAccuracy->setValue(person.getStats()->secondaryStats->MeleeAccuracy->getFinalValue());
+    ui->RangedAccuracy->setValue(person.getStats()->secondaryStats->RangedAccuracy->getFinalValue());
+    ui->MagicAccuracy->setValue(person.getStats()->secondaryStats->MagicAccuracy->getFinalValue());
+    ui->Evasion->setValue(person.getStats()->secondaryStats->Evasion->getFinalValue());
+    ui->Stealth->setValue(person.getStats()->secondaryStats->Stealth->getFinalValue());
+    ui->Attentiveness->setValue(person.getStats()->secondaryStats->Attentiveness->getFinalValue());
+    ui->LoadCapacity->setValue(person.getStats()->secondaryStats->LoadCapacity->getFinalValue());
+    ui->Initiative->setValue(person.getStats()->secondaryStats->Initiative->getFinalValue());
+    ui->MagicCastChance->setValue(person.getStats()->secondaryStats->MagicCastChance->getFinalValue());
+    ui->ChanceOfUsingCombatTechnique->setValue(person.getStats()->secondaryStats->ChanceOfUsingCombatTechnique->getFinalValue());
+    ui->MoveRange->setValue(person.getStats()->secondaryStats->MoveRange->getFinalValue());
 
-    ui->Health->getProgressBar()->setMaxValue(person.getHealth()->getFinalValue());
-    healthSetValue(person.getHealth()->getProgressBarCurrentValue());
-    ui->Endurance->getProgressBar()->setMaxValue(person.getEndurance()->getFinalValue());
-    enduranceSetValue(person.getEndurance()->getProgressBarCurrentValue());
-    ui->Mana->getProgressBar()->setMaxValue(person.getMana()->getFinalValue());
-    manaSetValue(person.getMana()->getProgressBarCurrentValue());
+    ui->Health->getProgressBar()->setMaxValue(person.getStats()->secondaryStats->Health->getFinalValue());
+    healthSetValue(person.getStats()->secondaryStats->Health->getProgressBarCurrentValue());
+    ui->Endurance->getProgressBar()->setMaxValue(person.getStats()->secondaryStats->Endurance->getFinalValue());
+    enduranceSetValue(person.getStats()->secondaryStats->Endurance->getProgressBarCurrentValue());
+    ui->Mana->getProgressBar()->setMaxValue(person.getStats()->secondaryStats->Mana->getFinalValue());
+    manaSetValue(person.getStats()->secondaryStats->Mana->getProgressBarCurrentValue());
 
     MagicDefense* magicDefense = person.getMagicDefense();
     ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
@@ -613,19 +613,19 @@ void CharacterWindow::initSecondaryStatsWidgets()
 
 void CharacterWindow::healthSetValue(int value)
 {
-    person.getHealth()->setProgressBarCurrentValue(value);
+    person.getStats()->secondaryStats->Health->setProgressBarCurrentValue(value);
     ui->Health->getProgressBar()->setValue(value);
 }
 
 void CharacterWindow::enduranceSetValue(int value)
 {
-    person.getEndurance()->setProgressBarCurrentValue(value);
+    person.getStats()->secondaryStats->Endurance->setProgressBarCurrentValue(value);
     ui->Endurance->getProgressBar()->setValue(value);
 }
 
 void CharacterWindow::manaSetValue(int value)
 {
-    person.getMana()->setProgressBarCurrentValue(value);
+    person.getStats()->secondaryStats->Mana->setProgressBarCurrentValue(value);
     ui->Mana->getProgressBar()->setValue(value);
 }
 
@@ -825,66 +825,66 @@ bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
     if(object == ui->StrengthValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
-            ui->StrengthValue->setValue(person.getStrength()->getValue());
+            ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getValue());
         }
         if(event->type() == QEvent::FocusOut){
             isManualStatReplacement = false;
-            ui->StrengthValue->setValue(person.getStrength()->getFinalValue());
+            ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getFinalValue());
         }
     }
 
     if(object == ui->AgilityValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
-            ui->AgilityValue->setValue(person.getAgility()->getValue());
+            ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getValue());
         }
         if(event->type() == QEvent::FocusOut){
             isManualStatReplacement = false;
-            ui->AgilityValue->setValue(person.getAgility()->getFinalValue());
+            ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getFinalValue());
         }
     }
 
     if(object == ui->IntelligenceValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
-            ui->IntelligenceValue->setValue(person.getIntelligence()->getValue());
+            ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getValue());
         }
         if(event->type() == QEvent::FocusOut){
             isManualStatReplacement = false;
-            ui->IntelligenceValue->setValue(person.getIntelligence()->getFinalValue());
+            ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getFinalValue());
         }
     }
 
     if(object == ui->MagicValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
-            ui->MagicValue->setValue(person.getMagic()->getValue());
+            ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getValue());
         }
         if(event->type() == QEvent::FocusOut){
             isManualStatReplacement = false;
-            ui->MagicValue->setValue(person.getMagic()->getFinalValue());
+            ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getFinalValue());
         }
     }
 
     if(object == ui->BodyTypeValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
-            ui->BodyTypeValue->setValue(person.getBodyType()->getValue());
+            ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getValue());
         }
         if(event->type() == QEvent::FocusOut){
             isManualStatReplacement = false;
-            ui->BodyTypeValue->setValue(person.getBodyType()->getFinalValue());
+            ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getFinalValue());
         }
     }
 
     if(object == ui->WillValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
-            ui->WillValue->setValue(person.getWill()->getValue());
+            ui->WillValue->setValue(person.getStats()->primaryStats->Will->getValue());
         }
         if(event->type() == QEvent::FocusOut){
             isManualStatReplacement = false;
-            ui->WillValue->setValue(person.getWill()->getFinalValue());
+            ui->WillValue->setValue(person.getStats()->primaryStats->Will->getFinalValue());
         }
     }
 
@@ -1004,42 +1004,42 @@ void CharacterWindow::RemoveTooltip()
 void CharacterWindow::onStrengthChanged()
 {
     if(!isManualStatReplacement){
-        ui->StrengthValue->setValue(person.getStrength()->getFinalValue());
+        ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getFinalValue());
     }
 }
 
 void CharacterWindow::onAgilityChanged()
 {
     if(!isManualStatReplacement){
-        ui->AgilityValue->setValue(person.getAgility()->getFinalValue());
+        ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getFinalValue());
     }
 }
 
 void CharacterWindow::onIntelligenceChanged()
 {
     if(!isManualStatReplacement){
-        ui->IntelligenceValue->setValue(person.getIntelligence()->getFinalValue());
+        ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getFinalValue());
     }
 }
 
 void CharacterWindow::onMagicChanged()
 {
     if(!isManualStatReplacement){
-        ui->MagicValue->setValue(person.getMagic()->getFinalValue());
+        ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getFinalValue());
     }
 }
 
 void CharacterWindow::onBodyTypeChanged()
 {
     if(!isManualStatReplacement){
-        ui->BodyTypeValue->setValue(person.getBodyType()->getFinalValue());
+        ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getFinalValue());
     }
 }
 
 void CharacterWindow::onWillChanged()
 {
     if(!isManualStatReplacement){
-        ui->WillValue->setValue(person.getWill()->getFinalValue());
+        ui->WillValue->setValue(person.getStats()->primaryStats->Will->getFinalValue());
     }
 }
 
@@ -1149,7 +1149,7 @@ void CharacterWindow::removeRowOfCellsFromInventory()
 void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
-        person.getStrength()->setValue(arg1);
+        person.getStats()->primaryStats->Strength->setValue(arg1);
     }
     recalculateStats();
 }
@@ -1157,7 +1157,7 @@ void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
 void CharacterWindow::on_AgilityValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
-        person.getAgility()->setValue(arg1);
+        person.getStats()->primaryStats->Agility->setValue(arg1);
     }
     recalculateStats();
 }
@@ -1165,7 +1165,7 @@ void CharacterWindow::on_AgilityValue_valueChanged(int arg1)
 void CharacterWindow::on_IntelligenceValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
-        person.getIntelligence()->setValue(arg1);
+        person.getStats()->primaryStats->Intelligence->setValue(arg1);
     }
     recalculateStats();
 }
@@ -1173,7 +1173,7 @@ void CharacterWindow::on_IntelligenceValue_valueChanged(int arg1)
 void CharacterWindow::on_MagicValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
-        person.getMagic()->setValue(arg1);
+        person.getStats()->primaryStats->Magic->setValue(arg1);
     }
     recalculateStats();
 }
@@ -1181,7 +1181,7 @@ void CharacterWindow::on_MagicValue_valueChanged(int arg1)
 void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
-        person.getBodyType()->setValue(arg1);
+        person.getStats()->primaryStats->BodyType->setValue(arg1);
     }
     recalculateStats();
 }
@@ -1189,16 +1189,16 @@ void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
 void CharacterWindow::on_WillValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
-        person.getWill()->setValue(arg1);
+        person.getStats()->primaryStats->Will->setValue(arg1);
     }
     recalculateStats();
 }
 
 void CharacterWindow::on_pushButton_4_clicked()
 {
-    healthSetValue(person.getHealth()->getFinalValue());
-    enduranceSetValue(person.getEndurance()->getFinalValue());
-    manaSetValue(person.getMana()->getFinalValue());
+    healthSetValue(person.getStats()->secondaryStats->Health->getFinalValue());
+    enduranceSetValue(person.getStats()->secondaryStats->Endurance->getFinalValue());
+    manaSetValue(person.getStats()->secondaryStats->Mana->getFinalValue());
 
     person.getMagicDefense()->HealAllChunk();
     ui->MagicDefense->getProgressBar()->setValue(person.getMagicDefense()->getValue());

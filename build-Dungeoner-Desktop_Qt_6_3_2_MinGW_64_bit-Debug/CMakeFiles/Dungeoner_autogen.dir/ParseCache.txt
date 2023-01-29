@@ -3184,6 +3184,7 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/SS_stylema
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.h
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/SSPB_stylemaster.cpp
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/statstruct.cpp
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h
  mmc:Q_OBJECT
  mdp:E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h
@@ -6584,3 +6585,4 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.cpp
  uic:./ui_dungeoner.h
 E:/Qt projects/Dungeoner-on-QT/Dungeoner/main.cpp
+E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/statstruct.h
