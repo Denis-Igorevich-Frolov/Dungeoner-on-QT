@@ -186,7 +186,7 @@ public:
         SaveButton->setStyleSheet(QString::fromUtf8("background:white;"));
         LoadButton = new QPushButton(TopMenu);
         LoadButton->setObjectName(QString::fromUtf8("LoadButton"));
-        LoadButton->setEnabled(false);
+        LoadButton->setEnabled(true);
         LoadButton->setGeometry(QRect(1580, 20, 71, 41));
         LoadButton->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_5 = new QPushButton(TopMenu);

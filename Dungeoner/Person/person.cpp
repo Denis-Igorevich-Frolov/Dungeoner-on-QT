@@ -16,6 +16,9 @@
 Person::Person()
 {
     stats = new StatsStruct(personName, primaryStatsVector, secondaryStatsVector);
+    allStats.append(primaryStatsVector);
+    for(RecalculatebleStat* stat : secondaryStatsVector)
+        allStats.append(stat);
 }
 
 Person::~Person()
@@ -23,91 +26,15 @@ Person::~Person()
     delete stats;
 }
 
-void Person::addBonusToStat(Bonus *bonus)
+bool Person::addBonusToStat(Bonus *bonus)
 {
-    switch (bonus->statName) {
-    case Bonus::STRENGTH:
-        stats->primaryStats->Strength->addBonus(bonus);
-        break;
-    case Bonus::AGILITY:
-        stats->primaryStats->Agility->addBonus(bonus);
-        break;
-    case Bonus::INTELLIGENCE:
-        stats->primaryStats->Intelligence->addBonus(bonus);
-        break;
-    case Bonus::MAGIC:
-        stats->primaryStats->Magic->addBonus(bonus);
-        break;
-    case Bonus::BODYTYPE:
-        stats->primaryStats->BodyType->addBonus(bonus);
-        break;
-    case Bonus::WILL:
-        stats->primaryStats->Will->addBonus(bonus);
-        break;
-    case Bonus::MAGIC_DAMAGE:
-        stats->secondaryStats->MagicDamage->addBonus(bonus);
-        break;
-    case Bonus::RESIST_PHYSICAL_DAMAGE:
-        stats->secondaryStats->ResistPhysicalDamage->addBonus(bonus);
-        break;
-    case Bonus::RESIST_MAGIC_DAMAGE:
-        stats->secondaryStats->ResistMagicDamage->addBonus(bonus);
-        break;
-    case Bonus::RESIST_PHYSICAL_EFFECTS:
-        stats->secondaryStats->ResistPhysicalEffects->addBonus(bonus);
-        break;
-    case Bonus::RESIST_MAGIC_EFFECTS:
-        stats->secondaryStats->ResistMagicEffects->addBonus(bonus);
-        break;
-    case Bonus::STRENGTHENING_PHYSICAL_EFFECTS:
-        stats->secondaryStats->StrengtheningPhysicalEffects->addBonus(bonus);
-        break;
-    case Bonus::STRENGTHENING_MAGICAL_EFFECTS:
-        stats->secondaryStats->StrengtheningMagicalEffects->addBonus(bonus);
-        break;
-    case Bonus::MELEE_ACCURACY:
-        stats->secondaryStats->MeleeAccuracy->addBonus(bonus);
-        break;
-    case Bonus::RANGED_ACCURACY:
-        stats->secondaryStats->RangedAccuracy->addBonus(bonus);
-        break;
-    case Bonus::MAGIC_ACCURACY:
-        stats->secondaryStats->RangedAccuracy->addBonus(bonus);
-        break;
-    case Bonus::EVASION:
-        stats->secondaryStats->Evasion->addBonus(bonus);
-        break;
-    case Bonus::STEALTH:
-        stats->secondaryStats->Stealth->addBonus(bonus);
-        break;
-    case Bonus::ATTENTIVENESS:
-        stats->secondaryStats->Attentiveness->addBonus(bonus);
-        break;
-    case Bonus::LOAD_CAPACITY:
-        stats->secondaryStats->LoadCapacity->addBonus(bonus);
-        break;
-    case Bonus::INITIATIVE:
-        stats->secondaryStats->Initiative->addBonus(bonus);
-        break;
-    case Bonus::MAGIC_CAST_CHANCE:
-        stats->secondaryStats->MagicCastChance->addBonus(bonus);
-        break;
-    case Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE:
-        stats->secondaryStats->ChanceOfUsingCombatTechnique->addBonus(bonus);
-        break;
-    case Bonus::MOVE_RANGE:
-        stats->secondaryStats->MoveRange->addBonus(bonus);
-        break;
-    case Bonus::HEALTH:
-        stats->secondaryStats->Health->addBonus(bonus);
-        break;
-    case Bonus::ENDURANCE:
-        stats->secondaryStats->Endurance->addBonus(bonus);
-        break;
-    case Bonus::MANA:
-        stats->secondaryStats->Mana->addBonus(bonus);
-        break;
+    for(Stat* stat : allStats){
+        if(stat->statName == bonus->statName){
+            stat->addBonus(bonus);
+            return true;
+        }
     }
+    return false;
 }
 
 //Добавление бонуса на магическую защиту
@@ -120,145 +47,13 @@ bool Person::removeBonusFromStat(Bonus *bonus)
 {
     //Переменная, говорящая о том было ли успешным удаление бонуса
     bool successful;
-    switch (bonus->statName) {
-    case Bonus::STRENGTH:
-        successful = stats->primaryStats->Strength->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::AGILITY:
-        successful = stats->primaryStats->Agility->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::INTELLIGENCE:
-        successful = stats->primaryStats->Intelligence->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::MAGIC:
-        successful = stats->primaryStats->Magic->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::BODYTYPE:
-        successful = stats->primaryStats->BodyType->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::WILL:
-        successful = stats->primaryStats->Will->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::MAGIC_DAMAGE:
-        successful =  stats->secondaryStats->MagicDamage->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::RESIST_PHYSICAL_DAMAGE:
-        successful =  stats->secondaryStats->ResistPhysicalDamage->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::RESIST_MAGIC_DAMAGE:
-        successful =  stats->secondaryStats->ResistMagicDamage->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::RESIST_PHYSICAL_EFFECTS:
-        successful =  stats->secondaryStats->ResistPhysicalEffects->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::RESIST_MAGIC_EFFECTS:
-        successful =  stats->secondaryStats->ResistMagicEffects->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::STRENGTHENING_PHYSICAL_EFFECTS:
-        successful =  stats->secondaryStats->StrengtheningPhysicalEffects->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::STRENGTHENING_MAGICAL_EFFECTS:
-        successful =  stats->secondaryStats->StrengtheningMagicalEffects->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::MELEE_ACCURACY:
-        successful =  stats->secondaryStats->MeleeAccuracy->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::RANGED_ACCURACY:
-        successful =  stats->secondaryStats->RangedAccuracy->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::MAGIC_ACCURACY:
-        successful =  stats->secondaryStats->RangedAccuracy->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::EVASION:
-        successful =  stats->secondaryStats->Evasion->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::STEALTH:
-        successful =  stats->secondaryStats->Stealth->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::ATTENTIVENESS:
-        successful =  stats->secondaryStats->Attentiveness->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::LOAD_CAPACITY:
-        successful =  stats->secondaryStats->LoadCapacity->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::INITIATIVE:
-        successful =  stats->secondaryStats->Initiative->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::MAGIC_CAST_CHANCE:
-        successful =  stats->secondaryStats->MagicCastChance->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE:
-        successful =  stats->secondaryStats->ChanceOfUsingCombatTechnique->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::MOVE_RANGE:
-        successful =  stats->secondaryStats->MoveRange->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::HEALTH:
-        successful =  stats->secondaryStats->Health->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::ENDURANCE:
-        successful =  stats->secondaryStats->Endurance->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    case Bonus::MANA:
-        successful =  stats->secondaryStats->Mana->removeBonus(bonus);
-        if (!successful)
-            fullReinitialization();
-        return successful;
-    default:
-        return false;
+    for(Stat* stat : allStats){
+        if(stat->statName == bonus->statName){
+            stat->removeBonus(bonus);
+            return true;
+        }
     }
+    return false;
 }
 
 //Удаление бонуса с магической защиты
@@ -352,11 +147,6 @@ bool Person::saveAllStats(bool createBackup)
         this->createBackup();
     }
 
-    QVector<Stat*> allStats;
-    allStats.append(primaryStatsVector);
-    for(RecalculatebleStat* stat : secondaryStatsVector)
-        allStats.append(stat);
-
     bool saveSuccess = true;
     for(Stat* stat : allStats){
         bool success = stat->fastSave();
@@ -369,211 +159,17 @@ bool Person::saveAllStats(bool createBackup)
 
 bool Person::loadAllStats()
 {
-//    bool successLoadStrength = loadStrength(true, true, false);
-//    bool successLoadAgility = loadAgility(true, true, false);
-//    bool successLoadIntelligence = loadIntelligence(true, true, false);
-//    bool successLoadMagic = loadMagic(true, true, false);
-//    bool successLoadBodyType = loadBodyType(true, true, false);
-//    bool successLoadWill = loadWill(true, true, false);
+    bool loadSuccess = true;
+    for(Stat* stat : allStats){
+        bool success = stat->fastLoad();
+        if(loadSuccess)
+            loadSuccess = success;
+    }
 
-//    bool successLoadMagicDamage = loadMagicDamage();
-//    bool successLoadResistPhysicalDamage = loadResistPhysicalDamage();
-//    bool successLoadResistMagicDamage = loadResistMagicDamage();
-//    bool successLoadResistPhysicalEffects = loadResistPhysicalEffects();
-//    bool successLoadResistMagicEffects = loadResistMagicEffects();
-//    bool successLoadStrengtheningPhysicalEffects = loadStrengtheningPhysicalEffects();
-//    bool successLoadStrengtheningMagicalEffects = loadStrengtheningMagicalEffects();
-//    bool successLoadMeleeAccuracy = loadMeleeAccuracy();
-//    bool successLoadRangedAccuracy = loadRangedAccuracy();
-//    bool successLoadMagicAccuracy = loadMagicAccuracy();
-//    bool successLoadEvasion = loadEvasion();
-//    bool successLoadStealth = loadStealth();
-//    bool successLoadAttentiveness = loadAttentiveness();
-//    bool successLoadLoadCapacity = loadLoadCapacity();
-//    bool successLoadInitiative = loadInitiative();
-//    bool successLoadMagicCastChance = loadMagicCastChance();
-//    bool successLoadChanceOfUsingCombatTechnique = loadChanceOfUsingCombatTechnique();
-//    bool successLoadMoveRange = loadMoveRange();
-//    bool successLoadHealth = loadHealth();
-//    bool successLoadEndurance = loadEndurance();
-//    bool successLoadMana = loadMana();
-//    bool successLoadMagicDefense = loadMagicDefense();
+    return loadSuccess;
 
-//    recalculateStats();
-//    emit FullReinitializationRequest();
-
-//    return successLoadStrength && successLoadAgility && successLoadIntelligence &&
-//            successLoadMagic && successLoadMagic && successLoadBodyType &&
-//            successLoadWill && successLoadMagicDamage && successLoadResistPhysicalDamage &&
-//            successLoadResistMagicDamage && successLoadResistPhysicalEffects &&
-//            successLoadResistMagicEffects && successLoadStrengtheningPhysicalEffects &&
-//            successLoadStrengtheningMagicalEffects && successLoadMeleeAccuracy &&
-//            successLoadRangedAccuracy && successLoadMagicAccuracy && successLoadEvasion &&
-//            successLoadStealth && successLoadAttentiveness && successLoadLoadCapacity &&
-//            successLoadInitiative && successLoadMagicCastChance && successLoadChanceOfUsingCombatTechnique &&
-//            successLoadMoveRange && successLoadHealth && successLoadEndurance && successLoadMana && successLoadMagicDefense;
     return true;
 }
-
-///*Ниже идут методы сохранения и загрузки ко всем статам. Почти все из них вызывают универсальные методы
-// *сохранения и загрузки, и только магическая защита имеет свои уникальные функции. У первичных навыков
-// *можно выбрать сохранять/загружать ли значения и бонусы, а также у загрузки - посылать ли сигнал,
-// *говорящий о том, что стат был изменён. У всех методов сохранения есть возможность выбрать сгенерирует
-// *ли запрос бекап. У всех вторичных навыков не сохраняется значение, ведь оно просто генерируется заного
-// *при любом обновлении первичных, и смысла хранить его нет. У них сохраняются только бонусы, а у навыков
-// *имеющих прогресбар, сохраняется текущее значение прогресбара.*/
-//bool Person::loadStrength(bool loadValues, bool loadBonuses, bool emittedChanged)
-//{
-//    bool success = loadStat("Strength", Bonus::STRENGTH, Strength, loadValues, false, loadBonuses);
-////    if(emittedChanged)
-////        emit StrengthChanged();
-//    return success;
-//}
-
-//bool Person::loadAgility(bool loadValues, bool loadBonuses, bool emittedChanged)
-//{
-//    bool success = loadStat("Agility", Bonus::AGILITY, Agility, loadValues, false, loadBonuses);
-////    if(emittedChanged)
-////        emit AgilityChanged();
-//    return success;
-//}
-
-//bool Person::loadIntelligence(bool loadValues, bool loadBonuses, bool emittedChanged)
-//{
-//    bool success = loadStat("Intelligence", Bonus::INTELLIGENCE, Intelligence, loadValues, false, loadBonuses);
-////    if(emittedChanged)
-////        emit IntelligenceChanged();
-//    return success;
-//}
-
-//bool Person::loadMagic(bool loadValues, bool loadBonuses, bool emittedChanged)
-//{
-//    bool success = loadStat("Magic", Bonus::MAGIC, Magic, loadValues, false, loadBonuses);
-////    if(emittedChanged)
-////        emit MagicChanged();
-//    return success;
-//}
-
-//bool Person::loadBodyType(bool loadValues, bool loadBonuses, bool emittedChanged)
-//{
-//    bool success = loadStat("BodyType", Bonus::BODYTYPE, BodyType, loadValues, false, loadBonuses);
-////    if(emittedChanged)
-////        emit BodyTypeChanged();
-//    return success;
-//}
-
-//bool Person::loadWill(bool loadValues, bool loadBonuses, bool emittedChanged)
-//{
-//    bool success = loadStat("Will", Bonus::WILL, Will, loadValues, false, loadBonuses);
-////    if(emittedChanged)
-////        emit WillChanged();
-//    return success;
-//}
-
-//bool Person::loadMagicDamage()
-//{
-//    return loadStat("MagicDamage", Bonus::MAGIC_DAMAGE, MagicDamage, false, false, true);
-//}
-
-//bool Person::loadResistPhysicalDamage()
-//{
-//    return loadStat("ResistPhysicalDamage", Bonus::RESIST_PHYSICAL_DAMAGE, ResistPhysicalDamage, false, false, true);
-//}
-
-//bool Person::loadResistMagicDamage()
-//{
-//    return loadStat("ResistMagicDamage", Bonus::RESIST_MAGIC_DAMAGE, ResistMagicDamage, false, false, true);
-//}
-
-//bool Person::loadResistPhysicalEffects()
-//{
-//    return loadStat("ResistPhysicalEffects", Bonus::RESIST_PHYSICAL_EFFECTS, ResistPhysicalEffects, false, false, true);
-//}
-
-//bool Person::loadResistMagicEffects()
-//{
-//    return loadStat("ResistMagicEffects", Bonus::RESIST_MAGIC_EFFECTS, ResistMagicEffects, false, false, true);
-//}
-
-//bool Person::loadStrengtheningPhysicalEffects()
-//{
-//    return loadStat("StrengtheningPhysicalEffects", Bonus::STRENGTHENING_PHYSICAL_EFFECTS, StrengtheningPhysicalEffects, false, false, true);
-//}
-
-//bool Person::loadStrengtheningMagicalEffects()
-//{
-//    return loadStat("StrengtheningMagicalEffects", Bonus::STRENGTHENING_MAGICAL_EFFECTS, StrengtheningMagicalEffects, false, false, true);
-//}
-
-//bool Person::loadMeleeAccuracy()
-//{
-//    return loadStat("MeleeAccuracy", Bonus::MELEE_ACCURACY, MeleeAccuracy, false, false, true);
-//}
-
-//bool Person::loadRangedAccuracy()
-//{
-//    return loadStat("RangedAccuracy", Bonus::RANGED_ACCURACY, RangedAccuracy, false, false, true);
-//}
-
-//bool Person::loadMagicAccuracy()
-//{
-//    return loadStat("MagicAccuracy", Bonus::MAGIC_ACCURACY, MagicAccuracy, false, false, true);
-//}
-
-//bool Person::loadEvasion()
-//{
-//    return loadStat("Evasion", Bonus::EVASION, Evasion, false, false, true);
-//}
-
-//bool Person::loadStealth()
-//{
-//    return loadStat("Stealth", Bonus::STEALTH, Stealth, false, false, true);
-//}
-
-//bool Person::loadAttentiveness()
-//{
-//    return loadStat("Attentiveness", Bonus::ATTENTIVENESS, Attentiveness, false, false, true);
-//}
-
-//bool Person::loadLoadCapacity()
-//{
-//    return loadStat("LoadCapacity", Bonus::LOAD_CAPACITY, LoadCapacity, false, false, true);
-//}
-
-//bool Person::loadInitiative()
-//{
-//    return loadStat("Initiative", Bonus::INITIATIVE, Initiative, false, false, true);
-//}
-
-//bool Person::loadMagicCastChance()
-//{
-//    return loadStat("MagicCastChance", Bonus::MAGIC_CAST_CHANCE, MagicCastChance, false, false, true);
-//}
-
-//bool Person::loadChanceOfUsingCombatTechnique()
-//{
-//    return loadStat("ChanceOfUsingCombatTechnique", Bonus::CHANCE_OF_USING_COMBAT_TECHNIQUE, ChanceOfUsingCombatTechnique, false, false, true);
-//}
-
-//bool Person::loadMoveRange()
-//{
-//    return loadStat("MoveRange", Bonus::MOVE_RANGE, MoveRange, false, false, true);
-//}
-
-//bool Person::loadHealth()
-//{
-//    return loadStat("Health", Bonus::HEALTH, Health, false, true, true);
-//}
-
-//bool Person::loadEndurance()
-//{
-//    return loadStat("Endurance", Bonus::ENDURANCE, Endurance, false, true, true);
-//}
-
-//bool Person::loadMana()
-//{
-//    return loadStat("Mana", Bonus::MANA, Mana, false, true, true);
-//}
 
 bool Person::saveMagicDefense(bool createBackup)
 {
@@ -1074,180 +670,6 @@ bool Person::loadMagicDefense()
         query.first();
         //Передача текущего значения прогрессбара
         magicDefense.addValue(query.value(0).toInt());
-
-        database.close();
-    }
-
-    QSqlDatabase::removeDatabase("save");
-    return true;
-}
-
-/*Универсальный метод загрузки стата. В нём представлены все возможные варианты того, что у
- *стата можно загрузить. Если у стата, который необходимо загрузить некоторых полей нет, то
- *указвается false в переменных, говорящих что загружать. В поле statName следует передать
- *имя стата так, как его переменная названа в этом классе. В перемннею statIndex следует
- *передать соответствующее стату значение enum'а StatName из Bonus*/
-bool Person::loadStat(QString statName, Bonus::StatName statIndex, Stat &stat, bool loadValue, bool loadProgressBarCurrentValue, bool loadBonuses)
-{
-    {
-        QDir dir;
-        if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName)){
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Ошибка открытия файла\n"
-            "Person выдал ошибку в методе loadStat.\n"
-            "Директории Game Saves/"+Global::DungeonName+"/Heroes/"+personName + " не существует.\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            return false;
-        }
-
-        QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
-        database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
-
-        if(!database.open()) {
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nОШИБКА: Ошибка открытия файла\n"
-            "Person выдал ошибку в методе loadStat.\n"
-            "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-
-            return false;
-        }
-
-        QSqlQuery query(database);
-        if(loadValue){
-            if( !query.exec( "SELECT value FROM Stats WHERE stat_name IS '" + statName + "';")) {
-                //Вывод предупреждения в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                        "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                        "Person выдал ошибку в методе loadStat.\n"
-                        "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
-                }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
-                }
-
-                database.close();
-                return false;
-            }
-
-            query.first();
-            stat.setValue(query.value(0).toInt());
-
-            query.clear();
-        }
-
-        if(loadProgressBarCurrentValue){
-            if( !query.exec( "SELECT progress_bar_current_value FROM Stats WHERE stat_name IS '" + statName + "';")) {
-                //Вывод предупреждения в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                        "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                        "Person выдал ошибку в методе loadStat.\n"
-                        "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
-                }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
-                }
-
-                database.close();
-                return false;
-            }
-
-            query.first();
-//            stat.setProgressBarCurrentValue(query.value(0).toInt());
-
-            query.clear();
-        }
-
-        if(loadBonuses){
-            if( !query.exec( "SELECT * FROM Bonuses WHERE stat_name = '" + statName + "';")) {
-                //Вывод предупреждения в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                        "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                        "Person выдал ошибку в методе loadStat.\n"
-                        "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
-                }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
-                }
-
-                database.close();
-                return false;
-            }
-
-            stat.removeAllBonuses();
-            while (query.next())
-                stat.addBonus(new Bonus(statIndex, query.value(1).toInt(), query.value(2).toBool(), query.value(3).toString(),
-                                        query.value(4).toInt(), query.value(5).toInt(), query.value(6).toInt(), query.value(7).toInt()));
-        }
 
         database.close();
     }

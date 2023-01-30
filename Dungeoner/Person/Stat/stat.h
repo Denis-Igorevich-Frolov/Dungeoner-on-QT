@@ -16,11 +16,15 @@ namespace Interface {
     public:
         virtual bool fastSave(){return false;}
     };
+    class fastLoadble{
+    public:
+        virtual bool fastLoad(){return false;}
+    };
 }
 
 struct PrimaryStatsStruct;
 
-class Stat: public QObject, Interface::fastSaveble
+class Stat: public QObject, Interface::fastSaveble, Interface::fastLoadble
 {
     Q_OBJECT
 public:
@@ -30,6 +34,8 @@ public:
     Stat(int maximum, QString personName, QString statName);
     Stat(int maximum, QString personName, QString statName, QVector<Stat*>& stats);
     ~Stat();
+
+    QString statName;
 
     int getValue() const;
     void setValue(int newValue);
@@ -50,9 +56,14 @@ public:
      *бонусы не высвобождается, так как это должно происходить только в классе предмета или эффекта*/
     void removeAllBonuses();
 
-    bool saveStat(bool saveValues, bool saveBonuses, bool createBackup);
+    bool saveStat(bool saveValue, bool saveBonuses, bool createBackup);
     // fastSaveble interface
     bool fastSave();
+
+    bool loadStat(bool loadValue, bool loadBonuses);
+    // fastLoadble interface
+    bool fastLoad();
+
     //Так как класс Stat унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
     Stat& operator= (const Stat &stat);
     int getMaximum() const;
@@ -75,7 +86,6 @@ protected:
     //Вычисление финального максимального значения стата с учётом всех бонусов
     void calculateFinalValue();
     QString personName;
-    QString statName;
 };
 
 /*Данный подкласс является классом всех вторичных навыков и имеет
@@ -91,9 +101,12 @@ public:
     RecalculatebleStat(int maximum, QString personName, QString statName, PrimaryStatsStruct *primaryStats);
     RecalculatebleStat(int maximum, QString personName, QString statName, PrimaryStatsStruct *primaryStats, QVector<RecalculatebleStat *>& stats);
     bool saveStat(bool createBackup);
-    virtual int recalculate(){return -1;}
     // fastSaveble interface
     bool fastSave();
+    bool loadStat();
+    // fastLoadble interface
+    bool fastLoad();
+    virtual int recalculate(){return -1;}
 protected:
     PrimaryStatsStruct* primaryStats;
 };
@@ -110,7 +123,9 @@ public:
     bool saveStat(bool createBackup);
     // fastSaveble interface
     bool fastSave();
-    ProgressBarStat& operator= (const ProgressBarStat &stat);
+    bool loadStat(bool loadBonuses, bool loadProgressBarCurrentValue);
+    // fastLoadble interface
+    bool fastLoad();
 
 private:
     int progressBarCurrentValue = 0;

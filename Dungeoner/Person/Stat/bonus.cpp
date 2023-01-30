@@ -7,7 +7,7 @@
 
 #include "bonus.h"
 
-Bonus::Bonus(StatName statName, int value, bool isPercentage, QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds)
+Bonus::Bonus(QString statName, int value, bool isPercentage, QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds)
 {
     this->statName = statName;
     if(isPercentage && value > 9999)

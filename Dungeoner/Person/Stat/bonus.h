@@ -14,37 +14,7 @@
 class Bonus
 {
 public:
-    enum StatName{
-        STRENGTH,
-        AGILITY,
-        INTELLIGENCE,
-        MAGIC,
-        BODYTYPE,
-        WILL,
-        MAGIC_DAMAGE,
-        RESIST_PHYSICAL_DAMAGE,
-        RESIST_MAGIC_DAMAGE,
-        RESIST_PHYSICAL_EFFECTS,
-        RESIST_MAGIC_EFFECTS,
-        STRENGTHENING_PHYSICAL_EFFECTS,
-        STRENGTHENING_MAGICAL_EFFECTS,
-        MELEE_ACCURACY,
-        RANGED_ACCURACY,
-        MAGIC_ACCURACY,
-        EVASION,
-        STEALTH,
-        ATTENTIVENESS,
-        LOAD_CAPACITY,
-        INITIATIVE,
-        MAGIC_CAST_CHANCE,
-        CHANCE_OF_USING_COMBAT_TECHNIQUE,
-        MOVE_RANGE,
-        HEALTH,
-        ENDURANCE,
-        MANA
-    };
-
-    Bonus(StatName statName, int value, bool isPercentage, QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds);
+    Bonus(QString statName, int value, bool isPercentage, QString bonusName, int durationDays, int durationHours, int durationMinutes, int durationSeconds);
     Bonus();
     int getValue() const;
     void setValue(int newValue);
@@ -52,7 +22,7 @@ public:
     //Определяет тип бонуса: абсолютный или процентный
     bool isPercentage = false;
     //Бонус должен знать, к какому стату он может быть применим
-    StatName statName;
+    QString statName;
     QString bonusName;
 
     friend bool operator == (const Bonus& bonus1, const Bonus& bonus2);

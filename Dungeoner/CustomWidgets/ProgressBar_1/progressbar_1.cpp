@@ -207,9 +207,6 @@ void ProgressBar_1::statChanged()
         value = stat->getProgressBarCurrentValue();
         maxValue = stat->getFinalValue();
 
-        //После изменения диапазона нужно пересчитать размер заполненной области
-        recalculationChunkWidth();
-
         CreatingBonusTooltip();
 
         if(!bonusesLableIsAppend){
@@ -225,6 +222,8 @@ void ProgressBar_1::statChanged()
             qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
         }
     }
+    value = stat->getProgressBarCurrentValue();
+    recalculationChunkWidth();
 }
 
 void ProgressBar_1::CreatingBonusTooltip()

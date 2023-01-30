@@ -1206,42 +1206,42 @@ void CharacterWindow::on_pushButton_4_clicked()
 
 void CharacterWindow::on_pushButton_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::StatName::STRENGTH, 10, false, "Тест увеличения силы", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Strength", 10, false, "Тест увеличения силы", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_2_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::STRENGTH, 10, false, "Тест увеличения силы", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Strength", 10, false, "Тест увеличения силы", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_3_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::StatName::AGILITY, 17, true, "Тест увеличения ловкости", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Agility", 17, true, "Тест увеличения ловкости", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_5_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::AGILITY, 17, true, "Тест увеличения ловкости", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Agility", 17, true, "Тест увеличения ловкости", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_6_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::StatName::INTELLIGENCE, -9, false, "Тест уменьшения интеллекта", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Intelligence", -9, false, "Тест уменьшения интеллекта", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_9_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::INTELLIGENCE, -9, false, "Тест уменьшения интеллекта", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Intelligence", -9, false, "Тест уменьшения интеллекта", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_10_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::StatName::MAGIC, -28, true, "Тест уменьшения магии", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Magic", -28, true, "Тест уменьшения магии", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_11_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::MAGIC, -28, true, "Тест уменьшения магии", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Magic", -28, true, "Тест уменьшения магии", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_pushButton_8_clicked()
@@ -1256,31 +1256,31 @@ void CharacterWindow::on_pushButton_7_clicked()
 
 void CharacterWindow::on_pushButton_17_clicked()
 {
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 3, false, "Бонус 1", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 8, false, "Бонус 2", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 1, true, "Бонус 4", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 23, false, "Бонус 5", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, -2, false, "Дебаф 1", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, -100, false, "Дебаф 2", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 25, true, "Бонус 6", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, -19, true, "Дебаф 3", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 249, false, "Бонус 7", 1, 1, 1, 1));
-    person.addBonusToStat(new Bonus(Bonus::StatName::HEALTH, 47, true, "Бонус 8", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", 3, false, "Бонус 1", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", 8, false, "Бонус 2", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", 1, true, "Бонус 4", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", 23, false, "Бонус 5", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", -2, false, "Дебаф 1", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", -100, false, "Дебаф 2", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", 25, true, "Бонус 6", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", -19, true, "Дебаф 3", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", 249, false, "Бонус 7", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("Health", 47, true, "Бонус 8", 1, 1, 1, 1));
 }
 
 
 void CharacterWindow::on_pushButton_13_clicked()
 {
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 3, false, "Бонус 1", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 8, false, "Бонус 2", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 1, true, "Бонус 4", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 23, false, "Бонус 5", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, -2, false, "Дебаф 1", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, -100, false, "Дебаф 2", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 25, true, "Бонус 6", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, -19, true, "Дебаф 3", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 249, false, "Бонус 7", 1, 1, 1, 1));
-    person.removeBonusFromStat(new Bonus(Bonus::StatName::HEALTH, 47, true, "Бонус 8", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", 3, false, "Бонус 1", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", 8, false, "Бонус 2", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", 1, true, "Бонус 4", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", 23, false, "Бонус 5", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", -2, false, "Дебаф 1", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", -100, false, "Дебаф 2", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", 25, true, "Бонус 6", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", -19, true, "Дебаф 3", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", 249, false, "Бонус 7", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("Health", 47, true, "Бонус 8", 1, 1, 1, 1));
 }
 
 
