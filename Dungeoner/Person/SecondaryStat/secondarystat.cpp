@@ -383,6 +383,7 @@ bool ProgressBarStat::saveStat(bool createBackup)
             return false;
         }
 
+        database.transaction();
         QSqlQuery query(database);
         if(!query.exec("select progress_bar_current_value from Stats limit 1;")){
             if(!query.exec("ALTER TABLE Stats ADD COLUMN progress_bar_current_value INTEGER NOT NULL DEFAULT 0;")){
@@ -440,6 +441,33 @@ bool ProgressBarStat::saveStat(bool createBackup)
 
             database.close();
             return false;
+        }
+        if(!query.exec()){
+           database.rollback();
+           //Вывод предупреждения в консоль и файл
+           QDate cd = QDate::currentDate();
+           QTime ct = QTime::currentTime();
+
+           QString error =
+                   cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                   "\nОШИБКА: Ошибка транзакции при сохранении базы данных\n"
+                   "ProgressBarStat выдал ошибку в методе saveStat.\n"
+                   "Транзакция прошла неудачно в таблице базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+           qDebug()<<error;
+
+           QFile errorFile("error log.txt");
+           if (!errorFile.open(QIODevice::Append))
+           {
+               qDebug() << "Ошибка при открытии файла логов";
+           }else{
+               errorFile.open(QIODevice::Append  | QIODevice::Text);
+               QTextStream writeStream(&errorFile);
+               writeStream<<error;
+               errorFile.close();
+           }
+        }
+        else{
+           database.commit();
         }
         database.close();
     }

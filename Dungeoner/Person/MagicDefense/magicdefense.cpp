@@ -358,7 +358,7 @@ bool MagicDefense::saveStat(bool createBackup)
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Ошибка открытия файла\n"
-                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                     "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
             qDebug()<<error;
 
@@ -380,6 +380,7 @@ bool MagicDefense::saveStat(bool createBackup)
          *стата есть уникальный id, так как у магической защиты один бонус может вносить более одного изменения,
          *а именно добавлять неопределённое количество новых бонусных чанков, и надо точно знать какой бонус
          *добавил какие чанки.*/
+        database.transaction();
         QSqlQuery query(database);
         if(!query.exec("CREATE TABLE IF NOT EXISTS MagicDefenseBonuses("
                        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -413,7 +414,7 @@ bool MagicDefense::saveStat(bool createBackup)
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Не удалось создать таблицу\n"
-                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                     "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
             qDebug()<<error;
 
@@ -442,7 +443,7 @@ bool MagicDefense::saveStat(bool createBackup)
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Не удалось обновить данные в таблице\n"
-                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                     "Не удалось обновить данные в таблице базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
             qDebug()<<error;
 
@@ -471,7 +472,7 @@ bool MagicDefense::saveStat(bool createBackup)
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Не удалось удалить данные из таблицы\n"
-                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                     "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
             qDebug()<<error;
 
@@ -503,7 +504,7 @@ bool MagicDefense::saveStat(bool createBackup)
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Не удалось создать таблицу\n"
-                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                     "Не удалось создать таблицу в базе данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
             qDebug()<<error;
 
@@ -532,7 +533,7 @@ bool MagicDefense::saveStat(bool createBackup)
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Не удалось удалить данные из таблицы\n"
-                    "Person выдал ошибку в методе saveMagicDefense.\n"
+                    "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                     "Не удалось удалить данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
             qDebug()<<error;
 
@@ -566,7 +567,7 @@ bool MagicDefense::saveStat(bool createBackup)
                 QString error =
                         cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                         "\nОШИБКА: Не удалось записать данные в таблицу\n"
-                        "Person выдал ошибку в методе saveMagicDefense.\n"
+                        "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                         "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
                 qDebug()<<error;
 
@@ -596,7 +597,7 @@ bool MagicDefense::saveStat(bool createBackup)
                         QString error =
                                 cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                                 "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                                "Person выдал ошибку в методе loadStat.\n"
+                                "MagicDefense выдал ошибку в методе loadStat.\n"
                                 "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
                         qDebug()<<error;
 
@@ -627,7 +628,7 @@ bool MagicDefense::saveStat(bool createBackup)
                         QString error =
                                 cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                                 "\nОШИБКА: Не удалось записать данные в таблицу\n"
-                                "Person выдал ошибку в методе saveMagicDefense.\n"
+                                "MagicDefense выдал ошибку в методе saveMagicDefense.\n"
                                 "Не удалось записать данные в таблицу базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
                         qDebug()<<error;
 
@@ -647,6 +648,33 @@ bool MagicDefense::saveStat(bool createBackup)
                     }
                 }
             }
+        }
+        if(!query.exec()){
+           database.rollback();
+           //Вывод предупреждения в консоль и файл
+           QDate cd = QDate::currentDate();
+           QTime ct = QTime::currentTime();
+
+           QString error =
+                   cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                   "\nОШИБКА: Ошибка транзакции при сохранении базы данных\n"
+                   "MagicDefense выдал ошибку в методе saveStat.\n"
+                   "Транзакция прошла неудачно в таблице базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+           qDebug()<<error;
+
+           QFile errorFile("error log.txt");
+           if (!errorFile.open(QIODevice::Append))
+           {
+               qDebug() << "Ошибка при открытии файла логов";
+           }else{
+               errorFile.open(QIODevice::Append  | QIODevice::Text);
+               QTextStream writeStream(&errorFile);
+               writeStream<<error;
+               errorFile.close();
+           }
+        }
+        else{
+           database.commit();
         }
         database.close();
     }
@@ -668,7 +696,7 @@ bool MagicDefense::loadStat()
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
             "\nОШИБКА: Ошибка открытия файла\n"
-            "Person выдал ошибку в методе loadMagicDefense.\n"
+            "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
             "Директории Game Saves/"+Global::DungeonName+"/Heroes/"+personName + " не существует.\n\n";
             qDebug()<<error;
 
@@ -697,7 +725,7 @@ bool MagicDefense::loadStat()
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
             "\nОШИБКА: Ошибка открытия файла\n"
-            "Person выдал ошибку в методе loadMagicDefense.\n"
+            "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
             "Файл Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite не удалось открыть.\n\n";
             qDebug()<<error;
 
@@ -724,7 +752,7 @@ bool MagicDefense::loadStat()
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                    "Person выдал ошибку в методе loadMagicDefense.\n"
+                    "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
                     "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
             qDebug()<<error;
 
@@ -758,7 +786,7 @@ bool MagicDefense::loadStat()
                     QString error =
                             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                             "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                            "Person выдал ошибку в методе loadMagicDefense.\n"
+                            "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
                             "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
                     qDebug()<<error;
 
@@ -805,7 +833,7 @@ bool MagicDefense::loadStat()
             QString error =
                     cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
                     "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                    "Person выдал ошибку в методе loadStat.\n"
+                    "MagicDefense выдал ошибку в методе loadStat.\n"
                     "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
             qDebug()<<error;
 

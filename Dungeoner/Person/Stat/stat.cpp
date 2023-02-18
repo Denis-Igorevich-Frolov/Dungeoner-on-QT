@@ -206,6 +206,7 @@ bool Stat::saveStat(bool saveValue, bool saveBonuses, bool createBackup)
         }
 
         //Создание таблицы стата
+        database.transaction();
         QSqlQuery query(database);
         if(!query.exec("CREATE TABLE IF NOT EXISTS Stats("
                        "stat_name TEXT NOT NULL, "
@@ -382,7 +383,33 @@ bool Stat::saveStat(bool saveValue, bool saveBonuses, bool createBackup)
                 }
             }
         }
+        if(!query.exec()){
+           database.rollback();
+           //Вывод предупреждения в консоль и файл
+           QDate cd = QDate::currentDate();
+           QTime ct = QTime::currentTime();
 
+           QString error =
+                   cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                   "\nОШИБКА: Ошибка транзакции при сохранении базы данных\n"
+                   "Stat выдал ошибку в методе saveStat.\n"
+                   "Транзакция прошла неудачно в таблице базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+           qDebug()<<error;
+
+           QFile errorFile("error log.txt");
+           if (!errorFile.open(QIODevice::Append))
+           {
+               qDebug() << "Ошибка при открытии файла логов";
+           }else{
+               errorFile.open(QIODevice::Append  | QIODevice::Text);
+               QTextStream writeStream(&errorFile);
+               writeStream<<error;
+               errorFile.close();
+           }
+        }
+        else{
+           database.commit();
+        }
         database.close();
     }
     QSqlDatabase::removeDatabase("save");

@@ -1322,13 +1322,13 @@ void CharacterWindow::on_pushButton_15_clicked()
 
 void CharacterWindow::on_pushButton_12_clicked()
 {
-    person.removeBonusFromStat(new MagicDefenseBonus(QVector<int>{3, 2, 1, 4}, "Бонусные ячейки 2", 1, 1, 1, 1));
+    person.addBonusToStat(new Bonus("MagicDamage", 17, true, "Тест увеличения MagicDamage", 1, 1, 1, 1));
 }
 
 
 void CharacterWindow::on_pushButton_14_clicked()
 {
-    person.removeBonusFromStat(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition::ALL, 1, true, "Бонус ко всем ячейкам", 1, 1, 1, 1));
+    person.removeBonusFromStat(new Bonus("MagicDamage", 17, true, "Тест увеличения MagicDamage", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_SaveButton_clicked()

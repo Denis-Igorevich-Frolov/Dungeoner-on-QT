@@ -1861,3 +1861,143 @@ MagicDefense выдал предупреждение в методе removeBonus
 MagicDefense выдал предупреждение в методе removeBonus.
 При попытке удалить MagicDefenseBonus, он не был обнаружен.
 
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  19:06:49
+ОШИБКА: Не удалось создать таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
