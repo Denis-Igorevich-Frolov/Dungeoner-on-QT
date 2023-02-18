@@ -40,6 +40,7 @@ public:
     bool fastSave();
     bool loadStat(bool loadBonuses, bool loadProgressBarCurrentValue);
     bool fastLoad();
+    bool removeBonus(Bonus *bonus);
 
 private:
     int progressBarCurrentValue = 0;

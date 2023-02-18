@@ -201,12 +201,11 @@ void ProgressBar_1::setStat(ProgressBarStat *newStat)
 
 void ProgressBar_1::statChanged()
 {
+    value = stat->getProgressBarCurrentValue();
+    maxValue = stat->getFinalValue();
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 4 позиции, если это изменится, то надо поменять это и здесь*/
     if(!stat->getBonuses().isEmpty()){
-        value = stat->getProgressBarCurrentValue();
-        maxValue = stat->getFinalValue();
-
         CreatingBonusTooltip();
 
         if(!bonusesLableIsAppend){
@@ -222,7 +221,8 @@ void ProgressBar_1::statChanged()
             qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
         }
     }
-    value = stat->getProgressBarCurrentValue();
+    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+
     recalculationChunkWidth();
 }
 

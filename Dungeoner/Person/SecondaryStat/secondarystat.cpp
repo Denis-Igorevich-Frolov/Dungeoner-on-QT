@@ -561,6 +561,51 @@ bool ProgressBarStat::fastLoad()
     return loadStat(true, true);
 }
 
+bool ProgressBarStat::removeBonus(Bonus *bonus)
+{
+    QMutableVectorIterator<Bonus*> iterator(bonuses);
+    iterator.toBack();
+    Bonus* BNS;
+    while(iterator.hasPrevious()){
+        BNS = iterator.previous();
+        if(*BNS==*bonus){
+            delete BNS;
+            iterator.remove();
+
+            calculateFinalValue();
+            if(progressBarCurrentValue>finalValue)
+                progressBarCurrentValue=finalValue;
+            emit statChanged();
+            return true;
+        }
+    }
+    /*Если ничего найдено небыло, то выводится предупреждение. Вызывающему классу следует
+     *запросить полный пересчёт всех векторов чанков и провести их полную переинициализацию.*/
+
+    //Вывод предупреждения в консоль и файл
+    QDate cd = QDate::currentDate();
+    QTime ct = QTime::currentTime();
+
+    QString error =
+    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+    "\nПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus\n"
+    "MagicDefense выдал предупреждение в методе removeBonus.\n"
+    "При попытке удалить MagicDefenseBonus, он не был обнаружен.\n\n";
+    qDebug()<<error;
+
+    QFile errorFile("error log.txt");
+    if (!errorFile.open(QIODevice::Append))
+    {
+        qDebug() << "Ошибка при открытии файла логов";
+    }else{
+        errorFile.open(QIODevice::Append  | QIODevice::Text);
+        QTextStream writeStream(&errorFile);
+        writeStream<<error;
+        errorFile.close();
+    }
+    return false;
+}
+
 PrimaryStatsStruct::PrimaryStatsStruct(QString personName, QVector<Stat *>& primaryStats)
 {
     Strength = new Stat(999999, personName, "Strength", primaryStats);

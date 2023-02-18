@@ -49,11 +49,11 @@ bool Stat::removeBonus(Bonus *bonus)
 {
     QMutableVectorIterator<Bonus*> iterator(bonuses);
     iterator.toBack();
-    Bonus* MD;
+    Bonus* BNS;
     while(iterator.hasPrevious()){
-        MD = iterator.previous();
-        if(*MD==*bonus){
-            delete MD;
+        BNS = iterator.previous();
+        if(*BNS==*bonus){
+            delete BNS;
             iterator.remove();
 
             calculateFinalValue();
