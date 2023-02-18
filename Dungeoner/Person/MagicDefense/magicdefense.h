@@ -6,17 +6,21 @@
 #ifndef MAGICDEFENSE_H
 #define MAGICDEFENSE_H
 
+#include "Person/SecondaryStat/secondarystat.h"
 #include "chunk.h"
 #include "magicdefensebonus.h"
 #include "qobject.h"
 
 #include <QVector>
 
-class MagicDefense: public QObject
+struct PrimaryStatsStruct;
+
+class MagicDefense: public RecalculatebleStat
 {
     Q_OBJECT
 public:
     ~MagicDefense();
+    MagicDefense(QString personName, PrimaryStatsStruct* primaryStats, QVector<RecalculatebleStat *>& stats);
 
     int getValue() const;
 
@@ -39,6 +43,15 @@ public:
     void HealOneChunk();
     //Приравнивает значение всех чанков к их максимальному значению
     void HealAllChunk();
+
+    bool saveStat(bool createBackup);
+    bool loadStat();
+
+    bool fastSave();
+    bool fastLoad();
+
+    //Вычисление текущего общего заполненного значения всех чанков прогрессбара
+    void calculateValue();
 
     int getTotalValue() const;
 
@@ -71,10 +84,14 @@ public:
     //Получение количества родных чанков. Нужно только для подсказок
     int getNativeChunksSize();
 
-signals:
-    void bonusesChanged();
+    //Перерасчёт количества родных чанков магической защиты
+    int recalculate();
+
+    int getWillUntilNextChunk() const;
 
 private:
+    //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки
+    int willUntilNextChunk = 0;
     /*Добавление чанка в вектор бонусных чанков. В метод передаётся указатель на новый чанк, затем его
      *текущее значение обнуляется и указатель добавляется в конец вектора бонусных чанков. Новый чанк
      *будет иметь текущее значение 0, так как все бонусы дают прибавку только к максимальному значению,
@@ -90,8 +107,6 @@ private:
 
     //Максимальное значение всего прогрессбара. То есть сумма всех максимальных значений всех чанков
     int totalValue = 0;
-    //Текущее общее заполненное значение всех чанков прогрессбара. То есть сумма всех текущих значений всех чанков
-    int value = 0;
     //Максимальное значение без чёта бонусов. Хранится для выведения подсказки
     int totalValueWithoutBonuses = 0;
 
@@ -119,9 +134,6 @@ private:
     QVector<Chunk*> bonusChunks;
     //Вектор бонусных чанков, которые влезли в предел и будут добавлены в конец прогрессбара
     QVector<Chunk*> finalBonusChunks;
-
-    //Вычисление текущего общего заполненного значения всех чанков прогрессбара
-    void calculateValue();
 
     /*Очистка вектора родных чанков. Нужно быть осторожным в вызове этого метода, ведь он сам
      *не перерисовывает прогрессбар. После его вызова ОБЯЗАТЕЛЬНО должна быть переинициализация

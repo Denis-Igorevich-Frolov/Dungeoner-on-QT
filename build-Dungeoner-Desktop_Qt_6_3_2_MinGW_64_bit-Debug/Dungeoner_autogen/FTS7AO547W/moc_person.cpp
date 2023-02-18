@@ -22,7 +22,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Person_t {
-    uint offsetsAndSizes[18];
+    uint offsetsAndSizes[14];
     char stringdata0[7];
     char stringdata1[28];
     char stringdata2[1];
@@ -30,8 +30,6 @@ struct qt_meta_stringdata_Person_t {
     char stringdata4[13];
     char stringdata5[13];
     char stringdata6[13];
-    char stringdata7[17];
-    char stringdata8[17];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Person_t::offsetsAndSizes) + ofs), len 
@@ -43,9 +41,7 @@ static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person = {
         QT_MOC_LITERAL(36, 20),  // "fullReinitialization"
         QT_MOC_LITERAL(57, 12),  // "saveAllStats"
         QT_MOC_LITERAL(70, 12),  // "createBackup"
-        QT_MOC_LITERAL(83, 12),  // "loadAllStats"
-        QT_MOC_LITERAL(96, 16),  // "saveMagicDefense"
-        QT_MOC_LITERAL(113, 16)   // "loadMagicDefense"
+        QT_MOC_LITERAL(83, 12)   // "loadAllStats"
     },
     "Person",
     "FullReinitializationRequest",
@@ -53,9 +49,7 @@ static const qt_meta_stringdata_Person_t qt_meta_stringdata_Person = {
     "fullReinitialization",
     "saveAllStats",
     "createBackup",
-    "loadAllStats",
-    "saveMagicDefense",
-    "loadMagicDefense"
+    "loadAllStats"
 };
 #undef QT_MOC_LITERAL
 
@@ -65,7 +59,7 @@ static const uint qt_meta_data_Person[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -73,22 +67,18 @@ static const uint qt_meta_data_Person[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   50,    2, 0x06,    1 /* Public */,
+       1,    0,   38,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   51,    2, 0x0a,    2 /* Public */,
-       4,    1,   52,    2, 0x0a,    3 /* Public */,
-       6,    0,   55,    2, 0x0a,    5 /* Public */,
-       7,    1,   56,    2, 0x0a,    6 /* Public */,
-       8,    0,   59,    2, 0x0a,    8 /* Public */,
+       3,    0,   39,    2, 0x0a,    2 /* Public */,
+       4,    1,   40,    2, 0x0a,    3 /* Public */,
+       6,    0,   43,    2, 0x0a,    5 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Bool, QMetaType::Bool,    5,
-    QMetaType::Bool,
     QMetaType::Bool, QMetaType::Bool,    5,
     QMetaType::Bool,
 
@@ -106,10 +96,6 @@ void Person::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 2: { bool _r = _t->saveAllStats((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 3: { bool _r = _t->loadAllStats();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 4: { bool _r = _t->saveMagicDefense((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 5: { bool _r = _t->loadMagicDefense();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -133,7 +119,7 @@ const QMetaObject Person::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Person_t
 , QtPrivate::TypeAndForceComplete<Person, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
 
 
 >,
@@ -160,13 +146,13 @@ int Person::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 4)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 4;
     }
     return _id;
 }

@@ -58,6 +58,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefense.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/SecondaryStat/secondarystat.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/SecondaryStat/secondarystat.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.cpp \

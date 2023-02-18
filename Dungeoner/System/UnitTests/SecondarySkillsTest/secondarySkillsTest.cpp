@@ -5,6 +5,8 @@
  ***************************************************************************************/
 
 #include "secondarySkillsTest.h"
+#include "Person/MagicDefense/chunk.h"
+#include "Person/MagicDefense/magicdefense.h"
 #include <QTest>
 
 SecondarySkillsTest::SecondarySkillsTest(QObject *parent)
@@ -1443,12 +1445,12 @@ void SecondarySkillsTest::recalculateMagicDefense()
     person.getStats()->primaryStats->BodyType->setValue(bodyType);
     person.getStats()->primaryStats->Will->setValue(will);
 
-    person.recalculateMagicDefense();
+    person.getStats()->secondaryStats->magicDefense->recalculate();
 
     /*Так как изначальный вектор является вектором указателей, а мне требуется сравнивать именно значения,
      *здесь эти указатели разыменовываются и помещаются в новый вектор уже с типом данных просто Chunk.*/
     QVector<Chunk> actualChunks{};
-    for(Chunk* c : person.getMagicDefense()->getChunks())
+    for(Chunk* c : person.getStats()->secondaryStats->magicDefense->getChunks())
         actualChunks.append(*c);
 
     QCOMPARE(actualChunks, result);

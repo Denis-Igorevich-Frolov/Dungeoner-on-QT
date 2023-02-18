@@ -309,7 +309,7 @@ void ProgressBar_2::setValue(int value)
 void ProgressBar_2::setStat(MagicDefense *newStat)
 {
     stat = newStat;
-    connect(stat, &MagicDefense::bonusesChanged, this, &ProgressBar_2::bonusesChanged);
+    connect(stat, &MagicDefense::statChanged, this, &ProgressBar_2::statChanged);
 }
 
 //Пересчёт размера заполненной области и позиций разделителей
@@ -694,9 +694,10 @@ void ProgressBar_2::resizeEvent(QResizeEvent *event)
     redrawChunk();
 }
 
-void ProgressBar_2::bonusesChanged()
+void ProgressBar_2::statChanged()
 {
     chunks = stat->getChunks();
+    value = stat->getValue();
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent
      *на 6 позиции, если это изменится, то надо поменять это и здесь*/
     if(stat!=nullptr){
@@ -729,6 +730,7 @@ void ProgressBar_2::bonusesChanged()
                 qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
             }
         }
+
         recalculationChunkWidth();
     }
 }

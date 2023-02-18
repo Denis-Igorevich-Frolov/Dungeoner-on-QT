@@ -112,6 +112,8 @@ set(PROJECT_SOURCES
         CustomWidgets/Item/I_stylemaster.cpp
         System/UnitTests/SecondarySkillsTest/secondarySkillsTest.h
         System/UnitTests/SecondarySkillsTest/secondarySkillsTest.cpp
+        Person/SecondaryStat/secondarystat.h
+        Person/SecondaryStat/secondarystat.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

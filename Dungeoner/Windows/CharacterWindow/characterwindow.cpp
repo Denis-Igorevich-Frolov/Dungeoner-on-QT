@@ -420,7 +420,7 @@ void CharacterWindow::associatingLabelsWithStat()
     ui->Endurance->getProgressBar()->setStat(person.getStats()->secondaryStats->Endurance);
     ui->Mana->getProgressBar()->setStat(person.getStats()->secondaryStats->Mana);
 
-    ui->MagicDefense->getProgressBar()->setStat(person.getMagicDefense());
+    ui->MagicDefense->getProgressBar()->setStat(person.getStats()->secondaryStats->magicDefense);
 }
 
 /*Данный метод связывает все слоты показа и сокрытия подсказки у всех
@@ -606,7 +606,7 @@ void CharacterWindow::initSecondaryStatsWidgets()
     ui->Mana->getProgressBar()->setMaxValue(person.getStats()->secondaryStats->Mana->getFinalValue());
     manaSetValue(person.getStats()->secondaryStats->Mana->getProgressBarCurrentValue());
 
-    MagicDefense* magicDefense = person.getMagicDefense();
+    MagicDefense* magicDefense = person.getStats()->secondaryStats->magicDefense;
     ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
                                                   magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
 }
@@ -1049,7 +1049,7 @@ void CharacterWindow::refreshDisplayStats()
     if(!isManualStatReplacement)
         initPrimaryStatsWidgets();
     //Задание значения воли, для подсказки, требуемой до получения нового чанка магической защиты
-    ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.willUntilNextChunk;
+    ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.getStats()->secondaryStats->magicDefense->getWillUntilNextChunk();
     //Инициализация получеными значениями
     initSecondaryStatsWidgets();
 }
@@ -1200,8 +1200,8 @@ void CharacterWindow::on_pushButton_4_clicked()
     enduranceSetValue(person.getStats()->secondaryStats->Endurance->getFinalValue());
     manaSetValue(person.getStats()->secondaryStats->Mana->getFinalValue());
 
-    person.getMagicDefense()->HealAllChunk();
-    ui->MagicDefense->getProgressBar()->setValue(person.getMagicDefense()->getValue());
+    person.getStats()->secondaryStats->magicDefense->HealAllChunk();
+//    ui->MagicDefense->getProgressBar()->setValue(person.getStats()->secondaryStats->magicDefense->getValue());
 }
 
 void CharacterWindow::on_pushButton_clicked()
@@ -1322,13 +1322,13 @@ void CharacterWindow::on_pushButton_15_clicked()
 
 void CharacterWindow::on_pushButton_12_clicked()
 {
-
+    person.removeBonusFromStat(new MagicDefenseBonus(QVector<int>{3, 2, 1, 4}, "Бонусные ячейки 2", 1, 1, 1, 1));
 }
 
 
 void CharacterWindow::on_pushButton_14_clicked()
 {
-
+    person.removeBonusFromStat(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition::ALL, 1, true, "Бонус ко всем ячейкам", 1, 1, 1, 1));
 }
 
 void CharacterWindow::on_SaveButton_clicked()

@@ -656,6 +656,12 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/SecondaryStat/secondarystat.h",
+			"MU",
+			"JXRZXYGTMJ/moc_secondarystat.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h",
 			"MU",
 			"RTMTGG3MSQ/moc_bonus.cpp",
@@ -933,6 +939,11 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Person/SecondaryStat/secondarystat.cpp",
 			"MU",
 			null
 		],

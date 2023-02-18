@@ -5,10 +5,11 @@
 #ifndef PERSON_H
 #define PERSON_H
 
+#include "Person/MagicDefense/magicdefensebonus.h"
+#include "Person/SecondaryStat/secondarystat.h"
 #include "Person/Stat/stat.h"
 
 #include <Global/global.h>
-#include <Person/MagicDefense/magicdefense.h>
 
 #include <qspinbox.h>
 
@@ -30,13 +31,6 @@ public:
     //Перерасчёт вторичных навыков
     void recalculateStats();
 
-    //Перерасчёт количества родных чанков магической защиты
-    void recalculateMagicDefense();
-
-    MagicDefense* getMagicDefense();
-
-    //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки
-    int willUntilNextChunk = 0;
     QString getPersonName() const;
     void setPersonName(const QString &newPersonName);
 
@@ -53,9 +47,6 @@ public slots:
     bool saveAllStats(bool createBackup);
     bool loadAllStats();
 
-    bool saveMagicDefense(bool createBackup);
-    bool loadMagicDefense();
-
 private:
     //Создание бекапа сохранений в отдельной папке в той же директории, что и текущее сохранение
     void createBackup();
@@ -66,7 +57,6 @@ private:
     QVector<RecalculatebleStat *> secondaryStatsVector;
     QVector<Stat*> allStats;
     StatsStruct* stats;
-    MagicDefense magicDefense;
 };
 
 #endif // PERSON_H

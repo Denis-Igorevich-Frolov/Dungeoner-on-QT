@@ -12,12 +12,11 @@
 #ifndef PROGRESSBAR_1_H
 #define PROGRESSBAR_1_H
 
+#include "Person/SecondaryStat/secondarystat.h"
 #include <QWidget>
 #include <qgridlayout.h>
 
 #include <CustomWidgets/LabelWithTooltip/labelwithtooltip.h>
-
-#include <Person/Stat/stat.h>
 
 namespace Ui {
 class ProgressBar_1;

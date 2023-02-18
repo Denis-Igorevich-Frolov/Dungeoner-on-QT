@@ -1,0 +1,305 @@
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+ProgressBarStat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+ProgressBarStat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:30
+ОШИБКА: Ошибка открытия файла
+ProgressBarStat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+ProgressBarStat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+ProgressBarStat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+Stat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:32
+ОШИБКА: Ошибка открытия файла
+ProgressBarStat выдал ошибку в методе loadStat.
+Директории Game Saves/New Dungeon/Heroes/new hero не существует.
+
+16-February-2023  17:12:46
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+

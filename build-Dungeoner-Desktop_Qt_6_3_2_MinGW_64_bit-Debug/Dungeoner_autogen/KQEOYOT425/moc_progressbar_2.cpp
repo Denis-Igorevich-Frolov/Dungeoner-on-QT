@@ -25,7 +25,7 @@ QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ProgressBar_2_t {
     uint offsetsAndSizes[6];
     char stringdata0[14];
-    char stringdata1[15];
+    char stringdata1[12];
     char stringdata2[1];
 };
 #define QT_MOC_LITERAL(ofs, len) \
@@ -33,11 +33,11 @@ struct qt_meta_stringdata_ProgressBar_2_t {
 static const qt_meta_stringdata_ProgressBar_2_t qt_meta_stringdata_ProgressBar_2 = {
     {
         QT_MOC_LITERAL(0, 13),  // "ProgressBar_2"
-        QT_MOC_LITERAL(14, 14),  // "bonusesChanged"
-        QT_MOC_LITERAL(29, 0)   // ""
+        QT_MOC_LITERAL(14, 11),  // "statChanged"
+        QT_MOC_LITERAL(26, 0)   // ""
     },
     "ProgressBar_2",
-    "bonusesChanged",
+    "statChanged",
     ""
 };
 #undef QT_MOC_LITERAL
@@ -70,7 +70,7 @@ void ProgressBar_2::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         auto *_t = static_cast<ProgressBar_2 *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->bonusesChanged(); break;
+        case 0: _t->statChanged(); break;
         default: ;
         }
     }

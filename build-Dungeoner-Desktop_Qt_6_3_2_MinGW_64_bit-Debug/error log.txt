@@ -1771,3 +1771,43 @@ MagicDefense выдал предупреждение в методе removeBonus
 MagicDefense выдал предупреждение в методе removeBonus.
 При попытке удалить MagicDefenseBonus, он не был обнаружен.
 
+17-February-2023  23:51:44
+ОШИБКА: Не удалось считать данные из таблицы
+Person выдал ошибку в методе loadMagicDefense.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  00:05:27
+ОШИБКА: Не удалось записать данные в таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  00:18:49
+ОШИБКА: Не удалось записать данные в таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  00:23:38
+ОШИБКА: Не удалось записать данные в таблицу
+Stat выдал ошибку в методе saveStat.
+Не удалось записать данные в таблицу базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+
+18-February-2023  08:58:35
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+18-February-2023  08:58:36
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+18-February-2023  08:59:07
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+18-February-2023  08:59:09
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
