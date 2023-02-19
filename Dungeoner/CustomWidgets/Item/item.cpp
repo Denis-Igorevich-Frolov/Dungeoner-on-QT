@@ -8,8 +8,6 @@
 #include "qpainter.h"
 #include "ui_item.h"
 
-#include <qdir.h>
-
 Item::Item(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Item)
@@ -56,6 +54,9 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     QDir dir;
     if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName))
         dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
+
+    dir.cd("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
+    loadStyles(dir);
 
     if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
          this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
@@ -401,6 +402,22 @@ void Item::hidenEffects(bool hiden)
     }
 }
 
+bool Item::loadStyles(QDir dir)
+{
+    if (dir.cd("Styles")) {
+        QStringList folders = dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot, QDir::Name);
+        if(folders.size() == 0)
+            return false;
+        else foreach (QString folder, folders) {
+            //!!!!
+            Item* itemStyle = new Item(folderName+"/Styles/"+folder, QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+            styles.append(itemStyle);
+        }
+        return true;
+    }else
+    return false;
+}
+
 void Item::setId(int newId)
 {
     id = newId;
@@ -440,7 +457,7 @@ void Item::setCurrentStyle(int newCurrentStyle)
         this->pressedColor = QColor(0, 0, 0, 50);
     }
 
-    ui->Image->setPixmap(QPixmap::fromImage(this->image,Qt::AutoColor));
+    ui->Image->setPixmap(QPixmap::fromImage(currentItem->image,Qt::AutoColor));
 
     this->itemTypes = currentItem->itemTypes;
     setItemName(currentItem->itemName);

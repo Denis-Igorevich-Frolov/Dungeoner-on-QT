@@ -10,6 +10,7 @@
 #include "Person/MagicDefense/magicdefensebonus.h"
 #include "Person/Stat/bonus.h"
 #include "System/OutlineEffect/outlineeffect.h"
+#include "qdir.h"
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
 
@@ -172,6 +173,8 @@ public:
 
     //Класс для оптимизации полностью скрывающий итем и его стили. Вызывается только когда итема и так не должно быть видно
     void hidenEffects(bool hiden);
+
+    bool loadStyles(QDir dir);
 
 private slots:
     //Эффекты при прожатии итема
