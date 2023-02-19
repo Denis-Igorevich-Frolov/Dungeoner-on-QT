@@ -6,7 +6,6 @@
 #ifndef ITEM_H
 #define ITEM_H
 
-//#include "CustomWidgets/InventoryCell/inventorycell.h"
 #include "Global/global.h"
 #include "Person/MagicDefense/magicdefensebonus.h"
 #include "Person/Stat/bonus.h"
@@ -182,6 +181,16 @@ private slots:
 
     void on_pushButton_released();
 
+    void on_StyleButton_1_clicked();
+
+    void on_StyleButton_2_clicked();
+
+    void on_StyleButton_3_clicked();
+
+    void on_StyleButton_4_clicked();
+
+    void on_StyleButton_5_clicked();
+
 private:
     Ui::Item *ui;
 
@@ -196,6 +205,8 @@ private:
     int maxDurability = -1;
     int currentDurability = -1;
     ItemCondition itemCondition = CRASHPROOF;
+
+    void setChosenStyleButtonStyle();
 
     int minDamage = 0;
     int maxDamage = 0;

@@ -84,5 +84,8 @@
         <file>Textures PNG/Unknown-Item.png</file>
         <file>Textures PNG/Inventory-Item-Broken-BG.png</file>
         <file>Textures PNG/Disabled-Inventory-Item-Broken-BG.png</file>
+        <file>Textures PNG/Item-Style-Button-Chosen.png</file>
+        <file>Textures PNG/Item-Style-Button-Hovered-Chosen.png</file>
+        <file>Textures PNG/Item-Style-Button-Pressed-Chosen.png</file>
     </qresource>
 </RCC>

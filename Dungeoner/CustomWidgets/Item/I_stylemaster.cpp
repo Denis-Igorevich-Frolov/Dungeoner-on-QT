@@ -41,3 +41,27 @@ QString I_stylemaster::StyleButtonStile()
     "   background-image: url(:/Inventory/Textures PNG/Item-Style-Button-Pressed.png);"
     "}";
 }
+
+QString I_stylemaster::StyleChosenButtonStile()
+{
+    return
+    "QPushButton{"
+    "   background: none;"
+    "   border: none;"
+    "   font: bold 7px;"
+    "   color: #281802;"
+    "   background-image: url(:/Inventory/Textures PNG/Item-Style-Button-Chosen.png);"
+    "}"
+    ""
+    "QPushButton::hover{"
+    "   background: none;"
+    "   border: none;"
+    "   background-image: url(:/Inventory/Textures PNG/Item-Style-Button-Hovered-Chosen.png);"
+    "}"
+    ""
+    "QPushButton::pressed{"
+    "   background: none;"
+    "   border: none;"
+    "   background-image: url(:/Inventory/Textures PNG/Item-Style-Button-Pressed-Chosen.png);"
+    "}";
+}

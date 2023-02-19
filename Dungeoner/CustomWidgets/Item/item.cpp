@@ -83,7 +83,6 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     this->isPressable = isPressable;
     setDisabledSyle(isDisabled);
     this->isNew = isNew;
-    setCurrentStyle(currentStyle);
 
     setStyleButtonsStyle();
 
@@ -96,6 +95,8 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
 
     if(this->quantity > 1)
         ui->Quantity->setText(QString::number(this->quantity));
+
+    setCurrentStyle(currentStyle);
 }
 
 void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, int shadowYOffset, QColor color)
@@ -134,7 +135,6 @@ void Item::setStyleButtonsStyle()
         ui->StyleButtonsWrapper->setFixedHeight(14*styles.size()-2);
         //Получают стили и видимость столько кнопок, сколько стилей есть у вещи
         for(int i = 0; i < ui->StyleButtonsWrapper->children().size()-1; i++){
-            ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleButtonStile());
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setFont(QFont("TextFont"));
         }
         for(int i = 4; i>styles.size()-1; i--)
@@ -419,6 +419,8 @@ void Item::setCurrentStyle(int newCurrentStyle)
         newCurrentStyle = styles.size()-1;
 
     currentStyle = newCurrentStyle;
+
+    setChosenStyleButtonStyle();
 }
 
 QVector<Item::Slots> Item::getCellSlots() const
@@ -596,4 +598,50 @@ void Item::setQuantity(int newQuantity)
 
     if(this->quantity > 1)
         ui->Quantity->setText(QString::number(this->quantity));
+}
+
+void Item::setChosenStyleButtonStyle()
+{
+    for(int i = 0; i<styles.size(); i++){
+        if(i == currentStyle){
+            ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleChosenButtonStile());
+            qDebug()<<'f';
+        }
+        else
+            ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleButtonStile());
+    }
+}
+
+void Item::on_StyleButton_1_clicked()
+{
+    setCurrentStyle(0);
+    setChosenStyleButtonStyle();
+}
+
+
+void Item::on_StyleButton_2_clicked()
+{
+    setCurrentStyle(1);
+    setChosenStyleButtonStyle();
+}
+
+
+void Item::on_StyleButton_3_clicked()
+{
+    setCurrentStyle(2);
+    setChosenStyleButtonStyle();
+}
+
+
+void Item::on_StyleButton_4_clicked()
+{
+    setCurrentStyle(3);
+    setChosenStyleButtonStyle();
+}
+
+
+void Item::on_StyleButton_5_clicked()
+{
+    setCurrentStyle(4);
+    setChosenStyleButtonStyle();
 }
