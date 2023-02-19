@@ -25,8 +25,14 @@ MagicDefense::~MagicDefense()
         delete bonus;
 }
 
-MagicDefense::MagicDefense(QString personName, PrimaryStatsStruct *primaryStats, QVector<RecalculatebleStat *> &stats):
+MagicDefense::MagicDefense(QString personName, PrimaryStatsStruct *primaryStats):
     RecalculatebleStat(600000, personName, "MagicDefense", primaryStats)
+{}
+
+/*Дополнительный конструктор с передоваемой ссылкой на вектор указателей на стат. При
+ *использовании этого конструктора, полученный стат автоматически добавится в коллекцию.*/
+MagicDefense::MagicDefense(QString personName, PrimaryStatsStruct *primaryStats, QVector<RecalculatebleStat *> &stats):
+    MagicDefense(personName, primaryStats)
 {
     stats.append(this);
 }
@@ -44,8 +50,8 @@ void MagicDefense::setValue(int newValue)
 {
     /*Исходя из максимального значения чанка в 10000 и максимального их количества
      *в 60, значение никогда не превысит 600000, а значение ниже 0 бессмысленно*/
-    if(newValue>600000)
-        newValue = 600000;
+    if(newValue>maximum)
+        newValue = maximum;
     else if(newValue<0)
         newValue = 0;
 
@@ -79,7 +85,6 @@ void MagicDefense::addBonus(MagicDefenseBonus *bonus)
     //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
     recalculationChunks();
     addValue(value);
-    emit statChanged();
 }
 
 /*Удаление бонуса. В метод передаётся указатель на бонус, который должен быть удалён. При этом
@@ -102,7 +107,6 @@ bool MagicDefense::removeBonus(MagicDefenseBonus *bonus)
             //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
             recalculationChunks();
             addValue(value);
-            emit statChanged();
             return true;
         }
     }
@@ -184,6 +188,7 @@ int MagicDefense::getNativeChunksSize()
     return nativeChunks.size();
 }
 
+//Перерасчёт количества родных чанков магической защиты
 int MagicDefense::recalculate()
 {
     int numberOfChunks = 0;
@@ -332,12 +337,18 @@ void MagicDefense::HealAllChunk()
     emit statChanged();
 }
 
-bool MagicDefense::saveStat(bool createBackup)
+bool MagicDefense::saveStat(bool saveValue, bool saveBonuses, bool createBackup)
 {
-    //Сначала сохраняется текущее значение прогрессбара для магической защиты
+    if(createBackup)
+        this->createBackup();
+
     bool succesSaveValue = true;
-    Stat::saveStat(true, false, false);
-    //Скобки нужны чтобы к моменту закрытия базы данных QSqlDatabase database вышел из своей зоны видимости и удалился
+
+    if(saveValue){
+        //Сохранение текущего значение прогрессбара для магической защиты
+        succesSaveValue = Stat::saveStat(true, false, false);
+    }
+    if(saveBonuses)
     {
         //Создаётся директория, если её небыло
         QDir dir;
@@ -346,9 +357,6 @@ bool MagicDefense::saveStat(bool createBackup)
 
         QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE", "save");
         database.setDatabaseName("Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite");
-
-        if(createBackup)
-            this->createBackup();
 
         if(!database.open()) {
             //Вывод предупреждения в консоль и файл
@@ -376,11 +384,13 @@ bool MagicDefense::saveStat(bool createBackup)
             return false;
         }
 
+        //Инициация транзакции
+        database.transaction();
+
         /*Создаётся таблица бонусов магической защиты. У каждого такого бонуса в отличии от обычного бонуса
          *стата есть уникальный id, так как у магической защиты один бонус может вносить более одного изменения,
          *а именно добавлять неопределённое количество новых бонусных чанков, и надо точно знать какой бонус
          *добавил какие чанки.*/
-        database.transaction();
         QSqlQuery query(database);
         if(!query.exec("CREATE TABLE IF NOT EXISTS MagicDefenseBonuses("
                        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
@@ -649,6 +659,7 @@ bool MagicDefense::saveStat(bool createBackup)
                 }
             }
         }
+        //Если всё выполнилось успешно, то транзакция комитится
         if(!query.exec()){
            database.rollback();
            //Вывод предупреждения в консоль и файл
@@ -683,10 +694,11 @@ bool MagicDefense::saveStat(bool createBackup)
     return succesSaveValue;
 }
 
-bool MagicDefense::loadStat()
+bool MagicDefense::loadStat(bool loadValue, bool loadBonuses)
 {
     //Скобки нужны чтобы к моменту закрытия базы данных QSqlDatabase database вышел из своей зоны видимости и удалился
     {
+        //Создаётся директория, если её небыло
         QDir dir;
         if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName)){
             //Вывод предупреждения в консоль и файл
@@ -744,143 +756,117 @@ bool MagicDefense::loadStat()
         }
 
         QSqlQuery query(database);
-        if( !query.exec( "SELECT * FROM MagicDefenseBonuses;")) {
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
 
-            QString error =
-                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                    "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                    "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
-                    "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-            qDebug()<<error;
+        if(loadBonuses){
+            if( !query.exec( "SELECT * FROM MagicDefenseBonuses;")) {
+                //Вывод предупреждения в консоль и файл
+                QDate cd = QDate::currentDate();
+                QTime ct = QTime::currentTime();
 
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
+                QString error =
+                        cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                        "\nОШИБКА: Не удалось считать данные из таблицы\n"
+                        "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
+                        "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                qDebug()<<error;
+
+                QFile errorFile("error log.txt");
+                if (!errorFile.open(QIODevice::Append))
+                {
+                    qDebug() << "Ошибка при открытии файла логов";
+                }else{
+                    errorFile.open(QIODevice::Append  | QIODevice::Text);
+                    QTextStream writeStream(&errorFile);
+                    writeStream<<error;
+                    errorFile.close();
+                }
+
+                database.close();
+                return false;
             }
 
-            database.close();
-            return false;
-        }
+            //Удаление всех бонусов магической защиты, так как они сейчас будут переинициализированы данными из БД
+            removeAllBonuses();
+            while (query.next()){
+                //Проверка является ли бонус бонусом на чанки
+                if(query.value(6).toBool()){
+                    QSqlQuery chunksQuery(database);
+                    //Поиск всех бонусных чанков, созданых бонусом с текущим id
+                    if( !chunksQuery.exec( "SELECT value FROM MagicDefenseBonusChunks WHERE bonus_id IS " + query.value(0).toString() + ";")) {
+                        //Вывод предупреждения в консоль и файл
+                        QDate cd = QDate::currentDate();
+                        QTime ct = QTime::currentTime();
 
-        //Удаление всех бонусов магической защиты, так как они сейчас будут переинициализированы данными из БД
-        removeAllBonuses();
-        while (query.next()){
-            //Проверка является ли бонус бонусом на чанки
-            if(query.value(6).toBool()){
-                QSqlQuery chunksQuery(database);
-                //Поиск всех бонусных чанков, созданых бонусом с текущим id
-                if( !chunksQuery.exec( "SELECT value FROM MagicDefenseBonusChunks WHERE bonus_id IS " + query.value(0).toString() + ";")) {
-                    //Вывод предупреждения в консоль и файл
-                    QDate cd = QDate::currentDate();
-                    QTime ct = QTime::currentTime();
+                        QString error =
+                                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                                "\nОШИБКА: Не удалось считать данные из таблицы\n"
+                                "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
+                                "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
+                        qDebug()<<error;
 
-                    QString error =
-                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                            "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                            "MagicDefense выдал ошибку в методе loadMagicDefense.\n"
-                            "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-                    qDebug()<<error;
+                        QFile errorFile("error log.txt");
+                        if (!errorFile.open(QIODevice::Append))
+                        {
+                            qDebug() << "Ошибка при открытии файла логов";
+                        }else{
+                            errorFile.open(QIODevice::Append  | QIODevice::Text);
+                            QTextStream writeStream(&errorFile);
+                            writeStream<<error;
+                            errorFile.close();
+                        }
 
-                    QFile errorFile("error log.txt");
-                    if (!errorFile.open(QIODevice::Append))
-                    {
-                        qDebug() << "Ошибка при открытии файла логов";
-                    }else{
-                        errorFile.open(QIODevice::Append  | QIODevice::Text);
-                        QTextStream writeStream(&errorFile);
-                        writeStream<<error;
-                        errorFile.close();
+                        database.close();
+                        return false;
                     }
 
-                    database.close();
-                    return false;
-                }
+                    //Создание и передача бонуса на чанки
+                    QVector<int> bonusChunksMaxVales;
+                    while(chunksQuery.next()){
+                        bonusChunksMaxVales.append(chunksQuery.value(0).toInt());
+                    }
+                    addBonus(new MagicDefenseBonus(bonusChunksMaxVales, query.value(7).toString(), query.value(8).toInt(),
+                                                   query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
 
-                //Создание и передача бонуса на чанки
-                QVector<int> bonusChunksMaxVales;
-                while(chunksQuery.next()){
-                    bonusChunksMaxVales.append(chunksQuery.value(0).toInt());
-                }
-                addBonus(new MagicDefenseBonus(bonusChunksMaxVales, query.value(7).toString(), query.value(8).toInt(),
-                                                            query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
-
-            //Проверка является ли бонус динамическим
-            }else if(query.value(5).toBool())
-                addBonus(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition(query.value(3).toInt()),
-                                                            query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString(),
-                                                            query.value(8).toInt(), query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
-            //Иначе он статический
-            else
-                addBonus(new MagicDefenseBonus(query.value(2).toInt(), query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString(),
-                                                            query.value(8).toInt(), query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
-        }
-
-        //Считывание из БД текущего значения прогрессбара магической защиты
-        if( !query.exec( "SELECT progress_bar_current_value FROM Stats WHERE stat_name IS 'MagicDefense';")) {
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                    "\nОШИБКА: Не удалось считать данные из таблицы\n"
-                    "MagicDefense выдал ошибку в методе loadStat.\n"
-                    "Не удалось считать данные из таблицы базы данных Game Saves/"+Global::DungeonName+"/Heroes/"+personName+"/save.sqlite\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
+                    //Проверка является ли бонус динамическим
+                }else if(query.value(5).toBool())
+                    addBonus(new MagicDefenseBonus(MagicDefenseBonus::DynamicPosition(query.value(3).toInt()),
+                                                   query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString(),
+                                                   query.value(8).toInt(), query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
+                //Иначе он статический
+                else
+                    addBonus(new MagicDefenseBonus(query.value(2).toInt(), query.value(1).toInt(), query.value(4).toBool(), query.value(7).toString(),
+                                                   query.value(8).toInt(), query.value(9).toInt(), query.value(10).toInt(), query.value(11).toInt()));
             }
-
-            database.close();
-            return false;
         }
-
 
         //Пересчёт вектора чанков магической защиты
         recalculate();
         //Обнуление текущего значения прогрессбара, так как ему будет передано значение из БД
-        subtractValue(600000);
+        subtractValue(maximum);
 
         query.first();
-        //Передача текущего значения прогрессбара
-        addValue(query.value(0).toInt());
 
         database.close();
     }
 
     QSqlDatabase::removeDatabase("load");
 
-    Stat::loadStat(true, false);
-    addValue(value);
+    if(loadValue){
+        Stat::loadStat(true, false);
+        addValue(value);
+    }
 
     return true;
 }
 
 bool MagicDefense::fastSave()
 {
-    return saveStat(false);
+    return saveStat(true, true, false);
 }
 
 bool MagicDefense::fastLoad()
 {
-    return loadStat();
+    return loadStat(true, true);
 }
 
 QVector<Chunk *> MagicDefense::getChunks()
@@ -1168,11 +1154,15 @@ QVector<MagicDefenseBonus *> MagicDefense::getBonuses()
     return bonuses;
 }
 
-/*Очистка вектора бонусов. Метод не обновляет отображение бонусов в виджетах. Память указателей на
- *бонусы не высвобождается, так как это должно происходить только в классе предмета или эффекта*/
+/*Очистка вектора бонусов. Память указателей на бонусы не высвобождается,
+ *так как это должно происходить только в классе предмета или эффекта*/
 void MagicDefense::removeAllBonuses()
 {
     bonuses.clear();
+    recalculate();
+    //После изменения вектора бонусных чанков требуется полный перерасчёт общего вектора
+    recalculationChunks();
+    addValue(value);
 }
 
 //Так как класс MagicDefense унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому

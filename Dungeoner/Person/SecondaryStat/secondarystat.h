@@ -1,3 +1,7 @@
+/*******************************************************************
+ *В этом файле хранятся все подклассы Stat, кроме MagicDefense
+ *******************************************************************/
+
 #ifndef SECONDARYSTAT_H
 #define SECONDARYSTAT_H
 
@@ -17,11 +21,17 @@ class MagicDefense;
 class RecalculatebleStat : public Stat{
 public:
     RecalculatebleStat(int maximum, QString personName, QString statName, PrimaryStatsStruct *primaryStats);
+    /*Дополнительный конструктор с передоваемой ссылкой на вектор указателей на стат. При
+     *использовании этого конструктора, полученный стат автоматически добавится в коллекцию.*/
     RecalculatebleStat(int maximum, QString personName, QString statName, PrimaryStatsStruct *primaryStats, QVector<RecalculatebleStat *>& stats);
     bool saveStat(bool createBackup);
     bool fastSave();
     bool loadStat();
     bool fastLoad();
+    /*Очистка вектора бонусов. Память указателей на бонусы не высвобождается,
+     *так как это должно происходить только в классе предмета или эффекта*/
+    void removeAllBonuses();
+    //Виртуальная функция перерасчёта стата. Так как у каждого стата своя формула, то и переопределить её должен КАЖДЫЙ подкласс
     virtual int recalculate(){return -1;}
 protected:
     PrimaryStatsStruct* primaryStats;
@@ -31,6 +41,8 @@ protected:
 class ProgressBarStat : public RecalculatebleStat{
 public:
     ProgressBarStat(int maximum, QString personName, QString statName, PrimaryStatsStruct* primaryStats);
+    /*Дополнительный конструктор с передоваемой ссылкой на вектор указателей на стат. При
+     *использовании этого конструктора, полученный стат автоматически добавится в коллекцию.*/
     ProgressBarStat(int maximum, QString personName, QString statName, PrimaryStatsStruct* primaryStats, QVector<RecalculatebleStat *>& stats);
     int getProgressBarCurrentValue() const;
     //Задание текущего значения прогрессбара, при этом finalValue, в таком случае, является максимальным значением прогрессбара
@@ -40,6 +52,7 @@ public:
     bool fastSave();
     bool loadStat(bool loadBonuses, bool loadProgressBarCurrentValue);
     bool fastLoad();
+    //Переопределение удаления бонуса, поддерживающее усекание текущего значения прогрессбара при уменьшении максимального значения
     bool removeBonus(Bonus *bonus);
 
 private:
@@ -193,9 +206,11 @@ public:
     int recalculate();
 };
 
+//Структура хранящая в себе указатели на все первичные навыки
 struct PrimaryStatsStruct
 {
 public:
+    //Все полученные навыки передадутся в вектор primaryStats
     PrimaryStatsStruct(QString personName, QVector<Stat *>& primaryStats);
     ~PrimaryStatsStruct();
 
@@ -207,9 +222,11 @@ public:
     Stat* Will;
 };
 
+//Структура хранящая в себе указатели на все вторичные навыки
 struct SecondaryStatsStruct
 {
 public:
+    //Все полученные навыки передадутся в вектор secondaryStats
     SecondaryStatsStruct(QString personName, PrimaryStatsStruct* primaryStats, QVector<RecalculatebleStat*>& secondaryStats);
     ~SecondaryStatsStruct();
 
@@ -237,6 +254,7 @@ public:
     MagicDefense* magicDefense;
 };
 
+//Структура хранящая в себе указатели на все другие структуры с навыками
 struct StatsStruct
 {
 public:

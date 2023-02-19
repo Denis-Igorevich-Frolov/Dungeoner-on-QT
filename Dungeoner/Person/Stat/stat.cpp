@@ -1,7 +1,6 @@
-/**********************************************************************
- *Данный класс является структурой для всех статов кроме магической
- *защиты с реализацией геттеров и сеттеров с ограничителями.
- **********************************************************************/
+/*******************************************************************************************
+ *Данный класс является классом первичных статов. От него наследуются все другие классы.
+ *******************************************************************************************/
 
 #include "stat.h"
 #include "qdir.h"
@@ -21,6 +20,7 @@ void Stat::setValue(int newValue)
 {
     value = newValue;
 
+    //Значение не привышает максимум стата и не может быть меньше 0
     if(value > maximum)
         value = maximum;
     else if(value<0)
@@ -98,11 +98,13 @@ QVector<Bonus *> Stat::getBonuses()
     return bonuses;
 }
 
-/*Очистка вектора бонусов. Метод не обновляет отображение бонусов в виджетах. Память указателей на
- *бонусы не высвобождается, так как это должно происходить только в классе предмета или эффекта*/
+/*Очистка вектора бонусов. Память указателей на бонусы не высвобождается,
+ *так как это должно происходить только в классе предмета или эффекта*/
 void Stat::removeAllBonuses()
 {
     bonuses.clear();
+    calculateFinalValue();
+    emit statChanged();
 }
 
 //Вычисление финального максимального значения стата с учётом всех бонусов
@@ -126,7 +128,9 @@ void Stat::calculateFinalValue()
     else if(finalValue<0)
         finalValue = 0;
 
-    //Сортировка бонусов по степени воздействия
+    /*Сортировка бонусов по степени воздействия здесь нужна для процентных
+     *бонусов. Их абсолютное значение может меняться в зависимости от
+     *изменения самого стата и степень их воздействия следует пересчитать.*/
     std::sort(bonuses.begin(), bonuses.end(), [](Bonus* a, Bonus* b) {
         return *a > *b;
     });
@@ -138,6 +142,8 @@ void Stat::calculateFinalValue()
 Stat::Stat(int maximum, QString personName, QString statName) : maximum(maximum), personName(personName), statName(statName)
 {}
 
+/*Дополнительный конструктор с передоваемой ссылкой на вектор указателей на стат. При
+ *использовании этого конструктора, полученный стат автоматически добавится в коллекцию.*/
 Stat::Stat(int maximum, QString personName, QString statName, QVector<Stat *>& stats):Stat(maximum, personName, statName)
 {
     stats.append(this);
@@ -205,8 +211,10 @@ bool Stat::saveStat(bool saveValue, bool saveBonuses, bool createBackup)
             return false;
         }
 
-        //Создание таблицы стата
+        //Инициация транзакции
         database.transaction();
+
+        //Создание таблицы стата
         QSqlQuery query(database);
         if(!query.exec("CREATE TABLE IF NOT EXISTS Stats("
                        "stat_name TEXT NOT NULL, "
@@ -383,6 +391,7 @@ bool Stat::saveStat(bool saveValue, bool saveBonuses, bool createBackup)
                 }
             }
         }
+        //Если всё выполнилось успешно, то транзакция комитится
         if(!query.exec()){
            database.rollback();
            //Вывод предупреждения в консоль и файл
@@ -417,6 +426,9 @@ bool Stat::saveStat(bool saveValue, bool saveBonuses, bool createBackup)
     return true;
 }
 
+/*Так как для сохранения стата у разных наследников будет требоваться разное количество передоваемых
+ *переменных, полиморфизма не получится. Чтобы решить эту проблему была создана функция быстрого
+ *сохранения, которая не создаёт бекапа и сохраняет все возможные параметры стата.*/
 bool Stat::fastSave()
 {
     return saveStat(true, true, false);
@@ -425,6 +437,7 @@ bool Stat::fastSave()
 bool Stat::loadStat(bool loadValue, bool loadBonuses)
 {
     {
+        //Создаётся директория, если её небыло
         QDir dir;
         if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName)){
             //Вывод предупреждения в консоль и файл
@@ -557,6 +570,9 @@ bool Stat::loadStat(bool loadValue, bool loadBonuses)
     return true;
 }
 
+/*Так как для загрузки стата у разных наследников будет требоваться разное количество
+ *передоваемых переменных, полиморфизма не получится. Чтобы решить эту проблему была
+ *создана функция быстрой загрузки, которая загружает все возможные параметры стата.*/
 bool Stat::fastLoad()
 {
     return loadStat(true, true);

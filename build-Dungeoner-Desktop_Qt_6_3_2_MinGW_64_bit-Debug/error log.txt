@@ -2001,3 +2001,8 @@ Stat выдал ошибку в методе saveStat.
 Stat выдал ошибку в методе saveStat.
 Не удалось создать таблицу в базе данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
 
+18-February-2023  22:40:47
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+

@@ -1,3 +1,7 @@
+/*******************************************************************
+ *В этом файле хранятся все подклассы Stat, кроме MagicDefense
+ *******************************************************************/
+
 #include "secondarystat.h"
 #include "Person/MagicDefense/magicdefense.h"
 #include "qdir.h"
@@ -12,6 +16,8 @@ RecalculatebleStat::RecalculatebleStat(int maximum, QString personName, QString 
     this->primaryStats = primaryStats;
 }
 
+/*Дополнительный конструктор с передоваемой ссылкой на вектор указателей на стат. При
+ *использовании этого конструктора, полученный стат автоматически добавится в коллекцию.*/
 RecalculatebleStat::RecalculatebleStat(int maximum, QString personName, QString statName, PrimaryStatsStruct *primaryStats, QVector<RecalculatebleStat *>& stats):
     RecalculatebleStat(maximum, personName, statName, primaryStats)
 {
@@ -31,6 +37,16 @@ bool RecalculatebleStat::loadStat()
 bool RecalculatebleStat::fastLoad()
 {
     return loadStat();
+}
+
+/*Очистка вектора бонусов. Память указателей на бонусы не высвобождается,
+ *так как это должно происходить только в классе предмета или эффекта*/
+void RecalculatebleStat::removeAllBonuses()
+{
+    bonuses.clear();
+    recalculate();
+    calculateFinalValue();
+    emit statChanged();
 }
 
 bool RecalculatebleStat::fastSave()
@@ -316,6 +332,8 @@ ProgressBarStat::ProgressBarStat(int maximum, QString personName, QString statNa
     :RecalculatebleStat(maximum, personName, statName, primaryStats)
 {}
 
+/*Дополнительный конструктор с передоваемой ссылкой на вектор указателей на стат. При
+ *использовании этого конструктора, полученный стат автоматически добавится в коллекцию.*/
 ProgressBarStat::ProgressBarStat(int maximum, QString personName, QString statName, PrimaryStatsStruct *primaryStats, QVector<RecalculatebleStat *>& stats)
     :RecalculatebleStat(maximum, personName, statName, primaryStats, stats)
 {}
@@ -383,7 +401,9 @@ bool ProgressBarStat::saveStat(bool createBackup)
             return false;
         }
 
+        //Инициация транзакции
         database.transaction();
+
         QSqlQuery query(database);
         if(!query.exec("select progress_bar_current_value from Stats limit 1;")){
             if(!query.exec("ALTER TABLE Stats ADD COLUMN progress_bar_current_value INTEGER NOT NULL DEFAULT 0;")){
@@ -442,6 +462,7 @@ bool ProgressBarStat::saveStat(bool createBackup)
             database.close();
             return false;
         }
+        //Если всё выполнилось успешно, то транзакция комитится
         if(!query.exec()){
            database.rollback();
            //Вывод предупреждения в консоль и файл
@@ -485,6 +506,7 @@ bool ProgressBarStat::loadStat(bool loadBonuses, bool loadProgressBarCurrentValu
 {
     bool loadSuccess = Stat::loadStat(false, loadBonuses);
     {
+        //Создаётся директория, если её небыло
         QDir dir;
         if(!dir.exists("Game Saves/"+Global::DungeonName+"/Heroes/"+personName)){
             //Вывод предупреждения в консоль и файл
@@ -589,6 +611,7 @@ bool ProgressBarStat::fastLoad()
     return loadStat(true, true);
 }
 
+//Переопределение удаления бонуса, поддерживающее усекание текущего значения прогрессбара при уменьшении максимального значения
 bool ProgressBarStat::removeBonus(Bonus *bonus)
 {
     QMutableVectorIterator<Bonus*> iterator(bonuses);
@@ -634,6 +657,7 @@ bool ProgressBarStat::removeBonus(Bonus *bonus)
     return false;
 }
 
+//Все полученные навыки передадутся в вектор primaryStats
 PrimaryStatsStruct::PrimaryStatsStruct(QString personName, QVector<Stat *>& primaryStats)
 {
     Strength = new Stat(999999, personName, "Strength", primaryStats);
@@ -654,6 +678,7 @@ PrimaryStatsStruct::~PrimaryStatsStruct()
     delete Will;
 }
 
+//Все полученные навыки передадутся в вектор secondaryStats
 SecondaryStatsStruct::SecondaryStatsStruct(QString personName, PrimaryStatsStruct* primaryStats, QVector<RecalculatebleStat *> &secondaryStats)
 {
     MagicDamage = new MagicDamageStat(9999999, personName, "MagicDamage", primaryStats, secondaryStats);

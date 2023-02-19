@@ -20,6 +20,9 @@ class MagicDefense: public RecalculatebleStat
     Q_OBJECT
 public:
     ~MagicDefense();
+    MagicDefense(QString personName, PrimaryStatsStruct* primaryStats);
+    /*Дополнительный конструктор с передоваемой ссылкой на вектор указателей на стат. При
+     *использовании этого конструктора, полученный стат автоматически добавится в коллекцию.*/
     MagicDefense(QString personName, PrimaryStatsStruct* primaryStats, QVector<RecalculatebleStat *>& stats);
 
     int getValue() const;
@@ -44,8 +47,8 @@ public:
     //Приравнивает значение всех чанков к их максимальному значению
     void HealAllChunk();
 
-    bool saveStat(bool createBackup);
-    bool loadStat();
+    bool saveStat(bool saveValue, bool saveBonuses, bool createBackup);
+    bool loadStat(bool loadValue, bool loadBonuses);
 
     bool fastSave();
     bool fastLoad();
@@ -72,8 +75,8 @@ public:
 
     QVector<MagicDefenseBonus *> getBonuses();
 
-    /*Очистка вектора бонусов. Метод не обновляет отображение бонусов в виджетах. Память указателей на
-     *бонусы не высвобождается, так как это должно происходить только в классе предмета или эффекта*/
+    /*Очистка вектора бонусов. Память указателей на бонусы не высвобождается,
+     *так как это должно происходить только в классе предмета или эффекта*/
     void removeAllBonuses();
 
     //Так как класс MagicDefense унаследован от QObject, его оператор присваивания явным образом удалён, соответственно его следует переопределить самому
@@ -90,7 +93,7 @@ public:
     int getWillUntilNextChunk() const;
 
 private:
-    //Значение воли которого недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки
+    //Значение воли которой недостаёт до получения ещё одного фрагмента магической защиты. Хранится для вывода подсказки
     int willUntilNextChunk = 0;
     /*Добавление чанка в вектор бонусных чанков. В метод передаётся указатель на новый чанк, затем его
      *текущее значение обнуляется и указатель добавляется в конец вектора бонусных чанков. Новый чанк

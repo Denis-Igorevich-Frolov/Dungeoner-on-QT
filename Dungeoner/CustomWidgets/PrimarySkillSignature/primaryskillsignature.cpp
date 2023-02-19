@@ -148,6 +148,8 @@ void PrimarySkillSignature::statChanged()
             qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
         }
     }
+
+    SpinBoxValue->setValue(stat->getFinalValue());
 }
 
 //Генерация лейбла с информацией по всем бонусам для его дальнейшего добавления в tooltipContent
