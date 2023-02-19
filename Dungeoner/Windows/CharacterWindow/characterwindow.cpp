@@ -1092,7 +1092,13 @@ void CharacterWindow::addRowOfCellsToInventory()
         //////////////////////////////////////////////
         if(true/*i == 0 && ui->Inventory->count()<10*/){
         Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-        item->styles.append({item, item, item, item});
+
+        Item* item1 = new Item("Test1", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+        Item* item2 = new Item("Test2", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+        Item* item3 = new Item("Test3", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+        Item* item4 = new Item("Test4", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+
+        item->styles.append({item1, item2, item3, item4});
         item->isPressable = true;
         item->isNew = true;
 //        item->isDisabled = true;

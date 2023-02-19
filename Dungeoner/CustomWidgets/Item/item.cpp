@@ -421,6 +421,39 @@ void Item::setCurrentStyle(int newCurrentStyle)
     currentStyle = newCurrentStyle;
 
     setChosenStyleButtonStyle();
+
+    Item* currentItem = styles.at(currentStyle);
+
+    this->folderName = currentItem->folderName;
+
+    //Создаётся директория, если её небыло
+    QDir dir;
+    if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName))
+        dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
+
+    if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
+         this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
+    else{
+        //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
+        this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
+        this->hoverColor = QColor(255, 255, 255, 30);
+        this->pressedColor = QColor(0, 0, 0, 50);
+    }
+
+    ui->Image->setPixmap(QPixmap::fromImage(this->image,Qt::AutoColor));
+
+    this->itemTypes = currentItem->itemTypes;
+    setItemName(currentItem->itemName);
+    setWeight(currentItem->weight);
+    setVolume(currentItem->volume);
+    setPrice(currentItem->price);
+    setMaxDurability(currentItem->maxDurability);
+    setCurrentDurability(currentItem->currentDurability);
+    setCellSlots(currentItem->cellSlots, currentItem->occupiedCellSlots);
+    this->bonuses = currentItem->bonuses;
+    setDamage(currentItem->minDamage, currentItem->maxDamage);
+    this->isPressable = currentItem->isPressable;
+    setDisabledSyle(currentItem->isDisabled);
 }
 
 QVector<Item::Slots> Item::getCellSlots() const
@@ -603,10 +636,8 @@ void Item::setQuantity(int newQuantity)
 void Item::setChosenStyleButtonStyle()
 {
     for(int i = 0; i<styles.size(); i++){
-        if(i == currentStyle){
+        if(i == currentStyle)
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleChosenButtonStile());
-            qDebug()<<'f';
-        }
         else
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleButtonStile());
     }
