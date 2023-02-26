@@ -153,7 +153,9 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsDropShadowEffect \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsEffect \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicseffect.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qpushbutton.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \

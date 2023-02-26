@@ -22,6 +22,7 @@ public:
     ~InventoryCell();
 
     void setItem(Item* item);
+    Item* getItem();
 
     //Метод, выставляющий стиль автоматически исходя из характеристик предмета
     void setAutoStyle();
@@ -34,8 +35,13 @@ public:
     void setDropdownButtonVisible(bool isVisible);
 
     void setScrollAreaHeight(int newScrollAreaHeight);
-
     void setScrollAreaOffset(int newScrollAreaOffset);
+
+    bool swapItems(InventoryCell *sourceCell);
+
+signals:
+    void dragSourceObtained(InventoryCell* sourceCell);
+    void dropTargetObtained(InventoryCell* targetCell);
 
 private:
     //Стиль пустой ячейки
@@ -60,6 +66,8 @@ private:
     //Если ячейка находится вне границ скроллбара, то для оптимизации она очищается от стилей и скрывается
     void cellHidingCheck();
 
+    QPoint dragStart;
+
     bool isLoked = false;
 
     //Высота скроллбара, в который помещён вторичный навык
@@ -71,7 +79,9 @@ private:
 
     QMovie inventoryCellNew;
 
-    virtual bool eventFilter(QObject* object, QEvent* event) override;
+    bool eventFilter(QObject* object, QEvent* event) override;
+    void dragEnterEvent(QDragEnterEvent* event) override;
+    void dropEvent(QDropEvent* event) override;
 };
 
 #endif // INVENTORYCELL_H

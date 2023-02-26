@@ -25,6 +25,8 @@ Item::Item(QWidget *parent) :
     border->setOutlineThickness(2);
     ui->Quantity->setMargin(2);
     ui->Quantity->setGraphicsEffect(border);
+
+    itemButton = ui->pushButton;
 }
 
 Item::~Item()
@@ -38,7 +40,7 @@ Item::~Item()
 Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, int quantity, double weight, double volume,
            int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots,
            QVector<Slots> occupiedCellSlots, QVector<Bonus *> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses,
-           int minDamage, int maxDamage, bool isPressable, bool isDisabled, bool isNew, int currentStyle) :
+           int minDamage, int maxDamage, bool isPressable, bool isDisabled, bool isNew, int currentStyle, bool itemIsEmpty) :
     ui(new Ui::Item)
 {
     ui->setupUi(this);
@@ -47,6 +49,10 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     setAttribute(Qt::WA_Hover);
 
     ui->pushButton->installEventFilter(this);
+
+    this->itemIsEmpty = itemIsEmpty;
+    if(itemIsEmpty)
+        setId(-1);
 
     this->folderName = folderName;
 
@@ -60,7 +66,7 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
 
     if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
          this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
-    else{
+    else if(id!=-1){
         //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
         this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
         this->hoverColor = QColor(255, 255, 255, 30);
@@ -96,6 +102,8 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
 
     if(this->quantity > 1)
         ui->Quantity->setText(QString::number(this->quantity));
+    else
+        ui->Quantity->setText("");
 
     setCurrentStyle(currentStyle);
 }
@@ -441,16 +449,14 @@ void Item::setCurrentStyle(int newCurrentStyle)
 
     Item* currentItem = styles.at(currentStyle);
 
-    this->folderName = currentItem->folderName;
-
     //Создаётся директория, если её небыло
     QDir dir;
-    if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName))
-        dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
+    if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ currentItem->folderName))
+        dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ currentItem->folderName);
 
-    if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
-         this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
-    else{
+    if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ currentItem->folderName+"/image.png").exists())
+         this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ currentItem->folderName+"/image.png");
+    else if(id!=-1){
         //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
         this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
         this->hoverColor = QColor(255, 255, 255, 30);
@@ -648,6 +654,8 @@ void Item::setQuantity(int newQuantity)
 
     if(this->quantity > 1)
         ui->Quantity->setText(QString::number(this->quantity));
+    else
+        ui->Quantity->setText("");
 }
 
 void Item::setChosenStyleButtonStyle()

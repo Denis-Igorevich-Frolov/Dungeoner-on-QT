@@ -7,6 +7,7 @@
 
 #include <QLabel>
 #include <QWidget>
+#include "CustomWidgets/InventoryCell/inventorycell.h"
 #include "Person/person.h"
 
 namespace Ui {
@@ -39,6 +40,9 @@ private slots:
     void addRowOfCellsToInventory();
     //Удаление последней линии ячеек в инвентаре
     void removeRowOfCellsFromInventory();
+
+    void dragSourceObtained(InventoryCell* sourceCell);
+    void dropTargetObtained(InventoryCell* targetCell);
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
@@ -158,6 +162,7 @@ private:
 
     Person person = Person();
     bool isManualStatReplacement = false;
+    InventoryCell* sourceCell;
 };
 
 #endif // CHARACTERWINDOW_H

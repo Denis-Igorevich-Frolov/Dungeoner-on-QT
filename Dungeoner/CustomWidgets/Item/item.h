@@ -11,6 +11,7 @@
 #include "Person/Stat/bonus.h"
 #include "System/OutlineEffect/outlineeffect.h"
 #include "qdir.h"
+#include "qpushbutton.h"
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
 
@@ -85,7 +86,7 @@ public:
     Item(QString folderName, QVector<ItemType> itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
          int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},
          QVector<Slots> occupiedCellSlots = {}, QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {},
-         int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0);
+         int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0, bool itemIsEmpty = false);
 
     void setShadow(bool hasShadow, int shadowBlurRadius = 7, int shadowXOffset = 3, int shadowYOffset = 3, QColor color = Qt::black);
     //Установка стиля для кнопки, переключающей стили предмета
@@ -101,6 +102,8 @@ public:
         Global::DamageType damageType;
     };
 
+    QPushButton* itemButton;
+
     bool isNew = false;
     bool isDisabled = false;
     //Первый стиль - всегда исходный предмет
@@ -109,6 +112,7 @@ public:
     QString folderName;
     bool isPressable = false;
     bool hasShadow = true;
+    bool itemIsEmpty = false;
     QVector<ItemType> itemTypes;
     QVector<Bonus*> bonuses;
     QVector<MagicDefenseBonus*> magicDefenseBonuses;
@@ -230,7 +234,7 @@ private:
      *3) Вектор эффектов при экиперовке
      *4) Требования*/
 
-    virtual bool eventFilter(QObject* object, QEvent* event) override;
+    bool eventFilter(QObject* object, QEvent* event) override;
 
     int isHovered = false;
 };
