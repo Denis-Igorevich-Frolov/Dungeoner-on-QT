@@ -512,21 +512,17 @@
         <string>13</string>
        </property>
       </widget>
-      <widget class="QLabel" name="FPSLabel">
+      <widget class="FPS_Counter" name="FPSCounter" native="true">
        <property name="geometry">
         <rect>
-         <x>1800</x>
+         <x>1780</x>
          <y>20</y>
-         <width>61</width>
-         <height>41</height>
+         <width>60</width>
+         <height>30</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">background:white;
-color: black;</string>
-       </property>
-       <property name="text">
-        <string>00</string>
+        <string notr="true">background: white;</string>
        </property>
       </widget>
      </widget>
@@ -2865,6 +2861,12 @@ border: none;</string>
    <class>Tooltip</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/Tooltip/tooltip.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FPS_Counter</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/FPS_Counter/fps_counter.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

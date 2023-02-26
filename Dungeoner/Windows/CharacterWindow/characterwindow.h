@@ -163,15 +163,6 @@ private:
     Person person = Person();
     bool isManualStatReplacement = false;
     InventoryCell* sourceCell;
-
-//    void paintEvent(QPaintEvent * event) override;
-
-
-
-//    void recalculateFPS();
-//    int _currentFPS;
-//    int _cacheCount;
-//    QVector<qint64> _times;
 };
 
 #endif // CHARACTERWINDOW_H

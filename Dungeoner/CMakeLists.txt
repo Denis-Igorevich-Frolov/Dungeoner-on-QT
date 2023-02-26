@@ -114,6 +114,9 @@ set(PROJECT_SOURCES
         System/UnitTests/SecondarySkillsTest/secondarySkillsTest.cpp
         Person/SecondaryStat/secondarystat.h
         Person/SecondaryStat/secondarystat.cpp
+        CustomWidgets/FPS_Counter/fps_counter.h
+        CustomWidgets/FPS_Counter/fps_counter.cpp
+        CustomWidgets/FPS_Counter/fps_counter.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

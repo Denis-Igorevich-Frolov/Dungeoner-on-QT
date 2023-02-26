@@ -894,24 +894,6 @@ bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
-//void CharacterWindow::paintEvent(QPaintEvent *event)
-//{
-//    qint64 currentTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
-//    _times.push_back(currentTime);
-
-//    while (_times[0] < currentTime - 1000) {
-//        _times.pop_front();
-//    }
-
-//    int currentCount = _times.length();
-//    _currentFPS = (currentCount + _cacheCount) / 2;
-
-//    _cacheCount = currentCount;
-//    ui->FPSLabel->setText("FPS "+QString::number(_currentFPS));
-
-//    update();
-//}
-
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
  *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
@@ -1114,7 +1096,7 @@ void CharacterWindow::addRowOfCellsToInventory()
 
         //!!!отладка
         //////////////////////////////////////////////
-        if(/*true*/((i == 0)||(i == 1)) && ui->Inventory->count()<10){
+        if(/*true*/((i == 0)||(i == 2)) && ui->Inventory->count()<10){
         Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 
         item->isPressable = true;
@@ -1364,7 +1346,7 @@ void CharacterWindow::on_pushButton_12_clicked()
 
 void CharacterWindow::on_pushButton_14_clicked()
 {
-
+    ui->FPSCounter->setActive(false);
 }
 
 void CharacterWindow::on_SaveButton_clicked()

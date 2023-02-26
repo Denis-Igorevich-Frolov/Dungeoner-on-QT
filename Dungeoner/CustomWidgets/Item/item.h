@@ -235,7 +235,6 @@ private:
      *4) Требования*/
 
     bool eventFilter(QObject* object, QEvent* event) override;
-    void paintEvent(QPaintEvent *event)override;
 
     int isHovered = false;
 };

@@ -9,6 +9,7 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
+#include <CustomWidgets/FPS_Counter/fps_counter.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -59,7 +60,7 @@ public:
     QPushButton *pushButton_19;
     QPushButton *pushButton_20;
     QPushButton *pushButton_21;
-    QLabel *FPSLabel;
+    FPS_Counter *FPSCounter;
     QLabel *TopMenuBorder;
     QFrame *SkillsWraper;
     QVBoxLayout *verticalLayout;
@@ -258,11 +259,10 @@ public:
         pushButton_21->setObjectName(QString::fromUtf8("pushButton_21"));
         pushButton_21->setGeometry(QRect(180, 44, 51, 41));
         pushButton_21->setStyleSheet(QString::fromUtf8("background:white;"));
-        FPSLabel = new QLabel(TopMenu);
-        FPSLabel->setObjectName(QString::fromUtf8("FPSLabel"));
-        FPSLabel->setGeometry(QRect(1800, 20, 61, 41));
-        FPSLabel->setStyleSheet(QString::fromUtf8("background:white;\n"
-"color: black;"));
+        FPSCounter = new FPS_Counter(TopMenu);
+        FPSCounter->setObjectName(QString::fromUtf8("FPSCounter"));
+        FPSCounter->setGeometry(QRect(1780, 20, 60, 30));
+        FPSCounter->setStyleSheet(QString::fromUtf8("background: white;"));
 
         verticalLayout_3->addWidget(TopMenu);
 
@@ -1039,7 +1039,6 @@ public:
         pushButton_21->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 13</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 \320\272 <span style=\" font-weight:700;\">\321\206\320\265\320\275\321\202\321\200\320\260\320\273\321\214\320\275\320\276\320\271</span> \321\217\321\207\320\265\320\271\320\272\320\265 <span style=\" font-weight:700;\">\320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\276\320\271 \320\267\320\260\321\211\320\270\321\202\321\213</span></p></body></html>", nullptr));
 #endif // QT_CONFIG(tooltip)
         pushButton_21->setText(QCoreApplication::translate("CharacterWindow", "13", nullptr));
-        FPSLabel->setText(QCoreApplication::translate("CharacterWindow", "00", nullptr));
         TopMenuBorder->setText(QString());
         StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
         StrengthPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr)));
