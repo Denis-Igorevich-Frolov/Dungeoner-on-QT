@@ -31,7 +31,7 @@ struct qt_meta_stringdata_SecondarySkill_t {
     char stringdata3[15];
     char stringdata4[15];
     char stringdata5[14];
-    char stringdata6[15];
+    char stringdata6[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_SecondarySkill_t::offsetsAndSizes) + ofs), len 
@@ -43,7 +43,7 @@ static const qt_meta_stringdata_SecondarySkill_t qt_meta_stringdata_SecondarySki
         QT_MOC_LITERAL(28, 14),  // "QList<QLabel*>"
         QT_MOC_LITERAL(43, 14),  // "TooltipContent"
         QT_MOC_LITERAL(58, 13),  // "RemoveTooltip"
-        QT_MOC_LITERAL(72, 14)   // "bonusesChanged"
+        QT_MOC_LITERAL(72, 11)   // "statChanged"
     },
     "SecondarySkill",
     "ShowTooltip",
@@ -51,7 +51,7 @@ static const qt_meta_stringdata_SecondarySkill_t qt_meta_stringdata_SecondarySki
     "QList<QLabel*>",
     "TooltipContent",
     "RemoveTooltip",
-    "bonusesChanged"
+    "statChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -93,7 +93,7 @@ void SecondarySkill::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         switch (_id) {
         case 0: _t->ShowTooltip((*reinterpret_cast< std::add_pointer_t<QList<QLabel*>>>(_a[1]))); break;
         case 1: _t->RemoveTooltip(); break;
-        case 2: _t->bonusesChanged(); break;
+        case 2: _t->statChanged(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {

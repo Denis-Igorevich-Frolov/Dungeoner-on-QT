@@ -396,16 +396,14 @@ QVector<Item::Slots> Item::getOccupiedCellSlots() const
 void Item::hidenEffects(bool hiden)
 {
     if(hiden){
-        border->setOutlineThickness(0);
-        shadow->setBlurRadius(0);
-        shadow->setOffset(0, 0);
-        opacity->setOpacity(1);
+        border->setEnabled(false);
+        opacity->setEnabled(false);
+        shadow->setEnabled(false);
         setVisible(false);
     }else{
-        border->setOutlineThickness(2);
-        shadow->setBlurRadius(shadowBlurRadius);
-        shadow->setOffset(shadowXOffset, shadowYOffset);
-        opacity->setOpacity(0.3);
+        border->setEnabled(true);
+//        opacity->setEnabled(true);
+//        shadow->setEnabled(true);
         setVisible(true);
     }
 }

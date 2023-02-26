@@ -35,6 +35,7 @@ public:
         if (InventoryCell->objectName().isEmpty())
             InventoryCell->setObjectName(QString::fromUtf8("InventoryCell"));
         InventoryCell->resize(68, 84);
+        InventoryCell->setMouseTracking(true);
         inventoryCellBorder = new QLabel(InventoryCell);
         inventoryCellBorder->setObjectName(QString::fromUtf8("inventoryCellBorder"));
         inventoryCellBorder->setGeometry(QRect(0, 0, 68, 68));
@@ -67,14 +68,16 @@ public:
         item = new Item(InventoryCell);
         item->setObjectName(QString::fromUtf8("item"));
         item->setGeometry(QRect(0, 0, 68, 68));
+        item->setMouseTracking(true);
+        item->setFocusPolicy(Qt::StrongFocus);
         CentralElement->raise();
         inventoryCellBG->raise();
         inventoryCellBorder->raise();
         Locked->raise();
         inventoryCellNew->raise();
-        item->raise();
         DropdownButton->raise();
         Blocked->raise();
+        item->raise();
 
         retranslateUi(InventoryCell);
 

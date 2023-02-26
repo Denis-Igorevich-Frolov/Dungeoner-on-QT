@@ -9,7 +9,6 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
-#include <CustomWidgets/InventoryCell/inventorycell.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -50,6 +49,17 @@ public:
     QPushButton *pushButton_9;
     QPushButton *pushButton_10;
     QPushButton *pushButton_11;
+    QPushButton *pushButton_12;
+    QPushButton *pushButton_13;
+    QPushButton *pushButton_14;
+    QPushButton *pushButton_15;
+    QPushButton *pushButton_16;
+    QPushButton *pushButton_17;
+    QPushButton *pushButton_18;
+    QPushButton *pushButton_19;
+    QPushButton *pushButton_20;
+    QPushButton *pushButton_21;
+    QLabel *FPSLabel;
     QLabel *TopMenuBorder;
     QFrame *SkillsWraper;
     QVBoxLayout *verticalLayout;
@@ -127,7 +137,6 @@ public:
     QVBoxLayout *verticalLayout_8;
     QGridLayout *Inventory;
     QScrollBar *InventoryScrollBar;
-    InventoryCell *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -158,19 +167,19 @@ public:
         TopMenu->setLineWidth(0);
         pushButton_4 = new QPushButton(TopMenu);
         pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-        pushButton_4->setGeometry(QRect(780, 10, 161, 41));
+        pushButton_4->setGeometry(QRect(800, 20, 161, 34));
         pushButton_4->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton = new QPushButton(TopMenu);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(60, 20, 51, 41));
+        pushButton->setGeometry(QRect(60, 1, 51, 41));
         pushButton->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_2 = new QPushButton(TopMenu);
         pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
-        pushButton_2->setGeometry(QRect(124, 20, 51, 41));
+        pushButton_2->setGeometry(QRect(124, 1, 51, 41));
         pushButton_2->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_3 = new QPushButton(TopMenu);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-        pushButton_3->setGeometry(QRect(184, 20, 51, 41));
+        pushButton_3->setGeometry(QRect(184, 1, 51, 41));
         pushButton_3->setStyleSheet(QString::fromUtf8("background:white;"));
         SaveButton = new QPushButton(TopMenu);
         SaveButton->setObjectName(QString::fromUtf8("SaveButton"));
@@ -178,36 +187,82 @@ public:
         SaveButton->setStyleSheet(QString::fromUtf8("background:white;"));
         LoadButton = new QPushButton(TopMenu);
         LoadButton->setObjectName(QString::fromUtf8("LoadButton"));
+        LoadButton->setEnabled(true);
         LoadButton->setGeometry(QRect(1580, 20, 71, 41));
         LoadButton->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_5 = new QPushButton(TopMenu);
         pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
-        pushButton_5->setGeometry(QRect(243, 20, 51, 41));
+        pushButton_5->setGeometry(QRect(243, 1, 51, 41));
         pushButton_5->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_6 = new QPushButton(TopMenu);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-        pushButton_6->setGeometry(QRect(302, 20, 51, 41));
+        pushButton_6->setGeometry(QRect(302, 1, 51, 41));
         pushButton_6->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_7 = new QPushButton(TopMenu);
         pushButton_7->setObjectName(QString::fromUtf8("pushButton_7"));
-        pushButton_7->setGeometry(QRect(609, 20, 51, 41));
+        pushButton_7->setGeometry(QRect(609, 1, 51, 41));
         pushButton_7->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_8 = new QPushButton(TopMenu);
         pushButton_8->setObjectName(QString::fromUtf8("pushButton_8"));
-        pushButton_8->setGeometry(QRect(550, 20, 51, 41));
+        pushButton_8->setGeometry(QRect(550, 1, 51, 41));
         pushButton_8->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_9 = new QPushButton(TopMenu);
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
-        pushButton_9->setGeometry(QRect(367, 20, 51, 41));
+        pushButton_9->setGeometry(QRect(367, 1, 51, 41));
         pushButton_9->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_10 = new QPushButton(TopMenu);
         pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
-        pushButton_10->setGeometry(QRect(431, 20, 51, 41));
+        pushButton_10->setGeometry(QRect(431, 1, 51, 41));
         pushButton_10->setStyleSheet(QString::fromUtf8("background:white;"));
         pushButton_11 = new QPushButton(TopMenu);
         pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
-        pushButton_11->setGeometry(QRect(491, 20, 51, 41));
+        pushButton_11->setGeometry(QRect(491, 1, 51, 41));
         pushButton_11->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_12 = new QPushButton(TopMenu);
+        pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
+        pushButton_12->setGeometry(QRect(550, 44, 51, 41));
+        pushButton_12->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_13 = new QPushButton(TopMenu);
+        pushButton_13->setObjectName(QString::fromUtf8("pushButton_13"));
+        pushButton_13->setGeometry(QRect(120, 44, 51, 41));
+        pushButton_13->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_14 = new QPushButton(TopMenu);
+        pushButton_14->setObjectName(QString::fromUtf8("pushButton_14"));
+        pushButton_14->setGeometry(QRect(610, 44, 51, 41));
+        pushButton_14->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_15 = new QPushButton(TopMenu);
+        pushButton_15->setObjectName(QString::fromUtf8("pushButton_15"));
+        pushButton_15->setGeometry(QRect(490, 44, 51, 41));
+        pushButton_15->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_16 = new QPushButton(TopMenu);
+        pushButton_16->setObjectName(QString::fromUtf8("pushButton_16"));
+        pushButton_16->setGeometry(QRect(370, 44, 51, 41));
+        pushButton_16->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_17 = new QPushButton(TopMenu);
+        pushButton_17->setObjectName(QString::fromUtf8("pushButton_17"));
+        pushButton_17->setGeometry(QRect(60, 44, 51, 41));
+        pushButton_17->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_18 = new QPushButton(TopMenu);
+        pushButton_18->setObjectName(QString::fromUtf8("pushButton_18"));
+        pushButton_18->setGeometry(QRect(240, 44, 51, 41));
+        pushButton_18->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_19 = new QPushButton(TopMenu);
+        pushButton_19->setObjectName(QString::fromUtf8("pushButton_19"));
+        pushButton_19->setGeometry(QRect(430, 44, 51, 41));
+        pushButton_19->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_20 = new QPushButton(TopMenu);
+        pushButton_20->setObjectName(QString::fromUtf8("pushButton_20"));
+        pushButton_20->setGeometry(QRect(303, 44, 51, 41));
+        pushButton_20->setStyleSheet(QString::fromUtf8("background:white;"));
+        pushButton_21 = new QPushButton(TopMenu);
+        pushButton_21->setObjectName(QString::fromUtf8("pushButton_21"));
+        pushButton_21->setGeometry(QRect(180, 44, 51, 41));
+        pushButton_21->setStyleSheet(QString::fromUtf8("background:white;"));
+        FPSLabel = new QLabel(TopMenu);
+        FPSLabel->setObjectName(QString::fromUtf8("FPSLabel"));
+        FPSLabel->setGeometry(QRect(1800, 20, 61, 41));
+        FPSLabel->setStyleSheet(QString::fromUtf8("background:white;\n"
+"color: black;"));
 
         verticalLayout_3->addWidget(TopMenu);
 
@@ -844,11 +899,8 @@ public:
         InventoryScrollArea = new QScrollArea(InventoryWrapper);
         InventoryScrollArea->setObjectName(QString::fromUtf8("InventoryScrollArea"));
         InventoryScrollArea->setGeometry(QRect(0, 45, 734, 308));
-        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
-        InventoryScrollArea->setSizePolicy(sizePolicy4);
+        sizePolicy1.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
+        InventoryScrollArea->setSizePolicy(sizePolicy1);
         InventoryScrollArea->setStyleSheet(QString::fromUtf8("background: transparent;\n"
 "border: none;"));
         InventoryScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -856,9 +908,13 @@ public:
         InventoryScrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents_2 = new QWidget();
         scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 16, 16));
-        sizePolicy.setHeightForWidth(scrollAreaWidgetContents_2->sizePolicy().hasHeightForWidth());
-        scrollAreaWidgetContents_2->setSizePolicy(sizePolicy);
+        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 734, 304));
+        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Maximum);
+        sizePolicy4.setHorizontalStretch(0);
+        sizePolicy4.setVerticalStretch(0);
+        sizePolicy4.setHeightForWidth(scrollAreaWidgetContents_2->sizePolicy().hasHeightForWidth());
+        scrollAreaWidgetContents_2->setSizePolicy(sizePolicy4);
+        scrollAreaWidgetContents_2->setMinimumSize(QSize(0, 304));
         verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
         verticalLayout_8->setSpacing(0);
         verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
@@ -879,16 +935,12 @@ public:
         InventoryScrollBar->setSingleStep(74);
         InventoryScrollBar->setPageStep(18);
         InventoryScrollBar->setOrientation(Qt::Vertical);
-        widget = new InventoryCell(CharacterWindow);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(850, 200, 221, 181));
         InventoryWrapper->raise();
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
         tooltip->raise();
-        widget->raise();
 
         retranslateUi(CharacterWindow);
 
@@ -899,18 +951,95 @@ public:
     {
         CharacterWindow->setWindowTitle(QCoreApplication::translate("CharacterWindow", "Form", nullptr));
         pushButton_4->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\321\205\320\270\320\273\321\217\321\202\321\214 \320\277\321\200\320\276\320\263\321\200\320\265\321\201\321\201\320\261\320\260\321\200\321\213", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 1</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 <span style=\" font-weight:700;\">\320\241\320\270\320\273\321\213</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton->setText(QCoreApplication::translate("CharacterWindow", "1", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_2->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 2</p><p>\320\243\320\264\320\260\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 <span style=\" font-weight:700;\">\320\241\320\270\320\273\321\213</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_2->setText(QCoreApplication::translate("CharacterWindow", "2", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_3->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 3</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 <span style=\" font-weight:700;\">\320\233\320\276\320\262\320\272\320\276\321\201\321\202\320\270</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_3->setText(QCoreApplication::translate("CharacterWindow", "3", nullptr));
         SaveButton->setText(QCoreApplication::translate("CharacterWindow", "\320\241\320\276\321\205\321\200\320\260\320\275\320\270\321\202\321\214", nullptr));
         LoadButton->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\320\263\321\200\321\203\320\267\320\270\321\202\321\214", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_5->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 4</p><p>\320\243\320\264\320\260\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 <span style=\" font-weight:700;\">\320\233\320\276\320\262\320\272\320\276\321\201\321\202\320\270</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(whatsthis)
+        pushButton_5->setWhatsThis(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 4</p><p><br/></p><p>\320\243\320\264\320\260\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 <span style=\" font-weight:700;\">\320\233\320\276\320\262\320\272\320\276\321\201\321\202\320\270</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(whatsthis)
         pushButton_5->setText(QCoreApplication::translate("CharacterWindow", "4", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_6->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 5</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\264\320\265\320\261\320\260\321\204\320\260 <span style=\" font-weight:700;\">\320\230\320\275\321\202\320\265\320\273\320\273\320\265\320\272\321\202\320\260</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_6->setText(QCoreApplication::translate("CharacterWindow", "5", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_7->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 10</p><p>\320\243\320\264\320\260\320\273\321\217\320\265\321\202 \321\201\321\202\321\200\320\276\320\272\321\203 \320\270\320\275\320\262\320\265\320\275\321\202\320\260\321\200\321\217</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_7->setText(QCoreApplication::translate("CharacterWindow", "10", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_8->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 9</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\321\217\320\265\321\202 \321\201\321\202\321\200\320\276\320\272\321\203 \320\270\320\275\320\262\320\265\320\275\321\202\320\260\321\200\321\217 \321\201 \321\202\320\265\321\201\321\202\320\276\320\262\320\276\320\271 \320\262\320\265\321\211\321\214\321\216 \320\262 \320\272\320\260\320\266\320\264\320\276\320\271 \321\217\321\207\320\265\320\271\320\272\320\265</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_8->setText(QCoreApplication::translate("CharacterWindow", "9", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_9->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 6</p><p>\320\243\320\264\320\260\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\264\320\265\320\261\320\260\321\204\320\260 <span style=\" font-weight:700;\">\320\230\320\275\321\202\320\265\320\273\320\273\320\265\320\272\321\202\320\260</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_9->setText(QCoreApplication::translate("CharacterWindow", "6", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_10->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 7</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\264\320\265\320\261\320\260\321\204\320\260 <span style=\" font-weight:700;\">\320\234\320\260\320\263\320\270\320\270</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_10->setText(QCoreApplication::translate("CharacterWindow", "7", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_11->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 8</p><p>\320\243\320\264\320\260\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\264\320\265\320\261\320\260\321\204\320\260 <span style=\" font-weight:700;\">\320\234\320\260\320\263\320\270\320\270</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
         pushButton_11->setText(QCoreApplication::translate("CharacterWindow", "8", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_12->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 19</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_12->setText(QCoreApplication::translate("CharacterWindow", "19", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_13->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 12</p><p>\320\243\320\264\320\260\320\273\320\265\320\275\320\270\320\265 \320\262\321\201\320\265\321\205 \320\261\320\276\320\275\321\203\321\201\320\276\320\262 \320\270 \320\264\320\265\320\261\320\260\321\204\320\276\320\262 \320\264\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\275\321\213\321\205 \320\272\320\275\320\276\320\277\320\272\320\276\320\271 11</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_13->setText(QCoreApplication::translate("CharacterWindow", "12", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_14->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 20</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_14->setText(QCoreApplication::translate("CharacterWindow", "20", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_15->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 18</p><p>\320\221\320\276\320\275\321\203\321\201 \320\275\320\260 \321\217\321\207\320\265\320\271\320\272\320\270 2</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_15->setText(QCoreApplication::translate("CharacterWindow", "18", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_16->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 16</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 \320\272\320\276 <span style=\" font-weight:700;\">\320\262\321\201\320\265\320\274</span> \321\217\321\207\320\265\320\271\320\272\320\260\320\274 <span style=\" font-weight:700;\">\320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\276\320\271 \320\267\320\260\321\211\320\270\321\202\321\213</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_16->setText(QCoreApplication::translate("CharacterWindow", "16", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_17->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 11</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 \320\261\320\276\320\273\321\214\321\210\320\276\320\263\320\276 \321\207\320\270\321\201\320\273\320\260 \320\261\320\276\320\275\321\203\321\201\320\276\320\262\320\276 \320\270 \320\264\320\265\320\261\320\260\321\204\320\276\320\262 \320\272 <span style=\" font-weight:700;\">\320\227\320\264\320\276\321\200\320\276\320\262\321\214\321\216</span> \320\264\320\273\321\217 \321\202\320\265\321\201\321\202\320\260 \321\201\320\276\321\200\321\202\320\270\321\200\320\276\320\262\320\272\320\270 \320\261\320\276\320\275\321\203\321\201\320\276\320\262</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_17->setText(QCoreApplication::translate("CharacterWindow", "11", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_18->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 14</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 \320\272 <span style=\" font-weight:700;\">\320\277\320\265\321\200\320\262\320\276\320\271</span> \321\217\321\207\320\265\320\271\320\272\320\265 <span style=\" font-weight:700;\">\320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\276\320\271 \320\267\320\260\321\211\320\270\321\202\321\213</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(whatsthis)
+        pushButton_18->setWhatsThis(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 4</p><p><br/></p><p>\320\243\320\264\320\260\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 <span style=\" font-weight:700;\">\320\233\320\276\320\262\320\272\320\276\321\201\321\202\320\270</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(whatsthis)
+        pushButton_18->setText(QCoreApplication::translate("CharacterWindow", "14", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_19->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 17</p><p>\320\221\320\276\320\275\321\203\321\201 \320\275\320\260 \321\217\321\207\320\265\320\271\320\272\320\270 1</p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_19->setText(QCoreApplication::translate("CharacterWindow", "17", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_20->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 15</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 \320\272 <span style=\" font-weight:700;\">\321\202\321\200\320\265\321\202\320\265\320\271</span> \321\217\321\207\320\265\320\271\320\272\320\265 <span style=\" font-weight:700;\">\320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\276\320\271 \320\267\320\260\321\211\320\270\321\202\321\213</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_20->setText(QCoreApplication::translate("CharacterWindow", "15", nullptr));
+#if QT_CONFIG(tooltip)
+        pushButton_21->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 13</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 \320\272 <span style=\" font-weight:700;\">\321\206\320\265\320\275\321\202\321\200\320\260\320\273\321\214\320\275\320\276\320\271</span> \321\217\321\207\320\265\320\271\320\272\320\265 <span style=\" font-weight:700;\">\320\274\320\260\320\263\320\270\321\207\320\265\321\201\320\272\320\276\320\271 \320\267\320\260\321\211\320\270\321\202\321\213</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+        pushButton_21->setText(QCoreApplication::translate("CharacterWindow", "13", nullptr));
+        FPSLabel->setText(QCoreApplication::translate("CharacterWindow", "00", nullptr));
         TopMenuBorder->setText(QString());
         StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
         StrengthPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr)));

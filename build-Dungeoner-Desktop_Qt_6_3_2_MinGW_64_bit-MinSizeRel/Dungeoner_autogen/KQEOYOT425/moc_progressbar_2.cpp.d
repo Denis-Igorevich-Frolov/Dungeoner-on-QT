@@ -4,6 +4,9 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Mi
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/chunk.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefense.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/magicdefensebonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/SecondaryStat/secondarystat.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/stat.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/TooltipDisplayEvents/tooltipdisplayevents.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QVector \

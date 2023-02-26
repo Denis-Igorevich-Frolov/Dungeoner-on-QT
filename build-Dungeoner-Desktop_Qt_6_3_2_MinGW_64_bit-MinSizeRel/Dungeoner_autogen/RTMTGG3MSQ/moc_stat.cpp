@@ -24,7 +24,7 @@ QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Stat_t {
     uint offsetsAndSizes[6];
     char stringdata0[5];
-    char stringdata1[15];
+    char stringdata1[12];
     char stringdata2[1];
 };
 #define QT_MOC_LITERAL(ofs, len) \
@@ -32,11 +32,11 @@ struct qt_meta_stringdata_Stat_t {
 static const qt_meta_stringdata_Stat_t qt_meta_stringdata_Stat = {
     {
         QT_MOC_LITERAL(0, 4),  // "Stat"
-        QT_MOC_LITERAL(5, 14),  // "bonusesChanged"
-        QT_MOC_LITERAL(20, 0)   // ""
+        QT_MOC_LITERAL(5, 11),  // "statChanged"
+        QT_MOC_LITERAL(17, 0)   // ""
     },
     "Stat",
-    "bonusesChanged",
+    "statChanged",
     ""
 };
 #undef QT_MOC_LITERAL
@@ -69,14 +69,14 @@ void Stat::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         auto *_t = static_cast<Stat *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->bonusesChanged(); break;
+        case 0: _t->statChanged(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (Stat::*)();
-            if (_t _q_method = &Stat::bonusesChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &Stat::statChanged; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
@@ -132,7 +132,7 @@ int Stat::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Stat::bonusesChanged()
+void Stat::statChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }

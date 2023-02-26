@@ -37,6 +37,9 @@ public:
     void setScrollAreaHeight(int newScrollAreaHeight);
     void setScrollAreaOffset(int newScrollAreaOffset);
 
+    //Если ячейка находится вне границ скроллбара, то для оптимизации она очищается от стилей и скрывается
+    void cellHidingCheck();
+
     bool swapItems(InventoryCell *sourceCell);
 
 signals:
@@ -62,9 +65,6 @@ private:
     void setBrokenStyle();
     //Стиль ячейки с заглушенным сломанным пребметом
     void setDisabledBrokenStyle();
-
-    //Если ячейка находится вне границ скроллбара, то для оптимизации она очищается от стилей и скрывается
-    void cellHidingCheck();
 
     QPoint dragStart;
 
