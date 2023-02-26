@@ -1346,7 +1346,7 @@ void CharacterWindow::on_pushButton_12_clicked()
 
 void CharacterWindow::on_pushButton_14_clicked()
 {
-    ui->FPSCounter->setActive(false);
+    ui->FPSCounter->setActive(!ui->FPSCounter->active);
 }
 
 void CharacterWindow::on_SaveButton_clicked()

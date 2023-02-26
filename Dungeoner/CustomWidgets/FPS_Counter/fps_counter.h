@@ -16,6 +16,7 @@ public:
     ~FPS_Counter();
 
     void setActive(bool active);
+    bool active = true;
 
 private:
     Ui::FPS_Counter *ui;
