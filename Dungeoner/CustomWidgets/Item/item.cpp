@@ -27,6 +27,7 @@ Item::Item(QWidget *parent) :
     ui->Quantity->setGraphicsEffect(border);
 
     itemButton = ui->pushButton;
+//    setUpdatesEnabled(false);
 }
 
 Item::~Item()
@@ -43,6 +44,7 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
            int minDamage, int maxDamage, bool isPressable, bool isDisabled, bool isNew, int currentStyle, bool itemIsEmpty) :
     ui(new Ui::Item)
 {
+//    setUpdatesEnabled(false);
     ui->setupUi(this);
 
     //Без этого атрибута эвенты наведения мыши не будут вызываться
@@ -297,6 +299,11 @@ bool Item::eventFilter(QObject *object, QEvent *event)
     }
 
     return false;
+}
+
+void Item::paintEvent(QPaintEvent *event)
+{
+//    qDebug()<<id;
 }
 
 //Эффекты при прожатии итема

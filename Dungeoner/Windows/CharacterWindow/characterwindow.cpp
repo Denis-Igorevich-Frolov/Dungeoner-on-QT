@@ -136,6 +136,12 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     //!!!
     for(int i = 0; i<4; i++)
         addRowOfCellsToInventory();
+
+//    ui->SkillsWraper->setVisible(false);
+//    ui->SecondarySkillsWraper->setVisible(false);
+//    ui->ScrollAreaWraper->setVisible(false);
+//    ui->ProgressBars->setVisible(false);
+//    ui->InventoryWrapper->setVisible(false);
 }
 
 CharacterWindow::~CharacterWindow()
@@ -888,23 +894,23 @@ bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
-void CharacterWindow::paintEvent(QPaintEvent *event)
-{
-    qint64 currentTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
-    _times.push_back(currentTime);
+//void CharacterWindow::paintEvent(QPaintEvent *event)
+//{
+//    qint64 currentTime = QDateTime::currentDateTime().toMSecsSinceEpoch();
+//    _times.push_back(currentTime);
 
-    while (_times[0] < currentTime - 1000) {
-        _times.pop_front();
-    }
+//    while (_times[0] < currentTime - 1000) {
+//        _times.pop_front();
+//    }
 
-    int currentCount = _times.length();
-    _currentFPS = (currentCount + _cacheCount) / 2;
+//    int currentCount = _times.length();
+//    _currentFPS = (currentCount + _cacheCount) / 2;
 
-    _cacheCount = currentCount;
-    ui->FPSLabel->setText("FPS "+QString::number(_currentFPS));
+//    _cacheCount = currentCount;
+//    ui->FPSLabel->setText("FPS "+QString::number(_currentFPS));
 
-    update();
-}
+//    update();
+//}
 
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
