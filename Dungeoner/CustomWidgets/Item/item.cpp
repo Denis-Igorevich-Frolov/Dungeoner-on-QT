@@ -25,8 +25,6 @@ Item::Item(QWidget *parent) :
     border->setOutlineThickness(2);
     ui->Quantity->setMargin(2);
     ui->Quantity->setGraphicsEffect(border);
-
-    itemButton = ui->pushButton;
 }
 
 Item::~Item()
@@ -468,13 +466,16 @@ void Item::setCurrentStyle(int newCurrentStyle)
     setWeight(currentItem->weight);
     setVolume(currentItem->volume);
     setPrice(currentItem->price);
-    setMaxDurability(currentItem->maxDurability);
-    setCurrentDurability(currentItem->currentDurability);
     setCellSlots(currentItem->cellSlots, currentItem->occupiedCellSlots);
     this->bonuses = currentItem->bonuses;
     setDamage(currentItem->minDamage, currentItem->maxDamage);
     this->isPressable = currentItem->isPressable;
     setDisabledSyle(currentItem->isDisabled);
+
+    setChosenStyleButtonStyle();
+    setDisabledSyle(isDisabled);
+    setBrokenSyle(getIsBroken());
+    qDebug()<<getIsBroken();
 }
 
 QVector<Item::Slots> Item::getCellSlots() const
@@ -669,33 +670,38 @@ void Item::setChosenStyleButtonStyle()
 void Item::on_StyleButton_1_clicked()
 {
     setCurrentStyle(0);
-    setChosenStyleButtonStyle();
 }
 
 
 void Item::on_StyleButton_2_clicked()
 {
     setCurrentStyle(1);
-    setChosenStyleButtonStyle();
 }
 
 
 void Item::on_StyleButton_3_clicked()
 {
     setCurrentStyle(2);
-    setChosenStyleButtonStyle();
 }
 
 
 void Item::on_StyleButton_4_clicked()
 {
     setCurrentStyle(3);
-    setChosenStyleButtonStyle();
 }
 
 
 void Item::on_StyleButton_5_clicked()
 {
     setCurrentStyle(4);
-    setChosenStyleButtonStyle();
+}
+
+QWidget *Item::getStyleButtonsWrapper()
+{
+    return ui->StyleButtonsWrapper;
+}
+
+QPushButton *Item::getItemButton()
+{
+    return ui->pushButton;
 }

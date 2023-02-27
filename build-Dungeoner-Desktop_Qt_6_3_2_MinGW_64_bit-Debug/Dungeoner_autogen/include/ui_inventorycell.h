@@ -29,6 +29,7 @@ public:
     QLabel *Locked;
     QLabel *Blocked;
     Item *item;
+    QLabel *ItemPixmapGrab;
 
     void setupUi(QWidget *InventoryCell)
     {
@@ -70,13 +71,18 @@ public:
         item->setGeometry(QRect(0, 0, 68, 68));
         item->setMouseTracking(true);
         item->setFocusPolicy(Qt::StrongFocus);
+        ItemPixmapGrab = new QLabel(InventoryCell);
+        ItemPixmapGrab->setObjectName(QString::fromUtf8("ItemPixmapGrab"));
+        ItemPixmapGrab->setGeometry(QRect(0, 0, 68, 68));
+        ItemPixmapGrab->setStyleSheet(QString::fromUtf8(""));
         CentralElement->raise();
         inventoryCellBG->raise();
         inventoryCellBorder->raise();
         Locked->raise();
-        inventoryCellNew->raise();
         DropdownButton->raise();
         Blocked->raise();
+        inventoryCellNew->raise();
+        ItemPixmapGrab->raise();
         item->raise();
 
         retranslateUi(InventoryCell);
@@ -94,6 +100,7 @@ public:
         inventoryCellBG->setText(QString());
         Locked->setText(QString());
         Blocked->setText(QString());
+        ItemPixmapGrab->setText(QString());
     } // retranslateUi
 
 };

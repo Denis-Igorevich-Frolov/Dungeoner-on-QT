@@ -147,13 +147,30 @@
     <enum>Qt::StrongFocus</enum>
    </property>
   </widget>
+  <widget class="QLabel" name="ItemPixmapGrab">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>68</width>
+     <height>68</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>CentralElement</zorder>
   <zorder>inventoryCellBG</zorder>
   <zorder>inventoryCellBorder</zorder>
   <zorder>Locked</zorder>
-  <zorder>inventoryCellNew</zorder>
   <zorder>DropdownButton</zorder>
   <zorder>Blocked</zorder>
+  <zorder>inventoryCellNew</zorder>
+  <zorder>ItemPixmapGrab</zorder>
   <zorder>item</zorder>
  </widget>
  <customwidgets>

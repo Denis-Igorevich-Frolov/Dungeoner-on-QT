@@ -1096,14 +1096,16 @@ void CharacterWindow::addRowOfCellsToInventory()
 
         //!!!отладка
         //////////////////////////////////////////////
-        if(/*true*/((i == 0)||(i == 2)) && ui->Inventory->count()<10){
+        if(true/*((i == 0)||(i == 2)) && ui->Inventory->count()<10*/){
         Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 
         item->isPressable = true;
         item->isNew = true;
 //        item->isDisabled = true;
-//        item->setMaxDurability(1);
-//        item->setCurrentDurability(0);
+        if(/*true*/i == 2 && ui->Inventory->count()<10){
+                item->setMaxDurability(1);
+                item->setCurrentDurability(0);
+        }
         item->setQuantity(999);
         item->setId(0);
 

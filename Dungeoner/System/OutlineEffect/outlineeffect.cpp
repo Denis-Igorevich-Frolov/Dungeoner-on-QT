@@ -19,19 +19,20 @@ OutlineEffect::OutlineEffect(QGraphicsEffect *parent)
 //Переопределение родительской виртуальной функции отрисовки
 void OutlineEffect::draw(QPainter *painter)
 {
-    //Так как работа идёт уже с QPixmap антиалайзинг должен быть обычным, а не TextAntialiasing
-    painter->setRenderHint(QPainter::Antialiasing);
+    if(isEnabled()){
+        //Так как работа идёт уже с QPixmap антиалайзинг должен быть обычным, а не TextAntialiasing
+        painter->setRenderHint(QPainter::Antialiasing);
 
-    //Если толщина обводки нулевая, то и смысла гонять эти циклы нет
-    if(outlineThickness > 0){
-        //Перекрашивание дубликата изображения в переданый цвет
-        QPixmap outline = sourcePixmap();
-        QPainter repaintingPainter(&outline);
-        repaintingPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
-        repaintingPainter.fillRect(outline.rect(), color);
-        repaintingPainter.end();
+        //Если толщина обводки нулевая, то и смысла гонять эти циклы нет
+        if(outlineThickness > 0){
+            //Перекрашивание дубликата изображения в переданый цвет
+            QPixmap outline = sourcePixmap();
+            QPainter repaintingPainter(&outline);
+            repaintingPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+            repaintingPainter.fillRect(outline.rect(), color);
+            repaintingPainter.end();
 
-        /*После перекрашивания получается дубликат исходного изображения, залитый цветом обводки.
+            /*После перекрашивания получается дубликат исходного изображения, залитый цветом обводки.
          *Теперь из него можно сделать непосредственно обводку. Масштабировать этот дубликат для
          *такой задачи абсолютно не вариант, так как при увеличении масштаба увеличатся и общие
          *пропорции текста включая расстояние можду буквами. А если это рассояние не совпадает с
@@ -44,20 +45,21 @@ void OutlineEffect::draw(QPainter *painter)
          *перезаписывает предыдущий, сделать множество теней простыми методами не получится. Так
          *что окрашенный дубликат sourcePixmap() здесь выступает в роли такой "тени". Его следует
          *отрисовать в каждой позиции заданного смещения.*/
-        for(int i = 0; i<=outlineThickness; i++){
-            for(int j = 0; j<=outlineThickness; j++){
-                if(i!=0||j!=0){
-                    painter->drawPixmap(i, j, outline);
-                    painter->drawPixmap(-i, j, outline);
-                    painter->drawPixmap(i, -j, outline);
-                    painter->drawPixmap(-i, -j, outline);
+            for(int i = 0; i<=outlineThickness; i++){
+                for(int j = 0; j<=outlineThickness; j++){
+                    if(i!=0||j!=0){
+                        painter->drawPixmap(i, j, outline);
+                        painter->drawPixmap(-i, j, outline);
+                        painter->drawPixmap(i, -j, outline);
+                        painter->drawPixmap(-i, -j, outline);
+                    }
                 }
             }
         }
-    }
 
-    //По окончинии отрисовки обводки отрисовываем исходное изображение
-    drawSource(painter);
+        //По окончинии отрисовки обводки отрисовываем исходное изображение
+        drawSource(painter);
+    }
 }
 
 const QColor &OutlineEffect::getColor() const

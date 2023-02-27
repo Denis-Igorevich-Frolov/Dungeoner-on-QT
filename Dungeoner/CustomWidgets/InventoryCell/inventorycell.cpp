@@ -18,7 +18,8 @@ InventoryCell::InventoryCell(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->item->itemButton->installEventFilter(this);
+    ui->item->getItemButton()->installEventFilter(this);
+    ui->item->getStyleButtonsWrapper()->installEventFilter(this);
 
     setDropdownButtonVisible(false);
 
@@ -117,6 +118,7 @@ void InventoryCell::setEmptyStyle()
     //Задний фон и лейбл заблокированной ячейки не участвуют в этом стиле, так что их следует скрыть
     ui->inventoryCellBG->setVisible(false);
     ui->Locked->setVisible(false);
+    ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::emptyBorderStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonEmptyStyle());
@@ -125,6 +127,7 @@ void InventoryCell::setEmptyStyle()
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
+    ui->item->setUpdatesEnabled(true);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 56);
@@ -139,6 +142,7 @@ void InventoryCell::setNoEmptyStyle()
     //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::notEmptyBorderStyle());
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::notEmptyBGStyle());
@@ -147,6 +151,7 @@ void InventoryCell::setNoEmptyStyle()
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
+    ui->item->setUpdatesEnabled(true);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
@@ -165,9 +170,12 @@ void InventoryCell::setNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    ui->ItemPixmapGrab->setPixmap(ui->item->grab());
+    ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
+    ui->item->setUpdatesEnabled(false);
 }
 
 //Стиль ячейки с новым заглушенным предметом
@@ -183,9 +191,12 @@ void InventoryCell::setDisabledNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    ui->ItemPixmapGrab->setPixmap(ui->item->grab());
+    ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(false);
+    ui->item->setUpdatesEnabled(false);
 }
 
 //Стиль ячейки с новым сломанным пребметом
@@ -201,9 +212,12 @@ void InventoryCell::setBrokenNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    ui->ItemPixmapGrab->setPixmap(ui->item->grab());
+    ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(true);
+    ui->item->setUpdatesEnabled(false);
 }
 
 //Стиль ячейки с новым заглушенным сломанным пребметом
@@ -219,9 +233,12 @@ void InventoryCell::setDisabledBrokenNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    ui->ItemPixmapGrab->setPixmap(ui->item->grab());
+    ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(true);
+    ui->item->setUpdatesEnabled(false);
 }
 
 void InventoryCell::setCentralElementStyle(bool isVisible)
@@ -241,9 +258,9 @@ void InventoryCell::setScrollAreaHeight(int newScrollAreaHeight)
 
 bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 {
-    if(object == ui->item->itemButton){
+    if(object == ui->item->getItemButton()||object == ui->item->getStyleButtonsWrapper()){
         //При наведении новый стиль пропадает
-        if(event->type() == QEvent::HoverEnter){
+        if(event->type() == QEvent::HoverEnter||event->type() == QEvent::Enter){
             if(ui->item->isNew){
                 ui->item->isNew = false;
                 setAutoStyle();
@@ -304,12 +321,14 @@ void InventoryCell::setLockedStyle()
     //Задний фон и центральный элемент не участвуют в этом стиле, так что их следует скрыть
     ui->inventoryCellBG->setVisible(false);
     ui->CentralElement->setVisible(false);
+    ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::lockedBorderStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonLockedStyle());
     ui->Locked->setStyleSheet(IC_stylemaster::lockedStyle());
     ui->CentralElement->setVisible(true);
     ui->Locked->setVisible(true);
+    ui->item->setUpdatesEnabled(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
@@ -327,6 +346,7 @@ void InventoryCell::setDisabledStyle()
     //Лейбл заблокированной ячейки и центральный элемент не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::disabledNotEmptyBorderStyle());
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::disabledNotEmptyBGStyle());
@@ -336,6 +356,7 @@ void InventoryCell::setDisabledStyle()
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(false);
+    ui->item->setUpdatesEnabled(true);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
@@ -348,8 +369,10 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     if(isBlocked)
         ui->Blocked->setStyleSheet(IC_stylemaster::blockedStyle());
 
+    ui->ItemPixmapGrab->setVisible(false);
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
+    ui->item->setUpdatesEnabled(true);
 }
 
 //Стиль ячейки со сломанным пребметом
@@ -361,6 +384,7 @@ void InventoryCell::setBrokenStyle()
     //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::notEmptyBorderStyle());
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::brokenNotEmptyBGStyle());
@@ -369,6 +393,7 @@ void InventoryCell::setBrokenStyle()
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(true);
+    ui->item->setUpdatesEnabled(true);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
@@ -383,6 +408,7 @@ void InventoryCell::setDisabledBrokenStyle()
     //Лейбл заблокированной ячейки и центральный элемент не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::disabledNotEmptyBorderStyle());
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::disabledBrokenNotEmptyBGStyle());
@@ -392,6 +418,7 @@ void InventoryCell::setDisabledBrokenStyle()
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(true);
+    ui->item->setUpdatesEnabled(true);
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);

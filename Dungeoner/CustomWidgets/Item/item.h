@@ -102,8 +102,6 @@ public:
         Global::DamageType damageType;
     };
 
-    QPushButton* itemButton;
-
     bool isNew = false;
     bool isDisabled = false;
     //Первый стиль - всегда исходный предмет
@@ -179,6 +177,10 @@ public:
     void hidenEffects(bool hiden);
 
     bool loadStyles(QDir dir);
+
+    QPushButton *getItemButton();
+
+    QWidget *getStyleButtonsWrapper();
 
 private slots:
     //Эффекты при прожатии итема
