@@ -10,6 +10,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/I_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/itemmimedata.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/itemmimedata.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/LWT_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.cpp \
@@ -152,6 +154,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmetacontainer.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmetaobject.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qmetatype.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/qmimedata.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qnativeinterface.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qnumeric.h \

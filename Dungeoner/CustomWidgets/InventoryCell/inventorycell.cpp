@@ -2,6 +2,7 @@
  *Данный класс является виджетом ячейки инвентаря, где хранятся любые итемы инвентаря.
  ********************************************************************************************/
 
+#include "CustomWidgets/Item/itemmimedata.h"
 #include "IC_stylemaster.h"
 
 #include "inventorycell.h"
@@ -107,6 +108,11 @@ void InventoryCell::setAutoStyle()
         setBrokenStyle();
     else
         setNoEmptyStyle();
+
+    if(ui->item->getId()!=-1)
+        ui->item->setCursor(QCursor(Qt::PointingHandCursor));
+    else
+        ui->item->setCursor(QCursor(Qt::ArrowCursor));
 }
 
 //Стиль пустой ячейки
@@ -274,7 +280,8 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
             QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
             if(!ui->item->itemIsEmpty && (mouseEvent->buttons() & Qt::LeftButton) && (QCursor::pos()-dragStart).manhattanLength()>20){
                 QDrag* drag = new QDrag( this );
-                QMimeData* mimeData = new QMimeData;
+                ItemMimeData* mimeData = new ItemMimeData(ui->item, this);
+
                 drag->setHotSpot(QPoint(ui->item->width()/2, ui->item->height()/2));
                 drag->setMimeData(mimeData);
 
@@ -292,7 +299,6 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 
                 drag->setPixmap(pixmap);
 
-                emit dragSourceObtained(this);
                 Qt::DropAction result = drag->exec(Qt::MoveAction);
             }
         }
@@ -303,12 +309,26 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 
 void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
 {
-    event->acceptProposedAction();
+    QStringList formats = event->mimeData()->formats();
+    if(formats.contains("Item")) {
+        event->acceptProposedAction();
+    }
 }
 
 void InventoryCell::dropEvent(QDropEvent *event)
 {
-    emit dropTargetObtained(this);
+    const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
+    Item* newItem = new Item(itemData->getItem());
+    newItem->setId(itemData->getItem()->getId());
+
+    InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
+    if(itemCell){
+        itemCell->setItem(new Item(ui->item));
+        itemCell->getItem()->setId(ui->item->getId());
+        itemCell->setAutoStyle();
+        setItem(newItem);
+    }
+
     event->acceptProposedAction();
 }
 
@@ -451,25 +471,4 @@ void InventoryCell::setScrollAreaOffset(int newScrollAreaOffset)
     ScrollAreaOffset = newScrollAreaOffset;
 
     cellHidingCheck();
-}
-
-bool InventoryCell::swapItems(InventoryCell* sourceCell)
-{
-    if(!sourceCell)
-        return false;
-    if(ui->item == sourceCell->getItem())
-        return false;
-    Item bufItem (ui->item->folderName, ui->item->itemTypes, ui->item->getItemName(), ui->item->getQuantity(), ui->item->getWeight(),
-                  ui->item->getVolume(), ui->item->getPrice(), ui->item->getMaxDurability(), ui->item->getCurrentDurability(),
-                  ui->item->getCellSlots(), ui->item->getOccupiedCellSlots(), ui->item->bonuses, ui->item->magicDefenseBonuses,
-                  ui->item->getMinDamage(), ui->item->getMaxDamage(), ui->item->isPressable, ui->item->isDisabled, ui->item->isNew,
-                  ui->item->getCurrentStyle(), ui->item->itemIsEmpty);
-    bufItem.setId(ui->item->getId());
-
-    setItem(sourceCell->getItem());
-    ui->item->setId(sourceCell->getItem()->getId());
-    sourceCell->setItem(&bufItem);
-    sourceCell->getItem()->setId(bufItem.getId());
-
-    return true;
 }

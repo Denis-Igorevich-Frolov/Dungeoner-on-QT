@@ -25,7 +25,6 @@ class Item : public QWidget
 
 public:
     explicit Item(QWidget *parent = nullptr);
-
     ~Item();
 
     enum ItemType{
@@ -87,6 +86,8 @@ public:
          int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},
          QVector<Slots> occupiedCellSlots = {}, QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {},
          int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0, bool itemIsEmpty = false);
+
+    Item(const Item* item);
 
     void setShadow(bool hasShadow, int shadowBlurRadius = 7, int shadowXOffset = 3, int shadowYOffset = 3, QColor color = Qt::black);
     //Установка стиля для кнопки, переключающей стили предмета
@@ -167,6 +168,7 @@ public:
     void setCellSlots(QVector<Slots> newCellSlots, QVector<Slots> newOccupiedCellSlots);
 
     int getCurrentStyle() const;
+    //Метод устанавливающий текущий стиль итемов на основе вектора styles
     void setCurrentStyle(int newCurrentStyle);
 
     void setId(int newId);
@@ -176,6 +178,7 @@ public:
     //Класс для оптимизации полностью скрывающий итем и его стили. Вызывается только когда итема и так не должно быть видно
     void hidenEffects(bool hiden);
 
+    //Загрузка всех стилей из папки Styles в папке итема
     bool loadStyles(QDir dir);
 
     QPushButton *getItemButton();
@@ -215,6 +218,8 @@ private:
     int currentDurability = -1;
     ItemCondition itemCondition = CRASHPROOF;
 
+    /*Метод устанавливающий стиль кнопок стилей итема в соответствии с текущим стилем. Так гасятся
+     *все кнопки кроме той, которая соответствует текущему стилю, она же в свою очередь зажигается*/
     void setChosenStyleButtonStyle();
 
     int minDamage = 0;

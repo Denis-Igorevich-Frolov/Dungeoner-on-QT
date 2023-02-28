@@ -1087,16 +1087,13 @@ void CharacterWindow::addRowOfCellsToInventory()
          *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
         ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
 
-        connect(cell, &InventoryCell::dragSourceObtained, this, &CharacterWindow::dragSourceObtained);
-        connect(cell, &InventoryCell::dropTargetObtained, this, &CharacterWindow::dropTargetObtained);
-
         QRect rect = cell->geometry();
         rect.setY(5 + 74*row);
         cell->setGeometry(rect);
 
         //!!!отладка
         //////////////////////////////////////////////
-        if(true/*((i == 0)||(i == 2)) && ui->Inventory->count()<10*/){
+        if(/*true*/((i == 0)||(i == 2)) && ui->Inventory->count()<10){
         Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 
         item->isPressable = true;
@@ -1154,16 +1151,6 @@ void CharacterWindow::removeRowOfCellsFromInventory()
         delete ui->Inventory->itemAtPosition(row-1, i)->widget();
         ui->Inventory->removeItem(ui->Inventory->itemAtPosition(row-1, i));
     }
-}
-
-void CharacterWindow::dragSourceObtained(InventoryCell* sourceCell)
-{
-    this->sourceCell = sourceCell;
-}
-
-void CharacterWindow::dropTargetObtained(InventoryCell *targetCell)
-{
-    targetCell->swapItems(sourceCell);
 }
 
 void CharacterWindow::on_StrengthValue_valueChanged(int arg1)

@@ -117,6 +117,8 @@ set(PROJECT_SOURCES
         CustomWidgets/FPS_Counter/fps_counter.h
         CustomWidgets/FPS_Counter/fps_counter.cpp
         CustomWidgets/FPS_Counter/fps_counter.ui
+        CustomWidgets/Item/itemmimedata.h
+        CustomWidgets/Item/itemmimedata.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -106,6 +106,74 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     setCurrentStyle(currentStyle);
 }
 
+Item::Item(const Item *item) :
+    ui(new Ui::Item)
+{
+    ui->setupUi(this);
+
+    //Без этого атрибута эвенты наведения мыши не будут вызываться
+    setAttribute(Qt::WA_Hover);
+
+    ui->pushButton->installEventFilter(this);
+
+    this->itemIsEmpty = item->itemIsEmpty;
+    if(itemIsEmpty)
+        setId(-1);
+
+    this->folderName = item->folderName;
+
+    //Создаётся директория, если её небыло
+    QDir dir;
+    if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName))
+        dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
+
+    dir.cd("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
+    loadStyles(dir);
+
+    if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
+         this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
+    else if(id!=-1){
+        //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
+        this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
+        this->hoverColor = QColor(255, 255, 255, 30);
+        this->pressedColor = QColor(0, 0, 0, 50);
+    }
+
+    ui->Image->setPixmap(QPixmap::fromImage(this->image,Qt::AutoColor));
+
+    this->itemTypes = item->itemTypes;
+    setItemName(item->itemName);
+    setQuantity(item->quantity);
+    setWeight(item->weight);
+    setVolume(item->volume);
+    setPrice(item->price);
+    setMaxDurability(item->maxDurability);
+    setCurrentDurability(item->currentDurability);
+    setCellSlots(item->cellSlots, occupiedCellSlots);
+    this->bonuses = item->bonuses;
+    this->magicDefenseBonuses = item->magicDefenseBonuses;
+    setDamage(item->minDamage, item->maxDamage);
+    this->isPressable = item->isPressable;
+    setDisabledSyle(item->isDisabled);
+    this->isNew = item->isNew;
+
+    setStyleButtonsStyle();
+
+    ui->Quantity->setFont(QFont("TextFont"));
+    ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(17));
+
+    border->setOutlineThickness(2);
+    ui->Quantity->setMargin(2);
+    ui->Quantity->setGraphicsEffect(border);
+
+    if(this->quantity > 1)
+        ui->Quantity->setText(QString::number(this->quantity));
+    else
+        ui->Quantity->setText("");
+
+    setCurrentStyle(item->currentStyle);
+}
+
 void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, int shadowYOffset, QColor color)
 {
     if(hasShadow){
@@ -406,6 +474,7 @@ void Item::hidenEffects(bool hiden)
     }
 }
 
+//Загрузка всех стилей из папки Styles в папке итема
 bool Item::loadStyles(QDir dir)
 {
     if (dir.cd("Styles")) {
@@ -413,7 +482,7 @@ bool Item::loadStyles(QDir dir)
         if(folders.size() == 0)
             return false;
         else foreach (QString folder, folders) {
-            //!!!!
+            //!!!! Когда будет реализована БД итема, здесь должна происходить загрузка
             Item* itemStyle = new Item(folderName+"/Styles/"+folder, QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
             styles.append(itemStyle);
         }
@@ -432,6 +501,7 @@ int Item::getCurrentStyle() const
     return currentStyle;
 }
 
+//Метод устанавливающий текущий стиль итемов на основе вектора styles
 void Item::setCurrentStyle(int newCurrentStyle)
 {
     if(newCurrentStyle < 0)
@@ -465,7 +535,6 @@ void Item::setCurrentStyle(int newCurrentStyle)
     setItemName(currentItem->itemName);
     setWeight(currentItem->weight);
     setVolume(currentItem->volume);
-    setPrice(currentItem->price);
     setCellSlots(currentItem->cellSlots, currentItem->occupiedCellSlots);
     this->bonuses = currentItem->bonuses;
     setDamage(currentItem->minDamage, currentItem->maxDamage);
@@ -475,7 +544,6 @@ void Item::setCurrentStyle(int newCurrentStyle)
     setChosenStyleButtonStyle();
     setDisabledSyle(isDisabled);
     setBrokenSyle(getIsBroken());
-    qDebug()<<getIsBroken();
 }
 
 QVector<Item::Slots> Item::getCellSlots() const
@@ -657,6 +725,8 @@ void Item::setQuantity(int newQuantity)
         ui->Quantity->setText("");
 }
 
+/*Метод устанавливающий стиль кнопок стилей итема в соответствии с текущим стилем. Так гасятся
+ *все кнопки кроме той, которая соответствует текущему стилю, она же в свою очередь зажигается*/
 void Item::setChosenStyleButtonStyle()
 {
     for(int i = 0; i<styles.size(); i++){

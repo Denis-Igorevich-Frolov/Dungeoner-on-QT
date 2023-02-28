@@ -41,9 +41,6 @@ private slots:
     //Удаление последней линии ячеек в инвентаре
     void removeRowOfCellsFromInventory();
 
-    void dragSourceObtained(InventoryCell* sourceCell);
-    void dropTargetObtained(InventoryCell* targetCell);
-
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
 
@@ -162,6 +159,7 @@ private:
 
     Person person = Person();
     bool isManualStatReplacement = false;
+    //Ячейка инвентаря из которой начался Drag&Drop
     InventoryCell* sourceCell;
 };
 

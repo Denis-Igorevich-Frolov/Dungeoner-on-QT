@@ -40,12 +40,6 @@ public:
     //Если ячейка находится вне границ скроллбара, то для оптимизации она очищается от стилей и скрывается
     void cellHidingCheck();
 
-    bool swapItems(InventoryCell *sourceCell);
-
-signals:
-    void dragSourceObtained(InventoryCell* sourceCell);
-    void dropTargetObtained(InventoryCell* targetCell);
-
 private:
     //Стиль пустой ячейки
     void setEmptyStyle();
