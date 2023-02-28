@@ -127,9 +127,6 @@ Item::Item(const Item *item) :
     if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName))
         dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
 
-    dir.cd("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
-    loadStyles(dir);
-
     if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
          this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
     else if(id!=-1){
@@ -148,6 +145,7 @@ Item::Item(const Item *item) :
     setVolume(item->volume);
     setPrice(item->price);
     setMaxDurability(item->maxDurability);
+    this->styles = item->styles;
     setCurrentDurability(item->currentDurability);
     setCellSlots(item->cellSlots, occupiedCellSlots);
     this->bonuses = item->bonuses;
