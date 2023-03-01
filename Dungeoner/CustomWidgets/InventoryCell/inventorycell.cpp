@@ -306,7 +306,7 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
              *Посленее нужно для избежания раздражающей случайной идициации перетаскивания во время обычной попытки нажатия по итему*/
             if(!ui->item->itemIsEmpty && (mouseEvent->buttons() & Qt::LeftButton) && (QCursor::pos()-dragStart).manhattanLength()>20){
                 if(ui->item->SoundDrag != "")
-                    Global::mediaplayer.playSound(QUrl::fromLocalFile(ui->item->SoundDrag), MediaPlayer::SoundsGroup::SOUNDS);
+                    Global::mediaplayer.playSound(QUrl::fromLocalFile(ui->item->SoundDrag), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
 
                 QDrag* drag = new QDrag(this);
                 ItemMimeData* mimeData = new ItemMimeData(ui->item, this);
@@ -357,7 +357,7 @@ void InventoryCell::dropEvent(QDropEvent *event)
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     if(itemCell){
         if(newItem->SoundDrop!="")
-            Global::mediaplayer.playSound(QUrl::fromLocalFile(newItem->SoundDrop), MediaPlayer::SoundsGroup::SOUNDS);
+            Global::mediaplayer.playSound(QUrl::fromLocalFile(newItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
         //Затем текущий итем помещается в ячейку из которой началось перетаскивание
         itemCell->setItem(new Item(ui->item));
         /*Так как setItem не передаёт id итема, вызов setAutoStyle внутри него не сработал

@@ -6,12 +6,6 @@
 
 MediaPlayer::MediaPlayer()
 {
-    //Значения по умолчанию
-    overallVolume = 1;
-    soundsVolume = 1;
-    musicsVolume = 1;
-
-
     player = new QMediaPlayer;
     audioOutput = new QAudioOutput;
     player->setAudioOutput(audioOutput);
@@ -25,15 +19,27 @@ MediaPlayer::~MediaPlayer()
 
 /*Проигрывание медиафайла. В него передаётся ссылка на ресурс и энум
  *группы медиафайла для регулировки громкости разных груп.*/
-void MediaPlayer::playSound(QUrl url, enum SoundsGroup)
+void MediaPlayer::playSound(QUrl url, SoundsGroup group)
 {
-    double volume;
-    if(SoundsGroup::SOUNDS){
+    double volume = 0;
+
+    if(group == SoundsGroup::SOUNDS){
         volume = soundsVolume * overallVolume;
-    } else if(SoundsGroup::MUSICS){
+    } else if(group == SoundsGroup::MUSICS){
         volume = musicsVolume * overallVolume;
+    } else if(group == SoundsGroup::DRAG_AND_DROP){
+        if(playDragAndDropSound)
+            volume = soundsVolume * overallVolume;
+        else volume = 0;
     }
+
+    /*Если громкость равна нулю, то и смысла дальше что-то делать нет. R тому же в Qt
+     *воспроизведение звука с нулевой громкостью сопровождается едва слышимыми щелчками*/
+    if(volume == 0)
+        return;
+
     audioOutput->setVolume(volume);
+    player->setAudioOutput(audioOutput);
     player->setSource(url);
     player->play();
 }
