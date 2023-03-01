@@ -330,14 +330,14 @@ void Item::on_pushButton_clicked()
 {
     //!!!Пока класс эффекта прожатия вещи не реализован
 
-    //Если итем сломан, его нельзя продать
-    if(itemCondition == BROKEN){
-        if(SoundPressWithOutOfCharge!="")
-            Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPressWithOutOfCharge), MediaPlayer::SoundsGroup::SOUNDS);
-        return;
-    }
-
     if(isPressable){
+        //Если итем сломан, его нельзя продать
+        if(itemCondition == BROKEN){
+            if(SoundPressWithOutOfCharge!="")
+                Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPressWithOutOfCharge), MediaPlayer::SoundsGroup::SOUNDS);
+            return;
+        }
+
         //Если у итема неограниченое количество зарядов, то просто выполняется эффект нажатия
         if(maxCharges == -1){
             if(SoundPress!="")
