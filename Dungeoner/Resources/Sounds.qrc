@@ -1,5 +1,13 @@
 <RCC>
     <qresource prefix="/Sounds">
         <file>Sounds/Click1.wav</file>
+        <file>Sounds/Error.mp3</file>
+    </qresource>
+    <qresource prefix="/Drag&amp;Drop">
+        <file>Sounds/Drag&amp;Drop/Sword_is_dropped.mp3</file>
+        <file>Sounds/Drag&amp;Drop/Sword_is_taken.mp3</file>
+    </qresource>
+    <qresource prefix="/Item is pressed">
+        <file>Sounds/Item is pressed/Sword_is_pressed.wav</file>
     </qresource>
 </RCC>

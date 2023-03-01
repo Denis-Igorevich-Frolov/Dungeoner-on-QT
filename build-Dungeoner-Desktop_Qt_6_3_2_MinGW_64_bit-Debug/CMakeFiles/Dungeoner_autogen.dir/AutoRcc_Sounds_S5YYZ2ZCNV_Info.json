@@ -7,7 +7,11 @@
 	"INCLUDE_DIR" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/include",
 	"INPUTS" : 
 	[
-		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Click1.wav"
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Item is pressed/Sword_is_pressed.wav",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Drag&Drop/Sword_is_dropped.mp3",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Drag&Drop/Sword_is_taken.mp3",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Click1.wav",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Error.mp3"
 	],
 	"LOCK_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Sounds_S5YYZ2ZCNV_Lock.lock",
 	"MULTI_CONFIG" : false,

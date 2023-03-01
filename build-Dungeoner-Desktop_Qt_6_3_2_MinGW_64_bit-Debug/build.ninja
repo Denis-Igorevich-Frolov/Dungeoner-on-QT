@@ -524,7 +524,7 @@ build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Fonts.cpp | ${cmake_ninja_workdir}Dungeon
 #############################################
 # Custom command for Dungeoner_autogen\S5YYZ2ZCNV\qrc_Sounds.cpp
 
-build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp | ${cmake_ninja_workdir}Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp: CUSTOM_COMMAND E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds.qrc CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Sounds_S5YYZ2ZCNV_Info.json E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Click1.wav E$:/Qt/6.3.2/mingw_64/./bin/rcc.exe || Dungeoner_autogen Dungeoner_autogen_timestamp_deps
+build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp | ${cmake_ninja_workdir}Dungeoner_autogen/S5YYZ2ZCNV/qrc_Sounds.cpp: CUSTOM_COMMAND E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds.qrc CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Sounds_S5YYZ2ZCNV_Info.json E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Item$ is$ pressed/Sword_is_pressed.wav E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Drag&Drop/Sword_is_dropped.mp3 E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Drag&Drop/Sword_is_taken.mp3 E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Click1.wav E$:/Qt$ projects/Dungeoner-on-QT/Dungeoner/Resources/Sounds/Error.mp3 E$:/Qt/6.3.2/mingw_64/./bin/rcc.exe || Dungeoner_autogen Dungeoner_autogen_timestamp_deps
   COMMAND = cmd.exe /C "cd /D "E:\Qt projects\Dungeoner-on-QT\build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug" && E:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Sounds_S5YYZ2ZCNV_Info.json" Debug"
   DESC = Automatic RCC for Resources/Sounds.qrc
   restat = 1
@@ -542,7 +542,7 @@ build Dungeoner_autogen/S5YYZ2ZCNV/qrc_Gifs.cpp | ${cmake_ninja_workdir}Dungeone
 #############################################
 # Phony custom command for CMakeFiles\Dungeoner_autogen_timestamp_deps
 
-build CMakeFiles/Dungeoner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Dungeoner_autogen_timestamp_deps: phony E$:/Qt/6.3.2/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.2/mingw_64/./bin/uic.exe E$:/Qt/6.3.2/mingw_64/./bin/moc.exe E$:/Qt/6.3.2/mingw_64/lib/libQt6Sql.a E$:/Qt/6.3.2/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.3.2/mingw_64/lib/libQt6Test.a E$:/Qt/6.3.2/mingw_64/lib/libQt6Multimedia.a
+build CMakeFiles/Dungeoner_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/Dungeoner_autogen_timestamp_deps: phony E$:/Qt/6.3.2/mingw_64/lib/libQt6Core.a E$:/Qt/6.3.2/mingw_64/./bin/uic.exe E$:/Qt/6.3.2/mingw_64/./bin/moc.exe E$:/Qt/6.3.2/mingw_64/lib/libQt6Test.a E$:/Qt/6.3.2/mingw_64/lib/libQt6Widgets.a E$:/Qt/6.3.2/mingw_64/lib/libQt6Sql.a E$:/Qt/6.3.2/mingw_64/lib/libQt6Multimedia.a
 
 
 #############################################

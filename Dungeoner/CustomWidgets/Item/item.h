@@ -86,7 +86,8 @@ public:
          int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},  QVector<Slots> occupiedCellSlots = {},
          QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {}, int minDamage = 0, int maxDamage = 0,
          bool isPressable = false, int maxCharges = -1, int currentCharges = 0, bool isDisabled = false, bool isNew = false, int currentStyle = 0,
-         bool itemIsEmpty = false, QVector<Item*> styles = {});
+         bool itemIsEmpty = false, QVector<Item*> styles = {}, QString SoundDrag = "", QString SoundDrop = "", QString SoundPress = "",
+         QString SoundPressWithOutOfCharge = "qrc:/Sounds/Sounds/Error.mp3");
 
     //Конструктор независимого клона итема по константной ссылке. Пока используется только в Drag&Drop
     Item(const Item* item);
@@ -117,6 +118,11 @@ public:
     QVector<ItemType> itemTypes;
     QVector<Bonus*> bonuses;
     QVector<MagicDefenseBonus*> magicDefenseBonuses;
+
+    QString SoundDrag = "";
+    QString SoundDrop = "";
+    QString SoundPress = "";
+    QString SoundPressWithOutOfCharge = "qrc:/Sounds/Sounds/Error.mp3";
 
     QImage image;
     int shadowBlurRadius = 7;

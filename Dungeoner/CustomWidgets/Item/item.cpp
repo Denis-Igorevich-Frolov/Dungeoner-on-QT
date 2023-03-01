@@ -39,7 +39,7 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
            int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots, QVector<Slots> occupiedCellSlots,
            QVector<Bonus*> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses, int minDamage, int maxDamage,
            bool isPressable, int maxCharges, int currentCharges, bool isDisabled, bool isNew, int currentStyle,
-           bool itemIsEmpty, QVector<Item *> styles) :
+           bool itemIsEmpty, QVector<Item *> styles, QString SoundDrag, QString SoundDrop, QString SoundPress, QString SoundPressWithOutOfCharge) :
     ui(new Ui::Item)
 {
     ui->setupUi(this);
@@ -103,6 +103,11 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     setDisabledSyle(isDisabled);
     this->isNew = isNew;
 
+    this->SoundDrag = SoundDrag;
+    this->SoundDrop = SoundDrop;
+    this->SoundPress = SoundPress;
+    this->SoundPressWithOutOfCharge = SoundPressWithOutOfCharge;
+
     setStyleButtonsStyle();
 
     ui->Quantity->setFont(QFont("TextFont"));
@@ -126,7 +131,7 @@ Item::Item(const Item *item):
          item->price, item->maxDurability, item->currentDurability, item->cellSlots, item->occupiedCellSlots,
          item->bonuses, item->magicDefenseBonuses, item->minDamage, item->maxDamage, item->isPressable,
          item->maxCharges, item->currentCharges, item->isDisabled, item->isNew, item->currentStyle,
-         item->itemIsEmpty, item->styles)
+         item->itemIsEmpty, item->styles, item->SoundDrag, item->SoundDrop, item->SoundPress, item->SoundPressWithOutOfCharge)
 {}
 
 void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, int shadowYOffset, QColor color)
@@ -324,18 +329,31 @@ bool Item::eventFilter(QObject *object, QEvent *event)
 void Item::on_pushButton_clicked()
 {
     //!!!Пока класс эффекта прожатия вещи не реализован
+
+    //Если итем сломан, его нельзя продать
+    if(itemCondition == BROKEN){
+        if(SoundPressWithOutOfCharge!="")
+            Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPressWithOutOfCharge), MediaPlayer::SoundsGroup::SOUNDS);
+        return;
+    }
+
     if(isPressable){
         //Если у итема неограниченое количество зарядов, то просто выполняется эффект нажатия
         if(maxCharges == -1){
+            if(SoundPress!="")
+                Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPress), MediaPlayer::SoundsGroup::SOUNDS);
             qDebug()<<"Делаю штуку";
         //Иначе он выполняется только если эти заряды остались
         }else if(currentCharges != 0){
             if(maxCharges != -1){
+                if(SoundPress!="")
+                    Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPress), MediaPlayer::SoundsGroup::SOUNDS);
                 qDebug()<<"Делаю штуку, заряды: " << currentCharges-1<<"/"<<maxCharges;
                 setCurrentCharges(currentCharges-1);
             }
         }else{
-            //!!!Здесь должен проигрываться звук неудачного прожатия
+            if(SoundPressWithOutOfCharge!="")
+                Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPressWithOutOfCharge), MediaPlayer::SoundsGroup::SOUNDS);
             qDebug()<<"Заряды кончились";
             return;
         }

@@ -70,6 +70,10 @@ void InventoryCell::setItem(Item *item)
     ui->item->setCurrentStyle(item->getCurrentStyle());
     ui->item->setMaxCharges(item->getMaxCharges());
     ui->item->setCurrentCharges(item->getCurrentCharges());
+    ui->item->SoundDrag = item->SoundDrag;
+    ui->item->SoundDrop = item->SoundDrop;
+    ui->item->SoundPress = item->SoundPress;
+    ui->item->SoundPressWithOutOfCharge = item->SoundPressWithOutOfCharge;
 
     ui->item->setShadow(item->hasShadow, item->shadowBlurRadius, item->shadowXOffset, item->shadowYOffset);
     ui->item->itemIsEmpty = item->itemIsEmpty;
@@ -301,6 +305,9 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
             /*Drag&Drop начинается если: итем не пуст, зажата ЛКМ и позиция курсора сдвинулась на 20 пикселей от стартовой позиции перетаскивания.
              *Посленее нужно для избежания раздражающей случайной идициации перетаскивания во время обычной попытки нажатия по итему*/
             if(!ui->item->itemIsEmpty && (mouseEvent->buttons() & Qt::LeftButton) && (QCursor::pos()-dragStart).manhattanLength()>20){
+                if(ui->item->SoundDrag != "")
+                    Global::mediaplayer.playSound(QUrl::fromLocalFile(ui->item->SoundDrag), MediaPlayer::SoundsGroup::SOUNDS);
+
                 QDrag* drag = new QDrag(this);
                 ItemMimeData* mimeData = new ItemMimeData(ui->item, this);
 
@@ -349,6 +356,8 @@ void InventoryCell::dropEvent(QDropEvent *event)
 
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     if(itemCell){
+        if(newItem->SoundDrop!="")
+            Global::mediaplayer.playSound(QUrl::fromLocalFile(newItem->SoundDrop), MediaPlayer::SoundsGroup::SOUNDS);
         //Затем текущий итем помещается в ячейку из которой началось перетаскивание
         itemCell->setItem(new Item(ui->item));
         /*Так как setItem не передаёт id итема, вызов setAutoStyle внутри него не сработал
@@ -358,6 +367,7 @@ void InventoryCell::dropEvent(QDropEvent *event)
         /*Перенос буферизированного итема в текущую ячейку. id ему уже задан
          *заранее, так что setAutoStyle внутри setItem сработает как надо*/
         setItem(newItem);
+
         event->acceptProposedAction();
     }
 }

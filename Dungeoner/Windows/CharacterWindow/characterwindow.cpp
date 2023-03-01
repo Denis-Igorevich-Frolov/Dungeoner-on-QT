@@ -1108,6 +1108,10 @@ void CharacterWindow::addRowOfCellsToInventory()
         item->setCurrentCharges(10);
         item->setId(0);
 
+        item->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
+        item->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
+        item->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
+
         cell->setItem(item);
         }
         /////////////////////////////////////////////
