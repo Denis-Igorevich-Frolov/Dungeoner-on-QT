@@ -85,8 +85,10 @@ public:
     Item(QString folderName, QVector<ItemType> itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
          int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},
          QVector<Slots> occupiedCellSlots = {}, QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {},
-         int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0, bool itemIsEmpty = false);
+         int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0,
+         bool itemIsEmpty = false, QVector<Item*> styles = {});
 
+    //Конструктор независимого клона итема по константной ссылке. Пока используется только в Drag&Drop
     Item(const Item* item);
 
     void setShadow(bool hasShadow, int shadowBlurRadius = 7, int shadowXOffset = 3, int shadowYOffset = 3, QColor color = Qt::black);

@@ -124,6 +124,7 @@ void InventoryCell::setEmptyStyle()
     //Задний фон и лейбл заблокированной ячейки не участвуют в этом стиле, так что их следует скрыть
     ui->inventoryCellBG->setVisible(false);
     ui->Locked->setVisible(false);
+    //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::emptyBorderStyle());
@@ -148,6 +149,7 @@ void InventoryCell::setNoEmptyStyle()
     //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::notEmptyBorderStyle());
@@ -176,11 +178,15 @@ void InventoryCell::setNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    /*Чтобы анимация не перерисовывала виджет итема с кучей эффектов, был создан лейбл оптимизации,
+     *который запечатлевает Pixmap итема. Виджету итема обновляться запрещается, а вместо него
+     *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
+    //Запрет обновления виджета итема для оптимизации отображения вместе с анимацией
     ui->item->setUpdatesEnabled(false);
 }
 
@@ -197,11 +203,15 @@ void InventoryCell::setDisabledNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    /*Чтобы анимация не перерисовывала виджет итема с кучей эффектов, был создан лейбл оптимизации,
+     *который запечатлевает Pixmap итема. Виджету итема обновляться запрещается, а вместо него
+     *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(false);
+    //Запрет обновления виджета итема для оптимизации отображения вместе с анимацией
     ui->item->setUpdatesEnabled(false);
 }
 
@@ -218,11 +228,15 @@ void InventoryCell::setBrokenNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    /*Чтобы анимация не перерисовывала виджет итема с кучей эффектов, был создан лейбл оптимизации,
+     *который запечатлевает Pixmap итема. Виджету итема обновляться запрещается, а вместо него
+     *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(true);
+    //Запрет обновления виджета итема для оптимизации отображения вместе с анимацией
     ui->item->setUpdatesEnabled(false);
 }
 
@@ -239,11 +253,15 @@ void InventoryCell::setDisabledBrokenNewStyle()
     inventoryCellNew.setScaledSize(QSize(68,68));
     ui->inventoryCellNew->setMovie(&inventoryCellNew);
     inventoryCellNew.start();
+    /*Чтобы анимация не перерисовывала виджет итема с кучей эффектов, был создан лейбл оптимизации,
+     *который запечатлевает Pixmap итема. Виджету итема обновляться запрещается, а вместо него
+     *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(true);
+    //Запрет обновления виджета итема для оптимизации отображения вместе с анимацией
     ui->item->setUpdatesEnabled(false);
 }
 
@@ -278,19 +296,24 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 
         if(event->type() == QEvent::MouseMove){
             QMouseEvent* mouseEvent = static_cast<QMouseEvent*>(event);
+            /*Drag&Drop начинается если: итем не пуст, зажата ЛКМ и позиция курсора сдвинулась на 20 пикселей от стартовой позиции перетаскивания.
+             *Посленее нужно для избежания раздражающей случайной идициации перетаскивания во время обычной попытки нажатия по итему*/
             if(!ui->item->itemIsEmpty && (mouseEvent->buttons() & Qt::LeftButton) && (QCursor::pos()-dragStart).manhattanLength()>20){
-                QDrag* drag = new QDrag( this );
+                QDrag* drag = new QDrag(this);
                 ItemMimeData* mimeData = new ItemMimeData(ui->item, this);
 
+                //Установка позиции перетаскиваемого объекта по центру от курсора
                 drag->setHotSpot(QPoint(ui->item->width()/2, ui->item->height()/2));
                 drag->setMimeData(mimeData);
 
+                //Pixmap перетаскиваемого объекта сложится из Pixmap'ов итема, бекграунда и рамки ячейки
                 QPixmap pixmap(68, 68);
                 pixmap.fill(Qt::transparent);
                 QPixmap itemPixmap = ui->item->grab();
                 QPixmap BGPixmap = ui->inventoryCellBG->grab();
                 QPixmap borderPixmap = ui->inventoryCellBorder->grab();
 
+                //С помощью пеинтера Pixmap'ы объединяются
                 QPainter painter(&pixmap);
                 painter.drawPixmap(3, 3, BGPixmap);
                 painter.drawPixmap(0, 0, borderPixmap);
@@ -318,18 +341,23 @@ void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
 void InventoryCell::dropEvent(QDropEvent *event)
 {
     const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
+    //Итем сначала записывается в отдельную переменную из MimeData
     Item* newItem = new Item(itemData->getItem());
     newItem->setId(itemData->getItem()->getId());
 
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     if(itemCell){
+        //Затем текущий итем помещается в ячейку из которой началось перетаскивание
         itemCell->setItem(new Item(ui->item));
+        /*Так как setItem не передаёт id итема, вызов setAutoStyle внутри него не сработал
+         *должным образом. Следует вручную перенести id и вызвать setAutoStyle снова*/
         itemCell->getItem()->setId(ui->item->getId());
         itemCell->setAutoStyle();
+        /*Перенос буферизированного итема в текущую ячейку. id ему уже задан
+         *заранее, так что setAutoStyle внутри setItem сработает как надо*/
         setItem(newItem);
+        event->acceptProposedAction();
     }
-
-    event->acceptProposedAction();
 }
 
 //Стиль неактивной (заблокированной) ячейки
@@ -341,6 +369,7 @@ void InventoryCell::setLockedStyle()
     //Задний фон и центральный элемент не участвуют в этом стиле, так что их следует скрыть
     ui->inventoryCellBG->setVisible(false);
     ui->CentralElement->setVisible(false);
+    //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::lockedBorderStyle());
@@ -366,6 +395,7 @@ void InventoryCell::setDisabledStyle()
     //Лейбл заблокированной ячейки и центральный элемент не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::disabledNotEmptyBorderStyle());
@@ -389,6 +419,7 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     if(isBlocked)
         ui->Blocked->setStyleSheet(IC_stylemaster::blockedStyle());
 
+    //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
@@ -404,6 +435,7 @@ void InventoryCell::setBrokenStyle()
     //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::notEmptyBorderStyle());
@@ -428,6 +460,7 @@ void InventoryCell::setDisabledBrokenStyle()
     //Лейбл заблокированной ячейки и центральный элемент не участвуют в этом стиле, так что их следует скрыть
     ui->Locked->setVisible(false);
     ui->CentralElement->setVisible(false);
+    //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::disabledNotEmptyBorderStyle());
@@ -448,14 +481,22 @@ void InventoryCell::setDisabledBrokenStyle()
 void InventoryCell::cellHidingCheck()
 {
     if(geometry().y() > ScrollAreaHeight+ScrollAreaOffset){
+        /*Очищается фокус. Для гарантии того что фокус с любого дочернего элемента
+         *точно снялся, он просто переходит на ячейку и тут же снимается. И не нужно
+         *ни пробегаться циклами, ни думать где же может застрять этот самый фокус*/
         setFocus();
         clearFocus();
+
         setVisible(false);
         inventoryCellNew.stop();
         ui->item->hidenEffects(true);
     }else if(geometry().y()+72 < ScrollAreaOffset){
+        /*Очищается фокус. Для гарантии того что фокус с любого дочернего элемента
+         *точно снялся, он просто переходит на ячейку и тут же снимается. И не нужно
+         *ни пробегаться циклами, ни думать где же может застрять этот самый фокус*/
         setFocus();
         clearFocus();
+
         setVisible(false);
         inventoryCellNew.stop();
         ui->item->hidenEffects(true);

@@ -36,9 +36,9 @@ Item::~Item()
 
 //Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item
 Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, int quantity, double weight, double volume,
-           int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots,
-           QVector<Slots> occupiedCellSlots, QVector<Bonus *> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses,
-           int minDamage, int maxDamage, bool isPressable, bool isDisabled, bool isNew, int currentStyle, bool itemIsEmpty) :
+           int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots, QVector<Slots> occupiedCellSlots,
+           QVector<Bonus*> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses, int minDamage, int maxDamage,
+           bool isPressable, bool isDisabled, bool isNew, int currentStyle, bool itemIsEmpty, QVector<Item *> styles) :
     ui(new Ui::Item)
 {
     ui->setupUi(this);
@@ -49,6 +49,7 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     ui->pushButton->installEventFilter(this);
 
     this->itemIsEmpty = itemIsEmpty;
+    //Если итем пуст, то и его id всегда будет равен -1
     if(itemIsEmpty)
         setId(-1);
 
@@ -59,11 +60,10 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName))
         dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
 
-    dir.cd("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
-    loadStyles(dir);
 
     if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
          this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
+    //Если итем пуст, то ему вообще никакой картинки не нужно
     else if(id!=-1){
         //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
         this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
@@ -72,6 +72,17 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     }
 
     ui->Image->setPixmap(QPixmap::fromImage(this->image,Qt::AutoColor));
+
+    //Если итем пуст, то у него не может быть стилей
+    if(itemIsEmpty){
+        styles.clear();
+        styles.append(this);
+    }else if(styles.size()>0)
+        this->styles = styles;
+    else{
+        dir.cd("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
+        loadStyles(dir);
+    }
 
     this->itemTypes = itemTypes;
     setItemName(itemName);
@@ -106,71 +117,13 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     setCurrentStyle(currentStyle);
 }
 
-Item::Item(const Item *item) :
-    ui(new Ui::Item)
-{
-    ui->setupUi(this);
-
-    //Без этого атрибута эвенты наведения мыши не будут вызываться
-    setAttribute(Qt::WA_Hover);
-
-    ui->pushButton->installEventFilter(this);
-
-    this->itemIsEmpty = item->itemIsEmpty;
-    if(itemIsEmpty)
-        setId(-1);
-
-    this->folderName = item->folderName;
-
-    //Создаётся директория, если её небыло
-    QDir dir;
-    if(!dir.exists("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName))
-        dir.mkpath("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName);
-
-    if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png").exists())
-         this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ this->folderName+"/image.png");
-    else if(id!=-1){
-        //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
-        this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");
-        this->hoverColor = QColor(255, 255, 255, 30);
-        this->pressedColor = QColor(0, 0, 0, 50);
-    }
-
-    ui->Image->setPixmap(QPixmap::fromImage(this->image,Qt::AutoColor));
-
-    this->itemTypes = item->itemTypes;
-    setItemName(item->itemName);
-    setQuantity(item->quantity);
-    setWeight(item->weight);
-    setVolume(item->volume);
-    setPrice(item->price);
-    setMaxDurability(item->maxDurability);
-    this->styles = item->styles;
-    setCurrentDurability(item->currentDurability);
-    setCellSlots(item->cellSlots, occupiedCellSlots);
-    this->bonuses = item->bonuses;
-    this->magicDefenseBonuses = item->magicDefenseBonuses;
-    setDamage(item->minDamage, item->maxDamage);
-    this->isPressable = item->isPressable;
-    setDisabledSyle(item->isDisabled);
-    this->isNew = item->isNew;
-
-    setStyleButtonsStyle();
-
-    ui->Quantity->setFont(QFont("TextFont"));
-    ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(17));
-
-    border->setOutlineThickness(2);
-    ui->Quantity->setMargin(2);
-    ui->Quantity->setGraphicsEffect(border);
-
-    if(this->quantity > 1)
-        ui->Quantity->setText(QString::number(this->quantity));
-    else
-        ui->Quantity->setText("");
-
-    setCurrentStyle(item->currentStyle);
-}
+//Конструктор независимого клона итема по константной ссылке. Пока используется только в Drag&Drop
+Item::Item(const Item *item):
+    Item(item->folderName, item->itemTypes, item->itemName, item->quantity, item->weight, item->volume,
+         item->price, item->maxDurability, item->currentDurability, item->cellSlots, item->occupiedCellSlots,
+         item->bonuses, item->magicDefenseBonuses, item->minDamage, item->maxDamage, item->isPressable,
+         item->isDisabled, item->isNew, item->currentStyle, item->itemIsEmpty, item->styles)
+{}
 
 void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, int shadowYOffset, QColor color)
 {
@@ -520,6 +473,7 @@ void Item::setCurrentStyle(int newCurrentStyle)
 
     if(QFile("Game Saves/" + Global::DungeonName + "/Items/"+ currentItem->folderName+"/image.png").exists())
          this->image = QImage("Game Saves/" + Global::DungeonName + "/Items/"+ currentItem->folderName+"/image.png");
+    //Если итем пуст, то ему вообще никакой картинки не нужно
     else if(id!=-1){
         //Если картинку итема загрузить не удалось, то ей присваивается картинка по умолчанию и стили для неё
         this->image = QImage(":/Inventory/Textures PNG/Unknown-Item.png");

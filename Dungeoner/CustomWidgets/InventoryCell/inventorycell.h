@@ -60,6 +60,7 @@ private:
     //Стиль ячейки с заглушенным сломанным пребметом
     void setDisabledBrokenStyle();
 
+    //Позиция начала перетакивания итема
     QPoint dragStart;
 
     bool isLoked = false;
