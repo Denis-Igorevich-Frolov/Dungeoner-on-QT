@@ -1104,6 +1104,8 @@ void CharacterWindow::addRowOfCellsToInventory()
                 item->setCurrentDurability(0);
         }
         item->setQuantity(999);
+        item->setMaxCharges(10);
+        item->setCurrentCharges(10);
         item->setId(0);
 
         cell->setItem(item);

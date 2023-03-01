@@ -83,9 +83,9 @@ public:
 
     //Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item
     Item(QString folderName, QVector<ItemType> itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
-         int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},
-         QVector<Slots> occupiedCellSlots = {}, QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {},
-         int minDamage = 0, int maxDamage = 0, bool isPressable = false, bool isDisabled = false, bool isNew = false, int currentStyle = 0,
+         int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},  QVector<Slots> occupiedCellSlots = {},
+         QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {}, int minDamage = 0, int maxDamage = 0,
+         bool isPressable = false, int maxCharges = -1, int currentCharges = 0, bool isDisabled = false, bool isNew = false, int currentStyle = 0,
          bool itemIsEmpty = false, QVector<Item*> styles = {});
 
     //Конструктор независимого клона итема по константной ссылке. Пока используется только в Drag&Drop
@@ -187,6 +187,12 @@ public:
 
     QWidget *getStyleButtonsWrapper();
 
+    int getMaxCharges();
+    void setMaxCharges(int newMaxCharges);
+
+    int getCurrentCharges() const;
+    void setCurrentCharges(int newCurrentCharges);
+
 private slots:
     //Эффекты при прожатии итема
     void on_pushButton_clicked();
@@ -237,6 +243,9 @@ private:
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect;
     QGraphicsOpacityEffect* opacity = new QGraphicsOpacityEffect;
     OutlineEffect* border = new OutlineEffect;
+    //Заряды предмета. -1 означает, что предмет прожимается неограниченное количество раз
+    int maxCharges = -1;
+    int currentCharges = 0;
     /*Нужны ещё:
      *1) Вектор навыков
      *2) Вектор эффектов при прожатии

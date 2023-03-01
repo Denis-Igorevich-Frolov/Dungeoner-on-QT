@@ -38,7 +38,8 @@ Item::~Item()
 Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, int quantity, double weight, double volume,
            int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots, QVector<Slots> occupiedCellSlots,
            QVector<Bonus*> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses, int minDamage, int maxDamage,
-           bool isPressable, bool isDisabled, bool isNew, int currentStyle, bool itemIsEmpty, QVector<Item *> styles) :
+           bool isPressable, int maxCharges, int currentCharges, bool isDisabled, bool isNew, int currentStyle,
+           bool itemIsEmpty, QVector<Item *> styles) :
     ui(new Ui::Item)
 {
     ui->setupUi(this);
@@ -97,6 +98,8 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
     this->magicDefenseBonuses = magicDefenseBonuses;
     setDamage(minDamage, maxDamage);
     this->isPressable = isPressable;
+    setMaxCharges(maxCharges);
+    setCurrentCharges(currentCharges);
     setDisabledSyle(isDisabled);
     this->isNew = isNew;
 
@@ -122,7 +125,8 @@ Item::Item(const Item *item):
     Item(item->folderName, item->itemTypes, item->itemName, item->quantity, item->weight, item->volume,
          item->price, item->maxDurability, item->currentDurability, item->cellSlots, item->occupiedCellSlots,
          item->bonuses, item->magicDefenseBonuses, item->minDamage, item->maxDamage, item->isPressable,
-         item->isDisabled, item->isNew, item->currentStyle, item->itemIsEmpty, item->styles)
+         item->maxCharges, item->currentCharges, item->isDisabled, item->isNew, item->currentStyle,
+         item->itemIsEmpty, item->styles)
 {}
 
 void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, int shadowYOffset, QColor color)
@@ -321,7 +325,20 @@ void Item::on_pushButton_clicked()
 {
     //!!!Пока класс эффекта прожатия вещи не реализован
     if(isPressable){
-        qDebug()<<"Делаю штуку";
+        //Если у итема неограниченое количество зарядов, то просто выполняется эффект нажатия
+        if(maxCharges == -1){
+            qDebug()<<"Делаю штуку";
+        //Иначе он выполняется только если эти заряды остались
+        }else if(currentCharges != 0){
+            if(maxCharges != -1){
+                qDebug()<<"Делаю штуку, заряды: " << currentCharges-1<<"/"<<maxCharges;
+                setCurrentCharges(currentCharges-1);
+            }
+        }else{
+            //!!!Здесь должен проигрываться звук неудачного прожатия
+            qDebug()<<"Заряды кончились";
+            return;
+        }
     }
 }
 
@@ -687,6 +704,40 @@ void Item::setChosenStyleButtonStyle()
         else
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setStyleSheet(I_stylemaster::StyleButtonStile());
     }
+}
+
+int Item::getCurrentCharges() const
+{
+    return currentCharges;
+}
+
+void Item::setCurrentCharges(int newCurrentCharges)
+{
+    if(newCurrentCharges < 0)
+        newCurrentCharges = 0;
+    else if(newCurrentCharges > maxCharges)
+        newCurrentCharges = maxCharges;
+
+    currentCharges = newCurrentCharges;
+}
+
+int Item::getMaxCharges()
+{
+    return maxCharges;
+}
+
+void Item::setMaxCharges(int newMaxCharges)
+{
+    if(newMaxCharges < -1)
+        newMaxCharges = -1;
+    //Если количество текущих зарядов больше максимального, то они усекаются до максимального
+    if(currentCharges > newMaxCharges)
+        currentCharges = newMaxCharges;
+    //Если таким образом у предмета стало неограниченное количество зарядов, то текущее количество всё-равно остаётся нулевым
+    if(currentCharges == -1)
+        currentCharges = 0;
+
+    maxCharges = newMaxCharges;
 }
 
 void Item::on_StyleButton_1_clicked()

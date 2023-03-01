@@ -68,6 +68,8 @@ void InventoryCell::setItem(Item *item)
     ui->item->setQuantity(item->getQuantity());
     ui->item->setCellSlots(item->getCellSlots(), item->getOccupiedCellSlots());
     ui->item->setCurrentStyle(item->getCurrentStyle());
+    ui->item->setMaxCharges(item->getMaxCharges());
+    ui->item->setCurrentCharges(item->getCurrentCharges());
 
     ui->item->setShadow(item->hasShadow, item->shadowBlurRadius, item->shadowXOffset, item->shadowYOffset);
     ui->item->itemIsEmpty = item->itemIsEmpty;
