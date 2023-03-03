@@ -111,6 +111,13 @@ private slots:
 private:
     Ui::CharacterWindow *ui;
 
+    enum inventoryScrollerState{
+        STOPPED,
+        FAST_SPEED,
+        SLOW_SPEED
+    };
+    inventoryScrollerState inventoryScrollerState = STOPPED;
+
     /*Установка текста для подписи первичного навыка в соответствии с его динамическим свойством
      *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures*/
     void setTextPrimarySkillSignature();

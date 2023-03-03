@@ -855,37 +855,48 @@ bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
                     inventoryScrollerProperties.setScrollMetric(QScrollerProperties::ScrollingCurve, QEasingCurve(QEasingCurve::OutBack));
                     inventoryScroller->setScrollerProperties(inventoryScrollerProperties);
 
-                    if((QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
+                    if((QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15) && inventoryScrollerState != FAST_SPEED){
                         inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                        inventoryScrollerState = FAST_SPEED;
                     }else if((QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
-                             (QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
+                             (QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15) &&
+                             inventoryScrollerState != SLOW_SPEED){
                         inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
-                    }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
+                        inventoryScrollerState = SLOW_SPEED;
+                    }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)
+                             && inventoryScrollerState != FAST_SPEED){
                         inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
                                                     (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                        inventoryScrollerState = FAST_SPEED;
                     }else if((QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -50) &&
-                             (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
+                             (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15) &&
+                             inventoryScrollerState != SLOW_SPEED){
                         inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
                                                     (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
+                        inventoryScrollerState = SLOW_SPEED;
                     }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
                              (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() - 50)){
                         inventoryScroller->stop();
                         inventoryScrollingIsStarted = false;
+                        inventoryScrollerState = STOPPED;
                     }
                 }
             }else{
                 inventoryScroller->stop();
                 inventoryScrollingIsStarted = false;
+                inventoryScrollerState = STOPPED;
             }
         }
     }else if(event->type() == QEvent::Drop){
         if(dynamic_cast<InventoryCell*>(object)){
             inventoryScroller->stop();
             inventoryScrollingIsStarted = false;
+            inventoryScrollerState = STOPPED;
         }
     }else if(object == this && event->type() == QEvent::HoverMove){
         inventoryScroller->stop();
         inventoryScrollingIsStarted = false;
+        inventoryScrollerState = STOPPED;
     }
 
     if(object == ui->StrengthValue){
