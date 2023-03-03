@@ -16,6 +16,9 @@
   <property name="focusPolicy">
    <enum>Qt::StrongFocus</enum>
   </property>
+  <property name="acceptDrops">
+   <bool>true</bool>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
@@ -2727,6 +2730,12 @@ border: none;</string>
       <verstretch>0</verstretch>
      </sizepolicy>
     </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true">background: transparent;
 border: none;</string>
@@ -2810,6 +2819,9 @@ border: none;</string>
       <width>24</width>
       <height>246</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="maximum">
      <number>0</number>

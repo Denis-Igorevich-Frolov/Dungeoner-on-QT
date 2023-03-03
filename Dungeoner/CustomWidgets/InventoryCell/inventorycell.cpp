@@ -281,11 +281,6 @@ void InventoryCell::setDropdownButtonVisible(bool isVisible)
     ui->DropdownButton->setVisible(isVisible);
 }
 
-void InventoryCell::setScrollAreaHeight(int newScrollAreaHeight)
-{
-    ScrollAreaHeight = newScrollAreaHeight;
-}
-
 bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 {
     if(object == ui->item->getItemButton()||object == ui->item->getStyleButtonsWrapper()){
@@ -487,41 +482,4 @@ void InventoryCell::setDisabledBrokenStyle()
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
-}
-
-//Если ячейка находится вне границ скроллбара, то для оптимизации она очищается от стилей и скрывается
-void InventoryCell::cellHidingCheck()
-{
-    if(geometry().y() > ScrollAreaHeight+ScrollAreaOffset){
-        /*Очищается фокус. Для гарантии того что фокус с любого дочернего элемента
-         *точно снялся, он просто переходит на ячейку и тут же снимается. И не нужно
-         *ни пробегаться циклами, ни думать где же может застрять этот самый фокус*/
-        setFocus();
-        clearFocus();
-
-        setVisible(false);
-        inventoryCellNew.stop();
-        ui->item->hidenEffects(true);
-    }else if(geometry().y()+72 < ScrollAreaOffset){
-        /*Очищается фокус. Для гарантии того что фокус с любого дочернего элемента
-         *точно снялся, он просто переходит на ячейку и тут же снимается. И не нужно
-         *ни пробегаться циклами, ни думать где же может застрять этот самый фокус*/
-        setFocus();
-        clearFocus();
-
-        setVisible(false);
-        inventoryCellNew.stop();
-        ui->item->hidenEffects(true);
-    }else{
-        setVisible(true);
-        inventoryCellNew.start();
-        ui->item->hidenEffects(false);
-    }
-}
-
-void InventoryCell::setScrollAreaOffset(int newScrollAreaOffset)
-{
-    ScrollAreaOffset = newScrollAreaOffset;
-
-    cellHidingCheck();
 }

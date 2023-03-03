@@ -34,12 +34,6 @@ public:
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
 
-    void setScrollAreaHeight(int newScrollAreaHeight);
-    void setScrollAreaOffset(int newScrollAreaOffset);
-
-    //Если ячейка находится вне границ скроллбара, то для оптимизации она очищается от стилей и скрывается
-    void cellHidingCheck();
-
 private:
     //Стиль пустой ячейки
     void setEmptyStyle();
@@ -64,11 +58,6 @@ private:
     QPoint dragStart;
 
     bool isLoked = false;
-
-    //Высота скроллбара, в который помещён вторичный навык
-    int ScrollAreaHeight = 0;
-    //Сдвиг скроллбара, в который помещён вторичный навык
-    int ScrollAreaOffset = 0;
 
     Ui::InventoryCell *ui;
 

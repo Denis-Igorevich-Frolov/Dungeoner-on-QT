@@ -91,8 +91,12 @@ Dungeoner_autogen/timestamp: \
   CMakeFiles/3.24.2/CMakeRCCompiler.cmake \
   CMakeFiles/3.24.2/CMakeSystem.cmake \
   Dungeoner_autogen/moc_predefs.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QMetaType \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QObject \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QPointF \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QScopedPointer \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QTimer \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QVariant \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QVector \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qanystringview.h \
@@ -248,6 +252,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QHBoxLayout \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QLabel \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QMainWindow \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/QScroller \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/QScrollerProperties \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QSpinBox \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -261,6 +267,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qmainwindow.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qpushbutton.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscroller.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollerproperties.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qspinbox.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtabwidget.h \

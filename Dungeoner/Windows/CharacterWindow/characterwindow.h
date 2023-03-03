@@ -6,6 +6,7 @@
 #define CHARACTERWINDOW_H
 
 #include <QLabel>
+#include <QScroller>
 #include <QWidget>
 #include "CustomWidgets/InventoryCell/inventorycell.h"
 #include "Person/person.h"
@@ -142,6 +143,9 @@ private:
     //Заполнение контентом подсказок элементов на основе их динамических свойств
     void tooltipInitialization();
 
+    void scrollInventory(int Ypos);
+    bool inventoreIsScrolled = false;
+
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/
     virtual void keyPressEvent(QKeyEvent *event) override;
@@ -156,6 +160,10 @@ private:
     virtual void leaveEvent(QEvent *event)override;
 
     virtual bool eventFilter(QObject* object, QEvent* event) override;
+    void dragEnterEvent(QDragEnterEvent* event) override;
+
+    QScroller *inventoryScroller;
+    QScrollerProperties inventoryScrollerProperties;
 
     Person person = Person();
     bool isManualStatReplacement = false;

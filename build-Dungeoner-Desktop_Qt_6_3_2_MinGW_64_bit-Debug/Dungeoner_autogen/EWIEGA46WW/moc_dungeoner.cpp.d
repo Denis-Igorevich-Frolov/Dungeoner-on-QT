@@ -11,6 +11,11 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/person.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QMetaType \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QObject \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QPointF \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QScopedPointer \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/QVariant \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QVector \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qanystringview.h \
@@ -162,6 +167,8 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsEffect \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QLabel \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QMainWindow \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/QScroller \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/QScrollerProperties \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
@@ -170,6 +177,8 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qlabel.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qmainwindow.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qpushbutton.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscroller.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollerproperties.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qspinbox.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtabwidget.h \

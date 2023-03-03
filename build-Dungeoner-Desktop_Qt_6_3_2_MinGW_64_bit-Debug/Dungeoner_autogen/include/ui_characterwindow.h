@@ -146,6 +146,7 @@ public:
         CharacterWindow->resize(1920, 1080);
         CharacterWindow->setMouseTracking(true);
         CharacterWindow->setFocusPolicy(Qt::StrongFocus);
+        CharacterWindow->setAcceptDrops(true);
         CharacterWindow->setStyleSheet(QString::fromUtf8("#CharacterWindow{\n"
 "	background: #130a0f;\n"
 "}"));
@@ -901,6 +902,8 @@ public:
         InventoryScrollArea->setGeometry(QRect(0, 45, 734, 308));
         sizePolicy1.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
         InventoryScrollArea->setSizePolicy(sizePolicy1);
+        InventoryScrollArea->setMouseTracking(true);
+        InventoryScrollArea->setAcceptDrops(true);
         InventoryScrollArea->setStyleSheet(QString::fromUtf8("background: transparent;\n"
 "border: none;"));
         InventoryScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -931,6 +934,7 @@ public:
         InventoryScrollBar = new QScrollBar(InventoryWrapper);
         InventoryScrollBar->setObjectName(QString::fromUtf8("InventoryScrollBar"));
         InventoryScrollBar->setGeometry(QRect(751, 83, 24, 246));
+        InventoryScrollBar->setCursor(QCursor(Qt::PointingHandCursor));
         InventoryScrollBar->setMaximum(0);
         InventoryScrollBar->setSingleStep(74);
         InventoryScrollBar->setPageStep(18);

@@ -4,6 +4,7 @@
 
 #include "characterwindow.h"
 #include "qevent.h"
+#include "qmimedata.h"
 #include "ui_characterwindow.h"
 #include "CW_stylemaster.h"
 
@@ -15,6 +16,7 @@
 #include <QSpinBox>
 #include <QScrollBar>
 #include <QMutableVectorIterator>
+#include <QEasingCurve>
 #include <CustomWidgets/Item/item.h>
 
 CharacterWindow::CharacterWindow(QWidget *parent) :
@@ -34,6 +36,10 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     ui->MagicValue->installEventFilter(this);
     ui->BodyTypeValue->installEventFilter(this);
     ui->WillValue->installEventFilter(this);
+    installEventFilter(this);
+
+    inventoryScroller = QScroller::scroller(ui->InventoryScrollArea);
+    inventoryScroller->grabGesture(ui->InventoryScrollArea, QScroller::ScrollerGestureType::MiddleMouseButtonGesture);
 
     setTextPrimarySkillSignature();
     setStyles();
@@ -778,6 +784,14 @@ void CharacterWindow::tooltipInitialization()
     }
 }
 
+void CharacterWindow::scrollInventory(int Ypos)
+{
+    if(!inventoreIsScrolled){
+        inventoreIsScrolled = true;
+        ui->InventoryScrollArea->verticalScrollBar()->setValue(ui->InventoryScrollArea->verticalScrollBar()->value()-Ypos);
+    }
+}
+
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
  *Считаются только Ctrl,Shift и Alt*/
 void CharacterWindow::keyPressEvent(QKeyEvent *event)
@@ -825,6 +839,40 @@ void CharacterWindow::leaveEvent(QEvent *event)
 
 bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
 {
+    if(event->type() == QEvent::DragMove || event->type() == QEvent::DragEnter){
+        if(dynamic_cast<InventoryCell*>(object)||object == this){
+            if((QCursor::pos().x() >= ui->InventoryWrapper->pos().x()) &&
+                    (QCursor::pos().x() <= ui->InventoryWrapper->pos().x() + ui->InventoryScrollArea->size().width()) &&
+                    (QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y()) &&
+                    (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() +  ui->InventoryScrollArea->height())){
+                inventoryScrollerProperties.setScrollMetric(QScrollerProperties::ScrollingCurve, QEasingCurve(QEasingCurve::OutBack));
+                inventoryScroller->setScrollerProperties(inventoryScrollerProperties);
+
+                if((QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
+                    inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                }else if((QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
+                         (QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
+                    inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
+                }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
+                    inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
+                                                (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                }else if((QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -50) &&
+                         (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
+                    inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
+                                                (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
+                }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
+                         (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() - 50)){
+                    inventoryScroller->stop();
+                }
+            }else
+                inventoryScroller->stop();
+        }
+    }else if(event->type() == QEvent::Drop){
+        if(dynamic_cast<InventoryCell*>(object))
+            inventoryScroller->stop();
+    }else if(object == this && event->type() == QEvent::HoverMove)
+        inventoryScroller->stop();
+
     if(object == ui->StrengthValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
@@ -892,6 +940,17 @@ bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
     }
 
     return false;
+}
+
+void CharacterWindow::dragEnterEvent(QDragEnterEvent *event)
+{
+    if((QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y()) &&
+            (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height())){
+        QStringList formats = event->mimeData()->formats();
+        if(formats.contains("Item")) {
+            event->acceptProposedAction();
+        }
+    }
 }
 
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
@@ -1082,6 +1141,7 @@ void CharacterWindow::addRowOfCellsToInventory()
     //Создание новой строки ячеек
     for(int i = 0; i<10; i++){
         InventoryCell* cell = new InventoryCell();
+        cell->installEventFilter(this);
         cell->setFixedSize(68, 68);
         /*Учитывая что row всегда показывает текущее количество ячеек, то есть на
          *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
@@ -1115,11 +1175,6 @@ void CharacterWindow::addRowOfCellsToInventory()
         cell->setItem(item);
         }
         /////////////////////////////////////////////
-
-        cell->setScrollAreaHeight(ui->InventoryScrollArea->height());
-        cell->setScrollAreaOffset(ui->InventoryScrollBar->value());
-
-        cell->cellHidingCheck();
     }
 }
 
@@ -1360,44 +1415,6 @@ void CharacterWindow::on_InventoryScrollBar_valueChanged(int value)
     RemoveTooltip();
 
     ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
-
-    /*Передача во все InventoryCell размера смещения их ScrollArea для последующей обработки выведения
-     *подсказки при усечении InventoryCell внутри ScrollArea и для сокрытия неуместившихся ячеек.*/
-    QGridLayout *inventoryGrid = qobject_cast <QGridLayout*> (ui->Inventory->layout());
-    for(int row = 0; row < inventoryGrid->rowCount(); row++)
-    {
-        for (int column = 0; column < inventoryGrid->columnCount(); column++)
-        {
-            if(inventoryGrid->itemAtPosition(row, column)!=0){
-                if(dynamic_cast <InventoryCell*> (inventoryGrid->itemAtPosition(row, column)->widget())){
-                    InventoryCell* ic = qobject_cast <InventoryCell*> (inventoryGrid->itemAtPosition(row, column)->widget());
-                    ic->setScrollAreaOffset(value);
-                }else{
-                    //Вывод предупреждения в консоль и файл
-                    QDate cd = QDate::currentDate();
-                    QTime ct = QTime::currentTime();
-
-                    QString error =
-                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
-                            "CharacterWindow выдал предупреждение в методе on_InventoryScrollBar_valueChanged.\n"
-                            "Объект " + inventoryGrid->itemAtPosition(row, column)->widget()->objectName() + " не является InventoryCell.\n\n";
-                    qDebug()<<error;
-
-                    QFile errorFile("error log.txt");
-                    if (!errorFile.open(QIODevice::Append))
-                    {
-                        qDebug() << "Ошибка при открытии файла логов";
-                    }else{
-                        errorFile.open(QIODevice::Append  | QIODevice::Text);
-                        QTextStream writeStream(&errorFile);
-                        writeStream<<error;
-                        errorFile.close();
-                    }
-                }
-            }
-        }
-    }
 }
 
 void CharacterWindow::on_InventoryScrollBar_actionTriggered(int action)
