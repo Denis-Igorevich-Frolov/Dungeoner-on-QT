@@ -10,6 +10,7 @@
 #include <QWidget>
 #include "CustomWidgets/InventoryCell/inventorycell.h"
 #include "Person/person.h"
+#include "qtimer.h"
 
 namespace Ui {
 class CharacterWindow;
@@ -105,6 +106,7 @@ private slots:
 
     void on_InventoryScrollBar_valueChanged(int value);
     void on_InventoryScrollBar_actionTriggered(int action);
+    void inventoryScrollingStarted();
 
 private:
     Ui::CharacterWindow *ui;
@@ -162,8 +164,10 @@ private:
     virtual bool eventFilter(QObject* object, QEvent* event) override;
     void dragEnterEvent(QDragEnterEvent* event) override;
 
-    QScroller *inventoryScroller;
+    QScroller* inventoryScroller;
     QScrollerProperties inventoryScrollerProperties;
+    QTimer* startScrollTimer = new QTimer(this);;
+    bool inventoryScrollingIsStarted = false;
 
     Person person = Person();
     bool isManualStatReplacement = false;

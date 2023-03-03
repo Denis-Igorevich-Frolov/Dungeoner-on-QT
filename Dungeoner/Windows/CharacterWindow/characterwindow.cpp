@@ -40,6 +40,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     inventoryScroller = QScroller::scroller(ui->InventoryScrollArea);
     inventoryScroller->grabGesture(ui->InventoryScrollArea, QScroller::ScrollerGestureType::MiddleMouseButtonGesture);
+    startScrollTimer->installEventFilter(this);
+    connect(startScrollTimer, &QTimer::timeout, this, &CharacterWindow::inventoryScrollingStarted);
 
     setTextPrimarySkillSignature();
     setStyles();
@@ -840,38 +842,51 @@ void CharacterWindow::leaveEvent(QEvent *event)
 bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
 {
     if(event->type() == QEvent::DragMove || event->type() == QEvent::DragEnter){
-        if(dynamic_cast<InventoryCell*>(object)||object == this){
+        if(dynamic_cast<InventoryCell*>(object) || object == this){
             if((QCursor::pos().x() >= ui->InventoryWrapper->pos().x()) &&
                     (QCursor::pos().x() <= ui->InventoryWrapper->pos().x() + ui->InventoryScrollArea->size().width()) &&
                     (QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y()) &&
                     (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() +  ui->InventoryScrollArea->height())){
-                inventoryScrollerProperties.setScrollMetric(QScrollerProperties::ScrollingCurve, QEasingCurve(QEasingCurve::OutBack));
-                inventoryScroller->setScrollerProperties(inventoryScrollerProperties);
-
-                if((QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
-                    inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
-                }else if((QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
-                         (QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
-                    inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
-                }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
-                    inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
-                                                (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
-                }else if((QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -50) &&
-                         (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
-                    inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
-                                                (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
-                }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
-                         (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() - 50)){
-                    inventoryScroller->stop();
+                if(inventoryScroller->state() != QScroller::Scrolling && !startScrollTimer->isActive() && !inventoryScrollingIsStarted){
+                    startScrollTimer->start(700);
                 }
-            }else
+
+                if(inventoryScrollingIsStarted){
+                    inventoryScrollerProperties.setScrollMetric(QScrollerProperties::ScrollingCurve, QEasingCurve(QEasingCurve::OutBack));
+                    inventoryScroller->setScrollerProperties(inventoryScrollerProperties);
+
+                    if((QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
+                        inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                    }else if((QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
+                             (QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15)){
+                        inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
+                    }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
+                        inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
+                                                    (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                    }else if((QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -50) &&
+                             (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)){
+                        inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
+                                                    (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
+                    }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
+                             (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() - 50)){
+                        inventoryScroller->stop();
+                        inventoryScrollingIsStarted = false;
+                    }
+                }
+            }else{
                 inventoryScroller->stop();
+                inventoryScrollingIsStarted = false;
+            }
         }
     }else if(event->type() == QEvent::Drop){
-        if(dynamic_cast<InventoryCell*>(object))
+        if(dynamic_cast<InventoryCell*>(object)){
             inventoryScroller->stop();
-    }else if(object == this && event->type() == QEvent::HoverMove)
+            inventoryScrollingIsStarted = false;
+        }
+    }else if(object == this && event->type() == QEvent::HoverMove){
         inventoryScroller->stop();
+        inventoryScrollingIsStarted = false;
+    }
 
     if(object == ui->StrengthValue){
         if(event->type() == QEvent::FocusIn){
@@ -944,8 +959,8 @@ bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
 
 void CharacterWindow::dragEnterEvent(QDragEnterEvent *event)
 {
-    if((QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y()) &&
-            (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height())){
+    if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y()) &&
+            (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height())){
         QStringList formats = event->mimeData()->formats();
         if(formats.contains("Item")) {
             event->acceptProposedAction();
@@ -1423,4 +1438,13 @@ void CharacterWindow::on_InventoryScrollBar_actionTriggered(int action)
      *Цифры в проверке - это id этих ивентов*/
     if(action==1||action==2)
         Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
+}
+
+void CharacterWindow::inventoryScrollingStarted()
+{
+    inventoryScrollingIsStarted = true;
+    startScrollTimer->stop();
+    QEvent* event = new QEvent(QEvent::DragMove);
+    eventFilter(this, event);
+    delete event;
 }
