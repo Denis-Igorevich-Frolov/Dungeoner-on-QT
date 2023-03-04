@@ -4,7 +4,6 @@
 
 #include "characterwindow.h"
 #include "qevent.h"
-#include "qmimedata.h"
 #include "ui_characterwindow.h"
 #include "CW_stylemaster.h"
 
@@ -18,6 +17,7 @@
 #include <QMutableVectorIterator>
 #include <QEasingCurve>
 #include <CustomWidgets/Item/item.h>
+#include <Global/GlobalStyleMaster.h>
 
 CharacterWindow::CharacterWindow(QWidget *parent) :
     QWidget(parent),
@@ -38,11 +38,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     ui->WillValue->installEventFilter(this);
     installEventFilter(this);
 
-    inventoryScroller = QScroller::scroller(ui->InventoryScrollArea);
-    inventoryScroller->grabGesture(ui->InventoryScrollArea, QScroller::ScrollerGestureType::MiddleMouseButtonGesture);
-    startScrollTimer->installEventFilter(this);
-    connect(startScrollTimer, &QTimer::timeout, this, &CharacterWindow::inventoryScrollingStarted);
-
+    ui->Inventory->setPos(ui->Inventory->pos());
     setTextPrimarySkillSignature();
     setStyles();
 
@@ -68,13 +64,6 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
      *области прокрутки, что собственно и есть то, что мне и нужно. Для этого я и связываю его сигнал с моим слотом*/
     connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), &QAbstractSlider::valueChanged,
             this, &CharacterWindow::ScrollAreaSecondarySkillsScrolled);
-    /*Связывание слота InventoryScrollAreaScrolled с сигналом valueChanged
-     *у вертикального скроллбара в области прокрутки ScrollAreaSecondarySkills.*/
-    connect(ui->InventoryScrollArea->verticalScrollBar(), &QScrollBar::valueChanged,
-            this, &CharacterWindow::InventoryScrollAreaScrolled);
-    /*По умолчанию скроллбар инвентаря имеет максимум в 0. Любое изменение количества
-     *ячеек инвентаря переопределит это значение, когда то будет нужно.*/
-    ui->InventoryScrollBar->setMaximum(0);
 
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
      *и ивенты мыши, чтобы они не перекрывали непосредственно вторичные навыки*/
@@ -140,16 +129,53 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     tooltipInitialization();
     recalculateStats();
 
+    //!!!отладка
+    //////////////////////////////////////////////
+    Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 
-    //!!!
-    for(int i = 0; i<4; i++)
-        addRowOfCellsToInventory();
+    item->isPressable = true;
+//    item->isDisabled = true;
+    item->isNew = true;
 
-//    ui->SkillsWraper->setVisible(false);
-//    ui->SecondarySkillsWraper->setVisible(false);
-//    ui->ScrollAreaWraper->setVisible(false);
-//    ui->ProgressBars->setVisible(false);
-//    ui->InventoryWrapper->setVisible(false);
+    item->setQuantity(999);
+    item->setMaxCharges(10);
+    item->setCurrentCharges(10);
+    item->setId(0);
+
+    item->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
+    item->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
+    item->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
+
+    InventoryCell* cell = ui->Inventory->getCell(0, 0);
+
+    if(cell!=nullptr){
+        cell->setItem(item);
+    }
+
+    Item* item2 = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+
+    item2->isPressable = true;
+//    item2->isDisabled = true;
+    item2->isNew = true;
+
+    item2->setMaxDurability(1);
+    item2->setCurrentDurability(0);
+
+    item2->setQuantity(999);
+    item2->setMaxCharges(10);
+    item2->setCurrentCharges(10);
+    item2->setId(0);
+
+    item2->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
+    item2->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
+    item2->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
+
+    InventoryCell* cell2 = ui->Inventory->getCell(0, 2);
+
+    if(cell!=nullptr){
+        cell2->setItem(item2);
+    }
+    /////////////////////////////////////////////
 }
 
 CharacterWindow::~CharacterWindow()
@@ -201,9 +227,6 @@ void CharacterWindow::setTextPrimarySkillSignature()
 void CharacterWindow::setStyles()
 {
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setSingleStep(6);
-
-    ui->InventoryScrollArea->verticalScrollBar()->setSingleStep(10);
-    ui->InventoryScrollBar->setStyleSheet(CW_StyleMaster::VerticalScrollBarStyle());
 
     /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно,
      *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
@@ -289,7 +312,7 @@ void CharacterWindow::setStyles()
      *позиции, то и верхняя тень со старта должна быть убрана.*/
     ui->SecondarySkillsShadowTop->hide();
 
-    ui->verticalScrollBar->setStyleSheet(CW_StyleMaster::VerticalScrollBarStyle());
+    ui->verticalScrollBar->setStyleSheet(GlobalStyleMaster::VerticalScrollBarStyle());
 
     /*Перебор всех дочерних эллементов контейнера ProgressBars. Здесь важно, чтобы все эти
      *эллементы были либо типа SecondarySkillProgressBar, либо MagicDefenseProgressBar.
@@ -786,14 +809,6 @@ void CharacterWindow::tooltipInitialization()
     }
 }
 
-void CharacterWindow::scrollInventory(int Ypos)
-{
-    if(!inventoreIsScrolled){
-        inventoreIsScrolled = true;
-        ui->InventoryScrollArea->verticalScrollBar()->setValue(ui->InventoryScrollArea->verticalScrollBar()->value()-Ypos);
-    }
-}
-
 /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
  *Считаются только Ctrl,Shift и Alt*/
 void CharacterWindow::keyPressEvent(QKeyEvent *event)
@@ -841,64 +856,6 @@ void CharacterWindow::leaveEvent(QEvent *event)
 
 bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
 {
-    if(event->type() == QEvent::DragMove || event->type() == QEvent::DragEnter){
-        if(dynamic_cast<InventoryCell*>(object) || object == this){
-            if((QCursor::pos().x() >= ui->InventoryWrapper->pos().x()) &&
-                    (QCursor::pos().x() <= ui->InventoryWrapper->pos().x() + ui->InventoryScrollArea->size().width()) &&
-                    (QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y()) &&
-                    (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() +  ui->InventoryScrollArea->height())){
-                if(inventoryScroller->state() != QScroller::Scrolling && !startScrollTimer->isActive() && !inventoryScrollingIsStarted){
-                    startScrollTimer->start(700);
-                }
-
-                if(inventoryScrollingIsStarted){
-                    inventoryScrollerProperties.setScrollMetric(QScrollerProperties::ScrollingCurve, QEasingCurve(QEasingCurve::OutBack));
-                    inventoryScroller->setScrollerProperties(inventoryScrollerProperties);
-
-                    if((QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15) && inventoryScrollerState != FAST_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
-                        inventoryScrollerState = FAST_SPEED;
-                    }else if((QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
-                             (QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 15) &&
-                             inventoryScrollerState != SLOW_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
-                        inventoryScrollerState = SLOW_SPEED;
-                    }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)
-                             && inventoryScrollerState != FAST_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
-                                                    (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
-                        inventoryScrollerState = FAST_SPEED;
-                    }else if((QCursor::pos().y() > ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -50) &&
-                             (QCursor::pos().y() < ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15) &&
-                             inventoryScrollerState != SLOW_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
-                                                    (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
-                        inventoryScrollerState = SLOW_SPEED;
-                    }else if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + 50) &&
-                             (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() - 50)){
-                        inventoryScroller->stop();
-                        inventoryScrollingIsStarted = false;
-                        inventoryScrollerState = STOPPED;
-                    }
-                }
-            }else{
-                inventoryScroller->stop();
-                inventoryScrollingIsStarted = false;
-                inventoryScrollerState = STOPPED;
-            }
-        }
-    }else if(event->type() == QEvent::Drop){
-        if(dynamic_cast<InventoryCell*>(object)){
-            inventoryScroller->stop();
-            inventoryScrollingIsStarted = false;
-            inventoryScrollerState = STOPPED;
-        }
-    }else if(object == this && event->type() == QEvent::HoverMove){
-        inventoryScroller->stop();
-        inventoryScrollingIsStarted = false;
-        inventoryScrollerState = STOPPED;
-    }
-
     if(object == ui->StrengthValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
@@ -968,17 +925,6 @@ bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
-void CharacterWindow::dragEnterEvent(QDragEnterEvent *event)
-{
-    if((QCursor::pos().y() >= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y()) &&
-            (QCursor::pos().y() <= ui->InventoryWrapper->pos().y() + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height())){
-        QStringList formats = event->mimeData()->formats();
-        if(formats.contains("Item")) {
-            event->acceptProposedAction();
-        }
-    }
-}
-
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
  *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
@@ -1003,11 +949,6 @@ void CharacterWindow::ScrollAreaSecondarySkillsScrolled(int value)
      *область прокрутки скроллбар, а отдельный, другой для удобства позиционирования
      *и более простого и понятного доступа до его слотов.*/
     ui->verticalScrollBar->setValue(value);
-}
-
-void CharacterWindow::InventoryScrollAreaScrolled(int value)
-{
-    ui->InventoryScrollBar->setValue(value);
 }
 
 void CharacterWindow::on_verticalScrollBar_actionTriggered(int action)
@@ -1142,104 +1083,6 @@ void CharacterWindow::refreshDisplayStats()
     initSecondaryStatsWidgets();
 }
 
-//Добавление новой линии пустых ячеек в инвентарь
-void CharacterWindow::addRowOfCellsToInventory()
-{
-    /*В строке всегда 10 ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
-     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
-    int row = ui->Inventory->count()/10;
-
-    /*row показывает текущее количество строк. Учитывая, что одна сейчас прибавися, row 3 означает, что
-     *в таблице будет 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
-    if(row>3){
-        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
-        ui->scrollAreaWidgetContents_2->setFixedHeight(308 + 70*(row-3) + 4*(row-4));
-        //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
-        int maximum = 70*(row-3) + 4*(row-4);
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
-        ui->InventoryScrollBar->setMaximum(maximum);
-    }else{
-        //Иначе прокрутка не требуется, и максимум скроллбаров обнуляется
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
-        ui->InventoryScrollBar->setMaximum(0);
-    }
-
-    //Создание новой строки ячеек
-    for(int i = 0; i<10; i++){
-        InventoryCell* cell = new InventoryCell();
-        cell->installEventFilter(this);
-        cell->setFixedSize(68, 68);
-        /*Учитывая что row всегда показывает текущее количество ячеек, то есть на
-         *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
-        ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
-
-        QRect rect = cell->geometry();
-        rect.setY(5 + 74*row);
-        cell->setGeometry(rect);
-
-        //!!!отладка
-        //////////////////////////////////////////////
-        if(/*true*/((i == 0)||(i == 2)) && ui->Inventory->count()<10){
-        Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-
-        item->isPressable = true;
-        item->isNew = true;
-//        item->isDisabled = true;
-        if(/*true*/i == 2 && ui->Inventory->count()<10){
-                item->setMaxDurability(1);
-                item->setCurrentDurability(0);
-        }
-        item->setQuantity(999);
-        item->setMaxCharges(10);
-        item->setCurrentCharges(10);
-        item->setId(0);
-
-        item->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
-        item->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
-        item->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
-
-        cell->setItem(item);
-        }
-        /////////////////////////////////////////////
-    }
-}
-
-//Удаление последней линии ячеек в инвентаре
-void CharacterWindow::removeRowOfCellsFromInventory()
-{
-    /*В строке всегда 10 ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
-     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
-    int row = ui->Inventory->count()/10;
-
-    /*row показывает текущее количество строк. Учитывая, что одна сейчас удалится, row 5 означает, что в
-     *таблице останется 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
-    if(row>5){
-        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
-        ui->scrollAreaWidgetContents_2->setFixedHeight(308 + 70*(row-5) + 4*(row-6));
-        //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
-        int maximum = 70*(row-5) + 4*(row-6);
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
-        ui->InventoryScrollBar->setMaximum(maximum);
-    }else{
-        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
-        ui->scrollAreaWidgetContents_2->setFixedHeight(304);
-        //Иначе прокрутка не требуется, и максимум скроллбаров обнуляется
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
-        ui->InventoryScrollBar->setMaximum(0);
-    }
-
-    //В инвентаре не может быть менее 4 строк
-    if(row<=4)
-        return;
-
-    //Удаление строки ячеек
-    for(int i = 0; i<10; i++){
-        //Учитывая что row всегда показывает текущее количество ячеек, то его надо привести к индексу с отсчётом от 0
-        delete ui->Inventory->itemAtPosition(row-1, i)->widget();
-        ui->Inventory->removeItem(ui->Inventory->itemAtPosition(row-1, i));
-    }
-}
-
 void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
 {
     if(isManualStatReplacement){
@@ -1340,12 +1183,12 @@ void CharacterWindow::on_pushButton_11_clicked()
 
 void CharacterWindow::on_pushButton_8_clicked()
 {
-    addRowOfCellsToInventory();
+    ui->Inventory->addRowOfCellsToInventory();
 }
 
 void CharacterWindow::on_pushButton_7_clicked()
 {
-    removeRowOfCellsFromInventory();
+    ui->Inventory->removeRowOfCellsFromInventory();
 }
 
 void CharacterWindow::on_pushButton_17_clicked()
@@ -1433,29 +1276,4 @@ void CharacterWindow::on_SaveButton_clicked()
 void CharacterWindow::on_LoadButton_clicked()
 {
     person.loadAllStats();
-}
-
-void CharacterWindow::on_InventoryScrollBar_valueChanged(int value)
-{
-    //При скролле скроллбара подсказка пропадает так как всё-равно окошко стата уезжает
-    RemoveTooltip();
-
-    ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
-}
-
-void CharacterWindow::on_InventoryScrollBar_actionTriggered(int action)
-{
-    /*Звук проигрывается только при нажатии на стрелки прибавки и убавки.
-     *Цифры в проверке - это id этих ивентов*/
-    if(action==1||action==2)
-        Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Click1.wav"), MediaPlayer::SoundsGroup::SOUNDS);
-}
-
-void CharacterWindow::inventoryScrollingStarted()
-{
-    inventoryScrollingIsStarted = true;
-    startScrollTimer->stop();
-    QEvent* event = new QEvent(QEvent::DragMove);
-    eventFilter(this, event);
-    delete event;
 }

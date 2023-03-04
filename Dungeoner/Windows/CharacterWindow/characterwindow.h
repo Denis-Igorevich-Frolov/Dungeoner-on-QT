@@ -8,7 +8,6 @@
 #include <QLabel>
 #include <QScroller>
 #include <QWidget>
-#include "CustomWidgets/InventoryCell/inventorycell.h"
 #include "Person/person.h"
 #include "qtimer.h"
 
@@ -26,7 +25,6 @@ public:
 
 private slots:
     void ScrollAreaSecondarySkillsScrolled(int value);
-    void InventoryScrollAreaScrolled(int value);
 
     void onStrengthChanged();
     void onAgilityChanged();
@@ -37,11 +35,6 @@ private slots:
 
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();
-
-    //Добавление новой линии пустых ячеек в инвентарь
-    void addRowOfCellsToInventory();
-    //Удаление последней линии ячеек в инвентаре
-    void removeRowOfCellsFromInventory();
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
@@ -104,19 +97,8 @@ private slots:
 
     void on_pushButton_14_clicked();
 
-    void on_InventoryScrollBar_valueChanged(int value);
-    void on_InventoryScrollBar_actionTriggered(int action);
-    void inventoryScrollingStarted();
-
 private:
     Ui::CharacterWindow *ui;
-
-    enum inventoryScrollerState{
-        STOPPED,
-        FAST_SPEED,
-        SLOW_SPEED
-    };
-    inventoryScrollerState inventoryScrollerState = STOPPED;
 
     /*Установка текста для подписи первичного навыка в соответствии с его динамическим свойством
      *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures*/
@@ -152,9 +134,6 @@ private:
     //Заполнение контентом подсказок элементов на основе их динамических свойств
     void tooltipInitialization();
 
-    void scrollInventory(int Ypos);
-    bool inventoreIsScrolled = false;
-
     /*Эвент нажатия клавиши, который записывает код клавиши в вектор pressedKeys.
      *Считаются только Ctrl,Shift и Alt*/
     virtual void keyPressEvent(QKeyEvent *event) override;
@@ -169,17 +148,9 @@ private:
     virtual void leaveEvent(QEvent *event)override;
 
     virtual bool eventFilter(QObject* object, QEvent* event) override;
-    void dragEnterEvent(QDragEnterEvent* event) override;
-
-    QScroller* inventoryScroller;
-    QScrollerProperties inventoryScrollerProperties;
-    QTimer* startScrollTimer = new QTimer(this);;
-    bool inventoryScrollingIsStarted = false;
 
     Person person = Person();
     bool isManualStatReplacement = false;
-    //Ячейка инвентаря из которой начался Drag&Drop
-    InventoryCell* sourceCell;
 };
 
 #endif // CHARACTERWINDOW_H

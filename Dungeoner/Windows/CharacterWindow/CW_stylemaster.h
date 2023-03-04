@@ -12,7 +12,6 @@ class CW_StyleMaster
 {
 public:
     static QString SpinBoxStyle(int sizePX);
-    static QString VerticalScrollBarStyle();
 };
 
 #endif // CW_STYLEMASTER_H

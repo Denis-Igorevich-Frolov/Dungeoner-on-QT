@@ -332,7 +332,7 @@ void Item::on_pushButton_clicked()
 
     if(isPressable){
         //Если итем сломан, его нельзя продать
-        if(itemCondition == BROKEN){
+        if(itemCondition == BROKEN || isDisabled){
             if(SoundPressWithOutOfCharge!="")
                 Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPressWithOutOfCharge), MediaPlayer::SoundsGroup::SOUNDS);
             return;

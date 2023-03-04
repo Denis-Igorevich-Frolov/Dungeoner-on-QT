@@ -10,6 +10,7 @@
 #define UI_CHARACTERWINDOW_H
 
 #include <CustomWidgets/FPS_Counter/fps_counter.h>
+#include <CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
 #include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
@@ -124,20 +125,14 @@ public:
     MagicDefenseProgressBar *MagicDefense;
     QFrame *BottomBoundWrapper;
     QVBoxLayout *verticalLayout_4;
-    QFrame *DecorativeElementWrapper;
-    QLabel *label;
-    QLabel *label_2;
-    QLabel *label_3;
-    QLabel *label_4;
     QLabel *BottomBorder;
     QLabel *BottomBound;
     Tooltip *tooltip;
-    QFrame *InventoryWrapper;
-    QScrollArea *InventoryScrollArea;
-    QWidget *scrollAreaWidgetContents_2;
-    QVBoxLayout *verticalLayout_8;
-    QGridLayout *Inventory;
-    QScrollBar *InventoryScrollBar;
+    CharacterWindowInventory *Inventory;
+    QLabel *DecorativeElement1;
+    QLabel *DecorativeElement3;
+    QLabel *DecorativeElement2;
+    QLabel *DecorativeElement4;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -838,38 +833,14 @@ public:
 
         BottomBoundWrapper = new QFrame(CharacterWindow);
         BottomBoundWrapper->setObjectName(QString::fromUtf8("BottomBoundWrapper"));
-        BottomBoundWrapper->setGeometry(QRect(-1, 1045, 1922, 37));
+        BottomBoundWrapper->setGeometry(QRect(-1, 1055, 1922, 27));
         BottomBoundWrapper->setFrameShape(QFrame::StyledPanel);
         BottomBoundWrapper->setFrameShadow(QFrame::Raised);
+        BottomBoundWrapper->setLineWidth(0);
         verticalLayout_4 = new QVBoxLayout(BottomBoundWrapper);
         verticalLayout_4->setSpacing(0);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
-        DecorativeElementWrapper = new QFrame(BottomBoundWrapper);
-        DecorativeElementWrapper->setObjectName(QString::fromUtf8("DecorativeElementWrapper"));
-        DecorativeElementWrapper->setMinimumSize(QSize(0, 10));
-        DecorativeElementWrapper->setMaximumSize(QSize(16777215, 10));
-        DecorativeElementWrapper->setFrameShape(QFrame::StyledPanel);
-        DecorativeElementWrapper->setFrameShadow(QFrame::Raised);
-        label = new QLabel(DecorativeElementWrapper);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(9, 0, 43, 10));
-        label->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
-        label_2 = new QLabel(DecorativeElementWrapper);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(776, 0, 43, 10));
-        label_2->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
-        label_3 = new QLabel(DecorativeElementWrapper);
-        label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(1868, 0, 43, 10));
-        label_3->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
-        label_4 = new QLabel(DecorativeElementWrapper);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(1101, 0, 43, 10));
-        label_4->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
-
-        verticalLayout_4->addWidget(DecorativeElementWrapper);
-
         BottomBorder = new QLabel(BottomBoundWrapper);
         BottomBorder->setObjectName(QString::fromUtf8("BottomBorder"));
         BottomBorder->setMinimumSize(QSize(0, 3));
@@ -886,65 +857,38 @@ public:
 
         verticalLayout_4->addWidget(BottomBound);
 
-        BottomBorder->raise();
-        BottomBound->raise();
-        DecorativeElementWrapper->raise();
         tooltip = new Tooltip(CharacterWindow);
         tooltip->setObjectName(QString::fromUtf8("tooltip"));
         tooltip->setGeometry(QRect(0, 0, 0, 0));
-        InventoryWrapper = new QFrame(CharacterWindow);
-        InventoryWrapper->setObjectName(QString::fromUtf8("InventoryWrapper"));
-        InventoryWrapper->setGeometry(QRect(1129, 706, 785, 349));
-        InventoryWrapper->setFrameShape(QFrame::StyledPanel);
-        InventoryWrapper->setFrameShadow(QFrame::Raised);
-        InventoryScrollArea = new QScrollArea(InventoryWrapper);
-        InventoryScrollArea->setObjectName(QString::fromUtf8("InventoryScrollArea"));
-        InventoryScrollArea->setGeometry(QRect(0, 45, 734, 308));
-        sizePolicy1.setHeightForWidth(InventoryScrollArea->sizePolicy().hasHeightForWidth());
-        InventoryScrollArea->setSizePolicy(sizePolicy1);
-        InventoryScrollArea->setMouseTracking(true);
-        InventoryScrollArea->setAcceptDrops(true);
-        InventoryScrollArea->setStyleSheet(QString::fromUtf8("background: transparent;\n"
-"border: none;"));
-        InventoryScrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        InventoryScrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        InventoryScrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents_2 = new QWidget();
-        scrollAreaWidgetContents_2->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_2"));
-        scrollAreaWidgetContents_2->setGeometry(QRect(0, 0, 734, 304));
-        QSizePolicy sizePolicy4(QSizePolicy::Minimum, QSizePolicy::Maximum);
-        sizePolicy4.setHorizontalStretch(0);
-        sizePolicy4.setVerticalStretch(0);
-        sizePolicy4.setHeightForWidth(scrollAreaWidgetContents_2->sizePolicy().hasHeightForWidth());
-        scrollAreaWidgetContents_2->setSizePolicy(sizePolicy4);
-        scrollAreaWidgetContents_2->setMinimumSize(QSize(0, 304));
-        verticalLayout_8 = new QVBoxLayout(scrollAreaWidgetContents_2);
-        verticalLayout_8->setSpacing(0);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
-        Inventory = new QGridLayout();
-        Inventory->setSpacing(6);
+        Inventory = new CharacterWindowInventory(CharacterWindow);
         Inventory->setObjectName(QString::fromUtf8("Inventory"));
-        Inventory->setSizeConstraint(QLayout::SetFixedSize);
-        Inventory->setContentsMargins(0, 5, 0, 9);
-
-        verticalLayout_8->addLayout(Inventory);
-
-        InventoryScrollArea->setWidget(scrollAreaWidgetContents_2);
-        InventoryScrollBar = new QScrollBar(InventoryWrapper);
-        InventoryScrollBar->setObjectName(QString::fromUtf8("InventoryScrollBar"));
-        InventoryScrollBar->setGeometry(QRect(751, 83, 24, 246));
-        InventoryScrollBar->setCursor(QCursor(Qt::PointingHandCursor));
-        InventoryScrollBar->setMaximum(0);
-        InventoryScrollBar->setSingleStep(74);
-        InventoryScrollBar->setPageStep(18);
-        InventoryScrollBar->setOrientation(Qt::Vertical);
-        InventoryWrapper->raise();
+        Inventory->setGeometry(QRect(1129, 706, 785, 349));
+        DecorativeElement1 = new QLabel(CharacterWindow);
+        DecorativeElement1->setObjectName(QString::fromUtf8("DecorativeElement1"));
+        DecorativeElement1->setGeometry(QRect(9, 1046, 43, 10));
+        DecorativeElement1->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
+        DecorativeElement3 = new QLabel(CharacterWindow);
+        DecorativeElement3->setObjectName(QString::fromUtf8("DecorativeElement3"));
+        DecorativeElement3->setGeometry(QRect(1101, 1046, 43, 10));
+        DecorativeElement3->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);"));
+        DecorativeElement2 = new QLabel(CharacterWindow);
+        DecorativeElement2->setObjectName(QString::fromUtf8("DecorativeElement2"));
+        DecorativeElement2->setGeometry(QRect(776, 1046, 43, 10));
+        DecorativeElement2->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
+        DecorativeElement4 = new QLabel(CharacterWindow);
+        DecorativeElement4->setObjectName(QString::fromUtf8("DecorativeElement4"));
+        DecorativeElement4->setGeometry(QRect(1868, 1046, 43, 10));
+        DecorativeElement4->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
         tooltip->raise();
+        Inventory->raise();
+        DecorativeElement1->raise();
+        DecorativeElement3->raise();
+        DecorativeElement2->raise();
+        DecorativeElement4->raise();
 
         retranslateUi(CharacterWindow);
 
@@ -1156,12 +1100,12 @@ public:
         MagicDefense->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         MagicDefense->setProperty("NumberOfChunksFormula", QVariant(QCoreApplication::translate("CharacterWindow", "\320\237\320\265\321\200\320\262\321\213\320\271 \321\204\321\200\320\260\320\263\320\274\320\265\320\275\321\202 \320\267\320\260\321\211\320\270\321\202\321\213 \320\264\320\260\321\221\321\202\321\201\321\217 \320\277\321\200\320\270 5 \320\262\320\276\320\273\320\270, \320\270 \320\264\320\273\321\217 \320\277\320\276\320\273\321\203\321\207\320\265\320\275\320\270\321\217 \320\272\320\260\320\266\320\264\320\276\320\263\320\276 \320\277\320\276\321\201\320\273\320\265\320\264\321\203\321\216\321\211\320\265\320\263\320\276 \321\204\321\200\320\260\320\274\320\265\320\275\321\202\320\260 \321\202\321\200\320\265\320\261\321\203\320\265\321\202\321\201\321\217 \320\262 1.2 \321\200\320\260\320\267\320\260 \320\261\320\276\320\273\321\214\321\210\320\265 \320\262\320\276\320\273\320\270", nullptr)));
         MagicDefense->setProperty("ChunkValueFormula", QVariant(QCoreApplication::translate("CharacterWindow", "0.7\303\227\320\234\320\260\320\263 + 0.3\303\227\320\242\320\265\320\273", nullptr)));
-        label->setText(QString());
-        label_2->setText(QString());
-        label_3->setText(QString());
-        label_4->setText(QString());
         BottomBorder->setText(QString());
         BottomBound->setText(QString());
+        DecorativeElement1->setText(QString());
+        DecorativeElement3->setText(QString());
+        DecorativeElement2->setText(QString());
+        DecorativeElement4->setText(QString());
     } // retranslateUi
 
 };

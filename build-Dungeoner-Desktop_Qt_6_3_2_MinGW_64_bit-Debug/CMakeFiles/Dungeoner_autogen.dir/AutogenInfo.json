@@ -488,6 +488,18 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/AbstractInventory/abstractinventory.h",
+			"MU",
+			"Z4ERMCLPAH/moc_abstractinventory.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h",
+			"MU",
+			"YKJKLR7MS4/moc_characterwindowinventory.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.h",
 			"MU",
 			"7DUF5DABG5/moc_IC_stylemaster.cpp",
@@ -641,6 +653,12 @@
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.h",
 			"MU",
 			"6X7T4VEVXB/moc_global.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/globalstylemaster.h",
+			"MU",
+			"6X7T4VEVXB/moc_globalstylemaster.cpp",
 			null
 		],
 		[
@@ -815,6 +833,16 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/AbstractInventory/abstractinventory.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.cpp",
+			"MU",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.cpp",
 			"MU",
 			null
@@ -941,6 +969,11 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Global/globalstylemaster.cpp",
 			"MU",
 			null
 		],

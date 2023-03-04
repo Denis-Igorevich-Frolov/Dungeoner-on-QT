@@ -2528,9 +2528,9 @@ border: none;</string>
    <property name="geometry">
     <rect>
      <x>-1</x>
-     <y>1045</y>
+     <y>1055</y>
      <width>1922</width>
-     <height>37</height>
+     <height>27</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -2538,6 +2538,9 @@ border: none;</string>
    </property>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_4">
     <property name="spacing">
@@ -2555,92 +2558,6 @@ border: none;</string>
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item>
-     <widget class="QFrame" name="DecorativeElementWrapper">
-      <property name="minimumSize">
-       <size>
-        <width>0</width>
-        <height>10</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>10</height>
-       </size>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-      <widget class="QLabel" name="label">
-       <property name="geometry">
-        <rect>
-         <x>9</x>
-         <y>0</y>
-         <width>43</width>
-         <height>10</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_2">
-       <property name="geometry">
-        <rect>
-         <x>776</x>
-         <y>0</y>
-         <width>43</width>
-         <height>10</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_3">
-       <property name="geometry">
-        <rect>
-         <x>1868</x>
-         <y>0</y>
-         <width>43</width>
-         <height>10</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_4">
-       <property name="geometry">
-        <rect>
-         <x>1101</x>
-         <y>0</y>
-         <width>43</width>
-         <height>10</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </widget>
-     </widget>
-    </item>
     <item>
      <widget class="QLabel" name="BottomBorder">
       <property name="minimumSize">
@@ -2686,9 +2603,6 @@ border: none;</string>
      </widget>
     </item>
    </layout>
-   <zorder>BottomBorder</zorder>
-   <zorder>BottomBound</zorder>
-   <zorder>DecorativeElementWrapper</zorder>
   </widget>
   <widget class="Tooltip" name="tooltip" native="true">
    <property name="geometry">
@@ -2700,7 +2614,7 @@ border: none;</string>
     </rect>
    </property>
   </widget>
-  <widget class="QFrame" name="InventoryWrapper">
+  <widget class="CharacterWindowInventory" name="Inventory" native="true">
    <property name="geometry">
     <rect>
      <x>1129</x>
@@ -2709,140 +2623,81 @@ border: none;</string>
      <height>349</height>
     </rect>
    </property>
-   <property name="frameShape">
-    <enum>QFrame::StyledPanel</enum>
-   </property>
-   <property name="frameShadow">
-    <enum>QFrame::Raised</enum>
-   </property>
-   <widget class="QScrollArea" name="InventoryScrollArea">
-    <property name="geometry">
-     <rect>
-      <x>0</x>
-      <y>45</y>
-      <width>734</width>
-      <height>308</height>
-     </rect>
-    </property>
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="mouseTracking">
-     <bool>true</bool>
-    </property>
-    <property name="acceptDrops">
-     <bool>true</bool>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background: transparent;
-border: none;</string>
-    </property>
-    <property name="verticalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="horizontalScrollBarPolicy">
-     <enum>Qt::ScrollBarAlwaysOff</enum>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents_2">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>734</width>
-       <height>304</height>
-      </rect>
-     </property>
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>304</height>
-      </size>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_8">
-      <property name="spacing">
-       <number>0</number>
-      </property>
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <layout class="QGridLayout" name="Inventory" columnstretch="0" rowminimumheight="0" columnminimumwidth="0">
-        <property name="sizeConstraint">
-         <enum>QLayout::SetFixedSize</enum>
-        </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>5</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <property name="bottomMargin">
-         <number>9</number>
-        </property>
-        <property name="spacing">
-         <number>6</number>
-        </property>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </widget>
-   <widget class="QScrollBar" name="InventoryScrollBar">
-    <property name="geometry">
-     <rect>
-      <x>751</x>
-      <y>83</y>
-      <width>24</width>
-      <height>246</height>
-     </rect>
-    </property>
-    <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
-    </property>
-    <property name="maximum">
-     <number>0</number>
-    </property>
-    <property name="singleStep">
-     <number>74</number>
-    </property>
-    <property name="pageStep">
-     <number>18</number>
-    </property>
-    <property name="orientation">
-     <enum>Qt::Vertical</enum>
-    </property>
-   </widget>
   </widget>
-  <zorder>InventoryWrapper</zorder>
+  <widget class="QLabel" name="DecorativeElement1">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>1046</y>
+     <width>43</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="DecorativeElement3">
+   <property name="geometry">
+    <rect>
+     <x>1101</x>
+     <y>1046</y>
+     <width>43</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-L.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="DecorativeElement2">
+   <property name="geometry">
+    <rect>
+     <x>776</x>
+     <y>1046</y>
+     <width>43</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="DecorativeElement4">
+   <property name="geometry">
+    <rect>
+     <x>1868</x>
+     <y>1046</y>
+     <width>43</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>TopMenuWrapper</zorder>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
   <zorder>ProgressBars</zorder>
   <zorder>tooltip</zorder>
+  <zorder>Inventory</zorder>
+  <zorder>DecorativeElement1</zorder>
+  <zorder>DecorativeElement3</zorder>
+  <zorder>DecorativeElement2</zorder>
+  <zorder>DecorativeElement4</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -2879,6 +2734,12 @@ border: none;</string>
    <class>FPS_Counter</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/FPS_Counter/fps_counter.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CharacterWindowInventory</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -2,6 +2,10 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CMakeLists.txt \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/FPS_Counter/fps_counter.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/FPS_Counter/fps_counter.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/AbstractInventory/abstractinventory.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/AbstractInventory/abstractinventory.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/IC_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.cpp \
@@ -54,6 +58,8 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/globalstylemaster.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/globalstylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/MediaPlayer/mediaplayer.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/MagicDefense/chunk.cpp \
@@ -656,6 +662,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   E:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/FPS_Counter/fps_counter.ui \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/InventoryCell/inventorycell.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.ui \

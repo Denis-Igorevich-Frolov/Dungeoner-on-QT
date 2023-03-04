@@ -119,6 +119,13 @@ set(PROJECT_SOURCES
         CustomWidgets/FPS_Counter/fps_counter.ui
         CustomWidgets/Item/itemmimedata.h
         CustomWidgets/Item/itemmimedata.cpp
+        CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h
+        CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.cpp
+        CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.ui
+        Global/globalstylemaster.h
+        Global/globalstylemaster.cpp
+        CustomWidgets/Inventories/AbstractInventory/abstractinventory.h
+        CustomWidgets/Inventories/AbstractInventory/abstractinventory.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
