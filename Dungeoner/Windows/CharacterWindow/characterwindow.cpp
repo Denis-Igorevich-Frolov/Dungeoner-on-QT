@@ -36,7 +36,6 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     ui->MagicValue->installEventFilter(this);
     ui->BodyTypeValue->installEventFilter(this);
     ui->WillValue->installEventFilter(this);
-    installEventFilter(this);
 
     ui->Inventory->setPos(ui->Inventory->pos());
     setTextPrimarySkillSignature();
@@ -54,6 +53,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(person.getStats()->primaryStats->Magic, &Stat::statChanged, this, &CharacterWindow::onMagicChanged);
     connect(person.getStats()->primaryStats->BodyType, &Stat::statChanged, this, &CharacterWindow::onBodyTypeChanged);
     connect(person.getStats()->primaryStats->Will, &Stat::statChanged, this, &CharacterWindow::onWillChanged);
+
+    connect(ui->Inventory, &CharacterWindowInventory::RemoveTooltip, this, &CharacterWindow::RemoveTooltip);
 
     //Связывание слота полной переинициализации из класса person с обновлением отображения статов
     connect(&person, &Person::FullReinitializationRequest, this, &CharacterWindow::refreshDisplayStats);
@@ -148,7 +149,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     InventoryCell* cell = ui->Inventory->getCell(0, 0);
 
-    if(cell!=nullptr){
+    if(cell){
         cell->setItem(item);
     }
 
@@ -172,7 +173,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     InventoryCell* cell2 = ui->Inventory->getCell(0, 2);
 
-    if(cell!=nullptr){
+    if(cell2){
         cell2->setItem(item2);
     }
     /////////////////////////////////////////////

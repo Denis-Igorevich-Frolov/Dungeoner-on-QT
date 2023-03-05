@@ -1,3 +1,7 @@
+/******************************************************
+ *Данный класс является инвентарём в окне персонажа.
+ ******************************************************/
+
 #ifndef CHARACTERWINDOWINVENTORY_H
 #define CHARACTERWINDOWINVENTORY_H
 
@@ -25,17 +29,23 @@ public slots:
     //Удаление последней линии ячеек в инвентаре
     void removeRowOfCellsFromInventory() override;
 
+signals:
+    //При скролле скроллбара подсказка должна пропадать
+    void RemoveTooltip();
+
 private slots:
     void InventoryScrollAreaScrolled(int value);
 
     void on_InventoryScrollBar_valueChanged(int value);
     void on_InventoryScrollBar_actionTriggered(int action);
+    //Функция вызываемая по окончании задержки startScrollTimer. Запускает начало скролла
     void inventoryScrollingStarted();
 
 private:
     Ui::CharacterWindowInventory *ui;
 
-    void scrollInventory(int Ypos) override;
+    //метод реализующий логику прокрутки перетаскиваемым итемом
+    void scrolling() override;
 
     bool eventFilter(QObject* object, QEvent* event) override;
     void dragEnterEvent(QDragEnterEvent* event) override;

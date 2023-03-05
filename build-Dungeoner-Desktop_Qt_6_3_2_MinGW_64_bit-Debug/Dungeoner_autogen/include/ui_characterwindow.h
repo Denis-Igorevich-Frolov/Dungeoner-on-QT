@@ -883,12 +883,12 @@ public:
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
         ProgressBars->raise();
-        tooltip->raise();
         Inventory->raise();
         DecorativeElement1->raise();
         DecorativeElement3->raise();
         DecorativeElement2->raise();
         DecorativeElement4->raise();
+        tooltip->raise();
 
         retranslateUi(CharacterWindow);
 

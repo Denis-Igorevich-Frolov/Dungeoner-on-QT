@@ -9,7 +9,6 @@
 #include <QScroller>
 #include <QWidget>
 #include "Person/person.h"
-#include "qtimer.h"
 
 namespace Ui {
 class CharacterWindow;

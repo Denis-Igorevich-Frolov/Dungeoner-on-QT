@@ -5917,7 +5917,6 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qatomic.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qatomic_cxx11.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbasicatomic.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbasictimer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbindingstorage.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearray.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayalgorithms.h
@@ -5988,7 +5987,6 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtcore-config.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtcoreexports.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtextstream.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtimer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtmetamacros.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qurl.h
@@ -6289,7 +6287,6 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qatomic.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qatomic_cxx11.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbasicatomic.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbasictimer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbindingstorage.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearray.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayalgorithms.h
@@ -6360,7 +6357,6 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/dungeoner.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtcore-config.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtcoreexports.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtextstream.h
- mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtimer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtmetamacros.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qurl.h
@@ -7564,8 +7560,14 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Inventories/CharacterWind
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsEffect
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractslider.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicseffect.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgridlayout.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayout.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qpushbutton.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollbar.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollerproperties.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgets-config.h

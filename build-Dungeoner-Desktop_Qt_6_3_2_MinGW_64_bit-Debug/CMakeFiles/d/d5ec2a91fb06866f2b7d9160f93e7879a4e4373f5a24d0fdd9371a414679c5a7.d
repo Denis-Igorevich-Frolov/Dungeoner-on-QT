@@ -263,6 +263,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QSpinBox \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractslider.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractspinbox.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qboxlayout.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qframe.h \
@@ -273,6 +274,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qmainwindow.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qpushbutton.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollbar.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscroller.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollerproperties.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h \

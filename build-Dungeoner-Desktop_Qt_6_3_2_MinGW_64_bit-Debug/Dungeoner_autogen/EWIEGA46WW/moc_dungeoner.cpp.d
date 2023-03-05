@@ -22,7 +22,6 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qatomic.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qatomic_cxx11.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qbasicatomic.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qbasictimer.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qbindingstorage.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearray.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -93,7 +92,6 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qtcore-config.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qtcoreexports.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qtextstream.h \
-  E:/Qt/6.3.2/mingw_64/include/QtCore/qtimer.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qtmetamacros.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qurl.h \

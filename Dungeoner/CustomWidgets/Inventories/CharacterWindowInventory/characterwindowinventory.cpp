@@ -12,25 +12,30 @@ CharacterWindowInventory::CharacterWindowInventory(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    numberOfVisibleRows = 4;
+    numberOfVisibleColumns = 10;
+    maxColumns = 10;
+
     installEventFilter(this);
 
     ui->InventoryScrollArea->verticalScrollBar()->setSingleStep(10);
     ui->InventoryScrollBar->setStyleSheet(GlobalStyleMaster::VerticalScrollBarStyle());
 
     inventoryScroller = QScroller::scroller(ui->InventoryScrollArea);
+    //Прокрутка инвентаря возможна зажатой СКМ
     inventoryScroller->grabGesture(ui->InventoryScrollArea, QScroller::ScrollerGestureType::MiddleMouseButtonGesture);
-    startScrollTimer->installEventFilter(this);
+
     connect(startScrollTimer, &QTimer::timeout, this, &CharacterWindowInventory::inventoryScrollingStarted);
 
-    /*Связывание слота InventoryScrollAreaScrolled с сигналом valueChanged
-     *у вертикального скроллбара в области прокрутки ScrollAreaSecondarySkills.*/
+    /*Связывание слота InventoryScrollAreaScrolled с сигналом valueChanged у вертикального скроллбара в области
+     *прокрутки для взаимосвязи этой области прокрутки и отдельного от неё скроллбара InventoryScrollBar.*/
     connect(ui->InventoryScrollArea->verticalScrollBar(), &QScrollBar::valueChanged,
             this, &CharacterWindowInventory::InventoryScrollAreaScrolled);
     /*По умолчанию скроллбар инвентаря имеет максимум в 0. Любое изменение количества
      *ячеек инвентаря переопределит это значение, когда то будет нужно.*/
     ui->InventoryScrollBar->setMaximum(0);
 
-    for(int i = 0; i<4; i++)
+    for(int i = 0; i<numberOfVisibleRows; i++)
         CharacterWindowInventory::addRowOfCellsToInventory();
 }
 
@@ -54,73 +59,12 @@ InventoryCell* CharacterWindowInventory::getCell(int row, int column)
 
 void CharacterWindowInventory::addRowOfCellsToInventory()
 {
-    /*В строке всегда 10 ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
-     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
-    int row = ui->Inventory->count()/10;
-
-    /*row показывает текущее количество строк. Учитывая, что одна сейчас прибавися, row 3 означает, что
-     *в таблице будет 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
-    if(row>3){
-        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
-        ui->scrollAreaWidgetContents->setFixedHeight(308 + 70*(row-3) + 4*(row-4));
-        //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
-        int maximum = 70*(row-3) + 4*(row-4);
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
-        ui->InventoryScrollBar->setMaximum(maximum);
-    }else{
-        //Иначе прокрутка не требуется, и максимум скроллбаров обнуляется
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
-        ui->InventoryScrollBar->setMaximum(0);
-    }
-
-    //Создание новой строки ячеек
-    for(int i = 0; i<10; i++){
-        InventoryCell* cell = new InventoryCell();
-        cell->installEventFilter(this);
-        cell->setFixedSize(68, 68);
-        /*Учитывая что row всегда показывает текущее количество ячеек, то есть на
-         *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
-        ui->Inventory->addWidget(cell, row, i, Qt::AlignTop);
-
-        QRect rect = cell->geometry();
-        rect.setY(5 + 74*row);
-        cell->setGeometry(rect);
-    }
+    AbstractInventory::addRowOfCellsToInventory(this, ui->Inventory, ui->scrollAreaWidgetContents, ui->InventoryScrollArea->verticalScrollBar(), ui->InventoryScrollBar);
 }
 
 void CharacterWindowInventory::removeRowOfCellsFromInventory()
 {
-    /*В строке всегда 10 ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
-     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
-    int row = ui->Inventory->count()/10;
-
-    /*row показывает текущее количество строк. Учитывая, что одна сейчас удалится, row 5 означает, что в
-     *таблице останется 4 строки, а 4 строки - это тот размер таблицы, который прокрутки не требует.*/
-    if(row>5){
-        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
-        ui->scrollAreaWidgetContents->setFixedHeight(308 + 70*(row-5) + 4*(row-6));
-        //Установка максимума скроллбаров равного суммарной высоте с учётом отствупов всех строк после четвёртой.
-        int maximum = 70*(row-5) + 4*(row-6);
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(maximum);
-        ui->InventoryScrollBar->setMaximum(maximum);
-    }else{
-        //Размер области прокрутки задаётся жёстко, чтобы избежать дёргания лейаута при добавлении новых строк
-        ui->scrollAreaWidgetContents->setFixedHeight(304);
-        //Иначе прокрутка не требуется, и максимум скроллбаров обнуляется
-        ui->InventoryScrollArea->verticalScrollBar()->setMaximum(0);
-        ui->InventoryScrollBar->setMaximum(0);
-    }
-
-    //В инвентаре не может быть менее 4 строк
-    if(row<=4)
-        return;
-
-    //Удаление строки ячеек
-    for(int i = 0; i<10; i++){
-        //Учитывая что row всегда показывает текущее количество ячеек, то его надо привести к индексу с отсчётом от 0
-        delete ui->Inventory->itemAtPosition(row-1, i)->widget();
-        ui->Inventory->removeItem(ui->Inventory->itemAtPosition(row-1, i));
-    }
+    AbstractInventory::removeRowOfCellsFromInventory(this, ui->Inventory, ui->scrollAreaWidgetContents, ui->InventoryScrollArea->verticalScrollBar(), ui->InventoryScrollBar);
 }
 
 void CharacterWindowInventory::InventoryScrollAreaScrolled(int value)
@@ -130,9 +74,8 @@ void CharacterWindowInventory::InventoryScrollAreaScrolled(int value)
 
 void CharacterWindowInventory::on_InventoryScrollBar_valueChanged(int value)
 {
-    ///!!!!!!!!
-//    //При скролле скроллбара подсказка пропадает так как всё-равно окошко стата уезжает
-//    RemoveTooltip();
+    //При скролле скроллбара подсказка пропадает так как всё-равно ячейка инвентаря
+    emit RemoveTooltip();
 
     ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
 }
@@ -149,16 +92,65 @@ void CharacterWindowInventory::inventoryScrollingStarted()
 {
     inventoryScrollingIsStarted = true;
     startScrollTimer->stop();
-    QEvent* event = new QEvent(QEvent::DragMove);
-    eventFilter(this, event);
-    delete event;
+    scrolling();
 }
 
-void CharacterWindowInventory::scrollInventory(int Ypos)
+//метод реализующий логику прокрутки перетаскиваемым итемом
+void CharacterWindowInventory::scrolling()
 {
-    if(!inventoryIsScrolled){
-        inventoryIsScrolled = true;
-        ui->InventoryScrollArea->verticalScrollBar()->setValue(ui->InventoryScrollArea->verticalScrollBar()->value()-Ypos);
+    //Во-первых Скроллинг возможен только в пределах области скролла, иначе он сразу прекращается
+    if((QCursor::pos().x() >= XPos) &&
+            (QCursor::pos().x() <=XPos + ui->InventoryScrollArea->size().width()) &&
+            (QCursor::pos().y() >= YPos + ui->InventoryScrollArea->pos().y()) &&
+            (QCursor::pos().y() <= YPos + ui->InventoryScrollArea->pos().y() +  ui->InventoryScrollArea->height())){
+        /*Если прямо сейчас начать прокрутку, то она будет рздражающе происходить при попытке вытянуть итем за пределы инвентаря. Для избежания
+         *этого есть небольшая задержка, дающее время переместить итем куда надо и одновременно почти не заметная, если нужно проскроллить инвентарь*/
+        if(inventoryScroller->state() != QScroller::Scrolling && !startScrollTimer->isActive() && !inventoryScrollingIsStarted){
+            startScrollTimer->start(700);
+        }
+
+        //Теперь прокрутка начнётся только по истечении таймера startScrollTimer
+        if(inventoryScrollingIsStarted){
+            //Задание алгоритма замедления прокрутки ближе к концу
+            inventoryScrollerProperties.setScrollMetric(QScrollerProperties::ScrollingCurve, QEasingCurve(QEasingCurve::OutBack));
+            inventoryScroller->setScrollerProperties(inventoryScrollerProperties);
+
+            /*У прокрутки есть 2 скорости: медленная запускается в диапазоне от 50 до 15 пикселей от края, быстрая же от 15 пикседей до 0.
+             *Им соответствует скорость 0.09 и 0.3. Так как в функцию scrollTo передаётся время до перехода в конечную точку, а не скорость,
+             *которая в моём случае мне нужна одинакого постоянной, это время вычисляется каждый раз заного. Зная расстояние (значение
+             *скроллбара) и скорость, легко вычислить время.
+             *enum inventoryScrollerState требуется для предотвращения многократного вызова scrollTo в рамках одной скорости, при этом
+             *он позволяет свободно переключиться на другую.*/
+            if((QCursor::pos().y() <= YPos + ui->InventoryScrollArea->pos().y() + 15) && inventoryScrollerState != FAST_SPEED){
+                inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                inventoryScrollerState = FAST_SPEED;
+            }else if((QCursor::pos().y() < YPos + ui->InventoryScrollArea->pos().y() + 50) &&
+                     (QCursor::pos().y() > YPos + ui->InventoryScrollArea->pos().y() + 15) &&
+                     inventoryScrollerState != SLOW_SPEED){
+                inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
+                inventoryScrollerState = SLOW_SPEED;
+            }else if((QCursor::pos().y() >= YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)
+                     && inventoryScrollerState != FAST_SPEED){
+                inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
+                                            (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
+                inventoryScrollerState = FAST_SPEED;
+            }else if((QCursor::pos().y() > YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -50) &&
+                     (QCursor::pos().y() < YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15) &&
+                     inventoryScrollerState != SLOW_SPEED){
+                inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
+                                            (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
+                inventoryScrollerState = SLOW_SPEED;
+            }else if((QCursor::pos().y() >= YPos + ui->InventoryScrollArea->pos().y() + 50) &&
+                     (QCursor::pos().y() <= YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() - 50)){
+                inventoryScroller->stop();
+                inventoryScrollingIsStarted = false;
+                inventoryScrollerState = STOPPED;
+            }
+        }
+    }else{
+        inventoryScroller->stop();
+        inventoryScrollingIsStarted = false;
+        inventoryScrollerState = STOPPED;
     }
 }
 
@@ -166,49 +158,7 @@ bool CharacterWindowInventory::eventFilter(QObject *object, QEvent *event)
 {
     if(event->type() == QEvent::DragMove || event->type() == QEvent::DragEnter){
         if(dynamic_cast<InventoryCell*>(object) || object == this){
-            if((QCursor::pos().x() >= XPos) &&
-                    (QCursor::pos().x() <=XPos + ui->InventoryScrollArea->size().width()) &&
-                    (QCursor::pos().y() >= YPos + ui->InventoryScrollArea->pos().y()) &&
-                    (QCursor::pos().y() <= YPos + ui->InventoryScrollArea->pos().y() +  ui->InventoryScrollArea->height())){
-                if(inventoryScroller->state() != QScroller::Scrolling && !startScrollTimer->isActive() && !inventoryScrollingIsStarted){
-                    startScrollTimer->start(700);
-                }
-
-                if(inventoryScrollingIsStarted){
-                    inventoryScrollerProperties.setScrollMetric(QScrollerProperties::ScrollingCurve, QEasingCurve(QEasingCurve::OutBack));
-                    inventoryScroller->setScrollerProperties(inventoryScrollerProperties);
-
-                    if((QCursor::pos().y() <= YPos + ui->InventoryScrollArea->pos().y() + 15) && inventoryScrollerState != FAST_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
-                        inventoryScrollerState = FAST_SPEED;
-                    }else if((QCursor::pos().y() < YPos + ui->InventoryScrollArea->pos().y() + 50) &&
-                             (QCursor::pos().y() > YPos + ui->InventoryScrollArea->pos().y() + 15) &&
-                             inventoryScrollerState != SLOW_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,0), (ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
-                        inventoryScrollerState = SLOW_SPEED;
-                    }else if((QCursor::pos().y() >= YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15)
-                             && inventoryScrollerState != FAST_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
-                                                    (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.3);
-                        inventoryScrollerState = FAST_SPEED;
-                    }else if((QCursor::pos().y() > YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -50) &&
-                             (QCursor::pos().y() < YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() -15) &&
-                             inventoryScrollerState != SLOW_SPEED){
-                        inventoryScroller->scrollTo(QPointF(0,ui->InventoryScrollArea->verticalScrollBar()->maximum()),
-                                                    (ui->InventoryScrollArea->verticalScrollBar()->maximum()-ui->InventoryScrollArea->verticalScrollBar()->value())/0.09);
-                        inventoryScrollerState = SLOW_SPEED;
-                    }else if((QCursor::pos().y() >= YPos + ui->InventoryScrollArea->pos().y() + 50) &&
-                             (QCursor::pos().y() <= YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height() - 50)){
-                        inventoryScroller->stop();
-                        inventoryScrollingIsStarted = false;
-                        inventoryScrollerState = STOPPED;
-                    }
-                }
-            }else{
-                inventoryScroller->stop();
-                inventoryScrollingIsStarted = false;
-                inventoryScrollerState = STOPPED;
-            }
+            scrolling();
         }
     }else if(event->type() == QEvent::Drop){
         if(dynamic_cast<InventoryCell*>(object)){
@@ -216,6 +166,8 @@ bool CharacterWindowInventory::eventFilter(QObject *object, QEvent *event)
             inventoryScrollingIsStarted = false;
             inventoryScrollerState = STOPPED;
         }
+    /*Эвент HoverMove никогда не вызозовется при зажатой кнопке мыши и обязательно вызовется при её отпускании,
+     *что является отличным маркером того, что итем сброшен, и сброшен в данном случае мимо ячейки*/
     }else if(object == this && event->type() == QEvent::HoverMove){
         inventoryScroller->stop();
         inventoryScrollingIsStarted = false;
@@ -227,6 +179,11 @@ bool CharacterWindowInventory::eventFilter(QObject *object, QEvent *event)
 
 void CharacterWindowInventory::dragEnterEvent(QDragEnterEvent *event)
 {
+    /*На самом деле никакой Drag&Drop инвентарь не реализует. Но так как HoverMove никогда не вызывается при зажатой кнопке мыши,
+     *а перетаскивание именно так и реализованно, и для скролла подведением перетаскиваемым итемом к краю мне всё равно нужен
+     *какой-нибудь эвент, который вызывался бы от движения мыши, здесь таким эвентом стал DragMove. Он будет вызываться только
+     *в пределах InventoryScrollArea, чтобы не смущать лишний раз никого изменившимся курсором готовности к дропу.
+     *Нужно это для того, чтобы инвентарь скролился даже если курсор находится между ячейками и не вызывает их DragMove.*/
     if((QCursor::pos().y() >= YPos + ui->InventoryScrollArea->pos().y()) &&
             (QCursor::pos().y() <= YPos + ui->InventoryScrollArea->pos().y() + ui->InventoryScrollArea->height())){
         QStringList formats = event->mimeData()->formats();

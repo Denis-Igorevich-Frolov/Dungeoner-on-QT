@@ -161,8 +161,14 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QGraphicsEffect \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/QWidget \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractbutton.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qabstractslider.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qboxlayout.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgraphicseffect.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qgridlayout.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayout.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qpushbutton.h \
+  E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollbar.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qscrollerproperties.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   E:/Qt/6.3.2/mingw_64/include/QtWidgets/qtwidgets-config.h \

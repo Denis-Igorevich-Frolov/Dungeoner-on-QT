@@ -2692,12 +2692,12 @@ border: none;</string>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
   <zorder>ProgressBars</zorder>
-  <zorder>tooltip</zorder>
   <zorder>Inventory</zorder>
   <zorder>DecorativeElement1</zorder>
   <zorder>DecorativeElement3</zorder>
   <zorder>DecorativeElement2</zorder>
   <zorder>DecorativeElement4</zorder>
+  <zorder>tooltip</zorder>
  </widget>
  <customwidgets>
   <customwidget>
