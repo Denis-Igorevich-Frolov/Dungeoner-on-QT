@@ -857,6 +857,10 @@ void CharacterWindow::leaveEvent(QEvent *event)
 
 bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
 {
+    /*ВНИМАНИЕ
+     *То, что ниже походит на безбожное нарушение солида, на деле лишь обработка эвентов от QSpinBox.
+     *Нет никакого смысла городить наследника для обработки 10 строк кода в месте, которое расширяться НЕ БУДЕТ*/
+
     if(object == ui->StrengthValue){
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
