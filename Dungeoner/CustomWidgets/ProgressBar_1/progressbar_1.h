@@ -46,6 +46,8 @@ public:
     void setTooltipContent(QString fullName, QString formula, int formulaFontSize, QString description);
     void setStat(ProgressBarStat *newStat);
 
+    void init();
+
 private slots:
     void statChanged();
 

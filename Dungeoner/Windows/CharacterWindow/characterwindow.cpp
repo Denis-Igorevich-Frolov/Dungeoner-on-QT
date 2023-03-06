@@ -473,35 +473,81 @@ void CharacterWindow::recalculateStats()
 //Инициализация элементов интерфеса связанных со статами значениями из Person
 void CharacterWindow::initSecondaryStatsWidgets()
 {
-    ui->MagicDamage->setValue(person.getStats()->secondaryStats->MagicDamage->getFinalValue());
-    ui->ResistPhysicalDamage->setValue(person.getStats()->secondaryStats->ResistPhysicalDamage->getFinalValue());
-    ui->ResistMagicDamage->setValue(person.getStats()->secondaryStats->ResistMagicDamage->getFinalValue());
-    ui->ResistPhysicalEffects->setValue(person.getStats()->secondaryStats->ResistPhysicalEffects->getFinalValue());
-    ui->ResistMagicEffects->setValue(person.getStats()->secondaryStats->ResistMagicEffects->getFinalValue());
-    ui->StrengtheningPhysicalEffects->setValue(person.getStats()->secondaryStats->StrengtheningPhysicalEffects->getFinalValue());
-    ui->StrengtheningMagicalEffects->setValue(person.getStats()->secondaryStats->StrengtheningMagicalEffects->getFinalValue());
-    ui->MeleeAccuracy->setValue(person.getStats()->secondaryStats->MeleeAccuracy->getFinalValue());
-    ui->RangedAccuracy->setValue(person.getStats()->secondaryStats->RangedAccuracy->getFinalValue());
-    ui->MagicAccuracy->setValue(person.getStats()->secondaryStats->MagicAccuracy->getFinalValue());
-    ui->Evasion->setValue(person.getStats()->secondaryStats->Evasion->getFinalValue());
-    ui->Stealth->setValue(person.getStats()->secondaryStats->Stealth->getFinalValue());
-    ui->Attentiveness->setValue(person.getStats()->secondaryStats->Attentiveness->getFinalValue());
-    ui->LoadCapacity->setValue(person.getStats()->secondaryStats->LoadCapacity->getFinalValue());
-    ui->Initiative->setValue(person.getStats()->secondaryStats->Initiative->getFinalValue());
-    ui->MagicCastChance->setValue(person.getStats()->secondaryStats->MagicCastChance->getFinalValue());
-    ui->ChanceOfUsingCombatTechnique->setValue(person.getStats()->secondaryStats->ChanceOfUsingCombatTechnique->getFinalValue());
-    ui->MoveRange->setValue(person.getStats()->secondaryStats->MoveRange->getFinalValue());
+    /*Перебор всех дочерних эллементов контейнера SecondarySkills. Здесь важно
+     *чтобы все эти эллементы были типа SecondarySkill. Если это не так, то
+     *эллемент будет проигнорирован и выведено предупреждение.*/
+    QGridLayout *secondarySkillsGrid = qobject_cast <QGridLayout*> (ui->SecondarySkills->layout());
+    for(int row = 0; row < secondarySkillsGrid->rowCount(); row++)
+    {
+        for (int column = 0; column < secondarySkillsGrid->columnCount(); column++)
+        {
+            if(secondarySkillsGrid->itemAtPosition(row, column)!=0){
+                if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
+                    SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
+                    ss->init();
+                }else{
+                    //Вывод предупреждения в консоль и файл
+                    QDate cd = QDate::currentDate();
+                    QTime ct = QTime::currentTime();
 
-    ui->Health->getProgressBar()->setMaxValue(person.getStats()->secondaryStats->Health->getFinalValue());
-    healthSetValue(person.getStats()->secondaryStats->Health->getProgressBarCurrentValue());
-    ui->Endurance->getProgressBar()->setMaxValue(person.getStats()->secondaryStats->Endurance->getFinalValue());
-    enduranceSetValue(person.getStats()->secondaryStats->Endurance->getProgressBarCurrentValue());
-    ui->Mana->getProgressBar()->setMaxValue(person.getStats()->secondaryStats->Mana->getFinalValue());
-    manaSetValue(person.getStats()->secondaryStats->Mana->getProgressBarCurrentValue());
+                    QString error =
+                            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                            "CharacterWindow выдал предупреждение в методе linkingTooltipSlots.\n"
+                            "Объект " + secondarySkillsGrid->itemAtPosition(row, column)->widget()->objectName() + " не является SecondarySkill.\n\n";
+                    qDebug()<<error;
 
-    MagicDefense* magicDefense = person.getStats()->secondaryStats->magicDefense;
-    ui->MagicDefense->getProgressBar()->setChunks(magicDefense->getChunks(), magicDefense->getTotalValue(),
-                                                  magicDefense->getAmountOfNativeChunks(), magicDefense->getAmountOfBonusChunks(), magicDefense->getValue());
+                    QFile errorFile("error log.txt");
+                    if (!errorFile.open(QIODevice::Append))
+                    {
+                        qDebug() << "Ошибка при открытии файла логов";
+                    }else{
+                        errorFile.open(QIODevice::Append  | QIODevice::Text);
+                        QTextStream writeStream(&errorFile);
+                        writeStream<<error;
+                        errorFile.close();
+                    }
+                }
+            }
+        }
+    }
+
+    /*Перебор всех дочерних эллементов контейнера ProgressBars. Здесь важно, чтобы все эти
+     *эллементы были либо типа SecondarySkillProgressBar, либо MagicDefenseProgressBar.
+     *Если это не так, то эллемент будет проигнорирован и выведено предупреждение.*/
+    for(auto* autoFrame : ui->ProgressBars->children()){
+        if(dynamic_cast <SecondarySkillProgressBar*> (autoFrame)){
+            SecondarySkillProgressBar* secondarySkillProgressBar = qobject_cast <SecondarySkillProgressBar*> (autoFrame);
+            ProgressBar_1* PB_1 = secondarySkillProgressBar->getProgressBar();
+            PB_1->init();
+        }else if(dynamic_cast <MagicDefenseProgressBar*> (autoFrame)){
+            MagicDefenseProgressBar* magicDefenseProgressBar = qobject_cast <MagicDefenseProgressBar*> (autoFrame);
+            ProgressBar_2* PB_2 = magicDefenseProgressBar->getProgressBar();
+            PB_2->init();
+        }else if(!dynamic_cast <QLayout*> (autoFrame)){
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе setStyles.\n"
+            "Объект " + autoFrame->objectName() + " не является QFrame.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
 }
 
 void CharacterWindow::healthSetValue(int value)

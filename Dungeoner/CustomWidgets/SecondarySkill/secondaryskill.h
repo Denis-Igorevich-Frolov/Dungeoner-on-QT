@@ -46,6 +46,8 @@ public:
 
     void setStat(Stat *newStat);
 
+    void init();
+
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();

@@ -186,6 +186,11 @@ void SecondarySkill::setStat(Stat *newStat)
     connect(stat, &Stat::statChanged, this, &SecondarySkill::statChanged);
 }
 
+void SecondarySkill::init()
+{
+    setValue(stat->getFinalValue());
+}
+
 void SecondarySkill::statChanged()
 {
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent

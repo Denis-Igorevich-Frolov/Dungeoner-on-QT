@@ -312,6 +312,11 @@ void ProgressBar_2::setStat(MagicDefense *newStat)
     connect(stat, &MagicDefense::statChanged, this, &ProgressBar_2::statChanged);
 }
 
+void ProgressBar_2::init()
+{
+    setChunks(stat->getChunks(), stat->getTotalValue(), stat->getAmountOfNativeChunks(), stat->getAmountOfBonusChunks(), stat->getValue());
+}
+
 //Пересчёт размера заполненной области и позиций разделителей
 void ProgressBar_2::recalculationChunkWidth()
 {

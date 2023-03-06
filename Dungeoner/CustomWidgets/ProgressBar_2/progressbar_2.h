@@ -74,6 +74,8 @@ public:
 
     void setStat(MagicDefense *newStat);
 
+    void init();
+
 private slots:
     void statChanged();
 

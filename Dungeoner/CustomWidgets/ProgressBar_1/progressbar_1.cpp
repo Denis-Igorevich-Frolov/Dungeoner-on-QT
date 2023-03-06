@@ -199,6 +199,11 @@ void ProgressBar_1::setStat(ProgressBarStat *newStat)
     connect(stat, &Stat::statChanged, this, &ProgressBar_1::statChanged);
 }
 
+void ProgressBar_1::init()
+{
+    setMaxValue(stat->getFinalValue());
+}
+
 void ProgressBar_1::statChanged()
 {
     value = stat->getProgressBarCurrentValue();
