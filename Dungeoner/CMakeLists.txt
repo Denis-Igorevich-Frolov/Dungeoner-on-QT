@@ -126,6 +126,11 @@ set(PROJECT_SOURCES
         Global/globalstylemaster.cpp
         CustomWidgets/Inventories/AbstractInventory/abstractinventory.h
         CustomWidgets/Inventories/AbstractInventory/abstractinventory.cpp
+        CustomWidgets/PrimarySkill/primaryskill.h
+        CustomWidgets/PrimarySkill/primaryskill.cpp
+        CustomWidgets/PrimarySkill/primaryskill.ui
+        CustomWidgets/PrimarySkill/PS_stylemaster.h
+        CustomWidgets/PrimarySkill/PS_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

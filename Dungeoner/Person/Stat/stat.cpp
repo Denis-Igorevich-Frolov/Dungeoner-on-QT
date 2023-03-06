@@ -27,7 +27,7 @@ void Stat::setValue(int newValue)
         value = 0;
 
     calculateFinalValue();
-    emit statChanged();
+    emit statChanged(false);
 }
 
 void Stat::addBonus(Bonus *bonus)

@@ -12,7 +12,7 @@
 #include <CustomWidgets/FPS_Counter/fps_counter.h>
 #include <CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
-#include <CustomWidgets/PrimarySkillSignature/primaryskillsignature.h>
+#include <CustomWidgets/PrimarySkill/primaryskill.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
 #include <CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h>
 #include <CustomWidgets/Tooltip/tooltip.h>
@@ -25,8 +25,6 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QScrollArea>
 #include <QtWidgets/QScrollBar>
-#include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -67,22 +65,14 @@ public:
     QVBoxLayout *verticalLayout;
     QFrame *PrimarySkillWrapper;
     QVBoxLayout *PrimarySkillWrapperL;
-    QFrame *PrimarySkillSignatures;
-    PrimarySkillSignature *StrengthPrimarySkillSignature;
-    PrimarySkillSignature *AgilityPrimarySkillSignature;
-    PrimarySkillSignature *IntelligencePrimarySkillSignature;
-    PrimarySkillSignature *MagicPrimarySkillSignature;
-    PrimarySkillSignature *BodyTypePrimarySkillSignature;
-    PrimarySkillSignature *WillPrimarySkillSignature;
-    QSpacerItem *verticalSpacer;
-    QFrame *ValuesPanel;
-    QFrame *PrimarySkillValues;
-    QSpinBox *StrengthValue;
-    QSpinBox *AgilityValue;
-    QSpinBox *IntelligenceValue;
-    QSpinBox *MagicValue;
-    QSpinBox *BodyTypeValue;
-    QSpinBox *WillValue;
+    QFrame *PrimarySkillsPanel;
+    QFrame *PrimarySkills;
+    PrimarySkill *PrimarySkillStrength;
+    PrimarySkill *PrimarySkillAgility;
+    PrimarySkill *PrimarySkillIntelligence;
+    PrimarySkill *PrimarySkillMagic;
+    PrimarySkill *PrimarySkillBodyType;
+    PrimarySkill *PrimarySkillWill;
     QFrame *Separators;
     QLabel *Separator4;
     QLabel *Separator1;
@@ -290,179 +280,59 @@ public:
         PrimarySkillWrapperL->setSpacing(0);
         PrimarySkillWrapperL->setObjectName(QString::fromUtf8("PrimarySkillWrapperL"));
         PrimarySkillWrapperL->setContentsMargins(0, 0, 0, 0);
-        PrimarySkillSignatures = new QFrame(PrimarySkillWrapper);
-        PrimarySkillSignatures->setObjectName(QString::fromUtf8("PrimarySkillSignatures"));
+        PrimarySkillsPanel = new QFrame(PrimarySkillWrapper);
+        PrimarySkillsPanel->setObjectName(QString::fromUtf8("PrimarySkillsPanel"));
         QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
         sizePolicy1.setHorizontalStretch(0);
         sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(PrimarySkillSignatures->sizePolicy().hasHeightForWidth());
-        PrimarySkillSignatures->setSizePolicy(sizePolicy1);
-        PrimarySkillSignatures->setMinimumSize(QSize(611, 58));
-        PrimarySkillSignatures->setMaximumSize(QSize(611, 58));
-        PrimarySkillSignatures->setFrameShape(QFrame::StyledPanel);
-        PrimarySkillSignatures->setFrameShadow(QFrame::Raised);
-        StrengthPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
-        StrengthPrimarySkillSignature->setObjectName(QString::fromUtf8("StrengthPrimarySkillSignature"));
-        StrengthPrimarySkillSignature->setGeometry(QRect(0, 0, 111, 58));
-        sizePolicy1.setHeightForWidth(StrengthPrimarySkillSignature->sizePolicy().hasHeightForWidth());
-        StrengthPrimarySkillSignature->setSizePolicy(sizePolicy1);
-        StrengthPrimarySkillSignature->setMinimumSize(QSize(111, 58));
-        StrengthPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        StrengthPrimarySkillSignature->setMouseTracking(true);
-        StrengthPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
-        AgilityPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
-        AgilityPrimarySkillSignature->setObjectName(QString::fromUtf8("AgilityPrimarySkillSignature"));
-        AgilityPrimarySkillSignature->setGeometry(QRect(100, 0, 111, 58));
-        sizePolicy1.setHeightForWidth(AgilityPrimarySkillSignature->sizePolicy().hasHeightForWidth());
-        AgilityPrimarySkillSignature->setSizePolicy(sizePolicy1);
-        AgilityPrimarySkillSignature->setMinimumSize(QSize(111, 58));
-        AgilityPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        AgilityPrimarySkillSignature->setMouseTracking(true);
-        AgilityPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
-        IntelligencePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
-        IntelligencePrimarySkillSignature->setObjectName(QString::fromUtf8("IntelligencePrimarySkillSignature"));
-        IntelligencePrimarySkillSignature->setGeometry(QRect(200, 0, 111, 58));
-        sizePolicy1.setHeightForWidth(IntelligencePrimarySkillSignature->sizePolicy().hasHeightForWidth());
-        IntelligencePrimarySkillSignature->setSizePolicy(sizePolicy1);
-        IntelligencePrimarySkillSignature->setMinimumSize(QSize(111, 58));
-        IntelligencePrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        IntelligencePrimarySkillSignature->setMouseTracking(true);
-        IntelligencePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
-        MagicPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
-        MagicPrimarySkillSignature->setObjectName(QString::fromUtf8("MagicPrimarySkillSignature"));
-        MagicPrimarySkillSignature->setGeometry(QRect(300, 0, 111, 58));
-        sizePolicy1.setHeightForWidth(MagicPrimarySkillSignature->sizePolicy().hasHeightForWidth());
-        MagicPrimarySkillSignature->setSizePolicy(sizePolicy1);
-        MagicPrimarySkillSignature->setMinimumSize(QSize(111, 58));
-        MagicPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        MagicPrimarySkillSignature->setMouseTracking(true);
-        MagicPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
-        BodyTypePrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
-        BodyTypePrimarySkillSignature->setObjectName(QString::fromUtf8("BodyTypePrimarySkillSignature"));
-        BodyTypePrimarySkillSignature->setGeometry(QRect(400, 0, 111, 58));
-        sizePolicy1.setHeightForWidth(BodyTypePrimarySkillSignature->sizePolicy().hasHeightForWidth());
-        BodyTypePrimarySkillSignature->setSizePolicy(sizePolicy1);
-        BodyTypePrimarySkillSignature->setMinimumSize(QSize(111, 58));
-        BodyTypePrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        BodyTypePrimarySkillSignature->setMouseTracking(true);
-        BodyTypePrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
-        WillPrimarySkillSignature = new PrimarySkillSignature(PrimarySkillSignatures);
-        WillPrimarySkillSignature->setObjectName(QString::fromUtf8("WillPrimarySkillSignature"));
-        WillPrimarySkillSignature->setGeometry(QRect(500, 0, 111, 58));
-        sizePolicy1.setHeightForWidth(WillPrimarySkillSignature->sizePolicy().hasHeightForWidth());
-        WillPrimarySkillSignature->setSizePolicy(sizePolicy1);
-        WillPrimarySkillSignature->setMinimumSize(QSize(111, 58));
-        WillPrimarySkillSignature->setMaximumSize(QSize(111, 58));
-        WillPrimarySkillSignature->setMouseTracking(true);
-        WillPrimarySkillSignature->setStyleSheet(QString::fromUtf8("background: black;"));
-
-        PrimarySkillWrapperL->addWidget(PrimarySkillSignatures);
-
-        verticalSpacer = new QSpacerItem(608, 12, QSizePolicy::Minimum, QSizePolicy::Fixed);
-
-        PrimarySkillWrapperL->addItem(verticalSpacer);
-
-        ValuesPanel = new QFrame(PrimarySkillWrapper);
-        ValuesPanel->setObjectName(QString::fromUtf8("ValuesPanel"));
-        sizePolicy1.setHeightForWidth(ValuesPanel->sizePolicy().hasHeightForWidth());
-        ValuesPanel->setSizePolicy(sizePolicy1);
-        ValuesPanel->setMinimumSize(QSize(611, 35));
-        ValuesPanel->setMaximumSize(QSize(611, 35));
-        ValuesPanel->setFrameShape(QFrame::StyledPanel);
-        ValuesPanel->setFrameShadow(QFrame::Raised);
-        PrimarySkillValues = new QFrame(ValuesPanel);
-        PrimarySkillValues->setObjectName(QString::fromUtf8("PrimarySkillValues"));
-        PrimarySkillValues->setGeometry(QRect(0, 0, 611, 35));
-        QSizePolicy sizePolicy2(QSizePolicy::Preferred, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(PrimarySkillValues->sizePolicy().hasHeightForWidth());
-        PrimarySkillValues->setSizePolicy(sizePolicy2);
-        PrimarySkillValues->setMinimumSize(QSize(0, 35));
-        PrimarySkillValues->setMaximumSize(QSize(16777215, 35));
-        PrimarySkillValues->setFrameShape(QFrame::StyledPanel);
-        PrimarySkillValues->setFrameShadow(QFrame::Raised);
-        StrengthValue = new QSpinBox(PrimarySkillValues);
-        StrengthValue->setObjectName(QString::fromUtf8("StrengthValue"));
-        StrengthValue->setGeometry(QRect(11, 0, 89, 35));
-        sizePolicy1.setHeightForWidth(StrengthValue->sizePolicy().hasHeightForWidth());
-        StrengthValue->setSizePolicy(sizePolicy1);
-        StrengthValue->setMinimumSize(QSize(89, 35));
-        StrengthValue->setMaximumSize(QSize(89, 35));
-        StrengthValue->setCursor(QCursor(Qt::IBeamCursor));
-        StrengthValue->setLayoutDirection(Qt::LeftToRight);
-        StrengthValue->setStyleSheet(QString::fromUtf8(""));
-        StrengthValue->setAlignment(Qt::AlignCenter);
-        StrengthValue->setMaximum(999999);
-        StrengthValue->setProperty("fontSize", QVariant(28));
-        AgilityValue = new QSpinBox(PrimarySkillValues);
-        AgilityValue->setObjectName(QString::fromUtf8("AgilityValue"));
-        AgilityValue->setGeometry(QRect(111, 0, 89, 35));
-        sizePolicy1.setHeightForWidth(AgilityValue->sizePolicy().hasHeightForWidth());
-        AgilityValue->setSizePolicy(sizePolicy1);
-        AgilityValue->setMinimumSize(QSize(89, 35));
-        AgilityValue->setMaximumSize(QSize(89, 35));
-        AgilityValue->setCursor(QCursor(Qt::IBeamCursor));
-        AgilityValue->setLayoutDirection(Qt::LeftToRight);
-        AgilityValue->setStyleSheet(QString::fromUtf8(""));
-        AgilityValue->setAlignment(Qt::AlignCenter);
-        AgilityValue->setMaximum(999999);
-        AgilityValue->setProperty("fontSize", QVariant(28));
-        IntelligenceValue = new QSpinBox(PrimarySkillValues);
-        IntelligenceValue->setObjectName(QString::fromUtf8("IntelligenceValue"));
-        IntelligenceValue->setGeometry(QRect(211, 0, 89, 35));
-        sizePolicy1.setHeightForWidth(IntelligenceValue->sizePolicy().hasHeightForWidth());
-        IntelligenceValue->setSizePolicy(sizePolicy1);
-        IntelligenceValue->setMinimumSize(QSize(89, 35));
-        IntelligenceValue->setMaximumSize(QSize(89, 35));
-        IntelligenceValue->setCursor(QCursor(Qt::IBeamCursor));
-        IntelligenceValue->setLayoutDirection(Qt::LeftToRight);
-        IntelligenceValue->setStyleSheet(QString::fromUtf8(""));
-        IntelligenceValue->setAlignment(Qt::AlignCenter);
-        IntelligenceValue->setMaximum(999999);
-        IntelligenceValue->setProperty("fontSize", QVariant(28));
-        MagicValue = new QSpinBox(PrimarySkillValues);
-        MagicValue->setObjectName(QString::fromUtf8("MagicValue"));
-        MagicValue->setGeometry(QRect(311, 0, 89, 35));
-        sizePolicy1.setHeightForWidth(MagicValue->sizePolicy().hasHeightForWidth());
-        MagicValue->setSizePolicy(sizePolicy1);
-        MagicValue->setMinimumSize(QSize(89, 35));
-        MagicValue->setMaximumSize(QSize(89, 35));
-        MagicValue->setCursor(QCursor(Qt::IBeamCursor));
-        MagicValue->setLayoutDirection(Qt::LeftToRight);
-        MagicValue->setStyleSheet(QString::fromUtf8(""));
-        MagicValue->setAlignment(Qt::AlignCenter);
-        MagicValue->setMaximum(999999);
-        MagicValue->setProperty("fontSize", QVariant(28));
-        BodyTypeValue = new QSpinBox(PrimarySkillValues);
-        BodyTypeValue->setObjectName(QString::fromUtf8("BodyTypeValue"));
-        BodyTypeValue->setGeometry(QRect(411, 0, 89, 35));
-        sizePolicy1.setHeightForWidth(BodyTypeValue->sizePolicy().hasHeightForWidth());
-        BodyTypeValue->setSizePolicy(sizePolicy1);
-        BodyTypeValue->setMinimumSize(QSize(89, 35));
-        BodyTypeValue->setMaximumSize(QSize(89, 35));
-        BodyTypeValue->setCursor(QCursor(Qt::IBeamCursor));
-        BodyTypeValue->setLayoutDirection(Qt::LeftToRight);
-        BodyTypeValue->setStyleSheet(QString::fromUtf8(""));
-        BodyTypeValue->setAlignment(Qt::AlignCenter);
-        BodyTypeValue->setMaximum(999999);
-        BodyTypeValue->setProperty("fontSize", QVariant(28));
-        WillValue = new QSpinBox(PrimarySkillValues);
-        WillValue->setObjectName(QString::fromUtf8("WillValue"));
-        WillValue->setGeometry(QRect(511, 0, 89, 35));
-        sizePolicy1.setHeightForWidth(WillValue->sizePolicy().hasHeightForWidth());
-        WillValue->setSizePolicy(sizePolicy1);
-        WillValue->setMinimumSize(QSize(89, 35));
-        WillValue->setMaximumSize(QSize(89, 35));
-        WillValue->setCursor(QCursor(Qt::IBeamCursor));
-        WillValue->setLayoutDirection(Qt::LeftToRight);
-        WillValue->setStyleSheet(QString::fromUtf8(""));
-        WillValue->setAlignment(Qt::AlignCenter);
-        WillValue->setMaximum(999999);
-        WillValue->setProperty("fontSize", QVariant(28));
-        Separators = new QFrame(ValuesPanel);
+        sizePolicy1.setHeightForWidth(PrimarySkillsPanel->sizePolicy().hasHeightForWidth());
+        PrimarySkillsPanel->setSizePolicy(sizePolicy1);
+        PrimarySkillsPanel->setMinimumSize(QSize(611, 105));
+        PrimarySkillsPanel->setMaximumSize(QSize(611, 105));
+        PrimarySkillsPanel->setFrameShape(QFrame::StyledPanel);
+        PrimarySkillsPanel->setFrameShadow(QFrame::Raised);
+        PrimarySkills = new QFrame(PrimarySkillsPanel);
+        PrimarySkills->setObjectName(QString::fromUtf8("PrimarySkills"));
+        PrimarySkills->setGeometry(QRect(0, 0, 611, 105));
+        sizePolicy1.setHeightForWidth(PrimarySkills->sizePolicy().hasHeightForWidth());
+        PrimarySkills->setSizePolicy(sizePolicy1);
+        PrimarySkills->setMinimumSize(QSize(0, 105));
+        PrimarySkills->setMaximumSize(QSize(16777215, 105));
+        PrimarySkills->setFrameShape(QFrame::StyledPanel);
+        PrimarySkills->setFrameShadow(QFrame::Raised);
+        PrimarySkillStrength = new PrimarySkill(PrimarySkills);
+        PrimarySkillStrength->setObjectName(QString::fromUtf8("PrimarySkillStrength"));
+        PrimarySkillStrength->setGeometry(QRect(0, 0, 111, 105));
+        sizePolicy1.setHeightForWidth(PrimarySkillStrength->sizePolicy().hasHeightForWidth());
+        PrimarySkillStrength->setSizePolicy(sizePolicy1);
+        PrimarySkillAgility = new PrimarySkill(PrimarySkills);
+        PrimarySkillAgility->setObjectName(QString::fromUtf8("PrimarySkillAgility"));
+        PrimarySkillAgility->setGeometry(QRect(100, 0, 111, 105));
+        sizePolicy1.setHeightForWidth(PrimarySkillAgility->sizePolicy().hasHeightForWidth());
+        PrimarySkillAgility->setSizePolicy(sizePolicy1);
+        PrimarySkillIntelligence = new PrimarySkill(PrimarySkills);
+        PrimarySkillIntelligence->setObjectName(QString::fromUtf8("PrimarySkillIntelligence"));
+        PrimarySkillIntelligence->setGeometry(QRect(200, 0, 111, 105));
+        sizePolicy1.setHeightForWidth(PrimarySkillIntelligence->sizePolicy().hasHeightForWidth());
+        PrimarySkillIntelligence->setSizePolicy(sizePolicy1);
+        PrimarySkillMagic = new PrimarySkill(PrimarySkills);
+        PrimarySkillMagic->setObjectName(QString::fromUtf8("PrimarySkillMagic"));
+        PrimarySkillMagic->setGeometry(QRect(300, 0, 111, 105));
+        sizePolicy1.setHeightForWidth(PrimarySkillMagic->sizePolicy().hasHeightForWidth());
+        PrimarySkillMagic->setSizePolicy(sizePolicy1);
+        PrimarySkillBodyType = new PrimarySkill(PrimarySkills);
+        PrimarySkillBodyType->setObjectName(QString::fromUtf8("PrimarySkillBodyType"));
+        PrimarySkillBodyType->setGeometry(QRect(400, 0, 111, 105));
+        sizePolicy1.setHeightForWidth(PrimarySkillBodyType->sizePolicy().hasHeightForWidth());
+        PrimarySkillBodyType->setSizePolicy(sizePolicy1);
+        PrimarySkillWill = new PrimarySkill(PrimarySkills);
+        PrimarySkillWill->setObjectName(QString::fromUtf8("PrimarySkillWill"));
+        PrimarySkillWill->setGeometry(QRect(500, 0, 111, 105));
+        sizePolicy1.setHeightForWidth(PrimarySkillWill->sizePolicy().hasHeightForWidth());
+        PrimarySkillWill->setSizePolicy(sizePolicy1);
+        Separators = new QFrame(PrimarySkillsPanel);
         Separators->setObjectName(QString::fromUtf8("Separators"));
-        Separators->setGeometry(QRect(0, 0, 611, 35));
+        Separators->setGeometry(QRect(0, 70, 611, 35));
         sizePolicy1.setHeightForWidth(Separators->sizePolicy().hasHeightForWidth());
         Separators->setSizePolicy(sizePolicy1);
         Separators->setMinimumSize(QSize(611, 35));
@@ -510,9 +380,9 @@ public:
         Separator3->setMaximumSize(QSize(1, 35));
         Separator3->setStyleSheet(QString::fromUtf8("background:  #50541a;"));
         Separators->raise();
-        PrimarySkillValues->raise();
+        PrimarySkills->raise();
 
-        PrimarySkillWrapperL->addWidget(ValuesPanel);
+        PrimarySkillWrapperL->addWidget(PrimarySkillsPanel);
 
 
         verticalLayout->addWidget(PrimarySkillWrapper, 0, Qt::AlignLeft);
@@ -556,11 +426,11 @@ public:
         SecondarySkills->setSizeConstraint(QLayout::SetDefaultConstraint);
         ResistPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
         ResistPhysicalEffects->setObjectName(QString::fromUtf8("ResistPhysicalEffects"));
-        QSizePolicy sizePolicy3(QSizePolicy::Fixed, QSizePolicy::Preferred);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(ResistPhysicalEffects->sizePolicy().hasHeightForWidth());
-        ResistPhysicalEffects->setSizePolicy(sizePolicy3);
+        QSizePolicy sizePolicy2(QSizePolicy::Fixed, QSizePolicy::Preferred);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(ResistPhysicalEffects->sizePolicy().hasHeightForWidth());
+        ResistPhysicalEffects->setSizePolicy(sizePolicy2);
         ResistPhysicalEffects->setMinimumSize(QSize(303, 70));
         ResistPhysicalEffects->setMaximumSize(QSize(303, 70));
         ResistPhysicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -570,8 +440,8 @@ public:
 
         StrengtheningPhysicalEffects = new SecondarySkill(scrollAreaWidgetContents);
         StrengtheningPhysicalEffects->setObjectName(QString::fromUtf8("StrengtheningPhysicalEffects"));
-        sizePolicy3.setHeightForWidth(StrengtheningPhysicalEffects->sizePolicy().hasHeightForWidth());
-        StrengtheningPhysicalEffects->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(StrengtheningPhysicalEffects->sizePolicy().hasHeightForWidth());
+        StrengtheningPhysicalEffects->setSizePolicy(sizePolicy2);
         StrengtheningPhysicalEffects->setMinimumSize(QSize(303, 70));
         StrengtheningPhysicalEffects->setMaximumSize(QSize(303, 70));
         StrengtheningPhysicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -581,8 +451,8 @@ public:
 
         ResistMagicEffects = new SecondarySkill(scrollAreaWidgetContents);
         ResistMagicEffects->setObjectName(QString::fromUtf8("ResistMagicEffects"));
-        sizePolicy3.setHeightForWidth(ResistMagicEffects->sizePolicy().hasHeightForWidth());
-        ResistMagicEffects->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(ResistMagicEffects->sizePolicy().hasHeightForWidth());
+        ResistMagicEffects->setSizePolicy(sizePolicy2);
         ResistMagicEffects->setMinimumSize(QSize(303, 70));
         ResistMagicEffects->setMaximumSize(QSize(303, 70));
         ResistMagicEffects->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -592,8 +462,8 @@ public:
 
         MeleeAccuracy = new SecondarySkill(scrollAreaWidgetContents);
         MeleeAccuracy->setObjectName(QString::fromUtf8("MeleeAccuracy"));
-        sizePolicy3.setHeightForWidth(MeleeAccuracy->sizePolicy().hasHeightForWidth());
-        MeleeAccuracy->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(MeleeAccuracy->sizePolicy().hasHeightForWidth());
+        MeleeAccuracy->setSizePolicy(sizePolicy2);
         MeleeAccuracy->setMinimumSize(QSize(303, 70));
         MeleeAccuracy->setMaximumSize(QSize(303, 70));
         MeleeAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -603,8 +473,8 @@ public:
 
         StrengtheningMagicalEffects = new SecondarySkill(scrollAreaWidgetContents);
         StrengtheningMagicalEffects->setObjectName(QString::fromUtf8("StrengtheningMagicalEffects"));
-        sizePolicy3.setHeightForWidth(StrengtheningMagicalEffects->sizePolicy().hasHeightForWidth());
-        StrengtheningMagicalEffects->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(StrengtheningMagicalEffects->sizePolicy().hasHeightForWidth());
+        StrengtheningMagicalEffects->setSizePolicy(sizePolicy2);
         StrengtheningMagicalEffects->setMinimumSize(QSize(303, 70));
         StrengtheningMagicalEffects->setMaximumSize(QSize(303, 70));
         StrengtheningMagicalEffects->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -614,8 +484,8 @@ public:
 
         ResistPhysicalDamage = new SecondarySkill(scrollAreaWidgetContents);
         ResistPhysicalDamage->setObjectName(QString::fromUtf8("ResistPhysicalDamage"));
-        sizePolicy3.setHeightForWidth(ResistPhysicalDamage->sizePolicy().hasHeightForWidth());
-        ResistPhysicalDamage->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(ResistPhysicalDamage->sizePolicy().hasHeightForWidth());
+        ResistPhysicalDamage->setSizePolicy(sizePolicy2);
         ResistPhysicalDamage->setMinimumSize(QSize(303, 70));
         ResistPhysicalDamage->setMaximumSize(QSize(303, 70));
         ResistPhysicalDamage->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -625,8 +495,8 @@ public:
 
         MagicDamage = new SecondarySkill(scrollAreaWidgetContents);
         MagicDamage->setObjectName(QString::fromUtf8("MagicDamage"));
-        sizePolicy3.setHeightForWidth(MagicDamage->sizePolicy().hasHeightForWidth());
-        MagicDamage->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(MagicDamage->sizePolicy().hasHeightForWidth());
+        MagicDamage->setSizePolicy(sizePolicy2);
         MagicDamage->setMinimumSize(QSize(303, 70));
         MagicDamage->setMaximumSize(QSize(303, 70));
         MagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -636,8 +506,8 @@ public:
 
         MagicAccuracy = new SecondarySkill(scrollAreaWidgetContents);
         MagicAccuracy->setObjectName(QString::fromUtf8("MagicAccuracy"));
-        sizePolicy3.setHeightForWidth(MagicAccuracy->sizePolicy().hasHeightForWidth());
-        MagicAccuracy->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(MagicAccuracy->sizePolicy().hasHeightForWidth());
+        MagicAccuracy->setSizePolicy(sizePolicy2);
         MagicAccuracy->setMinimumSize(QSize(303, 70));
         MagicAccuracy->setMaximumSize(QSize(303, 70));
         MagicAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -647,8 +517,8 @@ public:
 
         LoadCapacity = new SecondarySkill(scrollAreaWidgetContents);
         LoadCapacity->setObjectName(QString::fromUtf8("LoadCapacity"));
-        sizePolicy3.setHeightForWidth(LoadCapacity->sizePolicy().hasHeightForWidth());
-        LoadCapacity->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(LoadCapacity->sizePolicy().hasHeightForWidth());
+        LoadCapacity->setSizePolicy(sizePolicy2);
         LoadCapacity->setMinimumSize(QSize(303, 70));
         LoadCapacity->setMaximumSize(QSize(303, 70));
         LoadCapacity->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -658,8 +528,8 @@ public:
 
         RangedAccuracy = new SecondarySkill(scrollAreaWidgetContents);
         RangedAccuracy->setObjectName(QString::fromUtf8("RangedAccuracy"));
-        sizePolicy3.setHeightForWidth(RangedAccuracy->sizePolicy().hasHeightForWidth());
-        RangedAccuracy->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(RangedAccuracy->sizePolicy().hasHeightForWidth());
+        RangedAccuracy->setSizePolicy(sizePolicy2);
         RangedAccuracy->setMinimumSize(QSize(303, 70));
         RangedAccuracy->setMaximumSize(QSize(303, 70));
         RangedAccuracy->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -669,8 +539,8 @@ public:
 
         ResistMagicDamage = new SecondarySkill(scrollAreaWidgetContents);
         ResistMagicDamage->setObjectName(QString::fromUtf8("ResistMagicDamage"));
-        sizePolicy3.setHeightForWidth(ResistMagicDamage->sizePolicy().hasHeightForWidth());
-        ResistMagicDamage->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(ResistMagicDamage->sizePolicy().hasHeightForWidth());
+        ResistMagicDamage->setSizePolicy(sizePolicy2);
         ResistMagicDamage->setMinimumSize(QSize(303, 70));
         ResistMagicDamage->setMaximumSize(QSize(303, 70));
         ResistMagicDamage->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -680,8 +550,8 @@ public:
 
         Evasion = new SecondarySkill(scrollAreaWidgetContents);
         Evasion->setObjectName(QString::fromUtf8("Evasion"));
-        sizePolicy3.setHeightForWidth(Evasion->sizePolicy().hasHeightForWidth());
-        Evasion->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(Evasion->sizePolicy().hasHeightForWidth());
+        Evasion->setSizePolicy(sizePolicy2);
         Evasion->setMinimumSize(QSize(303, 70));
         Evasion->setMaximumSize(QSize(303, 70));
         Evasion->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -691,8 +561,8 @@ public:
 
         Stealth = new SecondarySkill(scrollAreaWidgetContents);
         Stealth->setObjectName(QString::fromUtf8("Stealth"));
-        sizePolicy3.setHeightForWidth(Stealth->sizePolicy().hasHeightForWidth());
-        Stealth->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(Stealth->sizePolicy().hasHeightForWidth());
+        Stealth->setSizePolicy(sizePolicy2);
         Stealth->setMinimumSize(QSize(303, 70));
         Stealth->setMaximumSize(QSize(303, 70));
         Stealth->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -702,8 +572,8 @@ public:
 
         MoveRange = new SecondarySkill(scrollAreaWidgetContents);
         MoveRange->setObjectName(QString::fromUtf8("MoveRange"));
-        sizePolicy3.setHeightForWidth(MoveRange->sizePolicy().hasHeightForWidth());
-        MoveRange->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(MoveRange->sizePolicy().hasHeightForWidth());
+        MoveRange->setSizePolicy(sizePolicy2);
         MoveRange->setMinimumSize(QSize(303, 70));
         MoveRange->setMaximumSize(QSize(303, 70));
         MoveRange->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -713,8 +583,8 @@ public:
 
         MagicCastChance = new SecondarySkill(scrollAreaWidgetContents);
         MagicCastChance->setObjectName(QString::fromUtf8("MagicCastChance"));
-        sizePolicy3.setHeightForWidth(MagicCastChance->sizePolicy().hasHeightForWidth());
-        MagicCastChance->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(MagicCastChance->sizePolicy().hasHeightForWidth());
+        MagicCastChance->setSizePolicy(sizePolicy2);
         MagicCastChance->setMinimumSize(QSize(303, 70));
         MagicCastChance->setMaximumSize(QSize(303, 70));
         MagicCastChance->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -724,8 +594,8 @@ public:
 
         ChanceOfUsingCombatTechnique = new SecondarySkill(scrollAreaWidgetContents);
         ChanceOfUsingCombatTechnique->setObjectName(QString::fromUtf8("ChanceOfUsingCombatTechnique"));
-        sizePolicy3.setHeightForWidth(ChanceOfUsingCombatTechnique->sizePolicy().hasHeightForWidth());
-        ChanceOfUsingCombatTechnique->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(ChanceOfUsingCombatTechnique->sizePolicy().hasHeightForWidth());
+        ChanceOfUsingCombatTechnique->setSizePolicy(sizePolicy2);
         ChanceOfUsingCombatTechnique->setMinimumSize(QSize(303, 70));
         ChanceOfUsingCombatTechnique->setMaximumSize(QSize(303, 70));
         ChanceOfUsingCombatTechnique->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -735,8 +605,8 @@ public:
 
         Initiative = new SecondarySkill(scrollAreaWidgetContents);
         Initiative->setObjectName(QString::fromUtf8("Initiative"));
-        sizePolicy3.setHeightForWidth(Initiative->sizePolicy().hasHeightForWidth());
-        Initiative->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(Initiative->sizePolicy().hasHeightForWidth());
+        Initiative->setSizePolicy(sizePolicy2);
         Initiative->setMinimumSize(QSize(303, 70));
         Initiative->setMaximumSize(QSize(303, 70));
         Initiative->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -746,8 +616,8 @@ public:
 
         Attentiveness = new SecondarySkill(scrollAreaWidgetContents);
         Attentiveness->setObjectName(QString::fromUtf8("Attentiveness"));
-        sizePolicy3.setHeightForWidth(Attentiveness->sizePolicy().hasHeightForWidth());
-        Attentiveness->setSizePolicy(sizePolicy3);
+        sizePolicy2.setHeightForWidth(Attentiveness->sizePolicy().hasHeightForWidth());
+        Attentiveness->setSizePolicy(sizePolicy2);
         Attentiveness->setMinimumSize(QSize(303, 70));
         Attentiveness->setMaximumSize(QSize(303, 70));
         Attentiveness->setStyleSheet(QString::fromUtf8("background:black;"));
@@ -988,24 +858,24 @@ public:
 #endif // QT_CONFIG(tooltip)
         pushButton_21->setText(QCoreApplication::translate("CharacterWindow", "13", nullptr));
         TopMenuBorder->setText(QString());
-        StrengthPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
-        StrengthPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr)));
-        StrengthPrimarySkillSignature->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        AgilityPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\233\320\236\320\222\320\232", nullptr)));
-        AgilityPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\233\320\276\320\262\320\272\320\276\321\201\321\202\321\214", nullptr)));
-        AgilityPrimarySkillSignature->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        IntelligencePrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\235\320\242", nullptr)));
-        IntelligencePrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\321\202\320\265\320\273\320\273\320\265\320\272\321\202", nullptr)));
-        IntelligencePrimarySkillSignature->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        MagicPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\220\320\223", nullptr)));
-        MagicPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\217", nullptr)));
-        MagicPrimarySkillSignature->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        BodyTypePrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\225\320\233", nullptr)));
-        BodyTypePrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\265\320\273\320\276\321\201\320\273\320\276\320\266\320\265\320\275\320\270\320\265", nullptr)));
-        BodyTypePrimarySkillSignature->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
-        WillPrimarySkillSignature->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\236\320\233\320\257", nullptr)));
-        WillPrimarySkillSignature->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\276\320\273\321\217", nullptr)));
-        WillPrimarySkillSignature->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        PrimarySkillStrength->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\230\320\233\320\220", nullptr)));
+        PrimarySkillStrength->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\241\320\270\320\273\320\260", nullptr)));
+        PrimarySkillStrength->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        PrimarySkillAgility->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\233\320\236\320\222\320\232", nullptr)));
+        PrimarySkillAgility->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\233\320\276\320\262\320\272\320\276\321\201\321\202\321\214", nullptr)));
+        PrimarySkillAgility->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        PrimarySkillIntelligence->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\235\320\242", nullptr)));
+        PrimarySkillIntelligence->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\230\320\275\321\202\320\265\320\273\320\273\320\265\320\272\321\202", nullptr)));
+        PrimarySkillIntelligence->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        PrimarySkillMagic->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\220\320\223", nullptr)));
+        PrimarySkillMagic->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\234\320\260\320\263\320\270\321\217", nullptr)));
+        PrimarySkillMagic->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        PrimarySkillBodyType->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\225\320\233", nullptr)));
+        PrimarySkillBodyType->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\242\320\265\320\273\320\276\321\201\320\273\320\276\320\266\320\265\320\275\320\270\320\265", nullptr)));
+        PrimarySkillBodyType->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
+        PrimarySkillWill->setProperty("Text", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\236\320\233", nullptr)));
+        PrimarySkillWill->setProperty("FullName", QVariant(QCoreApplication::translate("CharacterWindow", "\320\222\320\276\320\273\321\217", nullptr)));
+        PrimarySkillWill->setProperty("Description", QVariant(QCoreApplication::translate("CharacterWindow", "\320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265 \320\236\320\277\320\270\321\201\320\260\320\275\320\270\320\265", nullptr)));
         Separator4->setText(QString());
         Separator1->setText(QString());
         Separator5->setText(QString());

@@ -74,7 +74,7 @@ void CharacterWindowInventory::InventoryScrollAreaScrolled(int value)
 
 void CharacterWindowInventory::on_InventoryScrollBar_valueChanged(int value)
 {
-    //При скролле скроллбара подсказка пропадает так как всё-равно ячейка инвентаря
+    //При скролле скроллбара подсказка пропадает так как всё-равно ячейка инвентаря уедет
     emit RemoveTooltip();
 
     ui->InventoryScrollArea->verticalScrollBar()->setValue(value);
@@ -180,7 +180,7 @@ bool CharacterWindowInventory::eventFilter(QObject *object, QEvent *event)
 void CharacterWindowInventory::dragEnterEvent(QDragEnterEvent *event)
 {
     /*На самом деле никакой Drag&Drop инвентарь не реализует. Но так как HoverMove никогда не вызывается при зажатой кнопке мыши,
-     *а перетаскивание именно так и реализованно, и для скролла подведением перетаскиваемым итемом к краю мне всё равно нужен
+     *а перетаскивание именно так и реализованно, для скролла подведением перетаскиваемым итемом к краю мне всё равно нужен
      *какой-нибудь эвент, который вызывался бы от движения мыши, здесь таким эвентом стал DragMove. Он будет вызываться только
      *в пределах InventoryScrollArea, чтобы не смущать лишний раз никого изменившимся курсором готовности к дропу.
      *Нужно это для того, чтобы инвентарь скролился даже если курсор находится между ячейками и не вызывает их DragMove.*/

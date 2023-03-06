@@ -607,7 +607,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QFrame" name="PrimarySkillSignatures">
+        <widget class="QFrame" name="PrimarySkillsPanel">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
            <horstretch>0</horstretch>
@@ -617,13 +617,13 @@
          <property name="minimumSize">
           <size>
            <width>611</width>
-           <height>58</height>
+           <height>105</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
            <width>611</width>
-           <height>58</height>
+           <height>105</height>
           </size>
          </property>
          <property name="frameShape">
@@ -632,319 +632,17 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <widget class="PrimarySkillSignature" name="StrengthPrimarySkillSignature" native="true">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>0</y>
-            <width>111</width>
-            <height>58</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="mouseTracking">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: black;</string>
-          </property>
-          <property name="Text" stdset="0">
-           <string>СИЛА</string>
-          </property>
-          <property name="FullName" stdset="0">
-           <string>Сила</string>
-          </property>
-          <property name="Description" stdset="0">
-           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-          </property>
-         </widget>
-         <widget class="PrimarySkillSignature" name="AgilityPrimarySkillSignature" native="true">
-          <property name="geometry">
-           <rect>
-            <x>100</x>
-            <y>0</y>
-            <width>111</width>
-            <height>58</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="mouseTracking">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: black;</string>
-          </property>
-          <property name="Text" stdset="0">
-           <string>ЛОВК</string>
-          </property>
-          <property name="FullName" stdset="0">
-           <string>Ловкость</string>
-          </property>
-          <property name="Description" stdset="0">
-           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-          </property>
-         </widget>
-         <widget class="PrimarySkillSignature" name="IntelligencePrimarySkillSignature" native="true">
-          <property name="geometry">
-           <rect>
-            <x>200</x>
-            <y>0</y>
-            <width>111</width>
-            <height>58</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="mouseTracking">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: black;</string>
-          </property>
-          <property name="Text" stdset="0">
-           <string>ИНТ</string>
-          </property>
-          <property name="FullName" stdset="0">
-           <string>Интеллект</string>
-          </property>
-          <property name="Description" stdset="0">
-           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-          </property>
-         </widget>
-         <widget class="PrimarySkillSignature" name="MagicPrimarySkillSignature" native="true">
-          <property name="geometry">
-           <rect>
-            <x>300</x>
-            <y>0</y>
-            <width>111</width>
-            <height>58</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="mouseTracking">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: black;</string>
-          </property>
-          <property name="Text" stdset="0">
-           <string>МАГ</string>
-          </property>
-          <property name="FullName" stdset="0">
-           <string>Магия</string>
-          </property>
-          <property name="Description" stdset="0">
-           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-          </property>
-         </widget>
-         <widget class="PrimarySkillSignature" name="BodyTypePrimarySkillSignature" native="true">
-          <property name="geometry">
-           <rect>
-            <x>400</x>
-            <y>0</y>
-            <width>111</width>
-            <height>58</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="mouseTracking">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: black;</string>
-          </property>
-          <property name="Text" stdset="0">
-           <string>ТЕЛ</string>
-          </property>
-          <property name="FullName" stdset="0">
-           <string>Телосложение</string>
-          </property>
-          <property name="Description" stdset="0">
-           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-          </property>
-         </widget>
-         <widget class="PrimarySkillSignature" name="WillPrimarySkillSignature" native="true">
-          <property name="geometry">
-           <rect>
-            <x>500</x>
-            <y>0</y>
-            <width>111</width>
-            <height>58</height>
-           </rect>
-          </property>
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="minimumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>111</width>
-            <height>58</height>
-           </size>
-          </property>
-          <property name="mouseTracking">
-           <bool>true</bool>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: black;</string>
-          </property>
-          <property name="Text" stdset="0">
-           <string>ВОЛЯ</string>
-          </property>
-          <property name="FullName" stdset="0">
-           <string>Воля</string>
-          </property>
-          <property name="Description" stdset="0">
-           <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
-          </property>
-         </widget>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Fixed</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>608</width>
-           <height>12</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
-       <item>
-        <widget class="QFrame" name="ValuesPanel">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="minimumSize">
-          <size>
-           <width>611</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>611</width>
-           <height>35</height>
-          </size>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::StyledPanel</enum>
-         </property>
-         <property name="frameShadow">
-          <enum>QFrame::Raised</enum>
-         </property>
-         <widget class="QFrame" name="PrimarySkillValues">
+         <widget class="QFrame" name="PrimarySkills">
           <property name="geometry">
            <rect>
             <x>0</x>
             <y>0</y>
             <width>611</width>
-            <height>35</height>
+            <height>105</height>
            </rect>
           </property>
           <property name="sizePolicy">
-           <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
             <horstretch>0</horstretch>
             <verstretch>0</verstretch>
            </sizepolicy>
@@ -952,13 +650,13 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>35</height>
+            <height>105</height>
            </size>
           </property>
           <property name="maximumSize">
            <size>
             <width>16777215</width>
-            <height>35</height>
+            <height>105</height>
            </size>
           </property>
           <property name="frameShape">
@@ -967,13 +665,13 @@
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <widget class="QSpinBox" name="StrengthValue">
+          <widget class="PrimarySkill" name="PrimarySkillStrength" native="true">
            <property name="geometry">
             <rect>
-             <x>11</x>
+             <x>0</x>
              <y>0</y>
-             <width>89</width>
-             <height>35</height>
+             <width>111</width>
+             <height>105</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -982,44 +680,23 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="Text" stdset="0">
+            <string>СИЛА</string>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="FullName" stdset="0">
+            <string>Сила</string>
            </property>
-           <property name="cursor">
-            <cursorShape>IBeamCursor</cursorShape>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="maximum">
-            <number>999999</number>
-           </property>
-           <property name="fontSize" stdset="0">
-            <number>28</number>
+           <property name="Description" stdset="0">
+            <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
            </property>
           </widget>
-          <widget class="QSpinBox" name="AgilityValue">
+          <widget class="PrimarySkill" name="PrimarySkillAgility" native="true">
            <property name="geometry">
             <rect>
-             <x>111</x>
+             <x>100</x>
              <y>0</y>
-             <width>89</width>
-             <height>35</height>
+             <width>111</width>
+             <height>105</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1028,44 +705,23 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="Text" stdset="0">
+            <string>ЛОВК</string>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="FullName" stdset="0">
+            <string>Ловкость</string>
            </property>
-           <property name="cursor">
-            <cursorShape>IBeamCursor</cursorShape>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="maximum">
-            <number>999999</number>
-           </property>
-           <property name="fontSize" stdset="0">
-            <number>28</number>
+           <property name="Description" stdset="0">
+            <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
            </property>
           </widget>
-          <widget class="QSpinBox" name="IntelligenceValue">
+          <widget class="PrimarySkill" name="PrimarySkillIntelligence" native="true">
            <property name="geometry">
             <rect>
-             <x>211</x>
+             <x>200</x>
              <y>0</y>
-             <width>89</width>
-             <height>35</height>
+             <width>111</width>
+             <height>105</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1074,44 +730,23 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="Text" stdset="0">
+            <string>ИНТ</string>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="FullName" stdset="0">
+            <string>Интеллект</string>
            </property>
-           <property name="cursor">
-            <cursorShape>IBeamCursor</cursorShape>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="maximum">
-            <number>999999</number>
-           </property>
-           <property name="fontSize" stdset="0">
-            <number>28</number>
+           <property name="Description" stdset="0">
+            <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
            </property>
           </widget>
-          <widget class="QSpinBox" name="MagicValue">
+          <widget class="PrimarySkill" name="PrimarySkillMagic" native="true">
            <property name="geometry">
             <rect>
-             <x>311</x>
+             <x>300</x>
              <y>0</y>
-             <width>89</width>
-             <height>35</height>
+             <width>111</width>
+             <height>105</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1120,44 +755,23 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="Text" stdset="0">
+            <string>МАГ</string>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="FullName" stdset="0">
+            <string>Магия</string>
            </property>
-           <property name="cursor">
-            <cursorShape>IBeamCursor</cursorShape>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="maximum">
-            <number>999999</number>
-           </property>
-           <property name="fontSize" stdset="0">
-            <number>28</number>
+           <property name="Description" stdset="0">
+            <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
            </property>
           </widget>
-          <widget class="QSpinBox" name="BodyTypeValue">
+          <widget class="PrimarySkill" name="PrimarySkillBodyType" native="true">
            <property name="geometry">
             <rect>
-             <x>411</x>
+             <x>400</x>
              <y>0</y>
-             <width>89</width>
-             <height>35</height>
+             <width>111</width>
+             <height>105</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1166,44 +780,23 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="Text" stdset="0">
+            <string>ТЕЛ</string>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="FullName" stdset="0">
+            <string>Телосложение</string>
            </property>
-           <property name="cursor">
-            <cursorShape>IBeamCursor</cursorShape>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="maximum">
-            <number>999999</number>
-           </property>
-           <property name="fontSize" stdset="0">
-            <number>28</number>
+           <property name="Description" stdset="0">
+            <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
            </property>
           </widget>
-          <widget class="QSpinBox" name="WillValue">
+          <widget class="PrimarySkill" name="PrimarySkillWill" native="true">
            <property name="geometry">
             <rect>
-             <x>511</x>
+             <x>500</x>
              <y>0</y>
-             <width>89</width>
-             <height>35</height>
+             <width>111</width>
+             <height>105</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -1212,35 +805,14 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
-           <property name="minimumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="Text" stdset="0">
+            <string>ВОЛ</string>
            </property>
-           <property name="maximumSize">
-            <size>
-             <width>89</width>
-             <height>35</height>
-            </size>
+           <property name="FullName" stdset="0">
+            <string>Воля</string>
            </property>
-           <property name="cursor">
-            <cursorShape>IBeamCursor</cursorShape>
-           </property>
-           <property name="layoutDirection">
-            <enum>Qt::LeftToRight</enum>
-           </property>
-           <property name="styleSheet">
-            <string notr="true"/>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-           <property name="maximum">
-            <number>999999</number>
-           </property>
-           <property name="fontSize" stdset="0">
-            <number>28</number>
+           <property name="Description" stdset="0">
+            <string>Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание Описание</string>
            </property>
           </widget>
          </widget>
@@ -1248,7 +820,7 @@
           <property name="geometry">
            <rect>
             <x>0</x>
-            <y>0</y>
+            <y>70</y>
             <width>611</width>
             <height>35</height>
            </rect>
@@ -1449,7 +1021,7 @@
           </widget>
          </widget>
          <zorder>Separators</zorder>
-         <zorder>PrimarySkillValues</zorder>
+         <zorder>PrimarySkills</zorder>
         </widget>
        </item>
       </layout>
@@ -2701,12 +2273,6 @@ border: none;</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>PrimarySkillSignature</class>
-   <extends>QWidget</extends>
-   <header location="global">CustomWidgets/PrimarySkillSignature/primaryskillsignature.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>SecondarySkill</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/SecondarySkill/secondaryskill.h</header>
@@ -2740,6 +2306,12 @@ border: none;</string>
    <class>CharacterWindowInventory</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PrimarySkill</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/PrimarySkill/primaryskill.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

@@ -2091,3 +2091,13 @@ MagicDefense выдал предупреждение в методе removeBonus
 MagicDefense выдал предупреждение в методе removeBonus.
 При попытке удалить MagicDefenseBonus, он не был обнаружен.
 
+6-March-2023  20:17:38
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+
+6-March-2023  20:35:00
+ПРЕДУПРЕЖДЕНИЕ: не найден MagicDefenseBonus
+MagicDefense выдал предупреждение в методе removeBonus.
+При попытке удалить MagicDefenseBonus, он не был обнаружен.
+

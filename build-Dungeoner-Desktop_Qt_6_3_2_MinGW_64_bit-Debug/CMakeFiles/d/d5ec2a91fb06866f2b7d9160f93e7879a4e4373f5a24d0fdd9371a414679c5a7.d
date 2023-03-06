@@ -24,6 +24,10 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/PS_stylemaster.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/PS_stylemaster.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/primaryskill.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/primaryskill.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/PSS_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp \
@@ -669,6 +673,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.ui \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/primaryskill.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_2/progressbar_2.ui \

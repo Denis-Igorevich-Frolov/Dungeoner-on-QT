@@ -24,7 +24,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PrimarySkillSignature_t {
-    uint offsetsAndSizes[24];
+    uint offsetsAndSizes[26];
     char stringdata0[22];
     char stringdata1[12];
     char stringdata2[1];
@@ -37,6 +37,7 @@ struct qt_meta_stringdata_PrimarySkillSignature_t {
     char stringdata9[13];
     char stringdata10[6];
     char stringdata11[12];
+    char stringdata12[13];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_PrimarySkillSignature_t::offsetsAndSizes) + ofs), len 
@@ -53,7 +54,8 @@ static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stringdata_Prima
         QT_MOC_LITERAL(126, 30),  // "clickModifierTooltipTimerAlarm"
         QT_MOC_LITERAL(157, 12),  // "valueChanged"
         QT_MOC_LITERAL(170, 5),  // "value"
-        QT_MOC_LITERAL(176, 11)   // "statChanged"
+        QT_MOC_LITERAL(176, 11),  // "statChanged"
+        QT_MOC_LITERAL(188, 12)   // "bonusChanged"
     },
     "PrimarySkillSignature",
     "ShowTooltip",
@@ -66,7 +68,8 @@ static const qt_meta_stringdata_PrimarySkillSignature_t qt_meta_stringdata_Prima
     "clickModifierTooltipTimerAlarm",
     "valueChanged",
     "value",
-    "statChanged"
+    "statChanged",
+    "bonusChanged"
 };
 #undef QT_MOC_LITERAL
 
@@ -92,7 +95,7 @@ static const uint qt_meta_data_PrimarySkillSignature[] = {
        7,    0,   61,    2, 0x08,    5 /* Private */,
        8,    0,   62,    2, 0x08,    6 /* Private */,
        9,    1,   63,    2, 0x08,    7 /* Private */,
-      11,    0,   66,    2, 0x08,    9 /* Private */,
+      11,    1,   66,    2, 0x08,    9 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -103,7 +106,7 @@ static const uint qt_meta_data_PrimarySkillSignature[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   10,
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   12,
 
        0        // eod
 };
@@ -120,7 +123,7 @@ void PrimarySkillSignature::qt_static_metacall(QObject *_o, QMetaObject::Call _c
         case 3: _t->on_ButtonBottom_released(); break;
         case 4: _t->clickModifierTooltipTimerAlarm(); break;
         case 5: _t->valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 6: _t->statChanged(); break;
+        case 6: _t->statChanged((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -161,7 +164,7 @@ const QMetaObject PrimarySkillSignature::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_PrimarySkillSignature_t
 , QtPrivate::TypeAndForceComplete<PrimarySkillSignature, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QLabel*>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
 
 
 >,

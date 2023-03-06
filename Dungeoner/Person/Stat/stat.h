@@ -60,7 +60,7 @@ public:
     int getMaximum() const;
 
 signals:
-    void statChanged();
+    void statChanged(bool bonusChanged = true);
 
 protected:
     //Создание бекапа сохранений в отдельной папке в той же директории, что и текущее сохранение

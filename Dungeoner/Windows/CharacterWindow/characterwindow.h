@@ -25,30 +25,11 @@ public:
 private slots:
     void ScrollAreaSecondarySkillsScrolled(int value);
 
-    void onStrengthChanged();
-    void onAgilityChanged();
-    void onIntelligenceChanged();
-    void onMagicChanged();
-    void onBodyTypeChanged();
-    void onWillChanged();
-
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
-
-    void on_StrengthValue_valueChanged(int arg1);
-
-    void on_AgilityValue_valueChanged(int arg1);
-
-    void on_IntelligenceValue_valueChanged(int arg1);
-
-    void on_MagicValue_valueChanged(int arg1);
-
-    void on_BodyTypeValue_valueChanged(int arg1);
-
-    void on_WillValue_valueChanged(int arg1);
 
     void on_pushButton_4_clicked();
 
@@ -101,13 +82,9 @@ private:
 
     /*Установка текста для подписи первичного навыка в соответствии с его динамическим свойством
      *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures*/
-    void setTextPrimarySkillSignature();
+    void setTextPrimarySkills();
     //Установка стилей всех объектов. Подробности в комментариях cpp файла
     void setStyles ();
-    /*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
-     *указателя на QSpinBox в переменную SpinBoxValue класса PrimarySkillSignature.
-     *Делается это для работы кнопок больше и меньше.*/
-    void associatingLabelsWithValues();
 
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
@@ -120,8 +97,6 @@ private:
 
     //В методе происходит полный перерасчёт всех вторичных навыков
     void recalculateStats();
-
-    void initPrimaryStatsWidgets();
 
     //Инициализация элементов интерфеса связанных со статами значениями из Person
     void initSecondaryStatsWidgets();
@@ -146,10 +121,7 @@ private:
 
     virtual void leaveEvent(QEvent *event)override;
 
-    virtual bool eventFilter(QObject* object, QEvent* event) override;
-
     Person person = Person();
-    bool isManualStatReplacement = false;
 };
 
 #endif // CHARACTERWINDOW_H

@@ -30,29 +30,11 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     //Без этого атрибута эвенты наведения мыши не будут вызываться
     setAttribute(Qt::WA_Hover);
 
-    ui->StrengthValue->installEventFilter(this);
-    ui->AgilityValue->installEventFilter(this);
-    ui->IntelligenceValue->installEventFilter(this);
-    ui->MagicValue->installEventFilter(this);
-    ui->BodyTypeValue->installEventFilter(this);
-    ui->WillValue->installEventFilter(this);
-
     ui->Inventory->setPos(ui->Inventory->pos());
-    setTextPrimarySkillSignature();
+    setTextPrimarySkills();
     setStyles();
 
-    initPrimaryStatsWidgets();
-
-    associatingLabelsWithValues();
     associatingLabelsWithStat();
-
-    //Связывание слотов изменения первичных навыков бонусами с сигналами сигнализирующими об этом
-    connect(person.getStats()->primaryStats->Strength, &Stat::statChanged, this, &CharacterWindow::onStrengthChanged);
-    connect(person.getStats()->primaryStats->Agility, &Stat::statChanged, this, &CharacterWindow::onAgilityChanged);
-    connect(person.getStats()->primaryStats->Intelligence, &Stat::statChanged, this, &CharacterWindow::onIntelligenceChanged);
-    connect(person.getStats()->primaryStats->Magic, &Stat::statChanged, this, &CharacterWindow::onMagicChanged);
-    connect(person.getStats()->primaryStats->BodyType, &Stat::statChanged, this, &CharacterWindow::onBodyTypeChanged);
-    connect(person.getStats()->primaryStats->Will, &Stat::statChanged, this, &CharacterWindow::onWillChanged);
 
     connect(ui->Inventory, &CharacterWindowInventory::RemoveTooltip, this, &CharacterWindow::RemoveTooltip);
 
@@ -185,19 +167,19 @@ CharacterWindow::~CharacterWindow()
 }
 
 /*Установка текста для подписи первичного навыка в соответствии с его динамическим свойством
- *Text путём перебора всех дочерних элементов контейнера PrimarySkillSignatures.
+ *Text путём перебора всех дочерних элементов контейнера PrimarySkills.
  *
- *При переборе всех дочерних эллементов контейнера PrimarySkillSignatures важно, чтобы
- *все эти эллементы были типа PrimarySkillSignature. Если это не так, то эллемент будет
+ *При переборе всех дочерних эллементов контейнера PrimarySkills важно, чтобы
+ *все эти эллементы были типа PrimarySkill. Если это не так, то эллемент будет
  *проигнорирован и выведено предупреждение.*/
-void CharacterWindow::setTextPrimarySkillSignature()
+void CharacterWindow::setTextPrimarySkills()
 {
-    for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
-        if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
-            PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
+    for(auto* autoPS : ui->PrimarySkills->children()){
+        if(dynamic_cast <PrimarySkill*> (autoPS)){
+            PrimarySkill* ps = qobject_cast <PrimarySkill*> (autoPS);
             /*Метод устанавливает текст для подписи PrimarySkillSignature, при этом сам
              *текст извлекается из динамического свойства виджета Text.*/
-            pss->setText(pss->property("Text").toString());
+            ps->getPrimarySkillSignature()->setText(ps->property("Text").toString());
         }else{
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -206,8 +188,8 @@ void CharacterWindow::setTextPrimarySkillSignature()
             QString error =
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
             "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
-            "CharacterWindow выдал предупреждение в методе setTextPrimarySkillSignature.\n"
-            "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
+            "CharacterWindow выдал предупреждение в методе setTextPrimarySkills.\n"
+            "Объект " + autoPS->objectName() + " не является PrimarySkill.\n\n";
             qDebug()<<error;
 
             QFile errorFile("error log.txt");
@@ -228,41 +210,6 @@ void CharacterWindow::setTextPrimarySkillSignature()
 void CharacterWindow::setStyles()
 {
     ui->ScrollAreaSecondarySkills->verticalScrollBar()->setSingleStep(6);
-
-    /*Перебор всех дочерних эллементов контейнера PrimarySkillValues. Здесь важно,
-     *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
-     *проигнорирован и выведено предупреждение.*/
-    for(auto* autoSB : ui->PrimarySkillValues->children()){
-        if(dynamic_cast <QSpinBox*> (autoSB)){
-            QSpinBox* sb = qobject_cast <QSpinBox*> (autoSB);
-            /*Метод устанавливает стиль для SpinBox, при этом размер
-             *шрифта извлекается из динамического свойства виджета fontSize.*/
-            sb->setStyleSheet(CW_StyleMaster::SpinBoxStyle(sb->property("fontSize").toInt()));
-            sb->setFont(QFont("NumbersFont"));
-        }else{
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
-            "CharacterWindow выдал предупреждение в методе setStyles.\n"
-            "Объект " + autoSB->objectName() + " не является QSpinBox.\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-        }
-    }
 
     /*Перебор всех дочерних эллементов контейнера SecondarySkills. Перебор
      *производится при помощи QGridLayout, из-за того, что контейнер - сетка.
@@ -357,80 +304,14 @@ void CharacterWindow::setStyles()
     }
 }
 
-/*В данном методе связываются подписи с их значениями в QSpinBox путём передачи
- *указателя на QSpinBox в переменную SpinBoxValue класса PrimarySkillSignature.
- *Делается это для работы кнопок больше и меньше.*/
-void CharacterWindow::associatingLabelsWithValues()
-{
-    int i = 0;
-    /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
-     *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
-     *проигнорирован и выведено предупреждение.*/
-    for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
-        if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
-            PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
-            if(dynamic_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i))){
-                /*SpinBoxValue - это указатель в классе PrimarySkillSignature. Здесь
-                 *происходит передача в него соответствующего указателя на QSpinBox*/
-                pss->setSpinBoxValue(qobject_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i)));
-            }else{
-                //Вывод предупреждения в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
-                "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
-                "Объект " + ui->PrimarySkillValues->children().at(i)->objectName() + " не является QSpinBox.\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
-                }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
-                }
-            }
-        }else{
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
-
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
-            "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
-            "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-        }
-        ++i;
-    }
-}
-
 void CharacterWindow::associatingLabelsWithStat()
 {
-    ui->StrengthPrimarySkillSignature->setStat(person.getStats()->primaryStats->Strength);
-    ui->AgilityPrimarySkillSignature->setStat(person.getStats()->primaryStats->Agility);
-    ui->IntelligencePrimarySkillSignature->setStat(person.getStats()->primaryStats->Intelligence);
-    ui->MagicPrimarySkillSignature->setStat(person.getStats()->primaryStats->Magic);
-    ui->BodyTypePrimarySkillSignature->setStat(person.getStats()->primaryStats->BodyType);
-    ui->WillPrimarySkillSignature->setStat(person.getStats()->primaryStats->Will);
+    ui->PrimarySkillStrength->setStat(person.getStats()->primaryStats->Strength);
+    ui->PrimarySkillAgility->setStat(person.getStats()->primaryStats->Agility);
+    ui->PrimarySkillIntelligence->setStat(person.getStats()->primaryStats->Intelligence);
+    ui->PrimarySkillMagic->setStat(person.getStats()->primaryStats->Magic);
+    ui->PrimarySkillBodyType->setStat(person.getStats()->primaryStats->BodyType);
+    ui->PrimarySkillWill->setStat(person.getStats()->primaryStats->Will);
 
     ui->MagicDamage->setStat(person.getStats()->secondaryStats->MagicDamage);
     ui->ResistPhysicalDamage->setStat(person.getStats()->secondaryStats->ResistPhysicalDamage);
@@ -462,21 +343,15 @@ void CharacterWindow::associatingLabelsWithStat()
  *необходимых элементов со слотами показа и сокрытия подсказки окна*/
 void CharacterWindow::linkingTooltipSlots()
 {
-    /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
-     *чтобы все эти эллементы были типа PrimarySkillSignature. Если это не так, то
+    /*Перебор всех дочерних эллементов контейнера PrimarySkills. Здесь важно
+     *чтобы все эти эллементы были типа PrimarySkill. Если это не так, то
      *эллемент будет проигнорирован и выведено предупреждение.*/
-    for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
-        if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
-            PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
-            connect(pss->getlabelWithTooltip(), &LabelWithTooltip::ShowTooltip,
-                    this, &CharacterWindow::ShowTooltip);
-            connect(pss->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip,
-                    this, &CharacterWindow::RemoveTooltip);
-
-            connect(pss, &PrimarySkillSignature::ShowTooltip,
-                    this, &CharacterWindow::ShowTooltip);
-            connect(pss, &PrimarySkillSignature::RemoveTooltip,
-                    this, &CharacterWindow::RemoveTooltip);
+    for(auto* autoPS : ui->PrimarySkills->children()){
+        if(dynamic_cast <PrimarySkill*> (autoPS)){
+            PrimarySkill* ps = qobject_cast <PrimarySkill*> (autoPS);
+            connect(ps, &PrimarySkill::ShowTooltip, this, &CharacterWindow::ShowTooltip);
+            connect(ps, &PrimarySkill::RemoveTooltip, this, &CharacterWindow::RemoveTooltip);
+            connect(ps, &PrimarySkill::recalculateStats, this, &CharacterWindow::recalculateStats);
         }else{
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -486,7 +361,7 @@ void CharacterWindow::linkingTooltipSlots()
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
             "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
             "CharacterWindow выдал предупреждение в методе linkingTooltipSlots.\n"
-            "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
+            "Объект " + autoPS->objectName() + " не является PrimarySkill.\n\n";
             qDebug()<<error;
 
             QFile errorFile("error log.txt");
@@ -513,10 +388,8 @@ void CharacterWindow::linkingTooltipSlots()
             if(secondarySkillsGrid->itemAtPosition(row, column)!=0){
                 if(dynamic_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget())){
                     SecondarySkill* ss = qobject_cast <SecondarySkill*> (secondarySkillsGrid->itemAtPosition(row, column)->widget());
-                    connect(ss, &SecondarySkill::ShowTooltip,
-                            this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
-                    connect(ss, &SecondarySkill::RemoveTooltip,
-                            this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
+                    connect(ss, &SecondarySkill::ShowTooltip, this, &CharacterWindow::ShowTooltip, Qt::QueuedConnection);
+                    connect(ss, &SecondarySkill::RemoveTooltip, this, &CharacterWindow::RemoveTooltip, Qt::QueuedConnection);
                 }else{
                     //Вывод предупреждения в консоль и файл
                     QDate cd = QDate::currentDate();
@@ -597,21 +470,6 @@ void CharacterWindow::recalculateStats()
     refreshDisplayStats();
 }
 
-void CharacterWindow::initPrimaryStatsWidgets()
-{
-    ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getFinalValue());
-
-    ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getFinalValue());
-
-    ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getFinalValue());
-
-    ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getFinalValue());
-
-    ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getFinalValue());
-
-    ui->WillValue->setValue(person.getStats()->primaryStats->Will->getFinalValue());
-}
-
 //Инициализация элементов интерфеса связанных со статами значениями из Person
 void CharacterWindow::initSecondaryStatsWidgets()
 {
@@ -668,38 +526,13 @@ void CharacterWindow::manaSetValue(int value)
 //Заполнение контентом подсказок элементов на основе их динамических свойств
 void CharacterWindow::tooltipInitialization()
 {
-    int i = 0;
-    /*Перебор всех дочерних эллементов контейнера PrimarySkillSignatures. Здесь важно
-     *чтобы все эти эллементы были типа QSpinBox. Если это не так, то эллемент будет
+    /*Перебор всех дочерних эллементов контейнера PrimarySkills. Здесь важно
+     *чтобы все эти эллементы были типа PrimarySkill. Если это не так, то эллемент будет
      *проигнорирован и выведено предупреждение.*/
-    for(auto* autoPSS : ui->PrimarySkillSignatures->children()){
-        if(dynamic_cast <PrimarySkillSignature*> (autoPSS)){
-            PrimarySkillSignature* pss = qobject_cast <PrimarySkillSignature*> (autoPSS);
-            if(dynamic_cast <QSpinBox*> (ui->PrimarySkillValues->children().at(i))){
-                pss->setTooltipContent(pss->property("FullName").toString(), pss->property("Description").toString());
-            }else{
-                //Вывод предупреждения в консоль и файл
-                QDate cd = QDate::currentDate();
-                QTime ct = QTime::currentTime();
-
-                QString error =
-                cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-                "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
-                "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
-                "Объект " + ui->PrimarySkillValues->children().at(i)->objectName() + " не является QSpinBox.\n\n";
-                qDebug()<<error;
-
-                QFile errorFile("error log.txt");
-                if (!errorFile.open(QIODevice::Append))
-                {
-                    qDebug() << "Ошибка при открытии файла логов";
-                }else{
-                    errorFile.open(QIODevice::Append  | QIODevice::Text);
-                    QTextStream writeStream(&errorFile);
-                    writeStream<<error;
-                    errorFile.close();
-                }
-            }
+    for(auto* autoPS : ui->PrimarySkills->children()){
+        if(dynamic_cast <PrimarySkill*> (autoPS)){
+            PrimarySkill* ps = qobject_cast <PrimarySkill*> (autoPS);
+            ps->getPrimarySkillSignature()->setTooltipContent(ps->property("FullName").toString(), ps->property("Description").toString());
         }else{
             //Вывод предупреждения в консоль и файл
             QDate cd = QDate::currentDate();
@@ -709,7 +542,7 @@ void CharacterWindow::tooltipInitialization()
             cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
             "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
             "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
-            "Объект " + autoPSS->objectName() + " не является PrimarySkillSignature.\n\n";
+            "Объект " + autoPS->objectName() + " не является PrimarySkill.\n\n";
             qDebug()<<error;
 
             QFile errorFile("error log.txt");
@@ -723,7 +556,6 @@ void CharacterWindow::tooltipInitialization()
                 errorFile.close();
             }
         }
-        ++i;
     }
 
     /*Перебор всех дочерних эллементов контейнера SecondarySkills. Перебор
@@ -814,8 +646,40 @@ void CharacterWindow::tooltipInitialization()
  *Считаются только Ctrl,Shift и Alt*/
 void CharacterWindow::keyPressEvent(QKeyEvent *event)
 {
-    if(!ui->StrengthValue->hasFocus()&&!ui->AgilityValue->hasFocus()&&!ui->IntelligenceValue->hasFocus()&&
-            !ui->MagicValue->hasFocus()&&!ui->BodyTypeValue->hasFocus()&&!ui->WillValue->hasFocus()){
+    bool ValueInFocus = false;
+    for(auto* autoPS : ui->PrimarySkills->children()){
+        if(dynamic_cast <PrimarySkill*> (autoPS)){
+            PrimarySkill* ps = qobject_cast <PrimarySkill*> (autoPS);
+            if(ps->getPrimarySkillSignature()->hasFocus()){
+                ValueInFocus = true;
+                break;
+            }
+        }else{
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+            "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
+            "Объект " + autoPS->objectName() + " не является PrimarySkill.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
+
+    if(!ValueInFocus){
         int key=event->key();
         if(key==16777249||key==16777248||key==16777251)
             Global::pressedKeys.append(key);
@@ -853,81 +717,6 @@ void CharacterWindow::keyReleaseEvent(QKeyEvent *event)
 void CharacterWindow::leaveEvent(QEvent *event)
 {
     Global::pressedKeys.clear();
-}
-
-bool CharacterWindow::eventFilter(QObject *object, QEvent *event)
-{
-    /*ВНИМАНИЕ
-     *То, что ниже походит на безбожное нарушение солида, на деле лишь обработка эвентов от QSpinBox.
-     *Нет никакого смысла городить наследника для обработки 10 строк кода в месте, которое расширяться НЕ БУДЕТ*/
-
-    if(object == ui->StrengthValue){
-        if(event->type() == QEvent::FocusIn){
-            isManualStatReplacement = true;
-            ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getValue());
-        }
-        if(event->type() == QEvent::FocusOut){
-            isManualStatReplacement = false;
-            ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getFinalValue());
-        }
-    }
-
-    if(object == ui->AgilityValue){
-        if(event->type() == QEvent::FocusIn){
-            isManualStatReplacement = true;
-            ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getValue());
-        }
-        if(event->type() == QEvent::FocusOut){
-            isManualStatReplacement = false;
-            ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getFinalValue());
-        }
-    }
-
-    if(object == ui->IntelligenceValue){
-        if(event->type() == QEvent::FocusIn){
-            isManualStatReplacement = true;
-            ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getValue());
-        }
-        if(event->type() == QEvent::FocusOut){
-            isManualStatReplacement = false;
-            ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getFinalValue());
-        }
-    }
-
-    if(object == ui->MagicValue){
-        if(event->type() == QEvent::FocusIn){
-            isManualStatReplacement = true;
-            ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getValue());
-        }
-        if(event->type() == QEvent::FocusOut){
-            isManualStatReplacement = false;
-            ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getFinalValue());
-        }
-    }
-
-    if(object == ui->BodyTypeValue){
-        if(event->type() == QEvent::FocusIn){
-            isManualStatReplacement = true;
-            ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getValue());
-        }
-        if(event->type() == QEvent::FocusOut){
-            isManualStatReplacement = false;
-            ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getFinalValue());
-        }
-    }
-
-    if(object == ui->WillValue){
-        if(event->type() == QEvent::FocusIn){
-            isManualStatReplacement = true;
-            ui->WillValue->setValue(person.getStats()->primaryStats->Will->getValue());
-        }
-        if(event->type() == QEvent::FocusOut){
-            isManualStatReplacement = false;
-            ui->WillValue->setValue(person.getStats()->primaryStats->Will->getFinalValue());
-        }
-    }
-
-    return false;
 }
 
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
@@ -1035,105 +824,43 @@ void CharacterWindow::RemoveTooltip()
     ui->tooltip->setVisible(false);
 }
 
-void CharacterWindow::onStrengthChanged()
-{
-    if(!isManualStatReplacement){
-        ui->StrengthValue->setValue(person.getStats()->primaryStats->Strength->getFinalValue());
-    }
-}
-
-void CharacterWindow::onAgilityChanged()
-{
-    if(!isManualStatReplacement){
-        ui->AgilityValue->setValue(person.getStats()->primaryStats->Agility->getFinalValue());
-    }
-}
-
-void CharacterWindow::onIntelligenceChanged()
-{
-    if(!isManualStatReplacement){
-        ui->IntelligenceValue->setValue(person.getStats()->primaryStats->Intelligence->getFinalValue());
-    }
-}
-
-void CharacterWindow::onMagicChanged()
-{
-    if(!isManualStatReplacement){
-        ui->MagicValue->setValue(person.getStats()->primaryStats->Magic->getFinalValue());
-    }
-}
-
-void CharacterWindow::onBodyTypeChanged()
-{
-    if(!isManualStatReplacement){
-        ui->BodyTypeValue->setValue(person.getStats()->primaryStats->BodyType->getFinalValue());
-    }
-}
-
-void CharacterWindow::onWillChanged()
-{
-    if(!isManualStatReplacement){
-        ui->WillValue->setValue(person.getStats()->primaryStats->Will->getFinalValue());
-    }
-}
-
 //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
 void CharacterWindow::refreshDisplayStats()
 {
-    if(!isManualStatReplacement)
-        initPrimaryStatsWidgets();
+    for(auto* autoPS : ui->PrimarySkills->children()){
+        if(dynamic_cast <PrimarySkill*> (autoPS)){
+            PrimarySkill* ps = qobject_cast <PrimarySkill*> (autoPS);
+
+            if(!ps->isManualStatReplacement)
+                ps->init();
+        }else{
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                    "CharacterWindow выдал предупреждение в методе setTextPrimarySkills.\n"
+                    "Объект " + autoPS->objectName() + " не является PrimarySkill.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
     //Задание значения воли, для подсказки, требуемой до получения нового чанка магической защиты
     ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.getStats()->secondaryStats->magicDefense->getWillUntilNextChunk();
     //Инициализация получеными значениями
     initSecondaryStatsWidgets();
-}
-
-void CharacterWindow::on_StrengthValue_valueChanged(int arg1)
-{
-    if(isManualStatReplacement){
-        person.getStats()->primaryStats->Strength->setValue(arg1);
-    }
-    recalculateStats();
-}
-
-void CharacterWindow::on_AgilityValue_valueChanged(int arg1)
-{
-    if(isManualStatReplacement){
-        person.getStats()->primaryStats->Agility->setValue(arg1);
-    }
-    recalculateStats();
-}
-
-void CharacterWindow::on_IntelligenceValue_valueChanged(int arg1)
-{
-    if(isManualStatReplacement){
-        person.getStats()->primaryStats->Intelligence->setValue(arg1);
-    }
-    recalculateStats();
-}
-
-void CharacterWindow::on_MagicValue_valueChanged(int arg1)
-{
-    if(isManualStatReplacement){
-        person.getStats()->primaryStats->Magic->setValue(arg1);
-    }
-    recalculateStats();
-}
-
-void CharacterWindow::on_BodyTypeValue_valueChanged(int arg1)
-{
-    if(isManualStatReplacement){
-        person.getStats()->primaryStats->BodyType->setValue(arg1);
-    }
-    recalculateStats();
-}
-
-void CharacterWindow::on_WillValue_valueChanged(int arg1)
-{
-    if(isManualStatReplacement){
-        person.getStats()->primaryStats->Will->setValue(arg1);
-    }
-    recalculateStats();
 }
 
 void CharacterWindow::on_pushButton_4_clicked()

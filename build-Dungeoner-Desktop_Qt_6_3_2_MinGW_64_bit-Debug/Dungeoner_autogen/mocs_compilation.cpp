@@ -6,6 +6,7 @@
 #include "Y6PV5VOU3T/moc_itemmimedata.cpp"
 #include "5JHTRKW4VV/moc_labelwithtooltip.cpp"
 #include "3ITW7LGL6C/moc_magicdefenseprogressbar.cpp"
+#include "6YRTFYTTCO/moc_primaryskill.cpp"
 #include "PTAAC7U42L/moc_primaryskillsignature.cpp"
 #include "AFLUBXJX2E/moc_progressbar_1.cpp"
 #include "KQEOYOT425/moc_progressbar_2.cpp"
