@@ -303,3 +303,8 @@ ProgressBarStat выдал ошибку в методе loadStat.
 MagicDefense выдал предупреждение в методе removeBonus.
 При попытке удалить MagicDefenseBonus, он не был обнаружен.
 
+6-March-2023  21:28:49
+ОШИБКА: Не удалось считать данные из таблицы
+MagicDefense выдал ошибку в методе loadMagicDefense.
+Не удалось считать данные из таблицы базы данных Game Saves/New Dungeon/Heroes/new hero/save.sqlite
+

@@ -62,7 +62,7 @@ void ProgressBar_1::setMinValue(int newMinValue)
         setValue(minValue);
 
     //После изменения диапазона нужно перезаписать текст подсказки
-    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+    CreatingBonusTooltip();
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
@@ -91,7 +91,7 @@ void ProgressBar_1::setMaxValue(int newMaxValue)
         setValue(maxValue);
 
     //После изменения диапазона нужно перезаписать текст подсказки
-    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+    CreatingBonusTooltip();
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
@@ -115,7 +115,7 @@ void ProgressBar_1::setValue(int newValue)
         value = newValue;
 
     //После изменения диапазона нужно перезаписать текст подсказки
-    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+    CreatingBonusTooltip();
 
     //После изменения диапазона нужно пересчитать размер заполненной области
     recalculationChunkWidth();
@@ -221,7 +221,7 @@ void ProgressBar_1::statChanged()
             qDeleteAll(bonusesLabel->findChildren<QWidget*>("", Qt::FindDirectChildrenOnly));
         }
     }
-    valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
+    CreatingBonusTooltip();
 
     recalculationChunkWidth();
 }
@@ -342,7 +342,8 @@ void ProgressBar_1::CreatingBonusTooltip()
             value.append("+");
         value.append(QVariant(difference).toString() +")");
         valueLabel->setText(value);
-    }
+    }else
+        valueLabel->setText(QVariant(value).toString() + " / " + QVariant(maxValue).toString());
 }
 
 //Пересчёт размера заполненной области
