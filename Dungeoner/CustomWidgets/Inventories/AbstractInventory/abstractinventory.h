@@ -20,11 +20,20 @@ public:
 
     virtual InventoryCell* getCell(int row, int column){return nullptr;};
 
+    struct ItemIndex{
+    public:
+        int col;
+        int row;
+
+        ItemIndex(int col, int row);
+    };
+
 public slots:
     //Добавление новой линии пустых ячеек в инвентарь
     virtual void addRowOfCellsToInventory(){};
     //Удаление последней линии ячеек в инвентаре
     virtual void removeRowOfCellsFromInventory(){};
+    virtual ItemIndex getIndexOfLastNonEmptyCell(){return ItemIndex(-1, -1);};
 
 protected:
     enum inventoryScrollerState{
@@ -32,6 +41,7 @@ protected:
         FAST_SPEED,
         SLOW_SPEED
     };
+
     inventoryScrollerState inventoryScrollerState = STOPPED;
 
     /*Чтобы корректно работал скролл инвентаря перетаскиваемым итемом, ему нужно знать
@@ -45,6 +55,9 @@ protected:
     //Это число строк/стобцов, которые видны без надобности в прокрутке
     int numberOfVisibleRows = 0;
     int numberOfVisibleColumns = 0;
+
+    int row = -1;
+    int col = 0;
 
     int maxRows = 0;
     int maxColumns = 0;
@@ -63,6 +76,8 @@ protected:
      *фактически это тот скроллбар, который и управляет областью прокрутки*/
     void removeRowOfCellsFromInventory(QWidget *inventory, QGridLayout* inventoryLayout, QWidget* scrollAreaWidgetContents,
                                        QScrollBar* scrollAreaScrollBar, QScrollBar* inventoryScrollBar);
+
+    ItemIndex getIndexOfLastNonEmptyCell(QGridLayout* inventoryLayout);
 
     virtual void scrolling(){};
 

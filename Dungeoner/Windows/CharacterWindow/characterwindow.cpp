@@ -5,7 +5,6 @@
 #include "characterwindow.h"
 #include "qevent.h"
 #include "ui_characterwindow.h"
-#include "CW_stylemaster.h"
 
 #include <QGridLayout>
 #include <QFile>

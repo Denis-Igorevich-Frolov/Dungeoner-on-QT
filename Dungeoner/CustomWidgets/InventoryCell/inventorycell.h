@@ -30,9 +30,13 @@ public:
     void setLockedStyle();
     //Стиль ячейки, в которую нельзя поместить выбранный итем
     void setBlockedStyle(bool isBlocked);
+    void setCellPosition(int col, int row);
 
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
+
+signals:
+    void itemIsDropped(int col, int row);
 
 private:
     //Стиль пустой ячейки
@@ -53,6 +57,9 @@ private:
     void setBrokenStyle();
     //Стиль ячейки с заглушенным сломанным пребметом
     void setDisabledBrokenStyle();
+
+    int col = 0;
+    int row = 0;
 
     //Позиция начала перетакивания итема
     QPoint dragStart;

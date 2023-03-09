@@ -364,6 +364,7 @@ void InventoryCell::dropEvent(QDropEvent *event)
         setItem(newItem);
 
         event->acceptProposedAction();
+        emit itemIsDropped(col, row);
     }
 }
 
@@ -431,6 +432,12 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
     ui->item->setUpdatesEnabled(true);
+}
+
+void InventoryCell::setCellPosition(int col, int row)
+{
+    this->col = col;
+    this->row = row;
 }
 
 //Стиль ячейки со сломанным пребметом

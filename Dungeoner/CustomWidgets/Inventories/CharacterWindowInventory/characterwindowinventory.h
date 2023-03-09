@@ -22,6 +22,7 @@ public:
     ~CharacterWindowInventory();
 
     InventoryCell* getCell(int row, int column) override;
+    ItemIndex getIndexOfLastNonEmptyCell() override;
 
 public slots:
     //Добавление новой линии пустых ячеек в инвентарь
@@ -40,6 +41,7 @@ private slots:
     void on_InventoryScrollBar_actionTriggered(int action);
     //Функция вызываемая по окончании задержки startScrollTimer. Запускает начало скролла
     void inventoryScrollingStarted();
+    void checkingInventorySizeChange(int col, int row);
 
 private:
     Ui::CharacterWindowInventory *ui;

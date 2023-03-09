@@ -57,14 +57,26 @@ InventoryCell* CharacterWindowInventory::getCell(int row, int column)
         return nullptr;
 }
 
+AbstractInventory::ItemIndex CharacterWindowInventory::getIndexOfLastNonEmptyCell()
+{
+    return AbstractInventory::getIndexOfLastNonEmptyCell(ui->Inventory);
+}
+
 void CharacterWindowInventory::addRowOfCellsToInventory()
 {
     AbstractInventory::addRowOfCellsToInventory(this, ui->Inventory, ui->scrollAreaWidgetContents, ui->InventoryScrollArea->verticalScrollBar(), ui->InventoryScrollBar);
+
+    for(int i = 0; i<maxColumns; i++){
+        connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
+                &InventoryCell::itemIsDropped, this, &CharacterWindowInventory::checkingInventorySizeChange);
+    }
+    row++;
 }
 
 void CharacterWindowInventory::removeRowOfCellsFromInventory()
 {
     AbstractInventory::removeRowOfCellsFromInventory(this, ui->Inventory, ui->scrollAreaWidgetContents, ui->InventoryScrollArea->verticalScrollBar(), ui->InventoryScrollBar);
+    row--;
 }
 
 void CharacterWindowInventory::InventoryScrollAreaScrolled(int value)
@@ -93,6 +105,25 @@ void CharacterWindowInventory::inventoryScrollingStarted()
     inventoryScrollingIsStarted = true;
     startScrollTimer->stop();
     scrolling();
+}
+
+void CharacterWindowInventory::checkingInventorySizeChange(int col, int row)
+{
+    if(row == this->row-1){
+        addRowOfCellsToInventory();
+        qDebug()<<row<<" "<<this->row<<" "<<getIndexOfLastNonEmptyCell().row;
+    }else{
+        ItemIndex lastNonEmptyCell = getIndexOfLastNonEmptyCell();
+        if(this->row > 4 && this->row-1 > lastNonEmptyCell.row+1){
+            while (this->row-1 > lastNonEmptyCell.row+1) {
+                qDebug()<<this->row<<" "<<lastNonEmptyCell.row+1;
+                removeRowOfCellsFromInventory();
+                if(this->row<=4)
+                    break;
+            }
+        }
+    }
+
 }
 
 //метод реализующий логику прокрутки перетаскиваемым итемом
@@ -148,6 +179,7 @@ void CharacterWindowInventory::scrolling()
             }
         }
     }else{
+        startScrollTimer->stop();
         inventoryScroller->stop();
         inventoryScrollingIsStarted = false;
         inventoryScrollerState = STOPPED;
@@ -162,6 +194,7 @@ bool CharacterWindowInventory::eventFilter(QObject *object, QEvent *event)
         }
     }else if(event->type() == QEvent::Drop){
         if(dynamic_cast<InventoryCell*>(object)){
+            startScrollTimer->stop();
             inventoryScroller->stop();
             inventoryScrollingIsStarted = false;
             inventoryScrollerState = STOPPED;
@@ -169,6 +202,7 @@ bool CharacterWindowInventory::eventFilter(QObject *object, QEvent *event)
     /*Эвент HoverMove никогда не вызозовется при зажатой кнопке мыши и обязательно вызовется при её отпускании,
      *что является отличным маркером того, что итем сброшен, и сброшен в данном случае мимо ячейки*/
     }else if(object == this && event->type() == QEvent::HoverMove){
+        startScrollTimer->stop();
         inventoryScroller->stop();
         inventoryScrollingIsStarted = false;
         inventoryScrollerState = STOPPED;

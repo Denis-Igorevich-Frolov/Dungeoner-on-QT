@@ -25,7 +25,7 @@ void AbstractInventory::addRowOfCellsToInventory(QWidget *inventory, QGridLayout
 
     /*В строке всегда maxColumns ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
      *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
-    int row = inventoryLayout->count()/maxColumns;
+    row = inventoryLayout->count()/maxColumns;
 
     /*row показывает текущее количество строк. Учитывая, что одна сейчас прибавися, row numberOfVisibleRows-1 означает, что в таблице
      *будет numberOfVisibleRows строки, а numberOfVisibleRows строки - это тот размер таблицы, который прокрутки не требует.*/
@@ -50,6 +50,7 @@ void AbstractInventory::addRowOfCellsToInventory(QWidget *inventory, QGridLayout
         /*Учитывая что row всегда показывает текущее количество ячеек, то есть на
          *1 меньше, чем будет, то его можно вставлять как индекс с отсчётом от 0*/
         inventoryLayout->addWidget(cell, row, i, Qt::AlignTop);
+        cell->setCellPosition(i, row);
 
         QRect rect = cell->geometry();
         rect.setY(5 + 74*row);
@@ -70,7 +71,7 @@ void AbstractInventory::removeRowOfCellsFromInventory(QWidget *inventory, QGridL
 
     /*В строке всегда maxColumns ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
      *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
-    int row = inventoryLayout->count()/10;
+    row = inventoryLayout->count()/maxColumns;
 
     /*row показывает текущее количество строк. Учитывая, что одна сейчас удалится, row numberOfVisibleRows+1 означает, что в таблице
      *останется numberOfVisibleRows строки, а numberOfVisibleRows строки - это тот размер таблицы, который прокрутки не требует.*/
@@ -99,4 +100,26 @@ void AbstractInventory::removeRowOfCellsFromInventory(QWidget *inventory, QGridL
         delete inventoryLayout->itemAtPosition(row-1, i)->widget();
         inventoryLayout->removeItem(inventoryLayout->itemAtPosition(row-1, i));
     }
+}
+
+AbstractInventory::ItemIndex AbstractInventory::getIndexOfLastNonEmptyCell(QGridLayout *inventoryLayout)
+{
+    /*В строке всегда maxColumns ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
+     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
+    row = inventoryLayout->count()/maxColumns;
+    col = inventoryLayout->columnCount();
+
+    for(int r = row-1; r>=0; r--){
+        for(int c = col-1; c>=0; c--){
+            if(!static_cast<InventoryCell*>(inventoryLayout->itemAtPosition(r, c)->widget())->getItem()->itemIsEmpty)
+                return ItemIndex(c, r);
+        }
+    }
+    return ItemIndex(-1, -1);
+}
+
+AbstractInventory::ItemIndex::ItemIndex(int col, int row)
+{
+    this->col = col;
+    this->row = row;
 }
