@@ -199,6 +199,7 @@ void ProgressBar_1::setStat(ProgressBarStat *newStat)
     connect(stat, &Stat::statChanged, this, &ProgressBar_1::statChanged);
 }
 
+//Инициализация виджета данными из stat
 void ProgressBar_1::init()
 {
     setMaxValue(stat->getFinalValue());

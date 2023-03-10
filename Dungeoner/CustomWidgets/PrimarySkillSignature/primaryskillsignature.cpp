@@ -128,6 +128,7 @@ void PrimarySkillSignature::valueChanged(int value)
     statChanged(false);
 }
 
+//Переменная bonusChanged говорит о том было ли изменение инициировано бонусом
 void PrimarySkillSignature::statChanged(bool bonusChanged)
 {
     /*Следует помнить, что лейбл бонусов всегда находится в векторе tooltipContent

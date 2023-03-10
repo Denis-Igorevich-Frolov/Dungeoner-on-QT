@@ -22,6 +22,7 @@ public:
     ~CharacterWindowInventory();
 
     InventoryCell* getCell(int row, int column) override;
+    //Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
     ItemIndex getIndexOfLastNonEmptyCell() override;
 
 public slots:
@@ -41,6 +42,10 @@ private slots:
     void on_InventoryScrollBar_actionTriggered(int action);
     //Функция вызываемая по окончании задержки startScrollTimer. Запускает начало скролла
     void inventoryScrollingStarted();
+    /*Проверка того стоит ли изменять размер инвентаря. Если в последнюю ячейку положат итем,
+     *то прибавится ещё одна пустая строка. Если из предпоследней ячейки уберут итем, то все
+     *строки нижние кроме одной удалятся. Таким образом под итемами всегда будет одна пустая
+     *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
     void checkingInventorySizeChange(int col, int row);
 
 private:

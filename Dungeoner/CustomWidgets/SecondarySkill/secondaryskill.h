@@ -46,6 +46,7 @@ public:
 
     void setStat(Stat *newStat);
 
+    //Инициализация виджета данными из stat
     void init();
 
 signals:

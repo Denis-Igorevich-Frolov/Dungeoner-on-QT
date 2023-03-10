@@ -30,12 +30,14 @@ public:
     void setLockedStyle();
     //Стиль ячейки, в которую нельзя поместить выбранный итем
     void setBlockedStyle(bool isBlocked);
+    //Метод задающий значения переменным col и row. Он не изменит позицию и требуется только для инициализации
     void setCellPosition(int col, int row);
 
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
 
 signals:
+    //Эвент говорящий в какую ячейку был перенесён итем при помощи Drag&Drop
     void itemIsDropped(int col, int row);
 
 private:
@@ -58,6 +60,7 @@ private:
     //Стиль ячейки с заглушенным сломанным пребметом
     void setDisabledBrokenStyle();
 
+    //Позиция ячейки
     int col = 0;
     int row = 0;
 

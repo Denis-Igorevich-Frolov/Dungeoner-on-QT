@@ -57,6 +57,7 @@ InventoryCell* CharacterWindowInventory::getCell(int row, int column)
         return nullptr;
 }
 
+//Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
 AbstractInventory::ItemIndex CharacterWindowInventory::getIndexOfLastNonEmptyCell()
 {
     return AbstractInventory::getIndexOfLastNonEmptyCell(ui->Inventory);
@@ -107,16 +108,20 @@ void CharacterWindowInventory::inventoryScrollingStarted()
     scrolling();
 }
 
+/*Проверка того стоит ли изменять размер инвентаря. Если в последнюю ячейку положат итем,
+ *то прибавится ещё одна пустая строка. Если из предпоследней ячейки уберут итем, то все
+ *строки нижние кроме одной удалятся. Таким образом под итемами всегда будет одна пустая
+ *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
 void CharacterWindowInventory::checkingInventorySizeChange(int col, int row)
 {
     if(row == this->row-1){
         addRowOfCellsToInventory();
-        qDebug()<<row<<" "<<this->row<<" "<<getIndexOfLastNonEmptyCell().row;
     }else{
         ItemIndex lastNonEmptyCell = getIndexOfLastNonEmptyCell();
+        /*От this->row отнимается 1 чтобы привести абсолютное значение к индексу, начинающимся с 0. К
+         *lastNonEmptyCell.row прибавляется 1 так как под итемами нужно оставить одну пустую строку*/
         if(this->row > 4 && this->row-1 > lastNonEmptyCell.row+1){
             while (this->row-1 > lastNonEmptyCell.row+1) {
-                qDebug()<<this->row<<" "<<lastNonEmptyCell.row+1;
                 removeRowOfCellsFromInventory();
                 if(this->row<=4)
                     break;

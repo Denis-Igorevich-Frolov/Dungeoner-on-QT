@@ -20,6 +20,7 @@ public:
 
     virtual InventoryCell* getCell(int row, int column){return nullptr;};
 
+    //Структура хранящая позицию ячейки инвентаря
     struct ItemIndex{
     public:
         int col;
@@ -33,6 +34,7 @@ public slots:
     virtual void addRowOfCellsToInventory(){};
     //Удаление последней линии ячеек в инвентаре
     virtual void removeRowOfCellsFromInventory(){};
+    //Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
     virtual ItemIndex getIndexOfLastNonEmptyCell(){return ItemIndex(-1, -1);};
 
 protected:
@@ -56,8 +58,9 @@ protected:
     int numberOfVisibleRows = 0;
     int numberOfVisibleColumns = 0;
 
+    //Количество строк и столбцов в инвентаре. Значение -1 означает полное отсутствиве ячеек
     int row = -1;
-    int col = 0;
+    int col = -1;
 
     int maxRows = 0;
     int maxColumns = 0;
@@ -77,6 +80,7 @@ protected:
     void removeRowOfCellsFromInventory(QWidget *inventory, QGridLayout* inventoryLayout, QWidget* scrollAreaWidgetContents,
                                        QScrollBar* scrollAreaScrollBar, QScrollBar* inventoryScrollBar);
 
+    //Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
     ItemIndex getIndexOfLastNonEmptyCell(QGridLayout* inventoryLayout);
 
     virtual void scrolling(){};

@@ -1,3 +1,7 @@
+/***************************************************************************************************************
+ *Данный класс является виджетом первичного навыка. Он обединяет в себе PrimarySkillSignature и его Spinbox
+ ***************************************************************************************************************/
+
 #include "primaryskill.h"
 #include "ui_primaryskill.h"
 #include "PS_styleMaster.h"
@@ -8,13 +12,16 @@ PrimarySkill::PrimarySkill(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Установка стилей
     ui->Value->setStyleSheet(PS_StyleMaster::SpinBoxStyle(ui->Value->property("fontSize").toInt()));
     ui->Value->setFont(QFont("NumbersFont"));
     ui->primarySkillSignature->setSpinBoxValue(ui->Value);
 
+    //Связывание слотов и сигналов вывода позсказки
     connect(ui->primarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::ShowTooltip, this, &PrimarySkill::ShowTooltip);
     connect(ui->primarySkillSignature->getlabelWithTooltip(), &LabelWithTooltip::RemoveTooltip, this, &PrimarySkill::RemoveTooltip);
 
+    //Связывание слотов и сигналов вывода позсказки о модификаторах нажатия
     connect(ui->primarySkillSignature, &PrimarySkillSignature::ShowTooltip, this, &PrimarySkill::ShowTooltip);
     connect(ui->primarySkillSignature, &PrimarySkillSignature::RemoveTooltip, this, &PrimarySkill::RemoveTooltip);
 
@@ -48,6 +55,7 @@ PrimarySkillSignature *PrimarySkill::getPrimarySkillSignature()
     return ui->primarySkillSignature;
 }
 
+//Инициализация виджета значениями из Stat, который по историческим причинам расположен в PrimarySkillSignature
 void PrimarySkill::init()
 {
     ui->Value->setValue(ui->primarySkillSignature->getStat()->getFinalValue());
@@ -63,10 +71,13 @@ void PrimarySkill::onStatChanged(bool bonusChanged)
 bool PrimarySkill::eventFilter(QObject *object, QEvent *event)
 {
     if(object == ui->Value){
+        /*Если Spinbox в фокусе, это значит что происходит ручное редактирование стата в нём и следует
+         *вывести только родное значение, так как редактировать вручную можно только его*/
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
             ui->Value->setValue(ui->primarySkillSignature->getStat()->getValue());
         }
+        //Как только Spinbox покидает фокус, снова выводится финальное значение стата
         if(event->type() == QEvent::FocusOut){
             isManualStatReplacement = false;
             ui->Value->setValue(ui->primarySkillSignature->getStat()->getFinalValue());

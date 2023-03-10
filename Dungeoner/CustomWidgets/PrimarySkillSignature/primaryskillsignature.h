@@ -61,6 +61,7 @@ private slots:
     void on_ButtonBottom_released();
     void clickModifierTooltipTimerAlarm();
     void valueChanged(int value);
+    //Переменная bonusChanged говорит о том было ли изменение инициировано бонусом
     void statChanged(bool bonusChanged);
 
 private:

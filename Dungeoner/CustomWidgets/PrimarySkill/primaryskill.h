@@ -1,3 +1,7 @@
+/***************************************************************************************************************
+ *Данный класс является виджетом первичного навыка. Он обединяет в себе PrimarySkillSignature и его Spinbox
+ ***************************************************************************************************************/
+
 #ifndef PRIMARYSKILL_H
 #define PRIMARYSKILL_H
 
@@ -23,6 +27,7 @@ public:
     void setValue(int val);
     QSpinBox* getValueSpinBox();
     PrimarySkillSignature* getPrimarySkillSignature();
+    //Инициализация виджета значениями из Stat, который по историческим причинам расположен в PrimarySkillSignature
     void init();
 
     bool isManualStatReplacement = false;
@@ -30,6 +35,7 @@ public:
 signals:
     void ShowTooltip(QVector<QLabel*> TooltipContent);
     void RemoveTooltip();
+    //Сигнал говорящий о том, что требуется пересчёт вторичных навыков
     void recalculateStats();
 
 private slots:

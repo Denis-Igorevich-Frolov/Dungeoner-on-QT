@@ -312,6 +312,7 @@ void ProgressBar_2::setStat(MagicDefense *newStat)
     connect(stat, &MagicDefense::statChanged, this, &ProgressBar_2::statChanged);
 }
 
+//Инициализация виджета данными из stat
 void ProgressBar_2::init()
 {
     setChunks(stat->getChunks(), stat->getTotalValue(), stat->getAmountOfNativeChunks(), stat->getAmountOfBonusChunks(), stat->getValue());

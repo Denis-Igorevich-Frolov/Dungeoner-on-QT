@@ -74,6 +74,7 @@ public:
 
     void setStat(MagicDefense *newStat);
 
+    //Инициализация виджета данными из stat
     void init();
 
 private slots:

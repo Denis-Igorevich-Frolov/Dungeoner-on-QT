@@ -186,6 +186,7 @@ void SecondarySkill::setStat(Stat *newStat)
     connect(stat, &Stat::statChanged, this, &SecondarySkill::statChanged);
 }
 
+//Инициализация виджета данными из stat
 void SecondarySkill::init()
 {
     setValue(stat->getFinalValue());

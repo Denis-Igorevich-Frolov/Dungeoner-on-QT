@@ -60,6 +60,7 @@ public:
     int getMaximum() const;
 
 signals:
+    //Переменная bonusChanged говорит о том было ли изменение инициировано бонусом
     void statChanged(bool bonusChanged = true);
 
 protected:

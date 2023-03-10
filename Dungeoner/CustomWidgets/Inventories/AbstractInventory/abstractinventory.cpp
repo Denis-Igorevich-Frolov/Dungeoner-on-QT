@@ -102,6 +102,7 @@ void AbstractInventory::removeRowOfCellsFromInventory(QWidget *inventory, QGridL
     }
 }
 
+//Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
 AbstractInventory::ItemIndex AbstractInventory::getIndexOfLastNonEmptyCell(QGridLayout *inventoryLayout)
 {
     /*В строке всегда maxColumns ячеек, так что вычислить количество строк легко. Преимущество такого способа перед

@@ -46,6 +46,7 @@ public:
     void setTooltipContent(QString fullName, QString formula, int formulaFontSize, QString description);
     void setStat(ProgressBarStat *newStat);
 
+    //Инициализация виджета данными из stat
     void init();
 
 private slots:

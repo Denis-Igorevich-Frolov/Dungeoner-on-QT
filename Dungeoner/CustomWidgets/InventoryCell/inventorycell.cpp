@@ -434,6 +434,7 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     ui->item->setUpdatesEnabled(true);
 }
 
+//Метод задающий значения переменным col и row. Он не изменит позицию и требуется только для инициализации
 void InventoryCell::setCellPosition(int col, int row)
 {
     this->col = col;
