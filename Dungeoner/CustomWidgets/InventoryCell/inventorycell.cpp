@@ -285,6 +285,16 @@ void InventoryCell::setDropdownButtonVisible(bool isVisible)
 bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 {
     if(object == ui->item->getItemButton()||object == ui->item->getStyleButtonsWrapper()){
+
+//        if(event->type()!=QEvent::Paint && event->type()!=QEvent::WindowDeactivate && event->type()!=QEvent::WindowActivate && event->type()!=QEvent::HoverMove){
+//            qDebug()<<event->type();
+//        }
+
+//        if(event->type()==QEvent::Leave){
+//            if(isBlocked)
+//                setBlockedStyle(false);
+//        }
+
         //При наведении новый стиль пропадает
         if(event->type() == QEvent::HoverEnter||event->type() == QEvent::Enter){
             if(ui->item->isNew){
@@ -307,8 +317,8 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
                 QDrag* drag = new QDrag(this);
                 ItemMimeData* mimeData = new ItemMimeData(ui->item, this);
 
-                //Установка позиции перетаскиваемого объекта по центру от курсора
-                drag->setHotSpot(QPoint(ui->item->width()/2, ui->item->height()/2));
+                //Установка позиции перетаскиваемого объекта относительно курсора
+                drag->setHotSpot(QPoint(8, 8));
                 drag->setMimeData(mimeData);
 
                 //Pixmap перетаскиваемого объекта сложится из Pixmap'ов итема, бекграунда и рамки ячейки
@@ -340,15 +350,50 @@ void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
     QStringList formats = event->mimeData()->formats();
     if(formats.contains("Item")) {
         event->acceptProposedAction();
+
+        const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
+
+        bool slotsMatch = false;
+        Item* newItem = new Item(itemData->getItem());
+
+        QVector<Item::Slots> itemSlots = newItem->getCellSlots();
+        QVectorIterator<Item::Slots> iterator(itemSlots);
+        while (iterator.hasNext()){
+            if(iterator.next() == acceptedSlot){
+                event->acceptProposedAction();
+                return;
+            }
+        }
+
+        if(acceptedSlot != Item::Slots::INVENTORY)
+            setBlockedStyle(true);
+        event->acceptProposedAction();
     }
 }
 
 void InventoryCell::dropEvent(QDropEvent *event)
 {
+    setBlockedStyle(false);
+
     const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
     //Итем сначала записывается в отдельную переменную из MimeData
     Item* newItem = new Item(itemData->getItem());
     newItem->setId(itemData->getItem()->getId());
+
+    bool slotsMatch = false;
+
+    QVector<Item::Slots> itemSlots = newItem->getCellSlots();
+    QVectorIterator<Item::Slots> iterator(itemSlots);
+    while (iterator.hasNext()){
+        if(iterator.next() == acceptedSlot){
+            event->acceptProposedAction();
+            slotsMatch = true;
+            break;
+        }
+    }
+
+    if(!slotsMatch && acceptedSlot != Item::Slots::INVENTORY)
+        return;
 
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     if(itemCell){
@@ -367,6 +412,12 @@ void InventoryCell::dropEvent(QDropEvent *event)
         event->acceptProposedAction();
         emit itemIsDropped(col, row);
     }
+}
+
+void InventoryCell::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    if(isBlocked)
+        setBlockedStyle(false);
 }
 
 //Стиль неактивной (заблокированной) ячейки
@@ -424,6 +475,7 @@ void InventoryCell::setDisabledStyle()
 //Стиль ячейки, в которую нельзя поместить выбранный итем
 void InventoryCell::setBlockedStyle(bool isBlocked)
 {
+    this->isBlocked = isBlocked;
     ui->Blocked->setVisible(isBlocked);
     if(isBlocked)
         ui->Blocked->setStyleSheet(IC_stylemaster::blockedStyle());

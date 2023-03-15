@@ -123,6 +123,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     item->setMaxCharges(10);
     item->setCurrentCharges(10);
     item->setId(0);
+    QVector<Item::Slots> itemSlots {Item::Slots::R_HAND, Item::Slots::L_HAND};
+    item->setCellSlots(itemSlots);
 
     item->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
     item->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
@@ -147,6 +149,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     item2->setMaxCharges(10);
     item2->setCurrentCharges(10);
     item2->setId(0);
+    QVector<Item::Slots> itemSlots2 {Item::Slots::R_HAND, Item::Slots::L_HAND};
+    item2->setCellSlots(itemSlots2);
 
     item2->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
     item2->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";

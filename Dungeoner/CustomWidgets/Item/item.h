@@ -173,7 +173,7 @@ public:
     QVector<Slots> getCellSlots() const;
     /*Установка векторов ячеек доступных для этой вещи и её занимаемых слотов. В занимаемых
      *слотах нужно указывать ячейки только если предмет всегда занимает их несколько*/
-    void setCellSlots(QVector<Slots> newCellSlots, QVector<Slots> newOccupiedCellSlots);
+    void setCellSlots(QVector<Slots> newCellSlots, QVector<Slots> newOccupiedCellSlots = QVector<Slots>());
 
     int getCurrentStyle() const;
     //Метод устанавливающий текущий стиль итемов на основе вектора styles

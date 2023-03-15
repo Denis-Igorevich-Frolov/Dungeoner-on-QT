@@ -36,6 +36,8 @@ public:
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
 
+    Item::Slots acceptedSlot = Item::Slots::INVENTORY;
+
 signals:
     //Эвент говорящий в какую ячейку был перенесён итем при помощи Drag&Drop
     void itemIsDropped(int col, int row);
@@ -68,6 +70,7 @@ private:
     QPoint dragStart;
 
     bool isLoked = false;
+    bool isBlocked = false;
 
     Ui::InventoryCell *ui;
 
@@ -76,6 +79,7 @@ private:
     bool eventFilter(QObject* object, QEvent* event) override;
     void dragEnterEvent(QDragEnterEvent* event) override;
     void dropEvent(QDropEvent* event) override;
+    void dragLeaveEvent(QDragLeaveEvent* event) override;
 
     bool CentralElementIsVisible = false;
 };
