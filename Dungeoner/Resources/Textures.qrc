@@ -88,4 +88,11 @@
         <file>Textures PNG/Item-Style-Button-Hovered-Chosen.png</file>
         <file>Textures PNG/Item-Style-Button-Pressed-Chosen.png</file>
     </qresource>
+    <qresource prefix="/Character-Equipment">
+        <file>Textures PNG/Equipment-Arrow.png</file>
+        <file>Textures PNG/Equipment-Bag.png</file>
+        <file>Textures PNG/Equipment-Crossbow-Bolts.png</file>
+        <file>Textures PNG/Equipment-Pistol.png</file>
+        <file>Textures PNG/Character-Equipment.png</file>
+    </qresource>
 </RCC>

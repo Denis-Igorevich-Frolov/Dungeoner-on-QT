@@ -55,7 +55,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 135,
+				"line" : 140,
 				"parent" : 0
 			},
 			{
@@ -79,25 +79,25 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 157,
+				"line" : 162,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 172,
+				"line" : 177,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 175,
+				"line" : 180,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 178,
+				"line" : 183,
 				"parent" : 0
 			},
 			{
@@ -187,7 +187,7 @@
 			{
 				"command" : 7,
 				"file" : 1,
-				"line" : 174,
+				"line" : 179,
 				"parent" : 0
 			},
 			{
@@ -562,21 +562,23 @@
 				107,
 				109,
 				111,
-				131,
-				132,
-				133,
-				134
+				114,
+				116,
+				137,
+				138,
+				139,
+				140
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "Dungeoner_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "Dungeoner_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "Dungeoner_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "Dungeoner::@6890427a1f51a3e7e1df",
@@ -739,10 +741,12 @@
 				107,
 				109,
 				111,
-				131,
-				132,
-				133,
-				134
+				114,
+				116,
+				137,
+				138,
+				139,
+				140
 			]
 		},
 		{
@@ -795,10 +799,7 @@
 				108,
 				110,
 				113,
-				114,
 				115,
-				116,
-				117,
 				118,
 				119,
 				120,
@@ -810,7 +811,13 @@
 				126,
 				127,
 				128,
-				129
+				129,
+				130,
+				131,
+				132,
+				133,
+				134,
+				135
 			]
 		},
 		{
@@ -838,18 +845,19 @@
 				100,
 				105,
 				112,
-				130
+				117,
+				136
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				135,
-				136,
-				137,
-				138,
-				139
+				141,
+				142,
+				143,
+				144,
+				145
 			]
 		}
 	],
@@ -1469,6 +1477,33 @@
 			"sourceGroupIndex" : 2
 		},
 		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/PrimarySkill/PS_stylemaster.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/PrimarySkill/PS_stylemaster.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/CharacterEquipment/characterequipment.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "CustomWidgets/CharacterEquipment/characterequipment.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "CustomWidgets/CharacterEquipment/characterequipment.ui",
+			"sourceGroupIndex" : 2
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/include/ui_dungeoner.h",
@@ -1568,6 +1603,12 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/PrimarySkill/ui_primaryskill.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/include/CustomWidgets/CharacterEquipment/ui_characterequipment.h",
 			"sourceGroupIndex" : 1
 		},
 		{

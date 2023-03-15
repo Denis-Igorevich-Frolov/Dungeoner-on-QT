@@ -136,7 +136,7 @@ void InventoryCell::setEmptyStyle()
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::emptyBorderStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonEmptyStyle());
     ui->CentralElement->setStyleSheet(IC_stylemaster::centralElementStyle());
-    ui->CentralElement->setVisible(true);
+    ui->CentralElement->setVisible(CentralElementIsVisible);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
@@ -273,6 +273,7 @@ void InventoryCell::setDisabledBrokenNewStyle()
 
 void InventoryCell::setCentralElementStyle(bool isVisible)
 {
+    CentralElementIsVisible = isVisible;
     ui->CentralElement->setVisible(isVisible);
 }
 
@@ -383,7 +384,7 @@ void InventoryCell::setLockedStyle()
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::lockedBorderStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonLockedStyle());
     ui->Locked->setStyleSheet(IC_stylemaster::lockedStyle());
-    ui->CentralElement->setVisible(true);
+    ui->CentralElement->setVisible(CentralElementIsVisible);
     ui->Locked->setVisible(true);
     ui->item->setUpdatesEnabled(true);
 
@@ -410,7 +411,7 @@ void InventoryCell::setDisabledStyle()
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::disabledNotEmptyBGStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonDisabledNotEmptyStyle());
     ui->inventoryCellBG->setVisible(true);
-    ui->CentralElement->setVisible(true);
+    ui->CentralElement->setVisible(CentralElementIsVisible);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(false);
@@ -482,7 +483,7 @@ void InventoryCell::setDisabledBrokenStyle()
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::disabledBrokenNotEmptyBGStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonDisabledNotEmptyStyle());
     ui->inventoryCellBG->setVisible(true);
-    ui->CentralElement->setVisible(true);
+    ui->CentralElement->setVisible(CentralElementIsVisible);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(true);

@@ -106,7 +106,7 @@ border: none;</string>
        <number>0</number>
       </property>
       <item>
-       <layout class="QGridLayout" name="Inventory" columnstretch="0" rowminimumheight="0" columnminimumwidth="0">
+       <layout class="QGridLayout" name="Inventory" columnstretch="0">
         <property name="sizeConstraint">
          <enum>QLayout::SetFixedSize</enum>
         </property>

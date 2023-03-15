@@ -20,7 +20,7 @@
    <bool>true</bool>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dungeoner</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#CharacterWindow{
@@ -2260,6 +2260,16 @@ border: none;</string>
     <string/>
    </property>
   </widget>
+  <widget class="CharacterEquipment" name="Equipment" native="true">
+   <property name="geometry">
+    <rect>
+     <x>1180</x>
+     <y>100</y>
+     <width>714</width>
+     <height>472</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>TopMenuWrapper</zorder>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
@@ -2270,6 +2280,7 @@ border: none;</string>
   <zorder>DecorativeElement2</zorder>
   <zorder>DecorativeElement4</zorder>
   <zorder>tooltip</zorder>
+  <zorder>Equipment</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -2312,6 +2323,12 @@ border: none;</string>
    <class>PrimarySkill</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/PrimarySkill/primaryskill.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>CharacterEquipment</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/CharacterEquipment/characterequipment.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

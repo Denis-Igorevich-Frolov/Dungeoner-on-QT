@@ -9,6 +9,7 @@
 #ifndef UI_CHARACTERWINDOW_H
 #define UI_CHARACTERWINDOW_H
 
+#include <CustomWidgets/CharacterEquipment/characterequipment.h>
 #include <CustomWidgets/FPS_Counter/fps_counter.h>
 #include <CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
@@ -123,6 +124,7 @@ public:
     QLabel *DecorativeElement3;
     QLabel *DecorativeElement2;
     QLabel *DecorativeElement4;
+    CharacterEquipment *Equipment;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -749,6 +751,9 @@ public:
         DecorativeElement4->setObjectName(QString::fromUtf8("DecorativeElement4"));
         DecorativeElement4->setGeometry(QRect(1868, 1046, 43, 10));
         DecorativeElement4->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
+        Equipment = new CharacterEquipment(CharacterWindow);
+        Equipment->setObjectName(QString::fromUtf8("Equipment"));
+        Equipment->setGeometry(QRect(1180, 100, 714, 472));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
@@ -759,6 +764,7 @@ public:
         DecorativeElement2->raise();
         DecorativeElement4->raise();
         tooltip->raise();
+        Equipment->raise();
 
         retranslateUi(CharacterWindow);
 
@@ -767,7 +773,7 @@ public:
 
     void retranslateUi(QWidget *CharacterWindow)
     {
-        CharacterWindow->setWindowTitle(QCoreApplication::translate("CharacterWindow", "Form", nullptr));
+        CharacterWindow->setWindowTitle(QCoreApplication::translate("CharacterWindow", "Dungeoner", nullptr));
         pushButton_4->setText(QCoreApplication::translate("CharacterWindow", "\320\227\320\260\321\205\320\270\320\273\321\217\321\202\321\214 \320\277\321\200\320\276\320\263\321\200\320\265\321\201\321\201\320\261\320\260\321\200\321\213", nullptr));
 #if QT_CONFIG(tooltip)
         pushButton->setToolTip(QCoreApplication::translate("CharacterWindow", "<html><head/><body><p>\320\242\320\265\321\201\321\202\320\276\320\262\320\260\321\217 \320\272\320\275\320\276\320\277\320\272\320\260 1</p><p>\320\224\320\276\320\261\320\260\320\262\320\273\320\265\320\275\320\270\320\265 <span style=\" font-weight:700;\">\320\275\320\265\320\277\321\200\320\276\321\206\320\265\320\275\321\202\320\275\320\276\320\263\320\276</span> \320\261\320\276\320\275\321\203\321\201\320\260 <span style=\" font-weight:700;\">\320\241\320\270\320\273\321\213</span></p></body></html>", nullptr));

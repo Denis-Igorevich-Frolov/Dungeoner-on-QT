@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CharacterEquipment</class>
+ <widget class="QWidget" name="CharacterEquipment">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>714</width>
+    <height>472</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QFrame" name="EquipmentWrapper">
+   <property name="geometry">
+    <rect>
+     <x>115</x>
+     <y>0</y>
+     <width>440</width>
+     <height>472</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QLabel" name="CharacterDoll">
+    <property name="geometry">
+     <rect>
+      <x>162</x>
+      <y>3</y>
+      <width>240</width>
+      <height>454</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Character-Equipment/Textures PNG/Character-Equipment.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QStackedWidget" name="CellsStackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>77</x>
+      <y>0</y>
+      <width>354</width>
+      <height>472</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;</string>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="UnderArmor">
+     <widget class="InventoryCell" name="BalaclavaHelmet" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>0</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="Clothes" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>151</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="Pants" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>233</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="LeftGlove" native="true">
+      <property name="geometry">
+       <rect>
+        <x>216</x>
+        <y>225</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="RightGlove" native="true">
+      <property name="geometry">
+       <rect>
+        <x>72</x>
+        <y>225</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="Armor">
+     <widget class="InventoryCell" name="Helmet" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>0</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="Gorget" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>69</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="RightShoulder" native="true">
+      <property name="geometry">
+       <rect>
+        <x>75</x>
+        <y>73</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="LeftShoulder" native="true">
+      <property name="geometry">
+       <rect>
+        <x>212</x>
+        <y>73</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="Breastplate" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>151</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="RightBrace" native="true">
+      <property name="geometry">
+       <rect>
+        <x>72</x>
+        <y>157</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="LefttBrace" native="true">
+      <property name="geometry">
+       <rect>
+        <x>216</x>
+        <y>157</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="RightGauntlet" native="true">
+      <property name="geometry">
+       <rect>
+        <x>72</x>
+        <y>225</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="LeftGauntlet" native="true">
+      <property name="geometry">
+       <rect>
+        <x>216</x>
+        <y>225</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="RightGreaves" native="true">
+      <property name="geometry">
+       <rect>
+        <x>113</x>
+        <y>295</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="LeftGreaves" native="true">
+      <property name="geometry">
+       <rect>
+        <x>181</x>
+        <y>295</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="RightBoot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>113</x>
+        <y>396</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="LeftBoot" native="true">
+      <property name="geometry">
+       <rect>
+        <x>181</x>
+        <y>396</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="OverArmor">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <widget class="InventoryCell" name="Cap" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>0</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="Mantle" native="true">
+      <property name="geometry">
+       <rect>
+        <x>144</x>
+        <y>151</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="InventoryCell" name="Cloak" native="true">
+      <property name="geometry">
+       <rect>
+        <x>267</x>
+        <y>314</y>
+        <width>68</width>
+        <height>68</height>
+       </rect>
+      </property>
+      <property name="mouseTracking">
+       <bool>true</bool>
+      </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QLabel" name="PistolLabel">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>322</y>
+      <width>69</width>
+      <height>123</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Character-Equipment/Textures PNG/Equipment-Pistol.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="CrossbowBoltsLabel">
+    <property name="geometry">
+     <rect>
+      <x>72</x>
+      <y>395</y>
+      <width>73</width>
+      <height>77</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Character-Equipment/Textures PNG/Equipment-Crossbow-Bolts.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ArrowsLabel">
+    <property name="geometry">
+     <rect>
+      <x>107</x>
+      <y>321</y>
+      <width>72</width>
+      <height>77</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Character-Equipment/Textures PNG/Equipment-Arrow.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="BagLabel">
+    <property name="geometry">
+     <rect>
+      <x>355</x>
+      <y>21</y>
+      <width>84</width>
+      <height>82</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/Character-Equipment/Textures PNG/Equipment-Bag.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="Gunpowder" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>385</y>
+      <width>68</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="Bullets" native="true">
+    <property name="geometry">
+     <rect>
+      <x>39</x>
+      <y>313</y>
+      <width>68</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="Arrows" native="true">
+    <property name="geometry">
+     <rect>
+      <x>118</x>
+      <y>313</y>
+      <width>68</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="Bolts" native="true">
+    <property name="geometry">
+     <rect>
+      <x>79</x>
+      <y>385</y>
+      <width>68</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="Bag" native="true">
+    <property name="geometry">
+     <rect>
+      <x>369</x>
+      <y>43</y>
+      <width>68</width>
+      <height>84</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="RightDecoration" native="true">
+    <property name="geometry">
+     <rect>
+      <x>79</x>
+      <y>148</y>
+      <width>68</width>
+      <height>84</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="LeftDecoration" native="true">
+    <property name="geometry">
+     <rect>
+      <x>365</x>
+      <y>148</y>
+      <width>68</width>
+      <height>84</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="RightHand" native="true">
+    <property name="geometry">
+     <rect>
+      <x>79</x>
+      <y>231</y>
+      <width>68</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="InventoryCell" name="LeftHand" native="true">
+    <property name="geometry">
+     <rect>
+      <x>365</x>
+      <y>231</y>
+      <width>68</width>
+      <height>68</height>
+     </rect>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="acceptDrops">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>BagLabel</zorder>
+   <zorder>ArrowsLabel</zorder>
+   <zorder>CrossbowBoltsLabel</zorder>
+   <zorder>PistolLabel</zorder>
+   <zorder>CharacterDoll</zorder>
+   <zorder>CellsStackedWidget</zorder>
+   <zorder>Gunpowder</zorder>
+   <zorder>Bullets</zorder>
+   <zorder>Arrows</zorder>
+   <zorder>Bolts</zorder>
+   <zorder>Bag</zorder>
+   <zorder>RightDecoration</zorder>
+   <zorder>LeftDecoration</zorder>
+   <zorder>RightHand</zorder>
+   <zorder>LeftHand</zorder>
+  </widget>
+  <widget class="QPushButton" name="OverArmorButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>80</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Над доспехом</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="ArmorButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Доспех</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="UnderArmorButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>80</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Под доспехом</string>
+   </property>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>InventoryCell</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/InventoryCell/inventorycell.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

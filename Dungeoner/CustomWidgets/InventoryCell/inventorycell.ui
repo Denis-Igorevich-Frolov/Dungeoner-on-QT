@@ -16,6 +16,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: transparent;</string>
+  </property>
   <widget class="QLabel" name="inventoryCellBorder">
    <property name="geometry">
     <rect>

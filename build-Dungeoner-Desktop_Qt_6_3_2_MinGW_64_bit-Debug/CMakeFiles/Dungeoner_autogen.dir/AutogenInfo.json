@@ -482,6 +482,12 @@
 	"HEADERS" : 
 	[
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/CharacterEquipment/characterequipment.h",
+			"MU",
+			"LMDBSCSTA7/moc_characterequipment.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/FPS_Counter/fps_counter.h",
 			"MU",
 			"YI2YV7SXFF/moc_fps_counter.cpp",
@@ -839,6 +845,11 @@
 	"SETTINGS_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/CMakeFiles/Dungeoner_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/CharacterEquipment/characterequipment.cpp",
+			"MU",
+			null
+		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/FPS_Counter/fps_counter.cpp",
 			"MU",

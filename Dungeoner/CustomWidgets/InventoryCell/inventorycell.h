@@ -76,6 +76,8 @@ private:
     bool eventFilter(QObject* object, QEvent* event) override;
     void dragEnterEvent(QDragEnterEvent* event) override;
     void dropEvent(QDropEvent* event) override;
+
+    bool CentralElementIsVisible = false;
 };
 
 #endif // INVENTORYCELL_H

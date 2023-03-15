@@ -37,6 +37,7 @@ public:
             InventoryCell->setObjectName(QString::fromUtf8("InventoryCell"));
         InventoryCell->resize(68, 84);
         InventoryCell->setMouseTracking(true);
+        InventoryCell->setStyleSheet(QString::fromUtf8("background: transparent;"));
         inventoryCellBorder = new QLabel(InventoryCell);
         inventoryCellBorder->setObjectName(QString::fromUtf8("inventoryCellBorder"));
         inventoryCellBorder->setGeometry(QRect(0, 0, 68, 68));

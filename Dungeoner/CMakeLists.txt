@@ -131,6 +131,9 @@ set(PROJECT_SOURCES
         CustomWidgets/PrimarySkill/primaryskill.ui
         CustomWidgets/PrimarySkill/PS_stylemaster.h
         CustomWidgets/PrimarySkill/PS_stylemaster.cpp
+        CustomWidgets/CharacterEquipment/characterequipment.h
+        CustomWidgets/CharacterEquipment/characterequipment.cpp
+        CustomWidgets/CharacterEquipment/characterequipment.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
