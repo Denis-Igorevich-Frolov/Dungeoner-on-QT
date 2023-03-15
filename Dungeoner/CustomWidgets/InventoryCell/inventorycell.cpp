@@ -348,7 +348,7 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
 {
     QStringList formats = event->mimeData()->formats();
-    if(formats.contains("Item")) {
+    if(formats.contains("Item") && !isLocked) {
         event->acceptProposedAction();
 
         const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
@@ -421,8 +421,13 @@ void InventoryCell::dragLeaveEvent(QDragLeaveEvent *event)
 }
 
 //Стиль неактивной (заблокированной) ячейки
-void InventoryCell::setLockedStyle()
+void InventoryCell::setLockedStyle(bool isLocked)
 {
+    this->isLocked = isLocked;
+
+    if(!isLocked)
+        setAutoStyle();
+
     //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена
     ui->inventoryCellNew->setVisible(false);
     inventoryCellNew.stop();

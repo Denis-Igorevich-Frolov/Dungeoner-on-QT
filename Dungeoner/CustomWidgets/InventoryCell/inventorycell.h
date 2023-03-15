@@ -27,7 +27,7 @@ public:
     //Метод, выставляющий стиль автоматически исходя из характеристик предмета
     void setAutoStyle();
     //Стиль неактивной (заблокированной) ячейки
-    void setLockedStyle();
+    void setLockedStyle(bool isLocked);
     //Стиль ячейки, в которую нельзя поместить выбранный итем
     void setBlockedStyle(bool isBlocked);
     //Метод задающий значения переменным col и row. Он не изменит позицию и требуется только для инициализации
@@ -69,7 +69,7 @@ private:
     //Позиция начала перетакивания итема
     QPoint dragStart;
 
-    bool isLoked = false;
+    bool isLocked = false;
     bool isBlocked = false;
 
     Ui::InventoryCell *ui;
