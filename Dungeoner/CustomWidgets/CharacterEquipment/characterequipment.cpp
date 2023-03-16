@@ -10,8 +10,8 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
     for(QObject* layer : ui->CellsStackedWidget->children()){
         for(auto autoCell : layer->children()){
             if(dynamic_cast <InventoryCell*> (autoCell)){
-                InventoryCell* ic = qobject_cast <InventoryCell*> (autoCell);
-                ic->setCentralElementStyle(false);
+                InventoryCell* cell = qobject_cast <InventoryCell*> (autoCell);
+                equipmentCells.append(cell);
             }else{
                 //Вывод предупреждения в консоль и файл
                 QDate cd = QDate::currentDate();
@@ -40,9 +40,14 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
 
     for(auto autoCell : ui->EquipmentWrapper->children()){
         if(dynamic_cast <InventoryCell*> (autoCell)){
-            InventoryCell* ic = qobject_cast <InventoryCell*> (autoCell);
-            ic->setCentralElementStyle(false);
+            InventoryCell* cell = qobject_cast <InventoryCell*> (autoCell);
+            equipmentCells.append(cell);
         }
+    }
+
+    for(InventoryCell* cell : equipmentCells){
+        cell->setCentralElementStyle(false);
+        connect(cell, &InventoryCell::moveCellToEquipment, this, &CharacterEquipment::moveCellFromEquipment);
     }
 
     ui->RightDecoration->setDropdownButtonVisible(true);
@@ -72,6 +77,30 @@ void CharacterEquipment::on_ArmorButton_clicked()
 void CharacterEquipment::on_UnderArmorButton_clicked()
 {
     ui->CellsStackedWidget->setCurrentIndex(0);
+}
+
+QVector<InventoryCell *> CharacterEquipment::getEquipmentCells() const
+{
+    return equipmentCells;
+}
+
+InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots)
+{
+    InventoryCell* firstMatch = nullptr;
+
+    QVectorIterator<Item::Slots> iterator(itemSlots);
+    while (iterator.hasNext()){
+        Item::Slots searchedSlot = iterator.next();
+        for(InventoryCell* cell : equipmentCells){
+            if(cell->acceptedSlot == searchedSlot && !cell->getIsLocked()){
+                if(cell->getItem()->itemIsEmpty)
+                    return cell;
+                else if(firstMatch == nullptr)
+                    firstMatch = cell;
+            }
+        }
+    }
+    return firstMatch;
 }
 
 void CharacterEquipment::setCellsAcceptedSlots()

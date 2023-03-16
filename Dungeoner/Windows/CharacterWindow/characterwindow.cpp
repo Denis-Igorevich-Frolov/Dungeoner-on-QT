@@ -47,6 +47,9 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(ui->ScrollAreaSecondarySkills->verticalScrollBar(), &QAbstractSlider::valueChanged,
             this, &CharacterWindow::ScrollAreaSecondarySkillsScrolled);
 
+    connect(ui->Inventory, &CharacterWindowInventory::moveCellToEquipment, this, &CharacterWindow::moveCellToEquipment);
+    connect(ui->Equipment, &CharacterEquipment::moveCellFromEquipment, this, &CharacterWindow::moveCellFromEquipment);
+
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
      *и ивенты мыши, чтобы они не перекрывали непосредственно вторичные навыки*/
     ui->SecondarySkillsShadowTop->setFocusPolicy(Qt::NoFocus);
@@ -160,6 +163,26 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     if(cell2){
         cell2->setItem(item2);
+    }
+
+    Item* item3 = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+
+    item3->isPressable = true;
+
+    item3->setMaxCharges(10);
+    item3->setCurrentCharges(10);
+    item3->setId(0);
+    QVector<Item::Slots> itemSlots3 {Item::Slots::R_HAND, Item::Slots::L_HAND};
+    item3->setCellSlots(itemSlots3);
+
+    item3->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
+    item3->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
+    item3->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
+
+    InventoryCell* cell3 = ui->Inventory->getCell(0, 3);
+
+    if(cell3){
+        cell3->setItem(item3);
     }
     /////////////////////////////////////////////
 }
@@ -910,6 +933,26 @@ void CharacterWindow::refreshDisplayStats()
     ui->MagicDefense->getProgressBar()->willUntilNextChunk = person.getStats()->secondaryStats->magicDefense->getWillUntilNextChunk();
     //Инициализация получеными значениями
     initSecondaryStatsWidgets();
+}
+
+void CharacterWindow::moveCellToEquipment(InventoryCell* cell)
+{
+    InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots());
+    if(targetCell){
+        cell->swapItems(targetCell);
+        if(targetCell->getItem()->SoundDrop!="")
+            Global::mediaplayer.playSound(QUrl::fromLocalFile(targetCell->getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
+    }
+}
+
+void CharacterWindow::moveCellFromEquipment(InventoryCell *cell)
+{
+    InventoryCell* targetCell = ui->Inventory->getLastEmptyCell();
+    if(targetCell){
+        cell->swapItems(targetCell);
+        if(targetCell->getItem()->SoundDrop!="")
+            Global::mediaplayer.playSound(QUrl::fromLocalFile(targetCell->getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
+    }
 }
 
 void CharacterWindow::on_pushButton_4_clicked()

@@ -38,9 +38,18 @@ public:
 
     Item::Slots acceptedSlot = Item::Slots::INVENTORY;
 
+    bool getIsLocked() const;
+    bool getIsBlocked() const;
+
+    void swapItems(InventoryCell* cell);
+
 signals:
     //Эвент говорящий в какую ячейку был перенесён итем при помощи Drag&Drop
     void itemIsDropped(int col, int row);
+    void moveCellToEquipment(InventoryCell* cell);
+
+private slots:
+    void moveItemToEquipment();
 
 private:
     //Стиль пустой ячейки

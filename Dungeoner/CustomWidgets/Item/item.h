@@ -199,6 +199,9 @@ public:
     int getCurrentCharges() const;
     void setCurrentCharges(int newCurrentCharges);
 
+signals:
+    void moveItemToEquipment();
+
 private slots:
     //Эффекты при прожатии итема
     void on_pushButton_clicked();

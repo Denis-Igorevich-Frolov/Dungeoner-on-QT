@@ -36,6 +36,8 @@ public slots:
     virtual void removeRowOfCellsFromInventory(){};
     //Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
     virtual ItemIndex getIndexOfLastNonEmptyCell(){return ItemIndex(-1, -1);};
+    virtual ItemIndex getIndexOfLastEmptyCell(){return ItemIndex(-1, -1);};
+    virtual InventoryCell* getLastEmptyCell(){return nullptr;};
 
 protected:
     enum inventoryScrollerState{
@@ -82,6 +84,7 @@ protected:
 
     //Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
     ItemIndex getIndexOfLastNonEmptyCell(QGridLayout* inventoryLayout);
+    ItemIndex getIndexOfLastEmptyCell(QGridLayout* inventoryLayout);
 
     virtual void scrolling(){};
 

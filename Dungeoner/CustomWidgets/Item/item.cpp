@@ -330,8 +330,10 @@ void Item::on_pushButton_clicked()
 {
     //!!!Пока класс эффекта прожатия вещи не реализован
 
-    if(isPressable){
-        //Если итем сломан, его нельзя продать
+    if(!Global::pressedKeys.empty() && Global::pressedKeys.last() == 16777248 && !itemIsEmpty && !cellSlots.isEmpty()){
+        emit moveItemToEquipment();
+    }else if(isPressable){
+        //Если итем сломан, его нельзя прожать
         if(itemCondition == BROKEN || isDisabled){
             if(SoundPressWithOutOfCharge!="")
                 Global::mediaplayer.playSound(QUrl::fromLocalFile(SoundPressWithOutOfCharge), MediaPlayer::SoundsGroup::SOUNDS);
@@ -362,6 +364,8 @@ void Item::on_pushButton_clicked()
 
 void Item::on_pushButton_pressed()
 {
+    if(!Global::pressedKeys.empty() && Global::pressedKeys.last() == 16777248)
+        return;
     if(isPressable){
         //Наложение на итем цвета нажатия
         QPixmap pixmap(QPixmap::fromImage(image, Qt::AutoColor));
@@ -470,6 +474,10 @@ bool Item::loadStyles(QDir dir)
         else foreach (QString folder, folders) {
             //!!!! Когда будет реализована БД итема, здесь должна происходить загрузка
             Item* itemStyle = new Item(folderName+"/Styles/"+folder, QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+            QVector<Item::Slots> itemSlots {Item::Slots::R_HAND, Item::Slots::L_HAND};
+            itemStyle->setCellSlots(itemSlots);
+            ////!!!!!
+
             styles.append(itemStyle);
         }
         return true;

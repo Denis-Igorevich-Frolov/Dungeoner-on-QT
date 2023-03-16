@@ -63,6 +63,21 @@ AbstractInventory::ItemIndex CharacterWindowInventory::getIndexOfLastNonEmptyCel
     return AbstractInventory::getIndexOfLastNonEmptyCell(ui->Inventory);
 }
 
+AbstractInventory::ItemIndex CharacterWindowInventory::getIndexOfLastEmptyCell()
+{
+    return AbstractInventory::getIndexOfLastEmptyCell(ui->Inventory);
+}
+
+InventoryCell *CharacterWindowInventory::getLastEmptyCell()
+{
+    ItemIndex index = getIndexOfLastEmptyCell();
+    auto Cell = ui->Inventory->itemAtPosition(index.row, index.col);
+    if(dynamic_cast<InventoryCell*>(Cell->widget()))
+        return static_cast<InventoryCell*>(Cell->widget());
+
+    return nullptr;
+}
+
 void CharacterWindowInventory::addRowOfCellsToInventory()
 {
     AbstractInventory::addRowOfCellsToInventory(this, ui->Inventory, ui->scrollAreaWidgetContents, ui->InventoryScrollArea->verticalScrollBar(), ui->InventoryScrollBar);
@@ -70,6 +85,8 @@ void CharacterWindowInventory::addRowOfCellsToInventory()
     for(int i = 0; i<maxColumns; i++){
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
                 &InventoryCell::itemIsDropped, this, &CharacterWindowInventory::checkingInventorySizeChange);
+        connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
+                &InventoryCell::moveCellToEquipment, this, &CharacterWindowInventory::moveCellToEquipment);
     }
     row++;
 }

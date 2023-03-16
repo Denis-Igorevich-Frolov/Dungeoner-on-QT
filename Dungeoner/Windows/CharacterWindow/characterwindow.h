@@ -8,6 +8,7 @@
 #include <QLabel>
 #include <QScroller>
 #include <QWidget>
+#include "CustomWidgets/InventoryCell/inventorycell.h"
 #include "Person/person.h"
 
 namespace Ui {
@@ -27,6 +28,9 @@ private slots:
 
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();
+
+    void moveCellToEquipment(InventoryCell* cell);
+    void moveCellFromEquipment(InventoryCell* cell);
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);

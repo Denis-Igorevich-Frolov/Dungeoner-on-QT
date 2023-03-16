@@ -22,6 +22,8 @@ InventoryCell::InventoryCell(QWidget *parent) :
     ui->item->getItemButton()->installEventFilter(this);
     ui->item->getStyleButtonsWrapper()->installEventFilter(this);
 
+    connect(ui->item, &Item::moveItemToEquipment, this, &InventoryCell::moveItemToEquipment);
+
     setDropdownButtonVisible(false);
 
     QSizePolicy sp_retain = sizePolicy();
@@ -282,18 +284,14 @@ void InventoryCell::setDropdownButtonVisible(bool isVisible)
     ui->DropdownButton->setVisible(isVisible);
 }
 
+void InventoryCell::moveItemToEquipment()
+{
+    emit moveCellToEquipment(this);
+}
+
 bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 {
     if(object == ui->item->getItemButton()||object == ui->item->getStyleButtonsWrapper()){
-
-//        if(event->type()!=QEvent::Paint && event->type()!=QEvent::WindowDeactivate && event->type()!=QEvent::WindowActivate && event->type()!=QEvent::HoverMove){
-//            qDebug()<<event->type();
-//        }
-
-//        if(event->type()==QEvent::Leave){
-//            if(isBlocked)
-//                setBlockedStyle(false);
-//        }
 
         //При наведении новый стиль пропадает
         if(event->type() == QEvent::HoverEnter||event->type() == QEvent::Enter){
@@ -354,9 +352,9 @@ void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
         const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
 
         bool slotsMatch = false;
-        Item* newItem = new Item(itemData->getItem());
+        Item* bufItem = new Item(itemData->getItem());
 
-        QVector<Item::Slots> itemSlots = newItem->getCellSlots();
+        QVector<Item::Slots> itemSlots = bufItem->getCellSlots();
         QVectorIterator<Item::Slots> iterator(itemSlots);
         while (iterator.hasNext()){
             if(iterator.next() == acceptedSlot){
@@ -377,12 +375,12 @@ void InventoryCell::dropEvent(QDropEvent *event)
 
     const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
     //Итем сначала записывается в отдельную переменную из MimeData
-    Item* newItem = new Item(itemData->getItem());
-    newItem->setId(itemData->getItem()->getId());
+    Item* bufItem = new Item(itemData->getItem());
+    bufItem->setId(itemData->getItem()->getId());
 
     bool slotsMatch = false;
 
-    QVector<Item::Slots> itemSlots = newItem->getCellSlots();
+    QVector<Item::Slots> itemSlots = bufItem->getCellSlots();
     QVectorIterator<Item::Slots> iterator(itemSlots);
     while (iterator.hasNext()){
         if(iterator.next() == acceptedSlot){
@@ -397,8 +395,8 @@ void InventoryCell::dropEvent(QDropEvent *event)
 
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     if(itemCell){
-        if(newItem->SoundDrop!="")
-            Global::mediaplayer.playSound(QUrl::fromLocalFile(newItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
+        if(bufItem->SoundDrop!="")
+            Global::mediaplayer.playSound(QUrl::fromLocalFile(bufItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
         //Затем текущий итем помещается в ячейку из которой началось перетаскивание
         itemCell->setItem(new Item(ui->item));
         /*Так как setItem не передаёт id итема, вызов setAutoStyle внутри него не сработал
@@ -407,7 +405,7 @@ void InventoryCell::dropEvent(QDropEvent *event)
         itemCell->setAutoStyle();
         /*Перенос буферизированного итема в текущую ячейку. id ему уже задан
          *заранее, так что setAutoStyle внутри setItem сработает как надо*/
-        setItem(newItem);
+        setItem(bufItem);
 
         event->acceptProposedAction();
         emit itemIsDropped(col, row);
@@ -425,8 +423,14 @@ void InventoryCell::setLockedStyle(bool isLocked)
 {
     this->isLocked = isLocked;
 
-    if(!isLocked)
+    if(!isLocked){
         setAutoStyle();
+        return;
+    }
+
+    if(!ui->item->itemIsEmpty){
+        emit moveCellToEquipment(this);
+    }
 
     //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена
     ui->inventoryCellNew->setVisible(false);
@@ -548,4 +552,38 @@ void InventoryCell::setDisabledBrokenStyle()
 
     //Пустой стиль чуть-чуть меньше, чем не пустой, так что у них есть разница в высоте отображения кнопки
     ui->DropdownButton->move(3, 57);
+}
+
+bool InventoryCell::getIsBlocked() const
+{
+    return isBlocked;
+}
+
+void InventoryCell::swapItems(InventoryCell *cell)
+{
+    if(cell){
+        setBlockedStyle(false);
+
+        Item* bufItem = new Item(cell->getItem());
+        bufItem->setId(cell->getItem()->getId());
+
+        if(bufItem->SoundDrop!="")
+            Global::mediaplayer.playSound(QUrl::fromLocalFile(bufItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
+        //Затем текущий итем помещается в ячейку из которой началось перетаскивание
+        cell->setItem(new Item(ui->item));
+        /*Так как setItem не передаёт id итема, вызов setAutoStyle внутри него не сработал
+         *должным образом. Следует вручную перенести id и вызвать setAutoStyle снова*/
+        cell->getItem()->setId(ui->item->getId());
+        cell->setAutoStyle();
+        /*Перенос буферизированного итема в текущую ячейку. id ему уже задан
+         *заранее, так что setAutoStyle внутри setItem сработает как надо*/
+        setItem(bufItem);
+
+        emit itemIsDropped(col, row);
+    }
+}
+
+bool InventoryCell::getIsLocked() const
+{
+    return isLocked;
 }

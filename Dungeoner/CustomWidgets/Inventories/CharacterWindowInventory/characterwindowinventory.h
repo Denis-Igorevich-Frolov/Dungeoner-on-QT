@@ -24,6 +24,8 @@ public:
     InventoryCell* getCell(int row, int column) override;
     //Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
     ItemIndex getIndexOfLastNonEmptyCell() override;
+    ItemIndex getIndexOfLastEmptyCell() override;
+    InventoryCell* getLastEmptyCell() override;
 
 public slots:
     //Добавление новой линии пустых ячеек в инвентарь
@@ -34,6 +36,7 @@ public slots:
 signals:
     //При скролле скроллбара подсказка должна пропадать
     void RemoveTooltip();
+    void moveCellToEquipment(InventoryCell* cell);
 
 private slots:
     void InventoryScrollAreaScrolled(int value);

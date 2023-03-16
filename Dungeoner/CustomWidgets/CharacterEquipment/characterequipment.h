@@ -1,7 +1,10 @@
 #ifndef CHARACTEREQUIPMENT_H
 #define CHARACTEREQUIPMENT_H
 
+#include "CustomWidgets/InventoryCell/inventorycell.h"
 #include <QWidget>
+
+#include <CustomWidgets/Item/item.h>
 
 namespace Ui {
 class CharacterEquipment;
@@ -15,6 +18,12 @@ public:
     explicit CharacterEquipment(QWidget *parent = nullptr);
     ~CharacterEquipment();
 
+    QVector<InventoryCell *> getEquipmentCells() const;
+    InventoryCell* findCell(QVector<Item::Slots> itemSlots);
+
+signals:
+    void moveCellFromEquipment(InventoryCell* cell);
+
 private slots:
     void on_OverArmorButton_clicked();
     void on_ArmorButton_clicked();
@@ -22,6 +31,8 @@ private slots:
 
 private:
     Ui::CharacterEquipment *ui;
+
+    QVector<InventoryCell*> equipmentCells;
 
     void setCellsAcceptedSlots();
 };

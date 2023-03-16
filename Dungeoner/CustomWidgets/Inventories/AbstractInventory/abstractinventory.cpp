@@ -119,6 +119,22 @@ AbstractInventory::ItemIndex AbstractInventory::getIndexOfLastNonEmptyCell(QGrid
     return ItemIndex(-1, -1);
 }
 
+AbstractInventory::ItemIndex AbstractInventory::getIndexOfLastEmptyCell(QGridLayout *inventoryLayout)
+{
+    /*В строке всегда maxColumns ячеек, так что вычислить количество строк легко. Преимущество такого способа перед
+     *rowCount в том, что rowCount возвращет 1, даже если строк вообще нет, а тут результат однозначный.*/
+    row = inventoryLayout->count()/maxColumns;
+    col = inventoryLayout->columnCount();
+
+    for(int r = 0; r<=row-1; r++){
+        for(int c = 0; c<=col-1; c++){
+            if(static_cast<InventoryCell*>(inventoryLayout->itemAtPosition(r, c)->widget())->getItem()->itemIsEmpty)
+                return ItemIndex(c, r);
+        }
+    }
+    return ItemIndex(-1, -1);
+}
+
 AbstractInventory::ItemIndex::ItemIndex(int col, int row)
 {
     this->col = col;
