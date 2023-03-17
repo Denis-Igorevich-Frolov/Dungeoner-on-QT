@@ -593,6 +593,9 @@ void InventoryCell::swapItems(InventoryCell *cell)
 
         emit itemIsDropped(col, row);
 
+        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
+            emit unlockOccupiedCells(this);
+
         if(acceptedSlot!=Item::INVENTORY)
             emit lockOccupiedCells(this, acceptedSlot);
     }
