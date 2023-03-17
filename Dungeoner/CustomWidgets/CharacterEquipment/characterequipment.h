@@ -19,14 +19,15 @@ public:
     ~CharacterEquipment();
 
     QVector<InventoryCell *> getEquipmentCells() const;
-    InventoryCell* findCell(QVector<Item::Slots> itemSlots);
+    InventoryCell* findCell(QVector<Item::Slots> itemSlots, QVector<Item::Slots> occupiedCellSlots);
 
 signals:
     void moveCellFromEquipment(InventoryCell* cell);
 
 public slots:
-    void lockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
-    void unlockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
+    void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
+    void unlockOccupiedCells (InventoryCell* cell);
+    bool checkingLockedCells (QVector<Item::Slots> occupiedCellSlots);
 
 private slots:
     void on_OverArmorButton_clicked();

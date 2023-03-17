@@ -50,6 +50,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::moveCellToEquipment, this, &CharacterEquipment::moveCellFromEquipment);
         connect(cell, &InventoryCell::lockOccupiedCells, this, &CharacterEquipment::lockOccupiedCells);
         connect(cell, &InventoryCell::unlockOccupiedCells, this, &CharacterEquipment::unlockOccupiedCells);
+        connect(cell, &InventoryCell::checkLockedCells, this, &CharacterEquipment::checkingLockedCells);
     }
 
     ui->RightDecoration->setDropdownButtonVisible(true);
@@ -86,7 +87,7 @@ QVector<InventoryCell *> CharacterEquipment::getEquipmentCells() const
     return equipmentCells;
 }
 
-InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots)
+InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots, QVector<Item::Slots> occupiedCellSlots)
 {
     InventoryCell* firstMatch = nullptr;
 
@@ -105,25 +106,37 @@ InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots)
     return firstMatch;
 }
 
-void CharacterEquipment::lockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots)
+void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot)
 {
-    for(Item::Slots slot : *occupiedCellSlots){
-        for(InventoryCell* cell : equipmentCells){
-            if(cell->acceptedSlot == slot){
-                if(cell->getItem()->itemIsEmpty)
-                    cell->setLockedStyle(true);
+    QVector<Item::Slots> occupiedSlots = QVector<Item::Slots>(cell->getItem()->getOccupiedCellSlots());
+
+    QMutableVectorIterator<Item::Slots> iterator(occupiedSlots);
+    while (iterator.hasNext()){
+        if(iterator.next() == acceptedSlot){
+            iterator.remove();
+            break;
+        }
+    }
+
+    for(Item::Slots slot : occupiedSlots){
+        for(InventoryCell* destinationCell : equipmentCells){
+            if(destinationCell->acceptedSlot == slot){
+                if(destinationCell->getItem()->itemIsEmpty)
+                    destinationCell->setLockedStyle(true, cell);
                 else{
-                    emit moveCellFromEquipment(cell);
-                    cell->setLockedStyle(true);
+                    emit moveCellFromEquipment(destinationCell);
+                    destinationCell->setLockedStyle(true, cell);
                 }
             }
         }
     }
 }
 
-void CharacterEquipment::unlockOccupiedCells(QVector<Item::Slots> *occupiedCellSlots)
+void CharacterEquipment::unlockOccupiedCells(InventoryCell* cell)
 {
-    for(Item::Slots slot : *occupiedCellSlots){
+    QVector<Item::Slots> oldOccupiedSlots = QVector<Item::Slots>(cell->getItem()->getOccupiedCellSlots());
+
+    for(Item::Slots slot : oldOccupiedSlots){
         for(InventoryCell* cell : equipmentCells){
             if(cell->acceptedSlot == slot && !cell->getIsManualLock()){
                 cell->setLockedStyle(false);
@@ -164,5 +177,26 @@ void CharacterEquipment::setCellsAcceptedSlots()
     ui->LeftHand->acceptedSlot = Item::Slots::L_HAND;
     ui->RightDecoration->acceptedSlot = Item::Slots::R_DECORATION;
     ui->RightHand->acceptedSlot = Item::Slots::R_HAND;
+}
+
+bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSlots)
+{
+    bool ItemsHaventBeenDropped = true;
+
+    QVectorIterator<Item::Slots> iterator(occupiedCellSlots);
+    while (iterator.hasNext()){
+        Item::Slots searchedSlot = iterator.next();
+        for(InventoryCell* cell : equipmentCells){
+            if(cell->acceptedSlot == searchedSlot){
+                if(cell->getIsLocked() && !cell->getIsManualLock()){
+                    emit moveCellFromEquipment(cell->getCellWithLockingItem());
+                }
+
+                ItemsHaventBeenDropped = false;
+            }
+        }
+    }
+
+    return ItemsHaventBeenDropped;
 }
 

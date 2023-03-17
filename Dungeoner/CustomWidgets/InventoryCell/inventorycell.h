@@ -27,7 +27,7 @@ public:
     //Метод, выставляющий стиль автоматически исходя из характеристик предмета
     void setAutoStyle();
     //Стиль неактивной (заблокированной) ячейки
-    void setLockedStyle(bool isLocked, bool isManualLock = false);
+    void setLockedStyle(bool isLocked, InventoryCell* cellWithLockingItem = nullptr, bool isManualLock = false);
     //Стиль ячейки, в которую нельзя поместить выбранный итем
     void setBlockedStyle(bool isBlocked);
     //Метод задающий значения переменным col и row. Он не изменит позицию и требуется только для инициализации
@@ -45,12 +45,15 @@ public:
 
     bool getIsManualLock() const;
 
+    InventoryCell *getCellWithLockingItem() const;
+
 signals:
     //Эвент говорящий в какую ячейку был перенесён итем при помощи Drag&Drop
     void itemIsDropped(int col, int row);
     void moveCellToEquipment(InventoryCell* cell);
-    void lockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
-    void unlockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
+    void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
+    void unlockOccupiedCells (InventoryCell* cell);
+    bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);
 
 private slots:
     void moveItemToEquipment();
@@ -84,6 +87,7 @@ private:
 
     bool isLocked = false;
     bool isManualLock = false;
+    InventoryCell* cellWithLockingItem = nullptr;
     bool isBlocked = false;
 
     Ui::InventoryCell *ui;

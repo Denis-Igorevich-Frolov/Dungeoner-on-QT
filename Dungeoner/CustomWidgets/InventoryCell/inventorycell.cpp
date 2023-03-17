@@ -408,13 +408,18 @@ void InventoryCell::dragLeaveEvent(QDragLeaveEvent *event)
 }
 
 //Стиль неактивной (заблокированной) ячейки
-void InventoryCell::setLockedStyle(bool isLocked, bool isManualLock)
+void InventoryCell::setLockedStyle(bool isLocked, InventoryCell *cellWithLockingItem, bool isManualLock)
 {
     this->isLocked = isLocked;
     this->isManualLock = isManualLock;
 
+    this->cellWithLockingItem = cellWithLockingItem;
+    if(cellWithLockingItem)
+        this->isManualLock = false;
+
     if(!isLocked){
-        isManualLock = false;
+        cellWithLockingItem = nullptr;
+        this->isManualLock = false;
         setAutoStyle();
         return;
     }
@@ -545,6 +550,11 @@ void InventoryCell::setDisabledBrokenStyle()
     ui->DropdownButton->move(3, 57);
 }
 
+InventoryCell *InventoryCell::getCellWithLockingItem() const
+{
+    return cellWithLockingItem;
+}
+
 bool InventoryCell::getIsManualLock() const
 {
     return isManualLock;
@@ -558,6 +568,12 @@ bool InventoryCell::getIsBlocked() const
 void InventoryCell::swapItems(InventoryCell *cell)
 {
     if(cell){
+        if(acceptedSlot!=Item::INVENTORY)
+            emit checkLockedCells (cell->getItem()->getOccupiedCellSlots());
+
+        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
+            emit unlockOccupiedCells(this);
+
         setBlockedStyle(false);
 
         Item* bufItem = new Item(cell->getItem());
@@ -577,25 +593,8 @@ void InventoryCell::swapItems(InventoryCell *cell)
 
         emit itemIsDropped(col, row);
 
-        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY){
-            QVector<Item::Slots> occupiedSlots = QVector<Item::Slots>(getItem()->getOccupiedCellSlots());
-
-            emit unlockOccupiedCells(&occupiedSlots);
-        }
-
-        if(acceptedSlot!=Item::INVENTORY){
-            QVector<Item::Slots> occupiedSlots = QVector<Item::Slots>(getItem()->getOccupiedCellSlots());
-
-            QMutableVectorIterator<Item::Slots> iterator(occupiedSlots);
-            while (iterator.hasNext()){
-                if(iterator.next() == acceptedSlot){
-                    iterator.remove();
-                    break;
-                }
-            }
-
-            emit lockOccupiedCells(&occupiedSlots);
-        }
+        if(acceptedSlot!=Item::INVENTORY)
+            emit lockOccupiedCells(this, acceptedSlot);
     }
 }
 

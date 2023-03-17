@@ -91,6 +91,8 @@ void CharacterWindowInventory::addRowOfCellsToInventory()
                 &InventoryCell::lockOccupiedCells, this, &CharacterWindowInventory::lockOccupiedCells);
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
                 &InventoryCell::unlockOccupiedCells, this, &CharacterWindowInventory::unlockOccupiedCells);
+        connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
+                &InventoryCell::checkLockedCells, this, &CharacterWindowInventory::checkLockedCells);
     }
     row++;
 }
