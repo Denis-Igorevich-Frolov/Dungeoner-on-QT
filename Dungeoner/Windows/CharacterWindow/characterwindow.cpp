@@ -49,6 +49,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
 
     connect(ui->Inventory, &CharacterWindowInventory::moveCellToEquipment, this, &CharacterWindow::moveCellToEquipment);
     connect(ui->Equipment, &CharacterEquipment::moveCellFromEquipment, this, &CharacterWindow::moveCellFromEquipment);
+    connect(ui->Inventory, &CharacterWindowInventory::lockOccupiedCells, ui->Equipment, &CharacterEquipment::lockOccupiedCells);
+    connect(ui->Inventory, &CharacterWindowInventory::unlockOccupiedCells, ui->Equipment, &CharacterEquipment::unlockOccupiedCells);
 
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус
      *и ивенты мыши, чтобы они не перекрывали непосредственно вторичные навыки*/
@@ -173,7 +175,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     item3->setCurrentCharges(10);
     item3->setId(0);
     QVector<Item::Slots> itemSlots3 {Item::Slots::R_HAND, Item::Slots::L_HAND};
-    item3->setCellSlots(itemSlots3);
+    QVector<Item::Slots> occupedSlots3 {Item::Slots::R_HAND, Item::Slots::L_HAND};
+    item3->setCellSlots(itemSlots3, occupedSlots3);
 
     item3->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
     item3->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
@@ -939,9 +942,9 @@ void CharacterWindow::moveCellToEquipment(InventoryCell* cell)
 {
     InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots());
     if(targetCell){
-        cell->swapItems(targetCell);
-        if(targetCell->getItem()->SoundDrop!="")
-            Global::mediaplayer.playSound(QUrl::fromLocalFile(targetCell->getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
+        targetCell->swapItems(cell);
+//        if(targetCell->getItem()->SoundDrop!="")
+//            Global::mediaplayer.playSound(QUrl::fromLocalFile(targetCell->getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
     }
 }
 
@@ -949,9 +952,9 @@ void CharacterWindow::moveCellFromEquipment(InventoryCell *cell)
 {
     InventoryCell* targetCell = ui->Inventory->getLastEmptyCell();
     if(targetCell){
-        cell->swapItems(targetCell);
-        if(targetCell->getItem()->SoundDrop!="")
-            Global::mediaplayer.playSound(QUrl::fromLocalFile(targetCell->getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
+        targetCell->swapItems(cell);
+//        if(targetCell->getItem()->SoundDrop!="")
+//            Global::mediaplayer.playSound(QUrl::fromLocalFile(targetCell->getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
     }
 }
 

@@ -37,6 +37,8 @@ signals:
     //При скролле скроллбара подсказка должна пропадать
     void RemoveTooltip();
     void moveCellToEquipment(InventoryCell* cell);
+    void lockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
+    void unlockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
 
 private slots:
     void InventoryScrollAreaScrolled(int value);

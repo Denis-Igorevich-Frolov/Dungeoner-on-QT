@@ -24,6 +24,10 @@ public:
 signals:
     void moveCellFromEquipment(InventoryCell* cell);
 
+public slots:
+    void lockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
+    void unlockOccupiedCells (QVector<Item::Slots>* occupiedCellSlots);
+
 private slots:
     void on_OverArmorButton_clicked();
     void on_ArmorButton_clicked();

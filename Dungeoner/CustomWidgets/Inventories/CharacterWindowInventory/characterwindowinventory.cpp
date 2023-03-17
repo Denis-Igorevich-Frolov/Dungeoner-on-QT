@@ -87,6 +87,10 @@ void CharacterWindowInventory::addRowOfCellsToInventory()
                 &InventoryCell::itemIsDropped, this, &CharacterWindowInventory::checkingInventorySizeChange);
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
                 &InventoryCell::moveCellToEquipment, this, &CharacterWindowInventory::moveCellToEquipment);
+        connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
+                &InventoryCell::lockOccupiedCells, this, &CharacterWindowInventory::lockOccupiedCells);
+        connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
+                &InventoryCell::unlockOccupiedCells, this, &CharacterWindowInventory::unlockOccupiedCells);
     }
     row++;
 }

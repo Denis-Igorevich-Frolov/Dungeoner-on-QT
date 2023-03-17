@@ -395,20 +395,9 @@ void InventoryCell::dropEvent(QDropEvent *event)
 
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     if(itemCell){
-        if(bufItem->SoundDrop!="")
-            Global::mediaplayer.playSound(QUrl::fromLocalFile(bufItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
-        //Затем текущий итем помещается в ячейку из которой началось перетаскивание
-        itemCell->setItem(new Item(ui->item));
-        /*Так как setItem не передаёт id итема, вызов setAutoStyle внутри него не сработал
-         *должным образом. Следует вручную перенести id и вызвать setAutoStyle снова*/
-        itemCell->getItem()->setId(ui->item->getId());
-        itemCell->setAutoStyle();
-        /*Перенос буферизированного итема в текущую ячейку. id ему уже задан
-         *заранее, так что setAutoStyle внутри setItem сработает как надо*/
-        setItem(bufItem);
+        swapItems(itemCell);
 
         event->acceptProposedAction();
-        emit itemIsDropped(col, row);
     }
 }
 
@@ -419,11 +408,13 @@ void InventoryCell::dragLeaveEvent(QDragLeaveEvent *event)
 }
 
 //Стиль неактивной (заблокированной) ячейки
-void InventoryCell::setLockedStyle(bool isLocked)
+void InventoryCell::setLockedStyle(bool isLocked, bool isManualLock)
 {
     this->isLocked = isLocked;
+    this->isManualLock = isManualLock;
 
     if(!isLocked){
+        isManualLock = false;
         setAutoStyle();
         return;
     }
@@ -554,6 +545,11 @@ void InventoryCell::setDisabledBrokenStyle()
     ui->DropdownButton->move(3, 57);
 }
 
+bool InventoryCell::getIsManualLock() const
+{
+    return isManualLock;
+}
+
 bool InventoryCell::getIsBlocked() const
 {
     return isBlocked;
@@ -580,6 +576,26 @@ void InventoryCell::swapItems(InventoryCell *cell)
         setItem(bufItem);
 
         emit itemIsDropped(col, row);
+
+        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY){
+            QVector<Item::Slots> occupiedSlots = QVector<Item::Slots>(getItem()->getOccupiedCellSlots());
+
+            emit unlockOccupiedCells(&occupiedSlots);
+        }
+
+        if(acceptedSlot!=Item::INVENTORY){
+            QVector<Item::Slots> occupiedSlots = QVector<Item::Slots>(getItem()->getOccupiedCellSlots());
+
+            QMutableVectorIterator<Item::Slots> iterator(occupiedSlots);
+            while (iterator.hasNext()){
+                if(iterator.next() == acceptedSlot){
+                    iterator.remove();
+                    break;
+                }
+            }
+
+            emit lockOccupiedCells(&occupiedSlots);
+        }
     }
 }
 
