@@ -59,8 +59,8 @@ public:
         L_BRACE,//Левый наруч
         R_GAUNTLET,//Правая рукавица
         L_GAUNTLET,//Левая рукавица
-        R_GREAVES,//Правый наголенник
-        L_GREAVES,//Левый наголенник
+        R_GREAVE,//Правый наголенник
+        L_GREAVE,//Левый наголенник
         R_BOOT,//Правый ботинок
         L_BOOT,//Левый ботинок
         //Над доспехом
@@ -78,7 +78,16 @@ public:
         BULLETS,//Пули
         ARROWS,//Стрелы
         BOLTS,//Болты
-        ADDITIONAL_SLOT//Дополнительный слот
+        ADDITIONAL_SLOT,//Дополнительный слот
+
+        ONE_OF_THE_GLOVE,
+        ONE_OF_THE_SHOULDER,
+        ONE_OF_THE_BRACE,
+        ONE_OF_THE_GAUNTLET,
+        ONE_OF_THE_GREAVE,
+        ONE_OF_THE_BOOT,
+        ONE_OF_THE_HAND,
+        ONE_OF_THE_DECORATION,
     };
 
     //Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item

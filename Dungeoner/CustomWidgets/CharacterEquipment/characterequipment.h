@@ -15,6 +15,22 @@ class CharacterEquipment : public QWidget
     Q_OBJECT
 
 public:
+    struct PairCells{
+    public:
+        PairCells(){};
+        PairCells(InventoryCell *rightCell, InventoryCell *leftCell);
+
+        InventoryCell *getRightCell() const;
+        void setRightCell(InventoryCell *newRightCell);
+
+        InventoryCell *getLeftCell() const;
+        void setLeftCell(InventoryCell *newLeftCell);
+
+    private:
+        InventoryCell* rightCell;
+        InventoryCell* leftCell;
+    };
+
     explicit CharacterEquipment(QWidget *parent = nullptr);
     ~CharacterEquipment();
 
@@ -39,7 +55,17 @@ private:
 
     QVector<InventoryCell*> equipmentCells;
 
+    PairCells bothGloves;
+    PairCells bothShoulders;
+    PairCells bothBraces;
+    PairCells bothGauntlets;
+    PairCells bothGreaves;
+    PairCells bothBoots;
+    PairCells bothHands;
+    PairCells bothDecorations;
+
     void setCellsAcceptedSlots();
+    bool itemDrop(InventoryCell* cell, Item::Slots searchedSlot);
 };
 
 #endif // CHARACTEREQUIPMENT_H

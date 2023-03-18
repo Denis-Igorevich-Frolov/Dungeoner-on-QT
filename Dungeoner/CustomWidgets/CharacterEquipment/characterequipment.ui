@@ -238,7 +238,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="InventoryCell" name="LefttBrace" native="true">
+     <widget class="InventoryCell" name="LeftBrace" native="true">
       <property name="geometry">
        <rect>
         <x>216</x>
@@ -286,7 +286,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="InventoryCell" name="RightGreaves" native="true">
+     <widget class="InventoryCell" name="RightGreave" native="true">
       <property name="geometry">
        <rect>
         <x>113</x>
@@ -302,7 +302,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="InventoryCell" name="LeftGreaves" native="true">
+     <widget class="InventoryCell" name="LeftGreave" native="true">
       <property name="geometry">
        <rect>
         <x>181</x>

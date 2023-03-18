@@ -572,7 +572,7 @@ void InventoryCell::swapItems(InventoryCell *cell)
             emit checkLockedCells (cell->getItem()->getOccupiedCellSlots());
 
         if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
-            emit unlockOccupiedCells(this);
+            emit unlockOccupiedCells(cell);
 
         setBlockedStyle(false);
 
@@ -592,9 +592,6 @@ void InventoryCell::swapItems(InventoryCell *cell)
         setItem(bufItem);
 
         emit itemIsDropped(col, row);
-
-        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
-            emit unlockOccupiedCells(this);
 
         if(acceptedSlot!=Item::INVENTORY)
             emit lockOccupiedCells(this, acceptedSlot);
