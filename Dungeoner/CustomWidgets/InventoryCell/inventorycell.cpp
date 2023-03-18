@@ -23,6 +23,8 @@ InventoryCell::InventoryCell(QWidget *parent) :
     ui->item->getStyleButtonsWrapper()->installEventFilter(this);
 
     connect(ui->item, &Item::moveItemToEquipment, this, &InventoryCell::moveItemToEquipment);
+    connect(ui->item, &Item::styleRemoved, this, &InventoryCell::styleRemoved);
+    connect(ui->item, &Item::styleAssigned, this, &InventoryCell::styleAssigned);
 
     setDropdownButtonVisible(false);
 
@@ -287,6 +289,18 @@ void InventoryCell::setDropdownButtonVisible(bool isVisible)
 void InventoryCell::moveItemToEquipment()
 {
     emit moveCellToEquipment(this);
+}
+
+void InventoryCell::styleRemoved()
+{
+    if(acceptedSlot != Item::INVENTORY)
+        emit unlockOccupiedCells(this);
+}
+
+void InventoryCell::styleAssigned()
+{
+    if(acceptedSlot != Item::INVENTORY)
+        emit lockOccupiedCells(this, acceptedSlot);
 }
 
 bool InventoryCell::eventFilter(QObject *object, QEvent *event)

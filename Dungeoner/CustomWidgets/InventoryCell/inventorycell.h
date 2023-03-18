@@ -57,6 +57,8 @@ signals:
 
 private slots:
     void moveItemToEquipment();
+    void styleRemoved();
+    void styleAssigned();
 
 private:
     //Стиль пустой ячейки

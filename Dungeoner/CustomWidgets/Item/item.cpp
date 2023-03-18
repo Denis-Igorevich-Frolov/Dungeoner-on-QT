@@ -768,31 +768,41 @@ void Item::setMaxCharges(int newMaxCharges)
 
 void Item::on_StyleButton_1_clicked()
 {
+    emit styleRemoved();
     setCurrentStyle(0);
+    emit styleAssigned();
 }
 
 
 void Item::on_StyleButton_2_clicked()
 {
+    emit styleRemoved();
     setCurrentStyle(1);
+    emit styleAssigned();
 }
 
 
 void Item::on_StyleButton_3_clicked()
 {
+    emit styleRemoved();
     setCurrentStyle(2);
+    emit styleAssigned();
 }
 
 
 void Item::on_StyleButton_4_clicked()
 {
+    emit styleRemoved();
     setCurrentStyle(3);
+    emit styleAssigned();
 }
 
 
 void Item::on_StyleButton_5_clicked()
 {
+    emit styleRemoved();
     setCurrentStyle(4);
+    emit styleAssigned();
 }
 
 QWidget *Item::getStyleButtonsWrapper()

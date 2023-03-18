@@ -210,6 +210,8 @@ public:
 
 signals:
     void moveItemToEquipment();
+    void styleRemoved();
+    void styleAssigned();
 
 private slots:
     //Эффекты при прожатии итема
