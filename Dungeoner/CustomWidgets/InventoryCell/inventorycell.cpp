@@ -573,6 +573,8 @@ void InventoryCell::swapItems(InventoryCell *cell)
 
         if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
             emit unlockOccupiedCells(cell);
+        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
+            emit unlockOccupiedCells(this);
 
         setBlockedStyle(false);
 
