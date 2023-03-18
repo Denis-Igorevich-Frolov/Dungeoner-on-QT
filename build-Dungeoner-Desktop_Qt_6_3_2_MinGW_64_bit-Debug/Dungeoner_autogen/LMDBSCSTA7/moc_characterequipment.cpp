@@ -23,22 +23,23 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CharacterEquipment_t {
-    uint offsetsAndSizes[30];
+    uint offsetsAndSizes[32];
     char stringdata0[19];
     char stringdata1[22];
     char stringdata2[1];
     char stringdata3[15];
     char stringdata4[5];
-    char stringdata5[18];
-    char stringdata6[12];
-    char stringdata7[13];
-    char stringdata8[20];
+    char stringdata5[30];
+    char stringdata6[18];
+    char stringdata7[12];
+    char stringdata8[13];
     char stringdata9[20];
-    char stringdata10[19];
-    char stringdata11[18];
-    char stringdata12[27];
-    char stringdata13[23];
-    char stringdata14[28];
+    char stringdata10[20];
+    char stringdata11[19];
+    char stringdata12[18];
+    char stringdata13[27];
+    char stringdata14[23];
+    char stringdata15[28];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CharacterEquipment_t::offsetsAndSizes) + ofs), len 
@@ -49,22 +50,24 @@ static const qt_meta_stringdata_CharacterEquipment_t qt_meta_stringdata_Characte
         QT_MOC_LITERAL(41, 0),  // ""
         QT_MOC_LITERAL(42, 14),  // "InventoryCell*"
         QT_MOC_LITERAL(57, 4),  // "cell"
-        QT_MOC_LITERAL(62, 17),  // "lockOccupiedCells"
-        QT_MOC_LITERAL(80, 11),  // "Item::Slots"
-        QT_MOC_LITERAL(92, 12),  // "acceptedSlot"
-        QT_MOC_LITERAL(105, 19),  // "unlockOccupiedCells"
-        QT_MOC_LITERAL(125, 19),  // "checkingLockedCells"
-        QT_MOC_LITERAL(145, 18),  // "QList<Item::Slots>"
-        QT_MOC_LITERAL(164, 17),  // "occupiedCellSlots"
-        QT_MOC_LITERAL(182, 26),  // "on_OverArmorButton_clicked"
-        QT_MOC_LITERAL(209, 22),  // "on_ArmorButton_clicked"
-        QT_MOC_LITERAL(232, 27)   // "on_UnderArmorButton_clicked"
+        QT_MOC_LITERAL(62, 29),  // "reviseItemPositionInEquipment"
+        QT_MOC_LITERAL(92, 17),  // "lockOccupiedCells"
+        QT_MOC_LITERAL(110, 11),  // "Item::Slots"
+        QT_MOC_LITERAL(122, 12),  // "acceptedSlot"
+        QT_MOC_LITERAL(135, 19),  // "unlockOccupiedCells"
+        QT_MOC_LITERAL(155, 19),  // "checkingLockedCells"
+        QT_MOC_LITERAL(175, 18),  // "QList<Item::Slots>"
+        QT_MOC_LITERAL(194, 17),  // "occupiedCellSlots"
+        QT_MOC_LITERAL(212, 26),  // "on_OverArmorButton_clicked"
+        QT_MOC_LITERAL(239, 22),  // "on_ArmorButton_clicked"
+        QT_MOC_LITERAL(262, 27)   // "on_UnderArmorButton_clicked"
     },
     "CharacterEquipment",
     "moveCellFromEquipment",
     "",
     "InventoryCell*",
     "cell",
+    "reviseItemPositionInEquipment",
     "lockOccupiedCells",
     "Item::Slots",
     "acceptedSlot",
@@ -84,31 +87,33 @@ static const uint qt_meta_data_CharacterEquipment[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   56,    2, 0x06,    1 /* Public */,
+       1,    1,   62,    2, 0x06,    1 /* Public */,
+       5,    1,   65,    2, 0x06,    3 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       5,    2,   59,    2, 0x0a,    3 /* Public */,
-       8,    1,   64,    2, 0x0a,    6 /* Public */,
-       9,    1,   67,    2, 0x0a,    8 /* Public */,
-      12,    0,   70,    2, 0x08,   10 /* Private */,
-      13,    0,   71,    2, 0x08,   11 /* Private */,
-      14,    0,   72,    2, 0x08,   12 /* Private */,
+       6,    2,   68,    2, 0x0a,    5 /* Public */,
+       9,    1,   73,    2, 0x0a,    8 /* Public */,
+      10,    1,   76,    2, 0x0a,   10 /* Public */,
+      13,    0,   79,    2, 0x08,   12 /* Private */,
+      14,    0,   80,    2, 0x08,   13 /* Private */,
+      15,    0,   81,    2, 0x08,   14 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
+    QMetaType::Void, 0x80000000 | 3,    4,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 6,    4,    7,
+    QMetaType::Void, 0x80000000 | 3, 0x80000000 | 7,    4,    8,
     QMetaType::Void, 0x80000000 | 3,    4,
-    QMetaType::Bool, 0x80000000 | 10,   11,
+    QMetaType::Bool, 0x80000000 | 11,   12,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -123,13 +128,14 @@ void CharacterEquipment::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         (void)_t;
         switch (_id) {
         case 0: _t->moveCellFromEquipment((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
-        case 1: _t->lockOccupiedCells((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Item::Slots>>(_a[2]))); break;
-        case 2: _t->unlockOccupiedCells((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
-        case 3: { bool _r = _t->checkingLockedCells((*reinterpret_cast< std::add_pointer_t<QList<Item::Slots>>>(_a[1])));
+        case 1: _t->reviseItemPositionInEquipment((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
+        case 2: _t->lockOccupiedCells((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Item::Slots>>(_a[2]))); break;
+        case 3: _t->unlockOccupiedCells((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
+        case 4: { bool _r = _t->checkingLockedCells((*reinterpret_cast< std::add_pointer_t<QList<Item::Slots>>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 4: _t->on_OverArmorButton_clicked(); break;
-        case 5: _t->on_ArmorButton_clicked(); break;
-        case 6: _t->on_UnderArmorButton_clicked(); break;
+        case 5: _t->on_OverArmorButton_clicked(); break;
+        case 6: _t->on_ArmorButton_clicked(); break;
+        case 7: _t->on_UnderArmorButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -156,6 +162,13 @@ void CharacterEquipment::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< InventoryCell* >(); break;
             }
             break;
+        case 3:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
+            case 0:
+                *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< InventoryCell* >(); break;
+            }
+            break;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
@@ -163,6 +176,13 @@ void CharacterEquipment::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
             using _t = void (CharacterEquipment::*)(InventoryCell * );
             if (_t _q_method = &CharacterEquipment::moveCellFromEquipment; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (CharacterEquipment::*)(InventoryCell * );
+            if (_t _q_method = &CharacterEquipment::reviseItemPositionInEquipment; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
                 return;
             }
         }
@@ -176,7 +196,7 @@ const QMetaObject CharacterEquipment::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterEquipment_t
-, QtPrivate::TypeAndForceComplete<CharacterEquipment, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>
+, QtPrivate::TypeAndForceComplete<CharacterEquipment, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
@@ -204,13 +224,13 @@ int CharacterEquipment::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     }
     return _id;
 }
@@ -220,6 +240,13 @@ void CharacterEquipment::moveCellFromEquipment(InventoryCell * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void CharacterEquipment::reviseItemPositionInEquipment(InventoryCell * _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

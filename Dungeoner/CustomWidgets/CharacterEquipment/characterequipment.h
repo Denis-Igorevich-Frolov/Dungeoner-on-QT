@@ -39,6 +39,7 @@ public:
 
 signals:
     void moveCellFromEquipment(InventoryCell* cell);
+    void reviseItemPositionInEquipment(InventoryCell* cell);
 
 public slots:
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);

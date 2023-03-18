@@ -301,6 +301,16 @@ void InventoryCell::styleRemoved()
 void InventoryCell::styleAssigned()
 {
     if(acceptedSlot != Item::INVENTORY){
+        bool itemInItsSlot = false;
+        for(Item::Slots slot : getItem()->getCellSlots()){
+            if(slot == acceptedSlot){
+                itemInItsSlot = true;
+                break;
+            }
+        }
+        if(!itemInItsSlot)
+            emit reviseItemPositionInEquipment(this);
+
         emit checkLockedCells(getItem()->getOccupiedCellSlots());
         emit lockOccupiedCells(this, acceptedSlot);
     }

@@ -51,6 +51,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::lockOccupiedCells, this, &CharacterEquipment::lockOccupiedCells);
         connect(cell, &InventoryCell::unlockOccupiedCells, this, &CharacterEquipment::unlockOccupiedCells);
         connect(cell, &InventoryCell::checkLockedCells, this, &CharacterEquipment::checkingLockedCells);
+        connect(cell, &InventoryCell::reviseItemPositionInEquipment, this, &CharacterEquipment::reviseItemPositionInEquipment);
     }
 
     ui->RightDecoration->setDropdownButtonVisible(true);
