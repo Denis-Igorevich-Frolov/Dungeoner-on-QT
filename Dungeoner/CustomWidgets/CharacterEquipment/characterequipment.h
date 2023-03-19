@@ -35,7 +35,7 @@ public:
     ~CharacterEquipment();
 
     QVector<InventoryCell *> getEquipmentCells() const;
-    InventoryCell* findCell(QVector<Item::Slots> itemSlots, QVector<Item::Slots> occupiedCellSlots);
+    InventoryCell* findCell(QVector<Item::Slots> itemSlots);
 
 signals:
     void moveCellFromEquipment(InventoryCell* cell);

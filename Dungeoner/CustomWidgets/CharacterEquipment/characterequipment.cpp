@@ -113,7 +113,7 @@ QVector<InventoryCell *> CharacterEquipment::getEquipmentCells() const
     return equipmentCells;
 }
 
-InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots, QVector<Item::Slots> occupiedCellSlots)
+InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots)
 {
     InventoryCell* firstMatch = nullptr;
 

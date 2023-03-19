@@ -963,7 +963,7 @@ void CharacterWindow::refreshDisplayStats()
 
 void CharacterWindow::moveCellToEquipment(InventoryCell* cell)
 {
-    InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots(), cell->getItem()->getOccupiedCellSlots());
+    InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots());
     if(targetCell){
         targetCell->swapItems(cell);
     }

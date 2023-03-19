@@ -373,7 +373,9 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
 void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
 {
     QStringList formats = event->mimeData()->formats();
-    if(formats.contains("Item") && !isLocked) {
+    if(formats.contains("Item")) {
+        if((isLocked && isManualLock))
+            return;
         event->acceptProposedAction();
 
         const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
@@ -399,8 +401,11 @@ void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
 void InventoryCell::dropEvent(QDropEvent *event)
 {
     setBlockedStyle(false);
-
     const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
+
+    if(isLocked && !isManualLock && cellWithLockingItem!=nullptr && cellWithLockingItem!=itemData->getItemCell() && itemData->getItemCell()!=this)
+        emit moveCellToEquipment(cellWithLockingItem);
+
     //Итем сначала записывается в отдельную переменную из MimeData
     Item* bufItem = new Item(itemData->getItem());
     bufItem->setId(itemData->getItem()->getId());
@@ -595,7 +600,7 @@ bool InventoryCell::getIsBlocked() const
 void InventoryCell::swapItems(InventoryCell *cell)
 {
     if(cell){
-        if(acceptedSlot!=Item::INVENTORY)
+        if(acceptedSlot!=Item::INVENTORY && cellWithLockingItem!=cell && cell!=this)
             emit checkLockedCells (cell->getItem()->getOccupiedCellSlots());
 
         if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
