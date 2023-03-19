@@ -216,19 +216,13 @@ signals:
 private slots:
     //Эффекты при прожатии итема
     void on_pushButton_clicked();
-
     void on_pushButton_pressed();
-
     void on_pushButton_released();
 
     void on_StyleButton_1_clicked();
-
     void on_StyleButton_2_clicked();
-
     void on_StyleButton_3_clicked();
-
     void on_StyleButton_4_clicked();
-
     void on_StyleButton_5_clicked();
 
 private:

@@ -35,11 +35,11 @@ public:
     ~CharacterEquipment();
 
     QVector<InventoryCell *> getEquipmentCells() const;
-    InventoryCell* findCell(QVector<Item::Slots> itemSlots);
+    InventoryCell* findCell(QVector<Item::Slots> itemSlots, bool findCellAnyway = true);
 
 signals:
     void moveCellFromEquipment(InventoryCell* cell);
-    void reviseItemPositionInEquipment(InventoryCell* cell);
+    void reviseItemPositionInEquipment(InventoryCell* cell, bool moveItemAnyway = true);
 
 public slots:
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);

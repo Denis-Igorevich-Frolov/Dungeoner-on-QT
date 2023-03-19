@@ -961,12 +961,15 @@ void CharacterWindow::refreshDisplayStats()
     initSecondaryStatsWidgets();
 }
 
-void CharacterWindow::moveCellToEquipment(InventoryCell* cell)
+void CharacterWindow::moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway)
 {
-    InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots());
+    InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots(), moveItemAnyway);
     if(targetCell){
+        if(!targetCell->getItem()->itemIsEmpty)
+            moveCellFromEquipment(targetCell);
         targetCell->swapItems(cell);
-    }
+    }else
+        moveCellFromEquipment(cell);
 }
 
 void CharacterWindow::moveCellFromEquipment(InventoryCell *cell)

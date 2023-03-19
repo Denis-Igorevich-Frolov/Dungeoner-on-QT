@@ -309,7 +309,7 @@ void InventoryCell::styleAssigned()
             }
         }
         if(!itemInItsSlot)
-            emit reviseItemPositionInEquipment(this);
+            emit reviseItemPositionInEquipment(this, false);
 
         emit checkLockedCells(getItem()->getOccupiedCellSlots());
         emit lockOccupiedCells(this, acceptedSlot);

@@ -36,7 +36,7 @@ public slots:
 signals:
     //При скролле скроллбара подсказка должна пропадать
     void RemoveTooltip();
-    void moveCellToEquipment(InventoryCell* cell);
+    void moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway = true);
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
     void unlockOccupiedCells (InventoryCell* cell);
     bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);

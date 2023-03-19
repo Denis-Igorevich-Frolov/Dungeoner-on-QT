@@ -50,8 +50,8 @@ public:
 signals:
     //Эвент говорящий в какую ячейку был перенесён итем при помощи Drag&Drop
     void itemIsDropped(int col, int row);
-    void moveCellToEquipment(InventoryCell* cell);
-    void reviseItemPositionInEquipment(InventoryCell* cell);
+    void moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway = true);
+    void reviseItemPositionInEquipment(InventoryCell* cell, bool moveItemAnyway = true);
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
     void unlockOccupiedCells (InventoryCell* cell);
     bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);

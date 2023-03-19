@@ -29,7 +29,7 @@ private slots:
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();
 
-    void moveCellToEquipment(InventoryCell* cell);
+    void moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway = true);
     void moveCellFromEquipment(InventoryCell* cell);
 
     void on_verticalScrollBar_actionTriggered(int action);
