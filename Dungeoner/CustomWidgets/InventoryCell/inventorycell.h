@@ -30,6 +30,7 @@ public:
     void setLockedStyle(bool isLocked, InventoryCell* cellWithLockingItem = nullptr, bool isManualLock = false);
     //Стиль ячейки, в которую нельзя поместить выбранный итем
     void setBlockedStyle(bool isBlocked);
+    void setAvailableStyle(bool isAvailable);
     //Метод задающий значения переменным col и row. Он не изменит позицию и требуется только для инициализации
     void setCellPosition(int col, int row);
 
@@ -40,12 +41,14 @@ public:
 
     bool getIsLocked() const;
     bool getIsBlocked() const;
+    bool getIsAvailable() const;
 
     void swapItems(InventoryCell* cell);
 
     bool getIsManualLock() const;
 
     InventoryCell *getCellWithLockingItem() const;
+
 
 signals:
     //Эвент говорящий в какую ячейку был перенесён итем при помощи Drag&Drop
@@ -55,6 +58,8 @@ signals:
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
     void unlockOccupiedCells (InventoryCell* cell);
     bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);
+    void dragStarted(QVector<Item::Slots> cellSlots);
+    void dragEnded();
 
 private slots:
     void moveItemToEquipment();
@@ -92,6 +97,7 @@ private:
     bool isManualLock = false;
     InventoryCell* cellWithLockingItem = nullptr;
     bool isBlocked = false;
+    bool isAvailable = false;
 
     Ui::InventoryCell *ui;
 

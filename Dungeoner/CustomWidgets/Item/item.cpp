@@ -39,15 +39,18 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
            int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots, QVector<Slots> occupiedCellSlots,
            QVector<Bonus*> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses, int minDamage, int maxDamage,
            bool isPressable, int maxCharges, int currentCharges, bool isDisabled, bool isNew, int currentStyle,
-           bool itemIsEmpty, QVector<Item *> styles, QString SoundDrag, QString SoundDrop, QString SoundPress, QString SoundPressWithOutOfCharge) :
+           bool itemIsEmpty, QVector<Item *> styles, QString SoundDrag, QString SoundDrop, QString SoundPress, QString SoundPressWithOutOfCharge, int id) :
     ui(new Ui::Item)
 {
+
     ui->setupUi(this);
 
     //Без этого атрибута эвенты наведения мыши не будут вызываться
     setAttribute(Qt::WA_Hover);
 
     ui->pushButton->installEventFilter(this);
+
+    this->id = id;
 
     this->itemIsEmpty = itemIsEmpty;
     //Если итем пуст, то и его id всегда будет равен -1
@@ -131,7 +134,7 @@ Item::Item(const Item *item):
          item->price, item->maxDurability, item->currentDurability, item->cellSlots, item->occupiedCellSlots,
          item->bonuses, item->magicDefenseBonuses, item->minDamage, item->maxDamage, item->isPressable,
          item->maxCharges, item->currentCharges, item->isDisabled, item->isNew, item->currentStyle,
-         item->itemIsEmpty, item->styles, item->SoundDrag, item->SoundDrop, item->SoundPress, item->SoundPressWithOutOfCharge)
+         item->itemIsEmpty, item->styles, item->SoundDrag, item->SoundDrop, item->SoundPress, item->SoundPressWithOutOfCharge, item->id)
 {}
 
 void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, int shadowYOffset, QColor color)

@@ -40,6 +40,8 @@ signals:
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
     void unlockOccupiedCells (InventoryCell* cell);
     bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);
+    void dragStarted(QVector<Item::Slots> cellSlots);
+    void dragEnded();
 
 private slots:
     void InventoryScrollAreaScrolled(int value);

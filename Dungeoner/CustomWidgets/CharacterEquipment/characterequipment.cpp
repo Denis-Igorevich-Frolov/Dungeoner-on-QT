@@ -51,6 +51,8 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::lockOccupiedCells, this, &CharacterEquipment::lockOccupiedCells);
         connect(cell, &InventoryCell::unlockOccupiedCells, this, &CharacterEquipment::unlockOccupiedCells);
         connect(cell, &InventoryCell::checkLockedCells, this, &CharacterEquipment::checkingLockedCells);
+        connect(cell, &InventoryCell::dragStarted, this, &CharacterEquipment::dragStarted);
+        connect(cell, &InventoryCell::dragEnded, this, &CharacterEquipment::dragEnded);
         connect(cell, &InventoryCell::reviseItemPositionInEquipment, this, &CharacterEquipment::reviseItemPositionInEquipment);
     }
 
@@ -467,5 +469,25 @@ bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSl
     }
 
     return ItemsHaveBeenDropped;
+}
+
+void CharacterEquipment::dragStarted(QVector<Item::Slots> cellSlots)
+{
+    for(Item::Slots cellSlot : cellSlots){
+        for(InventoryCell* equipmentCell : equipmentCells){
+            if(equipmentCell->acceptedSlot == cellSlot){
+                equipmentCell->setAvailableStyle(true);
+                break;
+            }
+        }
+    }
+}
+
+void CharacterEquipment::dragEnded()
+{
+    for(InventoryCell* equipmentCell : equipmentCells){
+        if(equipmentCell->getIsAvailable())
+            equipmentCell->setAvailableStyle(false);
+    }
 }
 

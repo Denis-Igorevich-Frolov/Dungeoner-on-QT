@@ -52,6 +52,8 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     connect(ui->Inventory, &CharacterWindowInventory::lockOccupiedCells, ui->Equipment, &CharacterEquipment::lockOccupiedCells);
     connect(ui->Inventory, &CharacterWindowInventory::unlockOccupiedCells, ui->Equipment, &CharacterEquipment::unlockOccupiedCells);
     connect(ui->Inventory, &CharacterWindowInventory::checkLockedCells, ui->Equipment, &CharacterEquipment::checkingLockedCells);
+    connect(ui->Inventory, &CharacterWindowInventory::dragStarted, ui->Equipment, &CharacterEquipment::dragStarted);
+    connect(ui->Inventory, &CharacterWindowInventory::dragEnded, ui->Equipment, &CharacterEquipment::dragEnded);
     connect(ui->Equipment, &CharacterEquipment::reviseItemPositionInEquipment, this, &CharacterWindow::moveCellToEquipment);
 
     /*Отключение у теней скроллбара вторичных навыков возможности принимать фокус

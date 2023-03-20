@@ -23,7 +23,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CharacterWindowInventory_t {
-    uint offsetsAndSizes[50];
+    uint offsetsAndSizes[56];
     char stringdata0[25];
     char stringdata1[14];
     char stringdata2[1];
@@ -38,17 +38,20 @@ struct qt_meta_stringdata_CharacterWindowInventory_t {
     char stringdata11[17];
     char stringdata12[19];
     char stringdata13[18];
-    char stringdata14[25];
-    char stringdata15[30];
-    char stringdata16[28];
-    char stringdata17[6];
-    char stringdata18[35];
-    char stringdata19[38];
-    char stringdata20[7];
-    char stringdata21[26];
-    char stringdata22[28];
-    char stringdata23[4];
-    char stringdata24[4];
+    char stringdata14[12];
+    char stringdata15[10];
+    char stringdata16[10];
+    char stringdata17[25];
+    char stringdata18[30];
+    char stringdata19[28];
+    char stringdata20[6];
+    char stringdata21[35];
+    char stringdata22[38];
+    char stringdata23[7];
+    char stringdata24[26];
+    char stringdata25[28];
+    char stringdata26[4];
+    char stringdata27[4];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CharacterWindowInventory_t::offsetsAndSizes) + ofs), len 
@@ -68,17 +71,20 @@ static const qt_meta_stringdata_CharacterWindowInventory_t qt_meta_stringdata_Ch
         QT_MOC_LITERAL(158, 16),  // "checkLockedCells"
         QT_MOC_LITERAL(175, 18),  // "QList<Item::Slots>"
         QT_MOC_LITERAL(194, 17),  // "occupiedCellSlots"
-        QT_MOC_LITERAL(212, 24),  // "addRowOfCellsToInventory"
-        QT_MOC_LITERAL(237, 29),  // "removeRowOfCellsFromInventory"
-        QT_MOC_LITERAL(267, 27),  // "InventoryScrollAreaScrolled"
-        QT_MOC_LITERAL(295, 5),  // "value"
-        QT_MOC_LITERAL(301, 34),  // "on_InventoryScrollBar_valueCh..."
-        QT_MOC_LITERAL(336, 37),  // "on_InventoryScrollBar_actionT..."
-        QT_MOC_LITERAL(374, 6),  // "action"
-        QT_MOC_LITERAL(381, 25),  // "inventoryScrollingStarted"
-        QT_MOC_LITERAL(407, 27),  // "checkingInventorySizeChange"
-        QT_MOC_LITERAL(435, 3),  // "col"
-        QT_MOC_LITERAL(439, 3)   // "row"
+        QT_MOC_LITERAL(212, 11),  // "dragStarted"
+        QT_MOC_LITERAL(224, 9),  // "cellSlots"
+        QT_MOC_LITERAL(234, 9),  // "dragEnded"
+        QT_MOC_LITERAL(244, 24),  // "addRowOfCellsToInventory"
+        QT_MOC_LITERAL(269, 29),  // "removeRowOfCellsFromInventory"
+        QT_MOC_LITERAL(299, 27),  // "InventoryScrollAreaScrolled"
+        QT_MOC_LITERAL(327, 5),  // "value"
+        QT_MOC_LITERAL(333, 34),  // "on_InventoryScrollBar_valueCh..."
+        QT_MOC_LITERAL(368, 37),  // "on_InventoryScrollBar_actionT..."
+        QT_MOC_LITERAL(406, 6),  // "action"
+        QT_MOC_LITERAL(413, 25),  // "inventoryScrollingStarted"
+        QT_MOC_LITERAL(439, 27),  // "checkingInventorySizeChange"
+        QT_MOC_LITERAL(467, 3),  // "col"
+        QT_MOC_LITERAL(471, 3)   // "row"
     },
     "CharacterWindowInventory",
     "RemoveTooltip",
@@ -94,6 +100,9 @@ static const qt_meta_stringdata_CharacterWindowInventory_t qt_meta_stringdata_Ch
     "checkLockedCells",
     "QList<Item::Slots>",
     "occupiedCellSlots",
+    "dragStarted",
+    "cellSlots",
+    "dragEnded",
     "addRowOfCellsToInventory",
     "removeRowOfCellsFromInventory",
     "InventoryScrollAreaScrolled",
@@ -114,29 +123,31 @@ static const uint qt_meta_data_CharacterWindowInventory[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       6,       // signalCount
+       8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   92,    2, 0x06,    1 /* Public */,
-       3,    2,   93,    2, 0x06,    2 /* Public */,
-       3,    1,   98,    2, 0x26,    5 /* Public | MethodCloned */,
-       7,    2,  101,    2, 0x06,    7 /* Public */,
-      10,    1,  106,    2, 0x06,   10 /* Public */,
-      11,    1,  109,    2, 0x06,   12 /* Public */,
+       1,    0,  104,    2, 0x06,    1 /* Public */,
+       3,    2,  105,    2, 0x06,    2 /* Public */,
+       3,    1,  110,    2, 0x26,    5 /* Public | MethodCloned */,
+       7,    2,  113,    2, 0x06,    7 /* Public */,
+      10,    1,  118,    2, 0x06,   10 /* Public */,
+      11,    1,  121,    2, 0x06,   12 /* Public */,
+      14,    1,  124,    2, 0x06,   14 /* Public */,
+      16,    0,  127,    2, 0x06,   16 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      14,    0,  112,    2, 0x0a,   14 /* Public */,
-      15,    0,  113,    2, 0x0a,   15 /* Public */,
-      16,    1,  114,    2, 0x08,   16 /* Private */,
-      18,    1,  117,    2, 0x08,   18 /* Private */,
-      19,    1,  120,    2, 0x08,   20 /* Private */,
-      21,    0,  123,    2, 0x08,   22 /* Private */,
-      22,    2,  124,    2, 0x08,   23 /* Private */,
+      17,    0,  128,    2, 0x0a,   17 /* Public */,
+      18,    0,  129,    2, 0x0a,   18 /* Public */,
+      19,    1,  130,    2, 0x08,   19 /* Private */,
+      21,    1,  133,    2, 0x08,   21 /* Private */,
+      22,    1,  136,    2, 0x08,   23 /* Private */,
+      24,    0,  139,    2, 0x08,   25 /* Private */,
+      25,    2,  140,    2, 0x08,   26 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -145,15 +156,17 @@ static const uint qt_meta_data_CharacterWindowInventory[] = {
     QMetaType::Void, 0x80000000 | 4, 0x80000000 | 8,    5,    9,
     QMetaType::Void, 0x80000000 | 4,    5,
     QMetaType::Bool, 0x80000000 | 12,   13,
+    QMetaType::Void, 0x80000000 | 12,   15,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   17,
-    QMetaType::Void, QMetaType::Int,   17,
     QMetaType::Void, QMetaType::Int,   20,
+    QMetaType::Void, QMetaType::Int,   20,
+    QMetaType::Void, QMetaType::Int,   23,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   23,   24,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   26,   27,
 
        0        // eod
 };
@@ -171,13 +184,15 @@ void CharacterWindowInventory::qt_static_metacall(QObject *_o, QMetaObject::Call
         case 4: _t->unlockOccupiedCells((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
         case 5: { bool _r = _t->checkLockedCells((*reinterpret_cast< std::add_pointer_t<QList<Item::Slots>>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 6: _t->addRowOfCellsToInventory(); break;
-        case 7: _t->removeRowOfCellsFromInventory(); break;
-        case 8: _t->InventoryScrollAreaScrolled((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 9: _t->on_InventoryScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 10: _t->on_InventoryScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 11: _t->inventoryScrollingStarted(); break;
-        case 12: _t->checkingInventorySizeChange((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 6: _t->dragStarted((*reinterpret_cast< std::add_pointer_t<QList<Item::Slots>>>(_a[1]))); break;
+        case 7: _t->dragEnded(); break;
+        case 8: _t->addRowOfCellsToInventory(); break;
+        case 9: _t->removeRowOfCellsFromInventory(); break;
+        case 10: _t->InventoryScrollAreaScrolled((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 11: _t->on_InventoryScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 12: _t->on_InventoryScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->inventoryScrollingStarted(); break;
+        case 14: _t->checkingInventorySizeChange((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -249,6 +264,20 @@ void CharacterWindowInventory::qt_static_metacall(QObject *_o, QMetaObject::Call
                 return;
             }
         }
+        {
+            using _t = void (CharacterWindowInventory::*)(QVector<Item::Slots> );
+            if (_t _q_method = &CharacterWindowInventory::dragStarted; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 6;
+                return;
+            }
+        }
+        {
+            using _t = void (CharacterWindowInventory::*)();
+            if (_t _q_method = &CharacterWindowInventory::dragEnded; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 7;
+                return;
+            }
+        }
     }
 }
 
@@ -259,7 +288,7 @@ const QMetaObject CharacterWindowInventory::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterWindowInventory_t
-, QtPrivate::TypeAndForceComplete<CharacterWindowInventory, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>
+, QtPrivate::TypeAndForceComplete<CharacterWindowInventory, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
 
 
@@ -289,13 +318,13 @@ int CharacterWindowInventory::qt_metacall(QMetaObject::Call _c, int _id, void **
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     }
     return _id;
 }
@@ -334,6 +363,19 @@ bool CharacterWindowInventory::checkLockedCells(QVector<Item::Slots> _t1)
     void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t0))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
     return _t0;
+}
+
+// SIGNAL 6
+void CharacterWindowInventory::dragStarted(QVector<Item::Slots> _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void CharacterWindowInventory::dragEnded()
+{
+    QMetaObject::activate(this, &staticMetaObject, 7, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

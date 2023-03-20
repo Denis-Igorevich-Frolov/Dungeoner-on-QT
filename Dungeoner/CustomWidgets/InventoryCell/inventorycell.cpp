@@ -47,6 +47,7 @@ InventoryCell::~InventoryCell()
 
 void InventoryCell::setItem(Item *item)
 {
+    ui->item->setId(item->getId());
     ui->item->itemIsEmpty = item->itemIsEmpty;
     ui->item->folderName = item->folderName;
     ui->item->isNew = item->isNew;
@@ -61,7 +62,6 @@ void InventoryCell::setItem(Item *item)
     ui->item->pressedColor = item->pressedColor;
     ui->item->disabledColor = item->disabledColor;
     ui->item->brokenColor = item->brokenColor;
-    ui->item->setId(item->getId());
     ui->item->setWeight(item->getWeight());
     ui->item->setVolume(item->getVolume());
     ui->item->setPrice(item->getPrice());
@@ -99,8 +99,10 @@ Item *InventoryCell::getItem()
 //Метод, выставляющий стиль автоматически исходя из характеристик предмета
 void InventoryCell::setAutoStyle()
 {
+    if(isLocked)
+        setLockedStyle(true, cellWithLockingItem);
     //id -1 только у пустого неинициализированного предмета
-    if(ui->item->getId() == -1)
+    else if(ui->item->getId() == -1)
         setEmptyStyle();
     else if(ui->item->isNew && ui->item->isDisabled && ui->item->getIsBroken())
         setDisabledBrokenNewStyle();
@@ -361,8 +363,10 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
                 painter.end();
 
                 drag->setPixmap(pixmap);
+                emit dragStarted(getItem()->getCellSlots());
 
                 Qt::DropAction result = drag->exec(Qt::MoveAction);
+                emit dragEnded();
             }
         }
     }
@@ -408,7 +412,6 @@ void InventoryCell::dropEvent(QDropEvent *event)
 
     //Итем сначала записывается в отдельную переменную из MimeData
     Item* bufItem = new Item(itemData->getItem());
-    bufItem->setId(itemData->getItem()->getId());
 
     bool slotsMatch = false;
 
@@ -524,6 +527,49 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     ui->item->setUpdatesEnabled(true);
 }
 
+void InventoryCell::setAvailableStyle(bool isAvailable)
+{
+    this->isAvailable = isAvailable;
+    if(isAvailable){
+        if(isLocked)
+            inventoryCellNew.setFileName(":/Equipment/GIF/LockedAvailableInventoryCell.gif");
+        else if(getItem()->itemIsEmpty)
+            inventoryCellNew.setFileName(":/Equipment/GIF/EmptyAvailableInventoryCell.gif");
+        else if(getItem()->isDisabled && getItem()->getIsBroken())
+            inventoryCellNew.setFileName(":/Equipment/GIF/DisabledBrokenAvailableInventoryCell.gif");
+        else if(getItem()->isDisabled)
+            inventoryCellNew.setFileName(":/Equipment/GIF/DisabledAvailableInventoryCell.gif");
+        else if(getItem()->getIsBroken())
+            inventoryCellNew.setFileName(":/Equipment/GIF/BrokenAvailableInventoryCell.gif");
+        else
+            inventoryCellNew.setFileName(":/Equipment/GIF/AvailableInventoryCell.gif");
+
+        inventoryCellNew.stop();
+        //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
+        ui->Locked->setVisible(false);
+        ui->CentralElement->setVisible(false);
+        //Включается отображение анимации ячейки с новым предметом
+        ui->inventoryCellNew->setVisible(true);
+        inventoryCellNew.setScaledSize(QSize(68,68));
+        ui->inventoryCellNew->setMovie(&inventoryCellNew);
+        inventoryCellNew.start();
+        if(!getItem()->itemIsEmpty){
+            /*Чтобы анимация не перерисовывала виджет итема с кучей эффектов, был создан лейбл оптимизации,
+         *который запечатлевает Pixmap итема. Виджету итема обновляться запрещается, а вместо него
+         *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
+            ui->ItemPixmapGrab->setPixmap(ui->item->grab());
+            ui->ItemPixmapGrab->setVisible(true);
+
+            ui->item->setDisabledSyle(false);
+            ui->item->setBrokenSyle(false);
+            //Запрет обновления виджета итема для оптимизации отображения вместе с анимацией
+            ui->item->setUpdatesEnabled(false);
+        }
+    }else
+        setAutoStyle();
+
+}
+
 //Метод задающий значения переменным col и row. Он не изменит позицию и требуется только для инициализации
 void InventoryCell::setCellPosition(int col, int row)
 {
@@ -582,6 +628,11 @@ void InventoryCell::setDisabledBrokenStyle()
     ui->DropdownButton->move(3, 57);
 }
 
+bool InventoryCell::getIsAvailable() const
+{
+    return isAvailable;
+}
+
 InventoryCell *InventoryCell::getCellWithLockingItem() const
 {
     return cellWithLockingItem;
@@ -611,16 +662,11 @@ void InventoryCell::swapItems(InventoryCell *cell)
         setBlockedStyle(false);
 
         Item* bufItem = new Item(cell->getItem());
-        bufItem->setId(cell->getItem()->getId());
 
         if(bufItem->SoundDrop!="")
             Global::mediaplayer.playSound(QUrl::fromLocalFile(bufItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
         //Затем текущий итем помещается в ячейку из которой началось перетаскивание
         cell->setItem(new Item(ui->item));
-        /*Так как setItem не передаёт id итема, вызов setAutoStyle внутри него не сработал
-         *должным образом. Следует вручную перенести id и вызвать setAutoStyle снова*/
-        cell->getItem()->setId(ui->item->getId());
-        cell->setAutoStyle();
         /*Перенос буферизированного итема в текущую ячейку. id ему уже задан
          *заранее, так что setAutoStyle внутри setItem сработает как надо*/
         setItem(bufItem);

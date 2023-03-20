@@ -45,6 +45,8 @@ public slots:
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
     void unlockOccupiedCells (InventoryCell* cell);
     bool checkingLockedCells (QVector<Item::Slots> occupiedCellSlots);
+    void dragStarted(QVector<Item::Slots> cellSlots);
+    void dragEnded();
 
 private slots:
     void on_OverArmorButton_clicked();

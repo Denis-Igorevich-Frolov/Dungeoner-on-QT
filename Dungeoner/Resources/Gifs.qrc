@@ -5,4 +5,12 @@
         <file>GIF/DisabledBrokenInventoryItemNew.gif</file>
         <file>GIF/BrokenInventoryItemNew.gif</file>
     </qresource>
+    <qresource prefix="/Equipment">
+        <file>GIF/AvailableInventoryCell.gif</file>
+        <file>GIF/BrokenAvailableInventoryCell.gif</file>
+        <file>GIF/DisabledAvailableInventoryCell.gif</file>
+        <file>GIF/DisabledBrokenAvailableInventoryCell.gif</file>
+        <file>GIF/EmptyAvailableInventoryCell.gif</file>
+        <file>GIF/LockedAvailableInventoryCell.gif</file>
+    </qresource>
 </RCC>
