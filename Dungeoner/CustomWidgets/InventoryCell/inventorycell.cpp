@@ -99,7 +99,9 @@ Item *InventoryCell::getItem()
 //Метод, выставляющий стиль автоматически исходя из характеристик предмета
 void InventoryCell::setAutoStyle()
 {
-    if(isLocked)
+    if(isAvailable)
+        setAvailableStyle(true);
+    else if(isLocked)
         setLockedStyle(true, cellWithLockingItem);
     //id -1 только у пустого неинициализированного предмета
     else if(ui->item->getId() == -1)
@@ -560,8 +562,6 @@ void InventoryCell::setAvailableStyle(bool isAvailable)
             ui->ItemPixmapGrab->setPixmap(ui->item->grab());
             ui->ItemPixmapGrab->setVisible(true);
 
-            ui->item->setDisabledSyle(false);
-            ui->item->setBrokenSyle(false);
             //Запрет обновления виджета итема для оптимизации отображения вместе с анимацией
             ui->item->setUpdatesEnabled(false);
         }

@@ -155,7 +155,7 @@ void CharacterWindowInventory::checkingInventorySizeChange(int col, int row)
             }
         }
     }
-
+    emit dragEnded();
 }
 
 //метод реализующий логику прокрутки перетаскиваемым итемом

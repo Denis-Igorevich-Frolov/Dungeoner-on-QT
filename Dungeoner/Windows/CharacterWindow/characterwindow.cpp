@@ -148,7 +148,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     Item* item2 = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 
     item2->isPressable = true;
-//    item2->isDisabled = true;
+    item2->isDisabled = true;
     item2->isNew = true;
 
     item2->setMaxDurability(1);
