@@ -29,7 +29,7 @@ void MediaPlayer::playSound(QUrl url, SoundsGroup group)
         volume = musicsVolume * overallVolume;
     } else if(group == SoundsGroup::DRAG_AND_DROP){
         if(playDragAndDropSound)
-            volume = soundsVolume * overallVolume;
+            volume = soundsVolume * overallVolume * 0.1;
         else volume = 0;
     }
 

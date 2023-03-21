@@ -30,7 +30,7 @@ private slots:
     void refreshDisplayStats();
 
     void moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway = true);
-    void moveCellFromEquipment(InventoryCell* cell);
+    void moveCellFromEquipment(InventoryCell* cell, bool playSound = true);
 
     void on_verticalScrollBar_actionTriggered(int action);
     void on_verticalScrollBar_valueChanged(int value);
@@ -104,6 +104,8 @@ private:
     virtual void leaveEvent(QEvent *event)override;
 
     Person person = Person();
+
+    void addDebugItems();
 };
 
 #endif // CHARACTERWINDOW_H

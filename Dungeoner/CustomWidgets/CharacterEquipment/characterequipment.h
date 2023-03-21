@@ -38,7 +38,7 @@ public:
     InventoryCell* findCell(QVector<Item::Slots> itemSlots, bool findCellAnyway = true);
 
 signals:
-    void moveCellFromEquipment(InventoryCell* cell);
+    void moveCellFromEquipment(InventoryCell* cell, bool playSound = true);
     void reviseItemPositionInEquipment(InventoryCell* cell, bool moveItemAnyway = true);
 
 public slots:
@@ -68,7 +68,7 @@ private:
     PairCells bothDecorations;
 
     void setCellsAcceptedSlots();
-    bool itemDrop(InventoryCell* cell, Item::Slots searchedSlot);
+    bool itemDrop(InventoryCell* cell, Item::Slots searchedSlot, bool playSound = true);
 };
 
 #endif // CHARACTEREQUIPMENT_H

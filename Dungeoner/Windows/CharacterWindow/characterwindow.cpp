@@ -121,98 +121,7 @@ CharacterWindow::CharacterWindow(QWidget *parent) :
     recalculateStats();
 
     //!!!отладка
-    //////////////////////////////////////////////
-    Item* item = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-
-    item->isPressable = true;
-//    item->isDisabled = true;
-    item->isNew = true;
-
-    item->setQuantity(999);
-    item->setMaxCharges(10);
-    item->setCurrentCharges(10);
-    item->setId(0);
-    QVector<Item::Slots> itemSlots {Item::Slots::R_HAND, Item::Slots::L_HAND};
-    item->setCellSlots(itemSlots);
-
-    item->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
-    item->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
-    item->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
-
-    InventoryCell* cell = ui->Inventory->getCell(0, 0);
-
-    if(cell){
-        cell->setItem(item);
-    }
-
-    Item* item2 = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-
-    item2->isPressable = true;
-    item2->isDisabled = true;
-    item2->isNew = true;
-
-    item2->setMaxDurability(1);
-    item2->setCurrentDurability(0);
-
-    item2->setQuantity(999);
-    item2->setMaxCharges(10);
-    item2->setCurrentCharges(10);
-    item2->setId(0);
-    QVector<Item::Slots> itemSlots2 {Item::Slots::R_HAND, Item::Slots::L_HAND};
-    item2->setCellSlots(itemSlots2);
-
-    item2->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
-    item2->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
-    item2->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
-
-    InventoryCell* cell2 = ui->Inventory->getCell(0, 2);
-
-    if(cell2){
-        cell2->setItem(item2);
-    }
-
-    Item* item3 = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-
-    item3->isPressable = true;
-
-    item3->setMaxCharges(10);
-    item3->setCurrentCharges(10);
-    item3->setId(0);
-    QVector<Item::Slots> itemSlots3 {Item::Slots::R_HAND, Item::Slots::L_HAND};
-    QVector<Item::Slots> occupedSlots3 {Item::Slots::ONE_OF_THE_HAND};
-    item3->setCellSlots(itemSlots3, occupedSlots3);
-
-    item3->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
-    item3->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
-    item3->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
-
-    InventoryCell* cell3 = ui->Inventory->getCell(0, 3);
-
-    if(cell3){
-        cell3->setItem(item3);
-    }
-
-    Item* item4 = new Item("Test", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
-
-    item4->isPressable = true;
-
-    item4->setMaxCharges(10);
-    item4->setCurrentCharges(10);
-    item4->setId(0);
-    QVector<Item::Slots> itemSlots4 {Item::Slots::HELMET};
-    QVector<Item::Slots> occupedSlots4 {Item::Slots::ONE_OF_THE_HAND, Item::Slots::L_BOOT};
-    item4->setCellSlots(itemSlots4, occupedSlots4);
-
-    item4->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_taken.mp3";
-    item4->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Sword_is_dropped.mp3";
-    item4->SoundPress = "qrc:/Item is pressed/Sounds/Item is pressed/Sword_is_pressed.wav";
-
-    InventoryCell* cell4 = ui->Inventory->getCell(0, 4);
-
-    if(cell4){
-        cell4->setItem(item4);
-    }
-    /////////////////////////////////////////////
+    addDebugItems();
 }
 
 CharacterWindow::~CharacterWindow()
@@ -819,6 +728,79 @@ void CharacterWindow::leaveEvent(QEvent *event)
     Global::pressedKeys.clear();
 }
 
+void CharacterWindow::addDebugItems()
+{
+    QVector<Item*>items;
+
+    Item* Sword = new Item("Sword", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+
+    Sword->isNew = true;
+
+    Sword->setMaxCharges(10);
+    Sword->setCurrentCharges(10);
+    Sword->setId(0);
+    Sword->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Sword->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/One-Handed_Blades_is_taken.wav";
+    Sword->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/One-Handed_Blades_is_dropped.wav";
+
+    items.append(Sword);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Zweihander = new Item("Zweihander", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+
+    Zweihander->isNew = true;
+
+    Zweihander->setMaxCharges(10);
+    Zweihander->setCurrentCharges(10);
+    Zweihander->setId(0);
+    Zweihander->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Zweihander->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_taken.wav";
+    Zweihander->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_dropped.wav";
+
+    items.append(Zweihander);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Alfalfa_Hammer = new Item("Alfalfa hammer", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+
+    Alfalfa_Hammer->isNew = true;
+
+    Alfalfa_Hammer->setMaxCharges(10);
+    Alfalfa_Hammer->setCurrentCharges(10);
+    Alfalfa_Hammer->setId(0);
+    Alfalfa_Hammer->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Alfalfa_Hammer->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_taken.wav";
+    Alfalfa_Hammer->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_dropped.wav";
+
+    items.append(Alfalfa_Hammer);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Trench_Rondash = new Item("Trench rondash", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+
+    Trench_Rondash->isNew = true;
+
+    Trench_Rondash->setMaxCharges(10);
+    Trench_Rondash->setCurrentCharges(10);
+    Trench_Rondash->setId(0);
+    Trench_Rondash->setCellSlots(QVector<Item::Slots>{Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::L_HAND, Item::Slots::L_GAUNTLET});
+
+    Trench_Rondash->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
+    Trench_Rondash->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Shield.wav";
+
+    items.append(Trench_Rondash);
+
+    for(Item* item : items){
+        ui->Inventory->getLastEmptyCell()->setItem(item);
+    }
+}
+
 /*Слот изменения позиции скролла области прокрутки CharacterWindow.
  *Здесь, при прокрутке, во-первых проверяется на сколько близко текущее положение области прокрутки к краю.
  *Если оно менее чем на 7 пикселей приблизилось к краю, то соответствующая тень у виджета пропадает. 7
@@ -968,17 +950,17 @@ void CharacterWindow::moveCellToEquipment(InventoryCell* cell, bool moveItemAnyw
     InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots(), moveItemAnyway);
     if(targetCell){
         if(!targetCell->getItem()->itemIsEmpty)
-            moveCellFromEquipment(targetCell);
+            moveCellFromEquipment(targetCell, false);
         targetCell->swapItems(cell);
     }else
         moveCellFromEquipment(cell);
 }
 
-void CharacterWindow::moveCellFromEquipment(InventoryCell *cell)
+void CharacterWindow::moveCellFromEquipment(InventoryCell *cell, bool playSound)
 {
     InventoryCell* targetCell = ui->Inventory->getLastEmptyCell();
     if(targetCell){
-        targetCell->swapItems(cell);
+        targetCell->swapItems(cell, playSound);
     }
 }
 

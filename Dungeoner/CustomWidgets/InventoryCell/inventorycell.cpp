@@ -670,7 +670,7 @@ bool InventoryCell::getIsBlocked() const
     return isBlocked;
 }
 
-void InventoryCell::swapItems(InventoryCell *cell)
+void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
 {
     if(cell){
         if(acceptedSlot!=Item::INVENTORY && cellWithLockingItem!=cell && cell!=this)
@@ -685,7 +685,7 @@ void InventoryCell::swapItems(InventoryCell *cell)
 
         Item* bufItem = new Item(cell->getItem());
 
-        if(bufItem->SoundDrop!="")
+        if(playSound && bufItem->SoundDrop!="")
             Global::mediaplayer.playSound(QUrl::fromLocalFile(bufItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
         //Затем текущий итем помещается в ячейку из которой началось перетаскивание
         cell->setItem(new Item(ui->item));

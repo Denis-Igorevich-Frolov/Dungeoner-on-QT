@@ -45,7 +45,7 @@ public:
     bool getIsBlocked() const;
     bool getIsAvailable() const;
 
-    void swapItems(InventoryCell* cell);
+    void swapItems(InventoryCell* cell, bool playSound = true);
 
     bool getIsManualLock() const;
 

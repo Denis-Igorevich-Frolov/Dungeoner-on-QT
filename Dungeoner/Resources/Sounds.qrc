@@ -4,8 +4,36 @@
         <file>Sounds/Error.mp3</file>
     </qresource>
     <qresource prefix="/Drag&amp;Drop">
-        <file>Sounds/Drag&amp;Drop/Sword_is_dropped.mp3</file>
-        <file>Sounds/Drag&amp;Drop/Sword_is_taken.mp3</file>
+        <file>Sounds/Drag&amp;Drop/Arrow_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Arrow_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Axe_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Axe_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Blunt_weapon_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Blunt_weapon_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Book_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Book_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Bow_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Bow_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Chain_Mail.wav</file>
+        <file>Sounds/Drag&amp;Drop/Clothes.wav</file>
+        <file>Sounds/Drag&amp;Drop/Crossbow_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Crossbow_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Decoration.wav</file>
+        <file>Sounds/Drag&amp;Drop/Heavy_armor_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Heavy_armor_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Item.wav</file>
+        <file>Sounds/Drag&amp;Drop/Light_armor_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Light_armor_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Magic_thing.wav</file>
+        <file>Sounds/Drag&amp;Drop/Money.wav</file>
+        <file>Sounds/Drag&amp;Drop/One-Handed_Blades_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/One-Handed_Blades_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Potion.wav</file>
+        <file>Sounds/Drag&amp;Drop/Shield.wav</file>
+        <file>Sounds/Drag&amp;Drop/Spear_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Spear_is_taken.wav</file>
+        <file>Sounds/Drag&amp;Drop/Two-handed_sword_is_dropped.wav</file>
+        <file>Sounds/Drag&amp;Drop/Two-handed_sword_is_taken.wav</file>
     </qresource>
     <qresource prefix="/Item is pressed">
         <file>Sounds/Item is pressed/Sword_is_pressed.wav</file>

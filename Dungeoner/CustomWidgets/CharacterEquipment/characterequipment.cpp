@@ -123,14 +123,16 @@ InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots, bool
     while (iterator.hasNext()){
         Item::Slots searchedSlot = iterator.next();
         for(InventoryCell* cell : equipmentCells){
-            if(cell->acceptedSlot == searchedSlot && !cell->getIsLocked()){
-                if(cell->getItem()->itemIsEmpty)
+            if(cell->acceptedSlot == searchedSlot){
+                if(cell->getItem()->itemIsEmpty && !cell->getIsLocked())
                     return cell;
                 else if(firstMatch == nullptr && findCellAnyway)
                     firstMatch = cell;
             }
         }
     }
+    if(firstMatch->getCellWithLockingItem()!=nullptr)
+        emit moveCellFromEquipment(firstMatch->getCellWithLockingItem(), false);
     return firstMatch;
 }
 
@@ -153,11 +155,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else if(slot == Item::ONE_OF_THE_SHOULDER){
             InventoryCell* rightCell = bothShoulders.getRightCell();
@@ -165,11 +167,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else if(slot == Item::ONE_OF_THE_BRACE){
             InventoryCell* rightCell = bothBraces.getRightCell();
@@ -177,11 +179,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else if(slot == Item::ONE_OF_THE_GAUNTLET){
             InventoryCell* rightCell = bothGauntlets.getRightCell();
@@ -189,11 +191,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else if(slot == Item::ONE_OF_THE_GREAVE){
             InventoryCell* rightCell = bothGreaves.getRightCell();
@@ -201,11 +203,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else if(slot == Item::ONE_OF_THE_BOOT){
             InventoryCell* rightCell = bothBoots.getRightCell();
@@ -213,11 +215,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else if(slot == Item::ONE_OF_THE_HAND){
             InventoryCell* rightCell = bothHands.getRightCell();
@@ -225,11 +227,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else if(slot == Item::ONE_OF_THE_DECORATION){
             InventoryCell* rightCell = bothDecorations.getRightCell();
@@ -237,11 +239,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(leftCell);
+                    emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
-                    emit moveCellFromEquipment(rightCell);
+                    emit moveCellFromEquipment(rightCell, false);
             }
         }else{
             for(InventoryCell* destinationCell : equipmentCells){
@@ -400,11 +402,11 @@ void CharacterEquipment::setCellsAcceptedSlots()
     bothDecorations = PairCells(ui->RightDecoration, ui->LeftDecoration);
 }
 
-bool CharacterEquipment::itemDrop(InventoryCell *cell, Item::Slots searchedSlot)
+bool CharacterEquipment::itemDrop(InventoryCell *cell, Item::Slots searchedSlot, bool playSound)
 {
     if(cell->acceptedSlot == searchedSlot){
         if(cell->getIsLocked() && !cell->getIsManualLock()){
-            emit moveCellFromEquipment(cell->getCellWithLockingItem());
+            emit moveCellFromEquipment(cell->getCellWithLockingItem(), playSound);
 
             return true;
         }
@@ -424,69 +426,69 @@ bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSl
             InventoryCell* rightCell = bothGloves.getRightCell();
             InventoryCell* leftCell = bothGloves.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GLOVE);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GLOVE, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GLOVE);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GLOVE, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_SHOULDER){
             InventoryCell* rightCell = bothShoulders.getRightCell();
             InventoryCell* leftCell = bothShoulders.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_SHOULDER);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_SHOULDER, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_SHOULDER);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_SHOULDER, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_BRACE){
             InventoryCell* rightCell = bothBraces.getRightCell();
             InventoryCell* leftCell = bothBraces.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_BRACE);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_BRACE, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_BRACE);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_BRACE, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_GAUNTLET){
             InventoryCell* rightCell = bothGauntlets.getRightCell();
             InventoryCell* leftCell = bothGauntlets.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GAUNTLET);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GAUNTLET, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GAUNTLET);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GAUNTLET, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_GREAVE){
             InventoryCell* rightCell = bothGreaves.getRightCell();
             InventoryCell* leftCell = bothGreaves.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GREAVE);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GREAVE, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GREAVE);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GREAVE, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_BOOT){
             InventoryCell* rightCell = bothBoots.getRightCell();
             InventoryCell* leftCell = bothBoots.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_BOOT);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_BOOT, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_BOOT);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_BOOT, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_HAND){
             InventoryCell* rightCell = bothHands.getRightCell();
             InventoryCell* leftCell = bothHands.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_HAND);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_HAND, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_HAND);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_HAND, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_DECORATION){
             InventoryCell* rightCell = bothDecorations.getRightCell();
             InventoryCell* leftCell = bothDecorations.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_DECORATION);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_DECORATION, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_DECORATION);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_DECORATION, false);
             }
         }else{
             for(InventoryCell* cell : equipmentCells){
-                ItemsHaveBeenDropped = itemDrop(cell, searchedSlot);
+                ItemsHaveBeenDropped = itemDrop(cell, searchedSlot, false);
             }
         }
     }
