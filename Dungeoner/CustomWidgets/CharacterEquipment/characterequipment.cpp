@@ -248,9 +248,9 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
         }else{
             for(InventoryCell* destinationCell : equipmentCells){
                 if(destinationCell->acceptedSlot == slot){
-                    destinationCell->setLockedStyle(true, cell);
                     if(!destinationCell->getItem()->itemIsEmpty)
-                        emit moveCellFromEquipment(destinationCell);
+                        emit moveCellFromEquipment(destinationCell, false);
+                    destinationCell->setLockedStyle(true, cell);
                 }
             }
         }
@@ -488,7 +488,9 @@ bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSl
             }
         }else{
             for(InventoryCell* cell : equipmentCells){
-                ItemsHaveBeenDropped = itemDrop(cell, searchedSlot, false);
+                bool ItemsHaveBeenDroppedBuf = itemDrop(cell, searchedSlot, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }
     }
