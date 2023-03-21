@@ -36,6 +36,8 @@ public:
 
     void setCentralElementStyle(bool isVisible);
     void setDropdownButtonVisible(bool isVisible);
+    void setSubstrateDollsVisible(bool isVisible);
+    void setSubstrateDollsPixmap (QPixmap pixmMap);
 
     Item::Slots acceptedSlot = Item::Slots::INVENTORY;
 

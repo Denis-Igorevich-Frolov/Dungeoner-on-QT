@@ -166,6 +166,22 @@
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="SubstrateDolls">
+   <property name="geometry">
+    <rect>
+     <x>4</x>
+     <y>4</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>CentralElement</zorder>
   <zorder>inventoryCellBG</zorder>
   <zorder>inventoryCellBorder</zorder>
@@ -173,6 +189,7 @@
   <zorder>DropdownButton</zorder>
   <zorder>Blocked</zorder>
   <zorder>inventoryCellNew</zorder>
+  <zorder>SubstrateDolls</zorder>
   <zorder>ItemPixmapGrab</zorder>
   <zorder>item</zorder>
  </widget>

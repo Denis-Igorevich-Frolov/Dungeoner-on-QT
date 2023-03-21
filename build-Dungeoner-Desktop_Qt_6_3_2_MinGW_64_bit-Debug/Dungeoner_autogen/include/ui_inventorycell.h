@@ -30,6 +30,7 @@ public:
     QLabel *Blocked;
     Item *item;
     QLabel *ItemPixmapGrab;
+    QLabel *SubstrateDolls;
 
     void setupUi(QWidget *InventoryCell)
     {
@@ -76,6 +77,10 @@ public:
         ItemPixmapGrab->setObjectName(QString::fromUtf8("ItemPixmapGrab"));
         ItemPixmapGrab->setGeometry(QRect(0, 0, 68, 68));
         ItemPixmapGrab->setStyleSheet(QString::fromUtf8(""));
+        SubstrateDolls = new QLabel(InventoryCell);
+        SubstrateDolls->setObjectName(QString::fromUtf8("SubstrateDolls"));
+        SubstrateDolls->setGeometry(QRect(4, 4, 60, 60));
+        SubstrateDolls->setStyleSheet(QString::fromUtf8(""));
         CentralElement->raise();
         inventoryCellBG->raise();
         inventoryCellBorder->raise();
@@ -83,6 +88,7 @@ public:
         DropdownButton->raise();
         Blocked->raise();
         inventoryCellNew->raise();
+        SubstrateDolls->raise();
         ItemPixmapGrab->raise();
         item->raise();
 
@@ -102,6 +108,7 @@ public:
         Locked->setText(QString());
         Blocked->setText(QString());
         ItemPixmapGrab->setText(QString());
+        SubstrateDolls->setText(QString());
     } // retranslateUi
 
 };

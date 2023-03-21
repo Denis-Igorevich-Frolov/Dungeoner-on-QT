@@ -95,4 +95,25 @@
         <file>Textures PNG/Equipment-Pistol.png</file>
         <file>Textures PNG/Character-Equipment.png</file>
     </qresource>
+    <qresource prefix="/Substrate-Dolls">
+        <file>Textures PNG/Substrate-Dolls-Head.png</file>
+        <file>Textures PNG/Substrate-Dolls-Bag.png</file>
+        <file>Textures PNG/Substrate-Dolls-Bow.png</file>
+        <file>Textures PNG/Substrate-Dolls-Cloak.png</file>
+        <file>Textures PNG/Substrate-Dolls-Crossbow.png</file>
+        <file>Textures PNG/Substrate-Dolls-L-Foot.png</file>
+        <file>Textures PNG/Substrate-Dolls-L-Forearm.png</file>
+        <file>Textures PNG/Substrate-Dolls-L-Hand.png</file>
+        <file>Textures PNG/Substrate-Dolls-L-Knee.png</file>
+        <file>Textures PNG/Substrate-Dolls-L-Shoulder.png</file>
+        <file>Textures PNG/Substrate-Dolls-Neck.png</file>
+        <file>Textures PNG/Substrate-Dolls-Piece-Of-Cloak.png</file>
+        <file>Textures PNG/Substrate-Dolls-Pistol-Grip.png</file>
+        <file>Textures PNG/Substrate-Dolls-Pistol-Muzzle.png</file>
+        <file>Textures PNG/Substrate-Dolls-R-Foot.png</file>
+        <file>Textures PNG/Substrate-Dolls-R-Forearm.png</file>
+        <file>Textures PNG/Substrate-Dolls-R-Hand.png</file>
+        <file>Textures PNG/Substrate-Dolls-R-Knee.png</file>
+        <file>Textures PNG/Substrate-Dolls-R-Shoulder.png</file>
+    </qresource>
 </RCC>

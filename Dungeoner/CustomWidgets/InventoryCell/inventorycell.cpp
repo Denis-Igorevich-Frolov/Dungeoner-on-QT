@@ -27,6 +27,7 @@ InventoryCell::InventoryCell(QWidget *parent) :
     connect(ui->item, &Item::styleAssigned, this, &InventoryCell::styleAssigned);
 
     setDropdownButtonVisible(false);
+    ui->SubstrateDolls->setVisible(false);
 
     QSizePolicy sp_retain = sizePolicy();
     sp_retain.setRetainSizeWhenHidden(true);
@@ -140,6 +141,7 @@ void InventoryCell::setEmptyStyle()
     ui->Locked->setVisible(false);
     //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
+    ui->SubstrateDolls->setVisible(true);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::emptyBorderStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonEmptyStyle());
@@ -165,6 +167,7 @@ void InventoryCell::setNoEmptyStyle()
     ui->CentralElement->setVisible(false);
     //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
+    ui->SubstrateDolls->setVisible(true);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::notEmptyBorderStyle());
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::notEmptyBGStyle());
@@ -197,6 +200,7 @@ void InventoryCell::setNewStyle()
      *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
+    ui->SubstrateDolls->setVisible(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(false);
@@ -222,6 +226,7 @@ void InventoryCell::setDisabledNewStyle()
      *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
+    ui->SubstrateDolls->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(false);
@@ -247,6 +252,7 @@ void InventoryCell::setBrokenNewStyle()
      *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
+    ui->SubstrateDolls->setVisible(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(true);
@@ -272,6 +278,7 @@ void InventoryCell::setDisabledBrokenNewStyle()
      *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
     ui->ItemPixmapGrab->setPixmap(ui->item->grab());
     ui->ItemPixmapGrab->setVisible(true);
+    ui->SubstrateDolls->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(true);
@@ -288,6 +295,16 @@ void InventoryCell::setCentralElementStyle(bool isVisible)
 void InventoryCell::setDropdownButtonVisible(bool isVisible)
 {
     ui->DropdownButton->setVisible(isVisible);
+}
+
+void InventoryCell::setSubstrateDollsVisible(bool isVisible)
+{
+    ui->SubstrateDolls->setVisible(isVisible);
+}
+
+void InventoryCell::setSubstrateDollsPixmap(QPixmap pixmMap)
+{
+     ui->SubstrateDolls->setPixmap(pixmMap);
 }
 
 void InventoryCell::moveItemToEquipment()
@@ -473,6 +490,7 @@ void InventoryCell::setLockedStyle(bool isLocked, InventoryCell *cellWithLocking
     ui->CentralElement->setVisible(false);
     //Скрывается лейбл оптимизации анимаций заднего фона
     ui->ItemPixmapGrab->setVisible(false);
+    ui->SubstrateDolls->setVisible(false);
     //Установка стилей
     ui->inventoryCellBorder->setStyleSheet(IC_stylemaster::lockedBorderStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonLockedStyle());
@@ -505,6 +523,7 @@ void InventoryCell::setDisabledStyle()
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonDisabledNotEmptyStyle());
     ui->inventoryCellBG->setVisible(true);
     ui->CentralElement->setVisible(CentralElementIsVisible);
+    ui->SubstrateDolls->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(false);
@@ -532,6 +551,7 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
 void InventoryCell::setAvailableStyle(bool isAvailable)
 {
     this->isAvailable = isAvailable;
+    ui->SubstrateDolls->setVisible(isAvailable);
     if(isAvailable){
         if(isLocked)
             inventoryCellNew.setFileName(":/Equipment/GIF/LockedAvailableInventoryCell.gif");
@@ -593,6 +613,7 @@ void InventoryCell::setBrokenStyle()
     ui->inventoryCellBG->setStyleSheet(IC_stylemaster::brokenNotEmptyBGStyle());
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonNotEmptyStyle());
     ui->inventoryCellBG->setVisible(true);
+    ui->SubstrateDolls->setVisible(true);
 
     ui->item->setDisabledSyle(false);
     ui->item->setBrokenSyle(true);
@@ -619,6 +640,7 @@ void InventoryCell::setDisabledBrokenStyle()
     ui->DropdownButton->setStyleSheet(IC_stylemaster::dropdownButtonDisabledNotEmptyStyle());
     ui->inventoryCellBG->setVisible(true);
     ui->CentralElement->setVisible(CentralElementIsVisible);
+    ui->SubstrateDolls->setVisible(true);
 
     ui->item->setDisabledSyle(true);
     ui->item->setBrokenSyle(true);
