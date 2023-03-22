@@ -32,6 +32,7 @@ public:
     InventoryCell *Pants;
     InventoryCell *LeftGlove;
     InventoryCell *RightGlove;
+    InventoryCell *Necklace;
     QWidget *Armor;
     InventoryCell *Helmet;
     InventoryCell *Gorget;
@@ -94,7 +95,7 @@ public:
         BalaclavaHelmet->setAcceptDrops(true);
         Clothes = new InventoryCell(UnderArmor);
         Clothes->setObjectName(QString::fromUtf8("Clothes"));
-        Clothes->setGeometry(QRect(144, 151, 68, 68));
+        Clothes->setGeometry(QRect(144, 156, 68, 68));
         Clothes->setMouseTracking(true);
         Clothes->setAcceptDrops(true);
         Pants = new InventoryCell(UnderArmor);
@@ -112,6 +113,11 @@ public:
         RightGlove->setGeometry(QRect(72, 225, 68, 68));
         RightGlove->setMouseTracking(true);
         RightGlove->setAcceptDrops(true);
+        Necklace = new InventoryCell(UnderArmor);
+        Necklace->setObjectName(QString::fromUtf8("Necklace"));
+        Necklace->setGeometry(QRect(144, 69, 68, 84));
+        Necklace->setMouseTracking(true);
+        Necklace->setAcceptDrops(true);
         CellsStackedWidget->addWidget(UnderArmor);
         Armor = new QWidget();
         Armor->setObjectName(QString::fromUtf8("Armor"));

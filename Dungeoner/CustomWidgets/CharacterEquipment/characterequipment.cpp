@@ -59,6 +59,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
     ui->RightDecoration->setDropdownButtonVisible(true);
     ui->LeftDecoration->setDropdownButtonVisible(true);
     ui->Bag->setDropdownButtonVisible(true);
+    ui->Necklace->setDropdownButtonVisible(true);
 
     setCellsAcceptedSlots();
 }

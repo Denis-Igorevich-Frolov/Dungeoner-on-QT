@@ -28,9 +28,23 @@ public:
     ~Item();
 
     enum ItemType{
-        SUNDRIES,//Разное
+        DAGGER,//Кинжал
+        PIERCING_DAGGER,//Колющий кинжал
+        PARRY_DAGGER,//Парирующий кинжал
+        PIERCING_SWORD,//Колющий меч
+        FENCING_SWORD,//Фехтовальный меч
         ONE_HANDED_SWORD,//Одноручный меч
-        TWO_HANDED_SWORD//Двуручный меч
+        TWO_HANDED_SWORD,//Двуручный меч
+        GREAT_SWORD,//Великий меч
+        ONE_HANDED_CHOPPING_SWORD,//Одноручная сабля
+        TWO_HANDED_CHOPPING_SWORD,//Двуручный сабля
+        WARPICK,//Клевец
+        ONE_HANDED_MACE,//Одноручная булава
+        TWO_HANDED_MACE,//Двуручная булава
+        SPEAR,//Копьё (одноручное)
+        PIKE,//Пика (двуручная)
+        TWO_HANDED_SPEAR,
+        SUNDRIES,//Разное
     };
 
     enum ItemCondition{
