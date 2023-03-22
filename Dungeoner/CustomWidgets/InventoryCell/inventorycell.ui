@@ -187,9 +187,9 @@
   <zorder>inventoryCellBorder</zorder>
   <zorder>Locked</zorder>
   <zorder>DropdownButton</zorder>
-  <zorder>Blocked</zorder>
   <zorder>inventoryCellNew</zorder>
   <zorder>SubstrateDolls</zorder>
+  <zorder>Blocked</zorder>
   <zorder>ItemPixmapGrab</zorder>
   <zorder>item</zorder>
  </widget>

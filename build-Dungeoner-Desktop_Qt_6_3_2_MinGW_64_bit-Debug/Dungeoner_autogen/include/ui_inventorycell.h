@@ -86,9 +86,9 @@ public:
         inventoryCellBorder->raise();
         Locked->raise();
         DropdownButton->raise();
-        Blocked->raise();
         inventoryCellNew->raise();
         SubstrateDolls->raise();
+        Blocked->raise();
         ItemPixmapGrab->raise();
         item->raise();
 
