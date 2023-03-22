@@ -328,6 +328,37 @@ bool Item::eventFilter(QObject *object, QEvent *event)
     return false;
 }
 
+bool Item::getTwoHandedGripAllowed() const
+{
+    return twoHandedGripAllowed;
+}
+
+bool Item::getOneHandedGripAllowed() const
+{
+    return oneHandedGripAllowed;
+}
+
+int Item::getIsWeaponOrShield() const
+{
+    return isWeaponOrShield;
+}
+
+void Item::setIsWeaponOrShield(int newIsWeaponOrShield, bool oneHandedGripAllowed, bool twoHandedGripAllowed)
+{
+    isWeaponOrShield = newIsWeaponOrShield;
+    setGripsAllowed(oneHandedGripAllowed, twoHandedGripAllowed);
+}
+
+void Item::setGripsAllowed(bool oneHandedGripAllowed, bool twoHandedGripAllowed)
+{
+    if(isWeaponOrShield){
+        this->oneHandedGripAllowed = oneHandedGripAllowed;
+        this->twoHandedGripAllowed = twoHandedGripAllowed;
+        if(this->oneHandedGripAllowed == false && this->twoHandedGripAllowed == false)
+            this->oneHandedGripAllowed = true;
+    }
+}
+
 //Эффекты при прожатии итема
 void Item::on_pushButton_clicked()
 {

@@ -41,8 +41,13 @@ public:
         WARPICK,//Клевец
         ONE_HANDED_MACE,//Одноручная булава
         TWO_HANDED_MACE,//Двуручная булава
+        GREAT_MACE,//Гигантская булава
+        ONE_HANDED_AXE,//Одноручный топор
+        TWO_HANDED_AXE,//Двуручный топор
+        GREAT_AXE,//Гигантский топор
         SPEAR,//Копьё (одноручное)
         PIKE,//Пика (двуручная)
+        GREAT_PIKE,//Гигантска пика
         TWO_HANDED_SPEAR,
         SUNDRIES,//Разное
     };
@@ -222,6 +227,14 @@ public:
     int getCurrentCharges() const;
     void setCurrentCharges(int newCurrentCharges);
 
+    int getIsWeaponOrShield() const;
+    void setIsWeaponOrShield(int newIsWeaponOrShield, bool oneHandedGripAllowed, bool twoHandedGripAllowed);
+
+    void setGripsAllowed(bool oneHandedGripAllowed, bool twoHandedGripAllowed);
+
+    bool getOneHandedGripAllowed() const;
+    bool getTwoHandedGripAllowed() const;
+
 signals:
     void moveItemToEquipment();
     void styleRemoved();
@@ -282,7 +295,10 @@ private:
 
     bool eventFilter(QObject* object, QEvent* event) override;
 
-    int isHovered = false;
+    bool isHovered = false;
+    bool isWeaponOrShield = false;
+    bool oneHandedGripAllowed = true;
+    bool twoHandedGripAllowed = true;
 };
 
 #endif // ITEM_H

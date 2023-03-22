@@ -945,7 +945,7 @@ void CharacterWindow::addDebugItems()
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    Item* TwoHanded_Hammer = new Item("Two-handed hammer", QVector<Item::ItemType>(Item::TWO_HANDED_MACE), "Двуручный молот");
+    Item* TwoHanded_Hammer = new Item("Two-handed hammer", QVector<Item::ItemType>{Item::TWO_HANDED_MACE}, "Двуручный молот");
 
     TwoHanded_Hammer->isNew = true;
 
@@ -977,7 +977,7 @@ void CharacterWindow::addDebugItems()
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    Item* Great_Mace = new Item("Great mace", QVector<Item::ItemType>(Item::TWO_HANDED_MACE), "Гигантская палица");
+    Item* Great_Mace = new Item("Great mace", QVector<Item::ItemType>(Item::TWO_HANDED_MACE, Item::GREAT_MACE), "Гигантская палица");
 
     Great_Mace->isNew = true;
 
@@ -993,7 +993,7 @@ void CharacterWindow::addDebugItems()
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    Item* Axe = new Item("Axe", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Топор");
+    Item* Axe = new Item("Axe", QVector<Item::ItemType>(Item::ONE_HANDED_AXE), "Топор");
 
     Axe->isNew = true;
 
@@ -1009,7 +1009,55 @@ void CharacterWindow::addDebugItems()
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    Item* Tournament_Spear = new Item("Tournament spear", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Турнирное копьё");
+    Item* Twohanded_Axe = new Item("Two-handed axe", QVector<Item::ItemType>(Item::TWO_HANDED_AXE), "Секира");
+
+    Twohanded_Axe->isNew = true;
+
+    Twohanded_Axe->setMaxCharges(10);
+    Twohanded_Axe->setCurrentCharges(10);
+    Twohanded_Axe->setId(0);
+    Twohanded_Axe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Twohanded_Axe->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_taken.wav";
+    Twohanded_Axe->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_dropped.wav";
+
+    items.append(Twohanded_Axe);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Poleaxe = new Item("Poleaxe", QVector<Item::ItemType>{Item::TWO_HANDED_AXE, Item::TWO_HANDED_MACE, Item::PIKE}, "Полэкс");
+
+    Poleaxe->isNew = true;
+
+    Poleaxe->setMaxCharges(10);
+    Poleaxe->setCurrentCharges(10);
+    Poleaxe->setId(0);
+    Poleaxe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Poleaxe->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_taken.wav";
+    Poleaxe->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_dropped.wav";
+
+    items.append(Poleaxe);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Great_Axe = new Item("Great axe", QVector<Item::ItemType>(Item::TWO_HANDED_AXE, Item::GREAT_AXE), "Гигантская секира");
+
+    Great_Axe->isNew = true;
+
+    Great_Axe->setMaxCharges(10);
+    Great_Axe->setCurrentCharges(10);
+    Great_Axe->setId(0);
+    Great_Axe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Great_Axe->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_taken.wav";
+    Great_Axe->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_dropped.wav";
+
+    items.append(Great_Axe);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Tournament_Spear = new Item("Tournament spear", QVector<Item::ItemType>(Item::SPEAR), "Турнирное копьё");
 
     Tournament_Spear->isNew = true;
 
@@ -1022,6 +1070,40 @@ void CharacterWindow::addDebugItems()
     Tournament_Spear->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_dropped.wav";
 
     items.append(Tournament_Spear);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Pike = new Item("Pike", QVector<Item::ItemType>(Item::PIKE), "Пика");
+
+    Pike->isNew = true;
+
+    Pike->setMaxCharges(10);
+    Pike->setCurrentCharges(10);
+    Pike->setId(0);
+    Pike->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Pike->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_taken.wav";
+    Pike->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_dropped.wav";
+
+    items.append(Pike);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Great_Pike = new Item("Great pike", QVector<Item::ItemType>(Item::PIKE, Item::GREAT_PIKE), "Гигантская пика");
+
+    Great_Pike->isNew = true;
+
+    Great_Pike->setMaxCharges(10);
+    Great_Pike->setCurrentCharges(10);
+    Great_Pike->setId(0);
+    Great_Pike->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Great_Pike->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_taken.wav";
+    Great_Pike->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_dropped.wav";
+
+    Great_Pike->setQuantity(999);
+
+    items.append(Great_Pike);
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
