@@ -52,8 +52,8 @@ public:
         //Доспех
         HELMET,//Шлем
         GORGET,//Горжет
-        R_SHOULDER,//Правый наплечник
-        L_SHOULDER,//Левый наплечник
+        R_PAULDRON,//Правый наплечник
+        L_PAULDRON,//Левый наплечник
         BREASTPLATE,//Нагрудник
         R_BRACE,//Правый наруч
         L_BRACE,//Левый наруч
@@ -81,7 +81,7 @@ public:
         ADDITIONAL_SLOT,//Дополнительный слот
 
         ONE_OF_THE_GLOVE,
-        ONE_OF_THE_SHOULDER,
+        ONE_OF_THE_PAULDRON,
         ONE_OF_THE_BRACE,
         ONE_OF_THE_GAUNTLET,
         ONE_OF_THE_GREAVE,

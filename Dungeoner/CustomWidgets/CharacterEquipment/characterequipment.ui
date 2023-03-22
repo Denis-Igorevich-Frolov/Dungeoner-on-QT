@@ -174,7 +174,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="InventoryCell" name="RightShoulder" native="true">
+     <widget class="InventoryCell" name="RightPauldron" native="true">
       <property name="geometry">
        <rect>
         <x>75</x>
@@ -190,7 +190,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="InventoryCell" name="LeftShoulder" native="true">
+     <widget class="InventoryCell" name="LeftPauldron" native="true">
       <property name="geometry">
        <rect>
         <x>212</x>

@@ -59,7 +59,7 @@ private:
     QVector<InventoryCell*> equipmentCells;
 
     PairCells bothGloves;
-    PairCells bothShoulders;
+    PairCells bothPauldrons;
     PairCells bothBraces;
     PairCells bothGauntlets;
     PairCells bothGreaves;

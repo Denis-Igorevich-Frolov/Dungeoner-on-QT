@@ -749,7 +749,7 @@ void CharacterWindow::addDebugItems()
     ///////////////////////////////////////////////////////////////////////////////////////////
 
 
-    Item* Zweihander = new Item("Zweihander", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+    Item* Zweihander = new Item("Zweihander", QVector<Item::ItemType>(Item::TWO_HANDED_SWORD), "Цвайхендер");
 
     Zweihander->isNew = true;
 
@@ -765,7 +765,7 @@ void CharacterWindow::addDebugItems()
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    Item* Alfalfa_Hammer = new Item("Alfalfa hammer", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+    Item* Alfalfa_Hammer = new Item("Alfalfa hammer", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Люцеранский молот");
 
     Alfalfa_Hammer->isNew = true;
 
@@ -781,20 +781,207 @@ void CharacterWindow::addDebugItems()
 
     ///////////////////////////////////////////////////////////////////////////////////////////
 
+    Item* Axe = new Item("Axe", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Топор");
 
-    Item* Trench_Rondash = new Item("Trench rondash", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
+    Axe->isNew = true;
+
+    Axe->setMaxCharges(10);
+    Axe->setCurrentCharges(10);
+    Axe->setId(0);
+    Axe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Axe->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_taken.wav";
+    Axe->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_dropped.wav";
+
+    items.append(Axe);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Tournament_Spear = new Item("Tournament spear", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Турнирное копьё");
+
+    Tournament_Spear->isNew = true;
+
+    Tournament_Spear->setMaxCharges(10);
+    Tournament_Spear->setCurrentCharges(10);
+    Tournament_Spear->setId(0);
+    Tournament_Spear->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Tournament_Spear->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_taken.wav";
+    Tournament_Spear->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_dropped.wav";
+
+    items.append(Tournament_Spear);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+    Item* Dagger = new Item("Dagger", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Турнирное копьё");
+
+    Dagger->isNew = true;
+
+    Dagger->setMaxCharges(10);
+    Dagger->setCurrentCharges(10);
+    Dagger->setId(0);
+    Dagger->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Dagger->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/One-Handed_Blades_is_taken.wav";
+    Dagger->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/One-Handed_Blades_is_dropped.wav";
+
+    items.append(Dagger);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Trench_Rondash = new Item("Trench rondash", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Траншейный рондаш");
 
     Trench_Rondash->isNew = true;
 
     Trench_Rondash->setMaxCharges(10);
     Trench_Rondash->setCurrentCharges(10);
     Trench_Rondash->setId(0);
-    Trench_Rondash->setCellSlots(QVector<Item::Slots>{Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::L_HAND, Item::Slots::L_GAUNTLET});
+    Trench_Rondash->setCellSlots(QVector<Item::Slots>{Item::Slots::L_GAUNTLET}, QVector<Item::Slots>{Item::Slots::L_HAND, Item::Slots::L_GAUNTLET});
 
     Trench_Rondash->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
     Trench_Rondash->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Shield.wav";
 
     items.append(Trench_Rondash);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Tower_Shield = new Item("Tower shield", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Башенный щит");
+
+    Tower_Shield->isNew = true;
+
+    Tower_Shield->setMaxCharges(10);
+    Tower_Shield->setCurrentCharges(10);
+    Tower_Shield->setId(0);
+    Tower_Shield->setCellSlots(QVector<Item::Slots>{Item::Slots::L_HAND, Item::Slots::R_HAND});
+
+    Tower_Shield->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
+    Tower_Shield->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Shield.wav";
+
+    items.append(Tower_Shield);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Musket = new Item("Musket", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Мушкет");
+
+    Musket->isNew = true;
+
+    Musket->setMaxCharges(10);
+    Musket->setCurrentCharges(10);
+    Musket->setId(0);
+    Musket->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Musket->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_taken.wav";
+    Musket->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_dropped.wav";
+
+    items.append(Musket);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Pstol = new Item("Pstol", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Пистоль");
+
+    Pstol->isNew = true;
+
+    Pstol->setMaxCharges(10);
+    Pstol->setCurrentCharges(10);
+    Pstol->setId(0);
+    Pstol->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Pstol->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_taken.wav";
+    Pstol->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_dropped.wav";
+
+    items.append(Pstol);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Bascinet = new Item("Bascinet", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Бацнет");
+
+    Bascinet->isNew = true;
+
+    Bascinet->setMaxCharges(10);
+    Bascinet->setCurrentCharges(10);
+    Bascinet->setId(0);
+    Bascinet->setCellSlots(QVector<Item::Slots>{Item::Slots::HELMET});
+
+    Bascinet->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
+    Bascinet->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_dropped.wav";
+
+    items.append(Bascinet);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Right_Pauldron = new Item("Right pauldron", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Правй наплечник");
+
+    Right_Pauldron->isNew = true;
+
+    Right_Pauldron->setMaxCharges(10);
+    Right_Pauldron->setCurrentCharges(10);
+    Right_Pauldron->setId(0);
+    Right_Pauldron->setCellSlots(QVector<Item::Slots>{Item::Slots::R_PAULDRON});
+
+    Right_Pauldron->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
+    Right_Pauldron->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_dropped.wav";
+
+    items.append(Right_Pauldron);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Left_Pauldron = new Item("Left pauldron", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Левый наплечник");
+
+    Left_Pauldron->isNew = true;
+
+    Left_Pauldron->setMaxCharges(10);
+    Left_Pauldron->setCurrentCharges(10);
+    Left_Pauldron->setId(0);
+    Left_Pauldron->setCellSlots(QVector<Item::Slots>{Item::Slots::L_PAULDRON});
+
+    Left_Pauldron->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
+    Left_Pauldron->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_dropped.wav";
+
+    items.append(Left_Pauldron);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Gorget = new Item("Gorget", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Горжет");
+
+    Gorget->isNew = true;
+
+    Gorget->setMaxCharges(10);
+    Gorget->setCurrentCharges(10);
+    Gorget->setId(0);
+    Gorget->setCellSlots(QVector<Item::Slots>{Item::Slots::GORGET});
+
+    Gorget->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
+    Gorget->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_dropped.wav";
+
+    items.append(Gorget);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Item* Breastplate = new Item("Breastplate", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Нагрудник");
+
+    Breastplate->isNew = true;
+
+    Breastplate->setMaxCharges(10);
+    Breastplate->setCurrentCharges(10);
+    Breastplate->setId(0);
+    Breastplate->setCellSlots(QVector<Item::Slots>{Item::Slots::BREASTPLATE});
+
+    Breastplate->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
+    Breastplate->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_dropped.wav";
+
+    items.append(Breastplate);
+
+
+
 
     for(Item* item : items){
         ui->Inventory->getLastEmptyCell()->setItem(item);

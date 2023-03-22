@@ -161,9 +161,9 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
                 if(!rightCell->getItem()->itemIsEmpty)
                     emit moveCellFromEquipment(rightCell, false);
             }
-        }else if(slot == Item::ONE_OF_THE_SHOULDER){
-            InventoryCell* rightCell = bothShoulders.getRightCell();
-            InventoryCell* leftCell = bothShoulders.getLeftCell();
+        }else if(slot == Item::ONE_OF_THE_PAULDRON){
+            InventoryCell* rightCell = bothPauldrons.getRightCell();
+            InventoryCell* leftCell = bothPauldrons.getLeftCell();
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
                 if(!leftCell->getItem()->itemIsEmpty)
@@ -270,9 +270,9 @@ void CharacterEquipment::unlockOccupiedCells(InventoryCell* cell)
             }else if(!leftCell->getIsManualLock() && leftCell->getCellWithLockingItem() == cell){
                 leftCell->setLockedStyle(false);
             }
-        }else if(slot == Item::ONE_OF_THE_SHOULDER){
-            InventoryCell* rightCell = bothShoulders.getRightCell();
-            InventoryCell* leftCell = bothShoulders.getLeftCell();
+        }else if(slot == Item::ONE_OF_THE_PAULDRON){
+            InventoryCell* rightCell = bothPauldrons.getRightCell();
+            InventoryCell* leftCell = bothPauldrons.getLeftCell();
             if(!rightCell->getIsManualLock() && rightCell->getCellWithLockingItem() == cell){
                 rightCell->setLockedStyle(false);
             }else if(!leftCell->getIsManualLock() && leftCell->getCellWithLockingItem() == cell){
@@ -357,8 +357,8 @@ void CharacterEquipment::setCellsAcceptedSlots()
     ui->LeftGauntlet->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-L-Hand.png"));
     ui->LeftGreave->acceptedSlot = Item::Slots::L_GREAVE;
     ui->LeftGreave->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-L-Knee.png"));
-    ui->LeftShoulder->acceptedSlot = Item::Slots::L_SHOULDER;
-    ui->LeftShoulder->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-L-Shoulder.png"));
+    ui->LeftPauldron->acceptedSlot = Item::Slots::L_PAULDRON;
+    ui->LeftPauldron->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-L-Shoulder.png"));
     ui->LeftBrace->acceptedSlot = Item::Slots::L_BRACE;
     ui->LeftBrace->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-L-Forearm.png"));
     ui->RightBoot->acceptedSlot = Item::Slots::R_BOOT;
@@ -369,8 +369,8 @@ void CharacterEquipment::setCellsAcceptedSlots()
     ui->RightGauntlet->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-R-Hand.png"));
     ui->RightGreave->acceptedSlot = Item::Slots::R_GREAVE;
     ui->RightGreave->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-R-Knee.png"));
-    ui->RightShoulder->acceptedSlot = Item::Slots::R_SHOULDER;
-    ui->RightShoulder->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-R-Shoulder.png"));
+    ui->RightPauldron->acceptedSlot = Item::Slots::R_PAULDRON;
+    ui->RightPauldron->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-R-Shoulder.png"));
     ui->Cap->acceptedSlot = Item::Slots::CAP;
     ui->Cap->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-Head.png"));
     ui->Cloak->acceptedSlot = Item::Slots::CLOAK;
@@ -393,7 +393,7 @@ void CharacterEquipment::setCellsAcceptedSlots()
     ui->RightHand->acceptedSlot = Item::Slots::R_HAND;
 
     bothGloves = PairCells(ui->RightGlove, ui->LeftGlove);
-    bothShoulders = PairCells(ui->RightShoulder, ui->LeftShoulder);
+    bothPauldrons = PairCells(ui->RightPauldron, ui->LeftPauldron);
     bothBraces = PairCells(ui->RightBrace, ui->LeftBrace);
     bothGauntlets = PairCells(ui->RightGauntlet, ui->LeftGauntlet);
     bothGreaves = PairCells(ui->RightGreave, ui->LeftGreave);
@@ -430,13 +430,13 @@ bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSl
             }else{
                 ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GLOVE, false);
             }
-        }else if(searchedSlot == Item::ONE_OF_THE_SHOULDER){
-            InventoryCell* rightCell = bothShoulders.getRightCell();
-            InventoryCell* leftCell = bothShoulders.getLeftCell();
+        }else if(searchedSlot == Item::ONE_OF_THE_PAULDRON){
+            InventoryCell* rightCell = bothPauldrons.getRightCell();
+            InventoryCell* leftCell = bothPauldrons.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_SHOULDER, false);
+                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_PAULDRON, false);
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_SHOULDER, false);
+                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_PAULDRON, false);
             }
         }else if(searchedSlot == Item::ONE_OF_THE_BRACE){
             InventoryCell* rightCell = bothBraces.getRightCell();
