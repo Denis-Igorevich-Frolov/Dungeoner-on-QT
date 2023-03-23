@@ -1,3 +1,10 @@
+/**********************************************************************************************************************
+ *Данный класс является экиперовкой персонажа с "куклой", на которую одеваются различные итемы. У экиперовки
+ *есть 3 слоя: под доспехом, доспех и над доспехом. Нажатием с зажатым шифтом из виджета инвентаря можно быстро
+ *экиперовывать итемы на куклу и также сбрасывать назад в инвентарь. Если начать перетаскивать итем, то на кукле
+ *загорятся доступные к экиперовке ячейки для этой вещи.
+ **********************************************************************************************************************/
+
 #include "characterequipment.h"
 #include "ui_characterequipment.h"
 
@@ -7,6 +14,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    //Забивается вектор всех ячеек
     for(QObject* layer : ui->CellsStackedWidget->children()){
         for(auto autoCell : layer->children()){
             if(dynamic_cast <InventoryCell*> (autoCell)){
@@ -47,7 +55,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
 
     for(InventoryCell* cell : equipmentCells){
         cell->setCentralElementStyle(false);
-        connect(cell, &InventoryCell::moveCellToEquipment, this, &CharacterEquipment::moveCellFromEquipment);
+        connect(cell, &InventoryCell::moveCell, this, &CharacterEquipment::moveCellFromEquipment);
         connect(cell, &InventoryCell::lockOccupiedCells, this, &CharacterEquipment::lockOccupiedCells);
         connect(cell, &InventoryCell::unlockOccupiedCells, this, &CharacterEquipment::unlockOccupiedCells);
         connect(cell, &InventoryCell::checkLockedCells, this, &CharacterEquipment::checkingLockedCells);
@@ -56,6 +64,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::reviseItemPositionInEquipment, this, &CharacterEquipment::reviseItemPositionInEquipment);
     }
 
+    //Некоторые из ячеек представляют собой ячейки-списки, которые можно развернуть. У этих ячеек активируется кнопка отображения списка
     ui->RightDecoration->setDropdownButtonVisible(true);
     ui->LeftDecoration->setDropdownButtonVisible(true);
     ui->Bag->setDropdownButtonVisible(true);
@@ -116,8 +125,12 @@ QVector<InventoryCell *> CharacterEquipment::getEquipmentCells() const
     return equipmentCells;
 }
 
+/*Функция поиска первой подходящей ячейки по переданому вектору слотов экиперовки. Переменная
+ *findCellAnyway заставляет возвращать ячейку даже если все подходящие заняты*/
 InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots, bool findCellAnyway)
 {
+    /*Переменная храняещее первую подходящую, но занятую ячейку экиперовки. Если все ячейки окажутся
+     *занятыми, будет возвращено первое нахождение. Работает только при findCellAnyway = true*/
     InventoryCell* firstMatch = nullptr;
 
     QVectorIterator<Item::Slots> iterator(itemSlots);
@@ -125,22 +138,31 @@ InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots, bool
         Item::Slots searchedSlot = iterator.next();
         for(InventoryCell* cell : equipmentCells){
             if(cell->acceptedSlot == searchedSlot){
+                //Если найдена свободная незаблокированая ячейка, то она сразу возвращается
                 if(cell->getItem()->itemIsEmpty && !cell->getIsLocked())
                     return cell;
-                else if(firstMatch == nullptr && findCellAnyway)
+                /*Иначе если если нужно найти ячейку в любом случае, то сохраняется первое
+                 *нахождение, при условии что это не вручную заблокированая ячейка*/
+                else if(firstMatch == nullptr && findCellAnyway && !cell->getIsManualLock())
                     firstMatch = cell;
             }
         }
     }
+    //Если найдена ячейка, которую блокирует другой итем, то этот итем сбрасывается
     if(firstMatch->getCellWithLockingItem()!=nullptr)
         emit moveCellFromEquipment(firstMatch->getCellWithLockingItem(), false);
+    /*Если программа дошла до сюда, то возвращается первое нахождение. Стоит учитывать,
+     *что возможен возврат ячейки равной nullptr, если ничего найдено небыло*/
     return firstMatch;
 }
 
+/*Метод, блокирующий указанные в итеме из cell ячейки переданной ячейкой с итемом. Это необходимо, например, когда итем занимает сразу несколько слотов.
+ *Также передаётся слот ячейки из которой был произведён запрос на блокирование итемов, чтобы вызывающая ячейка не могла заблокировать саму себя.*/
 void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot)
 {
     QVector<Item::Slots> occupiedSlots = QVector<Item::Slots>(cell->getItem()->getOccupiedCellSlots());
 
+    //Из занимаемых слотов удаляется слот той ячейки, из которой произошёл вызов для предотвращения возможности итема заблокировать самого себя
     QMutableVectorIterator<Item::Slots> iterator(occupiedSlots);
     while (iterator.hasNext()){
         if(iterator.next() == acceptedSlot){
@@ -150,18 +172,23 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
     }
 
     for(Item::Slots slot : occupiedSlots){
+        //Если слот указан как один из пары, то происходит блок ячейки с преоритетом на левую ячейку пары
         if(slot == Item::ONE_OF_THE_GLOVE){
             InventoryCell* rightCell = bothGloves.getRightCell();
             InventoryCell* leftCell = bothGloves.getLeftCell();
+            //Левая ячейка блокируется либо если она просто пуста, либо если обе ячейки не пусты, при условии что левая ячейка не заблокирует саму себя
             if(leftCell->getItem()->itemIsEmpty || (!leftCell->getItem()->itemIsEmpty && leftCell!=cell && !rightCell->getItem()->itemIsEmpty)){
                 leftCell->setLockedStyle(true, cell);
+                //Если ячейка не была пуста, то происходит сброс итема из блокируемой ячейки
                 if(!leftCell->getItem()->itemIsEmpty)
                     emit moveCellFromEquipment(leftCell, false);
             }else{
                 rightCell->setLockedStyle(true, cell);
                 if(!rightCell->getItem()->itemIsEmpty)
+                    //Если ячейка не была пуста, то происходит сброс итема из блокируемой ячейки
                     emit moveCellFromEquipment(rightCell, false);
             }
+            //Ниже всё тоже самое
         }else if(slot == Item::ONE_OF_THE_PAULDRON){
             InventoryCell* rightCell = bothPauldrons.getRightCell();
             InventoryCell* leftCell = bothPauldrons.getLeftCell();
@@ -247,9 +274,11 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
                     emit moveCellFromEquipment(rightCell, false);
             }
         }else{
+            //Если слот не был парным, то происходит обычный поиск по всем ячейкам экиперовки
             for(InventoryCell* destinationCell : equipmentCells){
                 if(destinationCell->acceptedSlot == slot){
                     if(!destinationCell->getItem()->itemIsEmpty)
+                        //Если ячейка не была пуста, то происходит сброс итема из блокируемой ячейки
                         emit moveCellFromEquipment(destinationCell, false);
                     destinationCell->setLockedStyle(true, cell);
                 }
@@ -258,19 +287,23 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
     }
 }
 
+//Метод разблокирующий все блокируемые ячейки из вектора занимаемых ячеек из итема из cell
 void CharacterEquipment::unlockOccupiedCells(InventoryCell* cell)
 {
     QVector<Item::Slots> oldOccupiedSlots = QVector<Item::Slots>(cell->getItem()->getOccupiedCellSlots());
 
     for(Item::Slots slot : oldOccupiedSlots){
+        //Если слот указан как парный то ищется какая ячейка из пары была заблокирована
         if(slot == Item::ONE_OF_THE_GLOVE){
             InventoryCell* rightCell = bothGloves.getRightCell();
             InventoryCell* leftCell = bothGloves.getLeftCell();
+            //Ячейки разблокируются только если они были заблокированы итемом, а не вручную
             if(!rightCell->getIsManualLock() && rightCell->getCellWithLockingItem() == cell){
                 rightCell->setLockedStyle(false);
             }else if(!leftCell->getIsManualLock() && leftCell->getCellWithLockingItem() == cell){
                 leftCell->setLockedStyle(false);
             }
+            //Ниже всё тоже самое
         }else if(slot == Item::ONE_OF_THE_PAULDRON){
             InventoryCell* rightCell = bothPauldrons.getRightCell();
             InventoryCell* leftCell = bothPauldrons.getLeftCell();
@@ -329,6 +362,7 @@ void CharacterEquipment::unlockOccupiedCells(InventoryCell* cell)
             }
         }else{
             for(InventoryCell* cell : equipmentCells){
+                //Ячейки разблокируются только если они были заблокированы итемом, а не вручную
                 if(cell->acceptedSlot == slot && !cell->getIsManualLock()){
                     cell->setLockedStyle(false);
                 }
@@ -337,6 +371,7 @@ void CharacterEquipment::unlockOccupiedCells(InventoryCell* cell)
     }
 }
 
+//Метод устанавливающий всем ячейкам экиперовки соответствующие слоты и подложки
 void CharacterEquipment::setCellsAcceptedSlots()
 {
     ui->Arrows->acceptedSlot = Item::Slots::ARROWS;
@@ -393,6 +428,7 @@ void CharacterEquipment::setCellsAcceptedSlots()
     ui->RightDecoration->acceptedSlot = Item::Slots::R_DECORATION;
     ui->RightHand->acceptedSlot = Item::Slots::R_HAND;
 
+    //Задание всех пар слотов
     bothGloves = PairCells(ui->RightGlove, ui->LeftGlove);
     bothPauldrons = PairCells(ui->RightPauldron, ui->LeftPauldron);
     bothBraces = PairCells(ui->RightBrace, ui->LeftBrace);
@@ -403,6 +439,7 @@ void CharacterEquipment::setCellsAcceptedSlots()
     bothDecorations = PairCells(ui->RightDecoration, ui->LeftDecoration);
 }
 
+//Метод, сбрасывающий блокирующий переданую ячейку итем, если она соответствует переданому слоту. Метод возвращает был ли выполнен сброс
 bool CharacterEquipment::itemDrop(InventoryCell *cell, Item::Slots searchedSlot, bool playSound)
 {
     if(cell->acceptedSlot == searchedSlot){
@@ -416,9 +453,12 @@ bool CharacterEquipment::itemDrop(InventoryCell *cell, Item::Slots searchedSlot,
     return false;
 }
 
+/*Метод, проверяющий есль ли среди ячеек соответствующих переданым слотам ячйки заблокированые другими итемами. Если
+ *такие ячейки находятся, то итем блокирующий их сбрасывается. Метод возвращает true если был сброшен хотя бы 1 итем*/
 bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSlots)
 {
     bool ItemsHaveBeenDropped = false;
+    bool ItemsHaveBeenDroppedBuf = false;
 
     QVectorIterator<Item::Slots> iterator(occupiedCellSlots);
     while (iterator.hasNext()){
@@ -427,69 +467,101 @@ bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSl
             InventoryCell* rightCell = bothGloves.getRightCell();
             InventoryCell* leftCell = bothGloves.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GLOVE, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_GLOVE, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GLOVE, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_GLOVE, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else if(searchedSlot == Item::ONE_OF_THE_PAULDRON){
             InventoryCell* rightCell = bothPauldrons.getRightCell();
             InventoryCell* leftCell = bothPauldrons.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_PAULDRON, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_PAULDRON, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_PAULDRON, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_PAULDRON, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else if(searchedSlot == Item::ONE_OF_THE_BRACE){
             InventoryCell* rightCell = bothBraces.getRightCell();
             InventoryCell* leftCell = bothBraces.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_BRACE, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_BRACE, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_BRACE, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_BRACE, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else if(searchedSlot == Item::ONE_OF_THE_GAUNTLET){
             InventoryCell* rightCell = bothGauntlets.getRightCell();
             InventoryCell* leftCell = bothGauntlets.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GAUNTLET, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_GAUNTLET, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GAUNTLET, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_GAUNTLET, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else if(searchedSlot == Item::ONE_OF_THE_GREAVE){
             InventoryCell* rightCell = bothGreaves.getRightCell();
             InventoryCell* leftCell = bothGreaves.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_GREAVE, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_GREAVE, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_GREAVE, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_GREAVE, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else if(searchedSlot == Item::ONE_OF_THE_BOOT){
             InventoryCell* rightCell = bothBoots.getRightCell();
             InventoryCell* leftCell = bothBoots.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_BOOT, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_BOOT, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_BOOT, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_BOOT, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else if(searchedSlot == Item::ONE_OF_THE_HAND){
             InventoryCell* rightCell = bothHands.getRightCell();
             InventoryCell* leftCell = bothHands.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_HAND, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_HAND, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_HAND, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_HAND, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else if(searchedSlot == Item::ONE_OF_THE_DECORATION){
             InventoryCell* rightCell = bothDecorations.getRightCell();
             InventoryCell* leftCell = bothDecorations.getLeftCell();
             if(rightCell->getIsLocked() && !rightCell->getIsManualLock()){
-                ItemsHaveBeenDropped = itemDrop(rightCell, Item::R_DECORATION, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(rightCell, Item::R_DECORATION, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }else{
-                ItemsHaveBeenDropped = itemDrop(leftCell, Item::L_DECORATION, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(leftCell, Item::L_DECORATION, false);
+                if(!ItemsHaveBeenDropped)
+                    ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
         }else{
             for(InventoryCell* cell : equipmentCells){
-                bool ItemsHaveBeenDroppedBuf = itemDrop(cell, searchedSlot, false);
+                ItemsHaveBeenDroppedBuf = itemDrop(cell, searchedSlot, false);
                 if(!ItemsHaveBeenDropped)
                     ItemsHaveBeenDropped = ItemsHaveBeenDroppedBuf;
             }
@@ -499,6 +571,7 @@ bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSl
     return ItemsHaveBeenDropped;
 }
 
+//Слот, вызаваемый при начале перетаскивания любого итема. Подсвечивает все ячейки, в который данный итем можно положить
 void CharacterEquipment::dragStarted(QVector<Item::Slots> cellSlots)
 {
     for(Item::Slots cellSlot : cellSlots){
@@ -511,6 +584,7 @@ void CharacterEquipment::dragStarted(QVector<Item::Slots> cellSlots)
     }
 }
 
+//Слот, вызаваемый при окончании перетаскивания любого итема. Гасит посвеченые ячейки
 void CharacterEquipment::dragEnded()
 {
     for(InventoryCell* equipmentCell : equipmentCells){

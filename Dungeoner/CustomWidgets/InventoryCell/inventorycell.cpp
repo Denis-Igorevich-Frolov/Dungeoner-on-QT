@@ -22,7 +22,7 @@ InventoryCell::InventoryCell(QWidget *parent) :
     ui->item->getItemButton()->installEventFilter(this);
     ui->item->getStyleButtonsWrapper()->installEventFilter(this);
 
-    connect(ui->item, &Item::moveItemToEquipment, this, &InventoryCell::moveItemToEquipment);
+    connect(ui->item, &Item::moveItem, this, &InventoryCell::moveItem);
     connect(ui->item, &Item::styleRemoved, this, &InventoryCell::styleRemoved);
     connect(ui->item, &Item::styleAssigned, this, &InventoryCell::styleAssigned);
 
@@ -302,18 +302,25 @@ void InventoryCell::setSubstrateDollsVisible(bool isVisible)
     ui->SubstrateDolls->setVisible(isVisible);
 }
 
+/*Установка подложки куклы персонажа на ячейку. Так как и маски и гифки не имеют полупрозрачности,
+ *а только бинарную прозрачность, что очень некрасиво, то чтобы кукла была видна всегда на ячейке,
+ *в неё помещается подложка, дублирущая необходимый фрагмент куклы*/
 void InventoryCell::setSubstrateDollsPixmap(QPixmap pixmMap)
 {
      ui->SubstrateDolls->setPixmap(pixmMap);
 }
 
-void InventoryCell::moveItemToEquipment()
+/*Слот связывающий сигналы moveItem и moveCell. Обычным connect это не сделать
+ *так как moveCell передаёт ссылку на себя, а moveItem ничего не передаёт*/
+void InventoryCell::moveItem()
 {
-    emit moveCellToEquipment(this);
+    emit moveCell(this);
 }
 
+//Слот снимающий блокировку со всех занимаемых ячеек старого стиля итема
 void InventoryCell::styleRemoved()
 {
+    //Переключение стилей в инвентаре ни к чему не приводит
     if(acceptedSlot != Item::INVENTORY){
         emit unlockOccupiedCells(this);
     }
@@ -321,7 +328,10 @@ void InventoryCell::styleRemoved()
 
 void InventoryCell::styleAssigned()
 {
+    //Переключение стилей в инвентаре ни к чему не приводит
     if(acceptedSlot != Item::INVENTORY){
+        /*После смены стиля предмета, он может поменять свои целевые слоты, так
+         *что следует пересчитать находится ли итем всё ещй в своём слоте*/
         bool itemInItsSlot = false;
         for(Item::Slots slot : getItem()->getCellSlots()){
             if(slot == acceptedSlot){
@@ -329,9 +339,11 @@ void InventoryCell::styleAssigned()
                 break;
             }
         }
+        //Если итем больше не всвоём слоте, его положение в экиперовке пересматривается
         if(!itemInItsSlot)
             emit reviseItemPositionInEquipment(this, false);
 
+        //Для нового стиля сбрасываются все конфликтующие вещи и блокируются занимаемые ячейки
         emit checkLockedCells(getItem()->getOccupiedCellSlots());
         emit lockOccupiedCells(this, acceptedSlot);
     }
@@ -397,8 +409,13 @@ void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
 {
     QStringList formats = event->mimeData()->formats();
     if(formats.contains("Item")) {
+        //Если ячейка заблокирована вручную, то на неё нельзя перетащить итем
         if((isLocked && isManualLock))
             return;
+        /*Разрешение на сброс в любом случае вызывается, для того чтобы потом мог вызываться dragLeaveEvent.
+         *Это необходимо для того чтобы отслеживать покидание наведения перетаскиваемым итемом. В данном
+         *случае невозможно использовать эвенты HoverLeave и MouseLeave так как они никогда не вызываются
+         *при зажатой кнопке мыши, а перетаскивание как раз проводится зажатием кнопки мыши.*/
         event->acceptProposedAction();
 
         const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
@@ -406,34 +423,39 @@ void InventoryCell::dragEnterEvent(QDragEnterEvent *event)
         bool slotsMatch = false;
         Item* bufItem = new Item(itemData->getItem());
 
+        //Если в векторе доступных слотов перетаскиваемого итема есть слот этой ячейки, то сброс разрешается
         QVector<Item::Slots> itemSlots = bufItem->getCellSlots();
         QVectorIterator<Item::Slots> iterator(itemSlots);
         while (iterator.hasNext()){
             if(iterator.next() == acceptedSlot){
-                event->acceptProposedAction();
                 return;
             }
         }
 
+        //Если слоты не совпадают, и ячейка не является ячейкой в инвентаре, то ячейке назначется стиль, говорящий о невозможности сбросить сюда итем
         if(acceptedSlot != Item::Slots::INVENTORY)
             setBlockedStyle(true);
-        event->acceptProposedAction();
     }
 }
 
 void InventoryCell::dropEvent(QDropEvent *event)
 {
+    //Если каким-то образом у ячейки в которую производится сброс был задан стиль, говорящий о том, что сброс невозможен, то он отключается
     setBlockedStyle(false);
     const ItemMimeData *itemData = qobject_cast<const ItemMimeData*>(event->mimeData());
 
+    /*Если ячейку блокирует другой итем и этот итем не тот же, что и помещаемый итем из itemData, а также если сбрасывемый
+     *итем не равен тому итему что уже лежит в ячейке, итем из текущей ячейки сбрасывается. Первое необходимо для пого, чтобы
+     *можно было перекладывать итем, занимающий несколько ячеек, между своими доступными слотами, а второе возможно, если
+     *Draug&Drop из ячейки начался, но вместо перемещения в другую ячейку итем кладут в ту же, из которой началось перетаскивание*/
     if(isLocked && !isManualLock && cellWithLockingItem!=nullptr && cellWithLockingItem!=itemData->getItemCell() && itemData->getItemCell()!=this)
-        emit moveCellToEquipment(cellWithLockingItem);
+        emit moveCell(cellWithLockingItem);
 
     //Итем сначала записывается в отдельную переменную из MimeData
     Item* bufItem = new Item(itemData->getItem());
 
     bool slotsMatch = false;
-
+    //Производится проверка соответствия возможных слотов перетаскивемого итема и слота текущей ячейки
     QVector<Item::Slots> itemSlots = bufItem->getCellSlots();
     QVectorIterator<Item::Slots> iterator(itemSlots);
     while (iterator.hasNext()){
@@ -444,32 +466,37 @@ void InventoryCell::dropEvent(QDropEvent *event)
         }
     }
 
+    //Если соответствий найдено не было, и текущая ячейка - не ячейка в инвенторе, то перетаскивание отменяется
     if(!slotsMatch && acceptedSlot != Item::Slots::INVENTORY)
         return;
 
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
+    //Если ячейка из itemData не nullptr, производится свап ячеек
     if(itemCell){
         swapItems(itemCell);
-
         event->acceptProposedAction();
     }
 }
 
 void InventoryCell::dragLeaveEvent(QDragLeaveEvent *event)
 {
+    //Если перетаскиваемый объект больше не наведён на ячейку, то стиль, говорящий о том, что сброс в данную ячейку невозможен, гасится
     if(isBlocked)
         setBlockedStyle(false);
 }
 
-//Стиль неактивной (заблокированной) ячейки
+/*Стиль неактивной (заблокированной) ячейки. Если ячейка блокируется, в метод передаётся та ячейка, которая
+ *спровоцировала блокировку. Также есть ручная блокировка, которая может быть только также вручную и снята*/
 void InventoryCell::setLockedStyle(bool isLocked, InventoryCell *cellWithLockingItem, bool isManualLock)
 {
     this->isLocked = isLocked;
     this->isManualLock = isManualLock;
 
-    this->cellWithLockingItem = cellWithLockingItem;
-    if(cellWithLockingItem)
-        this->isManualLock = false;
+    //Если блокировка назначена вручную, то ей нельзя задать спровоцировавшую блокировку ячейку
+    if(!this->isManualLock)
+        this->cellWithLockingItem = cellWithLockingItem;
+    else
+        this->cellWithLockingItem = nullptr;
 
     if(!isLocked){
         cellWithLockingItem = nullptr;
@@ -478,8 +505,9 @@ void InventoryCell::setLockedStyle(bool isLocked, InventoryCell *cellWithLocking
         return;
     }
 
-    if(!ui->item->itemIsEmpty){
-        emit moveCellToEquipment(this);
+    //Есля в блокируемой ячейке что-то есть, оно сбрасывается
+    if(isLocked && !ui->item->itemIsEmpty){
+        emit moveCell(this);
     }
 
     //Выключается отображение анимации ячейки с новым предметом, на случай если такая анимация была включена
@@ -548,11 +576,13 @@ void InventoryCell::setBlockedStyle(bool isBlocked)
     ui->item->setUpdatesEnabled(true);
 }
 
+//Стиль ячейки, в которую возможно поместить перетаскиваемый итем
 void InventoryCell::setAvailableStyle(bool isAvailable)
 {
     this->isAvailable = isAvailable;
     ui->SubstrateDolls->setVisible(isAvailable);
     if(isAvailable){
+        //В зависимости от уже применённых стилей находится необходимая гифка
         if(isLocked)
             inventoryCellNew.setFileName(":/Equipment/GIF/LockedAvailableInventoryCell.gif");
         else if(getItem()->itemIsEmpty)
@@ -570,15 +600,15 @@ void InventoryCell::setAvailableStyle(bool isAvailable)
         //Задний фон и лейбл центрального элемента не участвуют в этом стиле, так что их следует скрыть
         ui->Locked->setVisible(false);
         ui->CentralElement->setVisible(false);
-        //Включается отображение анимации ячейки с новым предметом
+        //Включается отображение анимации ячейки с новым предметом. Только в данном случае туда передаётся гифка доступной ячейки
         ui->inventoryCellNew->setVisible(true);
         inventoryCellNew.setScaledSize(QSize(68,68));
         ui->inventoryCellNew->setMovie(&inventoryCellNew);
         inventoryCellNew.start();
         if(!getItem()->itemIsEmpty){
             /*Чтобы анимация не перерисовывала виджет итема с кучей эффектов, был создан лейбл оптимизации,
-         *который запечатлевает Pixmap итема. Виджету итема обновляться запрещается, а вместо него
-         *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
+             *который запечатлевает Pixmap итема. Виджету итема обновляться запрещается, а вместо него
+             *перисовываться будет один только Pixmap, что существенно улучшает производительность*/
             ui->ItemPixmapGrab->setPixmap(ui->item->grab());
             ui->ItemPixmapGrab->setVisible(true);
 
@@ -650,6 +680,16 @@ void InventoryCell::setDisabledBrokenStyle()
     ui->DropdownButton->move(3, 57);
 }
 
+int InventoryCell::getRow() const
+{
+    return row;
+}
+
+int InventoryCell::getCol() const
+{
+    return col;
+}
+
 bool InventoryCell::getIsAvailable() const
 {
     return isAvailable;
@@ -670,31 +710,41 @@ bool InventoryCell::getIsBlocked() const
     return isBlocked;
 }
 
+/*Метод меняющий местами итемы между ячейками. Следует помнить, что для правильного порядка
+ *вызова сигналов данный метод следует вызывать у целевой ячейки, а передовать перемещаемую*/
 void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
 {
     if(cell){
+        /*Сначала, если целевая ячейка не является ячейкой в инвентаре и не блокирована итемом из передаваемой
+         *ячейки, также как и сама не является этой самой передаваемой ячейкой, то для перемещаемой вещи сбрасывются
+         *все конфликтующие вещи. Последние 2 пункта необходимы, чтобы итем не мог сбросить сам себя*/
         if(acceptedSlot!=Item::INVENTORY && cellWithLockingItem!=cell && cell!=this)
             emit checkLockedCells (cell->getItem()->getOccupiedCellSlots());
 
-        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
+        /*Если хотябы одна из ячеек не является ячейкой в инвентаре, то для обоих вещей
+         *разблокируются все заблкированые ячейки из списка занимаемых ими слотов*/
+        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY){
             emit unlockOccupiedCells(cell);
-        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
             emit unlockOccupiedCells(this);
+        }
 
+        //Если каким-то образом у ячейки в которую производится сброс был задан стиль, говорящий о том, что сброс невозможен, то он отключается
         setBlockedStyle(false);
 
+        //Итем из передаваемой ячейки записывается в буфер
         Item* bufItem = new Item(cell->getItem());
+
+        //Затем в передаваемую ячейку переносится итем из целевой ячейки
+        cell->setItem(new Item(ui->item));
+        //Потом идёт перенос буферизированного итема в целевую ячейку
+        setItem(bufItem);
 
         if(playSound && bufItem->SoundDrop!="")
             Global::mediaplayer.playSound(QUrl::fromLocalFile(bufItem->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
-        //Затем текущий итем помещается в ячейку из которой началось перетаскивание
-        cell->setItem(new Item(ui->item));
-        /*Перенос буферизированного итема в текущую ячейку. id ему уже задан
-         *заранее, так что setAutoStyle внутри setItem сработает как надо*/
-        setItem(bufItem);
 
         emit itemIsDropped(col, row);
 
+        //Если целевая ячейка не является ячейкой в инвентаре, то в экиперовке блокируются занимаемые итемом в ней слоты
         if(acceptedSlot!=Item::INVENTORY)
             emit lockOccupiedCells(this, acceptedSlot);
     }

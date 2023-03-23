@@ -63,11 +63,13 @@ AbstractInventory::ItemIndex CharacterWindowInventory::getIndexOfLastNonEmptyCel
     return AbstractInventory::getIndexOfLastNonEmptyCell(ui->Inventory);
 }
 
+//Метод возвращающий адрес последней пустой ячейки. Последней считается самая правая нижняя ячейка
 AbstractInventory::ItemIndex CharacterWindowInventory::getIndexOfLastEmptyCell()
 {
     return AbstractInventory::getIndexOfLastEmptyCell(ui->Inventory);
 }
 
+//Метод возвращающий последнюю пустую ячейку. Последней считается самая правая нижняя ячейка
 InventoryCell *CharacterWindowInventory::getLastEmptyCell()
 {
     ItemIndex index = getIndexOfLastEmptyCell();
@@ -86,7 +88,7 @@ void CharacterWindowInventory::addRowOfCellsToInventory()
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
                 &InventoryCell::itemIsDropped, this, &CharacterWindowInventory::checkingInventorySizeChange);
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
-                &InventoryCell::moveCellToEquipment, this, &CharacterWindowInventory::moveCellToEquipment);
+                &InventoryCell::moveCell, this, &CharacterWindowInventory::moveCellToEquipment);
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
                 &InventoryCell::lockOccupiedCells, this, &CharacterWindowInventory::lockOccupiedCells);
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),

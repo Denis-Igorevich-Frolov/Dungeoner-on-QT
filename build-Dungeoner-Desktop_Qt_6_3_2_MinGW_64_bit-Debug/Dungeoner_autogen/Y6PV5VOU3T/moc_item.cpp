@@ -24,7 +24,7 @@ QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Item_t {
     uint offsetsAndSizes[26];
     char stringdata0[5];
-    char stringdata1[20];
+    char stringdata1[9];
     char stringdata2[1];
     char stringdata3[13];
     char stringdata4[14];
@@ -42,21 +42,21 @@ struct qt_meta_stringdata_Item_t {
 static const qt_meta_stringdata_Item_t qt_meta_stringdata_Item = {
     {
         QT_MOC_LITERAL(0, 4),  // "Item"
-        QT_MOC_LITERAL(5, 19),  // "moveItemToEquipment"
-        QT_MOC_LITERAL(25, 0),  // ""
-        QT_MOC_LITERAL(26, 12),  // "styleRemoved"
-        QT_MOC_LITERAL(39, 13),  // "styleAssigned"
-        QT_MOC_LITERAL(53, 21),  // "on_pushButton_clicked"
-        QT_MOC_LITERAL(75, 21),  // "on_pushButton_pressed"
-        QT_MOC_LITERAL(97, 22),  // "on_pushButton_released"
-        QT_MOC_LITERAL(120, 24),  // "on_StyleButton_1_clicked"
-        QT_MOC_LITERAL(145, 24),  // "on_StyleButton_2_clicked"
-        QT_MOC_LITERAL(170, 24),  // "on_StyleButton_3_clicked"
-        QT_MOC_LITERAL(195, 24),  // "on_StyleButton_4_clicked"
-        QT_MOC_LITERAL(220, 24)   // "on_StyleButton_5_clicked"
+        QT_MOC_LITERAL(5, 8),  // "moveItem"
+        QT_MOC_LITERAL(14, 0),  // ""
+        QT_MOC_LITERAL(15, 12),  // "styleRemoved"
+        QT_MOC_LITERAL(28, 13),  // "styleAssigned"
+        QT_MOC_LITERAL(42, 21),  // "on_pushButton_clicked"
+        QT_MOC_LITERAL(64, 21),  // "on_pushButton_pressed"
+        QT_MOC_LITERAL(86, 22),  // "on_pushButton_released"
+        QT_MOC_LITERAL(109, 24),  // "on_StyleButton_1_clicked"
+        QT_MOC_LITERAL(134, 24),  // "on_StyleButton_2_clicked"
+        QT_MOC_LITERAL(159, 24),  // "on_StyleButton_3_clicked"
+        QT_MOC_LITERAL(184, 24),  // "on_StyleButton_4_clicked"
+        QT_MOC_LITERAL(209, 24)   // "on_StyleButton_5_clicked"
     },
     "Item",
-    "moveItemToEquipment",
+    "moveItem",
     "",
     "styleRemoved",
     "styleAssigned",
@@ -123,7 +123,7 @@ void Item::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         auto *_t = static_cast<Item *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->moveItemToEquipment(); break;
+        case 0: _t->moveItem(); break;
         case 1: _t->styleRemoved(); break;
         case 2: _t->styleAssigned(); break;
         case 3: _t->on_pushButton_clicked(); break;
@@ -140,7 +140,7 @@ void Item::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         int *result = reinterpret_cast<int *>(_a[0]);
         {
             using _t = void (Item::*)();
-            if (_t _q_method = &Item::moveItemToEquipment; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &Item::moveItem; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 0;
                 return;
             }
@@ -210,7 +210,7 @@ int Item::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void Item::moveItemToEquipment()
+void Item::moveItem()
 {
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }

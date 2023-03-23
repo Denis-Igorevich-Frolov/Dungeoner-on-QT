@@ -728,6 +728,7 @@ void CharacterWindow::leaveEvent(QEvent *event)
     Global::pressedKeys.clear();
 }
 
+//Добавление вещей для отладки
 void CharacterWindow::addDebugItems()
 {
     QVector<Item*>items;
@@ -1262,7 +1263,10 @@ void CharacterWindow::addDebugItems()
 
 
     for(Item* item : items){
+        int col = ui->Inventory->getLastEmptyCell()->getCol();
+        int row = ui->Inventory->getLastEmptyCell()->getRow();
         ui->Inventory->getLastEmptyCell()->setItem(item);
+        ui->Inventory->checkingInventorySizeChange(col, row);
     }
 }
 
@@ -1410,17 +1414,21 @@ void CharacterWindow::refreshDisplayStats()
     initSecondaryStatsWidgets();
 }
 
+//Слот переносящий итем из инвентаря в экиперовку. Переменная moveItemAnyway говорит о том, будет ли указаный итем вытеснять другие или нет
 void CharacterWindow::moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway)
 {
     InventoryCell* targetCell = ui->Equipment->findCell(cell->getItem()->getCellSlots(), moveItemAnyway);
     if(targetCell){
+        //Если найденая целевая ячейка не пуста, то сначала сбрасывается конфликтующий итем
         if(!targetCell->getItem()->itemIsEmpty)
             moveCellFromEquipment(targetCell, false);
         targetCell->swapItems(cell);
     }else
+        //Если ни одной ячейки найдено не было, то итем, где бы он ни был, помещается в инвентарь
         moveCellFromEquipment(cell);
 }
 
+//Слот переносящий итем из экиперовки в инвентарь
 void CharacterWindow::moveCellFromEquipment(InventoryCell *cell, bool playSound)
 {
     InventoryCell* targetCell = ui->Inventory->getLastEmptyCell();

@@ -24,7 +24,9 @@ public:
     InventoryCell* getCell(int row, int column) override;
     //Метод возвращающий адрес последней непустой ячейки. Последней считается самая правая нижняя ячейка
     ItemIndex getIndexOfLastNonEmptyCell() override;
+    //Метод возвращающий адрес последней пустой ячейки. Последней считается самая правая нижняя ячейка
     ItemIndex getIndexOfLastEmptyCell() override;
+    //Метод возвращающий последнюю пустую ячейку. Последней считается самая правая нижняя ячейка
     InventoryCell* getLastEmptyCell() override;
 
 public slots:
@@ -32,15 +34,27 @@ public slots:
     void addRowOfCellsToInventory() override;
     //Удаление последней линии ячеек в инвентаре
     void removeRowOfCellsFromInventory() override;
+    /*Проверка того стоит ли изменять размер инвентаря. Если в последнюю ячейку положат итем,
+     *то прибавится ещё одна пустая строка. Если из предпоследней ячейки уберут итем, то все
+     *строки нижние кроме одной удалятся. Таким образом под итемами всегда будет одна пустая
+     *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
+    void checkingInventorySizeChange(int col, int row);
 
 signals:
     //При скролле скроллбара подсказка должна пропадать
     void RemoveTooltip();
+    //Сигнал, переносящий итем из инвентаря в экиперовку. Переменная moveItemAnyway говорит о том, будет ли указаный итем вытеснять другие или нет
     void moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway = true);
+    //Сигнал, блокирующий занимаемые слоты итема в экиперовке
     void lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot);
+    //Сигнал, разблокирующий занимаемые слоты итема в экиперовке
     void unlockOccupiedCells (InventoryCell* cell);
+    /*Сигнал, проверяющий есль ли среди ячеек соответствующих переданым слотам, ячейки заблокированые другими итемами. Если
+     *такие ячейки находятся, то итем блокирующий их сбрасывается. Метод возвращает true если был сброшен хотя бы 1 итем*/
     bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);
+    //Сигнал, вызаваемый при начале перетаскивания любого итема. Подсвечивает все ячейки, в который данный итем можно положить
     void dragStarted(QVector<Item::Slots> cellSlots);
+    //Слот, вызаваемый при окончании перетаскивания любого итема. Гасит посвеченые ячейки
     void dragEnded();
 
 private slots:
@@ -50,11 +64,6 @@ private slots:
     void on_InventoryScrollBar_actionTriggered(int action);
     //Функция вызываемая по окончании задержки startScrollTimer. Запускает начало скролла
     void inventoryScrollingStarted();
-    /*Проверка того стоит ли изменять размер инвентаря. Если в последнюю ячейку положат итем,
-     *то прибавится ещё одна пустая строка. Если из предпоследней ячейки уберут итем, то все
-     *строки нижние кроме одной удалятся. Таким образом под итемами всегда будет одна пустая
-     *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
-    void checkingInventorySizeChange(int col, int row);
 
 private:
     Ui::CharacterWindowInventory *ui;

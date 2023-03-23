@@ -98,15 +98,15 @@ public:
         ARROWS,//Стрелы
         BOLTS,//Болты
         ADDITIONAL_SLOT,//Дополнительный слот
-
-        ONE_OF_THE_GLOVE,
-        ONE_OF_THE_PAULDRON,
-        ONE_OF_THE_BRACE,
-        ONE_OF_THE_GAUNTLET,
-        ONE_OF_THE_GREAVE,
-        ONE_OF_THE_BOOT,
-        ONE_OF_THE_HAND,
-        ONE_OF_THE_DECORATION,
+        //Одно из пары
+        ONE_OF_THE_GLOVE,//Одна из перчаток
+        ONE_OF_THE_PAULDRON,//Один из наплечников
+        ONE_OF_THE_BRACE,//Один из наручей
+        ONE_OF_THE_GAUNTLET,//Одна из рукавиц
+        ONE_OF_THE_GREAVE,//Один из поножей
+        ONE_OF_THE_BOOT,//Один из ботинок
+        ONE_OF_THE_HAND,//Одна из рук
+        ONE_OF_THE_DECORATION//Одно из украшений
     };
 
     //Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item
@@ -236,8 +236,12 @@ public:
     bool getTwoHandedGripAllowed() const;
 
 signals:
-    void moveItemToEquipment();
+    /*Сигнал, говорящий о том, что итем из ячейки следует переместить. За то куда именно он
+     *будет перемещен отвечает связь сигналов-слотов тех классов, где расположена ячейка*/
+    void moveItem();
+    //Сигнал говорящий о том, что старый стиль вещи был снят
     void styleRemoved();
+    //Сигнал говорящий о том, что новый стиль вещи был применён
     void styleAssigned();
 
 private slots:

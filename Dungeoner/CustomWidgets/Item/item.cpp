@@ -21,7 +21,7 @@ Item::Item(QWidget *parent) :
 
     //Установка всех стилей
     ui->Quantity->setFont(QFont("TextFont"));
-    ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(17));
+    ui->Quantity->setStyleSheet(I_stylemaster::TextFontStyle(16));
     border->setOutlineThickness(2);
     ui->Quantity->setMargin(2);
     ui->Quantity->setGraphicsEffect(border);
@@ -39,7 +39,8 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
            int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots, QVector<Slots> occupiedCellSlots,
            QVector<Bonus*> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses, int minDamage, int maxDamage,
            bool isPressable, int maxCharges, int currentCharges, bool isDisabled, bool isNew, int currentStyle,
-           bool itemIsEmpty, QVector<Item *> styles, QString SoundDrag, QString SoundDrop, QString SoundPress, QString SoundPressWithOutOfCharge, int id) :
+           bool itemIsEmpty, QVector<Item *> styles, QString SoundDrag, QString SoundDrop, QString SoundPress,
+           QString SoundPressWithOutOfCharge, int id) :
     ui(new Ui::Item)
 {
 
@@ -364,8 +365,10 @@ void Item::on_pushButton_clicked()
 {
     //!!!Пока класс эффекта прожатия вещи не реализован
 
+    /*если на итем нажать с зажатым шифтом, то он будет перемещён. За то куда именно он
+     *будет перемещен отвечает связь сигналов-слотов тех классов, где расположена ячейка*/
     if(!Global::pressedKeys.empty() && Global::pressedKeys.last() == 16777248 && !itemIsEmpty && !cellSlots.isEmpty()){
-        emit moveItemToEquipment();
+        emit moveItem();
     }else if(isPressable){
         //Если итем сломан, его нельзя прожать
         if(itemCondition == BROKEN || isDisabled){
@@ -398,6 +401,7 @@ void Item::on_pushButton_clicked()
 
 void Item::on_pushButton_pressed()
 {
+    //Если нажатие происходилос шифтом, то предмет будет перемещён и никакие стили не требуются
     if(!Global::pressedKeys.empty() && Global::pressedKeys.last() == 16777248)
         return;
     if(isPressable){

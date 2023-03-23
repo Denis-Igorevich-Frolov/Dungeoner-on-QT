@@ -44,14 +44,14 @@ struct qt_meta_stringdata_CharacterWindowInventory_t {
     char stringdata17[25];
     char stringdata18[30];
     char stringdata19[28];
-    char stringdata20[6];
-    char stringdata21[35];
-    char stringdata22[38];
-    char stringdata23[7];
-    char stringdata24[26];
-    char stringdata25[28];
-    char stringdata26[4];
-    char stringdata27[4];
+    char stringdata20[4];
+    char stringdata21[4];
+    char stringdata22[28];
+    char stringdata23[6];
+    char stringdata24[35];
+    char stringdata25[38];
+    char stringdata26[7];
+    char stringdata27[26];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CharacterWindowInventory_t::offsetsAndSizes) + ofs), len 
@@ -76,15 +76,15 @@ static const qt_meta_stringdata_CharacterWindowInventory_t qt_meta_stringdata_Ch
         QT_MOC_LITERAL(234, 9),  // "dragEnded"
         QT_MOC_LITERAL(244, 24),  // "addRowOfCellsToInventory"
         QT_MOC_LITERAL(269, 29),  // "removeRowOfCellsFromInventory"
-        QT_MOC_LITERAL(299, 27),  // "InventoryScrollAreaScrolled"
-        QT_MOC_LITERAL(327, 5),  // "value"
-        QT_MOC_LITERAL(333, 34),  // "on_InventoryScrollBar_valueCh..."
-        QT_MOC_LITERAL(368, 37),  // "on_InventoryScrollBar_actionT..."
-        QT_MOC_LITERAL(406, 6),  // "action"
-        QT_MOC_LITERAL(413, 25),  // "inventoryScrollingStarted"
-        QT_MOC_LITERAL(439, 27),  // "checkingInventorySizeChange"
-        QT_MOC_LITERAL(467, 3),  // "col"
-        QT_MOC_LITERAL(471, 3)   // "row"
+        QT_MOC_LITERAL(299, 27),  // "checkingInventorySizeChange"
+        QT_MOC_LITERAL(327, 3),  // "col"
+        QT_MOC_LITERAL(331, 3),  // "row"
+        QT_MOC_LITERAL(335, 27),  // "InventoryScrollAreaScrolled"
+        QT_MOC_LITERAL(363, 5),  // "value"
+        QT_MOC_LITERAL(369, 34),  // "on_InventoryScrollBar_valueCh..."
+        QT_MOC_LITERAL(404, 37),  // "on_InventoryScrollBar_actionT..."
+        QT_MOC_LITERAL(442, 6),  // "action"
+        QT_MOC_LITERAL(449, 25)   // "inventoryScrollingStarted"
     },
     "CharacterWindowInventory",
     "RemoveTooltip",
@@ -105,15 +105,15 @@ static const qt_meta_stringdata_CharacterWindowInventory_t qt_meta_stringdata_Ch
     "dragEnded",
     "addRowOfCellsToInventory",
     "removeRowOfCellsFromInventory",
+    "checkingInventorySizeChange",
+    "col",
+    "row",
     "InventoryScrollAreaScrolled",
     "value",
     "on_InventoryScrollBar_valueChanged",
     "on_InventoryScrollBar_actionTriggered",
     "action",
-    "inventoryScrollingStarted",
-    "checkingInventorySizeChange",
-    "col",
-    "row"
+    "inventoryScrollingStarted"
 };
 #undef QT_MOC_LITERAL
 
@@ -143,11 +143,11 @@ static const uint qt_meta_data_CharacterWindowInventory[] = {
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
       17,    0,  128,    2, 0x0a,   17 /* Public */,
       18,    0,  129,    2, 0x0a,   18 /* Public */,
-      19,    1,  130,    2, 0x08,   19 /* Private */,
-      21,    1,  133,    2, 0x08,   21 /* Private */,
-      22,    1,  136,    2, 0x08,   23 /* Private */,
-      24,    0,  139,    2, 0x08,   25 /* Private */,
-      25,    2,  140,    2, 0x08,   26 /* Private */,
+      19,    2,  130,    2, 0x0a,   19 /* Public */,
+      22,    1,  135,    2, 0x08,   22 /* Private */,
+      24,    1,  138,    2, 0x08,   24 /* Private */,
+      25,    1,  141,    2, 0x08,   26 /* Private */,
+      27,    0,  144,    2, 0x08,   28 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -162,11 +162,11 @@ static const uint qt_meta_data_CharacterWindowInventory[] = {
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,   20,
-    QMetaType::Void, QMetaType::Int,   20,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int,   20,   21,
     QMetaType::Void, QMetaType::Int,   23,
+    QMetaType::Void, QMetaType::Int,   23,
+    QMetaType::Void, QMetaType::Int,   26,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int,   26,   27,
 
        0        // eod
 };
@@ -188,11 +188,11 @@ void CharacterWindowInventory::qt_static_metacall(QObject *_o, QMetaObject::Call
         case 7: _t->dragEnded(); break;
         case 8: _t->addRowOfCellsToInventory(); break;
         case 9: _t->removeRowOfCellsFromInventory(); break;
-        case 10: _t->InventoryScrollAreaScrolled((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 11: _t->on_InventoryScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 12: _t->on_InventoryScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 13: _t->inventoryScrollingStarted(); break;
-        case 14: _t->checkingInventorySizeChange((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 10: _t->checkingInventorySizeChange((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 11: _t->InventoryScrollAreaScrolled((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 12: _t->on_InventoryScrollBar_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 13: _t->on_InventoryScrollBar_actionTriggered((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 14: _t->inventoryScrollingStarted(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -289,7 +289,7 @@ const QMetaObject CharacterWindowInventory::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterWindowInventory_t
 , QtPrivate::TypeAndForceComplete<CharacterWindowInventory, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,

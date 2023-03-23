@@ -29,7 +29,9 @@ private slots:
     //Метод обновляющий отображение всех статов, инициализируя виджеты данными из класса Person
     void refreshDisplayStats();
 
+    //Слот, переносящий итем из инвентаря в экиперовку. Переменная moveItemAnyway говорит о том, будет ли указаный итем вытеснять другие или нет
     void moveCellToEquipment(InventoryCell* cell, bool moveItemAnyway = true);
+    //Слот, переносящий итем из экиперовки в инвентарь
     void moveCellFromEquipment(InventoryCell* cell, bool playSound = true);
 
     void on_verticalScrollBar_actionTriggered(int action);
@@ -105,6 +107,7 @@ private:
 
     Person person = Person();
 
+    //Добавление вещей для отладки
     void addDebugItems();
 };
 

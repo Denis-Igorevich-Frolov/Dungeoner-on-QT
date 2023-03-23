@@ -50,7 +50,7 @@ public:
         Image->setGeometry(QRect(0, 0, 68, 68));
         Quantity = new QLabel(Item);
         Quantity->setObjectName(QString::fromUtf8("Quantity"));
-        Quantity->setGeometry(QRect(6, 46, 56, 20));
+        Quantity->setGeometry(QRect(10, 49, 56, 20));
         Quantity->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         pushButton = new QPushButton(Item);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));

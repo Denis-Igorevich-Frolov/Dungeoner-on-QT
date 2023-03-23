@@ -119,6 +119,7 @@ AbstractInventory::ItemIndex AbstractInventory::getIndexOfLastNonEmptyCell(QGrid
     return ItemIndex(-1, -1);
 }
 
+//Метод возвращающий адрес последней пустой ячейки. Последней считается самая правая нижняя ячейка
 AbstractInventory::ItemIndex AbstractInventory::getIndexOfLastEmptyCell(QGridLayout *inventoryLayout)
 {
     /*В строке всегда maxColumns ячеек, так что вычислить количество строк легко. Преимущество такого способа перед

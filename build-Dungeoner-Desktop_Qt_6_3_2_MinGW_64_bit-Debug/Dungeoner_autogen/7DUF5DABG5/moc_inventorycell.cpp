@@ -29,7 +29,7 @@ struct qt_meta_stringdata_InventoryCell_t {
     char stringdata2[1];
     char stringdata3[4];
     char stringdata4[4];
-    char stringdata5[20];
+    char stringdata5[9];
     char stringdata6[15];
     char stringdata7[5];
     char stringdata8[15];
@@ -44,7 +44,7 @@ struct qt_meta_stringdata_InventoryCell_t {
     char stringdata17[12];
     char stringdata18[10];
     char stringdata19[10];
-    char stringdata20[20];
+    char stringdata20[9];
     char stringdata21[13];
     char stringdata22[14];
 };
@@ -57,31 +57,31 @@ static const qt_meta_stringdata_InventoryCell_t qt_meta_stringdata_InventoryCell
         QT_MOC_LITERAL(28, 0),  // ""
         QT_MOC_LITERAL(29, 3),  // "col"
         QT_MOC_LITERAL(33, 3),  // "row"
-        QT_MOC_LITERAL(37, 19),  // "moveCellToEquipment"
-        QT_MOC_LITERAL(57, 14),  // "InventoryCell*"
-        QT_MOC_LITERAL(72, 4),  // "cell"
-        QT_MOC_LITERAL(77, 14),  // "moveItemAnyway"
-        QT_MOC_LITERAL(92, 29),  // "reviseItemPositionInEquipment"
-        QT_MOC_LITERAL(122, 17),  // "lockOccupiedCells"
-        QT_MOC_LITERAL(140, 11),  // "Item::Slots"
-        QT_MOC_LITERAL(152, 12),  // "acceptedSlot"
-        QT_MOC_LITERAL(165, 19),  // "unlockOccupiedCells"
-        QT_MOC_LITERAL(185, 16),  // "checkLockedCells"
-        QT_MOC_LITERAL(202, 18),  // "QList<Item::Slots>"
-        QT_MOC_LITERAL(221, 17),  // "occupiedCellSlots"
-        QT_MOC_LITERAL(239, 11),  // "dragStarted"
-        QT_MOC_LITERAL(251, 9),  // "cellSlots"
-        QT_MOC_LITERAL(261, 9),  // "dragEnded"
-        QT_MOC_LITERAL(271, 19),  // "moveItemToEquipment"
-        QT_MOC_LITERAL(291, 12),  // "styleRemoved"
-        QT_MOC_LITERAL(304, 13)   // "styleAssigned"
+        QT_MOC_LITERAL(37, 8),  // "moveCell"
+        QT_MOC_LITERAL(46, 14),  // "InventoryCell*"
+        QT_MOC_LITERAL(61, 4),  // "cell"
+        QT_MOC_LITERAL(66, 14),  // "moveItemAnyway"
+        QT_MOC_LITERAL(81, 29),  // "reviseItemPositionInEquipment"
+        QT_MOC_LITERAL(111, 17),  // "lockOccupiedCells"
+        QT_MOC_LITERAL(129, 11),  // "Item::Slots"
+        QT_MOC_LITERAL(141, 12),  // "acceptedSlot"
+        QT_MOC_LITERAL(154, 19),  // "unlockOccupiedCells"
+        QT_MOC_LITERAL(174, 16),  // "checkLockedCells"
+        QT_MOC_LITERAL(191, 18),  // "QList<Item::Slots>"
+        QT_MOC_LITERAL(210, 17),  // "occupiedCellSlots"
+        QT_MOC_LITERAL(228, 11),  // "dragStarted"
+        QT_MOC_LITERAL(240, 9),  // "cellSlots"
+        QT_MOC_LITERAL(250, 9),  // "dragEnded"
+        QT_MOC_LITERAL(260, 8),  // "moveItem"
+        QT_MOC_LITERAL(269, 12),  // "styleRemoved"
+        QT_MOC_LITERAL(282, 13)   // "styleAssigned"
     },
     "InventoryCell",
     "itemIsDropped",
     "",
     "col",
     "row",
-    "moveCellToEquipment",
+    "moveCell",
     "InventoryCell*",
     "cell",
     "moveItemAnyway",
@@ -96,7 +96,7 @@ static const qt_meta_stringdata_InventoryCell_t qt_meta_stringdata_InventoryCell
     "dragStarted",
     "cellSlots",
     "dragEnded",
-    "moveItemToEquipment",
+    "moveItem",
     "styleRemoved",
     "styleAssigned"
 };
@@ -159,8 +159,8 @@ void InventoryCell::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         (void)_t;
         switch (_id) {
         case 0: _t->itemIsDropped((*reinterpret_cast< std::add_pointer_t<int>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 1: _t->moveCellToEquipment((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
-        case 2: _t->moveCellToEquipment((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
+        case 1: _t->moveCell((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
+        case 2: _t->moveCell((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
         case 3: _t->reviseItemPositionInEquipment((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<bool>>(_a[2]))); break;
         case 4: _t->reviseItemPositionInEquipment((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
         case 5: _t->lockOccupiedCells((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<Item::Slots>>(_a[2]))); break;
@@ -169,7 +169,7 @@ void InventoryCell::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 8: _t->dragStarted((*reinterpret_cast< std::add_pointer_t<QList<Item::Slots>>>(_a[1]))); break;
         case 9: _t->dragEnded(); break;
-        case 10: _t->moveItemToEquipment(); break;
+        case 10: _t->moveItem(); break;
         case 11: _t->styleRemoved(); break;
         case 12: _t->styleAssigned(); break;
         default: ;
@@ -231,7 +231,7 @@ void InventoryCell::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         }
         {
             using _t = void (InventoryCell::*)(InventoryCell * , bool );
-            if (_t _q_method = &InventoryCell::moveCellToEquipment; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &InventoryCell::moveCell; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
@@ -335,7 +335,7 @@ void InventoryCell::itemIsDropped(int _t1, int _t2)
 }
 
 // SIGNAL 1
-void InventoryCell::moveCellToEquipment(InventoryCell * _t1, bool _t2)
+void InventoryCell::moveCell(InventoryCell * _t1, bool _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
