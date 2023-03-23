@@ -99,6 +99,8 @@ void CharacterWindowInventory::addRowOfCellsToInventory()
                 &InventoryCell::dragStarted, this, &CharacterWindowInventory::dragStarted);
         connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
                 &InventoryCell::dragEnded, this, &CharacterWindowInventory::dragEnded);
+        connect(static_cast<InventoryCell*>(ui->Inventory->itemAtPosition(row, i)->widget()),
+                &InventoryCell::checkingInventorySizeChange, this, &CharacterWindowInventory::checkingInventorySizeChange);
     }
     row++;
 }

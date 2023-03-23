@@ -84,6 +84,11 @@ signals:
     bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);
     void dragStarted(QVector<Item::Slots> cellSlots);
     void dragEnded();
+    /*Проверка того стоит ли изменять размер инвентаря. Если в последнюю ячейку положат итем,
+     *то прибавится ещё одна пустая строка. Если из предпоследней ячейки уберут итем, то все
+     *строки нижние кроме одной удалятся. Таким образом под итемами всегда будет одна пустая
+     *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
+    void checkingInventorySizeChange(int col, int row);
 
 private slots:
     /*Слот связывающий сигналы moveItem и moveCell. Обычным connect это не сделать

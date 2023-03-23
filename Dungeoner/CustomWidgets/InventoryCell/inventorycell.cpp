@@ -315,6 +315,10 @@ void InventoryCell::setSubstrateDollsPixmap(QPixmap pixmMap)
 void InventoryCell::moveItem()
 {
     emit moveCell(this);
+
+    //Если ячейка находится в инвентаре, то при покидании итема из неё, следует пересчетать размер инвентаря
+    if(acceptedSlot == Item::INVENTORY)
+        emit checkingInventorySizeChange(col, row);
 }
 
 //Слот снимающий блокировку со всех занимаемых ячеек старого стиля итема
