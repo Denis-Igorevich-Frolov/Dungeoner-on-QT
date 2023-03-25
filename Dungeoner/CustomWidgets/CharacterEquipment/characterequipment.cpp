@@ -14,6 +14,10 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    connect(ui->weaponGripButton, &WeaponGripButton::takeTwoHandedGripRightHandItem, this, &CharacterEquipment::takeTwoHandedGripRightHandItem);
+    connect(ui->weaponGripButton, &WeaponGripButton::takeTwoHandedGripLeftHandItem, this, &CharacterEquipment::takeTwoHandedGripLeftHandItem);
+    connect(ui->weaponGripButton, &WeaponGripButton::useOneHandedGrip, this, &CharacterEquipment::useOneHandedGrip);
+
     //Забивается вектор всех ячеек
     for(QObject* layer : ui->CellsStackedWidget->children()){
         for(auto autoCell : layer->children()){
@@ -593,8 +597,17 @@ void CharacterEquipment::dragEnded()
     }
 }
 
-void CharacterEquipment::on_WeaponGripButton_toggled(bool checked)
+void CharacterEquipment::takeTwoHandedGripRightHandItem()
 {
-    qDebug()<<checked;
+
 }
 
+void CharacterEquipment::takeTwoHandedGripLeftHandItem()
+{
+
+}
+
+void CharacterEquipment::useOneHandedGrip()
+{
+
+}

@@ -872,7 +872,7 @@ void CharacterWindow::addDebugItems()
     GrossMesser->setMaxCharges(10);
     GrossMesser->setCurrentCharges(10);
     GrossMesser->setId(0);
-    GrossMesser->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    GrossMesser->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     GrossMesser->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_taken.wav";
     GrossMesser->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_dropped.wav";
@@ -889,7 +889,7 @@ void CharacterWindow::addDebugItems()
     Zweihander->setMaxCharges(10);
     Zweihander->setCurrentCharges(10);
     Zweihander->setId(0);
-    Zweihander->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Zweihander->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Zweihander->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_taken.wav";
     Zweihander->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_dropped.wav";
@@ -906,7 +906,7 @@ void CharacterWindow::addDebugItems()
     Great_Sword->setMaxCharges(10);
     Great_Sword->setCurrentCharges(10);
     Great_Sword->setId(0);
-    Great_Sword->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Great_Sword->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Great_Sword->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_taken.wav";
     Great_Sword->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Two-handed_sword_is_dropped.wav";
@@ -956,7 +956,7 @@ void CharacterWindow::addDebugItems()
     TwoHanded_Hammer->setMaxCharges(10);
     TwoHanded_Hammer->setCurrentCharges(10);
     TwoHanded_Hammer->setId(0);
-    TwoHanded_Hammer->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    TwoHanded_Hammer->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     TwoHanded_Hammer->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_taken.wav";
     TwoHanded_Hammer->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_dropped.wav";
@@ -972,7 +972,7 @@ void CharacterWindow::addDebugItems()
     Alfalfa_Hammer->setMaxCharges(10);
     Alfalfa_Hammer->setCurrentCharges(10);
     Alfalfa_Hammer->setId(0);
-    Alfalfa_Hammer->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Alfalfa_Hammer->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Alfalfa_Hammer->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_taken.wav";
     Alfalfa_Hammer->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_dropped.wav";
@@ -988,7 +988,7 @@ void CharacterWindow::addDebugItems()
     Great_Mace->setMaxCharges(10);
     Great_Mace->setCurrentCharges(10);
     Great_Mace->setId(0);
-    Great_Mace->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Great_Mace->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Great_Mace->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_taken.wav";
     Great_Mace->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_dropped.wav";
@@ -1020,7 +1020,7 @@ void CharacterWindow::addDebugItems()
     Twohanded_Axe->setMaxCharges(10);
     Twohanded_Axe->setCurrentCharges(10);
     Twohanded_Axe->setId(0);
-    Twohanded_Axe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Twohanded_Axe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Twohanded_Axe->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_taken.wav";
     Twohanded_Axe->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_dropped.wav";
@@ -1036,7 +1036,7 @@ void CharacterWindow::addDebugItems()
     Poleaxe->setMaxCharges(10);
     Poleaxe->setCurrentCharges(10);
     Poleaxe->setId(0);
-    Poleaxe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Poleaxe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Poleaxe->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_taken.wav";
     Poleaxe->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_dropped.wav";
@@ -1052,7 +1052,7 @@ void CharacterWindow::addDebugItems()
     Great_Axe->setMaxCharges(10);
     Great_Axe->setCurrentCharges(10);
     Great_Axe->setId(0);
-    Great_Axe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Great_Axe->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Great_Axe->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_taken.wav";
     Great_Axe->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Axe_is_dropped.wav";
@@ -1084,7 +1084,7 @@ void CharacterWindow::addDebugItems()
     Pike->setMaxCharges(10);
     Pike->setCurrentCharges(10);
     Pike->setId(0);
-    Pike->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Pike->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Pike->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_taken.wav";
     Pike->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_dropped.wav";
@@ -1100,7 +1100,7 @@ void CharacterWindow::addDebugItems()
     Great_Pike->setMaxCharges(10);
     Great_Pike->setCurrentCharges(10);
     Great_Pike->setId(0);
-    Great_Pike->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Great_Pike->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Great_Pike->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_taken.wav";
     Great_Pike->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_dropped.wav";
@@ -1151,7 +1151,7 @@ void CharacterWindow::addDebugItems()
     Musket->setMaxCharges(10);
     Musket->setCurrentCharges(10);
     Musket->setId(0);
-    Musket->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Musket->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Musket->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_taken.wav";
     Musket->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_dropped.wav";

@@ -54,6 +54,10 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/T_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/WGB_stylemaster.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/WGB_stylemaster.h \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongripbutton.cpp \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongripbutton.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.cpp \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.cpp \
@@ -687,6 +691,7 @@ Dungeoner_autogen/timestamp: \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkill/secondaryskill.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.ui \
+  E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongripbutton.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.ui \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \

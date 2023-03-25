@@ -644,6 +644,18 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/WGB_stylemaster.h",
+			"MU",
+			"FBH4GM2NES/moc_WGB_stylemaster.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongripbutton.h",
+			"MU",
+			"FBH4GM2NES/moc_weapongripbutton.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/WB1_stylemaster.h",
 			"MU",
 			"XCS7JX7T4V/moc_WB1_stylemaster.cpp",
@@ -977,6 +989,16 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Tooltip/tooltip.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/WGB_stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongripbutton.cpp",
 			"MU",
 			null
 		],

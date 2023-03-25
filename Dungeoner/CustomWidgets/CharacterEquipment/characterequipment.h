@@ -74,12 +74,14 @@ public slots:
     //Слот, вызаваемый при окончании перетаскивания любого итема. Гасит посвеченые ячейки
     void dragEnded();
 
+    void takeTwoHandedGripRightHandItem();
+    void takeTwoHandedGripLeftHandItem();
+    void useOneHandedGrip();
+
 private slots:
     void on_OverArmorButton_clicked();
     void on_ArmorButton_clicked();
     void on_UnderArmorButton_clicked();
-
-    void on_WeaponGripButton_toggled(bool checked);
 
 private:
     Ui::CharacterEquipment *ui;

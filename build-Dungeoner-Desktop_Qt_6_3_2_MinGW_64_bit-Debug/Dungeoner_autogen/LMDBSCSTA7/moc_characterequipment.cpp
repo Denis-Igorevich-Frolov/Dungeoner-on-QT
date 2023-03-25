@@ -23,7 +23,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_CharacterEquipment_t {
-    uint offsetsAndSizes[46];
+    uint offsetsAndSizes[48];
     char stringdata0[19];
     char stringdata1[22];
     char stringdata2[1];
@@ -42,11 +42,12 @@ struct qt_meta_stringdata_CharacterEquipment_t {
     char stringdata15[12];
     char stringdata16[10];
     char stringdata17[10];
-    char stringdata18[27];
-    char stringdata19[23];
-    char stringdata20[28];
-    char stringdata21[28];
-    char stringdata22[8];
+    char stringdata18[31];
+    char stringdata19[30];
+    char stringdata20[17];
+    char stringdata21[27];
+    char stringdata22[23];
+    char stringdata23[28];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_CharacterEquipment_t::offsetsAndSizes) + ofs), len 
@@ -70,11 +71,12 @@ static const qt_meta_stringdata_CharacterEquipment_t qt_meta_stringdata_Characte
         QT_MOC_LITERAL(237, 11),  // "dragStarted"
         QT_MOC_LITERAL(249, 9),  // "cellSlots"
         QT_MOC_LITERAL(259, 9),  // "dragEnded"
-        QT_MOC_LITERAL(269, 26),  // "on_OverArmorButton_clicked"
-        QT_MOC_LITERAL(296, 22),  // "on_ArmorButton_clicked"
-        QT_MOC_LITERAL(319, 27),  // "on_UnderArmorButton_clicked"
-        QT_MOC_LITERAL(347, 27),  // "on_WeaponGripButton_toggled"
-        QT_MOC_LITERAL(375, 7)   // "checked"
+        QT_MOC_LITERAL(269, 30),  // "takeTwoHandedGripRightHandItem"
+        QT_MOC_LITERAL(300, 29),  // "takeTwoHandedGripLeftHandItem"
+        QT_MOC_LITERAL(330, 16),  // "useOneHandedGrip"
+        QT_MOC_LITERAL(347, 26),  // "on_OverArmorButton_clicked"
+        QT_MOC_LITERAL(374, 22),  // "on_ArmorButton_clicked"
+        QT_MOC_LITERAL(397, 27)   // "on_UnderArmorButton_clicked"
     },
     "CharacterEquipment",
     "moveCellFromEquipment",
@@ -94,11 +96,12 @@ static const qt_meta_stringdata_CharacterEquipment_t qt_meta_stringdata_Characte
     "dragStarted",
     "cellSlots",
     "dragEnded",
+    "takeTwoHandedGripRightHandItem",
+    "takeTwoHandedGripLeftHandItem",
+    "useOneHandedGrip",
     "on_OverArmorButton_clicked",
     "on_ArmorButton_clicked",
-    "on_UnderArmorButton_clicked",
-    "on_WeaponGripButton_toggled",
-    "checked"
+    "on_UnderArmorButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -108,7 +111,7 @@ static const uint qt_meta_data_CharacterEquipment[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -116,21 +119,23 @@ static const uint qt_meta_data_CharacterEquipment[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,   92,    2, 0x06,    1 /* Public */,
-       1,    1,   97,    2, 0x26,    4 /* Public | MethodCloned */,
-       6,    2,  100,    2, 0x06,    6 /* Public */,
-       6,    1,  105,    2, 0x26,    9 /* Public | MethodCloned */,
+       1,    2,  104,    2, 0x06,    1 /* Public */,
+       1,    1,  109,    2, 0x26,    4 /* Public | MethodCloned */,
+       6,    2,  112,    2, 0x06,    6 /* Public */,
+       6,    1,  117,    2, 0x26,    9 /* Public | MethodCloned */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       8,    2,  108,    2, 0x0a,   11 /* Public */,
-      11,    1,  113,    2, 0x0a,   14 /* Public */,
-      12,    1,  116,    2, 0x0a,   16 /* Public */,
-      15,    1,  119,    2, 0x0a,   18 /* Public */,
-      17,    0,  122,    2, 0x0a,   20 /* Public */,
-      18,    0,  123,    2, 0x08,   21 /* Private */,
-      19,    0,  124,    2, 0x08,   22 /* Private */,
-      20,    0,  125,    2, 0x08,   23 /* Private */,
-      21,    1,  126,    2, 0x08,   24 /* Private */,
+       8,    2,  120,    2, 0x0a,   11 /* Public */,
+      11,    1,  125,    2, 0x0a,   14 /* Public */,
+      12,    1,  128,    2, 0x0a,   16 /* Public */,
+      15,    1,  131,    2, 0x0a,   18 /* Public */,
+      17,    0,  134,    2, 0x0a,   20 /* Public */,
+      18,    0,  135,    2, 0x0a,   21 /* Public */,
+      19,    0,  136,    2, 0x0a,   22 /* Public */,
+      20,    0,  137,    2, 0x0a,   23 /* Public */,
+      21,    0,  138,    2, 0x08,   24 /* Private */,
+      22,    0,  139,    2, 0x08,   25 /* Private */,
+      23,    0,  140,    2, 0x08,   26 /* Private */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3, QMetaType::Bool,    4,    5,
@@ -147,7 +152,9 @@ static const uint qt_meta_data_CharacterEquipment[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Bool,   22,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -168,10 +175,12 @@ void CharacterEquipment::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 7: _t->dragStarted((*reinterpret_cast< std::add_pointer_t<QList<Item::Slots>>>(_a[1]))); break;
         case 8: _t->dragEnded(); break;
-        case 9: _t->on_OverArmorButton_clicked(); break;
-        case 10: _t->on_ArmorButton_clicked(); break;
-        case 11: _t->on_UnderArmorButton_clicked(); break;
-        case 12: _t->on_WeaponGripButton_toggled((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 9: _t->takeTwoHandedGripRightHandItem(); break;
+        case 10: _t->takeTwoHandedGripLeftHandItem(); break;
+        case 11: _t->useOneHandedGrip(); break;
+        case 12: _t->on_OverArmorButton_clicked(); break;
+        case 13: _t->on_ArmorButton_clicked(); break;
+        case 14: _t->on_UnderArmorButton_clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -247,7 +256,7 @@ const QMetaObject CharacterEquipment::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_CharacterEquipment_t
 , QtPrivate::TypeAndForceComplete<CharacterEquipment, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -274,13 +283,13 @@ int CharacterEquipment::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     }
     return _id;
 }

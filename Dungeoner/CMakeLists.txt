@@ -134,6 +134,11 @@ set(PROJECT_SOURCES
         CustomWidgets/CharacterEquipment/characterequipment.h
         CustomWidgets/CharacterEquipment/characterequipment.cpp
         CustomWidgets/CharacterEquipment/characterequipment.ui
+        CustomWidgets/WeaponGripButton/weapongripbutton.h
+        CustomWidgets/WeaponGripButton/weapongripbutton.cpp
+        CustomWidgets/WeaponGripButton/weapongripbutton.ui
+        CustomWidgets/WeaponGripButton/WGB_stylemaster.h
+        CustomWidgets/WeaponGripButton/WGB_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
