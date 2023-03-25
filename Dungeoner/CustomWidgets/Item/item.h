@@ -301,7 +301,7 @@ private:
     bool eventFilter(QObject* object, QEvent* event) override;
     void leaveEvent(QEvent *event) override;
 
-    QPropertyAnimation *anim;
+    QPropertyAnimation *shiftAnimation;
 
     bool styleButtonsExtended = false;
 

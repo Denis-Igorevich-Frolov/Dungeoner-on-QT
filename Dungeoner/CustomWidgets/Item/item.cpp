@@ -22,7 +22,7 @@ Item::Item(QWidget *parent) :
     ui->pushButton->installEventFilter(this);
     ui->StyleButtonsWrapper->installEventFilter(this);
 
-    anim = new QPropertyAnimation(ui->StyleButtonsWrapper, "pos", this);
+    shiftAnimation = new QPropertyAnimation(ui->StyleButtonsWrapper, "pos", this);
 
     //Установка всех стилей
     ui->Quantity->setFont(QFont("TextFont"));
@@ -271,19 +271,21 @@ bool Item::eventFilter(QObject *object, QEvent *event)
     if(object == ui->pushButton || object == ui->StyleButtonsWrapper){
         if(event->type() == QEvent::MouseMove){
             if(static_cast<QMouseEvent*>(event)->position().x()<12){
-                if(anim->state()!=QAbstractAnimation::Running){
+                if(shiftAnimation->state()!=QAbstractAnimation::Running){
                     styleButtonsExtended = true;
-                    anim->setDuration(100);
-                    anim->setStartValue(ui->StyleButtonsWrapper->pos());
-                    anim->setEndValue(QPoint(0, 0));
-                    anim->start();
+                    opacity->setOpacity(1);
+                    shiftAnimation->setDuration(100);
+                    shiftAnimation->setStartValue(ui->StyleButtonsWrapper->pos());
+                    shiftAnimation->setEndValue(QPoint(0, 0));
+                    shiftAnimation->start();
                 }
             }else if (styleButtonsExtended){
                 styleButtonsExtended = false;
-                anim->setDuration(100);
-                anim->setStartValue(ui->StyleButtonsWrapper->pos());
-                anim->setEndValue(QPoint(-9, 0));
-                anim->start();
+                opacity->setOpacity(0.5);
+                shiftAnimation->setDuration(100);
+                shiftAnimation->setStartValue(ui->StyleButtonsWrapper->pos());
+                shiftAnimation->setEndValue(QPoint(-9, 0));
+                shiftAnimation->start();
             }
         }
 
@@ -341,15 +343,6 @@ bool Item::eventFilter(QObject *object, QEvent *event)
             }
         }
     }
-    if(object == ui->StyleButtonsWrapper){
-        //При наведении, область кнопок стилей итема становится полностью непрозрачной
-        if(event->type() == QEvent::Enter){
-            opacity->setOpacity(1);
-        }
-        else if(event->type() == QEvent::Leave){
-            opacity->setOpacity(0.5);
-        }
-    }
 
     return false;
 }
@@ -357,10 +350,11 @@ bool Item::eventFilter(QObject *object, QEvent *event)
 void Item::leaveEvent(QEvent *event)
 {
     styleButtonsExtended = false;
-    anim->setDuration(100);
-    anim->setStartValue(ui->StyleButtonsWrapper->pos());
-    anim->setEndValue(QPoint(-9, 0));
-    anim->start();
+    opacity->setOpacity(0.5);
+    shiftAnimation->setDuration(100);
+    shiftAnimation->setStartValue(ui->StyleButtonsWrapper->pos());
+    shiftAnimation->setEndValue(QPoint(-9, 0));
+    shiftAnimation->start();
 }
 
 bool Item::getTwoHandedGripAllowed() const
