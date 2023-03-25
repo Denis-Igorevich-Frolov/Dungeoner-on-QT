@@ -16,7 +16,7 @@
   <widget class="QFrame" name="EquipmentWrapper">
    <property name="geometry">
     <rect>
-     <x>115</x>
+     <x>89</x>
      <y>0</y>
      <width>440</width>
      <height>472</height>
@@ -685,6 +685,59 @@
    </property>
    <property name="text">
     <string>Под доспехом</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="WeaponGripButton">
+   <property name="geometry">
+    <rect>
+     <x>95</x>
+     <y>227</y>
+     <width>65</width>
+     <height>77</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+	border: none;
+	background:url(:/Character-Equipment/Textures PNG/One-Handed-Button.png);
+}
+
+QPushButton:hover{
+	border: none;
+	background:url(:/Character-Equipment/Textures PNG/One-Handed-Button-Hovered.png);
+}
+
+QPushButton:pressed{
+	border: none;
+	background:url(:/Character-Equipment/Textures PNG/One-Handed-Button-Pressed.png);
+}
+
+QPushButton:checked{
+	border: none;
+	background:url(:/Character-Equipment/Textures PNG/Two-Handed-Button.png);
+}
+
+QPushButton:checked:hover{
+	border: none;
+	background:url(:/Character-Equipment/Textures PNG/Two-Handed-Button-Hovered.png);
+}
+
+QPushButton:checked:pressed{
+	border: none;
+	background:url(:/Character-Equipment/Textures PNG/Two-Handed-Button-Pressed.png);
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>

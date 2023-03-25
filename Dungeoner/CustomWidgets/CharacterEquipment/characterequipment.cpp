@@ -593,3 +593,8 @@ void CharacterEquipment::dragEnded()
     }
 }
 
+void CharacterEquipment::on_WeaponGripButton_toggled(bool checked)
+{
+    qDebug()<<checked;
+}
+

@@ -2263,7 +2263,7 @@ border: none;</string>
   <widget class="CharacterEquipment" name="Equipment" native="true">
    <property name="geometry">
     <rect>
-     <x>1180</x>
+     <x>1154</x>
      <y>100</y>
      <width>714</width>
      <height>472</height>

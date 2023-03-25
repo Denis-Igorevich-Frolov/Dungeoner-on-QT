@@ -94,6 +94,12 @@
         <file>Textures PNG/Equipment-Crossbow-Bolts.png</file>
         <file>Textures PNG/Equipment-Pistol.png</file>
         <file>Textures PNG/Character-Equipment.png</file>
+        <file>Textures PNG/One-Handed-Button.png</file>
+        <file>Textures PNG/Two-Handed-Button.png</file>
+        <file>Textures PNG/One-Handed-Button-Pressed.png</file>
+        <file>Textures PNG/Two-Handed-Button-Pressed.png</file>
+        <file>Textures PNG/One-Handed-Button-Hovered.png</file>
+        <file>Textures PNG/Two-Handed-Button-Hovered.png</file>
     </qresource>
     <qresource prefix="/Substrate-Dolls">
         <file>Textures PNG/Substrate-Dolls-Head.png</file>

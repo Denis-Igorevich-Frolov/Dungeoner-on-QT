@@ -753,7 +753,7 @@ public:
         DecorativeElement4->setStyleSheet(QString::fromUtf8("background-image: url(:/Decorative-Elements/Textures PNG/DecorativeElement-1-R.png);"));
         Equipment = new CharacterEquipment(CharacterWindow);
         Equipment->setObjectName(QString::fromUtf8("Equipment"));
-        Equipment->setGeometry(QRect(1180, 100, 714, 472));
+        Equipment->setGeometry(QRect(1154, 100, 714, 472));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();

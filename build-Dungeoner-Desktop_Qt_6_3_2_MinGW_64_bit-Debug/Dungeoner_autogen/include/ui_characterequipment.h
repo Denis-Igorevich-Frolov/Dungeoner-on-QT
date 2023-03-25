@@ -67,6 +67,7 @@ public:
     QPushButton *OverArmorButton;
     QPushButton *ArmorButton;
     QPushButton *UnderArmorButton;
+    QPushButton *WeaponGripButton;
 
     void setupUi(QWidget *CharacterEquipment)
     {
@@ -75,7 +76,7 @@ public:
         CharacterEquipment->resize(714, 472);
         EquipmentWrapper = new QFrame(CharacterEquipment);
         EquipmentWrapper->setObjectName(QString::fromUtf8("EquipmentWrapper"));
-        EquipmentWrapper->setGeometry(QRect(115, 0, 440, 472));
+        EquipmentWrapper->setGeometry(QRect(89, 0, 440, 472));
         EquipmentWrapper->setFrameShape(QFrame::StyledPanel);
         EquipmentWrapper->setFrameShadow(QFrame::Raised);
         CharacterDoll = new QLabel(EquipmentWrapper);
@@ -292,6 +293,41 @@ public:
         UnderArmorButton = new QPushButton(CharacterEquipment);
         UnderArmorButton->setObjectName(QString::fromUtf8("UnderArmorButton"));
         UnderArmorButton->setGeometry(QRect(10, 160, 80, 24));
+        WeaponGripButton = new QPushButton(CharacterEquipment);
+        WeaponGripButton->setObjectName(QString::fromUtf8("WeaponGripButton"));
+        WeaponGripButton->setGeometry(QRect(95, 227, 65, 77));
+        WeaponGripButton->setCursor(QCursor(Qt::PointingHandCursor));
+        WeaponGripButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"	border: none;\n"
+"	background:url(:/Character-Equipment/Textures PNG/One-Handed-Button.png);\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"	border: none;\n"
+"	background:url(:/Character-Equipment/Textures PNG/One-Handed-Button-Hovered.png);\n"
+"}\n"
+"\n"
+"QPushButton:pressed{\n"
+"	border: none;\n"
+"	background:url(:/Character-Equipment/Textures PNG/One-Handed-Button-Pressed.png);\n"
+"}\n"
+"\n"
+"QPushButton:checked{\n"
+"	border: none;\n"
+"	background:url(:/Character-Equipment/Textures PNG/Two-Handed-Button.png);\n"
+"}\n"
+"\n"
+"QPushButton:checked:hover{\n"
+"	border: none;\n"
+"	background:url(:/Character-Equipment/Textures PNG/Two-Handed-Button-Hovered.png);\n"
+"}\n"
+"\n"
+"QPushButton:checked:pressed{\n"
+"	border: none;\n"
+"	background:url(:/Character-Equipment/Textures PNG/Two-Handed-Button-Pressed.png);\n"
+"}"));
+        WeaponGripButton->setCheckable(true);
+        WeaponGripButton->setChecked(false);
 
         retranslateUi(CharacterEquipment);
 
@@ -312,6 +348,7 @@ public:
         OverArmorButton->setText(QCoreApplication::translate("CharacterEquipment", "\320\235\320\260\320\264 \320\264\320\276\321\201\320\277\320\265\321\205\320\276\320\274", nullptr));
         ArmorButton->setText(QCoreApplication::translate("CharacterEquipment", "\320\224\320\276\321\201\320\277\320\265\321\205", nullptr));
         UnderArmorButton->setText(QCoreApplication::translate("CharacterEquipment", "\320\237\320\276\320\264 \320\264\320\276\321\201\320\277\320\265\321\205\320\276\320\274", nullptr));
+        WeaponGripButton->setText(QString());
     } // retranslateUi
 
 };

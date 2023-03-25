@@ -79,6 +79,8 @@ private slots:
     void on_ArmorButton_clicked();
     void on_UnderArmorButton_clicked();
 
+    void on_WeaponGripButton_toggled(bool checked);
+
 private:
     Ui::CharacterEquipment *ui;
 
