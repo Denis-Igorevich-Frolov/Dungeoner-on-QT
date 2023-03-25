@@ -55,11 +55,12 @@ public:
         pushButton = new QPushButton(Item);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(0, 0, 68, 68));
+        pushButton->setMouseTracking(true);
         pushButton->setStyleSheet(QString::fromUtf8("border: none;\n"
 "background: none;"));
         StyleButtonsWrapper = new QWidget(Item);
         StyleButtonsWrapper->setObjectName(QString::fromUtf8("StyleButtonsWrapper"));
-        StyleButtonsWrapper->setGeometry(QRect(0, 0, 12, 68));
+        StyleButtonsWrapper->setGeometry(QRect(-9, 0, 12, 68));
         sizePolicy.setHeightForWidth(StyleButtonsWrapper->sizePolicy().hasHeightForWidth());
         StyleButtonsWrapper->setSizePolicy(sizePolicy);
         StyleButtonsWrapper->setMouseTracking(true);

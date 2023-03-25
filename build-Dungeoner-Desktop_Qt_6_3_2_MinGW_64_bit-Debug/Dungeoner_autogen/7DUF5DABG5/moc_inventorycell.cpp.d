@@ -7,6 +7,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Person/Stat/bonus.h \
   E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/System/OutlineEffect/outlineeffect.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/QVector \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/qabstractanimation.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qalgorithms.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qanystringview.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qarraydata.h \
@@ -39,6 +40,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qdatetime.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qdebug.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qdir.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/qeasingcurve.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qeventloop.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qfactoryinterface.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qfile.h \
@@ -78,6 +80,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qpoint.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qpointer.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qprocessordetection.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/qpropertyanimation.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qrect.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qrefcount.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qregularexpression.h \
@@ -109,6 +112,7 @@ E:/Qt\ projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-De
   E:/Qt/6.3.2/mingw_64/include/QtCore/qutf8stringview.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/quuid.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvariant.h \
+  E:/Qt/6.3.2/mingw_64/include/QtCore/qvariantanimation.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvarlengtharray.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qvector.h \
   E:/Qt/6.3.2/mingw_64/include/QtCore/qversiontagging.h \

@@ -11,6 +11,7 @@
 #include "Person/Stat/bonus.h"
 #include "System/OutlineEffect/outlineeffect.h"
 #include "qdir.h"
+#include "qpropertyanimation.h"
 #include "qpushbutton.h"
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
@@ -298,6 +299,11 @@ private:
      *4) Требования*/
 
     bool eventFilter(QObject* object, QEvent* event) override;
+    void leaveEvent(QEvent *event) override;
+
+    QPropertyAnimation *anim;
+
+    bool styleButtonsExtended = false;
 
     bool isHovered = false;
     bool isWeaponOrShield = false;

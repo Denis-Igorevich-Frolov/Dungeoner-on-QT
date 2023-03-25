@@ -8,6 +8,8 @@
 #include "qpainter.h"
 #include "ui_item.h"
 
+#include <QMouseEvent>
+
 Item::Item(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Item)
@@ -18,6 +20,9 @@ Item::Item(QWidget *parent) :
     setAttribute(Qt::WA_Hover);
 
     ui->pushButton->installEventFilter(this);
+    ui->StyleButtonsWrapper->installEventFilter(this);
+
+    anim = new QPropertyAnimation(ui->StyleButtonsWrapper, "pos", this);
 
     //Установка всех стилей
     ui->Quantity->setFont(QFont("TextFont"));
@@ -179,9 +184,8 @@ void Item::setStyleButtonsStyle()
         for(int i = 4; i>styles.size()-1; i--)
             ui->StyleButtonsWrapper->layout()->itemAt(i)->widget()->setVisible(false);
         //По умолчанию область кнопок стилей полупрозрачная
-        opacity->setOpacity(0.3);
+        opacity->setOpacity(0.5);
         ui->StyleButtonsWrapper->setGraphicsEffect(opacity);
-        ui->StyleButtonsWrapper->installEventFilter(this);
     }else
         ui->StyleButtonsWrapper->setVisible(false);
 }
@@ -264,6 +268,27 @@ bool Item::getIsBroken()
 
 bool Item::eventFilter(QObject *object, QEvent *event)
 {
+    if(object == ui->pushButton || object == ui->StyleButtonsWrapper){
+        if(event->type() == QEvent::MouseMove){
+            if(static_cast<QMouseEvent*>(event)->position().x()<12){
+                if(anim->state()!=QAbstractAnimation::Running){
+                    styleButtonsExtended = true;
+                    anim->setDuration(100);
+                    anim->setStartValue(ui->StyleButtonsWrapper->pos());
+                    anim->setEndValue(QPoint(0, 0));
+                    anim->start();
+                }
+            }else if (styleButtonsExtended){
+                styleButtonsExtended = false;
+                anim->setDuration(100);
+                anim->setStartValue(ui->StyleButtonsWrapper->pos());
+                anim->setEndValue(QPoint(-9, 0));
+                anim->start();
+            }
+        }
+
+    }
+
     if(object == ui->pushButton){
         if(isPressable){
             //Наложение на итем цета наведения
@@ -322,11 +347,20 @@ bool Item::eventFilter(QObject *object, QEvent *event)
             opacity->setOpacity(1);
         }
         else if(event->type() == QEvent::Leave){
-            opacity->setOpacity(0.3);
+            opacity->setOpacity(0.5);
         }
     }
 
     return false;
+}
+
+void Item::leaveEvent(QEvent *event)
+{
+    styleButtonsExtended = false;
+    anim->setDuration(100);
+    anim->setStartValue(ui->StyleButtonsWrapper->pos());
+    anim->setEndValue(QPoint(-9, 0));
+    anim->start();
 }
 
 bool Item::getTwoHandedGripAllowed() const
@@ -842,6 +876,11 @@ void Item::on_StyleButton_5_clicked()
     setCurrentStyle(4);
     emit styleAssigned();
 }
+
+//void Item::onAnimationFinished()
+//{
+
+//}
 
 QWidget *Item::getStyleButtonsWrapper()
 {

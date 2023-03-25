@@ -788,6 +788,9 @@ void CharacterWindow::addDebugItems()
 
     Sword->setMaxCharges(10);
     Sword->setCurrentCharges(10);
+
+    Sword->setQuantity(999);
+
     Sword->setId(0);
     Sword->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
@@ -1101,8 +1104,6 @@ void CharacterWindow::addDebugItems()
 
     Great_Pike->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_taken.wav";
     Great_Pike->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Spear_is_dropped.wav";
-
-    Great_Pike->setQuantity(999);
 
     items.append(Great_Pike);
 
