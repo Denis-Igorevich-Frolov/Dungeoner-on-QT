@@ -46,7 +46,7 @@ void WeaponGripButton::on_GripButton_toggled(bool checked)
         styleSettingMode = false;
     }else{
         if(checked){
-            if(emit checkFreeHands()){
+            if(emit checkFreeHands(!isRightClick)){
                 if(isRightClick)
                     emit takeTwoHandedGripLeftHandItem();
                 else

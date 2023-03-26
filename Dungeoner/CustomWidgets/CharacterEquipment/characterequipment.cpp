@@ -760,8 +760,19 @@ void CharacterEquipment::useOneHandedGrip()
     usedTwoHandedGrip = false;
 }
 
-bool CharacterEquipment::checkFreeHands()
+bool CharacterEquipment::checkFreeHands(bool isRightHand)
 {
+    if(ui->RightHand->getItem()->itemIsEmpty && !ui->LeftHand->getItem()->itemIsEmpty)
+        if(!ui->LeftHand->getItem()->getTwoHandedGripAllowed())
+                return false;
+    if(!ui->RightHand->getItem()->itemIsEmpty && ui->LeftHand->getItem()->itemIsEmpty)
+        if(!ui->RightHand->getItem()->getTwoHandedGripAllowed())
+                return false;
+    if(isRightHand){
+        if(!ui->RightHand->getItem()->itemIsEmpty && !ui->RightHand->getItem()->getTwoHandedGripAllowed())
+            return false;
+    }else if(!ui->LeftHand->getItem()->itemIsEmpty && !ui->LeftHand->getItem()->getTwoHandedGripAllowed())
+        return false;
     return (!ui->LeftHand->getIsLocked()&&!ui->RightHand->getIsLocked());
 }
 
@@ -817,6 +828,10 @@ void CharacterEquipment::checkUsedTwoHandedGrip(InventoryCell *cell)
 
 void CharacterEquipment::checkUsedOneHandedGrip(InventoryCell *cell)
 {
+    if(!cell->getItem()->getTwoHandedGripAllowed()){
+        ui->weaponGripButton->setOneHandedGrip();
+        return;
+    }
     QVectorIterator<Item::Slots> iterator(cell->getItem()->getOccupiedCellSlots());
     while (iterator.hasNext()){
         Item::Slots searchedSlot = iterator.next();

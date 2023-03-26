@@ -77,7 +77,7 @@ public slots:
     void takeTwoHandedGripRightHandItem();
     void takeTwoHandedGripLeftHandItem();
     void useOneHandedGrip();
-    bool checkFreeHands();
+    bool checkFreeHands(bool isRightHand);
     bool checkBusyHands();
     void applyGrip();
 

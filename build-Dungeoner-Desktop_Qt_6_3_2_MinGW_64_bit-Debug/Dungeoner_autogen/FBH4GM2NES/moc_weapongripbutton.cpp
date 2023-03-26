@@ -22,16 +22,17 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_WeaponGripButton_t {
-    uint offsetsAndSizes[18];
+    uint offsetsAndSizes[20];
     char stringdata0[17];
     char stringdata1[31];
     char stringdata2[1];
     char stringdata3[30];
     char stringdata4[17];
     char stringdata5[15];
-    char stringdata6[15];
-    char stringdata7[22];
-    char stringdata8[8];
+    char stringdata6[12];
+    char stringdata7[15];
+    char stringdata8[22];
+    char stringdata9[8];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_WeaponGripButton_t::offsetsAndSizes) + ofs), len 
@@ -43,9 +44,10 @@ static const qt_meta_stringdata_WeaponGripButton_t qt_meta_stringdata_WeaponGrip
         QT_MOC_LITERAL(49, 29),  // "takeTwoHandedGripLeftHandItem"
         QT_MOC_LITERAL(79, 16),  // "useOneHandedGrip"
         QT_MOC_LITERAL(96, 14),  // "checkFreeHands"
-        QT_MOC_LITERAL(111, 14),  // "checkBusyHands"
-        QT_MOC_LITERAL(126, 21),  // "on_GripButton_toggled"
-        QT_MOC_LITERAL(148, 7)   // "checked"
+        QT_MOC_LITERAL(111, 11),  // "isRightHand"
+        QT_MOC_LITERAL(123, 14),  // "checkBusyHands"
+        QT_MOC_LITERAL(138, 21),  // "on_GripButton_toggled"
+        QT_MOC_LITERAL(160, 7)   // "checked"
     },
     "WeaponGripButton",
     "takeTwoHandedGripRightHandItem",
@@ -53,6 +55,7 @@ static const qt_meta_stringdata_WeaponGripButton_t qt_meta_stringdata_WeaponGrip
     "takeTwoHandedGripLeftHandItem",
     "useOneHandedGrip",
     "checkFreeHands",
+    "isRightHand",
     "checkBusyHands",
     "on_GripButton_toggled",
     "checked"
@@ -76,21 +79,21 @@ static const uint qt_meta_data_WeaponGripButton[] = {
        1,    0,   50,    2, 0x06,    1 /* Public */,
        3,    0,   51,    2, 0x06,    2 /* Public */,
        4,    0,   52,    2, 0x06,    3 /* Public */,
-       5,    0,   53,    2, 0x06,    4 /* Public */,
-       6,    0,   54,    2, 0x06,    5 /* Public */,
+       5,    1,   53,    2, 0x06,    4 /* Public */,
+       7,    0,   56,    2, 0x06,    6 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       7,    1,   55,    2, 0x08,    6 /* Private */,
+       8,    1,   57,    2, 0x08,    7 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Bool,
+    QMetaType::Bool, QMetaType::Bool,    6,
     QMetaType::Bool,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Bool,    8,
+    QMetaType::Void, QMetaType::Bool,    9,
 
        0        // eod
 };
@@ -104,7 +107,7 @@ void WeaponGripButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
         case 0: _t->takeTwoHandedGripRightHandItem(); break;
         case 1: _t->takeTwoHandedGripLeftHandItem(); break;
         case 2: _t->useOneHandedGrip(); break;
-        case 3: { bool _r = _t->checkFreeHands();
+        case 3: { bool _r = _t->checkFreeHands((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 4: { bool _r = _t->checkBusyHands();
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
@@ -135,7 +138,7 @@ void WeaponGripButton::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int
             }
         }
         {
-            using _t = bool (WeaponGripButton::*)();
+            using _t = bool (WeaponGripButton::*)(bool );
             if (_t _q_method = &WeaponGripButton::checkFreeHands; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 3;
                 return;
@@ -158,7 +161,7 @@ const QMetaObject WeaponGripButton::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_WeaponGripButton_t
-, QtPrivate::TypeAndForceComplete<WeaponGripButton, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
+, QtPrivate::TypeAndForceComplete<WeaponGripButton, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
 
 
@@ -216,10 +219,10 @@ void WeaponGripButton::useOneHandedGrip()
 }
 
 // SIGNAL 3
-bool WeaponGripButton::checkFreeHands()
+bool WeaponGripButton::checkFreeHands(bool _t1)
 {
     bool _t0{};
-    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t0))) };
+    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t0))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
     return _t0;
 }

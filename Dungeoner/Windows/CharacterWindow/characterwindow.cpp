@@ -737,7 +737,7 @@ void CharacterWindow::addDebugItems()
     Item* Dagger = new Item("Dagger", QVector<Item::ItemType>(Item::DAGGER), "Кинжал");
 
     Dagger->isNew = true;
-    Dagger->setIsWeaponOrShield(true);
+    Dagger->setIsWeaponOrShield(true, false);
 
     Dagger->setMaxCharges(10);
     Dagger->setCurrentCharges(10);
@@ -754,7 +754,7 @@ void CharacterWindow::addDebugItems()
     Item* Stylet = new Item("Stylet", QVector<Item::ItemType>(Item::PIERCING_DAGGER), "Стилет");
 
     Stylet->isNew = true;
-    Stylet->setIsWeaponOrShield(true);
+    Stylet->setIsWeaponOrShield(true, false);
 
     Stylet->setMaxCharges(10);
     Stylet->setCurrentCharges(10);
@@ -771,7 +771,7 @@ void CharacterWindow::addDebugItems()
     Item* Daga = new Item("Daga", QVector<Item::ItemType>(Item::PIERCING_DAGGER, Item::PARRY_DAGGER), "Дага");
 
     Daga->isNew = true;
-    Daga->setIsWeaponOrShield(true);
+    Daga->setIsWeaponOrShield(true, false);
 
     Daga->setMaxCharges(10);
     Daga->setCurrentCharges(10);
@@ -788,7 +788,7 @@ void CharacterWindow::addDebugItems()
     Item* Sword = new Item("Sword", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 
     Sword->isNew = true;
-    Sword->setIsWeaponOrShield(true);
+    Sword->setIsWeaponOrShield(true, false);
 
     Sword->setMaxCharges(10);
     Sword->setCurrentCharges(10);
@@ -808,7 +808,7 @@ void CharacterWindow::addDebugItems()
     Item* Cleaver = new Item("Cleaver", QVector<Item::ItemType>(Item::ONE_HANDED_CHOPPING_SWORD), "Тесак");
 
     Cleaver->isNew = true;
-    Cleaver->setIsWeaponOrShield(true);
+    Cleaver->setIsWeaponOrShield(true, false);
 
     Cleaver->setMaxCharges(10);
     Cleaver->setCurrentCharges(10);
@@ -825,7 +825,7 @@ void CharacterWindow::addDebugItems()
     Item* Saber = new Item("Saber", QVector<Item::ItemType>(Item::ONE_HANDED_CHOPPING_SWORD), "Сабля");
 
     Saber->isNew = true;
-    Saber->setIsWeaponOrShield(true);
+    Saber->setIsWeaponOrShield(true, false);
 
     Saber->setMaxCharges(10);
     Saber->setCurrentCharges(10);
@@ -859,7 +859,7 @@ void CharacterWindow::addDebugItems()
     Item* Rapier = new Item("Rapier", QVector<Item::ItemType>(Item::PIERCING_SWORD, Item::FENCING_SWORD), "Рапира");
 
     Rapier->isNew = true;
-    Rapier->setIsWeaponOrShield(true);
+    Rapier->setIsWeaponOrShield(true, false);
 
     Rapier->setMaxCharges(10);
     Rapier->setCurrentCharges(10);
