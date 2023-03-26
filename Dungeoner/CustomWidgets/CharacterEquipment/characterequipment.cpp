@@ -67,6 +67,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::dragEnded, this, &CharacterEquipment::dragEnded);
         connect(cell, &InventoryCell::reviseItemPositionInEquipment, this, &CharacterEquipment::reviseItemPositionInEquipment);
         connect(cell, &InventoryCell::switchEquipmentLayer, this, &CharacterEquipment::switchEquipmentLayer);
+        connect(cell, &InventoryCell::applyGrip, this, &CharacterEquipment::applyGrip);
     }
 
     for(QObject* inventoryCell : ui->OverArmor->children()){
@@ -531,8 +532,10 @@ void CharacterEquipment::setCellsAcceptedSlots()
     ui->LeftDecoration->acceptedSlot = Item::Slots::L_DECORATION;
     ui->LeftHand->acceptedSlot = Item::Slots::L_HAND;
     ui->LeftHand->setSubstrateDollsPixmap(QPixmap(":/Substrate-Dolls/Textures PNG/Substrate-Dolls-Piece-Of-Cloak.png"));
+    ui->LeftHand->isHand = true;
     ui->RightDecoration->acceptedSlot = Item::Slots::R_DECORATION;
     ui->RightHand->acceptedSlot = Item::Slots::R_HAND;
+    ui->RightHand->isHand = true;
 
     //Задание всех пар слотов
     bothGloves = PairCells(ui->RightGlove, ui->LeftGlove);
@@ -712,6 +715,7 @@ void CharacterEquipment::takeTwoHandedGripRightHandItem()
         ui->RightHand->setLockedStyle(true, ui->LeftHand);
         ui->LeftHand->setIsTakenInTwoHandedGrip(true);
     }
+    usedTwoHandedGrip = true;
 }
 
 void CharacterEquipment::takeTwoHandedGripLeftHandItem()
@@ -727,6 +731,7 @@ void CharacterEquipment::takeTwoHandedGripLeftHandItem()
         ui->LeftHand->setLockedStyle(true, ui->RightHand);
         ui->RightHand->setIsTakenInTwoHandedGrip(true);
     }
+    usedTwoHandedGrip = true;
 }
 
 void CharacterEquipment::useOneHandedGrip()
@@ -742,6 +747,15 @@ void CharacterEquipment::useOneHandedGrip()
             ui->RightHand->setIsTakenInTwoHandedGrip(false);
         }
     }
+    usedTwoHandedGrip = false;
+}
+
+void CharacterEquipment::applyGrip()
+{
+    if(usedTwoHandedGrip)
+        takeTwoHandedGripRightHandItem();
+    else
+        useOneHandedGrip();
 }
 
 void CharacterEquipment::switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer)

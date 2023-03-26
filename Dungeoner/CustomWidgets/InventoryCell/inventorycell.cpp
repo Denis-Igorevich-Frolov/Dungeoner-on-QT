@@ -768,7 +768,12 @@ void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
 
             if(cell->acceptedSlot == Item::INVENTORY)
                 emit switchEquipmentLayer(equipmentLayer);
+        }else if(getIsTakenInTwoHandedGrip()){
+            setIsTakenInTwoHandedGrip(false);
         }
+
+        if(isHand)
+            emit applyGrip();
     }
 }
 

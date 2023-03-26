@@ -54,6 +54,7 @@ public:
     //Текущий слот ячейки. По умолчанию это просто ячейка инвенторя. Не стоит оставлять такой слот в любом месте, где требуются ограничения на Drag&Drop
     Item::Slots acceptedSlot = Item::Slots::INVENTORY;
     EquipmentLayer equipmentLayer = OTHER;
+    bool isHand = false;
 
     bool getIsLocked() const;
     bool getIsBlocked() const;
@@ -101,6 +102,7 @@ signals:
      *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
     void checkingInventorySizeChange(int col, int row);
     void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
+    void applyGrip();
 
 private slots:
     /*Слот связывающий сигналы moveItem и moveCell. Обычным connect это не сделать

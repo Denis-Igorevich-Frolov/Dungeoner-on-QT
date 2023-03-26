@@ -77,6 +77,7 @@ public slots:
     void takeTwoHandedGripRightHandItem();
     void takeTwoHandedGripLeftHandItem();
     void useOneHandedGrip();
+    void applyGrip();
 
     void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
 
@@ -105,6 +106,8 @@ private:
     void setCellsAcceptedSlots();
     //Метод, сбрасывающий блокирующий переданую ячейку итем, если она соответствует переданому слоту. Метод возвращает был ли выполнен сброс
     bool itemDrop(InventoryCell* cell, Item::Slots searchedSlot, bool playSound = true);
+
+    bool usedTwoHandedGrip = false;
 };
 
 #endif // CHARACTEREQUIPMENT_H
