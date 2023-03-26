@@ -22,21 +22,49 @@ void WeaponGripButton::toggle()
     ui->GripButton->toggle();
 }
 
+void WeaponGripButton::setTwoHandedGrip()
+{
+    if(!ui->GripButton->isChecked())
+        ui->GripButton->toggle();
+}
+
+void WeaponGripButton::setOneHandedGrip()
+{
+    if(ui->GripButton->isChecked())
+        ui->GripButton->toggle();
+}
+
+bool WeaponGripButton::getIsTwoHandedGrip()
+{
+    return ui->GripButton->isChecked();
+}
+
 void WeaponGripButton::on_GripButton_toggled(bool checked)
 {
     ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonStyle());
-    if(checked){
-        if(emit checkFreeHands()){
-            if(isRightClick)
-                emit takeTwoHandedGripLeftHandItem();
-            else
-                emit takeTwoHandedGripRightHandItem();
-        }else{
-            Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Error.mp3"), MediaPlayer::SoundsGroup::SOUNDS);
-            ui->GripButton->toggle();
-        }
+    if(styleSettingMode){
+        styleSettingMode = false;
     }else{
-        emit useOneHandedGrip();
+        if(checked){
+            if(emit checkFreeHands()){
+                if(isRightClick)
+                    emit takeTwoHandedGripLeftHandItem();
+                else
+                    emit takeTwoHandedGripRightHandItem();
+            }else{
+                Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Error.mp3"), MediaPlayer::SoundsGroup::SOUNDS);
+                styleSettingMode = true;
+                ui->GripButton->toggle();
+            }
+        }else{
+            if(emit checkBusyHands())
+                emit useOneHandedGrip();
+            else{
+                Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Error.mp3"), MediaPlayer::SoundsGroup::SOUNDS);
+                styleSettingMode = true;
+                ui->GripButton->toggle();
+            }
+        }
     }
     isRightClick = false;
 }
@@ -46,7 +74,10 @@ void WeaponGripButton::mousePressEvent(QMouseEvent *event)
     if(QApplication::mouseButtons() & QFlags<Qt::MouseButton>(Qt::LeftButton)){
         isRightClick = false;
     }else if(QApplication::mouseButtons() & QFlags<Qt::MouseButton>(Qt::RightButton)){
-        ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonPressedStyle());
+        if(getIsTwoHandedGrip())
+            ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonTwoHandedPressedStyle());
+        else
+            ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonOneHandedPressedStyle());
         isRightClick = true;
     }
 }

@@ -34,14 +34,17 @@ QString WGB_stylemaster::GripButtonStyle()
            "}");
 }
 
-QString WGB_stylemaster::GripButtonPressedStyle()
+QString WGB_stylemaster::GripButtonOneHandedPressedStyle()
 {
     return("QPushButton{"
            "    border: none;"
            "    background:url(:/Character-Equipment/Textures PNG/One-Handed-Button-Pressed.png);"
-           "}"
-           ""
-           "QPushButton:pressed{"
+           "}");
+}
+
+QString WGB_stylemaster::GripButtonTwoHandedPressedStyle()
+{
+    return("QPushButton{"
            "    border: none;"
            "    background:url(:/Character-Equipment/Textures PNG/Two-Handed-Button-Pressed.png);"
            "}");

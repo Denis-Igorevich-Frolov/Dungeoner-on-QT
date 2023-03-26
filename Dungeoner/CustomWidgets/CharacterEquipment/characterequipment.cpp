@@ -18,6 +18,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
     connect(ui->weaponGripButton, &WeaponGripButton::takeTwoHandedGripLeftHandItem, this, &CharacterEquipment::takeTwoHandedGripLeftHandItem);
     connect(ui->weaponGripButton, &WeaponGripButton::useOneHandedGrip, this, &CharacterEquipment::useOneHandedGrip);
     connect(ui->weaponGripButton, &WeaponGripButton::checkFreeHands, this, &CharacterEquipment::checkFreeHands);
+    connect(ui->weaponGripButton, &WeaponGripButton::checkBusyHands, this, &CharacterEquipment::checkBusyHands);
 
     //Забивается вектор всех ячеек
     for(QObject* layer : ui->CellsStackedWidget->children()){
@@ -69,7 +70,8 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::reviseItemPositionInEquipment, this, &CharacterEquipment::reviseItemPositionInEquipment);
         connect(cell, &InventoryCell::switchEquipmentLayer, this, &CharacterEquipment::switchEquipmentLayer);
         connect(cell, &InventoryCell::applyGrip, this, &CharacterEquipment::applyGrip);
-        connect(cell, &InventoryCell::checkFreeHands, this, &CharacterEquipment::checkUsedTwoHandedGrip);
+        connect(cell, &InventoryCell::checkUsedTwoHandedGrip, this, &CharacterEquipment::checkUsedTwoHandedGrip);
+        connect(cell, &InventoryCell::checkUsedOneHandedGrip, this, &CharacterEquipment::checkUsedOneHandedGrip);
     }
 
     for(QObject* inventoryCell : ui->OverArmor->children()){
@@ -740,11 +742,17 @@ void CharacterEquipment::useOneHandedGrip()
 {
     if(ui->RightHand->getIsLocked()){
         if(ui->RightHand->getCellWithLockingItem() == ui->LeftHand && ui->LeftHand->getIsTakenInTwoHandedGrip()){
+            for(Item::Slots slot : ui->LeftHand->getItem()->getOccupiedCellSlots())
+                if(slot == Item::ONE_OF_THE_HAND || slot == Item::R_HAND || slot == Item::L_HAND)
+                    return;
             ui->RightHand->setLockedStyle(false);
             ui->LeftHand->setIsTakenInTwoHandedGrip(false);
         }
     }else if(ui->LeftHand->getIsLocked()){
         if(ui->LeftHand->getCellWithLockingItem() == ui->RightHand && ui->RightHand->getIsTakenInTwoHandedGrip()){
+            for(Item::Slots slot : ui->RightHand->getItem()->getOccupiedCellSlots())
+                if(slot == Item::ONE_OF_THE_HAND || slot == Item::R_HAND || slot == Item::L_HAND)
+                    return;
             ui->LeftHand->setLockedStyle(false);
             ui->RightHand->setIsTakenInTwoHandedGrip(false);
         }
@@ -755,6 +763,17 @@ void CharacterEquipment::useOneHandedGrip()
 bool CharacterEquipment::checkFreeHands()
 {
     return (!ui->LeftHand->getIsLocked()&&!ui->RightHand->getIsLocked());
+}
+
+bool CharacterEquipment::checkBusyHands()
+{
+    for(Item::Slots slot : ui->LeftHand->getItem()->getOccupiedCellSlots())
+        if(slot == Item::ONE_OF_THE_HAND || slot == Item::R_HAND || slot == Item::L_HAND)
+            return false;
+    for(Item::Slots slot : ui->RightHand->getItem()->getOccupiedCellSlots())
+        if(slot == Item::ONE_OF_THE_HAND || slot == Item::R_HAND || slot == Item::L_HAND)
+            return false;
+    return true;
 }
 
 void CharacterEquipment::applyGrip()
@@ -782,16 +801,35 @@ void CharacterEquipment::checkUsedTwoHandedGrip(InventoryCell *cell)
         Item::Slots searchedSlot = iterator.next();
         if(searchedSlot == Item::ONE_OF_THE_HAND){
             if(usedTwoHandedGrip){
-                ui->weaponGripButton->toggle();
+                ui->weaponGripButton->setOneHandedGrip();
             }
         }else{
             for(InventoryCell* cell : equipmentCells){
                 if(cell->acceptedSlot == Item::R_HAND || cell->acceptedSlot == Item::L_HAND){
                     if(usedTwoHandedGrip){
-                        ui->weaponGripButton->toggle();
+                        ui->weaponGripButton->setOneHandedGrip();
                     }
                 }
             }
+        }
+    }
+}
+
+void CharacterEquipment::checkUsedOneHandedGrip(InventoryCell *cell)
+{
+    QVectorIterator<Item::Slots> iterator(cell->getItem()->getOccupiedCellSlots());
+    while (iterator.hasNext()){
+        Item::Slots searchedSlot = iterator.next();
+        if(searchedSlot == Item::R_HAND || searchedSlot == Item::L_HAND || searchedSlot == Item::ONE_OF_THE_HAND){
+            if(ui->RightHand->getIsLocked() && ui->RightHand->getCellWithLockingItem() != ui->LeftHand)
+                emit moveCellFromEquipment(ui->RightHand->getCellWithLockingItem(), false);
+            if(ui->LeftHand->getIsLocked() && ui->LeftHand->getCellWithLockingItem() != ui->RightHand)
+                emit moveCellFromEquipment(ui->LeftHand->getCellWithLockingItem(), false);
+
+            if(!usedTwoHandedGrip){
+                ui->weaponGripButton->setTwoHandedGrip();
+            }
+            break;
         }
     }
 }

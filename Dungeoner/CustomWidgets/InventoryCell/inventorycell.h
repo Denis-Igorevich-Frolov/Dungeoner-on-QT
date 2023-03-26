@@ -103,7 +103,8 @@ signals:
     void checkingInventorySizeChange(int col, int row);
     void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
     void applyGrip();
-    void checkFreeHands(InventoryCell* cell);
+    void checkUsedTwoHandedGrip(InventoryCell* cell);
+    void checkUsedOneHandedGrip(InventoryCell* cell);
 
 private slots:
     /*Слот связывающий сигналы moveItem и moveCell. Обычным connect это не сделать

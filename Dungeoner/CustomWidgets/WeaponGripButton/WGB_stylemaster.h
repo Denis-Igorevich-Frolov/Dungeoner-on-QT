@@ -7,7 +7,8 @@ class WGB_stylemaster
 {
 public:
     static QString GripButtonStyle();
-    static QString GripButtonPressedStyle();
+    static QString GripButtonOneHandedPressedStyle();
+    static QString GripButtonTwoHandedPressedStyle();
 };
 
 #endif // WGB_STYLEMASTER_H

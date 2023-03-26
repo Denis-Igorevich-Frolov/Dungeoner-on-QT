@@ -730,17 +730,18 @@ bool InventoryCell::getIsBlocked() const
 void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
 {
     if(cell){
-        if(isTakenInTwoHandedGrip || cell->isTakenInTwoHandedGrip)
-            std::swap(isTakenInTwoHandedGrip, cell->isTakenInTwoHandedGrip);
-
-        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
-            emit checkFreeHands(cell);
-
         /*Сначала, если целевая ячейка не является ячейкой в инвентаре и не блокирована итемом из передаваемой
          *ячейки, также как и сама не является этой самой передаваемой ячейкой, то для перемещаемой вещи сбрасывются
          *все конфликтующие вещи. Последние 2 пункта необходимы, чтобы итем не мог сбросить сам себя*/
         if(acceptedSlot!=Item::INVENTORY && cellWithLockingItem!=cell && cell!=this)
             emit checkLockedCells (cell->getItem()->getOccupiedCellSlots());
+
+        if(acceptedSlot!=Item::INVENTORY){
+            if(!isHand)
+                emit checkUsedTwoHandedGrip(cell);
+            else
+                emit checkUsedOneHandedGrip(cell);
+        }
 
         /*Если хотябы одна из ячеек не является ячейкой в инвентаре, то для обоих вещей
          *разблокируются все заблкированые ячейки из списка занимаемых ими слотов*/
@@ -771,9 +772,12 @@ void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
 
             if(cell->acceptedSlot == Item::INVENTORY)
                 emit switchEquipmentLayer(equipmentLayer);
-        }else if(getIsTakenInTwoHandedGrip()){
+        }else{
+            cell->setIsTakenInTwoHandedGrip(false);
             setIsTakenInTwoHandedGrip(false);
         }
+        if(isTakenInTwoHandedGrip || cell->isTakenInTwoHandedGrip)
+            std::swap(isTakenInTwoHandedGrip, cell->isTakenInTwoHandedGrip);
 
         if(isHand)
             emit applyGrip();

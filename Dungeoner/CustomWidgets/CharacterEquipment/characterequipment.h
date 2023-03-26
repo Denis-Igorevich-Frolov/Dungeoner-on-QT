@@ -78,10 +78,12 @@ public slots:
     void takeTwoHandedGripLeftHandItem();
     void useOneHandedGrip();
     bool checkFreeHands();
+    bool checkBusyHands();
     void applyGrip();
 
     void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
     void checkUsedTwoHandedGrip(InventoryCell* cell);
+    void checkUsedOneHandedGrip(InventoryCell* cell);
 
 private slots:
     void on_OverArmorButton_clicked();

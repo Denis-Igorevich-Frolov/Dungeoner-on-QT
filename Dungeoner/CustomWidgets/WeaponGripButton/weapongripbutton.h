@@ -16,6 +16,9 @@ public:
     ~WeaponGripButton();
 
     void toggle();
+    void setTwoHandedGrip();
+    void setOneHandedGrip();
+    bool getIsTwoHandedGrip();
 
 private slots:
     void on_GripButton_toggled(bool checked);
@@ -25,6 +28,7 @@ signals:
     void takeTwoHandedGripLeftHandItem();
     void useOneHandedGrip();
     bool checkFreeHands();
+    bool checkBusyHands();
 
 private:
     Ui::WeaponGripButton *ui;
@@ -33,6 +37,7 @@ private:
     void mouseReleaseEvent(QMouseEvent *event) override;
 
     bool isRightClick = false;
+    bool styleSettingMode = false;
 };
 
 #endif // WEAPONGRIPBUTTON_H
