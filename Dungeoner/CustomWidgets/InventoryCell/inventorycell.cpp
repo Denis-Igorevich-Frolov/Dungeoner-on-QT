@@ -733,6 +733,9 @@ void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
         if(isTakenInTwoHandedGrip || cell->isTakenInTwoHandedGrip)
             std::swap(isTakenInTwoHandedGrip, cell->isTakenInTwoHandedGrip);
 
+        if(acceptedSlot!=Item::INVENTORY || cell->acceptedSlot!=Item::INVENTORY)
+            emit checkFreeHands(cell);
+
         /*Сначала, если целевая ячейка не является ячейкой в инвентаре и не блокирована итемом из передаваемой
          *ячейки, также как и сама не является этой самой передаваемой ячейкой, то для перемещаемой вещи сбрасывются
          *все конфликтующие вещи. Последние 2 пункта необходимы, чтобы итем не мог сбросить сам себя*/

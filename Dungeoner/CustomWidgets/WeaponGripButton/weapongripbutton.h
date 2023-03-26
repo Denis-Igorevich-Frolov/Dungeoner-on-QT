@@ -15,6 +15,8 @@ public:
     explicit WeaponGripButton(QWidget *parent = nullptr);
     ~WeaponGripButton();
 
+    void toggle();
+
 private slots:
     void on_GripButton_toggled(bool checked);
 
@@ -22,6 +24,7 @@ signals:
     void takeTwoHandedGripRightHandItem();
     void takeTwoHandedGripLeftHandItem();
     void useOneHandedGrip();
+    bool checkFreeHands();
 
 private:
     Ui::WeaponGripButton *ui;

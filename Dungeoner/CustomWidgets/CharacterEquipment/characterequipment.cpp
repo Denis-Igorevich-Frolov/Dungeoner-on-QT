@@ -17,6 +17,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
     connect(ui->weaponGripButton, &WeaponGripButton::takeTwoHandedGripRightHandItem, this, &CharacterEquipment::takeTwoHandedGripRightHandItem);
     connect(ui->weaponGripButton, &WeaponGripButton::takeTwoHandedGripLeftHandItem, this, &CharacterEquipment::takeTwoHandedGripLeftHandItem);
     connect(ui->weaponGripButton, &WeaponGripButton::useOneHandedGrip, this, &CharacterEquipment::useOneHandedGrip);
+    connect(ui->weaponGripButton, &WeaponGripButton::checkFreeHands, this, &CharacterEquipment::checkFreeHands);
 
     //Забивается вектор всех ячеек
     for(QObject* layer : ui->CellsStackedWidget->children()){
@@ -68,6 +69,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::reviseItemPositionInEquipment, this, &CharacterEquipment::reviseItemPositionInEquipment);
         connect(cell, &InventoryCell::switchEquipmentLayer, this, &CharacterEquipment::switchEquipmentLayer);
         connect(cell, &InventoryCell::applyGrip, this, &CharacterEquipment::applyGrip);
+        connect(cell, &InventoryCell::checkFreeHands, this, &CharacterEquipment::checkUsedTwoHandedGrip);
     }
 
     for(QObject* inventoryCell : ui->OverArmor->children()){
@@ -750,6 +752,11 @@ void CharacterEquipment::useOneHandedGrip()
     usedTwoHandedGrip = false;
 }
 
+bool CharacterEquipment::checkFreeHands()
+{
+    return (!ui->LeftHand->getIsLocked()&&!ui->RightHand->getIsLocked());
+}
+
 void CharacterEquipment::applyGrip()
 {
     if(usedTwoHandedGrip)
@@ -766,4 +773,25 @@ void CharacterEquipment::switchEquipmentLayer(InventoryCell::EquipmentLayer equi
         ui->CellsStackedWidget->setCurrentIndex(1);
     else if(equipmentLayer == InventoryCell::UNDER_ARMOR)
         ui->CellsStackedWidget->setCurrentIndex(0);
+}
+
+void CharacterEquipment::checkUsedTwoHandedGrip(InventoryCell *cell)
+{
+    QVectorIterator<Item::Slots> iterator(cell->getItem()->getOccupiedCellSlots());
+    while (iterator.hasNext()){
+        Item::Slots searchedSlot = iterator.next();
+        if(searchedSlot == Item::ONE_OF_THE_HAND){
+            if(usedTwoHandedGrip){
+                ui->weaponGripButton->toggle();
+            }
+        }else{
+            for(InventoryCell* cell : equipmentCells){
+                if(cell->acceptedSlot == Item::R_HAND || cell->acceptedSlot == Item::L_HAND){
+                    if(usedTwoHandedGrip){
+                        ui->weaponGripButton->toggle();
+                    }
+                }
+            }
+        }
+    }
 }

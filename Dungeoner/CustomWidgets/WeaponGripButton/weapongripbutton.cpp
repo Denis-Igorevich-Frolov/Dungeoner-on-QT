@@ -1,6 +1,7 @@
 #include "weapongripbutton.h"
 #include "ui_weapongripbutton.h"
 #include "CustomWidgets/WeaponGripButton/WGB_stylemaster.h"
+#include "Global/global.h"
 
 WeaponGripButton::WeaponGripButton(QWidget *parent) :
     QWidget(parent),
@@ -16,14 +17,24 @@ WeaponGripButton::~WeaponGripButton()
     delete ui;
 }
 
+void WeaponGripButton::toggle()
+{
+    ui->GripButton->toggle();
+}
+
 void WeaponGripButton::on_GripButton_toggled(bool checked)
 {
     ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonStyle());
     if(checked){
-        if(isRightClick)
-            emit takeTwoHandedGripLeftHandItem();
-        else
-            emit takeTwoHandedGripRightHandItem();
+        if(emit checkFreeHands()){
+            if(isRightClick)
+                emit takeTwoHandedGripLeftHandItem();
+            else
+                emit takeTwoHandedGripRightHandItem();
+        }else{
+            Global::mediaplayer.playSound(QUrl::fromLocalFile("qrc:/Sounds/Sounds/Error.mp3"), MediaPlayer::SoundsGroup::SOUNDS);
+            ui->GripButton->toggle();
+        }
     }else{
         emit useOneHandedGrip();
     }
