@@ -749,8 +749,12 @@ void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
         emit itemIsDropped(col, row);
 
         //Если целевая ячейка не является ячейкой в инвентаре, то в экиперовке блокируются занимаемые итемом в ней слоты
-        if(acceptedSlot!=Item::INVENTORY)
+        if(acceptedSlot!=Item::INVENTORY){
             emit lockOccupiedCells(this, acceptedSlot);
+
+            if(cell->acceptedSlot == Item::INVENTORY)
+                emit switchEquipmentLayer(equipmentLayer);
+        }
     }
 }
 

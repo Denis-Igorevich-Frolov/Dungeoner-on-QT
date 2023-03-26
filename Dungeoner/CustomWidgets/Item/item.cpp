@@ -357,6 +357,19 @@ void Item::leaveEvent(QEvent *event)
     shiftAnimation->start();
 }
 
+bool Item::getIsTakenInTwoHandedGrip() const
+{
+    return isTakenInTwoHandedGrip;
+}
+
+void Item::setIsTakenInTwoHandedGrip(bool newIsTakenInTwoHandedGrip)
+{
+    if(isWeaponOrShield)
+        isTakenInTwoHandedGrip = newIsTakenInTwoHandedGrip;
+    else
+        isTakenInTwoHandedGrip = false;
+}
+
 bool Item::getTwoHandedGripAllowed() const
 {
     return twoHandedGripAllowed;
@@ -372,7 +385,7 @@ int Item::getIsWeaponOrShield() const
     return isWeaponOrShield;
 }
 
-void Item::setIsWeaponOrShield(int newIsWeaponOrShield, bool oneHandedGripAllowed, bool twoHandedGripAllowed)
+void Item::setIsWeaponOrShield(bool newIsWeaponOrShield, bool twoHandedGripAllowed, bool oneHandedGripAllowed)
 {
     isWeaponOrShield = newIsWeaponOrShield;
     setGripsAllowed(oneHandedGripAllowed, twoHandedGripAllowed);
@@ -385,6 +398,8 @@ void Item::setGripsAllowed(bool oneHandedGripAllowed, bool twoHandedGripAllowed)
         this->twoHandedGripAllowed = twoHandedGripAllowed;
         if(this->oneHandedGripAllowed == false && this->twoHandedGripAllowed == false)
             this->oneHandedGripAllowed = true;
+        if(!oneHandedGripAllowed)
+            isTakenInTwoHandedGrip = true;
     }
 }
 
@@ -870,11 +885,6 @@ void Item::on_StyleButton_5_clicked()
     setCurrentStyle(4);
     emit styleAssigned();
 }
-
-//void Item::onAnimationFinished()
-//{
-
-//}
 
 QWidget *Item::getStyleButtonsWrapper()
 {

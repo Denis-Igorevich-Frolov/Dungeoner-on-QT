@@ -66,6 +66,94 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::dragStarted, this, &CharacterEquipment::dragStarted);
         connect(cell, &InventoryCell::dragEnded, this, &CharacterEquipment::dragEnded);
         connect(cell, &InventoryCell::reviseItemPositionInEquipment, this, &CharacterEquipment::reviseItemPositionInEquipment);
+        connect(cell, &InventoryCell::switchEquipmentLayer, this, &CharacterEquipment::switchEquipmentLayer);
+    }
+
+    for(QObject* inventoryCell : ui->OverArmor->children()){
+        if(dynamic_cast <InventoryCell*> (inventoryCell)){
+            InventoryCell* cell = qobject_cast <InventoryCell*> (inventoryCell);
+            cell->equipmentLayer = InventoryCell::OVER_ARMOR;
+        }else{
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                    "CharacterEquipment выдал предупреждение в методе CharacterEquipment.\n"
+                    "Объект " + inventoryCell->objectName() + " не является InventoryCell.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
+
+    for(QObject* inventoryCell : ui->Armor->children()){
+        if(dynamic_cast <InventoryCell*> (inventoryCell)){
+            InventoryCell* cell = qobject_cast <InventoryCell*> (inventoryCell);
+            cell->equipmentLayer = InventoryCell::ARMOR;
+        }else{
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                    "CharacterEquipment выдал предупреждение в методе CharacterEquipment.\n"
+                    "Объект " + inventoryCell->objectName() + " не является InventoryCell.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
+    }
+
+    for(QObject* inventoryCell : ui->UnderArmor->children()){
+        if(dynamic_cast <InventoryCell*> (inventoryCell)){
+            InventoryCell* cell = qobject_cast <InventoryCell*> (inventoryCell);
+            cell->equipmentLayer = InventoryCell::UNDER_ARMOR;
+        }else{
+            //Вывод предупреждения в консоль и файл
+            QDate cd = QDate::currentDate();
+            QTime ct = QTime::currentTime();
+
+            QString error =
+                    cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
+                    "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
+                    "CharacterEquipment выдал предупреждение в методе CharacterEquipment.\n"
+                    "Объект " + inventoryCell->objectName() + " не является InventoryCell.\n\n";
+            qDebug()<<error;
+
+            QFile errorFile("error log.txt");
+            if (!errorFile.open(QIODevice::Append))
+            {
+                qDebug() << "Ошибка при открытии файла логов";
+            }else{
+                errorFile.open(QIODevice::Append  | QIODevice::Text);
+                QTextStream writeStream(&errorFile);
+                writeStream<<error;
+                errorFile.close();
+            }
+        }
     }
 
     //Некоторые из ячеек представляют собой ячейки-списки, которые можно развернуть. У этих ячеек активируется кнопка отображения списка
@@ -599,15 +687,53 @@ void CharacterEquipment::dragEnded()
 
 void CharacterEquipment::takeTwoHandedGripRightHandItem()
 {
-
+    if(!ui->RightHand->getItem()->itemIsEmpty && ui->RightHand->getItem()->getIsWeaponOrShield()){
+        if(!ui->LeftHand->getItem()->itemIsEmpty)
+            emit moveCellFromEquipment(ui->LeftHand);
+        ui->LeftHand->setLockedStyle(true, ui->RightHand);
+        ui->RightHand->getItem()->setIsTakenInTwoHandedGrip(true);
+    }else if(!ui->LeftHand->getItem()->itemIsEmpty && ui->LeftHand->getItem()->getIsWeaponOrShield()){
+        if(!ui->RightHand->getItem()->itemIsEmpty)
+            emit moveCellFromEquipment(ui->RightHand);
+        ui->RightHand->setLockedStyle(true, ui->LeftHand);
+        ui->LeftHand->getItem()->setIsTakenInTwoHandedGrip(true);
+    }
 }
 
 void CharacterEquipment::takeTwoHandedGripLeftHandItem()
 {
-
+    if(!ui->LeftHand->getItem()->itemIsEmpty && ui->LeftHand->getItem()->getIsWeaponOrShield()){
+        if(!ui->RightHand->getItem()->itemIsEmpty)
+            emit moveCellFromEquipment(ui->RightHand);
+        ui->RightHand->setLockedStyle(true, ui->LeftHand);
+        ui->LeftHand->getItem()->setIsTakenInTwoHandedGrip(true);
+    }else if(!ui->RightHand->getItem()->itemIsEmpty && ui->RightHand->getItem()->getIsWeaponOrShield()){
+        if(!ui->LeftHand->getItem()->itemIsEmpty)
+            emit moveCellFromEquipment(ui->LeftHand);
+        ui->LeftHand->setLockedStyle(true, ui->RightHand);
+        ui->RightHand->getItem()->setIsTakenInTwoHandedGrip(true);
+    }
 }
 
 void CharacterEquipment::useOneHandedGrip()
 {
+    if(ui->RightHand->getIsLocked()){
+        if(ui->RightHand->getCellWithLockingItem() == ui->LeftHand && ui->LeftHand->getItem()->getIsTakenInTwoHandedGrip())
+            ui->LeftHand->setLockedStyle(false);
+    }else if(ui->LeftHand->getIsLocked()){
+        qDebug()<<(ui->LeftHand->getCellWithLockingItem() == ui->RightHand);
+        qDebug()<<ui->RightHand->getItem()->getIsTakenInTwoHandedGrip();
+        if(ui->LeftHand->getCellWithLockingItem() == ui->RightHand && ui->RightHand->getItem()->getIsTakenInTwoHandedGrip())
+            ui->RightHand->setLockedStyle(false);
+    }
+}
 
+void CharacterEquipment::switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer)
+{
+    if(equipmentLayer == InventoryCell::OVER_ARMOR)
+        ui->CellsStackedWidget->setCurrentIndex(2);
+    else if(equipmentLayer == InventoryCell::ARMOR)
+        ui->CellsStackedWidget->setCurrentIndex(1);
+    else if(equipmentLayer == InventoryCell::UNDER_ARMOR)
+        ui->CellsStackedWidget->setCurrentIndex(0);
 }

@@ -78,6 +78,8 @@ public slots:
     void takeTwoHandedGripLeftHandItem();
     void useOneHandedGrip();
 
+    void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
+
 private slots:
     void on_OverArmorButton_clicked();
     void on_ArmorButton_clicked();

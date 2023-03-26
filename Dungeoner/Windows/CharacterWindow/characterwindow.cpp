@@ -737,6 +737,7 @@ void CharacterWindow::addDebugItems()
     Item* Dagger = new Item("Dagger", QVector<Item::ItemType>(Item::DAGGER), "Кинжал");
 
     Dagger->isNew = true;
+    Dagger->setIsWeaponOrShield(true);
 
     Dagger->setMaxCharges(10);
     Dagger->setCurrentCharges(10);
@@ -753,6 +754,7 @@ void CharacterWindow::addDebugItems()
     Item* Stylet = new Item("Stylet", QVector<Item::ItemType>(Item::PIERCING_DAGGER), "Стилет");
 
     Stylet->isNew = true;
+    Stylet->setIsWeaponOrShield(true);
 
     Stylet->setMaxCharges(10);
     Stylet->setCurrentCharges(10);
@@ -769,6 +771,7 @@ void CharacterWindow::addDebugItems()
     Item* Daga = new Item("Daga", QVector<Item::ItemType>(Item::PIERCING_DAGGER, Item::PARRY_DAGGER), "Дага");
 
     Daga->isNew = true;
+    Daga->setIsWeaponOrShield(true);
 
     Daga->setMaxCharges(10);
     Daga->setCurrentCharges(10);
@@ -785,6 +788,7 @@ void CharacterWindow::addDebugItems()
     Item* Sword = new Item("Sword", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Меч");
 
     Sword->isNew = true;
+    Sword->setIsWeaponOrShield(true);
 
     Sword->setMaxCharges(10);
     Sword->setCurrentCharges(10);
@@ -804,6 +808,7 @@ void CharacterWindow::addDebugItems()
     Item* Cleaver = new Item("Cleaver", QVector<Item::ItemType>(Item::ONE_HANDED_CHOPPING_SWORD), "Тесак");
 
     Cleaver->isNew = true;
+    Cleaver->setIsWeaponOrShield(true);
 
     Cleaver->setMaxCharges(10);
     Cleaver->setCurrentCharges(10);
@@ -820,6 +825,7 @@ void CharacterWindow::addDebugItems()
     Item* Saber = new Item("Saber", QVector<Item::ItemType>(Item::ONE_HANDED_CHOPPING_SWORD), "Сабля");
 
     Saber->isNew = true;
+    Saber->setIsWeaponOrShield(true);
 
     Saber->setMaxCharges(10);
     Saber->setCurrentCharges(10);
@@ -836,6 +842,7 @@ void CharacterWindow::addDebugItems()
     Item* Panzerbrecher = new Item("Panzerbrecher", QVector<Item::ItemType>(Item::PIERCING_SWORD), "Панцербрехер");
 
     Panzerbrecher->isNew = true;
+    Panzerbrecher->setIsWeaponOrShield(true);
 
     Panzerbrecher->setMaxCharges(10);
     Panzerbrecher->setCurrentCharges(10);
@@ -852,6 +859,7 @@ void CharacterWindow::addDebugItems()
     Item* Rapier = new Item("Rapier", QVector<Item::ItemType>(Item::PIERCING_SWORD, Item::FENCING_SWORD), "Рапира");
 
     Rapier->isNew = true;
+    Rapier->setIsWeaponOrShield(true);
 
     Rapier->setMaxCharges(10);
     Rapier->setCurrentCharges(10);
@@ -868,6 +876,7 @@ void CharacterWindow::addDebugItems()
     Item* GrossMesser = new Item("Gross-messer", QVector<Item::ItemType>(Item::TWO_HANDED_CHOPPING_SWORD), "Гросс-мессер");
 
     GrossMesser->isNew = true;
+    GrossMesser->setIsWeaponOrShield(true);
 
     GrossMesser->setMaxCharges(10);
     GrossMesser->setCurrentCharges(10);
@@ -885,6 +894,7 @@ void CharacterWindow::addDebugItems()
     Item* Zweihander = new Item("Zweihander", QVector<Item::ItemType>(Item::TWO_HANDED_SWORD), "Цвайхендер");
 
     Zweihander->isNew = true;
+    Zweihander->setIsWeaponOrShield(true);
 
     Zweihander->setMaxCharges(10);
     Zweihander->setCurrentCharges(10);
@@ -902,6 +912,7 @@ void CharacterWindow::addDebugItems()
     Item* Great_Sword = new Item("Great sword", QVector<Item::ItemType>(Item::TWO_HANDED_SWORD, Item::GREAT_SWORD), "Гигантский меч");
 
     Great_Sword->isNew = true;
+    Great_Sword->setIsWeaponOrShield(true);
 
     Great_Sword->setMaxCharges(10);
     Great_Sword->setCurrentCharges(10);
@@ -919,6 +930,7 @@ void CharacterWindow::addDebugItems()
     Item* Flanged_Mace = new Item("Flanged mace", QVector<Item::ItemType>(Item::ONE_HANDED_MACE), "Шестопёр");
 
     Flanged_Mace->isNew = true;
+    Flanged_Mace->setIsWeaponOrShield(true);
 
     Flanged_Mace->setMaxCharges(10);
     Flanged_Mace->setCurrentCharges(10);
@@ -936,6 +948,7 @@ void CharacterWindow::addDebugItems()
     Item* Warpick = new Item("Warpick", QVector<Item::ItemType>(Item::ONE_HANDED_MACE, Item::WARPICK), "Клевец");
 
     Warpick->isNew = true;
+    Warpick->setIsWeaponOrShield(true);
 
     Warpick->setMaxCharges(10);
     Warpick->setCurrentCharges(10);
@@ -952,6 +965,7 @@ void CharacterWindow::addDebugItems()
     Item* TwoHanded_Hammer = new Item("Two-handed hammer", QVector<Item::ItemType>{Item::TWO_HANDED_MACE}, "Двуручный молот");
 
     TwoHanded_Hammer->isNew = true;
+    TwoHanded_Hammer->setIsWeaponOrShield(true);
 
     TwoHanded_Hammer->setMaxCharges(10);
     TwoHanded_Hammer->setCurrentCharges(10);
@@ -968,6 +982,7 @@ void CharacterWindow::addDebugItems()
     Item* Alfalfa_Hammer = new Item("Alfalfa hammer", QVector<Item::ItemType>{Item::TWO_HANDED_MACE, Item::WARPICK, Item::PIKE}, "Люцеранский молот");
 
     Alfalfa_Hammer->isNew = true;
+    Alfalfa_Hammer->setIsWeaponOrShield(true);
 
     Alfalfa_Hammer->setMaxCharges(10);
     Alfalfa_Hammer->setCurrentCharges(10);
@@ -984,6 +999,7 @@ void CharacterWindow::addDebugItems()
     Item* Great_Mace = new Item("Great mace", QVector<Item::ItemType>(Item::TWO_HANDED_MACE, Item::GREAT_MACE), "Гигантская палица");
 
     Great_Mace->isNew = true;
+    Great_Mace->setIsWeaponOrShield(true);
 
     Great_Mace->setMaxCharges(10);
     Great_Mace->setCurrentCharges(10);
@@ -1000,6 +1016,7 @@ void CharacterWindow::addDebugItems()
     Item* Axe = new Item("Axe", QVector<Item::ItemType>(Item::ONE_HANDED_AXE), "Топор");
 
     Axe->isNew = true;
+    Axe->setIsWeaponOrShield(true);
 
     Axe->setMaxCharges(10);
     Axe->setCurrentCharges(10);
@@ -1016,6 +1033,7 @@ void CharacterWindow::addDebugItems()
     Item* Twohanded_Axe = new Item("Two-handed axe", QVector<Item::ItemType>(Item::TWO_HANDED_AXE), "Секира");
 
     Twohanded_Axe->isNew = true;
+    Twohanded_Axe->setIsWeaponOrShield(true);
 
     Twohanded_Axe->setMaxCharges(10);
     Twohanded_Axe->setCurrentCharges(10);
@@ -1032,6 +1050,7 @@ void CharacterWindow::addDebugItems()
     Item* Poleaxe = new Item("Poleaxe", QVector<Item::ItemType>{Item::TWO_HANDED_AXE, Item::TWO_HANDED_MACE, Item::PIKE}, "Полэкс");
 
     Poleaxe->isNew = true;
+    Poleaxe->setIsWeaponOrShield(true);
 
     Poleaxe->setMaxCharges(10);
     Poleaxe->setCurrentCharges(10);
@@ -1048,6 +1067,7 @@ void CharacterWindow::addDebugItems()
     Item* Great_Axe = new Item("Great axe", QVector<Item::ItemType>(Item::TWO_HANDED_AXE, Item::GREAT_AXE), "Гигантская секира");
 
     Great_Axe->isNew = true;
+    Great_Axe->setIsWeaponOrShield(true);
 
     Great_Axe->setMaxCharges(10);
     Great_Axe->setCurrentCharges(10);
@@ -1064,6 +1084,7 @@ void CharacterWindow::addDebugItems()
     Item* Tournament_Spear = new Item("Tournament spear", QVector<Item::ItemType>(Item::SPEAR), "Турнирное копьё");
 
     Tournament_Spear->isNew = true;
+    Tournament_Spear->setIsWeaponOrShield(true);
 
     Tournament_Spear->setMaxCharges(10);
     Tournament_Spear->setCurrentCharges(10);
@@ -1080,6 +1101,7 @@ void CharacterWindow::addDebugItems()
     Item* Pike = new Item("Pike", QVector<Item::ItemType>(Item::PIKE), "Пика");
 
     Pike->isNew = true;
+    Pike->setIsWeaponOrShield(true);
 
     Pike->setMaxCharges(10);
     Pike->setCurrentCharges(10);
@@ -1096,6 +1118,7 @@ void CharacterWindow::addDebugItems()
     Item* Great_Pike = new Item("Great pike", QVector<Item::ItemType>(Item::PIKE, Item::GREAT_PIKE), "Гигантская пика");
 
     Great_Pike->isNew = true;
+    Great_Pike->setIsWeaponOrShield(true);
 
     Great_Pike->setMaxCharges(10);
     Great_Pike->setCurrentCharges(10);
@@ -1113,6 +1136,7 @@ void CharacterWindow::addDebugItems()
     Item* Trench_Rondash = new Item("Trench rondash", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Траншейный рондаш");
 
     Trench_Rondash->isNew = true;
+    Trench_Rondash->setIsWeaponOrShield(true);
 
     Trench_Rondash->setMaxCharges(10);
     Trench_Rondash->setCurrentCharges(10);
@@ -1130,6 +1154,7 @@ void CharacterWindow::addDebugItems()
     Item* Tower_Shield = new Item("Tower shield", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Башенный щит");
 
     Tower_Shield->isNew = true;
+    Tower_Shield->setIsWeaponOrShield(true);
 
     Tower_Shield->setMaxCharges(10);
     Tower_Shield->setCurrentCharges(10);
@@ -1147,6 +1172,7 @@ void CharacterWindow::addDebugItems()
     Item* Musket = new Item("Musket", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Мушкет");
 
     Musket->isNew = true;
+    Musket->setIsWeaponOrShield(true);
 
     Musket->setMaxCharges(10);
     Musket->setCurrentCharges(10);
@@ -1164,6 +1190,7 @@ void CharacterWindow::addDebugItems()
     Item* Pstol = new Item("Pstol", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Пистоль");
 
     Pstol->isNew = true;
+    Pstol->setIsWeaponOrShield(true);
 
     Pstol->setMaxCharges(10);
     Pstol->setCurrentCharges(10);
@@ -1178,7 +1205,7 @@ void CharacterWindow::addDebugItems()
     ///////////////////////////////////////////////////////////////////////////////////////////
 
 
-    Item* Bascinet = new Item("Bascinet", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Бацнет");
+    Item* Bascinet = new Item("Bascinet", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Бацинет");
 
     Bascinet->isNew = true;
 

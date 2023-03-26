@@ -21,6 +21,13 @@ public:
     explicit InventoryCell(QWidget *parent = nullptr);
     ~InventoryCell();
 
+    enum EquipmentLayer{
+        OVER_ARMOR,
+        ARMOR,
+        UNDER_ARMOR,
+        OTHER
+    };
+
     void setItem(Item* item);
     Item* getItem();
 
@@ -46,6 +53,7 @@ public:
 
     //Текущий слот ячейки. По умолчанию это просто ячейка инвенторя. Не стоит оставлять такой слот в любом месте, где требуются ограничения на Drag&Drop
     Item::Slots acceptedSlot = Item::Slots::INVENTORY;
+    EquipmentLayer equipmentLayer = OTHER;
 
     bool getIsLocked() const;
     bool getIsBlocked() const;
@@ -89,6 +97,7 @@ signals:
      *строки нижние кроме одной удалятся. Таким образом под итемами всегда будет одна пустая
      *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
     void checkingInventorySizeChange(int col, int row);
+    void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
 
 private slots:
     /*Слот связывающий сигналы moveItem и moveCell. Обычным connect это не сделать

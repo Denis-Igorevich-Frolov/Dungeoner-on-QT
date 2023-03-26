@@ -162,6 +162,8 @@ public:
     QColor disabledColor = QColor(0, 0, 0, 140);
     QColor brokenColor = QColor(255, 0, 0, 50);
 
+    bool isHandCell = false;
+
     int getId() const;
 
     //Установка/отключение стиля заглушенного итема
@@ -229,12 +231,15 @@ public:
     void setCurrentCharges(int newCurrentCharges);
 
     int getIsWeaponOrShield() const;
-    void setIsWeaponOrShield(int newIsWeaponOrShield, bool oneHandedGripAllowed, bool twoHandedGripAllowed);
+    void setIsWeaponOrShield(bool newIsWeaponOrShield, bool twoHandedGripAllowed = true, bool oneHandedGripAllowed = true);
 
     void setGripsAllowed(bool oneHandedGripAllowed, bool twoHandedGripAllowed);
 
     bool getOneHandedGripAllowed() const;
     bool getTwoHandedGripAllowed() const;
+
+    bool getIsTakenInTwoHandedGrip() const;
+    void setIsTakenInTwoHandedGrip(bool newIsTakenInTwoHandedGrip);
 
 signals:
     /*Сигнал, говорящий о том, что итем из ячейки следует переместить. За то куда именно он
@@ -306,7 +311,9 @@ private:
     bool styleButtonsExtended = false;
 
     bool isHovered = false;
+
     bool isWeaponOrShield = false;
+    bool isTakenInTwoHandedGrip = false;
     bool oneHandedGripAllowed = true;
     bool twoHandedGripAllowed = true;
 };

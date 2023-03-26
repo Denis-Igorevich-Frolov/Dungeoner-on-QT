@@ -19,7 +19,6 @@ WeaponGripButton::~WeaponGripButton()
 void WeaponGripButton::on_GripButton_toggled(bool checked)
 {
     ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonStyle());
-    isRightClick = false;
     if(checked){
         if(isRightClick)
             emit takeTwoHandedGripLeftHandItem();
@@ -28,6 +27,7 @@ void WeaponGripButton::on_GripButton_toggled(bool checked)
     }else{
         emit useOneHandedGrip();
     }
+    isRightClick = false;
 }
 
 void WeaponGripButton::mousePressEvent(QMouseEvent *event)
