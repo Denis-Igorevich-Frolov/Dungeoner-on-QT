@@ -71,6 +71,9 @@ public:
 
     int getRow() const;
 
+    bool getIsTakenInTwoHandedGrip() const;
+    void setIsTakenInTwoHandedGrip(bool newIsTakenInTwoHandedGrip);
+
 signals:
     //Эвент говорящий в какую ячейку был перенесён итем при помощи Drag&Drop
     void itemIsDropped(int col, int row);
@@ -152,6 +155,8 @@ private:
     void dragLeaveEvent(QDragLeaveEvent* event) override;
 
     bool CentralElementIsVisible = false;
+
+    bool isTakenInTwoHandedGrip = false;
 };
 
 #endif // INVENTORYCELL_H

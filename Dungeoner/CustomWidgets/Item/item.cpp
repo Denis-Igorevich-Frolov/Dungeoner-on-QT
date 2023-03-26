@@ -40,12 +40,11 @@ Item::~Item()
 }
 
 //Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item
-Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, int quantity, double weight, double volume,
-           int price, int maxDurability, int currentDurability, QVector<Slots> cellSlots, QVector<Slots> occupiedCellSlots,
-           QVector<Bonus*> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses, int minDamage, int maxDamage,
-           bool isPressable, int maxCharges, int currentCharges, bool isDisabled, bool isNew, int currentStyle,
-           bool itemIsEmpty, QVector<Item *> styles, QString SoundDrag, QString SoundDrop, QString SoundPress,
-           QString SoundPressWithOutOfCharge, int id) :
+Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, bool isWeaponOrShield, bool oneHandedGripAllowed,
+           bool twoHandedGripAllowed, int quantity, double weight, double volume, int price, int maxDurability, int currentDurability,
+           QVector<Slots> cellSlots, QVector<Slots> occupiedCellSlots, QVector<Bonus*> bonuses, QVector<MagicDefenseBonus *> magicDefenseBonuses,
+           int minDamage, int maxDamage, bool isPressable, int maxCharges, int currentCharges, bool isDisabled, bool isNew, int currentStyle,
+           bool itemIsEmpty, QVector<Item *> styles, QString SoundDrag, QString SoundDrop, QString SoundPress, QString SoundPressWithOutOfCharge, int id) :
     ui(new Ui::Item)
 {
 
@@ -96,6 +95,7 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
 
     this->itemTypes = itemTypes;
     setItemName(itemName);
+    setIsWeaponOrShield(isWeaponOrShield, twoHandedGripAllowed, oneHandedGripAllowed);
     setQuantity(quantity);
     setWeight(weight);
     setVolume(volume);
@@ -136,11 +136,12 @@ Item::Item(QString folderName, QVector<ItemType> itemTypes, QString itemName, in
 
 //Конструктор независимого клона итема по константной ссылке. Пока используется только в Drag&Drop
 Item::Item(const Item *item):
-    Item(item->folderName, item->itemTypes, item->itemName, item->quantity, item->weight, item->volume,
-         item->price, item->maxDurability, item->currentDurability, item->cellSlots, item->occupiedCellSlots,
-         item->bonuses, item->magicDefenseBonuses, item->minDamage, item->maxDamage, item->isPressable,
-         item->maxCharges, item->currentCharges, item->isDisabled, item->isNew, item->currentStyle,
-         item->itemIsEmpty, item->styles, item->SoundDrag, item->SoundDrop, item->SoundPress, item->SoundPressWithOutOfCharge, item->id)
+    Item(item->folderName, item->itemTypes, item->itemName, item->isWeaponOrShield, item->oneHandedGripAllowed,
+         item->twoHandedGripAllowed, item->quantity, item->weight, item->volume, item->price, item->maxDurability,
+         item->currentDurability, item->cellSlots, item->occupiedCellSlots, item->bonuses, item->magicDefenseBonuses,
+         item->minDamage, item->maxDamage, item->isPressable, item->maxCharges, item->currentCharges, item->isDisabled,
+         item->isNew, item->currentStyle, item->itemIsEmpty, item->styles, item->SoundDrag, item->SoundDrop, item->SoundPress,
+         item->SoundPressWithOutOfCharge, item->id)
 {}
 
 void Item::setShadow(bool hasShadow, int shadowBlurRadius, int shadowXOffset, int shadowYOffset, QColor color)
@@ -357,19 +358,6 @@ void Item::leaveEvent(QEvent *event)
     shiftAnimation->start();
 }
 
-bool Item::getIsTakenInTwoHandedGrip() const
-{
-    return isTakenInTwoHandedGrip;
-}
-
-void Item::setIsTakenInTwoHandedGrip(bool newIsTakenInTwoHandedGrip)
-{
-    if(isWeaponOrShield)
-        isTakenInTwoHandedGrip = newIsTakenInTwoHandedGrip;
-    else
-        isTakenInTwoHandedGrip = false;
-}
-
 bool Item::getTwoHandedGripAllowed() const
 {
     return twoHandedGripAllowed;
@@ -380,7 +368,7 @@ bool Item::getOneHandedGripAllowed() const
     return oneHandedGripAllowed;
 }
 
-int Item::getIsWeaponOrShield() const
+bool Item::getIsWeaponOrShield() const
 {
     return isWeaponOrShield;
 }
@@ -398,8 +386,6 @@ void Item::setGripsAllowed(bool oneHandedGripAllowed, bool twoHandedGripAllowed)
         this->twoHandedGripAllowed = twoHandedGripAllowed;
         if(this->oneHandedGripAllowed == false && this->twoHandedGripAllowed == false)
             this->oneHandedGripAllowed = true;
-        if(!oneHandedGripAllowed)
-            isTakenInTwoHandedGrip = true;
     }
 }
 

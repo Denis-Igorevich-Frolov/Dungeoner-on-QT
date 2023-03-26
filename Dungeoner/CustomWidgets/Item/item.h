@@ -111,12 +111,12 @@ public:
     };
 
     //Конструктор, применяемый для создания независимого клона или полностью настроенного экземпляра Item
-    Item(QString folderName, QVector<ItemType> itemTypes, QString itemName = "Name", int quantity = 1, double weight = 0, double volume = 0,
-         int price = 0, int maxDurability = -1, int currentDurability = -1, QVector<Slots> cellSlots = {},  QVector<Slots> occupiedCellSlots = {},
-         QVector<Bonus*> bonuses = {}, QVector<MagicDefenseBonus *> magicDefenseBonuses = {}, int minDamage = 0, int maxDamage = 0,
-         bool isPressable = false, int maxCharges = -1, int currentCharges = 0, bool isDisabled = false, bool isNew = false, int currentStyle = 0,
-         bool itemIsEmpty = false, QVector<Item*> styles = {}, QString SoundDrag = "", QString SoundDrop = "", QString SoundPress = "",
-         QString SoundPressWithOutOfCharge = "qrc:/Sounds/Sounds/Error.mp3", int id = -1);
+    Item(QString folderName, QVector<ItemType> itemTypes, QString itemName = "Name", bool isWeaponOrShield = false, bool oneHandedGripAllowed = true,
+         bool twoHandedGripAllowed = true, int quantity = 1, double weight = 0, double volume = 0, int price = 0, int maxDurability = -1,
+         int currentDurability = -1, QVector<Slots> cellSlots = {},  QVector<Slots> occupiedCellSlots = {}, QVector<Bonus*> bonuses = {},
+         QVector<MagicDefenseBonus *> magicDefenseBonuses = {}, int minDamage = 0, int maxDamage = 0, bool isPressable = false, int maxCharges = -1,
+         int currentCharges = 0, bool isDisabled = false, bool isNew = false, int currentStyle = 0, bool itemIsEmpty = false, QVector<Item*> styles = {},
+         QString SoundDrag = "", QString SoundDrop = "", QString SoundPress = "", QString SoundPressWithOutOfCharge = "qrc:/Sounds/Sounds/Error.mp3", int id = -1);
 
     //Конструктор независимого клона итема по константной ссылке. Пока используется только в Drag&Drop
     Item(const Item* item);
@@ -230,16 +230,13 @@ public:
     int getCurrentCharges() const;
     void setCurrentCharges(int newCurrentCharges);
 
-    int getIsWeaponOrShield() const;
+    bool getIsWeaponOrShield() const;
     void setIsWeaponOrShield(bool newIsWeaponOrShield, bool twoHandedGripAllowed = true, bool oneHandedGripAllowed = true);
 
     void setGripsAllowed(bool oneHandedGripAllowed, bool twoHandedGripAllowed);
 
     bool getOneHandedGripAllowed() const;
     bool getTwoHandedGripAllowed() const;
-
-    bool getIsTakenInTwoHandedGrip() const;
-    void setIsTakenInTwoHandedGrip(bool newIsTakenInTwoHandedGrip);
 
 signals:
     /*Сигнал, говорящий о том, что итем из ячейки следует переместить. За то куда именно он
@@ -313,7 +310,6 @@ private:
     bool isHovered = false;
 
     bool isWeaponOrShield = false;
-    bool isTakenInTwoHandedGrip = false;
     bool oneHandedGripAllowed = true;
     bool twoHandedGripAllowed = true;
 };

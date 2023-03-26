@@ -51,6 +51,7 @@ void InventoryCell::setItem(Item *item)
     ui->item->setId(item->getId());
     ui->item->itemIsEmpty = item->itemIsEmpty;
     ui->item->folderName = item->folderName;
+    ui->item->setIsWeaponOrShield(item->getIsWeaponOrShield(), item->getTwoHandedGripAllowed(), item->getOneHandedGripAllowed());
     ui->item->isNew = item->isNew;
     ui->item->isDisabled = item->isDisabled;
     ui->item->styles = item->styles;
@@ -489,6 +490,16 @@ void InventoryCell::dragLeaveEvent(QDragLeaveEvent *event)
         setBlockedStyle(false);
 }
 
+bool InventoryCell::getIsTakenInTwoHandedGrip() const
+{
+    return isTakenInTwoHandedGrip;
+}
+
+void InventoryCell::setIsTakenInTwoHandedGrip(bool newIsTakenInTwoHandedGrip)
+{
+    isTakenInTwoHandedGrip = newIsTakenInTwoHandedGrip;
+}
+
 /*Стиль неактивной (заблокированной) ячейки. Если ячейка блокируется, в метод передаётся та ячейка, которая
  *спровоцировала блокировку. Также есть ручная блокировка, которая может быть только также вручную и снята*/
 void InventoryCell::setLockedStyle(bool isLocked, InventoryCell *cellWithLockingItem, bool isManualLock)
@@ -719,6 +730,9 @@ bool InventoryCell::getIsBlocked() const
 void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
 {
     if(cell){
+        if(isTakenInTwoHandedGrip || cell->isTakenInTwoHandedGrip)
+            std::swap(isTakenInTwoHandedGrip, cell->isTakenInTwoHandedGrip);
+
         /*Сначала, если целевая ячейка не является ячейкой в инвентаре и не блокирована итемом из передаваемой
          *ячейки, также как и сама не является этой самой передаваемой ячейкой, то для перемещаемой вещи сбрасывются
          *все конфликтующие вещи. Последние 2 пункта необходимы, чтобы итем не мог сбросить сам себя*/

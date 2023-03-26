@@ -377,6 +377,13 @@ void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acc
             }
         }
     }
+
+    if(cell->getIsTakenInTwoHandedGrip()){
+        if(ui->RightHand == cell)
+            ui->LeftHand->setLockedStyle(true, cell);
+        else if(ui->LeftHand == cell)
+            ui->RightHand->setLockedStyle(true, cell);
+    }
 }
 
 //Метод разблокирующий все блокируемые ячейки из вектора занимаемых ячеек из итема из cell
@@ -460,6 +467,13 @@ void CharacterEquipment::unlockOccupiedCells(InventoryCell* cell)
                 }
             }
         }
+    }
+
+    if(cell->getIsTakenInTwoHandedGrip()){
+        if(ui->RightHand->getCellWithLockingItem() == ui->LeftHand)
+            ui->RightHand->setLockedStyle(false);
+        else if(ui->LeftHand->getCellWithLockingItem() == ui->RightHand)
+            ui->LeftHand->setLockedStyle(false);
     }
 }
 
@@ -691,12 +705,12 @@ void CharacterEquipment::takeTwoHandedGripRightHandItem()
         if(!ui->LeftHand->getItem()->itemIsEmpty)
             emit moveCellFromEquipment(ui->LeftHand);
         ui->LeftHand->setLockedStyle(true, ui->RightHand);
-        ui->RightHand->getItem()->setIsTakenInTwoHandedGrip(true);
+        ui->RightHand->setIsTakenInTwoHandedGrip(true);
     }else if(!ui->LeftHand->getItem()->itemIsEmpty && ui->LeftHand->getItem()->getIsWeaponOrShield()){
         if(!ui->RightHand->getItem()->itemIsEmpty)
             emit moveCellFromEquipment(ui->RightHand);
         ui->RightHand->setLockedStyle(true, ui->LeftHand);
-        ui->LeftHand->getItem()->setIsTakenInTwoHandedGrip(true);
+        ui->LeftHand->setIsTakenInTwoHandedGrip(true);
     }
 }
 
@@ -706,25 +720,27 @@ void CharacterEquipment::takeTwoHandedGripLeftHandItem()
         if(!ui->RightHand->getItem()->itemIsEmpty)
             emit moveCellFromEquipment(ui->RightHand);
         ui->RightHand->setLockedStyle(true, ui->LeftHand);
-        ui->LeftHand->getItem()->setIsTakenInTwoHandedGrip(true);
+        ui->LeftHand->setIsTakenInTwoHandedGrip(true);
     }else if(!ui->RightHand->getItem()->itemIsEmpty && ui->RightHand->getItem()->getIsWeaponOrShield()){
         if(!ui->LeftHand->getItem()->itemIsEmpty)
             emit moveCellFromEquipment(ui->LeftHand);
         ui->LeftHand->setLockedStyle(true, ui->RightHand);
-        ui->RightHand->getItem()->setIsTakenInTwoHandedGrip(true);
+        ui->RightHand->setIsTakenInTwoHandedGrip(true);
     }
 }
 
 void CharacterEquipment::useOneHandedGrip()
 {
     if(ui->RightHand->getIsLocked()){
-        if(ui->RightHand->getCellWithLockingItem() == ui->LeftHand && ui->LeftHand->getItem()->getIsTakenInTwoHandedGrip())
-            ui->LeftHand->setLockedStyle(false);
-    }else if(ui->LeftHand->getIsLocked()){
-        qDebug()<<(ui->LeftHand->getCellWithLockingItem() == ui->RightHand);
-        qDebug()<<ui->RightHand->getItem()->getIsTakenInTwoHandedGrip();
-        if(ui->LeftHand->getCellWithLockingItem() == ui->RightHand && ui->RightHand->getItem()->getIsTakenInTwoHandedGrip())
+        if(ui->RightHand->getCellWithLockingItem() == ui->LeftHand && ui->LeftHand->getIsTakenInTwoHandedGrip()){
             ui->RightHand->setLockedStyle(false);
+            ui->LeftHand->setIsTakenInTwoHandedGrip(false);
+        }
+    }else if(ui->LeftHand->getIsLocked()){
+        if(ui->LeftHand->getCellWithLockingItem() == ui->RightHand && ui->RightHand->getIsTakenInTwoHandedGrip()){
+            ui->LeftHand->setLockedStyle(false);
+            ui->RightHand->setIsTakenInTwoHandedGrip(false);
+        }
     }
 }
 
