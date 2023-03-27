@@ -87,6 +87,9 @@ void WeaponGripButton::mouseReleaseEvent(QMouseEvent *event)
 {
     if(isRightClick && cursorWithinWidget)
         ui->GripButton->toggle();
+    isRightClick = false;
+    cursorWithinWidget = true;
+    ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonStyle());
 }
 
 void WeaponGripButton::mouseMoveEvent(QMouseEvent *event)
