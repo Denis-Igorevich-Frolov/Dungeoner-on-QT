@@ -35,7 +35,9 @@ private:
 
     void mousePressEvent(QMouseEvent *event) override;
     void mouseReleaseEvent(QMouseEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
 
+    bool cursorWithinWidget = true;
     bool isRightClick = false;
     bool styleSettingMode = false;
 };
