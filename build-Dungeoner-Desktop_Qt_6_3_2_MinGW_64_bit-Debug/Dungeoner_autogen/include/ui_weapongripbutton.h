@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
@@ -20,6 +21,7 @@ class Ui_WeaponGripButton
 {
 public:
     QPushButton *GripButton;
+    QLabel *GifLabel;
 
     void setupUi(QWidget *WeaponGripButton)
     {
@@ -33,6 +35,11 @@ public:
         GripButton->setStyleSheet(QString::fromUtf8(""));
         GripButton->setCheckable(true);
         GripButton->setChecked(false);
+        GifLabel = new QLabel(WeaponGripButton);
+        GifLabel->setObjectName(QString::fromUtf8("GifLabel"));
+        GifLabel->setGeometry(QRect(0, 0, 65, 77));
+        GifLabel->raise();
+        GripButton->raise();
 
         retranslateUi(WeaponGripButton);
 
@@ -43,6 +50,7 @@ public:
     {
         WeaponGripButton->setWindowTitle(QCoreApplication::translate("WeaponGripButton", "Form", nullptr));
         GripButton->setText(QString());
+        GifLabel->setText(QString());
     } // retranslateUi
 
 };

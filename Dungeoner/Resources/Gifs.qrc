@@ -12,5 +12,7 @@
         <file>GIF/DisabledBrokenAvailableInventoryCell.gif</file>
         <file>GIF/EmptyAvailableInventoryCell.gif</file>
         <file>GIF/LockedAvailableInventoryCell.gif</file>
+        <file>GIF/Forbidden-One-Handed-Grip.gif</file>
+        <file>GIF/Forbidden-Two-Handed-Grip.gif</file>
     </qresource>
 </RCC>

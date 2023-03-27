@@ -49,7 +49,7 @@ public:
         SPEAR,//Копьё (одноручное)
         PIKE,//Пика (двуручная)
         GREAT_PIKE,//Гигантска пика
-        TWO_HANDED_SPEAR,
+        BOW,//Лук
         SUNDRIES,//Разное
     };
 

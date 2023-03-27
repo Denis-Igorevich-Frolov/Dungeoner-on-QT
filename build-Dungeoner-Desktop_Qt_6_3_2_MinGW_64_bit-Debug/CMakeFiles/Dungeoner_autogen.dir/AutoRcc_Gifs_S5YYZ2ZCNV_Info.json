@@ -13,9 +13,11 @@
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/DisabledInventoryItemNew.gif",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/LockedAvailableInventoryCell.gif",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/DisabledBrokenAvailableInventoryCell.gif",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/Forbidden-One-Handed-Grip.gif",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/DisabledAvailableInventoryCell.gif",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/EmptyAvailableInventoryCell.gif",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/BrokenAvailableInventoryCell.gif",
+		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/Forbidden-Two-Handed-Grip.gif",
 		"E:/Qt projects/Dungeoner-on-QT/Dungeoner/Resources/GIF/AvailableInventoryCell.gif"
 	],
 	"LOCK_FILE" : "E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/CMakeFiles/Dungeoner_autogen.dir/AutoRcc_Gifs_S5YYZ2ZCNV_Lock.lock",

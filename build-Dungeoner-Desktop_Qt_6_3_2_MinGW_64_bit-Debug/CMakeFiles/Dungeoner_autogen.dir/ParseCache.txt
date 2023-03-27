@@ -7428,6 +7428,9 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongr
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayalgorithms.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearraylist.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qbytearrayview.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcalendar.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcborcommon.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcborvalue.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qchar.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcompare.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcompare_impl.h
@@ -7437,19 +7440,29 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongr
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcontainerinfo.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcontainertools_impl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcontiguouscache.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreapplication_platform.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qcoreevent.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qdatastream.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qdatetime.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qdebug.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qeventloop.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qfactoryinterface.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qflags.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qgenericatomic.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qglobal.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qglobalstatic.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qhash.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qhashfunctions.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiodevice.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiodevicebase.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiterable.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qiterator.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qjsonobject.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qjsonvalue.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qline.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qlist.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qlocale.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qlogging.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmap.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmargins.h
@@ -7457,16 +7470,20 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongr
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmetacontainer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qmetatype.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnamespace.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnativeinterface.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qnumeric.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobject.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobject_impl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qobjectdefs_impl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qpair.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qplugin.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qpoint.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qpointer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qprocessordetection.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qrect.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qrefcount.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qregularexpression.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qscopedpointer.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qscopeguard.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qset.h
@@ -7491,7 +7508,9 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongr
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtextstream.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtmetamacros.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qtypeinfo.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qurl.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qutf8stringview.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/quuid.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvariant.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtCore/qversiontagging.h
@@ -7505,7 +7524,10 @@ E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongr
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qfontmetrics.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qicon.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qimage.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qimageiohandler.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qimagereader.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qkeysequence.h
+ mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qmovie.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qpaintdevice.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qpalette.h
  mdp:E:/Qt/6.3.2/mingw_64/include/QtGui/qpixelformat.h

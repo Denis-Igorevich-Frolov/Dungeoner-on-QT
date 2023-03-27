@@ -1169,6 +1169,24 @@ void CharacterWindow::addDebugItems()
     ///////////////////////////////////////////////////////////////////////////////////////////
 
 
+    Item* Bow = new Item("Bow", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Лук");
+
+    Bow->isNew = true;
+    Bow->setIsWeaponOrShield(true, true, false);
+
+    Bow->setMaxCharges(10);
+    Bow->setCurrentCharges(10);
+    Bow->setId(25);
+    Bow->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+
+    Bow->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Bow_is_taken.wav";
+    Bow->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Bow_is_dropped.wav";
+
+    items.append(Bow);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
+
     Item* Musket = new Item("Musket", QVector<Item::ItemType>(Item::ONE_HANDED_SWORD), "Мушкет");
 
     Musket->isNew = true;

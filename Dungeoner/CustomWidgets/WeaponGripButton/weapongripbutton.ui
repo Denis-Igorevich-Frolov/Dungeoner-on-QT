@@ -38,6 +38,21 @@
     <bool>false</bool>
    </property>
   </widget>
+  <widget class="QLabel" name="GifLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>65</width>
+     <height>77</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>GifLabel</zorder>
+  <zorder>GripButton</zorder>
  </widget>
  <resources/>
  <connections/>

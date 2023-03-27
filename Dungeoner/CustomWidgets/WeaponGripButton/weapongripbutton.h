@@ -1,6 +1,7 @@
 #ifndef WEAPONGRIPBUTTON_H
 #define WEAPONGRIPBUTTON_H
 
+#include "qmovie.h"
 #include <QWidget>
 
 namespace Ui {
@@ -19,6 +20,10 @@ public:
     void setTwoHandedGrip();
     void setOneHandedGrip();
     bool getIsTwoHandedGrip();
+
+    void setForbiddenTwoHandedGripStyle();
+    void setForbiddenOneHandedGripStyle();
+    void setNormalStyle();
 
 private slots:
     void on_GripButton_toggled(bool checked);
@@ -40,6 +45,8 @@ private:
     bool cursorWithinWidget = true;
     bool isRightClick = false;
     bool styleSettingMode = false;
+
+    QMovie Forbidden;
 };
 
 #endif // WEAPONGRIPBUTTON_H

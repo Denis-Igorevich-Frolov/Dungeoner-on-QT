@@ -53,7 +53,7 @@ signals:
      *такие ячейки находятся, то итем блокирующий их сбрасывается. Метод возвращает true если был сброшен хотя бы 1 итем*/
     bool checkLockedCells (QVector<Item::Slots> occupiedCellSlots);
     //Сигнал, вызаваемый при начале перетаскивания любого итема. Подсвечивает все ячейки, в который данный итем можно положить
-    void dragStarted(QVector<Item::Slots> cellSlots);
+    void dragStarted(InventoryCell* cell);
     //Слот, вызаваемый при окончании перетаскивания любого итема. Гасит посвеченые ячейки
     void dragEnded();
 

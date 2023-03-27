@@ -399,7 +399,7 @@ bool InventoryCell::eventFilter(QObject *object, QEvent *event)
                 painter.end();
 
                 drag->setPixmap(pixmap);
-                emit dragStarted(getItem()->getCellSlots());
+                emit dragStarted(this);
 
                 Qt::DropAction result = drag->exec(Qt::MoveAction);
                 emit dragEnded();
@@ -776,8 +776,6 @@ void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
             cell->setIsTakenInTwoHandedGrip(false);
             setIsTakenInTwoHandedGrip(false);
         }
-        if(isTakenInTwoHandedGrip || cell->isTakenInTwoHandedGrip)
-            std::swap(isTakenInTwoHandedGrip, cell->isTakenInTwoHandedGrip);
 
         if(isHand)
             emit applyGrip(this);

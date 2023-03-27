@@ -9,6 +9,7 @@ WeaponGripButton::WeaponGripButton(QWidget *parent) :
     ui(new Ui::WeaponGripButton)
 {
     ui->setupUi(this);
+    ui->GifLabel->setVisible(false);
 
     ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonStyle());
 }
@@ -38,6 +39,38 @@ void WeaponGripButton::setOneHandedGrip()
 bool WeaponGripButton::getIsTwoHandedGrip()
 {
     return ui->GripButton->isChecked();
+}
+
+void WeaponGripButton::setForbiddenTwoHandedGripStyle()
+{
+    ui->GripButton->setVisible(false);
+    ui->GifLabel->setVisible(true);
+
+    Forbidden.stop();
+    Forbidden.setFileName(":/Equipment/GIF/Forbidden-Two-Handed-Grip.gif");
+    Forbidden.setScaledSize(QSize(65,77));
+    ui->GifLabel->setMovie(&Forbidden);
+    Forbidden.start();
+}
+
+void WeaponGripButton::setForbiddenOneHandedGripStyle()
+{
+    ui->GripButton->setVisible(false);
+    ui->GifLabel->setVisible(true);
+
+    Forbidden.stop();
+    Forbidden.setFileName(":/Equipment/GIF/Forbidden-One-Handed-Grip.gif");
+    Forbidden.setScaledSize(QSize(65,77));
+    ui->GifLabel->setMovie(&Forbidden);
+    Forbidden.start();
+}
+
+void WeaponGripButton::setNormalStyle()
+{
+    Forbidden.stop();
+
+    ui->GripButton->setVisible(true);
+    ui->GifLabel->setVisible(false);
 }
 
 void WeaponGripButton::on_GripButton_toggled(bool checked)

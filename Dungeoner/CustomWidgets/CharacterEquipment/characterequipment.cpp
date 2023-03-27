@@ -685,9 +685,13 @@ bool CharacterEquipment::checkingLockedCells(QVector<Item::Slots> occupiedCellSl
 }
 
 //Слот, вызаваемый при начале перетаскивания любого итема. Подсвечивает все ячейки, в который данный итем можно положить
-void CharacterEquipment::dragStarted(QVector<Item::Slots> cellSlots)
+void CharacterEquipment::dragStarted(InventoryCell* cell)
 {
-    for(Item::Slots cellSlot : cellSlots){
+    if(!cell->getItem()->getTwoHandedGripAllowed() && ui->weaponGripButton->getIsTwoHandedGrip())
+        ui->weaponGripButton->setForbiddenTwoHandedGripStyle();
+    else if(!cell->getItem()->getOneHandedGripAllowed() && !ui->weaponGripButton->getIsTwoHandedGrip())
+        ui->weaponGripButton->setForbiddenOneHandedGripStyle();
+    for(Item::Slots cellSlot : cell->getItem()->getCellSlots()){
         for(InventoryCell* equipmentCell : equipmentCells){
             if(equipmentCell->acceptedSlot == cellSlot){
                 equipmentCell->setAvailableStyle(true);
@@ -700,6 +704,8 @@ void CharacterEquipment::dragStarted(QVector<Item::Slots> cellSlots)
 //Слот, вызаваемый при окончании перетаскивания любого итема. Гасит посвеченые ячейки
 void CharacterEquipment::dragEnded()
 {
+    ui->weaponGripButton->setNormalStyle();
+
     for(InventoryCell* equipmentCell : equipmentCells){
         if(equipmentCell->getIsAvailable())
             equipmentCell->setAvailableStyle(false);
@@ -749,6 +755,7 @@ void CharacterEquipment::useOneHandedGrip()
             ui->LeftHand->setIsTakenInTwoHandedGrip(false);
         }
     }else if(ui->LeftHand->getIsLocked()){
+        qDebug()<<ui->LeftHand->getCellWithLockingItem()->getItem()->getItemName();
         if(ui->LeftHand->getCellWithLockingItem() == ui->RightHand && ui->RightHand->getIsTakenInTwoHandedGrip()){
             for(Item::Slots slot : ui->RightHand->getItem()->getOccupiedCellSlots())
                 if(slot == Item::ONE_OF_THE_HAND || slot == Item::R_HAND || slot == Item::L_HAND)
