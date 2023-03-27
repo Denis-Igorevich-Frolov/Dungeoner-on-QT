@@ -719,11 +719,13 @@ void CharacterEquipment::takeTwoHandedGripRightHandItem()
             emit moveCellFromEquipment(ui->LeftHand);
         ui->LeftHand->setLockedStyle(true, ui->RightHand);
         ui->RightHand->setIsTakenInTwoHandedGrip(true);
+        ui->LeftHand->setIsTakenInTwoHandedGrip(false);
     }else if(!ui->LeftHand->getItem()->itemIsEmpty && ui->LeftHand->getItem()->getIsWeaponOrShield()){
         if(!ui->RightHand->getItem()->itemIsEmpty)
             emit moveCellFromEquipment(ui->RightHand);
         ui->RightHand->setLockedStyle(true, ui->LeftHand);
         ui->LeftHand->setIsTakenInTwoHandedGrip(true);
+        ui->RightHand->setIsTakenInTwoHandedGrip(false);
     }
     usedTwoHandedGrip = true;
 }
@@ -755,7 +757,6 @@ void CharacterEquipment::useOneHandedGrip()
             ui->LeftHand->setIsTakenInTwoHandedGrip(false);
         }
     }else if(ui->LeftHand->getIsLocked()){
-        qDebug()<<ui->LeftHand->getCellWithLockingItem()->getItem()->getItemName();
         if(ui->LeftHand->getCellWithLockingItem() == ui->RightHand && ui->RightHand->getIsTakenInTwoHandedGrip()){
             for(Item::Slots slot : ui->RightHand->getItem()->getOccupiedCellSlots())
                 if(slot == Item::ONE_OF_THE_HAND || slot == Item::R_HAND || slot == Item::L_HAND)
@@ -816,6 +817,9 @@ void CharacterEquipment::applyGrip(InventoryCell *cell)
         takeTwoHandedGripRightHandItem();
     else
         useOneHandedGrip();
+
+    qDebug()<<ui->RightHand->getIsTakenInTwoHandedGrip();
+    qDebug()<<ui->LeftHand->getIsTakenInTwoHandedGrip();
 }
 
 void CharacterEquipment::switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer)
