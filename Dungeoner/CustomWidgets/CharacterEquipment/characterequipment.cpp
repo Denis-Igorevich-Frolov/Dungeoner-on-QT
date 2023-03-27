@@ -691,6 +691,39 @@ void CharacterEquipment::dragStarted(InventoryCell* cell)
         ui->weaponGripButton->setForbiddenTwoHandedGripStyle();
     else if(!cell->getItem()->getOneHandedGripAllowed() && !ui->weaponGripButton->getIsTwoHandedGrip())
         ui->weaponGripButton->setForbiddenOneHandedGripStyle();
+    if(ui->weaponGripButton->getIsTwoHandedGrip()){
+        for(Item::Slots slot : cell->getItem()->getOccupiedCellSlots()){
+            bool utemNotPutInHand = true;
+            for(Item::Slots slot : cell->getItem()->getCellSlots()){
+                if(slot == Item::R_HAND || slot == Item::L_HAND || slot == Item::ONE_OF_THE_HAND){
+                    utemNotPutInHand = false;
+                    break;
+                }
+            }
+            if(utemNotPutInHand){
+                if(slot == Item::R_HAND || slot == Item::L_HAND || slot == Item::ONE_OF_THE_HAND){
+                    ui->weaponGripButton->setForbiddenTwoHandedGripStyle();
+                    break;
+                }
+            }
+        }
+    }else{
+        bool itemWillBePutIntoTheHand = false;
+        for(Item::Slots slot : cell->getItem()->getCellSlots()){
+            if(slot == Item::R_HAND || slot == Item::L_HAND || slot == Item::ONE_OF_THE_HAND){
+                itemWillBePutIntoTheHand = true;
+                break;
+            }
+        }
+        if(itemWillBePutIntoTheHand){
+            for(Item::Slots slot : cell->getItem()->getOccupiedCellSlots()){
+                if(slot == Item::R_HAND || slot == Item::L_HAND || slot == Item::ONE_OF_THE_HAND){
+                    ui->weaponGripButton->setForbiddenOneHandedGripStyle();
+                    break;
+                }
+            }
+        }
+    }
     for(Item::Slots cellSlot : cell->getItem()->getCellSlots()){
         for(InventoryCell* equipmentCell : equipmentCells){
             if(equipmentCell->acceptedSlot == cellSlot){
