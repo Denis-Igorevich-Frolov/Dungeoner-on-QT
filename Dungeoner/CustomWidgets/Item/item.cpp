@@ -191,6 +191,11 @@ void Item::setStyleButtonsStyle()
         ui->StyleButtonsWrapper->setVisible(false);
 }
 
+void Item::setIsNew(bool newIsNew)
+{
+    isNew = newIsNew;
+}
+
 int Item::getId() const
 {
     return id;

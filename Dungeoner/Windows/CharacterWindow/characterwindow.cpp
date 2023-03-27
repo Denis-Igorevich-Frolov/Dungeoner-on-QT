@@ -912,7 +912,7 @@ void CharacterWindow::addDebugItems()
     Item* Great_Sword = new Item("Great sword", QVector<Item::ItemType>(Item::TWO_HANDED_SWORD, Item::GREAT_SWORD), "Гигантский меч");
 
     Great_Sword->isNew = true;
-    Great_Sword->setIsWeaponOrShield(true);
+    Great_Sword->setIsWeaponOrShield(true, true, false);
 
     Great_Sword->setMaxCharges(10);
     Great_Sword->setCurrentCharges(10);
@@ -1004,7 +1004,7 @@ void CharacterWindow::addDebugItems()
     Great_Mace->setMaxCharges(10);
     Great_Mace->setCurrentCharges(10);
     Great_Mace->setId(15);
-    Great_Mace->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
+    Great_Mace->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND}, QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Great_Mace->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_taken.wav";
     Great_Mace->SoundDrop = "qrc:/Drag&Drop/Sounds/Drag&Drop/Blunt_weapon_is_dropped.wav";

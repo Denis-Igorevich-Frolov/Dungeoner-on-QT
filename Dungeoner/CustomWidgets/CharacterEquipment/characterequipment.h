@@ -79,7 +79,7 @@ public slots:
     void useOneHandedGrip();
     bool checkFreeHands(bool isRightHand);
     bool checkBusyHands();
-    void applyGrip();
+    void applyGrip(InventoryCell* cell);
 
     void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
     void checkUsedTwoHandedGrip(InventoryCell* cell);

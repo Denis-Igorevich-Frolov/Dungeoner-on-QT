@@ -102,7 +102,7 @@ signals:
      *строка. Количество строк в инвентаре окна персонажа не может быть меньше 4.*/
     void checkingInventorySizeChange(int col, int row);
     void switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer);
-    void applyGrip();
+    void applyGrip(InventoryCell* cell);
     void checkUsedTwoHandedGrip(InventoryCell* cell);
     void checkUsedOneHandedGrip(InventoryCell* cell);
 

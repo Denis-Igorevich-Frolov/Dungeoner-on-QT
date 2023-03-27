@@ -780,7 +780,12 @@ void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
             std::swap(isTakenInTwoHandedGrip, cell->isTakenInTwoHandedGrip);
 
         if(isHand)
-            emit applyGrip();
+            emit applyGrip(this);
+
+        if(cell->acceptedSlot!=Item::INVENTORY){
+            cell->getItem()->setIsNew(false);
+            cell->setAutoStyle();
+        }
     }
 }
 

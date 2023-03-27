@@ -238,6 +238,8 @@ public:
     bool getOneHandedGripAllowed() const;
     bool getTwoHandedGripAllowed() const;
 
+    void setIsNew(bool newIsNew);
+
 signals:
     /*Сигнал, говорящий о том, что итем из ячейки следует переместить. За то куда именно он
      *будет перемещен отвечает связь сигналов-слотов тех классов, где расположена ячейка*/
