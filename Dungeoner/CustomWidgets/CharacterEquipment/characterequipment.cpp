@@ -817,9 +817,6 @@ void CharacterEquipment::applyGrip(InventoryCell *cell)
         takeTwoHandedGripRightHandItem();
     else
         useOneHandedGrip();
-
-    qDebug()<<ui->RightHand->getIsTakenInTwoHandedGrip();
-    qDebug()<<ui->LeftHand->getIsTakenInTwoHandedGrip();
 }
 
 void CharacterEquipment::switchEquipmentLayer(InventoryCell::EquipmentLayer equipmentLayer)

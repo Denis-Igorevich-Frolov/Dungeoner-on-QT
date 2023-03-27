@@ -478,7 +478,10 @@ void InventoryCell::dropEvent(QDropEvent *event)
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     //Если ячейка из itemData не nullptr, производится свап ячеек
     if(itemCell){
-        swapItems(itemCell);
+        if(itemCell->acceptedSlot!=Item::INVENTORY && acceptedSlot==Item::INVENTORY)
+            itemCell->swapItems(this);
+        else
+            swapItems(itemCell);
         event->acceptProposedAction();
     }
 }
@@ -780,9 +783,9 @@ void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
         if(isHand)
             emit applyGrip(this);
 
-        if(cell->acceptedSlot!=Item::INVENTORY){
-            cell->getItem()->setIsNew(false);
-            cell->setAutoStyle();
+        if(acceptedSlot!=Item::INVENTORY){
+            getItem()->setIsNew(false);
+            setAutoStyle();
         }
     }
 }
