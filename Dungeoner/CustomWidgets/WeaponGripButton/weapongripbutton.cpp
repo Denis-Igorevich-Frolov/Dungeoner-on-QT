@@ -72,10 +72,15 @@ void WeaponGripButton::on_GripButton_toggled(bool checked)
 
 void WeaponGripButton::mousePressEvent(QMouseEvent *event)
 {
-    if(QApplication::mouseButtons() & QFlags<Qt::MouseButton>(Qt::LeftButton))
+    if(QApplication::mouseButtons() & QFlags<Qt::MouseButton>(Qt::LeftButton)){
         isRightClick = false;
-    else if(QApplication::mouseButtons() & QFlags<Qt::MouseButton>(Qt::RightButton))
+    }else if(QApplication::mouseButtons() & QFlags<Qt::MouseButton>(Qt::RightButton)){
+        if(getIsTwoHandedGrip())
+            ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonTwoHandedPressedStyle());
+        else
+            ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonOneHandedPressedStyle());
         isRightClick = true;
+    }
 }
 
 void WeaponGripButton::mouseReleaseEvent(QMouseEvent *event)
@@ -87,7 +92,7 @@ void WeaponGripButton::mouseReleaseEvent(QMouseEvent *event)
 void WeaponGripButton::mouseMoveEvent(QMouseEvent *event)
 {
     if(isRightClick){
-        if(event->pos().x()<0 || event->pos().y()<0 || event->pos().x()>ui->GripButton->sizeHint().width() || event->pos().y()>ui->GripButton->sizeHint().height()){
+        if(event->pos().x()<0 || event->pos().y()<0 || event->pos().x()>ui->GripButton->size().width() || event->pos().y()>ui->GripButton->size().height()){
             cursorWithinWidget = false;
             ui->GripButton->setStyleSheet(WGB_stylemaster::GripButtonStyle());
         }else{
