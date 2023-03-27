@@ -478,9 +478,11 @@ void InventoryCell::dropEvent(QDropEvent *event)
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     //Если ячейка из itemData не nullptr, производится свап ячеек
     if(itemCell){
-        if(itemCell->acceptedSlot!=Item::INVENTORY && acceptedSlot==Item::INVENTORY)
+        if(itemCell->acceptedSlot!=Item::INVENTORY && acceptedSlot==Item::INVENTORY){
             itemCell->swapItems(this);
-        else
+            if(itemCell->getItem()->itemIsEmpty && getItem()->SoundDrop!="")
+                Global::mediaplayer.playSound(QUrl::fromLocalFile(getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
+        }else
             swapItems(itemCell);
         event->acceptProposedAction();
     }
@@ -733,6 +735,18 @@ bool InventoryCell::getIsBlocked() const
 void InventoryCell::swapItems(InventoryCell *cell, bool playSound)
 {
     if(cell){
+        if(!cell->getItem()->itemIsEmpty && acceptedSlot != Item::INVENTORY && cell->acceptedSlot == Item::INVENTORY){
+            bool slotFound = false;
+            for(Item::Slots slot : cell->getItem()->getCellSlots()){
+                if(acceptedSlot == slot){
+                    slotFound = true;
+                    break;
+                }
+            }
+            if(!slotFound)
+                return;
+        }
+
         /*Сначала, если целевая ячейка не является ячейкой в инвентаре и не блокирована итемом из передаваемой
          *ячейки, также как и сама не является этой самой передаваемой ячейкой, то для перемещаемой вещи сбрасывются
          *все конфликтующие вещи. Последние 2 пункта необходимы, чтобы итем не мог сбросить сам себя*/
