@@ -2270,6 +2270,16 @@ border: none;</string>
     </rect>
    </property>
   </widget>
+  <widget class="OpenworkButton" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>240</y>
+     <width>151</width>
+     <height>81</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>TopMenuWrapper</zorder>
   <zorder>SkillsWraper</zorder>
   <zorder>BottomBoundWrapper</zorder>
@@ -2281,6 +2291,7 @@ border: none;</string>
   <zorder>DecorativeElement4</zorder>
   <zorder>tooltip</zorder>
   <zorder>Equipment</zorder>
+  <zorder>widget</zorder>
  </widget>
  <customwidgets>
   <customwidget>
@@ -2329,6 +2340,12 @@ border: none;</string>
    <class>CharacterEquipment</class>
    <extends>QWidget</extends>
    <header location="global">CustomWidgets/CharacterEquipment/characterequipment.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>OpenworkButton</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/OpenworkButton/openworkbutton.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

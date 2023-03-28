@@ -59,6 +59,7 @@
     </qresource>
     <qresource prefix="/Inventory">
         <file>Textures PNG/Blocked-Cross.png</file>
+        <file>Textures PNG/Disabled-Inventory-Item-Broken-BG.png</file>
         <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-BG.png</file>
         <file>Textures PNG/Disabled-Inventory-Item-Not-Empty-Locked.png</file>
         <file>Textures PNG/Disabled-Inventory-Item-Not-Empty.png</file>
@@ -74,39 +75,38 @@
         <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty-Pressed.png</file>
         <file>Textures PNG/Inventory-Dropdown-Button-Not-Empty.png</file>
         <file>Textures PNG/Inventory-Item-BG.png</file>
+        <file>Textures PNG/Inventory-Item-Broken-BG.png</file>
         <file>Textures PNG/Inventory-Item-Central-Element.png</file>
         <file>Textures PNG/Inventory-Item-Locked.png</file>
         <file>Textures PNG/Inventory-Item-Not-Empty-BG.png</file>
         <file>Textures PNG/Inventory-Item-Not-Empty.png</file>
-        <file>Textures PNG/Item-Style-Button.png</file>
-        <file>Textures PNG/Item-Style-Button-Hovered.png</file>
-        <file>Textures PNG/Item-Style-Button-Pressed.png</file>
-        <file>Textures PNG/Unknown-Item.png</file>
-        <file>Textures PNG/Inventory-Item-Broken-BG.png</file>
-        <file>Textures PNG/Disabled-Inventory-Item-Broken-BG.png</file>
         <file>Textures PNG/Item-Style-Button-Chosen.png</file>
         <file>Textures PNG/Item-Style-Button-Hovered-Chosen.png</file>
+        <file>Textures PNG/Item-Style-Button-Hovered.png</file>
         <file>Textures PNG/Item-Style-Button-Pressed-Chosen.png</file>
+        <file>Textures PNG/Item-Style-Button-Pressed.png</file>
+        <file>Textures PNG/Item-Style-Button.png</file>
+        <file>Textures PNG/Unknown-Item.png</file>
     </qresource>
     <qresource prefix="/Character-Equipment">
+        <file>Textures PNG/Character-Equipment.png</file>
         <file>Textures PNG/Equipment-Arrow.png</file>
         <file>Textures PNG/Equipment-Bag.png</file>
         <file>Textures PNG/Equipment-Crossbow-Bolts.png</file>
         <file>Textures PNG/Equipment-Pistol.png</file>
-        <file>Textures PNG/Character-Equipment.png</file>
-        <file>Textures PNG/One-Handed-Button.png</file>
-        <file>Textures PNG/Two-Handed-Button.png</file>
-        <file>Textures PNG/One-Handed-Button-Pressed.png</file>
-        <file>Textures PNG/Two-Handed-Button-Pressed.png</file>
         <file>Textures PNG/One-Handed-Button-Hovered.png</file>
+        <file>Textures PNG/One-Handed-Button-Pressed.png</file>
+        <file>Textures PNG/One-Handed-Button.png</file>
         <file>Textures PNG/Two-Handed-Button-Hovered.png</file>
+        <file>Textures PNG/Two-Handed-Button-Pressed.png</file>
+        <file>Textures PNG/Two-Handed-Button.png</file>
     </qresource>
     <qresource prefix="/Substrate-Dolls">
-        <file>Textures PNG/Substrate-Dolls-Head.png</file>
         <file>Textures PNG/Substrate-Dolls-Bag.png</file>
         <file>Textures PNG/Substrate-Dolls-Bow.png</file>
         <file>Textures PNG/Substrate-Dolls-Cloak.png</file>
         <file>Textures PNG/Substrate-Dolls-Crossbow.png</file>
+        <file>Textures PNG/Substrate-Dolls-Head.png</file>
         <file>Textures PNG/Substrate-Dolls-L-Foot.png</file>
         <file>Textures PNG/Substrate-Dolls-L-Forearm.png</file>
         <file>Textures PNG/Substrate-Dolls-L-Hand.png</file>
@@ -121,5 +121,18 @@
         <file>Textures PNG/Substrate-Dolls-R-Hand.png</file>
         <file>Textures PNG/Substrate-Dolls-R-Knee.png</file>
         <file>Textures PNG/Substrate-Dolls-R-Shoulder.png</file>
+    </qresource>
+    <qresource prefix="/Text-Block-5">
+        <file>Textures PNG/Angle-2-B-L.png</file>
+        <file>Textures PNG/Angle-2-B-R.png</file>
+        <file>Textures PNG/Angle-2-T-L.png</file>
+        <file>Textures PNG/Angle-2-T-R.png</file>
+        <file>Textures PNG/Border-2-B.png</file>
+        <file>Textures PNG/Border-2-L.png</file>
+        <file>Textures PNG/Border-2-R.png</file>
+        <file>Textures PNG/Border-2-T.png</file>
+    </qresource>
+    <qresource prefix="/OpenworkButton">
+        <file>Textures PNG/DecorativeButtonElement.png</file>
     </qresource>
 </RCC>

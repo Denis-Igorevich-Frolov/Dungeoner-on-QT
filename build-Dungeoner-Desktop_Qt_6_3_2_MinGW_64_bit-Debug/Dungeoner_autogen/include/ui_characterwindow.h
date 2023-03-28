@@ -13,6 +13,7 @@
 #include <CustomWidgets/FPS_Counter/fps_counter.h>
 #include <CustomWidgets/Inventories/CharacterWindowInventory/characterwindowinventory.h>
 #include <CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h>
+#include <CustomWidgets/OpenworkButton/openworkbutton.h>
 #include <CustomWidgets/PrimarySkill/primaryskill.h>
 #include <CustomWidgets/SecondarySkill/secondaryskill.h>
 #include <CustomWidgets/SecondarySkillProgressBar/secondaryskillprogressbar.h>
@@ -125,6 +126,7 @@ public:
     QLabel *DecorativeElement2;
     QLabel *DecorativeElement4;
     CharacterEquipment *Equipment;
+    OpenworkButton *widget;
 
     void setupUi(QWidget *CharacterWindow)
     {
@@ -754,6 +756,9 @@ public:
         Equipment = new CharacterEquipment(CharacterWindow);
         Equipment->setObjectName(QString::fromUtf8("Equipment"));
         Equipment->setGeometry(QRect(1154, 100, 714, 472));
+        widget = new OpenworkButton(CharacterWindow);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(790, 240, 151, 81));
         TopMenuWrapper->raise();
         SkillsWraper->raise();
         BottomBoundWrapper->raise();
@@ -765,6 +770,7 @@ public:
         DecorativeElement4->raise();
         tooltip->raise();
         Equipment->raise();
+        widget->raise();
 
         retranslateUi(CharacterWindow);
 

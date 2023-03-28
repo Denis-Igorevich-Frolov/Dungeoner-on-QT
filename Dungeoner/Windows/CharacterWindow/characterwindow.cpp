@@ -1194,7 +1194,7 @@ void CharacterWindow::addDebugItems()
 
     Musket->setMaxCharges(10);
     Musket->setCurrentCharges(10);
-    Musket->setId(25);
+    Musket->setId(26);
     Musket->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Musket->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_taken.wav";
@@ -1212,7 +1212,7 @@ void CharacterWindow::addDebugItems()
 
     Pstol->setMaxCharges(10);
     Pstol->setCurrentCharges(10);
-    Pstol->setId(26);
+    Pstol->setId(27);
     Pstol->setCellSlots(QVector<Item::Slots>{Item::Slots::R_HAND, Item::Slots::L_HAND});
 
     Pstol->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Crossbow_is_taken.wav";
@@ -1229,7 +1229,7 @@ void CharacterWindow::addDebugItems()
 
     Bascinet->setMaxCharges(10);
     Bascinet->setCurrentCharges(10);
-    Bascinet->setId(27);
+    Bascinet->setId(28);
     Bascinet->setCellSlots(QVector<Item::Slots>{Item::Slots::HELMET});
 
     Bascinet->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
@@ -1246,7 +1246,7 @@ void CharacterWindow::addDebugItems()
 
     Right_Pauldron->setMaxCharges(10);
     Right_Pauldron->setCurrentCharges(10);
-    Right_Pauldron->setId(28);
+    Right_Pauldron->setId(29);
     Right_Pauldron->setCellSlots(QVector<Item::Slots>{Item::Slots::R_PAULDRON});
 
     Right_Pauldron->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
@@ -1263,7 +1263,7 @@ void CharacterWindow::addDebugItems()
 
     Left_Pauldron->setMaxCharges(10);
     Left_Pauldron->setCurrentCharges(10);
-    Left_Pauldron->setId(29);
+    Left_Pauldron->setId(30);
     Left_Pauldron->setCellSlots(QVector<Item::Slots>{Item::Slots::L_PAULDRON});
 
     Left_Pauldron->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
@@ -1280,7 +1280,7 @@ void CharacterWindow::addDebugItems()
 
     Gorget->setMaxCharges(10);
     Gorget->setCurrentCharges(10);
-    Gorget->setId(30);
+    Gorget->setId(31);
     Gorget->setCellSlots(QVector<Item::Slots>{Item::Slots::GORGET});
 
     Gorget->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";
@@ -1297,7 +1297,7 @@ void CharacterWindow::addDebugItems()
 
     Breastplate->setMaxCharges(10);
     Breastplate->setCurrentCharges(10);
-    Breastplate->setId(31);
+    Breastplate->setId(32);
     Breastplate->setCellSlots(QVector<Item::Slots>{Item::Slots::BREASTPLATE});
 
     Breastplate->SoundDrag = "qrc:/Drag&Drop/Sounds/Drag&Drop/Heavy_armor_is_taken.wav";

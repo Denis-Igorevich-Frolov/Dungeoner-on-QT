@@ -139,6 +139,12 @@ set(PROJECT_SOURCES
         CustomWidgets/WeaponGripButton/weapongripbutton.ui
         CustomWidgets/WeaponGripButton/WGB_stylemaster.h
         CustomWidgets/WeaponGripButton/WGB_stylemaster.cpp
+        CustomWidgets/WindowBorder_3/windowborder_3.h
+        CustomWidgets/WindowBorder_3/windowborder_3.cpp
+        CustomWidgets/WindowBorder_3/windowborder_3.ui
+        CustomWidgets/OpenworkButton/openworkbutton.h
+        CustomWidgets/OpenworkButton/openworkbutton.cpp
+        CustomWidgets/OpenworkButton/openworkbutton.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -9,6 +9,7 @@ class GlobalStyleMaster
 {
 public:
     static QString VerticalScrollBarStyle();
+    static QString TooltipTextStyle(int sizePX, QString color);
 };
 
 #endif // GLOBALSTYLEMASTER_H

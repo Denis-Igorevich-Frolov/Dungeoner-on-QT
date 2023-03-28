@@ -26,6 +26,8 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/openworkbutton.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/openworkbutton.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/PS_stylemaster.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/PS_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/primaryskill.cpp \
@@ -66,6 +68,8 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/WB2_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/windowborder_3.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/windowborder_3.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/globalstylemaster.cpp \
@@ -684,6 +688,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/Item/item.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/LabelWithTooltip/labelwithtooltip.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/openworkbutton.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/primaryskill.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkillSignature/primaryskillsignature.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/ProgressBar_1/progressbar_1.ui \
@@ -694,6 +699,7 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WeaponGripButton/weapongripbutton.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_1/windowborder_1.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.ui \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/windowborder_3.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Windows/CharacterWindow/characterwindow.ui \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/dungeoner.ui \
 	E:/Qt/Tools/CMake_64/bin/cmake.exe

@@ -79,3 +79,15 @@ QString GlobalStyleMaster::VerticalScrollBarStyle()
     "    background-image: url(:/Vertical-Slider-1/Textures PNG/Vertical-Slider-Pike-Pressed-B.png);"
     "}";
 }
+
+QString GlobalStyleMaster::TooltipTextStyle(int sizePX, QString color)
+{
+    //Вместо %1 будет вставлен размер шрифта, а вместо %2 - его цвет
+    QString style =
+    "border: none;"
+    "background: none;"
+    "font: %1px;"
+    "color: #%2;";
+
+    return style.arg(sizePX).arg(color);
+}

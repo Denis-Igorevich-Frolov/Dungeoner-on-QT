@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OpenworkButton</class>
+ <widget class="QWidget" name="OpenworkButton">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="WindowBorder_3" name="Border" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>300</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QFrame" name="DecorativeElementWraper">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>9</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>9</number>
+    </property>
+    <property name="bottomMargin">
+     <number>10</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="DecorativeElement">
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/OpenworkButton/Textures PNG/DecorativeButtonElement.png)  0 0 0 0 stretch stretch;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QFrame" name="BackgroundWraper">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3">
+    <property name="leftMargin">
+     <number>7</number>
+    </property>
+    <property name="topMargin">
+     <number>7</number>
+    </property>
+    <property name="rightMargin">
+     <number>7</number>
+    </property>
+    <property name="bottomMargin">
+     <number>7</number>
+    </property>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="Background">
+      <property name="styleSheet">
+       <string notr="true">background: qlineargradient(spread:pad, x1:0.499764, y1:0, x2:0.5, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 9));</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>400</width>
+     <height>300</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+background: none;</string>
+   </property>
+   <property name="text">
+    <string>Non</string>
+   </property>
+  </widget>
+  <zorder>BackgroundWraper</zorder>
+  <zorder>Border</zorder>
+  <zorder>DecorativeElementWraper</zorder>
+  <zorder>pushButton</zorder>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WindowBorder_3</class>
+   <extends>QWidget</extends>
+   <header location="global">CustomWidgets/WindowBorder_3/windowborder_3.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
