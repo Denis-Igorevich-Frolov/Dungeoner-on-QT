@@ -152,3 +152,57 @@
 1129	10122	7018124312415516	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
 1130	10964	7018124320820333	CMakeFiles/Dungeoner.dir/CustomWidgets/InventoryCell/inventorycell.cpp.obj	e885b1b9fb2a02b5
 10965	18998	7018124401000950	Dungeoner.exe	1741b3cf7c2df06b
+29	2087	7018334667352072	Dungeoner_autogen/timestamp	69636554f5db1442
+29	2087	7018334667352072	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+29	2087	7018334667352072	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+29	2087	7018334667352072	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+2105	8980	7018334736449514	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
+2134	11284	7018334759435352	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	62ac0b71a724af6a
+11284	19345	7018334839965756	Dungeoner.exe	1741b3cf7c2df06b
+15	5450	7018338474287425	Dungeoner_autogen/timestamp	69636554f5db1442
+15	5450	7018338474287425	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+15	5450	7018338474287425	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+15	5450	7018338474287425	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+5452	38167	7018338797928127	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
+5453	38697	7018338799697014	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkill/primaryskill.cpp.obj	38c3c0a9105bff8
+5450	39017	7018338819015115	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	ec1a4c35be7fc911
+5454	39460	7018338823622380	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d06d6b396b495f3f
+5452	40144	7018338830548010	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	62ac0b71a724af6a
+40145	54576	7018338974789167	Dungeoner.exe	1741b3cf7c2df06b
+15	1624	7018339830073758	Dungeoner_autogen/timestamp	69636554f5db1442
+15	1624	7018339830073758	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+15	1624	7018339830073758	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+15	1624	7018339830073758	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+1624	10839	7018339923935949	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
+1625	10875	7018339924425650	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	ec1a4c35be7fc911
+1627	10877	7018339924555574	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkill/primaryskill.cpp.obj	38c3c0a9105bff8
+1628	11236	7018339928453170	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d06d6b396b495f3f
+1626	11481	7018339930901662	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	62ac0b71a724af6a
+11482	19129	7018340007304599	Dungeoner.exe	1741b3cf7c2df06b
+15	4110	7018340572731263	Dungeoner_autogen/timestamp	69636554f5db1442
+15	4110	7018340572731263	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+15	4110	7018340572731263	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+15	4110	7018340572731263	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+4161	13192	7018340673359266	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkill/primaryskill.cpp.obj	38c3c0a9105bff8
+4110	13530	7018340677046997	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
+4160	13785	7018340679955213	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	ec1a4c35be7fc911
+4162	15922	7018340701431977	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d06d6b396b495f3f
+4161	16416	7018340706079121	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	62ac0b71a724af6a
+16416	21331	7018340755438706	Dungeoner.exe	1741b3cf7c2df06b
+15	2408	7018340978248481	Dungeoner_autogen/timestamp	69636554f5db1442
+15	2408	7018340978248481	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+15	2408	7018340978248481	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+15	2408	7018340978248481	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+2411	10099	7018341058818862	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkill/primaryskill.cpp.obj	38c3c0a9105bff8
+2408	10227	7018341060457854	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
+2410	10543	7018341063885734	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkillSignature/primaryskillsignature.cpp.obj	ec1a4c35be7fc911
+2412	12517	7018341083933383	CMakeFiles/Dungeoner.dir/Dungeoner_autogen/mocs_compilation.cpp.obj	d06d6b396b495f3f
+2410	12662	7018341085372495	CMakeFiles/Dungeoner.dir/Windows/CharacterWindow/characterwindow.cpp.obj	62ac0b71a724af6a
+12662	18591	7018341144596021	Dungeoner.exe	1741b3cf7c2df06b
+15	1589	7018342215502516	Dungeoner_autogen/timestamp	69636554f5db1442
+15	1589	7018342215502516	Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+15	1589	7018342215502516	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/timestamp	69636554f5db1442
+15	1589	7018342215502516	E:/Qt projects/Dungeoner-on-QT/build-Dungeoner-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/Dungeoner_autogen/mocs_compilation.cpp	69636554f5db1442
+1596	9577	7018342297052306	CMakeFiles/Dungeoner.dir/CustomWidgets/PrimarySkill/primaryskill.cpp.obj	38c3c0a9105bff8
+1595	10061	7018342302019234	CMakeFiles/Dungeoner.dir/dungeoner.cpp.obj	f5e839ce02cffddf
+10061	15187	7018342353167736	Dungeoner.exe	1741b3cf7c2df06b

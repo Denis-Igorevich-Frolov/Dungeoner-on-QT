@@ -76,6 +76,7 @@ bool PrimarySkill::eventFilter(QObject *object, QEvent *event)
         if(event->type() == QEvent::FocusIn){
             isManualStatReplacement = true;
             ui->Value->setValue(ui->primarySkillSignature->getStat()->getValue());
+            Global::pressedKeys.clear();
         }
         //Как только Spinbox покидает фокус, снова выводится финальное значение стата
         if(event->type() == QEvent::FocusOut){

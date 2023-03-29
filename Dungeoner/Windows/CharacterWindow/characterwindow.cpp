@@ -655,44 +655,11 @@ void CharacterWindow::tooltipInitialization()
  *Считаются только Ctrl,Shift и Alt*/
 void CharacterWindow::keyPressEvent(QKeyEvent *event)
 {
-    bool ValueInFocus = false;
-    for(auto* autoPS : ui->PrimarySkills->children()){
-        if(dynamic_cast <PrimarySkill*> (autoPS)){
-            PrimarySkill* ps = qobject_cast <PrimarySkill*> (autoPS);
-            if(ps->getPrimarySkillSignature()->hasFocus()){
-                ValueInFocus = true;
-                break;
-            }
-        }else{
-            //Вывод предупреждения в консоль и файл
-            QDate cd = QDate::currentDate();
-            QTime ct = QTime::currentTime();
+    int key=event->key();
+    if(key==16777249||key==16777248||key==16777251)
+        Global::pressedKeys.append(key);
 
-            QString error =
-            cd.toString("d-MMMM-yyyy") + "  " + ct.toString(Qt::TextDate) +
-            "\nПРЕДУПРЕЖДЕНИЕ: неверный тип данных\n"
-            "CharacterWindow выдал предупреждение в методе associatingLabelsWithValues.\n"
-            "Объект " + autoPS->objectName() + " не является PrimarySkill.\n\n";
-            qDebug()<<error;
-
-            QFile errorFile("error log.txt");
-            if (!errorFile.open(QIODevice::Append))
-            {
-                qDebug() << "Ошибка при открытии файла логов";
-            }else{
-                errorFile.open(QIODevice::Append  | QIODevice::Text);
-                QTextStream writeStream(&errorFile);
-                writeStream<<error;
-                errorFile.close();
-            }
-        }
-    }
-
-    if(!ValueInFocus){
-        int key=event->key();
-        if(key==16777249||key==16777248||key==16777251)
-            Global::pressedKeys.append(key);
-    }
+    qDebug()<<event->key();
 }
 
 /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.
