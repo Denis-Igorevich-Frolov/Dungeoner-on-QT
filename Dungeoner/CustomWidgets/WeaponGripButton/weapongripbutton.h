@@ -17,7 +17,7 @@ public:
     ~WeaponGripButton();
 
     void toggle();
-    void setTwoHandedGrip();
+    void setTwoHandedGrip(bool isRightClick = false);
     void setOneHandedGrip();
     bool getIsTwoHandedGrip();
 

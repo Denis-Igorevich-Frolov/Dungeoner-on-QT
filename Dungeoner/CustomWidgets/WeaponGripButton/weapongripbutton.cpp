@@ -24,10 +24,12 @@ void WeaponGripButton::toggle()
     ui->GripButton->toggle();
 }
 
-void WeaponGripButton::setTwoHandedGrip()
+void WeaponGripButton::setTwoHandedGrip(bool isRightClick)
 {
-    if(!ui->GripButton->isChecked())
+    if(!ui->GripButton->isChecked()){
+        this->isRightClick = isRightClick;
         ui->GripButton->toggle();
+    }
 }
 
 void WeaponGripButton::setOneHandedGrip()

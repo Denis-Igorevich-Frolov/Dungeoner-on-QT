@@ -50,6 +50,10 @@ public:
      *findCellAnyway заставляет возвращать ячейку даже если все подходящие заняты*/
     InventoryCell* findCell(QVector<Item::Slots> itemSlots, bool findCellAnyway = true);
 
+    bool getIsTwoHandedGrip();
+    void setOneHandedGrip();
+    void setTwoHandedGrip(bool isRightClick = false);
+
 signals:
     /*Сигнал, говорящий о том, что итем нужно сбросить из экиперовки. Переменная
      *playSound отвечает за то, будет ли проигрываться при этом звук сброса. Это

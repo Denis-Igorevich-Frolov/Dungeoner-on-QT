@@ -659,7 +659,16 @@ void CharacterWindow::keyPressEvent(QKeyEvent *event)
     if(key==16777249||key==16777248||key==16777251)
         Global::pressedKeys.append(key);
 
-    qDebug()<<event->key();
+    if(key == 71){
+        if(ui->Equipment->getIsTwoHandedGrip())
+            ui->Equipment->setOneHandedGrip();
+        else{
+            if(!Global::pressedKeys.empty() && Global::pressedKeys.last() == 16777248)
+                ui->Equipment->setTwoHandedGrip(true);
+            else
+                ui->Equipment->setTwoHandedGrip();
+        }
+    }
 }
 
 /*Эвент отжатия клавиши, который находит и удаляет код клавиши из вектора pressedKeys.

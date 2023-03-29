@@ -254,6 +254,21 @@ InventoryCell *CharacterEquipment::findCell(QVector<Item::Slots> itemSlots, bool
     return firstMatch;
 }
 
+bool CharacterEquipment::getIsTwoHandedGrip()
+{
+    return ui->weaponGripButton->getIsTwoHandedGrip();
+}
+
+void CharacterEquipment::setOneHandedGrip()
+{
+    ui->weaponGripButton->setOneHandedGrip();
+}
+
+void CharacterEquipment::setTwoHandedGrip(bool isRightClick)
+{
+    ui->weaponGripButton->setTwoHandedGrip(isRightClick);
+}
+
 /*Метод, блокирующий указанные в итеме из cell ячейки переданной ячейкой с итемом. Это необходимо, например, когда итем занимает сразу несколько слотов.
  *Также передаётся слот ячейки из которой был произведён запрос на блокирование итемов, чтобы вызывающая ячейка не могла заблокировать саму себя.*/
 void CharacterEquipment::lockOccupiedCells (InventoryCell* cell, Item::Slots acceptedSlot)
