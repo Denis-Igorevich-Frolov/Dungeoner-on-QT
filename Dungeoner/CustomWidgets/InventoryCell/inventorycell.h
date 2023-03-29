@@ -105,6 +105,7 @@ signals:
     void applyGrip(InventoryCell* cell);
     void checkUsedTwoHandedGrip(InventoryCell* cell);
     void checkUsedOneHandedGrip(InventoryCell* cell);
+    void changeGrip(bool assignOneHandedGrip);
 
 private slots:
     /*Слот связывающий сигналы moveItem и moveCell. Обычным connect это не сделать

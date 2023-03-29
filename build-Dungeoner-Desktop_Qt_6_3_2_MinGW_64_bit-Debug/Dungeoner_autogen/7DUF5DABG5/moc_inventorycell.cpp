@@ -23,7 +23,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_InventoryCell_t {
-    uint offsetsAndSizes[58];
+    uint offsetsAndSizes[62];
     char stringdata0[14];
     char stringdata1[14];
     char stringdata2[1];
@@ -50,9 +50,11 @@ struct qt_meta_stringdata_InventoryCell_t {
     char stringdata23[10];
     char stringdata24[23];
     char stringdata25[23];
-    char stringdata26[9];
-    char stringdata27[13];
-    char stringdata28[14];
+    char stringdata26[11];
+    char stringdata27[20];
+    char stringdata28[9];
+    char stringdata29[13];
+    char stringdata30[14];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_InventoryCell_t::offsetsAndSizes) + ofs), len 
@@ -84,9 +86,11 @@ static const qt_meta_stringdata_InventoryCell_t qt_meta_stringdata_InventoryCell
         QT_MOC_LITERAL(344, 9),  // "applyGrip"
         QT_MOC_LITERAL(354, 22),  // "checkUsedTwoHandedGrip"
         QT_MOC_LITERAL(377, 22),  // "checkUsedOneHandedGrip"
-        QT_MOC_LITERAL(400, 8),  // "moveItem"
-        QT_MOC_LITERAL(409, 12),  // "styleRemoved"
-        QT_MOC_LITERAL(422, 13)   // "styleAssigned"
+        QT_MOC_LITERAL(400, 10),  // "changeGrip"
+        QT_MOC_LITERAL(411, 19),  // "assignOneHandedGrip"
+        QT_MOC_LITERAL(431, 8),  // "moveItem"
+        QT_MOC_LITERAL(440, 12),  // "styleRemoved"
+        QT_MOC_LITERAL(453, 13)   // "styleAssigned"
     },
     "InventoryCell",
     "itemIsDropped",
@@ -114,6 +118,8 @@ static const qt_meta_stringdata_InventoryCell_t qt_meta_stringdata_InventoryCell
     "applyGrip",
     "checkUsedTwoHandedGrip",
     "checkUsedOneHandedGrip",
+    "changeGrip",
+    "assignOneHandedGrip",
     "moveItem",
     "styleRemoved",
     "styleAssigned"
@@ -126,34 +132,35 @@ static const uint qt_meta_data_InventoryCell[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      18,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      15,       // signalCount
+      16,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    2,  122,    2, 0x06,    1 /* Public */,
-       5,    2,  127,    2, 0x06,    4 /* Public */,
-       5,    1,  132,    2, 0x26,    7 /* Public | MethodCloned */,
-       9,    2,  135,    2, 0x06,    9 /* Public */,
-       9,    1,  140,    2, 0x26,   12 /* Public | MethodCloned */,
-      10,    2,  143,    2, 0x06,   14 /* Public */,
-      13,    1,  148,    2, 0x06,   17 /* Public */,
-      14,    1,  151,    2, 0x06,   19 /* Public */,
-      17,    1,  154,    2, 0x06,   21 /* Public */,
-      18,    0,  157,    2, 0x06,   23 /* Public */,
-      19,    2,  158,    2, 0x06,   24 /* Public */,
-      20,    1,  163,    2, 0x06,   27 /* Public */,
-      23,    1,  166,    2, 0x06,   29 /* Public */,
-      24,    1,  169,    2, 0x06,   31 /* Public */,
-      25,    1,  172,    2, 0x06,   33 /* Public */,
+       1,    2,  128,    2, 0x06,    1 /* Public */,
+       5,    2,  133,    2, 0x06,    4 /* Public */,
+       5,    1,  138,    2, 0x26,    7 /* Public | MethodCloned */,
+       9,    2,  141,    2, 0x06,    9 /* Public */,
+       9,    1,  146,    2, 0x26,   12 /* Public | MethodCloned */,
+      10,    2,  149,    2, 0x06,   14 /* Public */,
+      13,    1,  154,    2, 0x06,   17 /* Public */,
+      14,    1,  157,    2, 0x06,   19 /* Public */,
+      17,    1,  160,    2, 0x06,   21 /* Public */,
+      18,    0,  163,    2, 0x06,   23 /* Public */,
+      19,    2,  164,    2, 0x06,   24 /* Public */,
+      20,    1,  169,    2, 0x06,   27 /* Public */,
+      23,    1,  172,    2, 0x06,   29 /* Public */,
+      24,    1,  175,    2, 0x06,   31 /* Public */,
+      25,    1,  178,    2, 0x06,   33 /* Public */,
+      26,    1,  181,    2, 0x06,   35 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      26,    0,  175,    2, 0x08,   35 /* Private */,
-      27,    0,  176,    2, 0x08,   36 /* Private */,
-      28,    0,  177,    2, 0x08,   37 /* Private */,
+      28,    0,  184,    2, 0x08,   37 /* Private */,
+      29,    0,  185,    2, 0x08,   38 /* Private */,
+      30,    0,  186,    2, 0x08,   39 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int, QMetaType::Int,    3,    4,
@@ -171,6 +178,7 @@ static const uint qt_meta_data_InventoryCell[] = {
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 6,    7,
+    QMetaType::Void, QMetaType::Bool,   27,
 
  // slots: parameters
     QMetaType::Void,
@@ -202,9 +210,10 @@ void InventoryCell::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 12: _t->applyGrip((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
         case 13: _t->checkUsedTwoHandedGrip((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
         case 14: _t->checkUsedOneHandedGrip((*reinterpret_cast< std::add_pointer_t<InventoryCell*>>(_a[1]))); break;
-        case 15: _t->moveItem(); break;
-        case 16: _t->styleRemoved(); break;
-        case 17: _t->styleAssigned(); break;
+        case 15: _t->changeGrip((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
+        case 16: _t->moveItem(); break;
+        case 17: _t->styleRemoved(); break;
+        case 18: _t->styleAssigned(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -374,6 +383,13 @@ void InventoryCell::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
                 return;
             }
         }
+        {
+            using _t = void (InventoryCell::*)(bool );
+            if (_t _q_method = &InventoryCell::changeGrip; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 15;
+                return;
+            }
+        }
     }
 }
 
@@ -384,7 +400,7 @@ const QMetaObject InventoryCell::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_InventoryCell_t
-, QtPrivate::TypeAndForceComplete<InventoryCell, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell::EquipmentLayer, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>
+, QtPrivate::TypeAndForceComplete<InventoryCell, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<Item::Slots, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<Item::Slots>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell::EquipmentLayer, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<InventoryCell *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<bool, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
@@ -412,13 +428,13 @@ int InventoryCell::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 18)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 18)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 18;
+        _id -= 19;
     }
     return _id;
 }
@@ -513,6 +529,13 @@ void InventoryCell::checkUsedOneHandedGrip(InventoryCell * _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 14, _a);
+}
+
+// SIGNAL 15
+void InventoryCell::changeGrip(bool _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 15, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

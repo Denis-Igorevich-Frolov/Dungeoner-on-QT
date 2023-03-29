@@ -72,6 +72,7 @@ CharacterEquipment::CharacterEquipment(QWidget *parent) :
         connect(cell, &InventoryCell::applyGrip, this, &CharacterEquipment::applyGrip);
         connect(cell, &InventoryCell::checkUsedTwoHandedGrip, this, &CharacterEquipment::checkUsedTwoHandedGrip);
         connect(cell, &InventoryCell::checkUsedOneHandedGrip, this, &CharacterEquipment::checkUsedOneHandedGrip);
+        connect(cell, &InventoryCell::changeGrip, this, &CharacterEquipment::changeGrip);
     }
 
     for(QObject* inventoryCell : ui->OverArmor->children()){
@@ -557,9 +558,19 @@ bool CharacterEquipment::itemDrop(InventoryCell *cell, Item::Slots searchedSlot,
 {
     if(cell->acceptedSlot == searchedSlot){
         if(cell->getIsLocked() && !cell->getIsManualLock()){
-            emit moveCellFromEquipment(cell->getCellWithLockingItem(), playSound);
+            bool slotFound = false;
+            for(Item::Slots slot : cell->getItem()->getCellSlots())
+                if(slot == cell->acceptedSlot){
+                    slotFound = true;
+                    break;
+                }
 
-            return true;
+            if(!slotFound && cell->getCellWithLockingItem()->getIsTakenInTwoHandedGrip() && cell->getCellWithLockingItem()->getItem()->getOneHandedGripAllowed()){
+                changeGrip(true);
+            }else{
+                emit moveCellFromEquipment(cell->getCellWithLockingItem(), playSound);
+                return true;
+            }
         }
     }
 
@@ -910,4 +921,10 @@ void CharacterEquipment::checkUsedOneHandedGrip(InventoryCell *cell)
             break;
         }
     }
+}
+
+void CharacterEquipment::changeGrip(bool assignOneHandedGrip)
+{
+    if(assignOneHandedGrip == ui->weaponGripButton->getIsTwoHandedGrip())
+        ui->weaponGripButton->toggle();
 }

@@ -85,6 +85,8 @@ public slots:
     void checkUsedTwoHandedGrip(InventoryCell* cell);
     void checkUsedOneHandedGrip(InventoryCell* cell);
 
+    void changeGrip(bool assignOneHandedGrip);
+
 private slots:
     void on_OverArmorButton_clicked();
     void on_ArmorButton_clicked();

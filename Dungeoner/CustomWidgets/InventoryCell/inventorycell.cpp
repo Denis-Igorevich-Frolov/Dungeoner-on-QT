@@ -453,8 +453,20 @@ void InventoryCell::dropEvent(QDropEvent *event)
      *итем не равен тому итему что уже лежит в ячейке, итем из текущей ячейки сбрасывается. Первое необходимо для пого, чтобы
      *можно было перекладывать итем, занимающий несколько ячеек, между своими доступными слотами, а второе возможно, если
      *Draug&Drop из ячейки начался, но вместо перемещения в другую ячейку итем кладут в ту же, из которой началось перетаскивание*/
-    if(isLocked && !isManualLock && cellWithLockingItem!=nullptr && cellWithLockingItem!=itemData->getItemCell() && itemData->getItemCell()!=this)
-        emit moveCell(cellWithLockingItem);
+    if(isLocked && !isManualLock && cellWithLockingItem!=nullptr && cellWithLockingItem!=itemData->getItemCell() && itemData->getItemCell()!=this){
+        if(cellWithLockingItem->isTakenInTwoHandedGrip){
+            bool slotFound = false;
+            for(Item::Slots slot : cellWithLockingItem->getItem()->getOccupiedCellSlots())
+                if(slot == acceptedSlot){
+                    slotFound = true;
+                    break;
+                }
+            if(!slotFound && cellWithLockingItem->getItem()->getOneHandedGripAllowed())
+                emit changeGrip(true);
+        }
+        if(cellWithLockingItem!=nullptr)
+            emit moveCell(cellWithLockingItem);
+    }
 
     //Итем сначала записывается в отдельную переменную из MimeData
     Item* bufItem = new Item(itemData->getItem());
@@ -478,7 +490,7 @@ void InventoryCell::dropEvent(QDropEvent *event)
     InventoryCell* itemCell = const_cast<InventoryCell*>(itemData->getItemCell());
     //Если ячейка из itemData не nullptr, производится свап ячеек
     if(itemCell){
-        if(itemCell->acceptedSlot!=Item::INVENTORY && acceptedSlot==Item::INVENTORY){
+        if(itemCell->acceptedSlot!=Item::INVENTORY && acceptedSlot==Item::INVENTORY && !getItem()->itemIsEmpty){
             itemCell->swapItems(this);
             if(itemCell->getItem()->itemIsEmpty && getItem()->SoundDrop!="")
                 Global::mediaplayer.playSound(QUrl::fromLocalFile(getItem()->SoundDrop), MediaPlayer::SoundsGroup::DRAG_AND_DROP);
