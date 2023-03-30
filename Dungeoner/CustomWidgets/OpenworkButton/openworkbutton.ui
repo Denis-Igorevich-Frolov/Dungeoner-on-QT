@@ -57,7 +57,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="DecorativeElement">
       <property name="styleSheet">
-       <string notr="true">border-image: url(:/OpenworkButton/Textures PNG/DecorativeButtonElement.png)  0 0 0 0 stretch stretch;</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string/>
@@ -100,7 +100,7 @@
     <item row="0" column="0">
      <widget class="QLabel" name="Background">
       <property name="styleSheet">
-       <string notr="true">background: qlineargradient(spread:pad, x1:0.499764, y1:0, x2:0.5, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 9));</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string/>

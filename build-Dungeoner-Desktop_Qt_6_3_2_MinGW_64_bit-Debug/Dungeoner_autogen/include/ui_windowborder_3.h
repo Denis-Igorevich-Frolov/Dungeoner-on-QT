@@ -89,7 +89,7 @@ public:
         TopLeftCorner->setObjectName(QString::fromUtf8("TopLeftCorner"));
         TopLeftCorner->setMinimumSize(QSize(23, 23));
         TopLeftCorner->setMaximumSize(QSize(23, 23));
-        TopLeftCorner->setStyleSheet(QString::fromUtf8("background: url(:/Text-Block-5/Textures PNG/Angle-2-T-L.png)"));
+        TopLeftCorner->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(TopLeftCorner, 0, 0, 1, 1);
 
@@ -97,7 +97,7 @@ public:
         TopRightCorner->setObjectName(QString::fromUtf8("TopRightCorner"));
         TopRightCorner->setMinimumSize(QSize(23, 23));
         TopRightCorner->setMaximumSize(QSize(23, 23));
-        TopRightCorner->setStyleSheet(QString::fromUtf8("background: url(:/Text-Block-5/Textures PNG/Angle-2-T-R.png)"));
+        TopRightCorner->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(TopRightCorner, 0, 2, 1, 1);
 
@@ -105,7 +105,7 @@ public:
         BottomRightCorner->setObjectName(QString::fromUtf8("BottomRightCorner"));
         BottomRightCorner->setMinimumSize(QSize(23, 23));
         BottomRightCorner->setMaximumSize(QSize(23, 23));
-        BottomRightCorner->setStyleSheet(QString::fromUtf8("background: url(:/Text-Block-5/Textures PNG/Angle-2-B-R.png)"));
+        BottomRightCorner->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(BottomRightCorner, 2, 2, 1, 1);
 
@@ -113,7 +113,7 @@ public:
         BottomLeftCorner->setObjectName(QString::fromUtf8("BottomLeftCorner"));
         BottomLeftCorner->setMinimumSize(QSize(23, 23));
         BottomLeftCorner->setMaximumSize(QSize(23, 23));
-        BottomLeftCorner->setStyleSheet(QString::fromUtf8("background: url(:/Text-Block-5/Textures PNG/Angle-2-B-L.png)"));
+        BottomLeftCorner->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(BottomLeftCorner, 2, 0, 1, 1);
 
@@ -156,7 +156,7 @@ public:
         OpenworkBorderTop->setObjectName(QString::fromUtf8("OpenworkBorderTop"));
         OpenworkBorderTop->setMinimumSize(QSize(0, 4));
         OpenworkBorderTop->setMaximumSize(QSize(16777215, 4));
-        OpenworkBorderTop->setStyleSheet(QString::fromUtf8("background:url(:/Text-Block-5/Textures PNG/Border-2-T.png);"));
+        OpenworkBorderTop->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout_3->addWidget(OpenworkBorderTop);
 
@@ -218,7 +218,7 @@ public:
         OpenworkBorderBottom->setObjectName(QString::fromUtf8("OpenworkBorderBottom"));
         OpenworkBorderBottom->setMinimumSize(QSize(0, 4));
         OpenworkBorderBottom->setMaximumSize(QSize(16777215, 4));
-        OpenworkBorderBottom->setStyleSheet(QString::fromUtf8("background:url(:/Text-Block-5/Textures PNG/Border-2-B.png);"));
+        OpenworkBorderBottom->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout_4->addWidget(OpenworkBorderBottom);
 
@@ -247,7 +247,7 @@ public:
         OpenworkBorderLeft->setObjectName(QString::fromUtf8("OpenworkBorderLeft"));
         OpenworkBorderLeft->setMinimumSize(QSize(4, 0));
         OpenworkBorderLeft->setMaximumSize(QSize(4, 16777215));
-        OpenworkBorderLeft->setStyleSheet(QString::fromUtf8("background:url(:/Text-Block-5/Textures PNG/Border-2-L.png);"));
+        OpenworkBorderLeft->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_4->addWidget(OpenworkBorderLeft);
 
@@ -276,7 +276,7 @@ public:
         OpenworkBorderRight->setObjectName(QString::fromUtf8("OpenworkBorderRight"));
         OpenworkBorderRight->setMinimumSize(QSize(4, 0));
         OpenworkBorderRight->setMaximumSize(QSize(4, 16777215));
-        OpenworkBorderRight->setStyleSheet(QString::fromUtf8("background:url(:/Text-Block-5/Textures PNG/Border-2-R.png);"));
+        OpenworkBorderRight->setStyleSheet(QString::fromUtf8(""));
 
         horizontalLayout_5->addWidget(OpenworkBorderRight);
 
@@ -298,7 +298,7 @@ public:
         gridLayout_3->setContentsMargins(6, 6, 6, 6);
         SolidBorder1 = new QLabel(Wrapper3);
         SolidBorder1->setObjectName(QString::fromUtf8("SolidBorder1"));
-        SolidBorder1->setStyleSheet(QString::fromUtf8("border: 1px solid #83763f;"));
+        SolidBorder1->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout_3->addWidget(SolidBorder1, 1, 1, 1, 1);
 
@@ -313,7 +313,7 @@ public:
         gridLayout_4->setContentsMargins(7, 7, 7, 7);
         SolidBorder2 = new QLabel(Wrapper4);
         SolidBorder2->setObjectName(QString::fromUtf8("SolidBorder2"));
-        SolidBorder2->setStyleSheet(QString::fromUtf8("border: 1px solid #bec340;"));
+        SolidBorder2->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout_4->addWidget(SolidBorder2, 1, 1, 1, 1);
 

@@ -51,7 +51,7 @@ public:
         gridLayout->setContentsMargins(9, 10, 9, 10);
         DecorativeElement = new QLabel(DecorativeElementWraper);
         DecorativeElement->setObjectName(QString::fromUtf8("DecorativeElement"));
-        DecorativeElement->setStyleSheet(QString::fromUtf8("border-image: url(:/OpenworkButton/Textures PNG/DecorativeButtonElement.png)  0 0 0 0 stretch stretch;"));
+        DecorativeElement->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout->addWidget(DecorativeElement, 0, 0, 1, 1);
 
@@ -66,7 +66,7 @@ public:
         gridLayout_3->setContentsMargins(7, 7, 7, 7);
         Background = new QLabel(BackgroundWraper);
         Background->setObjectName(QString::fromUtf8("Background"));
-        Background->setStyleSheet(QString::fromUtf8("background: qlineargradient(spread:pad, x1:0.499764, y1:0, x2:0.5, y2:1, stop:0 rgba(0, 0, 0, 0), stop:1 rgba(255, 255, 255, 9));"));
+        Background->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout_3->addWidget(Background, 0, 0, 1, 1);
 

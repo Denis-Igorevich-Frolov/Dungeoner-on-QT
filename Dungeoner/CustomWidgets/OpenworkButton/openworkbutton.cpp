@@ -1,6 +1,8 @@
 #include "openworkbutton.h"
 #include "ui_openworkbutton.h"
 #include "Global/globalstylemaster.h"
+#include "CustomWidgets/WindowBorder_3/WB3_stylemaster.h"
+#include "OB_stylemaster.h"
 
 OpenworkButton::OpenworkButton(QWidget *parent) :
     QWidget(parent),
@@ -8,6 +10,8 @@ OpenworkButton::OpenworkButton(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->Border->setStyleSheet(WB3_Stylemaster::setRegularStyle());
+    this->setStyleSheet(OB_Stylemaster::setRegularStyle());
     ui->pushButton->setFont(QFont("TextFont"));
     ui->pushButton->setStyleSheet(GlobalStyleMaster::TooltipTextStyle(20, "bdc440"));
 }

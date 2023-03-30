@@ -145,6 +145,10 @@ set(PROJECT_SOURCES
         CustomWidgets/OpenworkButton/openworkbutton.h
         CustomWidgets/OpenworkButton/openworkbutton.cpp
         CustomWidgets/OpenworkButton/openworkbutton.ui
+        CustomWidgets/WindowBorder_3/WB3_stylemaster.h
+        CustomWidgets/WindowBorder_3/WB3_stylemaster.cpp
+        CustomWidgets/OpenworkButton/OB_stylemaster.h
+        CustomWidgets/OpenworkButton/OB_stylemaster.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

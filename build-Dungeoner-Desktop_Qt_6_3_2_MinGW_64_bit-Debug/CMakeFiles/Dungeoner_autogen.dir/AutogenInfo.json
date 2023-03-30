@@ -560,6 +560,12 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/OB_stylemaster.h",
+			"MU",
+			"T4DZKDADHQ/moc_OB_stylemaster.cpp",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/openworkbutton.h",
 			"MU",
 			"T4DZKDADHQ/moc_openworkbutton.cpp",
@@ -683,6 +689,12 @@
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.h",
 			"MU",
 			"54WJHIHMOG/moc_windowborder_2.cpp",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/WB3_stylemaster.h",
+			"MU",
+			"QZYDZJM6DU/moc_WB3_stylemaster.cpp",
 			null
 		],
 		[
@@ -935,6 +947,11 @@
 			null
 		],
 		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/OB_stylemaster.cpp",
+			"MU",
+			null
+		],
+		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/openworkbutton.cpp",
 			"MU",
 			null
@@ -1036,6 +1053,11 @@
 		],
 		[
 			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.cpp",
+			"MU",
+			null
+		],
+		[
+			"E:/Qt projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/WB3_stylemaster.cpp",
 			"MU",
 			null
 		],

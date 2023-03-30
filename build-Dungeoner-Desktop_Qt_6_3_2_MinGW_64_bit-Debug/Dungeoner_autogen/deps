@@ -26,6 +26,8 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/MDP_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/MagicDefenseProgressBar/magicdefenseprogressbar.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/OB_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/OB_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/openworkbutton.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/OpenworkButton/openworkbutton.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/PrimarySkill/PS_stylemaster.cpp \
@@ -68,6 +70,8 @@ Dungeoner_autogen/timestamp: \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/WB2_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_2/windowborder_2.h \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/WB3_stylemaster.cpp \
+	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/WB3_stylemaster.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/windowborder_3.cpp \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/CustomWidgets/WindowBorder_3/windowborder_3.h \
 	E:/Qt\ projects/Dungeoner-on-QT/Dungeoner/Global/global.cpp \
